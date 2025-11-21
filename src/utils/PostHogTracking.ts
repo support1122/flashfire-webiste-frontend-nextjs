@@ -158,22 +158,79 @@ const getUTMContext = (): Partial<PostHogEventProperties> => {
   };
 };
 
+// Helper function to send button click to backend API
+const sendButtonClickToBackend = async (
+  buttonText: string,
+  location: string,
+  buttonType: string,
+  utmSource?: string,
+  visitorId?: string | null
+) => {
+  try {
+    // Only send if we have UTM source
+    if (!utmSource || utmSource === 'direct') {
+      return; // Skip backend tracking if no campaign
+    }
+
+    const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.flashfirejobs.com';
+    
+    await fetch(`${API_BASE_URL}/api/campaigns/track/button-click`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        utmSource,
+        visitorId: visitorId || (typeof window !== 'undefined' ? localStorage.getItem('visitor_id') : null),
+        buttonText,
+        buttonLocation: location,
+        buttonType,
+        pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+        userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+        ipAddress: null, // Will be captured by server
+      }),
+    });
+  } catch (error) {
+    // Silently fail - don't interrupt user experience
+    console.warn('Failed to send button click to backend:', error);
+  }
+};
+
 export const trackButtonClick = (
   buttonText: string,
   location: string,
   buttonType: "cta" | "secondary" | "link" | "icon" = "cta",
   additionalProperties?: Partial<PostHogEventProperties>,
 ) => {
+  const pageContext = getPageContext();
+  const utmContext = getUTMContext();
+  const countryContext = getCountryContext();
+
+  // Track in PostHog
   safeCapture("button_click", {
-    ...getPageContext(),
-    ...getUTMContext(),
-    ...getCountryContext(),
+    ...pageContext,
+    ...utmContext,
+    ...countryContext,
     button_text: buttonText,
     button_location: location,
     button_type: buttonType,
     component: "button",
     ...additionalProperties,
   });
+
+  // Also send to backend API for CRM tracking (non-blocking)
+  if (typeof window !== 'undefined') {
+    const visitorId = localStorage.getItem('visitor_id');
+    sendButtonClickToBackend(
+      buttonText,
+      location,
+      buttonType,
+      utmContext.utm_source,
+      visitorId
+    ).catch(() => {
+      // Already handled in sendButtonClickToBackend
+    });
+  }
 };
 
 export const trackFormStart = (
