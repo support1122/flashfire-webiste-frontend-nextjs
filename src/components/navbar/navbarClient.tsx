@@ -664,8 +664,8 @@ export default function NavbarClient({ links, ctas }: Props) {
     {/* Black Friday Sale Banner - Below Navbar */}
     <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
       <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
-        {/* Text part - stays in one line on mobile */}
-        <div className="flex items-center gap-2 max-[600px]:gap-1.5 max-[600px]:flex-nowrap max-[600px]:w-full max-[600px]:justify-center">
+        {/* Text part - hidden on mobile */}
+        <div className="flex items-center gap-2 max-[600px]:hidden">
           <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
             BLACK FRIDAY SALE
           </span>
@@ -715,7 +715,7 @@ export default function NavbarClient({ links, ctas }: Props) {
           <button
             {...getBookNowButtonProps()}
             onClick={openCalendly}
-            className="rounded-full bg-white text-red-600 font-bold px-5 sm:px-6 py-2 shadow-lg hover:shadow-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-base sm:text-lg ml-3 max-[600px]:ml-2"
+            className="rounded-lg bg-white text-black font-semibold py-2 px-5 sm:px-6 border-b-5 border-b-[#ff4c00] hover:bg-[#ff4c00] hover:text-white hover:border-b-black transition-all shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-base sm:text-lg ml-3 max-[500px]:ml-2 cursor-pointer"
           >
             Book Now
           </button>

@@ -46,8 +46,8 @@ export default function HomePagePricingPlans() {
       </div>
 
       {/* === Risk-Free Section === */}
-      <div className="bg-[rgba(251,240,235,1)] w-full max-w-[1280px] mx-auto py-8 border border-[#ff4c00] mt-8 max-[1320px]:w-[95%] max-[768px]:w-full max-[768px]:px-4">
-        <div className="bg-white mt-2 ml-2 mr-2 mb-2 mx-auto flex justify-between items-center p-8 max-[1320px]:w-[95%] max-[768px]:flex-col max-[768px]:text-center max-[768px]:h-auto max-[768px]:gap-5 max-[768px]:p-6 max-[768px]:w-full max-[768px]:ml-0 max-[768px]:mr-0">
+      <div className="bg-[rgba(251,240,235,1)] w-full max-w-[1280px] mx-auto  border border-[#ff4c00] mt-8 max-[1320px]:w-[95%] max-[768px]:w-full max-[768px]:px-4">
+        <div className="bg-white  ml-2 mr-2 mb-2 mt-2 mx-auto flex justify-between items-center p-8 max-[1320px]:w-[95%] max-[768px]:flex-col max-[768px]:text-center max-[768px]:h-auto max-[768px]:gap-5 max-[768px]:p-6 max-[768px]:w-full max-[768px]:ml-0 max-[768px]:mr-0">
           {/* Left Section */}
           <div className="flex items-center gap-4 flex-1">
             {/* Pixel Art Mascot - on the left */}
