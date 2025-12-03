@@ -1,9 +1,52 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import type React from "react";
+
+// Export full list so a dedicated gallery page can show all images
+export const ALL_REVIEW_IMAGES = [
+  "/images/happy-users-sc/image1.jpg",
+  "/images/happy-users-sc/image2.jpg",
+  "/images/happy-users-sc/image3.jpg",
+  "/images/happy-users-sc/image4.jpg",
+  "/images/happy-users-sc/image5.jpg",
+  "/images/happy-users-sc/image6.jpg",
+  "/images/happy-users-sc/image7.jpg",
+  "/images/happy-users-sc/image8.jpg",
+  "/images/happy-users-sc/image9.png",
+  "/images/happy-users-sc/image10.jpg",
+  "/images/happy-users-sc/image11.jpg",
+  "/images/happy-users-sc/image12.jpg",
+  "/images/happy-users-sc/image13.png",
+  "/images/happy-users-sc/image14.jpg",
+  "/images/happy-users-sc/image15.jpg",
+  "/images/happy-users-sc/image16.png",
+ 
+  "/images/happy-users-sc/image17.png",
+  "/images/happy-users-sc/image18.jpg",
+  "/images/happy-users-sc/image19.png",
+  "/images/happy-users-sc/image20.png",
+  "/images/happy-users-sc/image21.png",
+  "/images/happy-users-sc/image22.png",
+  "/images/happy-users-sc/image23.png",
+  "/images/happy-users-sc/image24.png",
+  "/images/happy-users-sc/image25.png",
+  "/images/happy-users-sc/image26.png",
+  "/images/happy-users-sc/image27.png",
+  "/images/happy-users-sc/image28.png",
+  "/images/happy-users-sc/image29.png",
+  "/images/happy-users-sc/image30.png",
+  "/images/happy-users-sc/image.png",
+];
 
 export default function HomePageHappyUsers() {
+  const pathname = usePathname();
+  const isCanadaContext = pathname.startsWith("/en-ca");
+  const prefix = isCanadaContext ? "/en-ca" : "";
+
   const videos = [
     {
       videoUrl: "https://www.youtube.com/embed/p41OvikonKo",
@@ -29,34 +72,8 @@ export default function HomePageHappyUsers() {
     },
   ];
 
-  // Images from happy-users-sc folder
-  const reviewImages = [
-    "/images/happy-users-sc/image1.jpg",
-    "/images/happy-users-sc/image2.jpg",
-    "/images/happy-users-sc/image3.jpg",
-    "/images/happy-users-sc/image4.jpg",
-    "/images/happy-users-sc/image5.jpg",
-    "/images/happy-users-sc/image6.jpg",
-    "/images/happy-users-sc/image7.jpg",
-    "/images/happy-users-sc/image8.jpg",
-    "/images/happy-users-sc/image9.png",
-    "/images/happy-users-sc/image10.jpg",
-    "/images/happy-users-sc/image11.jpg",
-    "/images/happy-users-sc/image12.jpg",
-    "/images/happy-users-sc/image13.png",
-    "/images/happy-users-sc/image14.jpg",
-    "/images/happy-users-sc/image15.jpg",
-    "/images/happy-users-sc/image16.png",
-    "/images/happy-users-sc/image17.png",
-    "/images/happy-users-sc/image18.jpg",
-    "/images/happy-users-sc/image19.png",
-    "/images/happy-users-sc/image20.png",
-    "/images/happy-users-sc/image21.png",
-    "/images/happy-users-sc/image22.png",
-    "/images/happy-users-sc/image23.png",
-    "/images/happy-users-sc/image24.png",
-    "/images/happy-users-sc/image25.png",
-  ];
+  // Show a subset on the homepage (24 images)
+  const reviewImages = ALL_REVIEW_IMAGES.slice(0, 24);
 
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
@@ -88,7 +105,10 @@ export default function HomePageHappyUsers() {
         </h2>
 
         {/* Masonry Layout */}
-        <div className="columns-5 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1">
+        <div
+          id="happy-users-gallery"
+          className="columns-5 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1"
+        >
           {reviewImages.map((imageSrc, i) => (
             <div
               key={i}
@@ -104,6 +124,19 @@ export default function HomePageHappyUsers() {
               />
             </div>
           ))}
+        </div>
+
+        {/* Read More Button - opens full image testimonials gallery in a new tab */}
+        <div className=" mb-4">
+          <Link
+            href={`${prefix}/image-testimonials`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-white text-[#f55d1d] font-bold px-9 py-4 rounded-lg hover:bg-[#fffaf8] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+              Read More
+            </button>
+          </Link>
         </div>
 
         <Image
@@ -176,8 +209,8 @@ export default function HomePageHappyUsers() {
                         width={40}
                         height={40}
                         className="w-full h-full object-cover rounded-full"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
+                        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                          const target = e.currentTarget;
                           target.style.display = "none";
                         }}
                       />
