@@ -12,7 +12,6 @@ import HomePagePTNote from "@/src/components/homePagePTNote/homePagePTNote";
 import HomePageResultStats from "@/src/components/homePageResultStats/homePageResultStats";
 import HomePageStatsCards from "@/src/components/homePageStatsCards/homePageStatsCards";
 import HomePageSteps from "@/src/components/homePageSteps/homePageSteps";
-import HomePageTestimonialsVideo from "@/src/components/homePageTestimonialsVideo/homePageTestimonialsVideo";
 import HomePageVideo from "@/src/components/homePageVideo/homePageVideo";
 import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWhyChooseFF";
 import Navbar from "@/src/components/navbar/navbar";
