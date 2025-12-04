@@ -392,7 +392,15 @@ export default function PricingCard({
       </ul>
 
       {addOn && (
-        <div className="bg-[#f8f7f6] border border-[#f3dfd5] rounded-[0.4rem] p-4 mb-6">
+        <div
+          className={`bg-[#f8f7f6] border border-[#f3dfd5] rounded-[0.4rem] p-4 mb-6 ${
+            title === "IGNITE" || title === "PRIME"
+              ? "mt-19"
+              : tag === "ECONOMICAL" 
+              ? "mt-9"
+              : ""
+          } `}
+        >
           <h5 className="text-[1.3rem] font-bold mb-1 text-black max-[768px]:text-[1.1rem]">
             Booster Add-On
           </h5>

@@ -15,7 +15,7 @@ export const usPricingPlans: PricingPlan[] = [
   {
     title: "PRIME",
     subTitle: "160 Applications",
-    description: "Perfect starter plan for job seekers",
+    description: "Your starter plan to begin applying",
     price: "$119",
     oldPrice: undefined,
     features: [
