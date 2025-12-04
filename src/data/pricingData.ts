@@ -124,4 +124,3 @@ export const canadaPricingPlans: PricingPlan[] = [
     paymentLink: "https://www.paypal.com/ncp/payment/BDTDTA7CRXXWQ",
   },
 ];
-

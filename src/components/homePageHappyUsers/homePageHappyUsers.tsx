@@ -8,38 +8,43 @@ import type React from "react";
 
 // Export full list so a dedicated gallery page can show all images
 export const ALL_REVIEW_IMAGES = [
-  "/images/happy-users-sc/image1.jpg",
-  "/images/happy-users-sc/image2.jpg",
-  "/images/happy-users-sc/image3.jpg",
-  "/images/happy-users-sc/image4.jpg",
-  "/images/happy-users-sc/image5.jpg",
-  "/images/happy-users-sc/image6.jpg",
+ 
+ 
+  
   "/images/happy-users-sc/image7.jpg",
+  "/images/happy-users-sc/image2.jpg",
   "/images/happy-users-sc/image8.jpg",
   "/images/happy-users-sc/image9.png",
   "/images/happy-users-sc/image10.jpg",
   "/images/happy-users-sc/image11.jpg",
+  "/images/happy-users-sc/image5.jpg",
   "/images/happy-users-sc/image12.jpg",
+  "/images/happy-users-sc/image6.jpg",
+  "/images/happy-users-sc/image18.jpg",//10
+  "/images/happy-users-sc/image1.jpg",
   "/images/happy-users-sc/image13.png",
-  "/images/happy-users-sc/image14.jpg",
-  "/images/happy-users-sc/image15.jpg",
+  "/images/happy-users-sc/image14.png",
+  "/images/happy-users-sc/image4.jpg",
+  "/images/happy-users-sc/image22.png",
   "/images/happy-users-sc/image16.png",
- 
   "/images/happy-users-sc/image17.png",
-  "/images/happy-users-sc/image18.jpg",
   "/images/happy-users-sc/image19.png",
   "/images/happy-users-sc/image20.png",
-  "/images/happy-users-sc/image21.png",
-  "/images/happy-users-sc/image22.png",
+  "/images/happy-users-sc/image21.jpg",
+  "/images/happy-users-sc/image15.png",
+  "/images/happy-users-sc/image3.jpg",
   "/images/happy-users-sc/image23.png",
   "/images/happy-users-sc/image24.png",
+  
+
   "/images/happy-users-sc/image25.png",
   "/images/happy-users-sc/image26.png",
-  "/images/happy-users-sc/image27.png",
+  "/images/happy-users-sc/image27.jpg",
   "/images/happy-users-sc/image28.png",
   "/images/happy-users-sc/image29.png",
   "/images/happy-users-sc/image30.png",
-  "/images/happy-users-sc/image.png",
+  "/images/happy-users-sc/image31.png",
+  
 ];
 
 export default function HomePageHappyUsers() {
@@ -133,7 +138,7 @@ export default function HomePageHappyUsers() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="bg-white text-[#f55d1d] font-bold px-9 py-4 rounded-lg hover:bg-[#fffaf8] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+            <button className="bg-white text-[#f55d1d] font-bold px-12 py-5 text-lg rounded-xl hover:bg-[#fffaf8] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
               Read More
             </button>
           </Link>

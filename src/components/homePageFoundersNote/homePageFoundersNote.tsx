@@ -7,7 +7,7 @@ export default function HomePageFoundersNote() {
       <div className="max-w-[1200px] mx-auto flex justify-between items-start gap-12 max-[1024px]:flex-col max-[1024px]:items-center max-[1024px]:text-center">
         {/* === LEFT COLUMN === */}
         <div className="flex-[1.6] font-semibold text-left text-black text-[1.1rem] leading-[1.7] max-[1024px]:order-2 max-[1024px]:w-[90%] max-[768px]:text-base">
-          <p className="font-bold text-black text-[1.2rem] mb-6">
+          <p className="font-bold text-black mb-6">
             To Every Job Seeker Who’s Ready to Move Forward,
           </p>
 
@@ -25,7 +25,7 @@ export default function HomePageFoundersNote() {
             people for who they are.
           </p>
 
-          <blockquote className="text-[1.4rem] font-normal italic text-black border-l-4 border-[#ff4c00] pl-4 my-8 leading-[1.6]">
+          <blockquote className="font-normal font-semibold italic text-black border-l-4 border-[#ff4c00] pl-4 my-8 leading-[1.6]">
             The problem was never the people. It was the process.
           </blockquote>
 

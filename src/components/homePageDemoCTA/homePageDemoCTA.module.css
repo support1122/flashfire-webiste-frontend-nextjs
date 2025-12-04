@@ -76,6 +76,36 @@
   margin-top: 1.5rem;
 }
 
+.demoEmail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1rem auto 0;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1.5px solid #000000;
+  background-color: #ffffff;
+  color: #111827;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.demoEmail a {
+  color: #f55e1d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.demoEmail:hover {
+  background-color: #fff7f3;
+  border-color: 3px solid #000000;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
+  transform: translateY(-1px);
+}
+
 /* === TABLET === */
 @media (max-width: 1024px) {
   .demoSectionOuter {
@@ -143,4 +173,3 @@
     margin: 0 -0.3rem;
   }
 }
-

@@ -152,8 +152,14 @@ export default function HomePageDemoCTA() {
         <p className={styles.demoNote}>
           Limited slots available. Book your call now!
         </p>
+
+        <p className={styles.demoEmail}>
+          Or email us at{" "}
+          <a href="mailto:support@flashfirejobs.com">
+            support@flashfirejobs.com
+          </a>
+        </p>
       </div>
     </section>
   );
 }
-
