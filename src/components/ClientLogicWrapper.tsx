@@ -1656,8 +1656,8 @@ function ClientLogicWrapperContent({
             setShowCalendlyModal(false);
             modalDismissedForRouteRef.current = null;
             lastRouteWithModalRef.current = null;
-            setForceShowModal(false); // Reset force flag when navigating away
-            setForceShowCalendlyModal(false);
+            // setForceShowModal(false); // Reset force flag when navigating away
+            // setForceShowCalendlyModal(false);
         }
     }, [pathname, searchParams, isFromIndia, geoLoading, forceShowModal, forceShowCalendlyModal]);
 
