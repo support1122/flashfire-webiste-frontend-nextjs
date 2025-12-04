@@ -1,15 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 export default function BlackFridayPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+  const isImageTestimonialsPage = pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
 
   useEffect(() => {
     // Only run on client side
     if (typeof window === "undefined") return;
+    
+    // Don't show on image testimonials page
+    if (isImageTestimonialsPage) {
+      return;
+    }
     
     setMounted(true);
     
@@ -29,11 +37,16 @@ export default function BlackFridayPopup() {
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isImageTestimonialsPage]);
 
   const handleClose = () => {
     setIsVisible(false);
   };
+
+  // Don't render on image testimonials page
+  if (isImageTestimonialsPage) {
+    return null;
+  }
 
   // Don't render until mounted (client-side only)
   if (!mounted) {
