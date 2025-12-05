@@ -729,6 +729,7 @@ import { trackButtonClick, trackModalOpen } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
 
 type Props = {
   links: NavLink[];
@@ -822,13 +823,13 @@ export default function NavbarClient({ links, ctas }: Props) {
       window.history.pushState({}, '', targetUrl);
     }
     
-    // INSTANT jump to start of section (no smooth scroll)
-    window.scrollTo({
-      top: targetScrollPosition,
-      behavior: 'instant' as ScrollBehavior,
+    // Smooth scroll to section with butter-smooth easing
+    smoothScrollToElement(sectionId, {
+      duration: 800, // 800ms for smooth feel
+      easing: 'easeInOutCubic', // Butter smooth easing
+    }).then(() => {
+      console.log(`✅ Smoothly scrolled to ${sectionId} section`);
     });
-    
-    console.log(`✅ Jumped to ${sectionId} section start`);
   };
 
   // Handle browser back/forward buttons for section navigation
@@ -851,28 +852,18 @@ export default function NavbarClient({ links, ctas }: Props) {
       const sectionId = sectionMap[currentPath];
       if (sectionId) {
         setTimeout(() => {
-          const section = document.getElementById(sectionId);
-          if (section) {
-            const stickyNavbar = document.querySelector('.sticky.top-0') || 
-                                document.querySelector('nav') ||
-                                document.querySelector('[class*="nav"]');
-            const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
-            const rect = section.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const elementTop = rect.top + scrollTop;
-            const offset = navbarHeight + 30;
-            const offsetPosition = Math.max(0, elementTop - offset);
-            
-            // INSTANT jump to start (no smooth scroll)
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'instant' as ScrollBehavior,
-            });
-          }
+          // Use smooth scroll for browser navigation
+          smoothScrollToElement(sectionId, {
+            duration: 800,
+            easing: 'easeInOutCubic',
+          });
         }, 100);
       } else if (currentPath === '/' || currentPath === '/en-ca') {
-        // Back to homepage, instant scroll to top
-        window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+        // Back to homepage, smooth scroll to top
+        smoothScrollTo(0, {
+          duration: 600,
+          easing: 'easeOutCubic',
+        });
       }
     };
 
