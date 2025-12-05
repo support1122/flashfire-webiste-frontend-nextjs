@@ -199,8 +199,18 @@ export default function HomePageDemoCTA() {
               position: 'relative'
             }}
           >
-            {emailCopied ? "Copied!" : "support@flashfirejobs.com"}
+            support@flashfirejobs.com
           </a>
+          {emailCopied && (
+            <span style={{ 
+              marginLeft: '8px', 
+              color: '#fff', 
+              fontSize: '0.9em',
+              fontWeight: '500'
+            }}>
+              - Copied to clipboard!
+            </span>
+          )}
         </p>
       </div>
     </section>
