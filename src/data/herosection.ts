@@ -5,7 +5,7 @@ export const heroSectionData: HeroSectionData = {
   headlineHighlight: "Flashfire",
   headlineSuffix: "AI Copilot",
   description:
-    "We apply to 1,200 USA job applications & track everything while you focus on winning the interview.",
+    "We apply to 1,200+ USA job applications & track everything while you focus on winning the interview.",
   cta: { label: "Get Me Interview →", href: "/contact-us" },
   trustText: "Trusted by 260+ Users",
   universityHeading:
