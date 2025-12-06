@@ -384,7 +384,7 @@ export default function PricingCard({
 
       <hr className="-mt-1 mb-3 text-black" />
 
-      <ul className="list-none p-0 mb-6 min-h-[12rem] max-[480px]:min-h-0">
+      <ul className="list-none p-0 mb-6 min-h-[14rem] flex-shrink-0 max-[480px]:min-h-[10rem]">
         {features.map((feature, i) => (
           <li
             key={i}
@@ -397,15 +397,7 @@ export default function PricingCard({
 
       {addOn && (
         <div
-          className={`bg-[#f8f7f6] border border-[#f3dfd5] rounded-[0.4rem] p-4 mb-6 ${
-            title === "IGNITE" || title === "PRIME"
-              ? "mt-[2.3rem]"
-              : tag === "ECONOMICAL" 
-              ? "mt-9"
-              : title === "EXECUTIVE"
-              ? "mt-[0.5rem]"
-              : ""
-          } `}
+          className="bg-[#f8f7f6] border border-[#f3dfd5] rounded-[0.4rem] p-4 mb-6 flex-shrink-0"
         >
           <h5 className="text-[1.3rem] font-bold mb-1 text-black max-[768px]:text-[1.1rem]">
             Booster Add-On
@@ -415,17 +407,17 @@ export default function PricingCard({
           </p>
           <ul className="list-none p-0 m-0 text-[0.85rem] text-[#333] space-y-2">
             {boosterOptions.length > 0 && boosterOptions.map((option, index) => (
-              <li key={index} className="flex items-center gap-2">
+              <li key={index} className="flex items-center gap-2 max-[768px]:flex-wrap">
                 <input
                   type="checkbox"
                   id={`booster-${title}-${index}`}
                   checked={selectedBooster === index}
                   onChange={() => handleBoosterToggle(index)}
-                  className="w-4 h-4 cursor-pointer accent-[#ff4c00]"
+                  className="w-4 h-4 cursor-pointer accent-[#ff4c00] flex-shrink-0"
                 />
                 <label
                   htmlFor={`booster-${title}-${index}`}
-                  className="cursor-pointer flex-1"
+                  className="cursor-pointer flex-1 min-w-0"
                 >
                   {option.label} — {currencySymbol}{option.price}
                 </label>
