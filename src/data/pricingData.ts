@@ -26,13 +26,17 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
+<<<<<<< HEAD
     paymentLink: "https://www.paypal.com/ncp/payment/PRIME_US_PLACEHOLDER",
+=======
+    paymentLink: "https://www.paypal.com/ncp/payment/H7MMWP8SF27YN",
+>>>>>>> 20074651555e1d7d7da308d397ff483b50f918c6
   },
   {
     title: "IGNITE",
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
-    price: "$179",
+    price: "$199",
     oldPrice: "$299",
     features: [
       "No Time Constraint",
@@ -42,14 +46,14 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/JVH7USSFZUZ54",
+    paymentLink: "https://www.paypal.com/ncp/payment/F6CESAWAYUYU2",
   },
   {
     title: "PROFESSIONAL",
     tag: "ECONOMICAL",
     subTitle: "500 Applications",
     description: "Most popular for mid-level professionals",
-    price: "$329",
+    price: "$349",
     oldPrice: "$449",
     features: [
       "Everything in Ignite",
@@ -60,14 +64,14 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/LWJ9TX2XTQXEE",
+    paymentLink: "https://www.paypal.com/ncp/payment/SMTK5UYQYM4A8",
   },
   {
     title: "EXECUTIVE",
     tag: "MOST POPULAR",
     subTitle: "1200+ Applications",
     description: "For early professionals & executives",
-    price: "$579",
+    price: "$599",
     oldPrice: "$699",
     features: [
       "Everything in Professional",
@@ -79,7 +83,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: true,
-    paymentLink: "https://www.paypal.com/ncp/payment/T592BBX83DZ2Y",
+    paymentLink: "https://www.paypal.com/ncp/payment/CDRFGB6M566X8",
   },
 ];
 

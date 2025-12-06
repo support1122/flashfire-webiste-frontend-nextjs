@@ -729,6 +729,7 @@ import { trackButtonClick, trackModalOpen } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
 
 type Props = {
   links: NavLink[];
@@ -744,6 +745,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     minutes: 0,
     seconds: 0,
   });
+  const [slotsRemaining, setSlotsRemaining] = useState(5);
   const pathname = usePathname();
   const isCanadaContext = pathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
@@ -769,8 +771,8 @@ export default function NavbarClient({ links, ctas }: Props) {
     return `${prefix}${href}`;
   };
 
-  // Handle section clicks - scroll to section without changing URL
-  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  // Handle section clicks - jump to section start AND update URL
+  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, skipNavigation = false) => {
     const sectionMap: { [key: string]: string } = {
       '/feature': 'feature',
       '/pricing': 'pricing',
@@ -780,54 +782,127 @@ export default function NavbarClient({ links, ctas }: Props) {
 
     const sectionId = sectionMap[href];
     
-    if (sectionId && (pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/')) {
-      e.preventDefault();
-      
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          let targetElement: HTMLElement | null = section;
-          if (sectionId === 'faq') {
-            const faqHeader = document.getElementById('faq-header');
-            if (faqHeader) {
-              const h2 = faqHeader.querySelector('h2');
-              targetElement = h2 || faqHeader;
-            }
-          }
-          
-          if (targetElement) {
-            const stickyNavbar = document.querySelector('.sticky.top-0');
-            const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
-            
-            const rect = targetElement.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const elementTop = rect.top + scrollTop;
-            
-            const offset = navbarHeight + 30;
-            const offsetPosition = Math.max(0, elementTop - offset);
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth',
-            });
-          }
-        }
-      }, 100);
+    // Always prevent default for section links
+    e.preventDefault();
+    
+    if (!sectionId) {
+      return;
     }
+
+    const section = document.getElementById(sectionId);
+    if (!section) {
+      console.warn(`❌ Section with id="${sectionId}" not found`);
+      return;
+    }
+
+    // Check if already at this section (within 50px tolerance)
+    const rect = section.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const elementTop = rect.top + scrollTop;
+    const stickyNavbar = document.querySelector('.sticky.top-0') || 
+                        document.querySelector('nav') ||
+                        document.querySelector('[class*="nav"]');
+    const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
+    const offset = navbarHeight + 20;
+    const targetScrollPosition = Math.max(0, elementTop - offset);
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // If already at this section, don't scroll again - just update URL if needed
+    if (Math.abs(currentScrollPosition - targetScrollPosition) < 50) {
+      console.log(`📍 Already at ${sectionId} section, skipping scroll`);
+      // Still update URL if not already set
+      const targetUrl = `${prefix}${href}`;
+      if (window.location.pathname !== targetUrl) {
+        window.history.pushState({}, '', targetUrl);
+      }
+      return;
+    }
+    
+    // Update URL to reflect the section (for SEO and shareability) - but only if not skipping navigation
+    if (!skipNavigation) {
+      const targetUrl = `${prefix}${href}`;
+      window.history.pushState({}, '', targetUrl);
+    }
+    
+    // Smooth scroll to section with butter-smooth easing
+    smoothScrollToElement(sectionId, {
+      duration: 800, // 800ms for smooth feel
+      easing: 'easeInOutCubic', // Butter smooth easing
+    }).then(() => {
+      console.log(`✅ Smoothly scrolled to ${sectionId} section`);
+    });
   };
 
-  // Countdown timer - Set end date to 2 days from the moment the user opens the site
+  // Handle browser back/forward buttons for section navigation
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handlePopState = () => {
+      const currentPath = window.location.pathname;
+      const sectionMap: { [key: string]: string } = {
+        '/feature': 'feature',
+        '/pricing': 'pricing',
+        '/testimonials': 'testimonials',
+        '/faq': 'faq',
+        '/en-ca/feature': 'feature',
+        '/en-ca/pricing': 'pricing',
+        '/en-ca/testimonials': 'testimonials',
+        '/en-ca/faq': 'faq',
+      };
+
+      const sectionId = sectionMap[currentPath];
+      if (sectionId) {
+        setTimeout(() => {
+          // Use smooth scroll for browser navigation
+          smoothScrollToElement(sectionId, {
+            duration: 800,
+            easing: 'easeInOutCubic',
+          });
+        }, 100);
+      } else if (currentPath === '/' || currentPath === '/en-ca') {
+        // Back to homepage, smooth scroll to top
+        smoothScrollTo(0, {
+          duration: 600,
+          easing: 'easeOutCubic',
+        });
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Countdown timer - Runs from 1st of month to end of month (30th or 31st)
   useEffect(() => {
     // Only run on client side
     if (typeof window === "undefined") return;
 
-    // Set the target date dynamically: current time + 2 days
-    const now = new Date();
-    const targetDate = new Date(now.getTime() + 2 * 24 * 60 * 60 * 1000);
-
     const calculateTimeLeft = () => {
-      const current = new Date().getTime();
-      const endDate = targetDate.getTime();
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth();
+      
+      // Get the first day of the current month
+      const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+      
+      // Get the last day of the current month (day 0 of next month gives us the last day of current month)
+      const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+      lastDayOfMonth.setHours(23, 59, 59, 999); // Set to end of day
+      
+      // Calculate slot count based on current date
+      const currentDay = now.getDate();
+      let slots = 5;
+      if (currentDay >= 1 && currentDay <= 10) {
+        slots = 5;
+      } else if (currentDay >= 11 && currentDay <= 20) {
+        slots = 4;
+      } else {
+        slots = 3;
+      }
+      setSlotsRemaining(slots);
+
+      const current = now.getTime();
+      const endDate = lastDayOfMonth.getTime();
       const difference = endDate - current;
 
       if (difference > 0) {
@@ -843,6 +918,7 @@ export default function NavbarClient({ links, ctas }: Props) {
         setTimeLeft({ days, hours, minutes, seconds });
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setSlotsRemaining(0);
       }
     };
 
@@ -855,7 +931,13 @@ export default function NavbarClient({ links, ctas }: Props) {
     return () => clearInterval(interval);
   }, []);
 
-  const openCalendly = () => {
+  const openCalendly = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    // Prevent any default scroll behavior
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     const utmSource = typeof window !== "undefined"
       ? localStorage.getItem("utm_source") || "WEBSITE"
       : "WEBSITE";
@@ -882,15 +964,38 @@ export default function NavbarClient({ links, ctas }: Props) {
       navigation_type: "banner_cta",
     });
     
+    // Save current scroll position before navigation
+    const currentScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+    }
+    
     // Navigate to /book-now WITHOUT exposing UTM params in the URL
     const targetPath = '/book-now';
     
     // Dispatch custom event to force show modal (even if already on the route)
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent('showCalendlyModal'));
+      
+      // Use window.history.pushState to update URL without scrolling
+      window.history.pushState({}, '', targetPath);
+      
+      // Trigger Next.js router update without scroll
+      router.push(targetPath);
+      
+      // Immediately restore scroll position to prevent scroll to top
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+          setTimeout(() => {
+            window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+          }, 50);
+        });
+      });
+    } else {
+      router.push(targetPath);
     }
-    
-    router.push(targetPath);
   };
 
   return (
@@ -917,15 +1022,32 @@ export default function NavbarClient({ links, ctas }: Props) {
           {links.map((link) => {
             const isSectionLink = ['/feature', '/pricing', '/testimonials', '/faq'].includes(link.href);
             const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
+            const isOnSectionPage = pathname === getHref(link.href) || pathname === link.href || pathname === prefix + link.href;
             const isExternal = isExternalHref(link.href) || link.target === "_blank";
             
             return (
               <li key={link.href} className={styles.navLinkItem}>
-                {isSectionLink && isOnHomePage ? (
+                {isSectionLink ? (
                   <a 
                     href={`#${link.href.replace('/', '')}`}
                     className={styles.navLinkText}
-                    onClick={(e) => handleSectionClick(e, link.href)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      // If on section page, just scroll to section without navigating
+                      if (isOnSectionPage && !isOnHomePage) {
+                        // Stay on current page, just scroll to section
+                        handleSectionClick(e, link.href, true);
+                      } else if (!isOnHomePage) {
+                        // If on different page, navigate to home first, then scroll
+                        router.push(prefix + '/');
+                        setTimeout(() => {
+                          handleSectionClick(e, link.href);
+                        }, 100);
+                      } else {
+                        // Already on home page, just scroll
+                        handleSectionClick(e, link.href);
+                      }
+                    }}
                   >
                     {link.name}
                   </a>
@@ -942,16 +1064,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                   <Link 
                     href={getHref(link.href)} 
                     className={styles.navLinkText}
-                    onClick={isSectionLink ? (e) => {
-                      // If not on home page, navigate first then scroll
-                      if (!isOnHomePage) {
-                        e.preventDefault();
-                        router.push(prefix + '/');
-                        setTimeout(() => {
-                          handleSectionClick(e as any, link.href);
-                        }, 500);
-                      }
-                    } : undefined}
                   >
                     {link.name}
                   </Link>
@@ -1052,18 +1164,32 @@ export default function NavbarClient({ links, ctas }: Props) {
             {links.map((link) => {
               const isSectionLink = ['/feature', '/pricing', '/testimonials', '/faq'].includes(link.href);
               const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
+              const isOnSectionPage = pathname === getHref(link.href) || pathname === link.href || pathname === prefix + link.href;
               const isExternal = isExternalHref(link.href) || link.target === "_blank";
               
               return (
                 <li key={link.href}>
-                  {isSectionLink && isOnHomePage ? (
+                  {isSectionLink ? (
                     <a
                       href={`#${link.href.replace('/', '')}`}
                       className={styles.navMobileLink}
                       onClick={(e) => {
                         e.preventDefault();
                         setIsMenuOpen(false);
-                        handleSectionClick(e, link.href);
+                        // If on section page, just scroll to section without navigating
+                        if (isOnSectionPage && !isOnHomePage) {
+                          // Stay on current page, just scroll to section
+                          handleSectionClick(e, link.href, true);
+                        } else if (!isOnHomePage) {
+                          // If on different page, navigate to home first, then scroll
+                          router.push(prefix + '/');
+                          setTimeout(() => {
+                            handleSectionClick(e, link.href);
+                          }, 100);
+                        } else {
+                          // Already on home page, just scroll
+                          handleSectionClick(e, link.href);
+                        }
                       }}
                     >
                       {link.name}
@@ -1082,16 +1208,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                     <Link 
                       href={getHref(link.href)} 
                       className={styles.navMobileLink}
-                      onClick={(e) => {
-                        setIsMenuOpen(false);
-                        if (isSectionLink && !isOnHomePage) {
-                          e.preventDefault();
-                          router.push(prefix + '/');
-                          setTimeout(() => {
-                            handleSectionClick(e as any, link.href);
-                          }, 500);
-                        }
-                      }}
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       {link.name}
                     </Link>
@@ -1139,20 +1256,17 @@ export default function NavbarClient({ links, ctas }: Props) {
       )}
     </nav>
 
-    {/* Black Friday Sale Banner - Below Navbar */}
+    {/* Slots Remaining Banner - Below Navbar */}
     {!isImageTestimonialsPage && (
     <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
       <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
         {/* Text part - hidden on mobile */}
         <div className="flex items-center gap-2 max-[600px]:hidden">
-          <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
-            BLACK FRIDAY SALE
-          </span>
           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
             ✱
           </span>
-          <span className="text-[0.85rem] text-black font-medium max-[900px]:text-[0.75rem] max-[600px]:text-[0.7rem] whitespace-nowrap">
-            Get flat $20 discount on all plans
+          <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
+            Hurry up only {slotsRemaining} slots remaining
           </span>
           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
             ✱
@@ -1160,14 +1274,11 @@ export default function NavbarClient({ links, ctas }: Props) {
         </div>
         {/* Mobile text part - visible only on mobile */}
         <div className="hidden max-[600px]:flex items-center justify-center gap-1.5 w-full">
-          <span className="font-bold text-[0.75rem] text-black tracking-[0.02em] uppercase whitespace-nowrap">
-            BLACK FRIDAY SALE
-          </span>
           <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
             ✱
           </span>
-          <span className="text-[0.7rem] text-black font-medium whitespace-nowrap">
-            Get flat $20 discount on all plans
+          <span className="font-bold text-[0.75rem] text-black tracking-[0.02em] uppercase whitespace-nowrap">
+            Hurry up only {slotsRemaining} slots remaining
           </span>
           <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
             ✱

@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useState } from "react";
+import { Copy, Check } from "lucide-react";
 import styles from "./homePageDemoCTA.module.css";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
@@ -9,11 +11,44 @@ import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 export default function HomePageDemoCTA() {
   const router = useRouter();
+  const [emailCopied, setEmailCopied] = useState(false);
   const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
     onBypass: () => {
       // Bypass will be handled by the event listener
     },
   });
+
+  const handleCopyEmail = async () => {
+    const email = "support@flashfirejobs.com";
+    
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      
+      // Reset the "Copied!" message after 2 seconds
+      setTimeout(() => {
+        setEmailCopied(false);
+      }, 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = email;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        setEmailCopied(true);
+        setTimeout(() => {
+          setEmailCopied(false);
+        }, 2000);
+      } catch (fallbackErr) {
+        console.error("Failed to copy email:", fallbackErr);
+      }
+      document.body.removeChild(textArea);
+    }
+  };
 
   return (
     <section className={styles.demoSectionOuter}>
@@ -153,12 +188,33 @@ export default function HomePageDemoCTA() {
           Limited slots available. Book your call now!
         </p>
 
-        <p className={styles.demoEmail}>
-          Or email us at{" "}
-          <a href="mailto:support@flashfirejobs.com">
-            support@flashfirejobs.com
-          </a>
-        </p>
+        <div className={styles.demoEmailContainer}>
+          <span className={styles.demoEmailLabel}>Or email us at</span>
+          <div className={styles.emailCopyWrapper}>
+            <input
+              type="text"
+              readOnly
+              value="support@flashfirejobs.com"
+              className={styles.emailInput}
+            />
+            <button
+              onClick={handleCopyEmail}
+              className={styles.copyButton}
+              aria-label="Copy email to clipboard"
+            >
+              {emailCopied ? (
+                <Check className={styles.copyIcon} size={16} />
+              ) : (
+                <Copy className={styles.copyIcon} size={16} />
+              )}
+            </button>
+            {emailCopied && (
+              <div className={styles.copiedTooltip}>
+                Copied
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

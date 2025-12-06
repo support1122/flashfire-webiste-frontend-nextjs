@@ -76,34 +76,119 @@
   margin-top: 1.5rem;
 }
 
-.demoEmail {
-  display: inline-flex;
+.demoEmailContainer {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.75rem;
   margin: 1rem auto 0;
-  padding: 0.6rem 1rem;
-  border-radius: 999px;
-  border: 1.5px solid #000000;
-  background-color: #ffffff;
-  color: #111827;
+}
+
+.demoEmailLabel {
+  color: #fff;
   font-size: 0.95rem;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+}
+
+.emailCopyWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  gap: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.emailCopyWrapper:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.emailInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #111827;
+  font-size: 0.9rem;
+  padding: 0.2rem 0 0.2rem 0.6rem;
+  width: 235px;
+  cursor: default;
+  font-family: inherit;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+  flex-shrink: 0;
 }
 
-.demoEmail a {
-  color: #f55e1d;
-  font-weight: 600;
-  text-decoration: none;
+.copyButton:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+  transform: scale(1.05);
 }
 
-.demoEmail:hover {
-  background-color: #fff7f3;
-  border-color: 3px solid #000000;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.22);
-  transform: translateY(-1px);
+.copyButton:active {
+  transform: scale(0.95);
+}
+
+.copyIcon {
+  color: #111827;
+}
+
+.copiedTooltip {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeInOut 2s ease-in-out;
+  z-index: 10;
+}
+
+.copiedTooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  right: 12px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #3b82f6;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* === TABLET === */
@@ -146,6 +231,25 @@
   .demoNote {
     font-size: 0.85rem;
   }
+
+  .demoEmailLabel {
+    font-size: 0.85rem;
+  }
+
+  .emailInput {
+    font-size: 0.8rem;
+    width: 200px;
+  }
+
+  .copyButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .copyIcon {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /* === SMALL PHONES === */
@@ -171,5 +275,36 @@
 
   .fireIcon {
     margin: 0 -0.3rem;
+  }
+
+  .demoEmailLabel {
+    font-size: 0.78rem;
+  }
+
+  .emailInput {
+    font-size: 0.75rem;
+    width: 180px;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .emailCopyWrapper {
+    padding: 0.4rem;
+    gap: 0;
+  }
+
+  .copyButton {
+    width: 28px;
+    height: 28px;
+  }
+
+  .copyIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .copiedTooltip {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.6rem;
+    top: -40px;
   }
 }
