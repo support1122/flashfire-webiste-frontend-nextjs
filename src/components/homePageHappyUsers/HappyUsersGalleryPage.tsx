@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import type React from "react";
+import React from "react";
 import { ALL_REVIEW_IMAGES } from "./homePageHappyUsers";
 import HomePageOfferLetters from "@/src/components/homePageOfferLetters/homePageOfferLetters";
 import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
@@ -52,7 +52,7 @@ export default function HappyUsersGalleryPage() {
 
   // Preload image on hover for faster modal opening
   const handleImageHover = (imageSrc: string) => {
-    if (preloadedImages.current.has(imageSrc)) return;
+    if (typeof window === 'undefined' || preloadedImages.current.has(imageSrc)) return;
     
     preloadedImages.current.add(imageSrc);
     const img = new window.Image();
@@ -61,6 +61,8 @@ export default function HappyUsersGalleryPage() {
 
   // Close modal on ESC key press
   useEffect(() => {
+    if (typeof document === 'undefined') return;
+    
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && selectedImageIndex !== null) {
         setSelectedImageIndex(null);

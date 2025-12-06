@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import type React from "react";
+import React from "react";
 
 // Export full list so a dedicated gallery page can show all images
 export const ALL_REVIEW_IMAGES = [
