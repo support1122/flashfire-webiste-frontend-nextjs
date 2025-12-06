@@ -384,7 +384,7 @@ export default function PricingCard({
 
       <hr className="-mt-1 mb-3 text-black" />
 
-      <ul className="list-none p-0 mb-6 min-h-[14rem] flex-shrink-0 max-[480px]:min-h-[10rem]">
+      <ul className="list-none p-0 mb-6 flex-grow max-[480px]:min-h-[10rem]">
         {features.map((feature, i) => (
           <li
             key={i}
@@ -395,6 +395,7 @@ export default function PricingCard({
         ))}
       </ul>
 
+      <div className="mt-auto">
       {addOn && (
         <div
           className="bg-[#f8f7f6] border border-[#f3dfd5] rounded-[0.4rem] p-4 mb-6 flex-shrink-0"
@@ -507,6 +508,7 @@ export default function PricingCard({
       >
        {selectedUpgrade ? `Upgrade to ${selectedUpgrade} →` : "Start Now"}
       </button>
+      </div>
     </div>
 
     {/* Upgrade Options Display - Outside Card */}
