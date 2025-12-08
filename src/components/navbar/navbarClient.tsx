@@ -1036,7 +1036,7 @@ export default function NavbarClient({ links, ctas }: Props) {
         {/* Center Section: Links (Desktop) */}
         <ul className={styles.navLinks}>
           {links.map((link) => {
-            const sectionLinks = []; // No section links anymore
+            const sectionLinks: string[] = []; // No section links anymore
             const isSectionLink = sectionLinks.includes(link.href);
             const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
             const isOnPricingPage = pathname === '/pricing' || pathname === '/en-ca/pricing' || pathname === prefix + '/pricing';
