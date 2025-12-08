@@ -997,44 +997,46 @@ export default function NavbarClient({ links, ctas }: Props) {
         >
       <div className={styles.navInner}>
         {/* Left Section: Logo */}
-        <div className={styles.navLeft} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div className={styles.navLeft}>
           <Link href={isCanadaContext ? "/en-ca" : "/"} className={styles.navLogoText}>
             FLASHFIRE
           </Link>
-          {/* How It Works Button - After Logo */}
-          {secondaryIsExternal ? (
-            <a
-              href={ctas.secondary.href}
-              className={styles.navSecondaryButton}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
-                trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-                  button_location: "navbar_desktop",
-                  navigation_type: "secondary_cta"
-                });
-              }}
-            >
-              {ctas.secondary.label}
-            </a>
-          ) : (
-            <Link
-              href={ctas.secondary.href}
-              className={styles.navSecondaryButton}
-              onClick={() => {
-                trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-                  button_location: "navbar_desktop",
-                  navigation_type: "secondary_cta"
-                });
-              }}
-            >
-              {ctas.secondary.label}
-            </Link>
-          )}
         </div>
 
         {/* Center Section: Links (Desktop) */}
         <ul className={styles.navLinks}>
+          {/* How It Works Link - First in the list */}
+          <li className={styles.navLinkItem}>
+            {secondaryIsExternal ? (
+              <a
+                href={ctas.secondary.href}
+                className={styles.navLinkText}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                    button_location: "navbar_desktop",
+                    navigation_type: "secondary_cta"
+                  });
+                }}
+              >
+                {ctas.secondary.label}
+              </a>
+            ) : (
+              <Link
+                href={ctas.secondary.href}
+                className={styles.navLinkText}
+                onClick={() => {
+                  trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                    button_location: "navbar_desktop",
+                    navigation_type: "secondary_cta"
+                  });
+                }}
+              >
+                {ctas.secondary.label}
+              </Link>
+            )}
+          </li>
           {links.map((link) => {
             const sectionLinks: string[] = []; // No section links anymore
             const isSectionLink = sectionLinks.includes(link.href);
@@ -1172,6 +1174,40 @@ export default function NavbarClient({ links, ctas }: Props) {
       {isMenuOpen && (
         <div className={styles.navMobileMenu}>
           <ul className={styles.navMobileLinks}>
+            {/* How It Works Link - First in mobile menu */}
+            <li>
+              {secondaryIsExternal ? (
+                <a
+                  href={ctas.secondary.href}
+                  className={styles.navMobileLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                      button_location: "navbar_mobile",
+                      navigation_type: "secondary_cta"
+                    });
+                  }}
+                >
+                  {ctas.secondary.label}
+                </a>
+              ) : (
+                <Link
+                  href={ctas.secondary.href}
+                  className={styles.navMobileLink}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                      button_location: "navbar_mobile",
+                      navigation_type: "secondary_cta"
+                    });
+                  }}
+                >
+                  {ctas.secondary.label}
+                </Link>
+              )}
+            </li>
             {links.map((link) => {
               const sectionLinks: string[] = []; // No section links anymore
               const isSectionLink = sectionLinks.includes(link.href);
@@ -1253,20 +1289,6 @@ export default function NavbarClient({ links, ctas }: Props) {
             })}
           </ul>
           <div className={styles.navMobileButtons}>
-            <a
-              href={ctas.secondary.href}
-              className={styles.navMobileSecondary}
-              target={secondaryIsExternal ? "_blank" : undefined}
-              rel={secondaryIsExternal ? "noopener noreferrer" : undefined}
-              onClick={() => {
-                trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-                  button_location: "navbar_mobile",
-                  navigation_type: "secondary_cta"
-                });
-              }}
-            >
-              {ctas.secondary.label}
-            </a>
             <a
               href={ctas.primary.href}
               className={styles.navMobilePrimary}

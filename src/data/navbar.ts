@@ -9,5 +9,5 @@ export const navbarLinks: NavLink[] = [
 
 export const navbarCTAs: NavbarCTA = {
   primary: { label: "Talk to an Expert →", href: "/talk-to-an-expert" },
-  secondary: { label: "How It Works →", href: "/see-flashfire-in-action" },
+  secondary: { label: "How It Works", href: "/see-flashfire-in-action" },
 };
