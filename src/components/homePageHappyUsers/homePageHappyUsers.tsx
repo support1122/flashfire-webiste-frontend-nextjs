@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import React from "react";
@@ -106,7 +105,7 @@ export default function HomePageHappyUsers() {
             textAlign: "center",
           }}
         >
-          100+ Happy Users&rsquo; Love!
+          100+ Happy User&rsquo;s Love!
         </h2>
 
         {/* Masonry Layout */}
@@ -129,19 +128,6 @@ export default function HomePageHappyUsers() {
               />
             </div>
           ))}
-        </div>
-
-        {/* Read More Button - opens full image testimonials gallery in a new tab */}
-        <div className=" mb-4">
-          <Link
-            href={`${prefix}/image-testimonials`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="bg-white text-[#f55d1d] font-bold px-12 py-5 text-lg rounded-xl hover:bg-[#fffaf8] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-              Read More
-            </button>
-          </Link>
         </div>
 
         <Image

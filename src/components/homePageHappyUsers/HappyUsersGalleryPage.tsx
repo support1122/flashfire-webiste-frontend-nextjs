@@ -89,7 +89,7 @@ export default function HappyUsersGalleryPage() {
       <section className="bg-[#F55E1D] py-24 px-6">
         <div className="max-w-[1200px] mx-auto text-center">
           <h1 className="mb-6 text-5xl  font-bold text-white">
-            All Happy Users' Testimonials
+            All Happy User&rsquo;s Testimonials
           </h1>
           <p className="mb-6 text-base md:text-lg text-white">
             We've helped hundreds get there — and there's absolutely no reason you won't be next.

@@ -773,9 +773,7 @@ export default function NavbarClient({ links, ctas }: Props) {
 
   // Handle section clicks - jump to section start AND update URL
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, skipNavigation = false) => {
-    const sectionMap: { [key: string]: string } = {
-      '/testimonials': 'testimonials',
-    };
+    const sectionMap: { [key: string]: string } = {};
 
     const sectionId = sectionMap[href];
     
@@ -836,10 +834,7 @@ export default function NavbarClient({ links, ctas }: Props) {
 
     const handlePopState = () => {
       const currentPath = window.location.pathname;
-      const sectionMap: { [key: string]: string } = {
-        '/testimonials': 'testimonials',
-        '/en-ca/testimonials': 'testimonials',
-      };
+      const sectionMap: { [key: string]: string } = {};
 
       const sectionId = sectionMap[currentPath];
       if (sectionId) {
@@ -1002,16 +997,47 @@ export default function NavbarClient({ links, ctas }: Props) {
         >
       <div className={styles.navInner}>
         {/* Left Section: Logo */}
-        <div className={styles.navLeft}>
+        <div className={styles.navLeft} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Link href={isCanadaContext ? "/en-ca" : "/"} className={styles.navLogoText}>
             FLASHFIRE
           </Link>
+          {/* How It Works Button - After Logo */}
+          {secondaryIsExternal ? (
+            <a
+              href={ctas.secondary.href}
+              className={styles.navSecondaryButton}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                  button_location: "navbar_desktop",
+                  navigation_type: "secondary_cta"
+                });
+              }}
+            >
+              {ctas.secondary.label}
+            </a>
+          ) : (
+            <Link
+              href={ctas.secondary.href}
+              className={styles.navSecondaryButton}
+              onClick={() => {
+                trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                  button_location: "navbar_desktop",
+                  navigation_type: "secondary_cta"
+                });
+              }}
+            >
+              {ctas.secondary.label}
+            </Link>
+          )}
         </div>
 
         {/* Center Section: Links (Desktop) */}
         <ul className={styles.navLinks}>
           {links.map((link) => {
-            const isSectionLink = ['/testimonials'].includes(link.href);
+            const sectionLinks = []; // No section links anymore
+            const isSectionLink = sectionLinks.includes(link.href);
             const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
             const isOnPricingPage = pathname === '/pricing' || pathname === '/en-ca/pricing' || pathname === prefix + '/pricing';
             const isOnSectionPage = pathname === getHref(link.href) || pathname === link.href || pathname === prefix + link.href;
@@ -1089,35 +1115,6 @@ export default function NavbarClient({ links, ctas }: Props) {
 
         {/* Right Section: CTAs (Desktop) */}
         <div className={styles.navRight}>
-          {secondaryIsExternal ? (
-            <a
-              href={ctas.secondary.href}
-              className={styles.navSecondaryButton}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
-                trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-                  button_location: "navbar_desktop",
-                  navigation_type: "secondary_cta"
-                });
-              }}
-            >
-              {ctas.secondary.label}
-            </a>
-          ) : (
-            <Link
-              href={ctas.secondary.href}
-              className={styles.navSecondaryButton}
-              onClick={() => {
-                trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-                  button_location: "navbar_desktop",
-                  navigation_type: "secondary_cta"
-                });
-              }}
-            >
-              {ctas.secondary.label}
-            </Link>
-          )}
           {primaryIsExternal ? (
             <a
               href={ctas.primary.href}
@@ -1176,7 +1173,8 @@ export default function NavbarClient({ links, ctas }: Props) {
         <div className={styles.navMobileMenu}>
           <ul className={styles.navMobileLinks}>
             {links.map((link) => {
-              const isSectionLink = ['/testimonials'].includes(link.href);
+              const sectionLinks = []; // No section links anymore
+              const isSectionLink = sectionLinks.includes(link.href);
               const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
               const isOnPricingPage = pathname === '/pricing' || pathname === '/en-ca/pricing' || pathname === prefix + '/pricing';
               const isOnSectionPage = pathname === getHref(link.href) || pathname === link.href || pathname === prefix + link.href;
