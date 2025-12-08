@@ -421,7 +421,7 @@ export default function HomePagePricingPlans() {
                 
                 {/* Booster Add-On section (when only booster is visible) */}
                 {selectedPlanForBooster !== null && boosterPlanIndex !== null && boosterOptions.length > 0 && (
-                  <div ref={boosterSectionRef} className="bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-4 max-[768px]:p-3">
+                  <div ref={boosterSectionRef} className="col-span-2 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-4 max-[768px]:col-span-1 max-[768px]:p-3">
                     <div className="relative mb-4 max-[768px]:mb-3">
                       <div className="text-center">
                         <h5 className="text-[1.1rem] font-bold mb-1 text-black max-[768px]:text-[1rem]">
@@ -477,7 +477,7 @@ export default function HomePagePricingPlans() {
 
                 {/* Upgrade Plan section (when only upgrade is visible) */}
                 {selectedPlanForUpgrade !== null && upgradePlanIndex !== null && upgradeOptions.length > 0 && (
-                  <div ref={upgradeSectionRef} className="bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-4 max-[768px]:p-3">
+                  <div ref={upgradeSectionRef} className="col-span-2 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-4 max-[768px]:col-span-1 max-[768px]:p-3">
                     <div className="relative mb-4 max-[768px]:mb-3">
                       <div className="text-center">
                         <h5 className="text-[1.1rem] font-bold mb-1 text-black max-[768px]:text-[1rem]">
@@ -530,7 +530,8 @@ export default function HomePagePricingPlans() {
                 )}
 
                 {/* Empty columns after the selected card */}
-                {Array.from({ length: pricingPlans.length - planIndex - 1 }).map((_, i) => (
+                {/* When showing booster/upgrade section, we need to account for col-span-2 */}
+                {Array.from({ length: Math.max(0, pricingPlans.length - planIndex - 2) }).map((_, i) => (
                   <div key={`empty-after-${i}`} />
                 ))}
               </div>
