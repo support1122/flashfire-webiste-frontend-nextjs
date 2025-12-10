@@ -7,17 +7,23 @@ export const blogPosts = [
     excerpt:
       "The no-nonsense guide to writing a resume that doesn't just sit in a database — it lands interviews. Learn precision-crafted strategies that make your 6-8 seconds count.",
     date: "Jan 15, 2025",
+    lastUpdated: "Jan 15, 2025",
     readTime: "12 min",
-    category: "Resume Tips",
+    category: "Career Advice",
+    tags: ["Resume Writing", "ATS Optimization", "Job Search", "Career Tips", "Interview Preparation"],
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webp",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
         <p>Welcome to the no-nonsense guide to writing a resume that doesn't just sit in a database — it lands interviews. At <strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">www.flashfirejobs.com</a></strong>, we've helped thousands of job seekers get in front of hiring managers by optimizing every word, metric, and keyword on their resume. In today's high-speed, high-noise U.S. job market, you have 6-8 seconds to make your resume count. Let's make those seconds explosive.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1️⃣ Start With a Precision-Crafted Summary</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. Start With a Precision-Crafted Summary</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Skip the clichés — your summary should be sharp, specific, and measurable.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>2–3 focused lines</li>
       <li>Position-specific keywords</li>
       <li>Impact-driven statement</li>
@@ -28,9 +34,9 @@ export const blogPosts = [
       FlashFire’s <strong>IDRRSA</strong> algorithm instantly rewrites your summary for relevance and conversion.
     </blockquote>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2️⃣ Write Like a Strategist, Not a Historian</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Write Like a Strategist, Not a Historian</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Your resume isn’t a timeline — it’s a <em>pitch deck</em>. Every line should tell a result story.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Start with a strong action verb</li>
       <li>Quantify the outcome</li>
     </ul>
@@ -43,67 +49,58 @@ export const blogPosts = [
       Responsible for sprint planning and task delegation.
     </blockquote>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3️⃣ Quantify or It Didn’t Happen</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Quantify or It Didn't Happen</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Numbers = credibility. Showcase tangible results wherever possible.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Increased CTR by 42% through SEO optimization</li>
       <li>Saved $56K yearly via automated reporting</li>
       <li>Led a team of 4 to deliver 5 MVPs in 12 weeks</li>
     </ul>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4️⃣ Tailor for ATS and Humans</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Tailor for ATS and Humans</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Over 95% of Fortune 500 firms use ATS filters. FlashFire’s AI extracts keywords and rewrites content without stuffing.</p>
     <blockquote style="margin:14px 0; padding:12px 14px; border-left:4px solid #f97316; background:#FFF7ED; border-radius:8px; color:#1f2937;">
       Example: "Performance Marketing Analyst – DTC, Paid Media, Google Analytics"
     </blockquote>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5️⃣ Design for Readability and Retention</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Design for Readability and Retention</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>According to LinkedIn’s 2023 data, <strong>clean layouts</strong> boost recruiter response by 37%.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Bold section headers</li>
       <li>Consistent spacing</li>
       <li>No decorative elements (ATS-safe)</li>
     </ul>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6️⃣ Showcase Soft Skills Through Outcomes</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Showcase Soft Skills Through Outcomes</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Transform vague claims into measurable leadership results.</p>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Instead of:</strong> Excellent communication skills</p>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Say:</strong> Negotiated cross-functional priorities with Engineering, Design & Sales to align on a $1.2M ARR roadmap.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7️⃣ Leverage Automation Without Losing Personality</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. Leverage Automation Without Losing Personality</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Don’t rewrite your resume 50 times — automate personalization with AI feedback loops.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Smart templating</li>
       <li>Instant keyword scoring</li>
       <li>AI-assisted rewriting</li>
     </ul>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8️⃣ What Recruiters Really Want (Insider Tips)</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. What Recruiters Really Want (Insider Tips)</h2>
     <h3 class="text-xl font-semibold text-gray-800 mt-4 mb-2">a) Clear Value Proposition</h3>
-    <ul class="list-disc ml-6">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Headline like “Growth PM | SaaS | AI Integrations”</li>
       <li>Top-visible skills: research, experimentation, roadmap</li>
     </ul>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-4 mb-2">b) Outcome-Centric Language</h3>
-    <ul class="list-disc ml-6">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Focus on what <em>changed</em> because of your work</li>
       <li>Avoid “worked on,” “helped with,” “involved in”</li>
     </ul>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-4 mb-2">c) Cultural Alignment Signals</h3>
-    <ul class="list-disc ml-6">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Show influence, ambiguity management, advocacy</li>
       <li>Mention OKRs, Agile, retrospectives</li>
-    </ul>
-
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9️⃣ FAQs: 2025 Resume Essentials</h2>
-    <ul class="list-disc ml-6 space-y-3">
-      <li><strong>Q:</strong> Include a photo?<br/><strong>A:</strong> No — U.S. recruiters prefer ATS-friendly text only.</li>
-      <li><strong>Q:</strong> Objective or Summary?<br/><strong>A:</strong> Always a summary — concise & role-specific.</li>
-      <li><strong>Q:</strong> Canva templates?<br/><strong>A:</strong> Avoid — most break ATS parsing. Use FlashFire’s templates.</li>
-      <li><strong>Q:</strong> Ideal length?<br/><strong>A:</strong> One page (&lt;7 years), two for senior roles.</li>
-      <li><strong>Q:</strong> Remote or freelance work?<br/><strong>A:</strong> Absolutely. Quantify outcomes & client impact.</li>
     </ul>
 
         <h2>9. FAQs About U.S. Resumes (2025 Edition)</h2>
@@ -142,7 +139,11 @@ export const blogPosts = [
       "If you're a recent graduate trying to land your first job in the United States, you're probably overwhelmed and frustrated. Learn why the system isn't built for new grads and how to overcome it.",
     date: "Jan 12, 2025",
     readTime: "10 min",
-    category: "Job Strategy",
+    category: "Job Search Strategy",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1752832446/46d07f8b-261d-49cf-b140-5eaf609b874e_kkjjml.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -153,34 +154,34 @@ export const blogPosts = [
 
         <h2>The Harsh Reality for New Grads</h2>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1️⃣ Job Boards Are Overwhelming</h3>
+    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Job Boards Are Overwhelming</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Indeed, LinkedIn, and Glassdoor are flooded with listings — but most are duplicated, outdated, or irrelevant to visa needs.</p>
     <blockquote style="margin:14px 0; padding:12px 14px; border-left:4px solid #f97316; background:#FFF7ED; border-radius:8px; color:#1f2937;">
       FlashFire’s AI filters 1000+ roles per week — removing expired or non-visa-friendly ones.
     </blockquote>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2️⃣ The “Entry-Level” Paradox</h3>
+    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. The "Entry-Level" Paradox</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Most “entry-level” jobs want 2–3 years of experience. It’s a trap that keeps grads stuck in limbo.</p>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>FlashFire crafts resumes</strong> that turn coursework, internships, and projects into <em>recruiter-friendly achievements</em>.</p>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3️⃣ The ATS Wall</h3>
+    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. The ATS Wall</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Over 90% of resumes never reach a human because of poor formatting or keyword mismatch.</p>
     <blockquote style="margin:14px 0; padding:12px 14px; border-left:4px solid #f97316; background:#FFF7ED; border-radius:8px; color:#1f2937;">
       FlashFire auto-tailors every resume per job — with dynamic keywords and layout checks.
     </blockquote>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4️⃣ Sponsorship Uncertainty</h3>
+    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Sponsorship Uncertainty</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Visa hesitation filters out international talent before interviews even start.</p>
     <p style='margin-bottom:12px; line-height:1.7;'>Our system <strong>prioritizes sponsor-ready employers</strong> (CPT, OPT, STEM, H-1B) so you don’t waste time guessing.</p>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5️⃣ Time Isn’t on Your Side</h3>
+    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. Time Isn't on Your Side</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Deadlines, coursework, and visa clocks tick fast — and you can’t afford inefficiency.</p>
     <blockquote style="margin:14px 0; padding:12px 14px; border-left:4px solid #f97316; background:#FFF7ED; border-radius:8px; color:#1f2937;">
       FlashFire saves 150+ hours monthly by auto-applying while you sleep.
     </blockquote>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">⚙️ Why Traditional Job Search Methods Are Broken</h2>
-    <ul class="list-disc ml-6 space-y-2">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Career centers are overloaded</li>
       <li>Job boards are noisy</li>
       <li>LinkedIn is saturated</li>
@@ -188,7 +189,7 @@ export const blogPosts = [
     <p class="mt-3 text-gray-700">You’re left to navigate it all manually. FlashFire replaces that chaos with <strong>an automated, data-backed engine</strong> that does everything — apply, track, and optimize.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">🚀 FlashFire: Built for the Modern Job Seeker</h2>
-    <ul class="list-disc ml-6 space-y-2">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Smart scraping from multiple job boards</li>
       <li>ATS-optimized resumes per job</li>
       <li>Visa-filtered job listings</li>
@@ -311,7 +312,11 @@ export const blogPosts = [
       "Graduating in the U.S. as an international student should feel like winning the lottery. But instead of celebration, most students find themselves spiraling into a black hole of ghosted applications and visa anxiety. Here's your complete roadmap from 0 to offer.",
     date: "Jan 10, 2025",
     readTime: "15 min",
-    category: "Job Strategy",
+    category: "Job Search Strategy",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1752832996/freepik__the-style-is-candid-image-photography-with-natural__35759_dnwqka.webp",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -351,7 +356,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">📝 Step 3: Apply to 1000+ Jobs — the Smart Way</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>While most apply to 20 jobs weekly, FlashFire scales it to 1000+ — all personalized.</p>
-    <ul class="list-disc ml-6 space-y-2">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Every application gets a custom ATS-friendly resume</li>
       <li>Keywords aligned to company-specific JD</li>
       <li>Optional cover letter generation (Executive plan)</li>
@@ -359,13 +364,13 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">📊 Step 4: Track Your Job Search Like a Data Analyst</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>See which companies viewed your resume, which industries respond fastest, and where to double down.</p>
-    <ul class="list-disc ml-6 space-y-2">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Live metrics for applications, industries, and callbacks</li>
       <li>Dashboard visualizations for real-time progress</li>
     </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">🎤 Step 5: Prepare for Interviews While We Keep Applying</h2>
-    <ul class="list-disc ml-6 space-y-2">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Behavioral & technical question banks</li>
       <li>Mock interview templates & follow-up scripts</li>
       <li>Negotiation support for offers</li>
@@ -383,7 +388,7 @@ export const blogPosts = [
     </blockquote>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">🚀 The 7-Week Roadmap</h2>
-    <ul class="list-disc ml-6 space-y-2">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Week 1:</strong> Profile setup & resume rewriting</li>
       <li><strong>Weeks 2–3:</strong> 400 jobs applied, dashboard live</li>
       <li><strong>Weeks 4–5:</strong> Interviews rolling in</li>
@@ -392,7 +397,7 @@ export const blogPosts = [
 
     <div class="border-l-4 border-purple-500 bg-purple-50 p-5 rounded-lg my-5">
       <p class="font-semibold mb-2">Join the system that delivers:</p>
-      <ul class="list-disc ml-6">
+      <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
         <li>✅ 1000+ job applications</li>
         <li>✅ ATS-optimized resumes</li>
         <li>✅ Dashboard analytics</li>
@@ -477,6 +482,10 @@ export const blogPosts = [
     date: "Jan 5, 2025",
     readTime: "10 min",
     category: "Career Advice",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -486,8 +495,9 @@ export const blogPosts = [
         <p style='margin-bottom:12px; line-height:1.7;'>This is your no-fluff guide to turning CPT into a full-time job and maximizing your shot at H-1B — with speed, purpose, and strategy.</p>
 
         <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Step 1: Make CPT Count Beyond the Internship</h2>
-        <p style='margin-bottom:12px; line-height:1.7;'>Don't treat CPT like a checkbox. Even if it's unpaid, part-time, or remote — relevance is everything.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Even if it's unpaid, part-time, or remote — relevance is everything.</p>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Don't treat CPT like a checkbox</li>
           <li>Choose roles in sponsor-friendly sectors: tech, finance, analytics, healthcare</li>
           <li>Build credibility and early U.S. market experience</li>
           <li>Use it as a bridge to strong professional relationships</li>
@@ -495,8 +505,9 @@ export const blogPosts = [
         <p style='margin-bottom:12px; line-height:1.7;'><strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">flashfirejobs.com</a></strong> helps you find CPT roles that feed directly into H-1B opportunities.</p>
 
         <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Step 2: Begin OPT Job Prep While Still on CPT</h2>
-        <p style='margin-bottom:12px; line-height:1.7;'>Don't wait for your EAD card. Start 3–4 months before graduation:</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Start 3–4 months before graduation:</p>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Don't wait for your EAD card</li>
           <li>Polish your resume using keyword insights</li>
           <li>Optimize your LinkedIn for recruiter visibility</li>
           <li>Identify companies with real sponsorship records</li>
@@ -514,8 +525,9 @@ export const blogPosts = [
         <p style='margin-bottom:12px; line-height:1.7;'><strong>flashfirejobs.com</strong> automates 1,000+ sponsor-ready job applications in just 6–7 weeks — each one role-specific and data-driven.</p>
 
         <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Step 4: Apply Only Where Sponsorship is Likely</h2>
-        <p style='margin-bottom:12px; line-height:1.7;'>Not all companies sponsor. Don't waste energy applying everywhere.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Not all companies sponsor.</p>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Don't waste energy applying everywhere</li>
           <li>Access curated company sponsorship data</li>
           <li>Focus on sectors that align with your visa timeline</li>
           <li>Build a roadmap that works with your CPT > OPT > H-1B path</li>
@@ -585,6 +597,10 @@ export const blogPosts = [
     date: "Jan 1, 2025",
     readTime: "14 min",
     category: "Career Advice",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image: "/images/blog5.jpeg",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
@@ -602,7 +618,7 @@ export const blogPosts = [
 
 <p style='margin-bottom:12px; line-height:1.7;'>I was on OPT. My EAD had just arrived. And like every hopeful product manager, I had:</p>
 
-<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
   <li>A decent resume (or so I thought)</li>
   <li>A good LinkedIn profile</li>
   <li>Countless bookmarked roles on LinkedIn, Indeed, and Handshake</li>
@@ -622,7 +638,7 @@ export const blogPosts = [
 
 <p style='margin-bottom:12px; line-height:1.7;'>Here’s what happened within 48 hours:</p>
 
-<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
   <li>My resume was fully rebuilt using ATS-optimized formatting</li>
   <li>My LinkedIn was rewritten to target product roles with sponsor potential</li>
   <li>I got a personalized dashboard to track every application in real-time</li>
@@ -639,7 +655,7 @@ export const blogPosts = [
 
 <p style='margin-bottom:12px; line-height:1.7;'>They applied to <strong>300 product management jobs</strong> in my first week — each with a custom resume that reflected:</p>
 
-<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
   <li>Keywords from the job description</li>
   <li>My skills and projects (PM case study, user research, agile delivery)</li>
   <li>U.S.-friendly formatting that passed ATS scans</li>
@@ -647,7 +663,7 @@ export const blogPosts = [
 
 <p style='margin-bottom:12px; line-height:1.7;'>I didn’t lift a finger. Meanwhile, I used the time to:</p>
 
-<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
   <li>Prepare STAR stories</li>
   <li>Watch PM interview prep videos</li>
   <li>Build a Notion doc of product ideas</li>
@@ -659,18 +675,18 @@ export const blogPosts = [
 
 <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Week 3–4: Interview Momentum and Role Targeting</h2>
 
-<p style='margin-bottom:12px; line-height:1.7;'>Here’s where flashfirejobs.com really separated itself:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Here's where flashfirejobs.com really separated itself:</p>
 
-<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-  <li>I saw which roles got replies — and which didn’t</li>
-  <li>The AI started prioritizing similar jobs</li>
-  <li>My profile visibility went up — recruiters started noticing</li>
-</ul>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Don't waste time on roles that don't respond — I saw which roles got replies and which didn't</li>
+          <li>Don't apply blindly — The AI started prioritizing similar jobs</li>
+          <li>Don't stay invisible — My profile visibility went up and recruiters started noticing</li>
+        </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>LinkedIn got optimized too — headline, summary, and experience were rewritten to better reflect my skills and goals.</p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>I got interviews at:</p>
-<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
   <li>A Series B SaaS company</li>
   <li>A fintech firm known for sponsoring H-1Bs</li>
   <li>A product role at a Fortune 500 company</li>
@@ -698,14 +714,14 @@ export const blogPosts = [
 
 <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Why flashfirejobs.com Actually Works</h2>
 
-<ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+<ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
   <li><strong>Tailored Applications, Every Time</strong> — AI + human-crafted resumes for every job</li>
   <li><strong>Smart Matching</strong> — Based on your skills, location, and goals</li>
   <li><strong>ATS-Optimized Everything</strong> — Resumes and profiles built to pass filters</li>
   <li><strong>Speed & Volume</strong> — 1000+ jobs in 6 weeks, no missed deadlines</li>
   <li><strong>Real-Time Feedback</strong> — Dashboards show what’s working</li>
   <li><strong>You Save 150+ Hours</strong> — Just prep for interviews, they handle the rest</li>
-</ol>
+      </ul>
 
 <hr />
 
@@ -748,7 +764,11 @@ export const blogPosts = [
       "Landing your first U.S. job as an international student can feel impossible — unless you use the right system. Here's the exact playbook that worked for me.",
     date: "Dec 25, 2024",
     readTime: "16 min",
-    category: "Job Search Tips",
+    category: "Job Search Strategy",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image: "/images/blog6.jpeg",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
@@ -844,6 +864,10 @@ export const blogPosts = [
     date: "Jul 21, 2025",
     readTime: "9 min",
     category: "Career Advice",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image: "/images/blog7.jpeg",
     categoryColor: "bg-orange-100 text-orange-600",
     content: `
@@ -924,6 +948,10 @@ export const blogPosts = [
     date: "Jul 21, 2025",
     readTime: "8 min",
     category: "Career Advice",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image: "/images/blog8.jpeg",
     categoryColor: "bg-green-100 text-green-600",
     content: `
@@ -979,10 +1007,10 @@ export const blogPosts = [
       <li>Don’t track what’s working</li>
     </ul>
     <p style='margin-bottom:12px; line-height:1.7;'>Don’t make the same mistakes. Instead:</p>
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li>Use LinkedIn, YC, and Jobright for research</li>
       <li>Let <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color:#f97316;">flashfirejobs.com</a> handle the heavy lifting</li>
-    </ol>
+    </ul>
     <p>Thousands of users are already getting results. Now it’s your turn.</p>
     <p><strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color:#f97316;">Start your job search today</a></strong> — the right way.</p>
   `,
@@ -997,6 +1025,10 @@ export const blogPosts = [
     date: "Jul 21, 2025",
     readTime: "6 min",
     category: "Career Advice",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image: "/images/blog9.jpeg",
     categoryColor: "bg-orange-100 text-orange-600",
     content: `
@@ -1043,12 +1075,12 @@ export const blogPosts = [
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Final Takeaway</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>You don’t need luck. You need leverage. OPT job search success is about:</p>
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li>Targeted job filters</li>
       <li>Resume personalization</li>
       <li>Automated, strategic applications</li>
       <li>Real-time performance tracking</li>
-    </ol>
+    </ul>
 
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Thousands of OPT/STEM students</strong> have used this strategy and landed jobs within 4–8 weeks—even without referrals.</p>
 
@@ -1064,6 +1096,10 @@ export const blogPosts = [
     date: "Jul 21, 2025",
     readTime: "5 min",
     category: "Career Advice",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image: "/images/blog10.jpeg",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
@@ -1130,6 +1166,10 @@ export const blogPosts = [
     date: "Jul 23, 2025",
     readTime: "8 min",
     category: "Career Advice",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753269956/freepik__the-style-is-candid-image-photography-with-natural__60731_t7g37g.webp",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -1155,8 +1195,8 @@ export const blogPosts = [
       <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>2. Target the Right Job Boards</h2>
       <p style='margin-bottom:12px; line-height:1.7;'>Not every job board is built for international students. Here's where most students go wrong:</p>
       <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-        <li>Wasting hours on Indeed or LinkedIn with outdated or closed roles</li>
-        <li>Applying to companies that don't hire international talent</li>
+        <li>Don't waste hours on Indeed or LinkedIn with outdated or closed roles</li>
+        <li>Don't apply to companies that don't hire international talent</li>
       </ul>
       
       <p style='margin-bottom:12px; line-height:1.7;'>Instead, <strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">www.flashfirejobs.com</a></strong> scrapes roles from:</p>
@@ -1237,7 +1277,10 @@ export const blogPosts = [
       <p style='margin-bottom:12px; line-height:1.7;'><strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">www.flashfirejobs.com</a></strong> gives every user a personalized dashboard with application status, metrics, and improvement tips.</p>
 
       <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>8. Focus on Sponsor-Friendly Roles</h2>
-      <p style='margin-bottom:12px; line-height:1.7;'>Even if you don't need H-1B right now, long-term planning matters. You don't want to waste months on dead-end companies.</p>
+      <p style='margin-bottom:12px; line-height:1.7;'>Even if you don't need H-1B right now, long-term planning matters.</p>
+      <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <li>Don't waste months on dead-end companies</li>
+      </ul>
       
       <p style='margin-bottom:12px; line-height:1.7;'><strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">www.flashfirejobs.com</a></strong> prioritizes companies that:</p>
       <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -1312,6 +1355,10 @@ export const blogPosts = [
     date: "Jul 23, 2025",
     readTime: "6 min",
     category: "Success Stories",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753270580/freepik__the-style-is-candid-image-photography-with-natural__60732_wdgiw0.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -1422,7 +1469,11 @@ export const blogPosts = [
       "Getting ghosted by employers? You're not alone. Learn why international students face unique challenges in the U.S. job market and how to stop being ignored.",
     date: "Jul 22, 2025",
     readTime: "7 min",
-    category: "Job Search Tips",
+    category: "Job Search Strategy",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753335343/freepik__the-style-is-candid-image-photography-with-natural__48989_ysww2v.webp",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -1579,6 +1630,10 @@ export const blogPosts = [
     date: "Jul 21, 2025",
     readTime: "6 min",
     category: "Success Stories",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753335616/freepik__the-style-is-candid-image-photography-with-natural__48990_nm5lwr.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -1697,9 +1752,14 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>And because I had already seen which applications were working (thanks to the Flashfire dashboard), I doubled down on similar roles.</p>
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Final Thoughts: If You're Just Starting Out, Start Smart</h2>
-    <p style='margin-bottom:12px; line-height:1.7;'>You don't need referrals. You don't need work experience. And you don't need to apply blindly for months.</p>
+    <p style='margin-bottom:12px; line-height:1.7;'>What you don't need:</p>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>Don't need referrals</li>
+      <li>Don't need work experience</li>
+      <li>Don't need to apply blindly for months</li>
+    </ul>
     
-    <p style='margin-bottom:12px; line-height:1.7;'>You need:</p>
+    <p style='margin-bottom:12px; line-height:1.7;'>What you need:</p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>A clean, keyword-rich, ATS-proof resume</li>
       <li>A recruiter-ready LinkedIn profile</li>
@@ -1724,6 +1784,10 @@ export const blogPosts = [
     date: "Jul 22, 2025",
     readTime: "7 min",
     category: "Success Stories",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753336206/freepik__the-style-is-candid-image-photography-with-natural__20853_qj9mkz.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -1885,6 +1949,10 @@ export const blogPosts = [
     date: "Jul 24, 2025",
     readTime: "8 min",
     category: "Success Stories",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753515623/1_v8dktb.jpg",
     categoryColor: "bg-green-100 text-green-600",
@@ -2088,6 +2156,10 @@ export const blogPosts = [
     date: "Jul 25, 2025",
     readTime: "6 min",
     category: "Success Stories",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753515620/2_ufbx8d.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -2105,7 +2177,7 @@ export const blogPosts = [
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Part 1: What Does "Work Authorization" Really Mean?</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>When employers ask this, they typically want to know two things:</p>
 
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li><strong>Are you currently authorized to work in the U.S.?</strong>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>If you're on OPT or STEM OPT, the answer is YES.</li>
@@ -2116,7 +2188,7 @@ export const blogPosts = [
           <li>The correct answer in 90% of cases? <strong>"No."</strong></li>
         </ul>
       </li>
-    </ol>
+    </ul>
 
     <p style='margin-bottom:12px; line-height:1.7;'>Even if you'll eventually need H-1B, the right way to approach job applications is with confidence, clarity, and a strategy.</p>
 
@@ -2239,6 +2311,10 @@ export const blogPosts = [
     date: "Jul 26, 2025",
     readTime: "8 min",
     category: "Success Stories",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753699963/01_n3iilu.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -2404,7 +2480,7 @@ export const blogPosts = [
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>How to Stay in the Game</h2>
 
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li><strong>Use smart tools like <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">www.flashfirejobs.com</a></strong> to eliminate grunt work and save time.</li>
       <li><strong>Stop applying manually</strong>—let automation handle it at scale.</li>
       <li><strong>Focus on learning + outreach</strong>—build your visibility and skills.</li>
@@ -2413,7 +2489,7 @@ export const blogPosts = [
       <li><strong>Surround yourself with support</strong>—mentors, friends, tools.</li>
       <li><strong>Stay consistent</strong>—because success compounds with time.</li>
       <li><strong>Know your value</strong>—and learn how to communicate it.</li>
-    </ol>
+    </ul>
 
     <p style='margin-bottom:12px; line-height:1.7;'>And finally:<br>
     <strong>Remember that no one else has your exact story. Your voice. Your value.</strong></p>
@@ -2444,6 +2520,10 @@ export const blogPosts = [
     date: "Jul 27, 2025",
     readTime: "7 min",
     category: "Success Stories",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753699963/02_rkdgv0.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -2567,12 +2647,12 @@ export const blogPosts = [
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>How You Can Get Started</h2>
 
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li>Go to <strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">www.flashfirejobs.com</a></strong></li>
       <li>Pick a plan (I chose Executive: 1,000 applications)</li>
       <li>Share your resume, LinkedIn, and job preferences</li>
       <li>Let the team take over your job search</li>
-    </ol>
+    </ul>
 
     <p style='margin-bottom:12px; line-height:1.7;'>That's it.</p>
 
@@ -2629,6 +2709,10 @@ export const blogPosts = [
     date: "Jul 28, 2025",
     readTime: "6 min",
     category: "Success Stories",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://res.cloudinary.com/drit9nkha/image/upload/v1753699963/03_gjgsmu.webp",
     categoryColor: "bg-green-100 text-green-600",
@@ -2801,12 +2885,12 @@ export const blogPosts = [
 
     <p style='margin-bottom:12px; line-height:1.7;'>Then here's what I'd do again in a heartbeat:</p>
 
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li>Go to <strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">www.flashfirejobs.com</a></strong></li>
       <li>Book a free consult or start a free 7-day trial</li>
       <li>Pick the <strong>Executive Plan</strong> (1000 job applications)</li>
       <li>Let the team take over</li>
-    </ol>
+    </ul>
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Final Thoughts: Why Flashfire Works</h2>
 
@@ -2844,7 +2928,11 @@ export const blogPosts = [
       "Discover the top 20 companies actively sponsoring H-1B visas in 2025, plus strategic application tips for international students. Stop wasting time on companies that don't sponsor - target the right employers from day one.",
     date: "Jan 25, 2025",
     readTime: "18 min",
-    category: "H-1B Visa",
+    category: "Visa & Immigration",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1759450088/ChatGPT_Image_Oct_2_2025_08_35_24_PM_rgnlqm.png",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -2895,7 +2983,7 @@ export const blogPosts = [
 
     <p style='margin-bottom:12px; line-height:1.7;'>Here's the breakdown of the top H-1B visa sponsors in 2025:</p>
 
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li><strong>Amazon</strong> – 6,000+ petitions</li>
       <li><strong>Infosys</strong> – 5,500+</li>
       <li><strong>TCS</strong> – 4,800+</li>
@@ -2916,7 +3004,7 @@ export const blogPosts = [
       <li><strong>Apple</strong> – 1,300+</li>
       <li><strong>Tesla</strong> – 1,000+</li>
       <li><strong>Nvidia</strong> – 900+</li>
-    </ol>
+    </ul>
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>How to Apply the Smart Way (Not the Painful Way)</h2>
 
@@ -3023,7 +3111,11 @@ export const blogPosts = [
       "Landing a job in the U.S. on OPT can feel overwhelming—especially if you don't have personal referrals. Learn step-by-step strategies, real-life examples, and actionable tips to secure interviews and land offers without connections.",
     date: "Jan 20, 2025",
     readTime: "15 min",
-    category: "Career Strategy",
+    category: "Career Planning",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1759403990/e7a3e92f-58a4-427d-86b2-f4a47cf40a96-wm_uxgz8b.png",
     categoryColor: "bg-green-100 text-green-600",
@@ -3034,11 +3126,11 @@ export const blogPosts = [
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>The Reality of Job Hunting on OPT Without Referrals</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Many international students face three major hurdles:</p>
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li><strong>Limited Network:</strong> Arriving in the U.S. without professional contacts limits access to the hidden job market.</li>
       <li><strong>High Competition:</strong> According to Glassdoor, competitive roles in tech, finance, or analytics can attract 500+ applicants per position.</li>
       <li><strong>Visa & OPT Concerns:</strong> Some employers hesitate to hire OPT candidates due to visa timelines or sponsorship concerns.</li>
-    </ol>
+    </ul>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Pro Insight:</strong> Knowing these challenges upfront allows you to plan a strategic job search, rather than applying randomly.</p>
 
@@ -3173,13 +3265,13 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Pro Tip:</strong> Consistency beats luck. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">flashfirejobs.com</a> keeps your OPT job search structured and actionable.</p>
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Bonus Tips to Accelerate Your OPT Job Search</h2>
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li><strong>Mock Interviews:</strong> Record and review to improve answers.</li>
       <li><strong>Mini Projects:</strong> Showcase initiative and skills.</li>
       <li><strong>Alumni Success Stories:</strong> Learn from students who succeeded.</li>
       <li><strong>Time Management:</strong> Dedicate 2–3 hours daily for applications, networking, and learning.</li>
       <li><strong>Stay Updated:</strong> Follow trends, technologies, and tools in your industry.</li>
-    </ol>
+    </ul>
 
     <h2 style='margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:700;'>Why Flashfire Is a Game-Changer</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Even without referrals, <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">Flashfire</a> equips students with everything they need:</p>
@@ -3235,7 +3327,11 @@ export const blogPosts = [
       "Landing a job in the U.S. can feel like an uphill battle. We analyzed over 10,000 U.S. job listings to pinpoint exactly what employers want in 2025.",
     date: "Oct 8, 2025",
     readTime: "15 min",
-    category: "Career Skills",
+    category: "Career Advice",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1759953226/skills_article_banner_3_wi2cw3.png",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -3357,7 +3453,11 @@ export const blogPosts = [
       "A strategic guide for students and professionals dreaming of America. Learn the perfect window of opportunity to transform uncertainty into strategy.",
     date: "Oct 8, 2025",
     readTime: "12 min",
-    category: "Strategy",
+    category: "Career Planning",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1759953595/ChatGPT_Image_Oct_4_2025_06_12_17_PM_e1bjl6.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -3534,6 +3634,10 @@ export const blogPosts = [
     date: "Oct 8, 2025",
     readTime: "18 min",
     category: "Visa & Immigration",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1759953814/WhatsApp_Image_2025-10-08_at_18.28.03_zy9l1t.jpg",
     categoryColor: "bg-red-100 text-red-600",
@@ -3555,12 +3659,12 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>For FY2026, USCIS opened registration from March 7–24, 2025. Employers registered approximately 336,000 unique beneficiaries, of which 118,660 were selected — a 35% selection rate, the highest since 2021.</p>
     
     <h3 style='margin-top:15px; font-weight:600;'>H-1B Process Overview:</h3>
-    <ol style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
+    <ul style="margin-left:20px;margin-bottom:12px;line-height:1.6;">
       <li><strong>Employer Registration (March)</strong> – Only employers or their attorneys can register candidates through the USCIS online system. Students cannot self-register.</li>
       <li><strong>Random Selection (Lottery)</strong> – USCIS conducts a lottery to fill both the regular and master's caps.</li>
       <li><strong>Petition Filing (April–June)</strong> – Only selected candidates' employers file the full petition (Form I-129 + Labor Condition Application).</li>
       <li><strong>Approval & Start Date (October 1)</strong> – Once approved, the H-1B becomes active at the start of the fiscal year.</li>
-    </ol>
+    </ul>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Cap-Gap Extension:</strong> Students on OPT can continue employment until October 1 if their H-1B petition is filed and pending.</p>
 
@@ -3718,7 +3822,11 @@ export const blogPosts = [
       "Rethinking Prestige in a Changing World of Work. In an age of automation and skill-based evaluation, the prestige of your university has become only one piece of the puzzle.",
     date: "Oct 14, 2025",
     readTime: "14 min",
-    category: "Career Insights",
+    category: "Career Advice",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1760403793/WhatsApp_Image_2025-10-13_at_11.19.28_fiucet.jpg",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -3790,6 +3898,10 @@ export const blogPosts = [
     date: "Oct 14, 2025",
     readTime: "12 min",
     category: "Career Planning",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1760403936/Screenshot_2025-10-14_at_6.35.23_AM_nzxhgn.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -4020,7 +4132,11 @@ export const blogPosts = [
       "A realistic guide for students navigating finances, careers, and dreams. Understand the true cost, potential payoff, and strategies to make loans work in your favor.",
     date: "Oct 14, 2025",
     readTime: "15 min",
-    category: "Financial Planning",
+    category: "Career Planning",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1760404035/Flashfire_design_concepts_8_jqduza.png",
     categoryColor: "bg-green-100 text-green-600",
@@ -4197,7 +4313,7 @@ export const blogPosts = [
       <li><strong>Side projects & certifications:</strong> Boost employability and justify ROI</li>
       <li><strong>Internships matter more than grades:</strong> Flashfire helps prioritize applications</li>
       <li><strong>Pay strategically:</strong> Use OPT earnings to reduce principal early</li>
-    </ol>
+    </ul>
 
     <h2>Emotional Perspective: Beyond Dollars</h2>
     <p>Loans aren't just about money — they represent hope, ambition, and risk-taking.</p>
@@ -4282,7 +4398,11 @@ export const blogPosts = [
       "The student centre buzzes with activity. Lines form in front of company booths — Google, Deloitte, IBM, and a handful of local startups. Students clutch printed resumes, rehearsing introductions under their breath. The excitement is palpable, but so is the anxiety.",
     date: "Oct 22, 2025",
     readTime: "8 min",
-    category: "Career Strategy",
+    category: "Career Planning",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1761120200/Screenshot_2025-10-22_at_1.29.45_PM_o932nz.png",
     categoryColor: "bg-green-100 text-green-600",
@@ -4323,7 +4443,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Recruiters rarely come to hire hundreds of students on the spot. Their goals are more strategic: build pipelines, identify strong communicators, and enhance their brand presence.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>In 2025, most recruiters view career fairs as relationship-building events rather than final recruitment rounds. They pay attention to:</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Confidence and clarity in how students present themselves</li>
       <li>Genuine curiosity about the company's work</li>
       <li>Professional follow-up after the event</li>
@@ -4364,7 +4484,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Students can now apply to thousands of roles with precision, targeting positions that match skills, visa eligibility, and industry trends.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>Platforms like <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> allow students to:</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Upload a single resume and automatically optimize it for hundreds of roles</li>
       <li>Track employer engagement and feedback</li>
       <li>Receive continuous guidance rather than episodic support</li>
@@ -4380,7 +4500,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> scales the core advantages of career fairs — connection, visibility, and opportunity — using technology.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> bridges the gap by:</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>AI Resume Optimization:</strong> Tailoring resumes to match employer ATS filters and job descriptions</li>
       <li><strong>Automated Applications:</strong> Applying intelligently to thousands of relevant roles</li>
       <li><strong>Performance Analytics:</strong> Providing actionable insights on application effectiveness and industry trends</li>
@@ -4395,14 +4515,14 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>They remain valuable for networking, understanding industry expectations, and building confidence. Human interaction cannot be replaced entirely by technology.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>However, relying on career fairs alone is insufficient. Successful candidates combine:</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>In-person engagement to build authentic connections</li>
       <li>AI-powered platforms like <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> to scale applications, optimize resumes, and track outcomes efficiently</li>
     </ul>
 
     <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
       <h3 style="font-weight:bold; margin-bottom:8px;">Checklist for Maximizing Career Fair Success:</h3>
-      <ul class="list-disc ml-6 my-3">
+      <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
         <li>Research companies and their openings in advance</li>
         <li>Customize your pitch for each interaction</li>
         <li>Collect recruiter contacts and follow up promptly</li>
@@ -4430,7 +4550,11 @@ export const blogPosts = [
       "A personal journey of lessons, discipline, and early preparation — powered by balance and clarity.",
     date: "Oct 22, 2025",
     readTime: "10 min",
-    category: "Student Life",
+    category: "International Students",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1761120333/Screenshot_2025-10-22_at_1.35.12_PM_bsddgu.png",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -4454,7 +4578,7 @@ export const blogPosts = [
       <li>Do I genuinely enjoy this?</li>
       <li>Does it help me grow or teach me something new?</li>
       <li>Can I sustain it without burning out?</li>
-    </ol>
+    </ul>
     
     <p style='margin-bottom:12px; line-height:1.7;'>Half the list was gone within an hour.</p>
     
@@ -4516,7 +4640,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>The more I interacted with career counselors and alumni, the clearer it became: universities abroad aren't just selecting for grades — they're identifying future professionals.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>Your ability to balance studies and extracurriculars demonstrates the same traits global employers seek later:</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Time management</li>
       <li>Self-motivation</li>
       <li>Resilience under stress</li>
@@ -4603,6 +4727,10 @@ export const blogPosts = [
     date: "Oct 22, 2025",
     readTime: "9 min",
     category: "International Students",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1761120428/Screenshot_2025-10-22_at_1.36.49_PM_cyzlzw.png",
     categoryColor: "bg-red-100 text-red-600",
@@ -4637,7 +4765,7 @@ export const blogPosts = [
     </div>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to build yours:</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Use your CPT eligibility strategically — apply early, not reactively.</li>
       <li>Convert class projects into portfolios employers value.</li>
       <li>Automate applications to part-time, remote, or internship roles that welcome international talent through <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a>.</li>
@@ -4658,7 +4786,7 @@ export const blogPosts = [
     </div>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Action steps:</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Publish project results, dashboards, or technical work samples online.</li>
       <li>Optimize your profile for discoverability — recruiters should find you, not the other way around.</li>
       <li>Maintain active ties with alumni and peers; opportunities often come through shared connections.</li>
@@ -4761,6 +4889,10 @@ export const blogPosts = [
     date: "Oct 22, 2025",
     readTime: "12 min",
     category: "International Students",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1761120510/Screenshot_2025-10-22_at_1.38.17_PM_ftkmbt.png",
     categoryColor: "bg-red-100 text-red-600",
@@ -4862,6 +4994,10 @@ export const blogPosts = [
     date: "Oct 22, 2025",
     readTime: "11 min",
     category: "Job Search Strategy",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1761120583/Screenshot_2025-10-22_at_1.39.30_PM_n6rzvq.png",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -4887,7 +5023,7 @@ export const blogPosts = [
       <li>This person has already been vetted. Someone inside the company is willing to put their name behind them.</li>
       <li>They understand our culture. Referred candidates often mirror the mindset and values of those already thriving in the organization.</li>
       <li>They reduce hiring risk. Every wrong hire costs time, money, and morale — referrals make that risk smaller.</li>
-    </ol>
+    </ul>
     
     <p style='margin-bottom:12px; line-height:1.7;'>That's why companies actively design referral programs and reward employees who bring in strong candidates. The incentive isn't symbolic; it's strategic. On average, referred candidates are four times more likely to be interviewed, twice as likely to be hired, and tend to stay 45% longer than non-referred hires.</p>
     
@@ -5044,6 +5180,10 @@ export const blogPosts = [
     date: "Oct 22, 2025",
     readTime: "15 min",
     category: "Career Planning",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://res.cloudinary.com/dbjop20tw/image/upload/v1761120681/Screenshot_2025-10-22_at_1.41.07_PM_bhqgt1.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -5060,7 +5200,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Data is now the foundation of every decision — from predicting customer trends to improving hospital efficiency. Organizations across sectors need people who can collect, analyse, and communicate insights effectively.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn Python, SQL, and visualization tools like Tableau or Power BI.</li>
       <li>Build one real-world project — perhaps analysing university or local-business data.</li>
       <li>Quantify your results: "Reduced reporting time by 25%."</li>
@@ -5076,7 +5216,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>As everything moves online, protecting data has become mission-critical. Breaches cost companies millions, and skilled defenders are in short supply.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Start with beginner certifications like CompTIA Security+ or Google Cybersecurity.</li>
       <li>Build a small home lab to simulate attacks and defences.</li>
       <li>Stay current with real-world incidents and emerging tools.</li>
@@ -5092,7 +5232,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Every app, from Netflix to banking portals, depends on cloud infrastructure. Cloud and DevOps engineers design and maintain the systems that keep digital life running.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn one cloud platform deeply (AWS, Azure, or Google Cloud).</li>
       <li>Understand Docker, Kubernetes, and CI/CD pipelines.</li>
       <li>Earn an entry certification such as AWS Cloud Practitioner.</li>
@@ -5108,7 +5248,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>AI is now at the core of modern innovation — from recommendation engines to generative design. But the biggest demand isn't for researchers; it's for applied practitioners who can turn models into products.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn ML basics: data preparation, supervised learning, model evaluation.</li>
       <li>Try no-code AI tools to prototype ideas.</li>
       <li>Create one tangible project — for example, an image classifier or chatbot.</li>
@@ -5124,7 +5264,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Design is now strategy. Great UX translates directly into growth, and companies want people who blend creativity with empathy and data-driven iteration.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn Figma and basics of user testing.</li>
       <li>Redesign an existing app and document your reasoning.</li>
       <li>Measure improvement — even small usability gains matter.</li>
@@ -5140,7 +5280,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Healthcare is undergoing digital transformation. Hospitals, insurers, and startups need professionals who can bridge clinical knowledge with analytics and software.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Pair your field (data, business, or biology) with short health-informatics training.</li>
       <li>Learn HIPAA, EHR systems, and healthcare data standards.</li>
       <li>Target hybrid roles like Clinical Data Analyst or Digital Health Coordinator.</li>
@@ -5155,7 +5295,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Sustainability isn't a trend — it's a trillion-dollar transition. Solar, wind, and ESG roles are expanding across engineering, analytics, and policy.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn carbon-accounting and sustainability-reporting frameworks.</li>
       <li>Volunteer for energy-saving or recycling initiatives on campus.</li>
       <li>Track measurable impact — companies love practical results.</li>
@@ -5170,7 +5310,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Every brand today competes for attention. Digital marketing combines creativity, psychology, and analytics — making it ideal for students who enjoy measurable results.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn Google Ads, SEO, and marketing-automation basics.</li>
       <li>Run small campaigns for clubs or personal projects.</li>
       <li>Measure impact: "Increased event sign-ups by 300%."</li>
@@ -5186,7 +5326,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>The pandemic revealed how fragile global supply chains are. Now companies are re-engineering them with data, automation, and resilience at the centre.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn Lean Six Sigma basics and supply-chain analytics.</li>
       <li>Explore ERP tools like SAP or Oracle.</li>
       <li>Focus on quantifiable improvements — time saved, cost reduced.</li>
@@ -5201,7 +5341,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Every growing company needs professionals who connect data, users, and execution. Product and strategy roles reward curiosity, leadership, and analytical thinking.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to Pivot Fast</strong></p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Learn frameworks like OKRs, user-stories, and A/B testing.</li>
       <li>Volunteer to manage a small project — experience beats theory.</li>
       <li>Emphasize impact: outcomes achieved, not tasks completed.</li>
@@ -5213,7 +5353,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Bigger Picture</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>The U.S. job market is shifting — and that's good news for adaptable students.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Traditional degree-based hiring is giving way to skill-based opportunities.</li>
       <li>Communication, analytics, and adaptability now matter more than titles.</li>
     </ul>
@@ -5230,7 +5370,7 @@ export const blogPosts = [
       <li>Reach out to 10 professionals in the field for advice.</li>
       <li>Apply early and track progress. Momentum creates confidence.</li>
       <li>Refine every month based on feedback and results.</li>
-    </ol>
+    </ul>
     
     <p style='margin-bottom:12px; line-height:1.7;'>Students using <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire's</a> step-by-step job-targeting system often see their first interview call within weeks — not months — because they focus on alignment, not volume.</p>
 
@@ -5254,7 +5394,11 @@ export const blogPosts = [
       "You're in the U.S. on an F-1 visa: lectures, coding sessions, team projects, maybe a late-night snack break. You're dreaming ahead—OPT, maybe STEM extension, and eventually — the coveted H-1B. But as of September 2025, the hiring landscape just shifted.",
     date: "Oct 27, 2025",
     readTime: "8 min",
-    category: "Immigration",
+    category: "Visa & Immigration",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.15.42%E2%80%AFPM.png",
     categoryColor: "bg-red-100 text-red-600",
@@ -5270,7 +5414,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>If you're on F-1/OPT in the U.S. and your employer files a change of status (F-1 → H-1B) while you remain in the country, you're generally not subject to the $100K fee—with current guidance. That means your career pathway remains viable without being saddled by that new cost burden.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">The Caution Flags</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>If you travel abroad and your employer intends to file for you while you're outside, or you require consular stamping, the $100K fee may apply.</li>
       <li>Beyond travel, the new fee makes employers more cautious. With a higher upfront cost, they'll expect higher certainty and return on investment before sponsoring.</li>
       <li>Because the rule is recent and legal/regulatory interpretation is still settling, "loopholes" or fine-print may shift. Staying informed matters.</li>
@@ -5279,7 +5423,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">One Student's Journey: How Preparation Made the Difference</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Meet Alisha, an F-1 student finishing her Master's in Biostatistics in December 2025. She knew her field was niche, but the global health analytics startup she interned at had U.S. operations and a history of H-1B filings. Here's how she prepared:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>In her final semester she treated her OPT and H-1B pathway as strategic projects, not afterthoughts. She gathered metrics: "I improved model runtime by 35%" or "I enabled reports that shaved three review days per week."</li>
       <li>She avoided travel abroad after filing her OPT application. Once on OPT, she remained in the U.S. and aligned her start and filing window with her employer's internal sponsorship calendar.</li>
       <li>She used a tool like <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> to track deadlines: I-20 updates, OPT application window, H-1B registration, employer sponsorship readiness.</li>
@@ -5297,7 +5441,7 @@ export const blogPosts = [
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">2. Align Early with Employer Strategy</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Start conversations around H-1B sponsorship well before your OPT year ends. Ask:</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>"Will the petition be a change of status?"</li>
       <li>"Will I need to travel for stamping?"</li>
       <li>"Does the company have a budget for the $100K cost (if required)?"</li>
@@ -5332,6 +5476,10 @@ export const blogPosts = [
     date: "Oct 27, 2025",
     readTime: "12 min",
     category: "Career Planning",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.18.24%E2%80%AFPM.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -5434,7 +5582,7 @@ export const blogPosts = [
       <li><strong>Transparency:</strong> Public outcome dashboards that show real hiring data.</li>
       <li><strong>Employer access:</strong> Cities like Boston, Austin, NYC, and Atlanta drive opportunity density.</li>
       <li><strong>STEM advantage:</strong> OPT extension programs give internationals up to 3 years of U.S. work time.</li>
-    </ol>
+    </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Flashfire Framework: Choosing the Right University</h2>
     <ol class="list-decimal ml-6 my-3">
@@ -5443,7 +5591,7 @@ export const blogPosts = [
       <li>Check for STEM designation and CPT/OPT timelines.</li>
       <li>Ask the career office which companies sponsor internationals.</li>
       <li>Plan your first internship or co-op at least 12–18 months ahead.</li>
-    </ol>
+    </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Flashfire Helps You Turn Degrees into Job Offers</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Most universities prepare you for graduation — but <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> prepares you for hiring.</p>
@@ -5463,6 +5611,10 @@ export const blogPosts = [
     date: "Oct 27, 2025",
     readTime: "10 min",
     category: "Career Planning",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.19.24%E2%80%AFPM.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -5483,7 +5635,7 @@ export const blogPosts = [
     </blockquote>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Why Students Choose Pittsburgh:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Affordable rental options</li>
       <li>Strong research and startup ecosystem</li>
       <li>Walkable neighbourhoods</li>
@@ -5501,7 +5653,7 @@ export const blogPosts = [
     </blockquote>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Lifestyle Overview:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Compact and walkable downtown area</li>
       <li>Wide range of international cuisines</li>
       <li>Active arts and entertainment scene</li>
@@ -5519,14 +5671,14 @@ export const blogPosts = [
     </blockquote>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Why Students Prefer Raleigh:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Abundant green spaces and safety</li>
       <li>Strong alumni and research networks</li>
       <li>Collaborative startup culture</li>
     </ul>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Industry Composition (2025):</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>35% Technology</li>
       <li>20% Biotechnology</li>
       <li>15% Education</li>
@@ -5544,7 +5696,7 @@ export const blogPosts = [
     </blockquote>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Why Atlanta Stands Out:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Well-connected international airport</li>
       <li>Warm climate and lower utility expenses</li>
       <li>Expanding job opportunities across industries</li>
@@ -5630,7 +5782,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Choosing where to live and start a career in the United States can be overwhelming. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> simplifies this process with an integrated platform designed specifically for international students.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">How Flashfire Helps Students:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Smart City Match:</strong> Recommends best-fit U.S. cities based on budget, field, and visa status.</li>
       <li><strong>AI-Powered Applications:</strong> Automatically applies to hundreds of roles with customized résumés and cover letters.</li>
       <li><strong>Living Cost Dashboard:</strong> Tracks real-time rent, grocery, and transportation expenses.</li>
@@ -5659,7 +5811,11 @@ export const blogPosts = [
       "Breaking into the U.S. job market as an international student can feel overwhelming. You might have strong grades, impressive internships, or excellent skills—but without the right network, opportunities often remain out of reach.",
     date: "Oct 27, 2025",
     readTime: "9 min",
-    category: "Career Tips",
+    category: "Career Advice",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.20.40%E2%80%AFPM.png",
     categoryColor: "bg-green-100 text-green-600",
@@ -5670,7 +5826,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>With <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> as your guide, navigating this journey becomes structured, achievable, and much less intimidating.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Key Takeaways:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Access hidden job opportunities</li>
       <li>Gain mentorship and career guidance</li>
       <li>Build professional confidence</li>
@@ -5682,7 +5838,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Networking helps international students bridge cultural differences, build credibility, and accelerate their career growth.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Top Networking Channels for Students</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>LinkedIn:</strong> Showcase your profile, post insights, and reach out to professionals.</li>
       <li><strong>Alumni Networks:</strong> Mentors and advocates who understand your challenges.</li>
       <li><strong>Career Fairs & Conferences:</strong> Face-to-face opportunities to meet recruiters and professionals.</li>
@@ -5705,7 +5861,7 @@ export const blogPosts = [
       <li>Highlight a shared connection or network</li>
       <li>Request 15–20 minutes to discuss their career journey</li>
       <li>Focus on learning, not asking for a job</li>
-    </ol>
+    </ul>
 
     <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Sample Email:</h4>
     <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
@@ -5719,7 +5875,7 @@ export const blogPosts = [
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">2. Career Fairs and Conferences</h3>
     <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Preparation Tips:</h4>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Research companies and roles before attending</li>
       <li>Prepare a concise elevator pitch (30–60 seconds)</li>
       <li>Follow up promptly via email or LinkedIn</li>
@@ -5743,7 +5899,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Flashfire: Your Networking and Job Search Ally</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Traditional networking can feel scattered and intimidating, especially for international students. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> simplifies the process:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Curated job opportunities for OPT/H-1B needs</li>
       <li>Direct connections with recruiters who understand visa challenges</li>
       <li>Resume, LinkedIn, and outreach guidance</li>
@@ -5757,7 +5913,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Actionable Tips to Start Networking Today</h2>
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Checklist for Students:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Optimize your LinkedIn profile: professional photo, headline, and detailed experience</li>
       <li>Identify 20–30 industry professionals to connect with</li>
       <li>Craft your elevator pitch highlighting your skills, experiences, and goals</li>
@@ -5769,7 +5925,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Conclusion: Networking as a Career Accelerator</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Networking is not optional—it is essential. For international students, it:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Unlocks hidden job opportunities</li>
       <li>Provides mentorship</li>
       <li>Builds professional confidence</li>
@@ -5791,7 +5947,11 @@ export const blogPosts = [
       "Your Resume Deserves to Be Seen — Not Filtered. Landing a U.S. job as an international student in 2025 feels like running a marathon where the finish line keeps moving. You've studied hard, earned your degree, built projects, and even completed internships—yet your applications seem to vanish into silence.",
     date: "Oct 27, 2025",
     readTime: "11 min",
-    category: "Resume Tips",
+    category: "Career Advice",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.21.21%E2%80%AFPM.png",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -5886,7 +6046,7 @@ export const blogPosts = [
     <ol class="list-decimal ml-6 my-3">
       <li>Can you legally work in the U.S.?</li>
       <li>Do you have relevant U.S.-based experience?</li>
-    </ol>
+    </ul>
     
     <p style='margin-bottom:12px; line-height:1.7;'>Address both clearly and confidently.</p>
 
@@ -5902,7 +6062,9 @@ export const blogPosts = [
     <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Example:</h4>
     <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
       <p style='margin-bottom:8px; line-height:1.6;'><strong>Tech Support Assistant | University of Southern California</strong></p>
-      <p style='margin-bottom:8px; line-height:1.6;'>• Delivered IT support to 200+ students and staff, resolving technical issues with a 95% first-call resolution rate.</p>
+      <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <li>Delivered IT support to 200+ students and staff, resolving technical issues with a 95% first-call resolution rate.</li>
+      </ul>
     </div>
     
     <p style='margin-bottom:12px; line-height:1.7;'>Real-world context beats generic responsibilities every time.</p>
@@ -5917,7 +6079,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Flashfire Resume Checklist</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Here's the formula our top-performing users follow:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>One page, reverse chronological order.</li>
       <li>Clear headings: Summary, Experience, Education, Skills, Projects.</li>
       <li>Text-based PDF or .docx format.</li>
@@ -5931,7 +6093,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> checks every one of these factors automatically when you upload your resume—ensuring it's fully ATS-safe before a single job application is sent.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Common Pitfalls That Cost Interviews</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Overdesigning:</strong> Fancy templates often look good but break when parsed by ATS. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> automatically cleans formatting before submission.</li>
       <li><strong>Weak Verbs:</strong> "Helped" and "Assisted" dilute impact. Replace them with "Led," "Engineered," "Implemented," or "Delivered."</li>
       <li><strong>Irrelevant Details:</strong> Skip personal info like photos, nationality, or age—these aren't standard in U.S. resumes.</li>
@@ -5942,7 +6104,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What Successful Resumes in 2025 Have in Common</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>After analysing hundreds of thousands of applications, <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> identified a few patterns:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Clear, single-column formatting.</li>
       <li>Consistent structure and spacing.</li>
       <li>Strong, quantified bullet points.</li>
@@ -5955,7 +6117,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How Flashfire Makes the Process Effortless</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Writing a perfect resume manually can take hours. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> makes it effortless:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>ATS Optimization:</strong> Upload your resume and a job link—<a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> automatically rewrites and reformats it for maximum match rate.</li>
       <li><strong>Smart Keyword Mapping:</strong> The system compares your resume against each posting, highlighting missing skills and phrases instantly.</li>
       <li><strong>Automatic Applications:</strong> <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> applies to 1,200+ verified U.S. jobs for you, using your optimized resume version for each one.</li>
@@ -5984,7 +6146,11 @@ export const blogPosts = [
       "For years, landing a job was about who you met, how well you interviewed, and how polished your resume looked on paper. Today, the rules have changed. Your resume doesn't even reach human hands at first — it passes through a gatekeeper that never sleeps: artificial intelligence.",
     date: "Oct 27, 2025",
     readTime: "10 min",
-    category: "Career Tips",
+    category: "Career Advice",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.22.07%E2%80%AFPM.png",
     categoryColor: "bg-green-100 text-green-600",
@@ -6065,7 +6231,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What Job Seekers Can Do Today</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>In this new reality, job search success depends on clarity, consistency, and adaptability. Here's how to start:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Learn how machines read resumes.</strong> Understand that formatting, phrasing, and alignment all matter.</li>
       <li><strong>Optimise before you apply.</strong> Use tools like <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> to tailor your resume to each role — it takes minutes but changes outcomes completely.</li>
       <li><strong>Balance automation with personality.</strong> Let AI handle the grunt work so you can focus on human storytelling.</li>
@@ -6103,6 +6269,10 @@ export const blogPosts = [
     date: "Oct 27, 2025",
     readTime: "12 min",
     category: "Career Planning",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.23.26%E2%80%AFPM.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -6110,7 +6280,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Reality: Degrees Don't Guarantee Offers</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>U.S. employers today care less about your course title and more about your outcomes. Several major hiring trends reveal this shift:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Employers prioritize demonstrated capability — real projects, measurable results, and clear impact over course names.</li>
       <li>"Entry-level" roles increasingly expect hands-on experience or tangible portfolios.</li>
       <li>Hybrid profiles that combine technical fluency with business understanding consistently outperform single-skill applicants.</li>
@@ -6129,7 +6299,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Walmart's recent H-1B filings list software engineers earning up to $234,000 annually, while hybrid "software + data" roles command even higher compensation.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Why It Works:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>High transferability — you can move between domains like data, AI, and product.</li>
       <li>Long-term stability with clear growth trajectories.</li>
       <li>Recognized across every industry.</li>
@@ -6153,7 +6323,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Companies increasingly want professionals who can not only build models but also interpret them in business context.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Why It Works:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Strong salary ceiling and sponsorship opportunities under STEM.</li>
       <li>Central to AI transformation strategies.</li>
       <li>Employers view data expertise as a strategic advantage, not a support function.</li>
@@ -6179,7 +6349,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Analytics sits at the intersection of data and decision-making, allowing professionals to work directly with leadership teams.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">Why It Works:</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Combines technical understanding with business intuition.</li>
       <li>Easier industry mobility — from technology to consulting to healthcare.</li>
       <li>Many MSBA programs qualify under STEM, extending OPT opportunities.</li>
@@ -6242,7 +6412,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Real Outcomes from Flashfire Users</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> users across the U.S. demonstrate how execution transforms theory into opportunity:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>A CS graduate from UMass landed interviews with Amazon and Oracle within three weeks by automating 300 targeted applications.</li>
       <li>A Northeastern MSBA graduate secured a Deloitte offer after reworking her resume to highlight ROI-driven achievements.</li>
       <li>A USC Data Science student received interview calls from Fidelity and Boeing after <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire's</a> optimizer reframed his project bullets into measurable business results.</li>
@@ -6274,7 +6444,7 @@ export const blogPosts = [
     
     <p style='margin-bottom:12px; line-height:1.7;'>But the one constant across all success stories is strategic execution.</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Choose Computer Science if you want long-term technical breadth.</li>
       <li>Choose Data Science if you enjoy modelling and AI innovation.</li>
       <li>Choose Business Analytics if you want to influence business decisions through data.</li>
@@ -6308,7 +6478,11 @@ export const blogPosts = [
       "If you're graduating in 2025 or 2026, you're entering a U.S. job market that's full of opportunity — and complexity. The demand for international talent remains robust. American employers are hiring record numbers of STEM graduates under Optional Practical Training (OPT), and industries from technology to finance are competing for skilled professionals.",
     date: "Oct 27, 2025",
     readTime: "13 min",
-    category: "Immigration",
+    category: "Visa & Immigration",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-10-27%20at%201.24.14%E2%80%AFPM.png",
     categoryColor: "bg-red-100 text-red-600",
@@ -6317,7 +6491,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>For most international students, OPT is where the career story begins. It's more than a work permit — it's a bridge between academia and employability.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-8 mb-3">What You Need to Know</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>OPT provides up to 12 months of post-study work authorization in your field.</li>
       <li>The STEM OPT extension adds 24 months, giving eligible graduates a total of three years of U.S. experience.</li>
       <li>Employers must be E-Verify registered and maintain a structured training plan (Form I-983).</li>
@@ -6353,7 +6527,7 @@ export const blogPosts = [
     
     <p style='margin-bottom:12px; line-height:1.7;'>If enacted in any form, this rule could push employers to prioritize:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Candidates already in the U.S. under OPT/STEM OPT (who may be exempt or lower risk).</li>
       <li>High-impact employees with proven ROI during their OPT period.</li>
       <li>Cap-exempt institutions like universities and research labs, where filings remain unaffected.</li>
@@ -6368,7 +6542,7 @@ export const blogPosts = [
     
     <p style='margin-bottom:12px; line-height:1.7;'>Universities, nonprofit research institutions, and certain government entities can file H-1B petitions year-round, outside the lottery cap. These employers typically include:</p>
     
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>University hospitals hiring data analysts or engineers</li>
       <li>Research nonprofits in fields like biotech or sustainability</li>
       <li>Academic labs employing graduates on federally funded projects</li>
@@ -6448,6 +6622,10 @@ export const blogPosts = [
     date: "Nov 3, 2025",
     readTime: "16 min",
     category: "Job Search Strategy",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-03%20at%207.25.45%E2%80%AFPM.png",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -6461,20 +6639,20 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Understanding the Landscape</h2>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Great discovery, recruiter outreach, and alumni networking</li>
       <li>Use filters: “Visa Sponsorship”, “Entry-Level”</li>
     </ul>
     <p><strong>Flashfire advantage:</strong> Scans active roles, tailors your resume per posting, and applies instantly — often before most applicants even see the job.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Handshake</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Verified, student-only roles; CPT-friendly</li>
       <li>Access may expire post-graduation</li>
     </ul>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Indeed & Glassdoor</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Huge volume; harder to filter for sponsors</li>
       <li>Use Boolean terms: "OPT" OR "H-1B sponsorship" OR "STEM OPT"</li>
       <li>Set alerts; target smaller companies for faster responses</li>
@@ -6485,7 +6663,7 @@ export const blogPosts = [
     <p>Tracks H-1B filings. If a company sponsored before, it’s 10x more likely to sponsor again. Flashfire prioritizes such companies automatically.</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">OPTnation, Dice, Monster, TechFetch</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>OPTnation: clear tagging but expect recruiter noise — Flashfire filters low-quality listings</li>
       <li>Dice/Monster/TechFetch: useful for STEM roles; competition is high</li>
     </ul>
@@ -6497,13 +6675,13 @@ export const blogPosts = [
       <li><strong>Automated Submissions:</strong> 30–35/day for consistent volume</li>
       <li><strong>Real-Time Tracking:</strong> Links, resume versions, dates in one dashboard</li>
       <li><strong>Human-Backed QA:</strong> Team validates data and fixes mismatches</li>
-    </ol>
+    </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Psychology of Faster Offers</h2>
     <p>Quality × volume wins. Example: Priya’s manual month (180 apps → 1.6% response) vs. Flashfire’s 6 weeks (1,200 optimized apps → 14% callbacks; 3 interviews in 30 days).</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. How OPT/CPT Students Can Maximize Portals</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Target sponsor-ready firms (MyVisaJobs, USCIS, Flashfire filters)</li>
       <li>Apply daily, not weekly (automation helps)</li>
       <li>Stay ATS-aligned — tailor per role</li>
@@ -6529,7 +6707,11 @@ export const blogPosts = [
       "Data-backed view of which degrees map cleanly to H-1B approvals, why STEM matters, and how positioning and targeting multiply your odds.",
     date: "Nov 3, 2025",
     readTime: "14 min",
-    category: "H-1B Visa",
+    category: "Visa & Immigration",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-03%20at%207.27.00%E2%80%AFPM.png",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -6540,7 +6722,7 @@ export const blogPosts = [
     <p>Academic-job relevance is critical. STEM tracks dominate because they create measurable, defensible career pathways for employers to justify specialization.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. What the Data Shows (FY2024)</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Computer Science / Software Engineering ~45%</li>
       <li>Electrical & Electronics ~15%</li>
       <li>Data Science / Information Systems ~10%</li>
@@ -6552,25 +6734,25 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3–7. Top Performing Degrees</h2>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Computer Science / Software Engineering</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Mass employer demand, 36-month STEM OPT = up to 3 H-1B attempts</li>
       <li>High sponsor density across FAANG, Big 4, global SIs</li>
     </ul>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Data Science & Analytics</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Python + SQL + BI = clear specialty mapping</li>
       <li>Roles: Data Analyst, BI Dev, ML Engineer (heavily sponsored)</li>
     </ul>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Engineering (EE/ME/IE)</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Hardware/embedded demand; boost with Python/automation/cloud</li>
     </ul>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Information Systems / Business Analytics</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Bridges tech and business; maps to “Computer Systems Analyst”</li>
     </ul>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">AI / Robotics / Cloud / DevOps</h3>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Critical-skill pipelines; faster callbacks and strong sponsor appetite</li>
     </ul>
 
@@ -6598,6 +6780,10 @@ export const blogPosts = [
     date: "Nov 3, 2025",
     readTime: "15 min",
     category: "International Students",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-03%20at%207.27.59%E2%80%AFPM.png",
     categoryColor: "bg-red-100 text-red-600",
@@ -6605,14 +6791,14 @@ export const blogPosts = [
     <p>Both Canada and the United States promise opportunity. The choice you make shapes not just your education, but your entire early career. Based on Flashfire's outcomes and public data, here’s how they compare for international students.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Big Picture</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Canada</strong>: Stability and immigration-friendly policy</li>
       <li><strong>United States</strong>: Acceleration, scale, and innovation density</li>
     </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. Employability</h2>
     <p>Canada’s market is smaller but steady (Toronto, Vancouver, Montreal). The U.S. operates at a different scale — Silicon Valley, Seattle, Austin, Boston and others add tens of thousands of roles yearly.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>U.S.: ~7.2M tech-related roles added 2018–2024 (BLS)</li>
       <li>Canada: ~150K tech roles, concentrated in ON/BC (Statistics Canada)</li>
     </ul>
@@ -6620,7 +6806,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Salaries and Growth</h2>
     <p>U.S. entry-level compensation is 30–40% higher on average even after taxes/benefits. Promotions trend faster because impact outweighs tenure.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Software Engineer: $110K (U.S.) vs. $78K CAD (~$57K USD) (Canada)</li>
       <li>Data Analyst: $82K (U.S.) vs. $65K CAD (~$47K USD)</li>
       <li>Product Manager: $115K (U.S.) vs. $85K CAD (~$62K USD)</li>
@@ -6647,7 +6833,7 @@ export const blogPosts = [
     <p>Harshita applied to 300+ roles in Canada with no responses. After re-optimizing for U.S. roles in Texas and California through Flashfire, she had 12 interviews and 3 offers in six weeks.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Decision Framework</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Prioritize immigration simplicity → Canada</li>
       <li>Prioritize acceleration, exposure, and compensation → U.S.</li>
     </ul>
@@ -6669,6 +6855,10 @@ export const blogPosts = [
     date: "Nov 3, 2025",
     readTime: "17 min",
     category: "Career Planning",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-03%20at%207.29.45%E2%80%AFPM.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -6676,7 +6866,7 @@ export const blogPosts = [
     <p>AI is rewriting every field; clean energy is redefining industry. The safest majors converge where data, systems, and measurable outcomes meet.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Why These Majors Matter</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Clean energy now accounts for 42%+ of energy jobs; 142K jobs added in 2023</li>
       <li>Wind and solar lead 10-year growth (BLS)</li>
       <li>Healthcare and AI are converging across analytics and ops</li>
@@ -6716,7 +6906,7 @@ export const blogPosts = [
     <p>Roles: APM, AI Platform PM, Sustainability PM, Data PM.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Common Thread</h2>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Data literacy — understand, question, and apply data</li>
       <li>Systems thinking — connect software, hardware, and policy</li>
       <li>Outcome orientation — quantify impact</li>
@@ -6732,7 +6922,7 @@ export const blogPosts = [
       <li>Ship one portfolio project per term</li>
       <li>Plan distribution — ensure visibility</li>
       <li>Stay adaptable — roles evolve</li>
-    </ol>
+    </ul>
 
     <p><strong>Flashfire advantage:</strong> Targeting, ATS optimization, recruiter outreach, and progress tracking — turning effort into measurable outcomes. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color:#f97316; text-decoration: underline;">flashfirejobs.com</a></p>
 
@@ -6750,7 +6940,11 @@ export const blogPosts = [
       "How international students transformed their job search by working with AI instead of against it. Discover how Flashfire became the bridge between talent and opportunity in the age of automation.",
     date: "Nov 6, 2025",
     readTime: "15 min",
-    category: "Job Strategy",
+    category: "Job Search Strategy",
+    author: {
+      name: "Arjun Sharma",
+      bio: "Career coach specializing in job search strategies for international students and new graduates.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-06%20at%204.07.51%E2%80%AFPM.png",
     categoryColor: "bg-green-100 text-green-600",
@@ -6849,7 +7043,7 @@ export const blogPosts = [
       <li><strong>AI as a career strategist:</strong> helping students choose where to focus their effort based on data, not guesswork.</li>
       <li><strong>AI as a storyteller:</strong> transforming technical experience into recruiter-friendly language.</li>
       <li><strong>AI as a support system:</strong> automating repetitive tasks — so students could focus on interviews, not spreadsheets.</li>
-    </ol>
+    </ul>
 
     <p>In that sense, Flashfire wasn't changing how students applied for jobs.</p>
 
@@ -6966,6 +7160,10 @@ export const blogPosts = [
     date: "Nov 6, 2025",
     readTime: "18 min",
     category: "Visa & Immigration",
+    author: {
+      name: "Vikram Mehta",
+      bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-06%20at%204.11.53%E2%80%AFPM.png",
     categoryColor: "bg-purple-100 text-purple-600",
@@ -7000,7 +7198,7 @@ export const blogPosts = [
 
     <p>Your resume should read like a business case — not a biography. That means every bullet point needs to show measurable results:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Reduced model training time by 60% using TensorFlow and AWS Batch.</li>
       <li>Automated reporting pipelines that saved 15 analyst hours per week.</li>
       <li>Enhanced forecasting accuracy by 8% through real-time data validation.</li>
@@ -7018,7 +7216,7 @@ export const blogPosts = [
 
     <p>Start by focusing on:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>STEM-heavy industries:</strong> AI, data science, software, analytics, and cloud infrastructure.</li>
       <li><strong>Top visa sponsors:</strong> Amazon, Meta, Accenture, Apple, IBM, Capgemini, and PwC.</li>
       <li><strong>Emerging sponsors:</strong> Fintech, healthcare analytics, green tech, and AI startups expanding global operations.</li>
@@ -7071,7 +7269,7 @@ export const blogPosts = [
 
     <p>Employers respect evidence. Here's some you can use:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Over 450,000 H-1B petitions were filed in 2025; roughly 200,000 were for first-time applicants.</li>
       <li>The top ten visa-sponsoring companies account for more than 25% of total filings each year.</li>
       <li>STEM fields — particularly AI, software, and analytics — have the highest visa retention rates.</li>
@@ -7102,7 +7300,7 @@ export const blogPosts = [
 
     <p>When reaching out to recruiters or hiring managers:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Lead with your value, not your visa.</li>
       <li>Mention specific achievements that align with their company's current projects.</li>
       <li>Politely note your work authorization only after interest is shown.</li>
@@ -7123,7 +7321,7 @@ export const blogPosts = [
 
     <p>You need both:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Volume:</strong> Hundreds of targeted, sponsor-friendly applications.</li>
       <li><strong>Precision:</strong> Tailored resumes for each one.</li>
     </ul>
@@ -7136,7 +7334,7 @@ export const blogPosts = [
 
     <p>Arjun, a STEM graduate from USC, was repeatedly rejected after disclosing his visa needs. Instead of giving up, he switched strategies using Flashfire:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Focused only on sponsor-friendly firms.</li>
       <li>Rewrote his resume to quantify technical results.</li>
       <li>Applied to 1,000+ roles through automation.</li>
@@ -7152,7 +7350,7 @@ export const blogPosts = [
 
     <p>Employers appreciate candidates who already have:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Updated I-20 or OPT EAD card</li>
       <li>Valid passport and visa copies</li>
       <li>Academic transcripts and offer letters in digital form</li>
@@ -7188,6 +7386,10 @@ export const blogPosts = [
     date: "Nov 6, 2025",
     readTime: "16 min",
     category: "Career Planning",
+    author: {
+      name: "Priya Patel",
+      bio: "Career advisor specializing in visa pathways and career planning for international professionals.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-06%20at%204.13.17%E2%80%AFPM.png",
     categoryColor: "bg-indigo-100 text-indigo-600",
@@ -7216,7 +7418,7 @@ export const blogPosts = [
       <li>Industry demand (Tech, AI, Cloud, Finance)</li>
       <li>Skill specialization (e.g., Python, AWS, Machine Learning, React)</li>
       <li>Company and location (Big Tech hubs like Seattle, Austin, San Francisco, and New York)</li>
-    </ol>
+    </ul>
 
     <p>The competition for top technical and analytical talent has driven leading employers to reward high performers handsomely — especially those who can contribute from day one.</p>
 
@@ -7299,7 +7501,7 @@ export const blogPosts = [
 
     <p>Employers expect strong command over core tools:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>For Software/AI roles:</strong> Python, Java, React, AWS, Docker, SQL, TensorFlow</li>
       <li><strong>For Data roles:</strong> ETL, Power BI, Alteryx, Tableau, Spark, Cloud pipelines</li>
       <li><strong>For Product/Analytics:</strong> SQL, stakeholder management, user-centric thinking</li>
@@ -7311,7 +7513,7 @@ export const blogPosts = [
 
     <p>A key differentiator is showing that your work impacts outcomes. For example:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>"Reduced data-processing time by 70% through pipeline optimization"</li>
       <li>"Increased model accuracy from 89% to 94% using feature tuning"</li>
     </ul>
@@ -7324,7 +7526,7 @@ export const blogPosts = [
 
     <p>Recruiters increasingly prefer portfolios that show:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Systems you've deployed</li>
       <li>Data dashboards or ML models you've implemented</li>
       <li>GitHub or Kaggle activity that proves hands-on skills</li>
@@ -7352,7 +7554,7 @@ export const blogPosts = [
 
     <p>Six-figure roles reward mastery in:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Programming:</strong> Python, SQL, Java, JavaScript</li>
       <li><strong>Data & Cloud:</strong> AWS, GCP, Azure, ETL, Redshift, BigQuery</li>
       <li><strong>Analytics:</strong> Power BI, Tableau, Alteryx</li>
@@ -7387,7 +7589,7 @@ export const blogPosts = [
 
     <p>Six-figure offers are often the result of visibility, not luck.</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Keep your LinkedIn headline keyword-optimized ("Data Engineer | Python | AWS | SQL | Building Scalable Systems")</li>
       <li>Engage on posts from recruiters and hiring managers</li>
       <li>Share your learning journey publicly — even one post per week helps build recognition</li>
@@ -7397,7 +7599,7 @@ export const blogPosts = [
 
     <p>Six-figure starting salaries are most common in:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>San Francisco / Bay Area</li>
       <li>Seattle / Redmond</li>
       <li>Austin, TX</li>
@@ -7406,7 +7608,7 @@ export const blogPosts = [
 
     <p>And the highest-earning roles include:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Software Engineer</li>
       <li>Data Engineer</li>
       <li>Machine Learning Engineer</li>
@@ -7423,7 +7625,7 @@ export const blogPosts = [
 
     <p>The goal isn't just the salary — it's what the salary signifies. Earning six figures early gives you:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>Financial stability:</strong> The ability to save, invest, or support family goals sooner.</li>
       <li><strong>Negotiation leverage:</strong> Higher initial compensation compounds across future roles.</li>
       <li><strong>Career acceleration:</strong> Being part of high-impact teams exposes you to cutting-edge tools, best practices, and top mentors.</li>
@@ -7437,7 +7639,7 @@ export const blogPosts = [
 
     <p>If you want to reach that level:</p>
 
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Master technical and analytical skills that are in demand.</li>
       <li>Quantify every achievement on your resume.</li>
       <li>Target employers who value performance and pay accordingly.</li>
@@ -7471,6 +7673,10 @@ export const blogPosts = [
     date: "Nov 6, 2025",
     readTime: "14 min",
     category: "Career Planning",
+    author: {
+      name: "Ananya Reddy",
+      bio: "Product manager and career mentor sharing insights on breaking into tech roles in the U.S.",
+    },
     image:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/Screenshot%202025-11-06%20at%204.14.35%E2%80%AFPM.png",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -7489,7 +7695,7 @@ export const blogPosts = [
       <li><strong>Sponsorship Support:</strong> Employers willing to invest in visas.</li>
       <li><strong>Financial Return:</strong> Compensation that justifies education cost.</li>
       <li><strong>Pathway to Residency:</strong> Structured, predictable settlement.</li>
-    </ol>
+    </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1) Job Market Size and Skill Demand</h2>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">United States</h3>
@@ -7533,7 +7739,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8) The Flashfire Edge: Precision and Acceleration</h2>
     <p>Across both countries, timing and targeting determine outcomes. <strong>Flashfire</strong> applies AI to match degrees with sponsor‑ready roles, verify employers, and automate 1,200+ high‑fit applications per month — with full tracking and recruiter analytics.</p>
-    <ul class="list-disc ml-6 my-3">
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Filters by degree relevance and visa category</li>
       <li>Checks employer sponsorship history</li>
       <li>Surfaces fresh openings with higher response likelihood</li>

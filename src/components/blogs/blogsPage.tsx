@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import styles from "./blogsPage.module.css";
 import {
@@ -12,20 +12,100 @@ import posthog from "posthog-js";
 import Navbar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import Link from "next/link";
+import { FaLinkedinIn, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { blogPosts } from "@/src/data/blogsData";
 
 type BlogPost = {
   id: number;
   slug: string;
   title: string;
+  excerpt?: string;
   image: string;
   category: string;
   categoryColor: string;
   date: string;
+  lastUpdated?: string;
   readTime: string;
   content: string;
+  tags?: string[];
+  author?: {
+    name: string;
+    bio?: string;
+    image?: string;
+  };
+};
+
+type TableOfContentsItem = {
+  title: string;
+  anchor: string;
+  level: number;
 };
 
 export default function BlogsPage({ post }: { post: BlogPost }) {
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  // Process content and generate table of contents (client-side only)
+  const [processedContent, setProcessedContent] = useState<string>(post?.content || "");
+  const [tableOfContents, setTableOfContents] = useState<TableOfContentsItem[]>([]);
+
+  useEffect(() => {
+    if (!post?.content || typeof window === "undefined") {
+      setProcessedContent(post?.content || "");
+      return;
+    }
+
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(post.content, "text/html");
+      // Only include H2 headings (main sections), exclude H3 (sub-sections, questions)
+      const headings = doc.querySelectorAll("h2");
+      const toc: TableOfContentsItem[] = [];
+
+      headings.forEach((heading, index) => {
+        const text = heading.textContent || "";
+        const anchor = `section-${index + 1}`;
+        
+        // Add ID to heading for anchor links
+        heading.id = anchor;
+        
+        toc.push({
+          title: text,
+          anchor: anchor,
+          level: 2,
+        });
+      });
+
+      setProcessedContent(doc.body.innerHTML);
+      setTableOfContents(toc);
+    } catch (error) {
+      // Fallback to original content if parsing fails
+      setProcessedContent(post.content);
+      setTableOfContents([]);
+    }
+  }, [post?.content]);
+
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = tableOfContents.map((item) => {
+        const element = document.getElementById(item.anchor);
+        return element ? { element, anchor: item.anchor } : null;
+      }).filter(Boolean) as { element: HTMLElement; anchor: string }[];
+
+      const scrollPosition = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (sections[i].element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i].anchor);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [tableOfContents]);
+
   useEffect(() => {
     if (!post) return;
 
@@ -72,48 +152,369 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     };
   }, [post]);
 
+  // Get related articles (same category, exclude current)
+  // Always return exactly 3 articles - fill with other categories if needed
+  const relatedArticles = useMemo(() => {
+    // First, get articles from the same category (excluding current)
+    const sameCategoryArticles = blogPosts
+      .filter((p) => p.category === post.category && p.id !== post.id)
+      .slice(0, 3);
+    
+    // If we have less than 3, fill with articles from other categories
+    if (sameCategoryArticles.length < 3) {
+      const otherCategoryArticles = blogPosts
+        .filter((p) => p.category !== post.category && p.id !== post.id)
+        .slice(0, 3 - sameCategoryArticles.length);
+      
+      return [...sameCategoryArticles, ...otherCategoryArticles].slice(0, 3);
+    }
+    
+    return sameCategoryArticles.slice(0, 3);
+  }, [post.category, post.id]);
+
+  // Get recent posts (exclude current)
+  const recentPosts = useMemo(() => {
+    return blogPosts
+      .filter((p) => p.id !== post.id)
+      .slice(0, 5);
+  }, [post.id]);
+
+  // Social sharing functions
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareTitle = post.title;
+
+  const handleShare = (platform: string) => {
+    const urls: Record<string, string> = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+    };
+
+    if (urls[platform]) {
+      window.open(urls[platform], "_blank", "width=600,height=400");
+    }
+  };
+
+  const scrollToSection = (anchor: string) => {
+    const element = document.getElementById(anchor);
+    if (element) {
+      const offset = 150; // Increased offset to ensure heading is fully visible
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Generate structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt || post.title,
+    image: post.image,
+    datePublished: post.date,
+    dateModified: post.lastUpdated || post.date,
+    author: {
+      "@type": "Person",
+      name: post.author?.name || "Flashfire Team",
+      description: post.author?.bio,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Flashfire",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.flashfirejobs.com/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.flashfirejobs.com/blog/${post.slug}`,
+    },
+    articleSection: post.category,
+    keywords: post.tags?.join(", ") || "",
+  };
+
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.flashfirejobs.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blogs",
+        item: "https://www.flashfirejobs.com/blogs",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://www.flashfirejobs.com/blog/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
       <Navbar />
       <div className={styles.pageWrapper}>
         <div className={styles.blogContainer}>
-          {/* === HEADER BAND === */}
-          <div className={styles.headerBand}>
-            <h2 className={styles.brand}>FLASHFIRE</h2>
-            <p className={styles.subBrand}>
-              Your AI-Powered Job Search Platform
-            </p>
-          </div>
+          {/* === BREADCRUMB === */}
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span className={styles.breadcrumbSeparator}>/</span>
+            <Link href="/blogs">Blogs</Link>
+            <span className={styles.breadcrumbSeparator}>/</span>
+            <span className={styles.breadcrumbCurrent}>{post.title}</span>
+          </nav>
 
-          {/* === CATEGORY === */}
-          <div className={styles.categoryWrapper}>
-            <span className={`${styles.categoryTag} ${post.categoryColor}`}>
-              {post.category}
-            </span>
-          </div>
+          {/* === TOP SECTION WITH HERO IMAGE AND SIDEBAR === */}
+          <div className={styles.topSectionWrapper}>
+            <div className={styles.topSection}>
+              {/* === LEFT: HERO IMAGE AND TITLE === */}
+              <div className={styles.topLeftContent}>
+              {/* === HERO IMAGE === */}
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={1200}
+                  height={630}
+                  className={styles.image}
+                  priority
+                  itemProp="image"
+                />
+              </div>
 
-          <div className={styles.imageWrapper}>
-            <Image
-              src={post.image}
-              alt={post.title}
-              width={900}
-              height={500}
-              className={styles.image}
+              {/* === TITLE === */}
+              <h1 className={styles.title} itemProp="headline">{post.title}</h1>
+
+              {/* === TAGS === */}
+              {post.tags && post.tags.length > 0 && (
+                <div className={styles.tagsWrapper}>
+                  {post.tags.map((tag, index) => (
+                    <span key={index} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* === AUTHOR & DATE === */}
+              <div className={styles.meta}>
+                <div className={styles.authorInfo} itemScope itemType="https://schema.org/Person">
+                  {post.author?.image && (
+                    <Image
+                      src={post.author.image}
+                      alt={post.author.name}
+                      width={40}
+                      height={40}
+                      className={styles.authorImage}
+                      itemProp="image"
+                    />
+                  )}
+                  <div>
+                    {post.author?.name ? (
+                      <Link
+                        href={`/author/${post.author.name.replace(/\s+/g, "-").toLowerCase()}`}
+                        className={styles.authorNameLink}
+                      >
+                        <div className={styles.authorName} itemProp="name">
+                          By {post.author.name}
+                        </div>
+                      </Link>
+                    ) : (
+                      <div className={styles.authorName} itemProp="name">
+                        By Flashfire Team
+                      </div>
+                    )}
+                    {post.author?.bio && (
+                      <div className={styles.authorBio} itemProp="description">{post.author.bio}</div>
+                    )}
+                  </div>
+                </div>
+                <div className={styles.dateInfo}>
+                  <span className={styles.dateLabel}>Published:</span>
+                  <time dateTime={post.date} itemProp="datePublished">{post.date}</time>
+                  {post.lastUpdated && post.lastUpdated !== post.date && (
+                    <>
+                      <span className={styles.dateSeparator}>|</span>
+                      <span className={styles.dateLabel}>Updated:</span>
+                      <time dateTime={post.lastUpdated} itemProp="dateModified">{post.lastUpdated}</time>
+                    </>
+                  )}
+                  <span className={styles.readTime}>⏱️ {post.readTime}</span>
+                </div>
+              </div>
+
+              {/* === TABLE OF CONTENTS === */}
+              {tableOfContents.length > 0 && (
+                <div className={styles.tableOfContents}>
+                  <div className={styles.tocTitleWrapper}>
+                    <span className={styles.tocTitleLine}></span>
+                    <h3 className={styles.tocTitle}>IN THIS ARTICLE</h3>
+                    <span className={styles.tocTitleLine}></span>
+                  </div>
+                  <ul className={styles.tocList}>
+                    {tableOfContents.map((item, index) => (
+                      <li
+                        key={index}
+                        className={`${styles.tocItem} ${
+                          item.level === 3 ? styles.tocItemNested : ""
+                        } ${
+                          activeSection === item.anchor ? styles.tocItemActive : ""
+                        }`}
+                      >
+                        <button
+                          onClick={() => scrollToSection(item.anchor)}
+                          className={styles.tocLink}
+                        >
+                          {item.title}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* === RIGHT: SIDEBAR === */}
+            <aside className={styles.topSidebar}>
+              {/* === SOCIAL SHARE === */}
+              <div className={styles.sidebarSection}>
+                <h4 className={styles.sidebarTitle}>Share This Article</h4>
+                <div className={styles.socialShare}>
+                  <button
+                    onClick={() => handleShare("facebook")}
+                    className={styles.socialButton}
+                    aria-label="Share on Facebook"
+                  >
+                    <FaFacebookF />
+                  </button>
+                  <button
+                    onClick={() => handleShare("twitter")}
+                    className={styles.socialButton}
+                    aria-label="Share on Twitter"
+                  >
+                    <FaTwitter />
+                  </button>
+                  <button
+                    onClick={() => handleShare("linkedin")}
+                    className={styles.socialButton}
+                    aria-label="Share on LinkedIn"
+                  >
+                    <FaLinkedinIn />
+                  </button>
+                </div>
+              </div>
+
+              {/* === RECENT POSTS === */}
+              <div className={styles.sidebarSection}>
+                <h4 className={styles.sidebarTitle}>Recent Posts</h4>
+                <ul className={styles.recentPostsList}>
+                  {recentPosts.map((recentPost) => (
+                    <li key={recentPost.id} className={styles.recentPostItem}>
+                      <Link
+                        href={`/blog/${recentPost.slug}`}
+                        className={styles.recentPostLink}
+                      >
+                        <div className={styles.recentPostImage}>
+                          <Image
+                            src={recentPost.image}
+                            alt={recentPost.title}
+                            width={80}
+                            height={60}
+                            className={styles.recentPostImg}
+                          />
+                        </div>
+                        <div className={styles.recentPostContent}>
+                          <h5 className={styles.recentPostTitle}>
+                            {recentPost.title}
+                          </h5>
+                          <span className={styles.recentPostDate}>
+                            {recentPost.date}
+                          </span>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              </aside>
+            </div>
+
+            {/* === MAIN CONTENT === */}
+            <div className={styles.mainContentWrapper}>
+              {/* === ARTICLE CONTENT === */}
+            <article
+              className={styles.content}
+              itemScope
+              itemType="https://schema.org/Article"
+              dangerouslySetInnerHTML={{ __html: processedContent }}
             />
+            </div>
           </div>
 
-          <h1 className={styles.title}>{post.title}</h1>
-
-          <div className={styles.meta}>
-            <span>✍️ By Rachna Goyal</span>
-            <span>📅 {post.date}</span>
-            <span>⏱️ {post.readTime}</span>
-          </div>
-
-          <article
-            className={styles.content}
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          {/* === RELATED ARTICLES === */}
+          {relatedArticles.length > 0 && (
+            <section className={styles.relatedSection}>
+              <h2 className={styles.relatedTitle}>Related Articles</h2>
+              <div className={styles.relatedGrid}>
+                {relatedArticles.map((relatedPost) => (
+                  <article key={relatedPost.id} className={styles.relatedCard}>
+                    <Link href={`/blog/${relatedPost.slug}`}>
+                      <div className={styles.relatedImage}>
+                        <Image
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          width={400}
+                          height={250}
+                          className={styles.relatedImg}
+                        />
+                      </div>
+                      <div className={styles.relatedContent}>
+                        <span className={styles.relatedCategory}>
+                          {relatedPost.category}
+                        </span>
+                        <h3 className={styles.relatedCardTitle}>
+                          {relatedPost.title}
+                        </h3>
+                        {relatedPost.excerpt && (
+                          <p className={styles.relatedExcerpt}>
+                            {relatedPost.excerpt}
+                          </p>
+                        )}
+                        <div className={styles.relatedMeta}>
+                          <span>{relatedPost.date}</span>
+                          <span>•</span>
+                          <span>{relatedPost.readTime}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* === CTA === */}
           <div className={styles.ctaBox}>
@@ -131,9 +532,6 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               Visit FlashFire Jobs
             </a>
           </div>
-          <Link href={`/blogs`} className={styles.closeBtn}>
-            Close Article
-          </Link>
         </div>
       </div>
       <Footer />

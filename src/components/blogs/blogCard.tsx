@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaRegClock } from "react-icons/fa";
 import { BsCalendarEvent } from "react-icons/bs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Blog = {
   id: number;
@@ -15,14 +16,35 @@ type Blog = {
   category: string;
   image: string;
   categoryColor?: string;
+  author?: {
+    name: string;
+    bio?: string;
+    image?: string;
+  };
 };
 
 export default function BlogCard({ blog }: { blog: Blog }) {
+  const router = useRouter();
+  
+  // Ensure slug exists before rendering link
+  if (!blog.slug) {
+    return null;
+  }
+
+  const authorSlug = blog.author?.name ? blog.author.name.replace(/\s+/g, "-").toLowerCase() : "";
+
+  const handleAuthorClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (authorSlug) {
+      router.push(`/author/${authorSlug}`);
+    }
+  };
+
   return (
     <section className="border border-gray-200 rounded-[0.1rem] p-[0.3rem] bg-white transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.08)]">
       <Link
         href={`/blog/${blog.slug}`}
-        target="_blank"
         className="block bg-white border border-gray-200 rounded-[0.1rem] overflow-hidden shadow-[0_0.2rem_0.5rem_rgba(0,0,0,0.05)] text-left transition-all duration-300 cursor-pointer max-[768px]:max-w-full"
       >
         {/* === Image === */}
@@ -46,7 +68,19 @@ export default function BlogCard({ blog }: { blog: Blog }) {
 
           {/* Author */}
           <p className="text-[0.9rem] text-[#666] mb-2">
-            By <span className="font-semibold text-[#111]">Rachna Goyal</span>
+            {blog.author?.name ? (
+              <>
+                By{" "}
+                <span
+                  onClick={handleAuthorClick}
+                  className="font-semibold text-[#111] hover:text-[#f97316] transition-colors cursor-pointer"
+                >
+                  {blog.author.name}
+                </span>
+              </>
+            ) : (
+              <>By <span className="font-semibold text-[#111]">Flashfire Team</span></>
+            )}
           </p>
 
           <p className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3">{blog.excerpt}</p>
@@ -61,7 +95,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             <span>
               <div className="flex flex-row items-center">
                 <FaRegClock className="text-[#ff4c00] mr-1.5 align-middle text-[0.8rem]" />
-                <p>{blog.readTime.toUpperCase()} READ</p>
+                <p>{blog.readTime ? blog.readTime.toUpperCase() : ""} READ</p>
               </div>
             </span>
           </div>
