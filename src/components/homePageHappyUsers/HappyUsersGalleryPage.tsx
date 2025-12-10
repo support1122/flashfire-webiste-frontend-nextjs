@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { ALL_REVIEW_IMAGES } from "./homePageHappyUsers";
 import HomePageOfferLetters from "@/src/components/homePageOfferLetters/homePageOfferLetters";
-import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
 import HomePageMilestones from "@/src/components/homePageMilestones/homePageMilestones";
+import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
 
 export default function HappyUsersGalleryPage() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -276,7 +276,7 @@ export default function HappyUsersGalleryPage() {
         <HomePageMilestones />
       </section>
 
-      {/* Demo CTA Section */}
+      {/* Demo CTA Section - At the end */}
       <section className="bg-white">
         <HomePageDemoCTA />
       </section>

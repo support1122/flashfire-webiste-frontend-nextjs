@@ -8,7 +8,7 @@ export default function BlackFridayPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isImageTestimonialsPage = pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
+  const isImageTestimonialsPage = pathname === "/testimonials" || pathname === "/en-ca/testimonials" || pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
 
   useEffect(() => {
     // Only run on client side

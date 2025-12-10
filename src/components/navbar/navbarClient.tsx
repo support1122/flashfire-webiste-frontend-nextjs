@@ -751,7 +751,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   const prefix = isCanadaContext ? "/en-ca" : "";
   
   const isBookPage = pathname === "/schedule-a-free-career-call" || pathname === "/en-ca/schedule-a-free-career-call";
-  const isImageTestimonialsPage = pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
+  const isImageTestimonialsPage = pathname === "/testimonials" || pathname === "/en-ca/testimonials" || pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
   
   // Geo-bypass hook for Book Now button
   const { getButtonProps: getBookNowButtonProps } = useGeoBypass({

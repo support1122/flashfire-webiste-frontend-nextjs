@@ -1,7 +1,7 @@
 import type { NavLink, NavbarCTA } from "../types/navbarData";
 
 export const navbarLinks: NavLink[] = [
-  { name: "Testimonials", href: "/image-testimonials" },
+  { name: "Testimonials", href: "/testimonials" },
   { name: "Pricing", href: "/pricing" },
   { name: "Blog", href: "/blogs", target: "_blank" },
   { name: "Employers", href: "/employers", target: "_blank" },

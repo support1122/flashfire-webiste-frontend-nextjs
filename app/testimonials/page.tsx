@@ -1,11 +1,12 @@
 import { Metadata } from "next";
-import HomePage from "@/src/components/pages/home/Home";
-import ScrollToSection from "@/src/utils/ui/scrollToSection";
+import Navbar from "@/src/components/navbar/navbar";
+import Footer from "@/src/components/footer/footer";
+import HappyUsersGalleryPage from "@/src/components/homePageHappyUsers/HappyUsersGalleryPage";
 
 export const metadata: Metadata = {
-  title: "Testimonials - Success Stories from Flashfire Users | Flashfire",
+  title: "Success Stories & Testimonials | Flashfire",
   description:
-    "Read real testimonials and success stories from job seekers who used Flashfire to land their dream jobs faster with AI-powered job search automation.",
+    "See real success stories from job seekers who landed their dream jobs with Flashfire. Read testimonials from professionals who automated their job search and saved 150+ hours.",
   robots: {
     index: true,
     follow: true,
@@ -14,9 +15,9 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/testimonials",
   },
   openGraph: {
-    title: "Testimonials - Success Stories from Flashfire Users",
+    title: "Success Stories & Testimonials | Flashfire",
     description:
-      "Read real testimonials from job seekers who found success with Flashfire.",
+      "See real success stories from job seekers who landed their dream jobs with Flashfire.",
     url: "https://www.flashfirejobs.com/testimonials",
     type: "website",
   },
@@ -25,8 +26,9 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
   return (
     <>
-      <HomePage />
-      <ScrollToSection targetId="testimonials" />
+      <Navbar />
+      <HappyUsersGalleryPage />
+      <Footer />
     </>
   );
 }

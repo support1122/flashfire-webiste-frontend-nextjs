@@ -134,7 +134,47 @@ function ClientLogicWrapperContent({
 
     // Handle Route-based Modals & Geo-Blocking
     useEffect(() => {
-        // Don't do anything while loading geo info
+        // Check if forceShowModal is true FIRST (button clicked from any page) - show modal without navigation
+        // This allows modal to show on testimonials page while keeping that page visible
+        // IMPORTANT: Check this BEFORE geoLoading check so modal can show immediately
+        if (forceShowModal) {
+            setForceShowModal(false); // Reset the flag
+            modalDismissedForRouteRef.current = null; // Reset dismissed state
+            
+            // Save scroll position before opening modal to prevent scroll-to-top
+            const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+            
+            // Show geo-block modal if from India (and geo detection is done), otherwise show Calendly modal
+            // If geoLoading is still true, default to showing Calendly modal
+            if (!geoLoading && isFromIndia && !geoBypassActive) {
+                setShowGeoBlockModal(true);
+                setShowCalendlyModal(false);
+                setShowSignupModal(false);
+            } else {
+                // Show Calendly modal for book-my-demo-call functionality
+                const savedFormData = loadFormData();
+                setShowCalendlyModal(true);
+                setShowSignupModal(false);
+                setShowGeoBlockModal(false);
+            }
+            
+            // Restore scroll position after modal opens to prevent scroll-to-top
+            if (typeof window !== 'undefined' && currentScrollY > 0) {
+                requestAnimationFrame(() => {
+                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                    requestAnimationFrame(() => {
+                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                        setTimeout(() => {
+                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                        }, 100);
+                    });
+                });
+            }
+            
+            return; // Don't process route-based logic when showing modal from button click
+        }
+
+        // Don't do anything else while loading geo info
         if (geoLoading) {
             return;
         }
@@ -259,13 +299,13 @@ function ClientLogicWrapperContent({
                 }
             }
         } else {
-            // Close modals if navigating away and reset dismissed state
-            // This ensures that when user navigates back, it's treated as a new visit
-            setShowSignupModal(false);
-            setShowGeoBlockModal(false);
-            setShowCalendlyModal(false);
-            modalDismissedForRouteRef.current = null;
-            lastRouteWithModalRef.current = null;
+            // Don't close modals when on other routes - modals can be opened from any page via button click
+            // Only reset dismissed state if modals aren't showing (they'll close themselves when user clicks close)
+            // This allows modals to stay open when opened from non-modal routes like /image-testimonials
+            if (!showGeoBlockModal && !showCalendlyModal && !showSignupModal) {
+                modalDismissedForRouteRef.current = null;
+                lastRouteWithModalRef.current = null;
+            }
         }
     }, [pathname, searchParams, isFromIndia, geoLoading, forceShowModal, forceShowCalendlyModal]);
 
@@ -302,6 +342,7 @@ function ClientLogicWrapperContent({
             router.replace(pathname);
         }
     };
+
 
     return (
         <>

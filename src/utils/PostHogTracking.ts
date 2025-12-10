@@ -75,6 +75,31 @@ const safeCapture = (
   }
 };
 
+// Safe helper to get window.location properties without SecurityError
+const safeGetLocation = () => {
+  if (typeof window === "undefined" || !window.location) {
+    return { href: '', pathname: '', search: '' };
+  }
+  try {
+    return {
+      href: window.location.href,
+      pathname: window.location.pathname,
+      search: window.location.search,
+    };
+  } catch (e) {
+    // SecurityError can occur in cross-origin contexts
+    try {
+      return {
+        href: '',
+        pathname: window.location.pathname || '',
+        search: window.location.search || '',
+      };
+    } catch (e2) {
+      return { href: '', pathname: '', search: '' };
+    }
+  }
+};
+
 // Get current page context
 const getPageContext = (): Partial<PostHogEventProperties> => {
   // Check if we're in browser environment (Next.js SSR)
@@ -82,8 +107,10 @@ const getPageContext = (): Partial<PostHogEventProperties> => {
     return {};
   }
 
+  const location = safeGetLocation();
+
   return {
-    page_url: window.location.href,
+    page_url: location.href,
     page_title: document.title,
     device_type:
       window.innerWidth < 768
@@ -104,7 +131,8 @@ const getCountryContext = (): Partial<PostHogEventProperties> => {
   }
 
   // Check if user is on Canada page
-  const isCanada = window.location.pathname.startsWith("/en-ca");
+  const location = safeGetLocation();
+  const isCanada = location.pathname.startsWith("/en-ca");
   const countryCode = localStorage.getItem("ff_country_code_v1") || (isCanada ? "CA" : "US");
   
   // Map country codes to names
@@ -131,21 +159,24 @@ const getUTMContext = (): Partial<PostHogEventProperties> => {
   }
 
 
+  const location = safeGetLocation();
+  const searchParams = location.search ? new URLSearchParams(location.search) : null;
+  
   const utmSource =
     localStorage.getItem("utm_source") ||
-    new URLSearchParams(window.location.search).get("utm_source");
+    (searchParams ? searchParams.get("utm_source") : null);
   const utmMedium =
     localStorage.getItem("utm_medium") ||
-    new URLSearchParams(window.location.search).get("utm_medium");
+    (searchParams ? searchParams.get("utm_medium") : null);
   const utmCampaign =
     localStorage.getItem("utm_campaign") ||
-    new URLSearchParams(window.location.search).get("utm_campaign");
+    (searchParams ? searchParams.get("utm_campaign") : null);
   const utmContent =
     localStorage.getItem("utm_content") ||
-    new URLSearchParams(window.location.search).get("utm_content");
+    (searchParams ? searchParams.get("utm_content") : null);
   const utmTerm =
     localStorage.getItem("utm_term") ||
-    new URLSearchParams(window.location.search).get("utm_term");
+    (searchParams ? searchParams.get("utm_term") : null);
   const refCode = localStorage.getItem("ref-code");
 
   return {
@@ -174,7 +205,7 @@ const sendButtonClickToBackend = async (
 
     const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.flashfirejobs.com';
     
-    await fetch(`${API_BASE_URL}api/campaigns/track/button-click`, {
+    await fetch(`${API_BASE_URL}/api/campaigns/track/button-click`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -185,7 +216,14 @@ const sendButtonClickToBackend = async (
         buttonText,
         buttonLocation: location,
         buttonType,
-        pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+        pageUrl: (() => {
+          try {
+            return typeof window !== 'undefined' && window.location ? window.location.href : '';
+          } catch (e) {
+            // SecurityError can occur in cross-origin contexts
+            return typeof window !== 'undefined' && window.location ? window.location.pathname : '';
+          }
+        })(),
         userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
         ipAddress: null, // Will be captured by server
       }),
