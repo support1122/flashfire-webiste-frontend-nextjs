@@ -274,7 +274,7 @@ export default function HomePagePricingPlans() {
       id="pricing"
       className="bg-white py-16 pb-24 px-8 font-['Space_Grotesk',sans-serif] text-center max-[768px]:py-4 max-[768px]:pb-16 max-[768px]:px-6 overflow-x-hidden min-h-fit"
     >
-      <div className="mx-auto mb-12 max-[768px]:w-full max-[768px]:mb-8">
+      <div id="pricing-heading" className="mx-auto mb-12 max-[768px]:w-full max-[768px]:mb-8">
         <h2 className="text-[3rem] font-bold mb-4 text-black max-[1024px]:text-[2.4rem] max-[768px]:text-[2rem] max-[768px]:leading-[1.3] max-[480px]:text-[1.7rem]">
           Choose Your Career Acceleration Plan
         </h2>

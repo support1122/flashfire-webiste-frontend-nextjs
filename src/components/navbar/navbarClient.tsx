@@ -1047,7 +1047,22 @@ export default function NavbarClient({ links, ctas }: Props) {
               <Link
                 href={ctas.secondary.href}
                 className={styles.navLinkText}
-                onClick={() => {
+                onClick={(e) => {
+                  // Check if already on the how-it-works page
+                  const isOnHowItWorksPage = pathname === '/how-it-works' || pathname === '/en-ca/how-it-works' || pathname === prefix + '/how-it-works';
+                  
+                  if (isOnHowItWorksPage) {
+                    // Prevent navigation and scroll to top
+                    e.preventDefault();
+                    e.stopPropagation();
+                    // Just track the click, don't navigate or scroll
+                    trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                      button_location: "navbar_desktop",
+                      navigation_type: "secondary_cta"
+                    });
+                    return;
+                  }
+                  
                   trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
                     button_location: "navbar_desktop",
                     navigation_type: "secondary_cta"
@@ -1127,6 +1142,37 @@ export default function NavbarClient({ links, ctas }: Props) {
                   <Link 
                     href={getHref(link.href)} 
                     className={styles.navLinkText}
+                    onClick={(e) => {
+                      // Special handling for Pricing link - prevent scroll to top when already on pricing page
+                      if (link.href === '/pricing' && isOnPricingPage) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Scroll to pricing heading with navbar offset
+                        const headingElement = document.getElementById('pricing-heading');
+                        if (headingElement) {
+                          const stickyNavbar = document.querySelector('.sticky.top-0') || 
+                                              document.querySelector('nav') ||
+                                              document.querySelector('[class*="nav"]');
+                          const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
+                          const offset = navbarHeight + 20;
+                          
+                          const rect = headingElement.getBoundingClientRect();
+                          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                          const elementTop = rect.top + scrollTop;
+                          const targetScrollPosition = Math.max(0, elementTop - offset);
+                          
+                          // Only scroll if not already at the correct position
+                          const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                          if (Math.abs(currentScrollPosition - targetScrollPosition) > 50) {
+                            smoothScrollToElement('pricing-heading', {
+                              duration: 800,
+                              easing: 'easeInOutCubic',
+                            });
+                          }
+                        }
+                      }
+                    }}
                   >
                     {link.name}
                   </Link>
@@ -1217,7 +1263,23 @@ export default function NavbarClient({ links, ctas }: Props) {
                 <Link
                   href={ctas.secondary.href}
                   className={styles.navMobileLink}
-                  onClick={() => {
+                  onClick={(e) => {
+                    // Check if already on the how-it-works page
+                    const isOnHowItWorksPage = pathname === '/how-it-works' || pathname === '/en-ca/how-it-works' || pathname === prefix + '/how-it-works';
+                    
+                    if (isOnHowItWorksPage) {
+                      // Prevent navigation and scroll to top
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setIsMenuOpen(false);
+                      // Just track the click, don't navigate or scroll
+                      trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
+                        button_location: "navbar_mobile",
+                        navigation_type: "secondary_cta"
+                      });
+                      return;
+                    }
+                    
                     setIsMenuOpen(false);
                     trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
                       button_location: "navbar_mobile",
@@ -1300,7 +1362,39 @@ export default function NavbarClient({ links, ctas }: Props) {
                     <Link 
                       href={getHref(link.href)} 
                       className={styles.navMobileLink}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => {
+                        setIsMenuOpen(false);
+                        
+                        // Special handling for Pricing link - prevent scroll to top when already on pricing page
+                        if (link.href === '/pricing' && isOnPricingPage) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          
+                          // Scroll to pricing heading with navbar offset
+                          const headingElement = document.getElementById('pricing-heading');
+                          if (headingElement) {
+                            const stickyNavbar = document.querySelector('.sticky.top-0') || 
+                                                document.querySelector('nav') ||
+                                                document.querySelector('[class*="nav"]');
+                            const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
+                            const offset = navbarHeight + 20;
+                            
+                            const rect = headingElement.getBoundingClientRect();
+                            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                            const elementTop = rect.top + scrollTop;
+                            const targetScrollPosition = Math.max(0, elementTop - offset);
+                            
+                            // Only scroll if not already at the correct position
+                            const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                            if (Math.abs(currentScrollPosition - targetScrollPosition) > 50) {
+                              smoothScrollToElement('pricing-heading', {
+                                duration: 800,
+                                easing: 'easeInOutCubic',
+                              });
+                            }
+                          }
+                        }
+                      }}
                     >
                       {link.name}
                     </Link>
