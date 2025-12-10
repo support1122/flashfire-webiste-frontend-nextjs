@@ -196,16 +196,6 @@ export default function CalendlyModal({
         const utm_term =
           typeof window !== "undefined" ? localStorage.getItem("utm_term") : null;
 
-        // Booking event data captured
-          inviteeName,
-          meetingUrl,
-          eventStartTime,
-          page: typeof window !== "undefined" ? window.location.pathname : "",
-          utm_source,
-          utm_medium,
-          utm_campaign,
-        });
-
         // 🆕 DIRECT BACKUP: Send booking data to your backend API
         // This is a backup to Calendly webhook - if webhook fails, we still capture the booking
         try {
