@@ -94,22 +94,44 @@ export default function HomePageResultStats() {
               funnel_stage: "signup_intent"
             });
             
-            // Navigate to /get-me-interview WITHOUT exposing UTM params in the URL
-            const targetPath = '/get-me-interview';
-            const currentPath = pathname;
-            const isAlreadyOnGetMeInterview = currentPath === '/get-me-interview' || currentPath === '/en-ca/get-me-interview';
+            // Check current path first
+            const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+            const normalizedPath = currentPath.split('?')[0]; // Remove query params
+            const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' || 
+                                             normalizedPath === '/en-ca/get-me-interview';
             
-            // Dispatch custom event to force show modal (even if already on the route)
-            if (typeof window !== 'undefined') {
-              window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-            }
-            
-            // If already on the route, prevent navigation to avoid scroll-to-top
+            // If already on the route, save scroll position and prevent navigation
             if (isAlreadyOnGetMeInterview) {
+              // Save current scroll position before modal opens
+              const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+              
+              // Dispatch custom event to force show modal
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+              }
+              
+              // Restore scroll position immediately after modal opens
+              requestAnimationFrame(() => {
+                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                requestAnimationFrame(() => {
+                  window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                  setTimeout(() => {
+                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                  }, 50);
+                });
+              });
+              
               // Just trigger the modal, don't navigate or scroll
               return;
             }
             
+            // Dispatch custom event to force show modal FIRST
+            if (typeof window !== 'undefined') {
+              window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+            }
+            
+            // Only navigate if NOT already on the page
+            const targetPath = '/get-me-interview';
             router.push(targetPath);
           }}
         >

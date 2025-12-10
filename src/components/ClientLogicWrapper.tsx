@@ -197,6 +197,9 @@ function ClientLogicWrapperContent({
                 setForceShowModal(false); // Reset the flag
                 modalDismissedForRouteRef.current = null; // Reset dismissed state
                 
+                // Save scroll position before opening modal to prevent scroll-to-top
+                const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+                
                 if (isFromIndia && !geoBypassActive) {
                     setShowGeoBlockModal(true);
                     setShowSignupModal(false);
@@ -207,6 +210,20 @@ function ClientLogicWrapperContent({
                         setShowSignupModal(false);
                     }
                 }
+                
+                // Restore scroll position after modal opens to prevent scroll-to-top
+                if (typeof window !== 'undefined' && currentScrollY > 0) {
+                    requestAnimationFrame(() => {
+                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                        requestAnimationFrame(() => {
+                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                            setTimeout(() => {
+                                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                            }, 100);
+                        });
+                    });
+                }
+                
                 return;
             }
             
