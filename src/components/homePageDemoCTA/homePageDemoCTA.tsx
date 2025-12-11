@@ -233,6 +233,9 @@ export default function HomePageDemoCTA() {
             const currentPath = pathname;
             const isImageTestimonialsPage = currentPath === '/testimonials' || currentPath === '/en-ca/testimonials' || currentPath === '/image-testimonials' || currentPath === '/en-ca/image-testimonials';
             const isAlreadyOnBookMyDemoCall = currentPath === '/book-my-demo-call' || currentPath === '/en-ca/book-my-demo-call';
+            const isOnHomePage = currentPath === '/' || currentPath === '/en-ca';
+            
+            console.log('Button clicked - currentPath:', currentPath, 'isOnHomePage:', isOnHomePage);
             
             // If on image-testimonials page, change URL but keep page content visible
             if (isImageTestimonialsPage) {
@@ -247,6 +250,7 @@ export default function HomePageDemoCTA() {
             
             // If already on book-my-demo-call route, just show modal
             if (isAlreadyOnBookMyDemoCall) {
+              console.log('Already on book-my-demo-call route, showing modal only');
               // Just trigger the modal, don't navigate
               return;
             }

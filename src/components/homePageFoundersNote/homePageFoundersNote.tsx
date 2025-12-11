@@ -4,10 +4,10 @@ import { FaLinkedin } from "react-icons/fa";
 export default function HomePageFoundersNote() {
   return (
     <section id="founders-note" className="bg-[rgba(249,238,234,1)] py-24 px-6 font-['Space_Grotesk',sans-serif] max-[768px]:py-12 max-[768px]:px-4">
-      <div className="max-w-[1200px] mx-auto flex justify-between items-start gap-12 max-[1024px]:flex-col max-[1024px]:items-center max-[1024px]:text-center">
+      <div className="max-w-[1200px] mx-auto flex justify-between items-start gap-6 max-[1024px]:flex-col max-[1024px]:items-center max-[1024px]:text-center">
         {/* === LEFT COLUMN === */}
-        <div className="flex-[1.6] font-semibold text-left text-black text-[1.1rem] leading-[1.7] max-[1024px]:order-2 max-[1024px]:w-[90%] max-[768px]:text-base">
-          <p className="font-bold text-black mb-6">
+        <div className="flex-[1.6] font-semibold text-left text-black text-[1.4rem] leading-[1.5] max-[1024px]:order-2 max-[1024px]:w-[90%] max-[768px]:text-base">
+          <p className=" text-black mb-6">
             To Every Job Seeker Who’s Ready to Move Forward,
           </p>
 
@@ -25,7 +25,7 @@ export default function HomePageFoundersNote() {
             people for who they are.
           </p>
 
-          <blockquote className="font-normal font-semibold italic text-black border-l-4 border-[#ff4c00] pl-4 my-8 leading-[1.6]">
+          <blockquote className=" font-medium italic text-black border-l-4 border-[#ff4c00] pl-4 my-8 leading-[1.6]">
             The problem was never the people. It was the process.
           </blockquote>
 
