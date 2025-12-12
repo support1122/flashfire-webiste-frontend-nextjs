@@ -16,6 +16,7 @@ type Blog = {
   category: string;
   image: string;
   categoryColor?: string;
+  tags?: string[];
   author?: {
     name: string;
     bio?: string;

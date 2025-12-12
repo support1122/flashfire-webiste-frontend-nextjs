@@ -43,6 +43,24 @@ type TableOfContentsItem = {
 
 export default function BlogsPage({ post }: { post: BlogPost }) {
   const [activeSection, setActiveSection] = useState<string>("");
+  const allCategories = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          blogPosts
+            .map((p) => p.category)
+            .filter((c): c is string => Boolean(c))
+        )
+      ),
+    []
+  );
+  // Tags for this post; if missing, fall back to category as a single tag
+  const postTags = useMemo(() => {
+    if (post.tags && post.tags.length > 0) return post.tags;
+    return [post.category].filter(Boolean);
+  }, [post.tags, post.category]);
+
+  const overviewText = post.excerpt || "";
 
   // Process content and generate table of contents (client-side only)
   const [processedContent, setProcessedContent] = useState<string>(post?.content || "");
@@ -152,24 +170,19 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     };
   }, [post]);
 
-  // Get related articles (same category, exclude current)
-  // Always return exactly 3 articles - fill with other categories if needed
+  // Get related articles (same category preferred; allow more than 3 to enable scroll)
   const relatedArticles = useMemo(() => {
-    // First, get articles from the same category (excluding current)
-    const sameCategoryArticles = blogPosts
-      .filter((p) => p.category === post.category && p.id !== post.id)
-      .slice(0, 3);
-    
-    // If we have less than 3, fill with articles from other categories
-    if (sameCategoryArticles.length < 3) {
-      const otherCategoryArticles = blogPosts
-        .filter((p) => p.category !== post.category && p.id !== post.id)
-        .slice(0, 3 - sameCategoryArticles.length);
-      
-      return [...sameCategoryArticles, ...otherCategoryArticles].slice(0, 3);
+    const sameCategory = blogPosts.filter(
+      (p) => p.category === post.category && p.id !== post.id
+    );
+
+    // If none in same category, fall back to first 3 from other categories
+    if (sameCategory.length === 0) {
+      return blogPosts.filter((p) => p.id !== post.id).slice(0, 3);
     }
-    
-    return sameCategoryArticles.slice(0, 3);
+
+    // Allow more than 3 to enable scrolling when needed
+    return sameCategory;
   }, [post.category, post.id]);
 
   // Get recent posts (exclude current)
@@ -178,6 +191,20 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
       .filter((p) => p.id !== post.id)
       .slice(0, 5);
   }, [post.id]);
+
+  // Get most viewed posts (exclude current and recent posts)
+  const mostViewedPosts = useMemo(() => {
+    const excludeIds = new Set([post.id, ...recentPosts.map(p => p.id)]);
+    return blogPosts
+      .filter((p) => !excludeIds.has(p.id))
+      .sort((a, b) => {
+        // Sort by date descending (newer first) as a proxy for "most viewed"
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return dateB - dateA;
+      })
+      .slice(0, 5);
+  }, [post.id, recentPosts]);
 
   // Social sharing functions
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
@@ -258,6 +285,12 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
       {
         "@type": "ListItem",
         position: 3,
+        name: post.category,
+        item: `https://www.flashfirejobs.com/blogs?category=${encodeURIComponent(post.category)}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
         name: post.title,
         item: `https://www.flashfirejobs.com/blog/${post.slug}`,
       },
@@ -276,15 +309,41 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
       <Navbar />
+      {/* Floating Share */}
+      <div className={styles.floatingShare}>
+        <button
+          onClick={() => handleShare("facebook")}
+          className={styles.socialButton}
+          aria-label="Share on Facebook"
+        >
+          <FaFacebookF />
+        </button>
+        <button
+          onClick={() => handleShare("twitter")}
+          className={styles.socialButton}
+          aria-label="Share on Twitter"
+        >
+          <FaTwitter />
+        </button>
+        <button
+          onClick={() => handleShare("linkedin")}
+          className={styles.socialButton}
+          aria-label="Share on LinkedIn"
+        >
+          <FaLinkedinIn />
+        </button>
+      </div>
       <div className={styles.pageWrapper}>
         <div className={styles.blogContainer}>
           {/* === BREADCRUMB === */}
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <Link href="/">Home</Link>
-            <span className={styles.breadcrumbSeparator}>/</span>
+            <span className={styles.breadcrumbSeparator}> &gt; </span>
             <Link href="/blogs">Blogs</Link>
-            <span className={styles.breadcrumbSeparator}>/</span>
-            <span className={styles.breadcrumbCurrent}>{post.title}</span>
+            <span className={styles.breadcrumbSeparator}> &gt; </span>
+            <Link href={`/blogs?category=${encodeURIComponent(post.category)}`}>{post.category}</Link>
+            <span className={styles.breadcrumbSeparator}> &gt; </span>
+            <span className={styles.breadcrumbCurrent} title={post.title}>{post.title}</span>
           </nav>
 
           {/* === TOP SECTION WITH HERO IMAGE AND SIDEBAR === */}
@@ -292,6 +351,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
             <div className={styles.topSection}>
               {/* === LEFT: HERO IMAGE AND TITLE === */}
               <div className={styles.topLeftContent}>
+              {/* Category chips removed per request */}
               {/* === HERO IMAGE === */}
               <div className={styles.imageWrapper}>
                 <Image
@@ -308,13 +368,17 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               {/* === TITLE === */}
               <h1 className={styles.title} itemProp="headline">{post.title}</h1>
 
-              {/* === TAGS === */}
-              {post.tags && post.tags.length > 0 && (
+              {/* === TAGS (clickable to filter blogs by tag) === */}
+              {postTags && postTags.length > 0 && (
                 <div className={styles.tagsWrapper}>
-                  {post.tags.map((tag, index) => (
-                    <span key={index} className={styles.tag}>
+                  {postTags.map((tag, index) => (
+                    <Link
+                      key={index}
+                      href={`/blogs?tag=${encodeURIComponent(tag)}`}
+                      className={styles.tag}
+                    >
                       {tag}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -366,6 +430,14 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                 </div>
               </div>
 
+              {/* === BLOG OVERVIEW === */}
+              {overviewText && (
+                <div className={styles.overviewBox}>
+                  <h3 className={styles.overviewTitle}>Blog Overview</h3>
+                  <p className={styles.overviewText}>{overviewText}</p>
+                </div>
+              )}
+
               {/* === TABLE OF CONTENTS === */}
               {tableOfContents.length > 0 && (
                 <div className={styles.tableOfContents}>
@@ -400,7 +472,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
             {/* === RIGHT: SIDEBAR === */}
             <aside className={styles.topSidebar}>
               {/* === SOCIAL SHARE === */}
-              <div className={styles.sidebarSection}>
+              {/* <div className={styles.sidebarSection}>
                 <h4 className={styles.sidebarTitle}>Share This Article</h4>
                 <div className={styles.socialShare}>
                   <button
@@ -425,7 +497,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                     <FaLinkedinIn />
                   </button>
                 </div>
-              </div>
+              </div> */}
 
               {/* === RECENT POSTS === */}
               <div className={styles.sidebarSection}>
@@ -459,6 +531,41 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   ))}
                 </ul>
               </div>
+
+              {/* === MOST VIEWED POSTS === */}
+              {mostViewedPosts.length > 0 && (
+                <div className={styles.sidebarSection}>
+                  <h4 className={styles.sidebarTitle}>Most Viewed Blogs</h4>
+                  <ul className={styles.recentPostsList}>
+                    {mostViewedPosts.map((viewedPost) => (
+                      <li key={viewedPost.id} className={styles.recentPostItem}>
+                        <Link
+                          href={`/blog/${viewedPost.slug}`}
+                          className={styles.recentPostLink}
+                        >
+                          <div className={styles.recentPostImage}>
+                            <Image
+                              src={viewedPost.image}
+                              alt={viewedPost.title}
+                              width={80}
+                              height={60}
+                              className={styles.recentPostImg}
+                            />
+                          </div>
+                          <div className={styles.recentPostContent}>
+                            <h5 className={styles.recentPostTitle}>
+                              {viewedPost.title}
+                            </h5>
+                            <span className={styles.recentPostDate}>
+                              {viewedPost.date}
+                            </span>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               </aside>
             </div>
 
@@ -474,11 +581,43 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
             </div>
           </div>
 
+        {/* === BOTTOM SOCIAL SHARE === */}
+        <div className={styles.bottomShareSection}>
+          <h4 className={styles.sidebarTitle}></h4>
+          <div className={styles.socialShare}>
+            <button
+              onClick={() => handleShare("facebook")}
+              className={styles.socialButton}
+              aria-label="Share on Facebook"
+            >
+              <FaFacebookF />
+            </button>
+            <button
+              onClick={() => handleShare("twitter")}
+              className={styles.socialButton}
+              aria-label="Share on Twitter"
+            >
+              <FaTwitter />
+            </button>
+            <button
+              onClick={() => handleShare("linkedin")}
+              className={styles.socialButton}
+              aria-label="Share on LinkedIn"
+            >
+              <FaLinkedinIn />
+            </button>
+          </div>
+        </div>
+
           {/* === RELATED ARTICLES === */}
           {relatedArticles.length > 0 && (
             <section className={styles.relatedSection}>
               <h2 className={styles.relatedTitle}>Related Articles</h2>
-              <div className={styles.relatedGrid}>
+              <div
+                className={`${styles.relatedGrid} ${
+                  relatedArticles.length > 3 ? styles.relatedGridScroll : ""
+                }`}
+              >
                 {relatedArticles.map((relatedPost) => (
                   <article key={relatedPost.id} className={styles.relatedCard}>
                     <Link href={`/blog/${relatedPost.slug}`}>

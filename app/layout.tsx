@@ -145,6 +145,7 @@ export default function RootLayout({
         />
       </head>
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
         <PHProvider>
