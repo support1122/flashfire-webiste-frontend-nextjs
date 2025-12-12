@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import styles from "./blogs.module.css";
@@ -99,6 +99,40 @@ export default function BlogsClient() {
 
     return base;
   }, [decodedCategory, decodedTag, searchQuery]);
+
+  // Scroll to header title when category or tag changes
+  useEffect(() => {
+    const scrollToHeader = () => {
+      const headerElement = document.querySelector(`.${styles.header}`);
+      if (headerElement) {
+        const stickyNavbar = document.querySelector('.sticky.top-0') || 
+                            document.querySelector('nav');
+        const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
+        const headerRect = headerElement.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const headerTop = headerRect.top + scrollTop;
+        const offset = navbarHeight + 20; // Add extra 20px padding
+        const targetScroll = Math.max(0, headerTop - offset);
+        window.scrollTo({ top: targetScroll, behavior: 'instant' });
+      } else {
+        // Fallback to top if header not found
+        const stickyNavbar = document.querySelector('.sticky.top-0') || 
+                            document.querySelector('nav');
+        const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
+        const offset = navbarHeight + 20;
+        window.scrollTo({ top: offset, behavior: 'instant' });
+      }
+    };
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      scrollToHeader();
+      // Also scroll after a short delay to catch any late scrolls
+      setTimeout(() => {
+        scrollToHeader();
+      }, 50);
+    });
+  }, [decodedCategory, decodedTag]);
 
   return (
     <section className={styles.blogsSection}>
