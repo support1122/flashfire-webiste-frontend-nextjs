@@ -31,6 +31,22 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.adobe.com",
       },
+      {
+        protocol: "https",
+        hostname: "icons.duckduckgo.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
+      {
+        protocol: "https",
+        hostname: "logo.dev",
+      },
+      {
+        protocol: "https",
+        hostname: "www.google.com",
+      },
     ],
   },
 };

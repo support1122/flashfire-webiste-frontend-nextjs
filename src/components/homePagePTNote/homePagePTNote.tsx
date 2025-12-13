@@ -13,14 +13,14 @@ export default function HomePagePTNote() {
       "Hi! I\u2019m interested in Flashfire\u2019s AI-powered job search automation. Can you help me get started?",
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    
+
     const utmSource = typeof window !== "undefined"
       ? localStorage.getItem("utm_source") || "WEBSITE"
       : "WEBSITE";
     const utmMedium = typeof window !== "undefined"
       ? localStorage.getItem("utm_medium") || "PT_Note_WhatsApp_Section"
       : "PT_Note_WhatsApp_Section";
-    
+
     // GTag tracking
     GTagUTM({
       eventName: "whatsapp_support_click",
@@ -33,7 +33,7 @@ export default function HomePagePTNote() {
           : "Website",
       },
     });
-    
+
     // PostHog tracking (automatically includes UTM via getUTMContext)
     trackButtonClick("Connect on WhatsApp", "pt_note_section", "cta", {
       button_location: "pt_note_whatsapp",
@@ -43,7 +43,7 @@ export default function HomePagePTNote() {
       link_type: "whatsapp_support",
       contact_method: "whatsapp"
     });
-    
+
     window.open(whatsappUrl, "_blank");
   };
 
@@ -87,12 +87,13 @@ export default function HomePagePTNote() {
 
           <div className="absolute bottom-0 right-6 overflow-hidden max-[1024px]:static max-[1024px]:mt-6 max-[1024px]:mx-auto max-[1024px]:w-fit">
             <Image
-              src="/images/pranjal_cto.png"
+              src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/pranjal_cto.png"
               alt="Pranjal Tripathi"
               width={220}
               height={220}
               className="w-[220px] h-[220px] object-cover block [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]"
             />
+
           </div>
         </div>
 

@@ -18,86 +18,99 @@ const offerLetters: OfferLetterData[] = [
     company: "MiRus",
     linkedinUrl: "https://www.linkedin.com/in/dr-kanchan-yadav-ba0b18106/",
     imagePath: "/images/kanchan_offer.png",
-    profileImagePath: "/images/kanchan.jpeg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/kanchan.jpeg",
   },
   {
     name: "Uhtiha",
     company: "MaineHealth Maine Medical Center",
     linkedinUrl: "https://www.linkedin.com/in/uhitha-doddapaneni-903932128/",
     imagePath: "/images/uhitha_offer.png",
-    profileImagePath: "/images/uhitha.jpeg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/uhitha.jpeg",
   },
   {
     name: "Anjali",
     company: "Skyworks Solutions, Inc.",
     linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
     imagePath: "/images/anjali_offer.png",
-    profileImagePath: "/images/anjali.jpeg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
   },
   {
     name: "Akrati",
     company: "Akamai Technologies",
     linkedinUrl: "https://www.linkedin.com/in/akratimalviya/",
     imagePath: "/images/akrati_offer.png",
-    profileImagePath: "/images/akrati.jpeg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/akrati.jpeg",
   },
   {
     name: "Neha",
     company: "Deloitte",
     linkedinUrl: "https://www.linkedin.com/in/neha-senapati/",
     imagePath: "/images/neha_offer.png",
-    profileImagePath: "/images/neha.png",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/neha.png",
   },
   {
     name: "Teja",
     company: "LVIS",
     linkedinUrl: "https://www.linkedin.com/in/tejasunkara/",
     imagePath: "/images/teja_offer.png",
-    profileImagePath: "/images/TEJA.jpeg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/TEJA.jpeg",
   },
   {
     name: "Aryan",
     company: "IBM",
     linkedinUrl: "#",
     imagePath: "/images/aryan_offer.png",
-    profileImagePath: "/images/aryan.jpg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/utkarsh.jpg",
   },
   {
     name: "Amit",
     company: "Armorcode",
     linkedinUrl: "#",
     imagePath: "/images/amit_offer.png",
-    profileImagePath: "/images/amit.jpg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
   },
   {
     name: "Rudraksh",
     company: "State Street",
     linkedinUrl: "#",
     imagePath: "/images/rudraksh_offer.png",
-    profileImagePath: "/images/rudraksh.jpg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rudraksh.jpg",
   },
   {
     name: "Sai Krishna",
     company: "Urban Electric Power",
     linkedinUrl: "https://www.linkedin.com/in/sai-krishna-grandhi/",
     imagePath: "/images/saikrishna_offer.png",
-    profileImagePath: "/images/SAI KRISHNA.jpeg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/SAI%20KRISHNA.jpeg",
   },
   {
     name: "Rijul Jain",
     company: "Wise",
     linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
     imagePath: "/images/rijul_offer.png",
-    profileImagePath: "/images/rijul.jpg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg",
   },
   {
     name: "Aman Guleria",
     company: "Barclays",
     linkedinUrl: "#",
     imagePath: "/images/aman_offer.png",
-    profileImagePath: "/images/aman.jpg",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
   },
 ];
+
 
 export default function HomePageOfferLettersClient() {
   return (
