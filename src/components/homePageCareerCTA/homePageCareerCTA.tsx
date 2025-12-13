@@ -55,13 +55,13 @@ export default function HomePageCareerCTA() {
               {...getButtonProps()}
               className={styles.ctaButton}
               onClick={() => {
-                const utmSource = typeof window !== "undefined"
+                const utmSource = typeof window !== "undefined" 
                   ? localStorage.getItem("utm_source") || "WEBSITE"
                   : "WEBSITE";
                 const utmMedium = typeof window !== "undefined"
                   ? localStorage.getItem("utm_medium") || "Career_CTA_Section"
                   : "Career_CTA_Section";
-
+                
                 GTagUTM({
                   eventName: "sign_up_click",
                   label: "Career_CTA_Button",
@@ -73,7 +73,7 @@ export default function HomePageCareerCTA() {
                       : "Website",
                   },
                 });
-
+                
                 trackButtonClick("Schedule a Free Career Call", "career_cta", "cta", {
                   button_location: "career_section",
                   section: "career_cta",
@@ -84,20 +84,20 @@ export default function HomePageCareerCTA() {
                   funnel_stage: "signup_intent",
                   target_url: "/schedule-a-free-career-call"
                 });
-
+                
                 // Save current scroll position to sessionStorage before navigation
                 if (typeof window !== 'undefined') {
                   sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
                 }
-
+                
                 // Navigate to /schedule-a-free-career-call WITHOUT exposing UTM params in the URL
                 const targetPath = '/schedule-a-free-career-call';
-
+                
                 // Dispatch custom event to force show modal (even if already on the route)
                 if (typeof window !== 'undefined') {
                   window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
                 }
-
+                
                 router.push(targetPath);
               }}
             >
@@ -106,25 +106,23 @@ export default function HomePageCareerCTA() {
             <div className={styles.userNote}>
               <div className={styles.userAvatars}>
                 <Image
-                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg"
+                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/aman%20(1).jpg"
                   alt="user1"
                   width={28}
                   height={28}
                   className={styles.avatar}
                   unoptimized
                 />
-
                 <Image
-                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg"
+                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/anjali.jpeg"
                   alt="user2"
                   width={28}
                   height={28}
                   className={styles.avatar}
                   unoptimized
                 />
-
                 <Image
-                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/utkarsh.jpg"
+                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/aryan.jpg"
                   alt="user3"
                   width={28}
                   height={28}
@@ -132,7 +130,6 @@ export default function HomePageCareerCTA() {
                   unoptimized
                 />
               </div>
-
               <p>
                 Join <span className={styles.highlight}>100+</span> graduates
                 who landed offers at top companies.

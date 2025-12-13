@@ -8,24 +8,6 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
-const UNIVERSITY_LOGOS: Record<string, string> = {
-  "Harvard University": "https://logo.clearbit.com/harvard.edu",
-  "Stanford University": "https://logo.clearbit.com/stanford.edu",
-  "UC Berkeley": "https://logo.clearbit.com/berkeley.edu",
-  "Carnegie Mellon University": "https://logo.clearbit.com/cmu.edu",
-  "University of Michigan": "https://logo.clearbit.com/umich.edu",
-  "Princeton University": "https://logo.clearbit.com/princeton.edu",
-  "Yale University": "https://logo.clearbit.com/yale.edu",
-  "Columbia University": "https://logo.clearbit.com/columbia.edu",
-  "Cornell University": "https://logo.clearbit.com/cornell.edu",
-  "University of Pennsylvania": "https://logo.clearbit.com/upenn.edu",
-  "Duke University": "https://logo.clearbit.com/duke.edu",
-  "Northwestern University": "https://logo.clearbit.com/northwestern.edu",
-  "University of Chicago": "https://logo.clearbit.com/uchicago.edu",
-  "Caltech": "https://logo.clearbit.com/caltech.edu",
-};
-
-
 type Props = {
   data: HeroSectionData;
 };
@@ -103,19 +85,19 @@ export default function HeroSectionClient({ data }: Props) {
           // Check current path first
           const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
           const normalizedPath = currentPath.split('?')[0]; // Remove query params
-          const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
-            normalizedPath === '/en-ca/get-me-interview';
-
+          const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' || 
+                                           normalizedPath === '/en-ca/get-me-interview';
+          
           // If already on the route, save scroll position and prevent navigation
           if (isAlreadyOnGetMeInterview) {
             // Save current scroll position before modal opens
             const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
+            
             // Dispatch custom event to force show modal
             if (typeof window !== 'undefined') {
               window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
             }
-
+            
             // Restore scroll position immediately after modal opens
             requestAnimationFrame(() => {
               window.scrollTo({ top: currentScrollY, behavior: 'instant' });
@@ -126,22 +108,22 @@ export default function HeroSectionClient({ data }: Props) {
                 }, 50);
               });
             });
-
+            
             // Just trigger the modal, don't navigate or scroll
             return;
           }
-
+          
           // Dispatch custom event to force show modal FIRST
           if (typeof window !== 'undefined') {
             window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
           }
-
+          
           // Save current scroll position before navigation to preserve it
           if (typeof window !== 'undefined') {
             const currentScrollY = window.scrollY;
             sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
           }
-
+          
           // Only navigate if NOT already on the page
           const targetPath = '/get-me-interview';
           router.push(targetPath);
@@ -154,18 +136,10 @@ export default function HeroSectionClient({ data }: Props) {
       {/* === Trusted Users === */}
       <div className="flex items-center justify-center gap-2.5 mb-12">
         <div className="flex items-center">
-          {[
-            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
-            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
-            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/akrati.jpeg",
-          ].map((url, i) => (
-            <div
-              key={i}
-              className={`relative w-[2.2rem] h-[2.2rem] rounded-full border-2 border-white overflow-hidden -ml-3.5 shadow-[0_0_0_1px_rgba(0,0,0,0.05)] ${i === 0 ? "ml-0" : ""
-                }`}
-            >
+          {["amit.jpg", "aman.jpg", "akrati.jpeg"].map((img, i) => (
+            <div key={i} className={`relative w-[2.2rem] h-[2.2rem] rounded-full border-2 border-white overflow-hidden -ml-3.5 shadow-[0_0_0_1px_rgba(0,0,0,0.05)] ${i === 0 ? 'ml-0' : ''}`}>
               <Image
-                src={url}
+                src={`/images/${img}`}
                 alt={`User ${i + 1}`}
                 fill
                 sizes="2.2rem"
@@ -174,10 +148,8 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           ))}
         </div>
-
         <p className="text-base text-black font-medium">{data.trustText}</p>
       </div>
-
 
       {/* === Universities Section === */}
       <div className="w-[70%] mx-auto mb-8 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4">
@@ -189,59 +161,20 @@ export default function HeroSectionClient({ data }: Props) {
         {/* University logos below */}
         <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-[90%] max-w-[90%] mx-auto mt-0 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%]">
           <div className="flex items-center justify-start gap-[0.05rem] flex-nowrap w-max pl-0 pr-0">
-            {data.universities.map((uni, index) => {
-              const logoSrc =
-                UNIVERSITY_LOGOS[uni.name] ||
-                `https://logo.clearbit.com/${uni.domain}`;
-
-              return (
-                <div
-                  key={index}
-                  className="flex-none bg-white border border-gray-200 rounded-md p-2.5 w-[200px] h-20 flex flex-row items-center justify-start gap-2.5 shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-300 ease-in-out snap-start"
-                >
-                  <Image
-                    src={logoSrc}
-                    alt={uni.name}
-                    width={60}
-                    height={40}
-                    className="object-contain w-auto max-w-[50px] h-8 max-h-8 flex-shrink-0 max-[768px]:h-8"
-                    unoptimized
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      let attempts = parseInt(target.getAttribute('data-attempts') || '0');
-                      
-                      // Try Clearbit without size parameter if using mapped logo
-                      if (UNIVERSITY_LOGOS[uni.name] && attempts === 0) {
-                        target.setAttribute('data-attempts', '1');
-                        target.src = `https://logo.clearbit.com/${uni.domain}`;
-                        return;
-                      }
-                      // Try with size parameter
-                      if (attempts < 2 && !target.src.includes('?size=')) {
-                        target.setAttribute('data-attempts', '2');
-                        target.src = `https://logo.clearbit.com/${uni.domain}?size=128`;
-                        return;
-                      }
-                      // Try Google favicons as last resort
-                      if (attempts < 3) {
-                        target.setAttribute('data-attempts', '3');
-                        target.src = `https://www.google.com/s2/favicons?domain=${uni.domain}&sz=128`;
-                        return;
-                      }
-                      // Keep logo visible even if it fails - show placeholder
-                      target.style.opacity = '0.3';
-                    }}
-                  />
-
-                  <p className="text-black text-[0.8rem] font-medium text-left leading-[1.3] m-0 p-0 whitespace-nowrap flex-1">
-                    {uni.name}
-                  </p>
-                </div>
-              );
-            })}
+            {data.universities.map((uni, index) => (
+              <div key={index} className="flex-none bg-white border border-gray-200 rounded-md p-2.5 w-[200px] h-20 flex flex-row items-center justify-start gap-2.5 shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-300 ease-in-out snap-start">
+                <Image
+                  src={`https://logo.clearbit.com/${uni.domain}`}
+                  alt={uni.name}
+                  width={60}
+                  height={40}
+                  className="object-contain w-auto max-w-[50px] h-8 max-h-8 flex-shrink-0 max-[768px]:h-8"
+                />
+                <p className="text-black text-[0.8rem] font-medium text-left leading-[1.3] m-0 p-0 whitespace-nowrap flex-1">{uni.name}</p>
+              </div>
+            ))}
           </div>
         </div>
-
       </div>
     </section>
   );

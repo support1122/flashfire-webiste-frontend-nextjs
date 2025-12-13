@@ -7,42 +7,44 @@ import React from "react";
 
 // Export full list so a dedicated gallery page can show all images
 export const ALL_REVIEW_IMAGES = [
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image7.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image2.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image8.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image9.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image10.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image11.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image5.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image12.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image6.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image18.jpg", // 10
+ 
+ 
+  
+  "/images/happy-users-sc/image7.jpg",
+  "/images/happy-users-sc/image2.jpg",
+  "/images/happy-users-sc/image8.jpg",
+  "/images/happy-users-sc/image9.png",
+  "/images/happy-users-sc/image10.jpg",
+  "/images/happy-users-sc/image11.jpg",
+  "/images/happy-users-sc/image5.jpg",
+  "/images/happy-users-sc/image12.jpg",
+  "/images/happy-users-sc/image6.jpg",
+  "/images/happy-users-sc/image18.jpg",//10
+  "/images/happy-users-sc/image1.jpg",
+  "/images/happy-users-sc/image13.png",
+  "/images/happy-users-sc/image14.png",
+  "/images/happy-users-sc/image4.jpg",
+  "/images/happy-users-sc/image22.png",
+  "/images/happy-users-sc/image16.png",
+  "/images/happy-users-sc/image17.png",
+  "/images/happy-users-sc/image19.png",
+  "/images/happy-users-sc/image20.png",
+  "/images/happy-users-sc/image21.jpg",
+  "/images/happy-users-sc/image15.png",
+  "/images/happy-users-sc/image3.jpg",
+  "/images/happy-users-sc/image23.png",
+  "/images/happy-users-sc/image24.png",
+  
 
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image1.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image13.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image14.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image4.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image22.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image16.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image17.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image19.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image20.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image21.jpg",
-
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image15.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image3.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image23.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image24.png",
-
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image25.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image26.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image27.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image28.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image29.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image30.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image31.png",
+  "/images/happy-users-sc/image25.png",
+  "/images/happy-users-sc/image26.png",
+  "/images/happy-users-sc/image27.jpg",
+  "/images/happy-users-sc/image28.png",
+  "/images/happy-users-sc/image29.png",
+  "/images/happy-users-sc/image30.png",
+  "/images/happy-users-sc/image31.png",
+  
 ];
-
 
 export default function HomePageHappyUsers() {
   const pathname = usePathname();
@@ -55,27 +57,25 @@ export default function HomePageHappyUsers() {
       name: "Anjali Shah",
       company: "Skyworks Solutions, Inc.",
       linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
-      profileImage:
-        "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-19.jpg",
+      profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-19.jpg",
     },
     {
       videoUrl: "https://www.youtube.com/embed/nYEO8K0q38c",
       name: "Rijul Jain",
       company: "Wise",
       linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
-      profileImage:
-        "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-20.jpg",
+      profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-20.jpg",
+
     },
     {
       videoUrl: "https://www.youtube.com/embed/p9kzhLHjJuI",
       name: "Aryan Gupta",
       company: "IBM",
       linkedinUrl: "#",
-      profileImage:
-        "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-18.jpg",
+      profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-18.jpg",
     },
   ];
-  
+
   // Show a subset on the homepage (24 images)
   const reviewImages = ALL_REVIEW_IMAGES.slice(0, 24);
 

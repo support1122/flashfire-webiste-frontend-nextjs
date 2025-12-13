@@ -356,7 +356,7 @@ export default function HomePageWhyChooseFF() {
 
             <div className="relative flex-1 max-w-[60%] h-[13rem] overflow-hidden rounded-[0.5rem] max-[1024px]:static max-[1024px]:w-full max-[1024px]:h-[220px] max-[1024px]:mt-4 max-[1024px]:max-w-full max-[768px]:flex max-[768px]:justify-center max-[768px]:items-center max-[480px]:h-[180px]">
               <Image
-                src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/adit-jain.png"
+                src="/images/adit-jain.png"
                 alt="Adit Jain"
                 width={260}
                 height={480}

@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import Footer from "@/src/components/footer/footer";
 import HeroSection from "@/src/components/heroSection/heroSection";
 import HomePageCareerCTA from "@/src/components/homePageCareerCTA/homePageCareerCTA";
-import HomePageBeforeAfter from "@/src/components/homePageBeforeAfter/homePageBeforeAfter";
 import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
 import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
 import HomePageFoundersNote from "@/src/components/homePageFoundersNote/homePageFoundersNote";
@@ -52,9 +51,7 @@ const Home = () => {
     <>
       <Navbar />
       <HeroSection /> {/* using useState, so client */}
-      <HomePageBeforeAfter />
       <HomePageCareerCTA />
-      
       <HomePageResultStats />
       <HomePageStatsCards />
       <HomePageOfferLetters />
