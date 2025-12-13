@@ -135,21 +135,32 @@ export default function HeroSectionClient({ data }: Props) {
 
       {/* === Trusted Users === */}
       <div className="flex items-center justify-center gap-2.5 mb-12">
-        <div className="flex items-center">
-          {["amit.jpg", "aman.jpg", "akrati.jpeg"].map((img, i) => (
-            <div key={i} className={`relative w-[2.2rem] h-[2.2rem] rounded-full border-2 border-white overflow-hidden -ml-3.5 shadow-[0_0_0_1px_rgba(0,0,0,0.05)] ${i === 0 ? 'ml-0' : ''}`}>
-              <Image
-                src={`/images/${img}`}
-                alt={`User ${i + 1}`}
-                fill
-                sizes="2.2rem"
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-        <p className="text-base text-black font-medium">{data.trustText}</p>
+  <div className="flex items-center">
+    {[
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/akrati.jpeg",
+    ].map((url, i) => (
+      <div
+        key={i}
+        className={`relative w-[2.2rem] h-[2.2rem] rounded-full border-2 border-white overflow-hidden -ml-3.5 shadow-[0_0_0_1px_rgba(0,0,0,0.05)] ${
+          i === 0 ? "ml-0" : ""
+        }`}
+      >
+        <Image
+          src={url}
+          alt={`User ${i + 1}`}
+          fill
+          sizes="2.2rem"
+          className="object-cover"
+        />
       </div>
+    ))}
+  </div>
+
+  <p className="text-base text-black font-medium">{data.trustText}</p>
+</div>
+
 
       {/* === Universities Section === */}
       <div className="w-[70%] mx-auto mb-8 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4">
