@@ -74,7 +74,7 @@ export default function HomePageMilestonesClient() {
       text: "Flashfire's advanced ATS optimization technology helped me stand out in a competitive consulting market. The platform's resume tailoring and cover letter generation were spot-on, matching each firm's requirements perfectly. I received multiple offers from top consulting firms including Deloitte, and the entire process was seamless. This is the future of job searching!",
       user: "Neha",
       role: "Strategy Consultant",
-      image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/neha.png",
+      image:"https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/neha.png",
     },
     {
       company: "LVIS",
