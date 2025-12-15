@@ -1,11 +1,38 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageVideo from "@/src/components/homePageVideo/homePageVideo";
+import { useEffect, useRef, useState } from "react";
+import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
+import { FaPlus, FaTimes } from "react-icons/fa";
 
+function useInViewOnce() {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("in-view");
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -80px 0px", threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return ref;
+}
 const ctaButtonClass =
   "inline-block rounded-lg bg-black px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#ff4c00] transition-all duration-300 hover:bg-[#222] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black";
 
@@ -18,6 +45,7 @@ const steps = [
       "We build a personalized job strategy for US & Canada roles.",
       "Visa-aware: OPT, CPT, STEM OPT, H-1B, sponsorship needs are baked in.",
     ],
+    image: "/images/step1.png",
   },
   {
     title: "Your Resume & Profile Get Optimized",
@@ -26,6 +54,7 @@ const steps = [
       "LinkedIn profile enhancement and skill gap suggestions.",
       "Hybrid model: AI precision + human review so you look hire-ready.",
     ],
+    image: "/images/step2.png",
   },
   {
     title: "Flashfire Scans the Market Daily",
@@ -33,6 +62,7 @@ const steps = [
       "Fresh, high-quality roles that match skills, visa, location, and salary.",
       "Sources: major job boards, company career pages, hidden recruiter roles.",
     ],
+    image: "/images/step3.png",
   },
   {
     title: "Smart Apply System Handles Everything",
@@ -41,6 +71,7 @@ const steps = [
       "Tailors your resume for each job with ATS-safe formatting.",
       "Submits applications on your behalf—no more repetitive answers.",
     ],
+    image: "/images/step4.png",
   },
   {
     title: "Transparent Application Tracking",
@@ -48,6 +79,7 @@ const steps = [
       "See jobs applied, status updates, recruiter responses, and predictions.",
       "Success probability for every application so you focus where it matters.",
     ],
+    image: "/images/step2.png",
   },
   {
     title: "Interview Calls Start Coming In",
@@ -55,6 +87,7 @@ const steps = [
       "We prioritize roles with strong recruiter responsiveness and student-friendly patterns.",
       "Alerts via email, SMS, and dashboard notifications.",
     ],
+    image: "/images/step1.png",
   },
   {
     title: "Prep for Interviews With Confidence",
@@ -62,6 +95,7 @@ const steps = [
       "Tailored interview questions and company-specific insights.",
       "Mock interview practice with feedback so you walk in ready, not stressed.",
     ],
+    image: "/images/step3.png",
   },
 ];
 
@@ -98,6 +132,40 @@ const faqs = [
 ];
 
 export default function HowItWorks() {
+  const [currentStep, setCurrentStep] = useState(0);
+  const carouselRef = useInViewOnce();
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    const node = carouselRef.current;
+    if (!node) return;
+
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!timer) {
+            timer = setInterval(() => {
+              setCurrentStep((prev) => (prev + 1) % steps.length);
+            }, 2600);
+          }
+        } else if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+      if (timer) clearInterval(timer);
+    };
+  }, []);
+
   return (
     <div className="bg-[#fff6f4] text-black min-h-screen">
       <Navbar />
@@ -108,20 +176,20 @@ export default function HowItWorks() {
             How it works
           </p>
           <h1 className="mt-3 text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
-            Your shortcut to interview calls in the US &amp; Canada
+            Your shortcut to interview calls 
           </h1>
           <p className="mt-4 text-lg text-gray-700 md:text-xl">
             Flashfire turns your long, exhausting job search into a smooth,
             automated path to interview calls. You set the goal—Flashfire runs
             the entire journey.
           </p>
-          //   #ff4c00
+
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               href="/talk-to-an-expert"
               className="inline-block rounded-lg bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
-              Get Started — Start Getting Interview Calls          
+              Get Started — Start Getting Interview Calls
             </Link>
             <p className="text-sm text-gray-600">
               No manual searching. No repetitive answers. Interviews faster.
@@ -129,37 +197,84 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-500">
-                    Step {index + 1}
-                  </p>
-                  <h2 className="mt-2 text-xl font-semibold text-gray-900">
-                    {step.title}
-                  </h2>
-                </div>
-                {step.subtitle ? (
-                  <span className="rounded-full bg-orange-50 px-3 py-1 text-xs font-semibold text-orange-600">
-                    {step.subtitle}
-                  </span>
-                ) : null}
+        <section className="mt-12 md:mt-16">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+            <div className="flex-1 max-w-xl space-y-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
+                Path to success
+              </p>
+              <h2 className="text-[2.8rem] leading-[1.1] font-bold text-black max-[1024px]:text-[2.4rem]">
+                From searching to interviewing, just 4 simple steps.
+              </h2>
+              <div className="space-y-3 text-lg text-[#111]">
+                {["You share your goals", "We build your winning profile", "Flashfire applies while you chill", "You start getting interview calls"].map(
+                  (item, idx) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full border border-black text-base font-semibold">
+                        {idx + 1}
+                      </span>
+                      <span>{item}</span>
+                    </div>
+                  )
+                )}
               </div>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700 leading-relaxed">
-                {step.points.map((point) => (
-                  <li key={point} className="flex gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-orange-500" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Link
+                  href="/talk-to-an-expert"
+                  className="inline-flex items-center justify-center rounded-lg border border-black bg-white px-5 py-3 text-sm font-semibold text-black shadow-[0_3px_0_#ff4c00] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_0_#ff4c00]"
+                >
+                  See Flashfire in Action →
+                </Link>
+                <Link href="/talk-to-an-expert" className={ctaButtonClass}>
+                  Get Me Interview →
+                </Link>
+              </div>
             </div>
-          ))}
+
+            <div className="flex-1" ref={carouselRef}>
+              <div className="relative min-h-[540px]">
+                {steps.map((step, index) => {
+                  const isActive = index === currentStep;
+                  return (
+                    <div
+                      key={step.title}
+                      className={`step-card absolute inset-0 bg-gradient-to-br from-[#f9e8dc] via-[#fdf5f0] to-[#f6d7c6] rounded-[1.1rem] p-1 border border-[#f5cdb7] shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-opacity duration-500 ease-out ${
+                        isActive ? "in-view" : "opacity-0 pointer-events-none"
+                      }`}
+                    >
+                      <div className="bg-white rounded-[0.9rem] p-6 shadow-sm h-full flex flex-col">
+                        <div>
+                          <h3 className="text-[2.4rem] font-bold tracking-[0.08em] mb-2 bg-gradient-to-r from-[rgba(245,93,29,1)] to-[rgba(0,0,0,1)] text-transparent bg-clip-text">
+                            \\ STEP {index + 1}
+                          </h3>
+
+                          <h4 className="text-[1.6rem] font-bold text-[#111] mb-3">
+                            {step.title}
+                          </h4>
+
+                          <div className="text-[1.05rem] text-[#333] leading-[1.6] space-y-2">
+                            {step.points.map((point) => (
+                              <p key={point}>{point}</p>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="flex justify-center items-center mt-6">
+                          <Image
+                            src={step.image}
+                            alt={step.title}
+                            width={220}
+                            height={220}
+                            className="max-w-full h-auto object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="mt-14">
@@ -225,36 +340,43 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="mt-14 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100 md:p-8">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-500">
-                FAQs
-              </p>
-              <h3 className="mt-2 text-2xl font-semibold text-gray-900">
-                Common questions from students &amp; job seekers
-              </h3>
-              <p className="mt-2 text-gray-700">
+        <section className="mt-14">
+          <div className={styles.faqSection}>
+            <div id="faq-header" className={styles.header}>
+              <h2>Common questions from students &amp; job seekers</h2>
+              <p>
                 Ask us anything—here are the essentials to get you started.
               </p>
             </div>
-            <Link
-              href="/talk-to-an-expert"
-              className={ctaButtonClass}
-            >
-              Speak with a human
-            </Link>
-          </div>
-          <div className="mt-6 space-y-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.q}
-                className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3 text-sm text-gray-800"
-              >
-                <p className="font-semibold text-gray-900">{faq.q}</p>
-                <p className="mt-2 text-gray-700">{faq.a}</p>
-              </div>
-            ))}
+
+            <div className={styles.faqContainer}>
+              {faqs.map((faq, index) => (
+                <div
+                  key={faq.q}
+                  className={`${styles.faqItem} ${
+                    activeFaq === index ? styles.active : ""
+                  }`}
+                >
+                  <button
+                    className={styles.faqQuestion}
+                    onClick={() =>
+                      setActiveFaq(activeFaq === index ? null : index)
+                    }
+                  >
+                    <span>{faq.q}</span>
+                    <span className={styles.icon}>
+                      {activeFaq === index ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+
+                  {activeFaq === index && (
+                    <div className={styles.faqAnswer}>
+                      <p>{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -280,6 +402,23 @@ export default function HowItWorks() {
             </span>
           </div>
         </section>
+
+        <style jsx global>{`
+  .step-card {
+    opacity: 0;
+    transform: translateY(36px);
+    transition:
+      opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+
+  .step-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`}</style>
+
       </main>
 
       <Footer />

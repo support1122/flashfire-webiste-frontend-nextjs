@@ -40,3 +40,15 @@ body {
   display: none; /* Chrome, Safari, Opera */
 }
 
+.step-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+  will-change: transform, opacity;
+}
+
+.step-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
