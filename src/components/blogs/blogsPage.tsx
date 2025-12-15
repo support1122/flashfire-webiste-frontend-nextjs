@@ -381,6 +381,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   className={styles.image}
                   priority
                   itemProp="image"
+                  unoptimized
                 />
               </div>
 
@@ -413,6 +414,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                       height={40}
                       className={styles.authorImage}
                       itemProp="image"
+                      unoptimized
                     />
                   )}
                   <div>
@@ -535,6 +537,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                             width={80}
                             height={60}
                             className={styles.recentPostImg}
+                            unoptimized
                           />
                         </div>
                         <div className={styles.recentPostContent}>
@@ -569,6 +572,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                               width={80}
                               height={60}
                               className={styles.recentPostImg}
+                              unoptimized
                             />
                           </div>
                           <div className={styles.recentPostContent}>
@@ -647,6 +651,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                           width={400}
                           height={250}
                           className={styles.relatedImg}
+                          unoptimized
                         />
                       </div>
                       <div className={styles.relatedContent}>
