@@ -156,7 +156,7 @@ export default function HeroSectionClient({ data }: Props) {
         <div className="flex items-center">
           {[
             "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
-            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman01.jpeg",
+            "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
             "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/akrati.jpeg",
           ].map((url, i) => (
             <div
