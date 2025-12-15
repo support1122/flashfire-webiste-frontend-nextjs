@@ -21,7 +21,7 @@ export default function HomePageResultStats() {
       {/* Right Side (Image first in HTML so it appears on top on mobile) */}
       <div className={styles.resultRight}>
         <Image
-          src="/images/heroResultImage.jpg"
+          src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/heroResultImage.jpg"
           alt="Interview illustration"
           className={styles.resultImage}
           width={700}
@@ -29,6 +29,7 @@ export default function HomePageResultStats() {
           priority
         />
       </div>
+
 
       {/* Left Side */}
       <div className={styles.resultLeft}>
@@ -65,13 +66,13 @@ export default function HomePageResultStats() {
           {...getButtonProps()}
           className={styles.resultButton}
           onClick={() => {
-            const utmSource = typeof window !== "undefined" 
+            const utmSource = typeof window !== "undefined"
               ? localStorage.getItem("utm_source") || "WEBSITE"
               : "WEBSITE";
             const utmMedium = typeof window !== "undefined"
               ? localStorage.getItem("utm_medium") || "Result_Stats_Section"
               : "Result_Stats_Section";
-            
+
             GTagUTM({
               eventName: "sign_up_click",
               label: "Result_Stats_Get_Me_Interview_Button",
@@ -83,7 +84,7 @@ export default function HomePageResultStats() {
                   : "Website",
               },
             });
-            
+
             // PostHog tracking
             trackButtonClick("Get Me Interview", "result_stats_cta", "cta", {
               button_location: "result_stats_section",
@@ -93,23 +94,23 @@ export default function HomePageResultStats() {
               signup_source: "result_stats_button",
               funnel_stage: "signup_intent"
             });
-            
+
             // Check current path first
             const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
             const normalizedPath = currentPath.split('?')[0]; // Remove query params
-            const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' || 
-                                             normalizedPath === '/en-ca/get-me-interview';
-            
+            const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
+              normalizedPath === '/en-ca/get-me-interview';
+
             // If already on the route, save scroll position and prevent navigation
             if (isAlreadyOnGetMeInterview) {
               // Save current scroll position before modal opens
               const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-              
+
               // Dispatch custom event to force show modal
               if (typeof window !== 'undefined') {
                 window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
               }
-              
+
               // Restore scroll position immediately after modal opens
               requestAnimationFrame(() => {
                 window.scrollTo({ top: currentScrollY, behavior: 'instant' });
@@ -120,22 +121,22 @@ export default function HomePageResultStats() {
                   }, 50);
                 });
               });
-              
+
               // Just trigger the modal, don't navigate or scroll
               return;
             }
-            
+
             // Dispatch custom event to force show modal FIRST
             if (typeof window !== 'undefined') {
               window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
             }
-            
+
             // Save current scroll position before navigation to preserve it
             if (typeof window !== 'undefined') {
               const currentScrollY = window.scrollY;
               sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
             }
-            
+
             // Only navigate if NOT already on the page
             const targetPath = '/get-me-interview';
             router.push(targetPath);
