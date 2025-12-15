@@ -81,22 +81,7 @@ const steps = [
     ],
     image: "/images/step2.png",
   },
-  {
-    title: "Interview Calls Start Coming In",
-    points: [
-      "We prioritize roles with strong recruiter responsiveness and student-friendly patterns.",
-      "Alerts via email, SMS, and dashboard notifications.",
-    ],
-    image: "/images/step1.png",
-  },
-  {
-    title: "Prep for Interviews With Confidence",
-    points: [
-      "Tailored interview questions and company-specific insights.",
-      "Mock interview practice with feedback so you walk in ready, not stressed.",
-    ],
-    image: "/images/step3.png",
-  },
+ 
 ];
 
 const differentiators = [
@@ -135,36 +120,35 @@ export default function HowItWorks() {
   const [currentStep, setCurrentStep] = useState(0);
   const carouselRef = useInViewOnce();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const lastScrollTimeRef = useRef(0);
 
   useEffect(() => {
     const node = carouselRef.current;
     if (!node) return;
 
-    let timer: ReturnType<typeof setInterval> | null = null;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (!timer) {
-            timer = setInterval(() => {
-              setCurrentStep((prev) => (prev + 1) % steps.length);
-            }, 2600);
-          }
-        } else if (timer) {
-          clearInterval(timer);
-          timer = null;
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(node);
+    const listener = (evt: WheelEvent) => handleWheel(evt);
+    node.addEventListener("wheel", listener, { passive: false });
 
     return () => {
-      observer.disconnect();
-      if (timer) clearInterval(timer);
+      node.removeEventListener("wheel", listener);
     };
   }, []);
+
+  const handleWheel = (event: WheelEvent | React.WheelEvent<HTMLDivElement>) => {
+    const now = Date.now();
+    if (now - lastScrollTimeRef.current < 320) return; // throttle quick scrolls
+
+    // prevent page scroll while interacting with steps
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (event.deltaY < -10) {
+      setCurrentStep((prev) => (prev + 1) % steps.length);
+    } else if (event.deltaY > 10) {
+      setCurrentStep((prev) => (prev - 1 + steps.length) % steps.length);
+    }
+    lastScrollTimeRef.current = now;
+  };
 
   return (
     <div className="bg-[#fff6f4] text-black min-h-screen">
@@ -232,7 +216,11 @@ export default function HowItWorks() {
             </div>
 
             <div className="flex-1" ref={carouselRef}>
-              <div className="relative min-h-[540px]">
+              <div
+                className="relative min-h-[540px] steps-carousel"
+                role="presentation"
+                onWheel={handleWheel}
+              >
                 {steps.map((step, index) => {
                   const isActive = index === currentStep;
                   return (
@@ -340,16 +328,16 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="mt-14">
-          <div className={styles.faqSection}>
-            <div id="faq-header" className={styles.header}>
+        <section className="mt-14 flex justify-center">
+          <div className="w-full max-w-5xl">
+            <div className={styles.header}>
               <h2>Common questions from students &amp; job seekers</h2>
               <p>
                 Ask us anything—here are the essentials to get you started.
               </p>
             </div>
 
-            <div className={styles.faqContainer}>
+            <div className={`${styles.faqContainer} w-full`}>
               {faqs.map((faq, index) => (
                 <div
                   key={faq.q}

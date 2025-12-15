@@ -52,3 +52,7 @@ body {
   transform: translateY(0);
 }
 
+.steps-carousel {
+  overscroll-behavior: contain;
+}
+
