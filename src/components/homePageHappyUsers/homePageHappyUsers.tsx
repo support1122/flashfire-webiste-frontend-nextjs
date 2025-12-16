@@ -125,6 +125,7 @@ export default function HomePageHappyUsers() {
                 height={600}
                 className="w-full h-auto object-contain block rounded-[0.4rem]"
                 style={{ width: "100%", height: "auto" }}
+                unoptimized
               />
             </div>
           ))}
@@ -179,6 +180,7 @@ export default function HomePageHappyUsers() {
                       fill
                       className="w-full h-full object-cover rounded-none"
                       onClick={() => handlePlay(index)}
+                    unoptimized
                     />
                     {/* Play Button Overlay */}
                     <div
@@ -204,6 +206,7 @@ export default function HomePageHappyUsers() {
                           const target = e.currentTarget;
                           target.style.display = "none";
                         }}
+                        unoptimized
                       />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">

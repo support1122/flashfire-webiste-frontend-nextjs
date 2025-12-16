@@ -61,6 +61,7 @@ export default function HomePageFoundersNote() {
                 width={280}
                 height={400}
                 className="w-full h-[26rem] object-cover object-center transition-transform duration-300 hover:scale-[1.03] max-[1024px]:h-[22rem] max-[768px]:h-[18rem]"
+                unoptimized
               />
 
 

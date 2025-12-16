@@ -175,6 +175,7 @@ export default function HomePageWhyChooseFF() {
                 width={260}
                 height={480}
                 className="absolute top-[-70%] right-[-9%] h-[300%] w-auto object-contain brightness-100 contrast-105 max-[1024px]:static max-[1024px]:h-full max-[1024px]:w-full max-[1024px]:object-contain max-[1024px]:top-0 max-[1024px]:right-0 max-[768px]:object-cover max-[768px]:scale-110 max-[480px]:object-top"
+                unoptimized
               />
               <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 via-black/30 to-transparent pointer-events-none" />
             </div>

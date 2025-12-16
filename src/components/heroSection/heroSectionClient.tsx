@@ -170,6 +170,7 @@ export default function HeroSectionClient({ data }: Props) {
                 fill
                 sizes="2.2rem"
                 className="object-cover"
+                unoptimized
               />
             </div>
           ))}

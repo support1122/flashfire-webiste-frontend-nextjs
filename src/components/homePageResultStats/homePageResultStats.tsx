@@ -27,6 +27,7 @@ export default function HomePageResultStats() {
           width={700}
           height={700}
           priority
+          unoptimized
         />
       </div>
 

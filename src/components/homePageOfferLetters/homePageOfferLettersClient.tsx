@@ -146,6 +146,7 @@ export default function HomePageOfferLettersClient() {
                       width={28}
                       height={28}
                       className={styles.avatarImage}
+                      unoptimized
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -202,6 +203,7 @@ export default function HomePageOfferLettersClient() {
                       width={28}
                       height={28}
                       className={styles.avatarImage}
+                      unoptimized
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';

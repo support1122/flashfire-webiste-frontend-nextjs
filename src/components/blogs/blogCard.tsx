@@ -56,6 +56,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             width={400}
             height={250}
             className="w-full h-full object-cover transition-transform duration-300 block"
+            unoptimized
           />
         </div>
 

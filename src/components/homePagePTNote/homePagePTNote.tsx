@@ -92,6 +92,7 @@ export default function HomePagePTNote() {
               width={220}
               height={220}
               className="w-[220px] h-[220px] object-cover block [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]"
+              unoptimized
             />
 
           </div>
