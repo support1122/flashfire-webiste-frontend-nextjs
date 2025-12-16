@@ -111,6 +111,7 @@ export default function HappyUsersGalleryPage() {
                   className="w-full h-auto object-contain block rounded-[0.4rem]"
                   loading={i < 8 ? "eager" : "lazy"}
                   quality={85}
+                  unoptimized
                 />
               </div>
             ))}
@@ -152,6 +153,7 @@ export default function HappyUsersGalleryPage() {
               priority
               quality={90}
               onLoad={() => setImageLoading(false)}
+              unoptimized
             />
           </div>
         </div>
@@ -200,6 +202,7 @@ export default function HappyUsersGalleryPage() {
                       fill
                       className="w-full h-full object-cover rounded-none"
                       onClick={() => handlePlay(index)}
+                    unoptimized
                     />
                     {/* Play Button Overlay */}
                     <div
@@ -225,6 +228,7 @@ export default function HappyUsersGalleryPage() {
                           const target = e.currentTarget;
                           target.style.display = "none";
                         }}
+                        unoptimized
                       />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">
