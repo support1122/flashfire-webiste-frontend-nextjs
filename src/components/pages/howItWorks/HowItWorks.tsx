@@ -8,7 +8,7 @@ import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageVideo from "@/src/components/homePageVideo/homePageVideo";
 import { useEffect, useRef, useState } from "react";
 import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
-import { FaPlus, FaTimes } from "react-icons/fa";
+import { FaCheck, FaPlus, FaTimes } from "react-icons/fa";
 
 function useInViewOnce() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -121,9 +121,17 @@ export default function HowItWorks() {
   const carouselRef = useInViewOnce();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const lastScrollTimeRef = useRef(0);
+  const stepsWheelRef = useRef<HTMLDivElement | null>(null);
+  const currentStepRef = useRef(0);
 
   useEffect(() => {
-    const node = carouselRef.current;
+    currentStepRef.current = currentStep;
+  }, [currentStep]);
+
+  useEffect(() => {
+    // Attach a non-passive wheel listener to the whole "Path to success" section
+    // so scrolling anywhere in this section can change steps.
+    const node = stepsWheelRef.current;
     if (!node) return;
 
     const listener = (evt: WheelEvent) => handleWheel(evt);
@@ -138,14 +146,22 @@ export default function HowItWorks() {
     const now = Date.now();
     if (now - lastScrollTimeRef.current < 320) return; // throttle quick scrolls
 
-    // prevent page scroll while interacting with steps
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (event.deltaY < -10) {
-      setCurrentStep((prev) => (prev + 1) % steps.length);
-    } else if (event.deltaY > 10) {
-      setCurrentStep((prev) => (prev - 1 + steps.length) % steps.length);
+    // Only "consume" the scroll when we can actually change steps.
+    // At the boundaries, allow the page to scroll normally.
+    if (event.deltaY > 10) {
+      // scrolling down -> next step
+      if (currentStepRef.current >= steps.length - 1) return;
+      event.preventDefault();
+      event.stopPropagation();
+      setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
+    } else if (event.deltaY < -10) {
+      // scrolling up -> previous step
+      if (currentStepRef.current <= 0) return;
+      event.preventDefault();
+      event.stopPropagation();
+      setCurrentStep((prev) => Math.max(prev - 1, 0));
+    } else {
+      return;
     }
     lastScrollTimeRef.current = now;
   };
@@ -182,7 +198,10 @@ export default function HowItWorks() {
         </section>
 
         <section className="mt-12 md:mt-16">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <div
+            className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between"
+            ref={stepsWheelRef}
+          >
             <div className="flex-1 max-w-xl space-y-5">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
                 Path to success
@@ -219,7 +238,6 @@ export default function HowItWorks() {
               <div
                 className="relative min-h-[540px] steps-carousel"
                 role="presentation"
-                onWheel={handleWheel}
               >
                 {steps.map((step, index) => {
                   const isActive = index === currentStep;
@@ -293,36 +311,42 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="mt-14 rounded-2xl bg-orange-50 p-6 ring-1 ring-orange-100 md:p-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">
+        <section className="mt-14 rounded-3xl bg-gradient-to-br from-[#fff1ec] via-[#fff8f5] to-white p-6 ring-1 ring-orange-100 shadow-sm md:p-10">
+          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-orange-700 ring-1 ring-orange-100">
                 Why Flashfire works better
               </p>
-              <h3 className="mt-2 text-2xl font-semibold text-gray-900">
+              <h3 className="mt-3 text-2xl font-semibold leading-tight text-gray-900 md:text-3xl">
                 Purpose-built for students who need interview calls fast
               </h3>
-              <p className="mt-3 text-gray-700">
+              <p className="mt-3 text-sm leading-relaxed text-gray-700 md:text-base">
                 We combine automation with human-quality control so every
                 application is targeted, visa-safe, and competitive.
               </p>
             </div>
+
             <Link
               href="/talk-to-an-expert"
-              className="inline-block rounded-lg bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-
+              className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.12)] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(0,0,0,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Talk to an Expert
             </Link>
           </div>
-          <div className="mt-6 grid gap-3 md:grid-cols-2">
+
+          <div className="mt-7 grid gap-4 md:grid-cols-2">
             {differentiators.map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 rounded-xl bg-white p-4 text-sm text-gray-800 shadow-sm ring-1 ring-orange-100"
+                className="group relative overflow-hidden rounded-2xl bg-white/80 p-5 text-sm text-gray-800 shadow-[0_10px_25px_rgba(0,0,0,0.06)] ring-1 ring-orange-100 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
               >
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500" />
-                <p>{item}</p>
+                <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#ff4c00] via-[#ff7a45] to-transparent opacity-80" />
+                <div className="relative flex items-start gap-3">
+                  <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[#ff4c00] ring-1 ring-orange-100 transition-colors duration-300 group-hover:bg-orange-100">
+                    <FaCheck className="text-base" />
+                  </span>
+                  <p className="leading-relaxed">{item}</p>
+                </div>
               </div>
             ))}
           </div>
