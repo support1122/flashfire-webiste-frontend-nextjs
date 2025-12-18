@@ -429,18 +429,31 @@ export default function HowItWorks() {
                     // Check current path first
                     const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
                     const normalizedPath = currentPath.split('?')[0]; // Remove query params
+                    const isOnHowItWorks = normalizedPath === '/how-it-works' ||
+                      normalizedPath === '/en-ca/how-it-works';
                     const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
                       normalizedPath === '/en-ca/get-me-interview';
+
+                    // Dispatch custom event to force show modal FIRST
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                    }
+
+                    // If on how-it-works page, change URL but keep page content visible
+                    if (isOnHowItWorks) {
+                      // Change URL to /get-me-interview without navigating (keep how-it-works page visible)
+                      const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
+                      if (typeof window !== 'undefined') {
+                        window.history.pushState({}, '', targetPath);
+                      }
+                      // Just trigger the modal, don't navigate
+                      return;
+                    }
 
                     // If already on the route, just show modal without navigating
                     if (isAlreadyOnGetMeInterview) {
                       // Save current scroll position before modal opens
                       const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-                      // Dispatch custom event to force show modal
-                      if (typeof window !== 'undefined') {
-                        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                      }
 
                       // Restore scroll position immediately after modal opens
                       requestAnimationFrame(() => {
@@ -457,18 +470,13 @@ export default function HowItWorks() {
                       return;
                     }
 
-                    // Dispatch custom event to force show modal FIRST
-                    if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                    }
-
                     // Save current scroll position before navigation to preserve it
                     if (typeof window !== 'undefined') {
                       const currentScrollY = window.scrollY;
                       sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
                     }
 
-                    // Navigate to get-me-interview page
+                    // Navigate to get-me-interview page (for other pages)
                     const targetPath = '/get-me-interview';
                     router.push(targetPath);
                   }}
