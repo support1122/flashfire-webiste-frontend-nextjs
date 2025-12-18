@@ -730,6 +730,8 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
+import { WHATSAPP_SUPPORT_URL } from "@/src/utils/whatsapp";
+import { trackExternalLink } from "@/src/utils/PostHogTracking";
 
 type Props = {
   links: NavLink[];
@@ -947,6 +949,89 @@ export default function NavbarClient({ links, ctas }: Props) {
       navigation_type: "banner_cta",
     });
     
+    // Check current path
+    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+    const normalizedPath = currentPath.split('?')[0]; // Remove query params
+    
+    // Pages where we should change URL to /book-now but keep page content
+    const stayOnPageRoutes = [
+      '/features', '/en-ca/features',
+      '/how-it-works', '/en-ca/how-it-works',
+      '/pricing', '/en-ca/pricing',
+      '/feature', '/en-ca/feature'
+    ];
+    
+    const shouldStayOnPage = stayOnPageRoutes.includes(normalizedPath);
+    const isAlreadyOnBookNow = normalizedPath === '/book-now' || normalizedPath === '/en-ca/book-now';
+    
+    // If we should stay on the current page, change URL but keep content
+    if (shouldStayOnPage) {
+      // Save the previous page path to sessionStorage so we can navigate back on modal close
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem('previousPageBeforeBookNow', normalizedPath);
+      }
+      
+      // Save current scroll position
+      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+      }
+      
+      // Change URL to /book-now using pushState (doesn't reload page)
+      const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/book-now' : '/book-now';
+      
+      // Change URL immediately using pushState (before router.push for instant feedback)
+      if (typeof window !== "undefined") {
+        window.history.pushState({}, '', targetPath);
+      }
+      
+      // Dispatch custom event to force show modal FIRST (before navigation)
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent('showCalendlyModal'));
+      }
+      
+      // Use router.push with shallow routing to update Next.js state without full navigation
+      // Using replace instead of push to avoid adding to history stack
+      router.replace(targetPath);
+      
+      // Restore scroll position immediately after modal opens
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+          setTimeout(() => {
+            window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+          }, 50);
+        });
+      });
+      
+      return;
+    }
+    
+    // If already on book-now, just show modal
+    if (isAlreadyOnBookNow) {
+      // Save current scroll position
+      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+      
+      // Dispatch custom event to force show modal
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent('showCalendlyModal'));
+      }
+      
+      // Restore scroll position immediately after modal opens
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+          setTimeout(() => {
+            window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
+          }, 50);
+        });
+      });
+      
+      return;
+    }
+    
     // Save current scroll position before navigation
     const currentScrollY = typeof window !== "undefined" ? window.scrollY : 0;
     if (typeof window !== "undefined") {
@@ -1157,6 +1242,51 @@ export default function NavbarClient({ links, ctas }: Props) {
             >
               {ctas.primary.label}
             </a>
+          ) : ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert" ? (
+            <button
+              className={styles.navPrimaryButton}
+              onClick={(e) => {
+                e.preventDefault();
+                // Get UTM parameters from localStorage
+                const utmSource = typeof window !== "undefined"
+                  ? localStorage.getItem("utm_source") || "WEBSITE"
+                  : "WEBSITE";
+                const utmMedium = typeof window !== "undefined"
+                  ? localStorage.getItem("utm_medium") || "Navigation_Navbar_Button"
+                  : "Navigation_Navbar_Button";
+                const utmCampaign = typeof window !== "undefined"
+                  ? localStorage.getItem("utm_campaign") || "Website"
+                  : "Website";
+
+                // Track with both GTag and PostHog
+                GTagUTM({
+                  eventName: "whatsapp_support_click",
+                  label: "Navbar_Talk_To_Expert_Button",
+                  utmParams: {
+                    utm_source: utmSource,
+                    utm_medium: utmMedium,
+                    utm_campaign: utmCampaign,
+                  },
+                });
+
+                // PostHog tracking
+                trackButtonClick("Talk to an Expert", "navigation", "cta", {
+                  button_location: "navbar",
+                  navigation_type: "primary_cta",
+                  page: "talk-to-an-expert",
+                });
+                trackExternalLink(WHATSAPP_SUPPORT_URL, "Talk to an Expert", "navigation", {
+                  link_type: "whatsapp_support",
+                  contact_method: "whatsapp",
+                  source: "navbar_button",
+                });
+
+                // Open WhatsApp in a new tab
+                window.open(WHATSAPP_SUPPORT_URL, "_blank");
+              }}
+            >
+              {ctas.primary.label}
+            </button>
           ) : (
             <Link
               href={ctas.primary.href}
@@ -1307,25 +1437,91 @@ export default function NavbarClient({ links, ctas }: Props) {
             })}
           </ul>
           <div className={styles.navMobileButtons}>
-            <a
-              href={ctas.primary.href}
-              className={styles.navMobilePrimary}
-              target={primaryIsExternal ? "_blank" : undefined}
-              rel={primaryIsExternal ? "noopener noreferrer" : undefined}
-              onClick={() => {
-                trackButtonClick(ctas.primary.label, "navigation", "cta", {
-                  button_location: "navbar_mobile",
-                  navigation_type: "primary_cta"
-                });
-                if (ctas.primary.href.includes("calendly")) {
-                  trackModalOpen("calendly_modal", "navigation_button", {
-                    trigger_source: "navbar_mobile_cta"
+            {primaryIsExternal ? (
+              <a
+                href={ctas.primary.href}
+                className={styles.navMobilePrimary}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  trackButtonClick(ctas.primary.label, "navigation", "cta", {
+                    button_location: "navbar_mobile",
+                    navigation_type: "primary_cta"
                   });
-                }
-              }}
-            >
-              {ctas.primary.label}
-            </a>
+                  if (ctas.primary.href.includes("calendly")) {
+                    trackModalOpen("calendly_modal", "navigation_button", {
+                      trigger_source: "navbar_mobile_cta"
+                    });
+                  }
+                }}
+              >
+                {ctas.primary.label}
+              </a>
+            ) : ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert" ? (
+              <button
+                className={styles.navMobilePrimary}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMenuOpen(false);
+                  // Get UTM parameters from localStorage
+                  const utmSource = typeof window !== "undefined"
+                    ? localStorage.getItem("utm_source") || "WEBSITE"
+                    : "WEBSITE";
+                  const utmMedium = typeof window !== "undefined"
+                    ? localStorage.getItem("utm_medium") || "Navigation_Navbar_Button"
+                    : "Navigation_Navbar_Button";
+                  const utmCampaign = typeof window !== "undefined"
+                    ? localStorage.getItem("utm_campaign") || "Website"
+                    : "Website";
+
+                  // Track with both GTag and PostHog
+                  GTagUTM({
+                    eventName: "whatsapp_support_click",
+                    label: "Navbar_Talk_To_Expert_Button_Mobile",
+                    utmParams: {
+                      utm_source: utmSource,
+                      utm_medium: utmMedium,
+                      utm_campaign: utmCampaign,
+                    },
+                  });
+
+                  // PostHog tracking
+                  trackButtonClick("Talk to an Expert", "navigation", "cta", {
+                    button_location: "navbar_mobile",
+                    navigation_type: "primary_cta",
+                    page: "talk-to-an-expert",
+                  });
+                  trackExternalLink(WHATSAPP_SUPPORT_URL, "Talk to an Expert", "navigation", {
+                    link_type: "whatsapp_support",
+                    contact_method: "whatsapp",
+                    source: "navbar_mobile_button",
+                  });
+
+                  // Open WhatsApp in a new tab
+                  window.open(WHATSAPP_SUPPORT_URL, "_blank");
+                }}
+              >
+                {ctas.primary.label}
+              </button>
+            ) : (
+              <Link
+                href={ctas.primary.href}
+                className={styles.navMobilePrimary}
+                onClick={() => {
+                  trackButtonClick(ctas.primary.label, "navigation", "cta", {
+                    button_location: "navbar_mobile",
+                    navigation_type: "primary_cta"
+                  });
+                  if (ctas.primary.href.includes("calendly")) {
+                    trackModalOpen("calendly_modal", "navigation_button", {
+                      trigger_source: "navbar_mobile_cta"
+                    });
+                  }
+                }}
+              >
+                {ctas.primary.label}
+              </Link>
+            )}
           </div>
         </div>
       )}

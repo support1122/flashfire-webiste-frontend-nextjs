@@ -7,6 +7,10 @@ import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageVideo from "@/src/components/homePageVideo/homePageVideo";
 import { useEffect, useRef, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { trackButtonClick, trackSignupIntent, trackExternalLink } from "@/src/utils/PostHogTracking";
+import { GTagUTM } from "@/src/utils/GTagUTM";
+import { WHATSAPP_SUPPORT_URL } from "@/src/utils/whatsapp";
 import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 import { FaCheck, FaPlus, FaTimes } from "react-icons/fa";
 
@@ -117,79 +121,72 @@ const faqs = [
 ];
 
 export default function HowItWorks() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [currentStep, setCurrentStep] = useState(0);
   const carouselRef = useInViewOnce();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-  const lastScrollTimeRef = useRef(0);
-  const stepsWheelRef = useRef<HTMLDivElement | null>(null);
-  const currentStepRef = useRef(0);
-  const wheelAccumRef = useRef(0);
-  const wheelDirRef = useRef<1 | -1 | 0>(0);
+  const autoAdvancePausedRef = useRef(false);
 
-  useEffect(() => {
-    currentStepRef.current = currentStep;
-  }, [currentStep]);
+  const handleTalkToExpertClick = (buttonLocation: string) => {
+    // Get UTM parameters from localStorage
+    const utmSource = typeof window !== "undefined"
+      ? localStorage.getItem("utm_source") || "WEBSITE"
+      : "WEBSITE";
+    const utmMedium = typeof window !== "undefined"
+      ? localStorage.getItem("utm_medium") || `Website_How_It_Works_${buttonLocation}`
+      : `Website_How_It_Works_${buttonLocation}`;
+    const utmCampaign = typeof window !== "undefined"
+      ? localStorage.getItem("utm_campaign") || "Website"
+      : "Website";
 
-  useEffect(() => {
-    // Attach a non-passive wheel listener to the whole "Path to success" section
-    // so scrolling anywhere in this section can change steps.
-    const node = stepsWheelRef.current;
-    if (!node) return;
-
-    const listener = (evt: WheelEvent) => handleWheel(evt);
-    node.addEventListener("wheel", listener, { passive: false });
-
-    return () => {
-      node.removeEventListener("wheel", listener);
-    };
-  }, []);
-
-  const handleWheel = (event: WheelEvent | React.WheelEvent<HTMLDivElement>) => {
-    const now = Date.now();
-    const deltaY = event.deltaY;
-    if (!deltaY) return;
-
-    const dir: 1 | -1 = deltaY > 0 ? 1 : -1; // 1 = down, -1 = up
-    const atLastStep = currentStepRef.current >= steps.length - 1;
-    const atFirstStep = currentStepRef.current <= 0;
-
-    // If user is trying to scroll past the boundaries, release to normal page scrolling.
-    if ((dir === 1 && atLastStep) || (dir === -1 && atFirstStep)) {
-      wheelAccumRef.current = 0;
-      wheelDirRef.current = 0;
-      return;
-    }
-
-    // Otherwise, keep the page "still" while navigating steps (even for tiny trackpad deltas).
-    event.preventDefault();
-    event.stopPropagation();
-
-    // Reset accumulation if the user changes direction mid-gesture.
-    if (wheelDirRef.current !== dir) {
-      wheelDirRef.current = dir;
-      wheelAccumRef.current = 0;
-    }
-
-    // Accumulate delta until we pass a threshold, then advance one step.
-    wheelAccumRef.current += deltaY;
-    // Clamp to avoid huge inertia spikes creating multiple step jumps.
-    wheelAccumRef.current = Math.max(-240, Math.min(240, wheelAccumRef.current));
-
-    // Cooldown between step changes (but we still preventDefault during cooldown).
-    if (now - lastScrollTimeRef.current < 320) return;
-
-    const STEP_THRESHOLD = 70;
-    if (Math.abs(wheelAccumRef.current) < STEP_THRESHOLD) return;
-
-    setCurrentStep((prev) => {
-      const next =
-        dir === 1 ? Math.min(prev + 1, steps.length - 1) : Math.max(prev - 1, 0);
-      currentStepRef.current = next; // keep ref in sync immediately
-      return next;
+    // Track with both GTag and PostHog
+    GTagUTM({
+      eventName: "whatsapp_support_click",
+      label: `How_It_Works_Talk_To_Expert_${buttonLocation}`,
+      utmParams: {
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: utmCampaign,
+      },
     });
 
-    wheelAccumRef.current = 0;
-    lastScrollTimeRef.current = now;
+    // PostHog tracking
+    trackButtonClick("Talk to an Expert", "how_it_works_cta", "cta", {
+      button_location: `how_it_works_${buttonLocation}`,
+      section: "how_it_works"
+    });
+    trackExternalLink(WHATSAPP_SUPPORT_URL, "Talk to an Expert", "how_it_works_cta", {
+      link_type: "whatsapp_support",
+      contact_method: "whatsapp",
+      source: `how_it_works_${buttonLocation}`,
+    });
+
+    // Open WhatsApp in a new tab
+    window.open(WHATSAPP_SUPPORT_URL, "_blank");
+  };
+
+  // Auto-advance steps every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!autoAdvancePausedRef.current) {
+        setCurrentStep((prev) => {
+          // Loop back to step 0 after the last step
+          return (prev + 1) % steps.length;
+        });
+      }
+    }, 5000); // 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleStepClick = (stepIndex: number) => {
+    setCurrentStep(stepIndex);
+    // Pause auto-advance for 10 seconds after user interaction, then resume
+    autoAdvancePausedRef.current = true;
+    setTimeout(() => {
+      autoAdvancePausedRef.current = false;
+    }, 10000);
   };
 
   return (
@@ -211,12 +208,12 @@ export default function HowItWorks() {
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Link
-              href="/talk-to-an-expert"
+            <button
+              onClick={() => handleTalkToExpertClick("top_section")}
               className="inline-block rounded-lg bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Get Started — Start Getting Interview Calls
-            </Link>
+            </button>
             <p className="text-sm text-gray-600">
               No manual searching. No repetitive answers. Interviews faster.
             </p>
@@ -224,10 +221,7 @@ export default function HowItWorks() {
         </section>
 
         <section className="mt-12 md:mt-16">
-          <div
-            className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between"
-            ref={stepsWheelRef}
-          >
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex-1 max-w-xl space-y-5">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
                 Path to success
@@ -249,63 +243,202 @@ export default function HowItWorks() {
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
-                  href="/talk-to-an-expert"
+                  href="/see-flashfire-in-action"
                   className="inline-flex items-center justify-center rounded-lg border border-black bg-white px-5 py-3 text-sm font-semibold text-black shadow-[0_3px_0_#ff4c00] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_0_#ff4c00]"
                 >
                   See Flashfire in Action →
                 </Link>
-                <Link href="/talk-to-an-expert" className={ctaButtonClass}>
+                <button
+                  onClick={() => {
+                    const utmSource = typeof window !== "undefined"
+                      ? localStorage.getItem("utm_source") || "WEBSITE"
+                      : "WEBSITE";
+                    const utmMedium = typeof window !== "undefined"
+                      ? localStorage.getItem("utm_medium") || "Website_How_It_Works"
+                      : "Website_How_It_Works";
+
+                    GTagUTM({
+                      eventName: "sign_up_click",
+                      label: "How_It_Works_Get_Me_Interview_Button",
+                      utmParams: {
+                        utm_source: utmSource,
+                        utm_medium: utmMedium,
+                        utm_campaign: typeof window !== "undefined"
+                          ? localStorage.getItem("utm_campaign") || "Website"
+                          : "Website",
+                      },
+                    });
+
+                    // PostHog tracking
+                    trackButtonClick("Get Me Interview", "how_it_works_cta", "cta", {
+                      button_location: "how_it_works_main_cta",
+                      section: "how_it_works"
+                    });
+                    trackSignupIntent("how_it_works_cta", {
+                      signup_source: "how_it_works_button",
+                      funnel_stage: "signup_intent"
+                    });
+
+                    // Check current path first
+                    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+                    const normalizedPath = currentPath.split('?')[0]; // Remove query params
+                    const isOnHowItWorks = normalizedPath === '/how-it-works' ||
+                      normalizedPath === '/en-ca/how-it-works';
+                    const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
+                      normalizedPath === '/en-ca/get-me-interview';
+
+                    // If on how-it-works page, just show modal without navigating
+                    if (isOnHowItWorks) {
+                      // Save current scroll position before modal opens
+                      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+
+                      // Dispatch custom event to force show modal
+                      if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                      }
+
+                      // Restore scroll position immediately after modal opens
+                      requestAnimationFrame(() => {
+                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                        requestAnimationFrame(() => {
+                          window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                          setTimeout(() => {
+                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                          }, 50);
+                        });
+                      });
+
+                      // Just trigger the modal, don't navigate
+                      return;
+                    }
+
+                    // If already on the route, save scroll position and prevent navigation
+                    if (isAlreadyOnGetMeInterview) {
+                      // Save current scroll position before modal opens
+                      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+
+                      // Dispatch custom event to force show modal
+                      if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                      }
+
+                      // Restore scroll position immediately after modal opens
+                      requestAnimationFrame(() => {
+                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                        requestAnimationFrame(() => {
+                          window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                          setTimeout(() => {
+                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                          }, 50);
+                        });
+                      });
+
+                      // Just trigger the modal, don't navigate or scroll
+                      return;
+                    }
+
+                    // Dispatch custom event to force show modal FIRST
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                    }
+
+                    // Save current scroll position before navigation to preserve it
+                    if (typeof window !== 'undefined') {
+                      const currentScrollY = window.scrollY;
+                      sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+                    }
+
+                    // Only navigate if NOT already on the page and NOT on how-it-works
+                    const targetPath = '/get-me-interview';
+                    router.push(targetPath);
+                  }}
+                  className={ctaButtonClass}
+                >
                   Get Me Interview →
-                </Link>
+                </button>
               </div>
             </div>
 
-            <div className="flex-1" ref={carouselRef}>
-              <div
-                className="relative min-h-[540px] steps-carousel"
-                role="presentation"
-              >
-                {steps.map((step, index) => {
-                  const isActive = index === currentStep;
-                  return (
-                    <div
-                      key={step.title}
-                      className={`step-card absolute inset-0 bg-gradient-to-br from-[#f9e8dc] via-[#fdf5f0] to-[#f6d7c6] rounded-[1.1rem] p-1 border border-[#f5cdb7] shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-opacity duration-500 ease-out ${
-                        isActive ? "in-view" : "opacity-0 pointer-events-none"
-                      }`}
-                    >
-                      <div className="bg-white rounded-[0.9rem] p-6 shadow-sm h-full flex flex-col">
-                        <div>
-                          <h3 className="text-[2.4rem] font-bold tracking-[0.08em] mb-2 bg-gradient-to-r from-[rgba(245,93,29,1)] to-[rgba(0,0,0,1)] text-transparent bg-clip-text">
-                            \\ STEP {index + 1}
-                          </h3>
+              <div className="flex-1 flex items-start gap-6" ref={carouselRef}>
+                {/* Step Cards */}
+                <div className="flex-1">
+                  <div
+                    className="relative min-h-[540px] steps-carousel"
+                    role="presentation"
+                  >
+                    {steps.map((step, index) => {
+                      const isActive = index === currentStep;
+                      return (
+                        <div
+                          key={step.title}
+                          className={`step-card absolute inset-0 bg-gradient-to-br from-[#f9e8dc] via-[#fdf5f0] to-[#f6d7c6] rounded-[1.1rem] p-1 border border-[#f5cdb7] shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-opacity duration-500 ease-out overflow-hidden ${
+                            isActive ? "in-view" : "opacity-0 pointer-events-none"
+                          }`}
+                        >
+                          <div className="bg-white rounded-[0.9rem] p-6 shadow-sm h-full flex flex-col overflow-hidden">
+                            <div className="flex-shrink-0">
+                              <h3 className="text-[2.4rem] font-bold tracking-[0.08em] mb-2 bg-gradient-to-r from-[rgba(245,93,29,1)] to-[rgba(0,0,0,1)] text-transparent bg-clip-text">
+                                \\ STEP {index + 1}
+                              </h3>
 
-                          <h4 className="text-[1.6rem] font-bold text-[#111] mb-3">
-                            {step.title}
-                          </h4>
+                              <h4 className="text-[1.6rem] font-bold text-[#111] mb-3">
+                                {step.title}
+                              </h4>
 
-                          <div className="text-[1.05rem] text-[#333] leading-[1.6] space-y-2">
-                            {step.points.map((point) => (
-                              <p key={point}>{point}</p>
-                            ))}
+                              <div className="text-[1.05rem] text-[#333] leading-[1.6] space-y-2">
+                                {step.points.map((point) => (
+                                  <p key={point}>{point}</p>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="flex justify-center items-center mt-auto pt-4 overflow-hidden">
+                              <Image
+                                src={step.image}
+                                alt={step.title}
+                                width={220}
+                                height={220}
+                                className="max-w-full max-h-[180px] w-auto h-auto object-contain"
+                              />
+                            </div>
                           </div>
                         </div>
+                      );
+                    })}
+                  </div>
+                </div>
 
-                        <div className="flex justify-center items-center mt-6">
-                          <Image
-                            src={step.image}
-                            alt={step.title}
-                            width={220}
-                            height={220}
-                            className="max-w-full h-auto object-contain"
+                {/* Vertical Progress Indicator */}
+                <div className="flex flex-col items-center justify-center gap-1.5 min-h-[540px]">
+                  {steps.map((_, index) => {
+                    const isActive = index === currentStep;
+                    const isPast = index < currentStep;
+                    return (
+                      <div key={index} className="flex flex-col items-center">
+                        {/* Circle */}
+                        <div
+                          onClick={() => handleStepClick(index)}
+                          className={`w-3 h-3 rounded-full border-2 transition-all duration-300 cursor-pointer hover:scale-110 ${
+                            isActive
+                              ? "bg-[#ff4c00] border-[#ff4c00] scale-125"
+                              : isPast
+                              ? "bg-white border-[#ff4c00]"
+                              : "bg-white border-gray-300"
+                          }`}
+                        />
+                        {/* Vertical Line */}
+                        {index < steps.length - 1 && (
+                          <div
+                            className={`w-0.5 h-12 transition-all duration-300 ${
+                              isPast ? "bg-[#ff4c00]" : "bg-gray-300"
+                            }`}
                           />
-                        </div>
+                        )}
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
           </div>
         </section>
 
@@ -324,12 +457,12 @@ export default function HowItWorks() {
                   high-conversion applications for students.
                 </p>
               </div>
-              <Link
-                href="/talk-to-an-expert"
+              <button
+                onClick={() => handleTalkToExpertClick("demo_section")}
                 className={ctaButtonClass}
               >
                 Talk to an expert
-              </Link>
+              </button>
             </div>
             <div className="mt-4 overflow-hidden rounded-2xl ring-1 ring-gray-100">
               <HomePageVideo />
@@ -352,12 +485,12 @@ export default function HowItWorks() {
               </p>
             </div>
 
-            <Link
-              href="/talk-to-an-expert"
+            <button
+              onClick={() => handleTalkToExpertClick("why_flashfire_section")}
               className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.12)] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(0,0,0,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Talk to an Expert
-            </Link>
+            </button>
           </div>
 
           <div className="mt-7 grid gap-4 md:grid-cols-2">
@@ -428,13 +561,12 @@ export default function HowItWorks() {
             while you focus on preparing for interviews.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link
-              href="/talk-to-an-expert"
+            <button
+              onClick={() => handleTalkToExpertClick("bottom_section")}
               className="inline-block rounded-lg bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-
             >
               Get Started — Start Getting Interview Calls
-            </Link>
+            </button>
             <span className="text-sm text-gray-200">
               It starts with a quick onboarding. We handle the rest.
             </span>
