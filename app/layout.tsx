@@ -10,22 +10,29 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -120,16 +127,25 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Satoshi Font */}
+        {/* Satoshi Font - Preconnect and load with display=swap */}
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"
           rel="stylesheet"
         />
-        {/* Calendly CSS */}
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
+        {/* Calendly CSS - Load asynchronously to avoid blocking render */}
+        <Script id="load-calendly-css" strategy="lazyOnload">
+          {`
+            if (typeof window !== 'undefined') {
+              const link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://assets.calendly.com/assets/external/widget.css';
+              link.media = 'print';
+              link.onload = function() { this.media = 'all'; };
+              document.head.appendChild(link);
+            }
+          `}
+        </Script>
         {/* DNS prefetch and preconnect for Calendly */}
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
@@ -154,25 +170,27 @@ export default function RootLayout({
             <WhatsAppButton />
           </ClientLogicWrapper>
         </PHProvider>
-        {/* Google Analytics */}
+        {/* Google Analytics - Load with lower priority */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag() {
               dataLayer.push(arguments);
             }
             gtag("js", new Date());
-            gtag("config", "G-4P890VGD8D");
+            gtag("config", "G-4P890VGD8D", {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
-        {/* Freshworks CRM Tracking Code */}
+        {/* Freshworks CRM Tracking Code - Load on user interaction */}
         <Script
           id="freshworks-crm"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,o,f,js,fjs){
@@ -189,12 +207,13 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Calendly Script */}
+        {/* Calendly Script - Load only when needed */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
   );
 }
+

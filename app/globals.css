@@ -30,6 +30,17 @@ body {
     -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 /* Hide scrollbar utility for mobile horizontal scrolling */
 .hide-scrollbar {
   scrollbar-width: none; /* Firefox */

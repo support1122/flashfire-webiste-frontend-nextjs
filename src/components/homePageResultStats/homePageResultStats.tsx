@@ -27,7 +27,8 @@ export default function HomePageResultStats() {
           width={700}
           height={700}
           priority
-          unoptimized
+          quality={85}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
         />
       </div>
 

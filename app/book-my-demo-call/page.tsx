@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
+import { Metadata } from "next";
 import HomePage from "@/src/components/pages/home/Home";
+
 
 export default function BookMyDemoCallPage() {
     useEffect(() => {
