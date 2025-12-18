@@ -134,7 +134,45 @@ function ClientLogicWrapperContent({
 
     // Handle Route-based Modals & Geo-Blocking
     useEffect(() => {
-        // Check if forceShowModal is true FIRST (button clicked from any page) - show modal without navigation
+        // Check if forceShowCalendlyModal is true FIRST (button clicked from any page) - show modal without navigation
+        // This allows modal to show on features/pricing/how-it-works pages while keeping that page visible
+        // IMPORTANT: Check this BEFORE geoLoading check so modal can show immediately
+        if (forceShowCalendlyModal) {
+            setForceShowCalendlyModal(false); // Reset the flag
+            modalDismissedForRouteRef.current = null; // Reset dismissed state
+            
+            // Save scroll position before opening modal to prevent scroll-to-top
+            const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+            
+            // Check if user is from India - show geo-block modal instead
+            if (!geoLoading && isFromIndia && !geoBypassActive) {
+                setShowGeoBlockModal(true);
+                setShowCalendlyModal(false);
+                setShowSignupModal(false);
+            } else {
+                // Show Calendly modal
+                setShowCalendlyModal(true);
+                setShowSignupModal(false);
+                setShowGeoBlockModal(false);
+            }
+            
+            // Restore scroll position after modal opens to prevent scroll-to-top
+            if (typeof window !== 'undefined' && currentScrollY > 0) {
+                requestAnimationFrame(() => {
+                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                    requestAnimationFrame(() => {
+                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                        setTimeout(() => {
+                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                        }, 100);
+                    });
+                });
+            }
+            
+            return; // Don't process route-based logic when showing modal from button click
+        }
+
+        // Check if forceShowModal is true (button clicked from any page) - show modal without navigation
         // This allows modal to show on testimonials page while keeping that page visible
         // IMPORTANT: Check this BEFORE geoLoading check so modal can show immediately
         if (forceShowModal) {
@@ -327,8 +365,21 @@ function ClientLogicWrapperContent({
         modalDismissedForRouteRef.current = currentRouteKey;
         setShowCalendlyModal(false);
         
+        // If we came from a specific page (features, pricing, etc.), navigate back to it
+        if (typeof window !== "undefined" && (pathname === '/book-now' || pathname === '/en-ca/book-now')) {
+            const previousPage = sessionStorage.getItem('previousPageBeforeBookNow');
+            if (previousPage) {
+                // Clear the stored previous page
+                sessionStorage.removeItem('previousPageBeforeBookNow');
+                
+                // Navigate back to the previous page
+                router.push(previousPage);
+                return;
+            }
+        }
+        
         // Clean URL by removing query params when on /book-now
-        if (pathname === '/book-now' && searchParams.toString()) {
+        if ((pathname === '/book-now' || pathname === '/en-ca/book-now') && searchParams.toString()) {
             router.replace(pathname);
         }
     };

@@ -11,5 +11,5 @@ export interface CTA {
 
 export interface NavbarCTA {
   primary: CTA;
-  secondary: CTA;
+  secondary?: CTA;
 }

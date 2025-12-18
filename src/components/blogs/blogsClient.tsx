@@ -8,33 +8,70 @@ import BlogCard from "./blogCard";
 import { blogPosts } from "@/src/data/blogsData";
 import { FaSearch } from "react-icons/fa";
 
-// Function to generate default tags based on category
-function getDefaultTags(category: string, title: string): string[] {
+// Function to generate default tags based on category and content
+function getDefaultTags(category: string, title: string, excerpt: string): string[] {
   const categoryTags: Record<string, string[]> = {
     "Career Advice": ["Career Tips", "Job Search", "Professional Development"],
     "Job Search Strategy": ["Job Search", "Career Strategy", "Job Hunting"],
     "Success Stories": ["Success Stories", "Career Growth", "Job Search"],
   };
 
-  // Extract keywords from title
-  const titleKeywords = title
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(word => word.length > 4)
-    .slice(0, 2)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1));
+  // Extract keywords from title and excerpt to determine relevant tags
+  const content = (title + " " + excerpt).toLowerCase();
+  const relevantTags: string[] = [];
 
-  const defaultTags = categoryTags[category] || ["Career Tips", "Job Search"];
-  return [...defaultTags, ...titleKeywords].slice(0, 5);
+  // Add tags based on content analysis
+  if (content.includes("resume") || content.includes("cv") || content.includes("curriculum vitae")) {
+    relevantTags.push("Resume Writing");
+  }
+  if (content.includes("ats") || content.includes("applicant tracking") || content.includes("keyword")) {
+    relevantTags.push("ATS Optimization");
+  }
+  if (content.includes("interview") || content.includes("interviewing")) {
+    relevantTags.push("Interview Preparation");
+  }
+  if (content.includes("job search") || content.includes("job hunting") || content.includes("applying")) {
+    relevantTags.push("Job Search");
+  }
+  if (content.includes("career") || content.includes("professional") || content.includes("growth")) {
+    relevantTags.push("Career Tips");
+  }
+
+  // Add category-specific tags
+  const categorySpecificTags = categoryTags[category] || ["Career Tips", "Job Search"];
+  
+  // Merge and remove duplicates
+  const allTags = [...new Set([...relevantTags, ...categorySpecificTags])];
+  return allTags.length > 0 ? allTags : ["Career Tips", "Job Search"]; // Fallback if no tags found
 }
 
-// Add default tags to blogs that don't have them
-const blogsWithTags = blogPosts.map((blog) => ({
-  ...blog,
-  tags: blog.tags && blog.tags.length > 0 
-    ? blog.tags 
-    : getDefaultTags(blog.category, blog.title),
-}));
+// Add tags to blogs - keep existing tags, add category as tag, or add relevant default tags if missing
+const blogsWithTags = blogPosts.map((blog) => {
+  const existingTags = blog.tags && blog.tags.length > 0 ? blog.tags : [];
+  
+  // Always include the blog's category as a tag for filtering
+  const categoryTag = blog.category ? [blog.category] : [];
+  
+  // Merge existing tags with category tag
+  const mergedTags = [...new Set([...existingTags, ...categoryTag])];
+  
+  // If blog already had tags, return with category added
+  if (existingTags.length > 0) {
+    return {
+      ...blog,
+      tags: mergedTags,
+    };
+  }
+  
+  // If blog has no tags, generate relevant tags based on content
+  const defaultTags = getDefaultTags(blog.category, blog.title, blog.excerpt || "");
+  // Merge generated tags with category tag
+  const allTags = [...new Set([...defaultTags, ...categoryTag])];
+  return {
+    ...blog,
+    tags: allTags,
+  };
+});
 
 export default function BlogsClient() {
   const searchParams = useSearchParams();
@@ -67,9 +104,9 @@ export default function BlogsClient() {
 
   // Filter blogs by tag if tag parameter exists
   const filteredBlogs = useMemo(() => {
-    const normalizedCategory = decodedCategory.toLowerCase();
-    const normalizedTag = decodedTag.toLowerCase();
-    const normalizedSearch = searchQuery.toLowerCase();
+    const normalizedCategory = decodedCategory.toLowerCase().trim();
+    const normalizedTag = decodedTag.toLowerCase().trim();
+    const normalizedSearch = searchQuery.toLowerCase().trim();
 
     // Priority: category filter, then tag filter, else all
     let base = blogsWithTags;
@@ -83,17 +120,39 @@ export default function BlogsClient() {
         if (!blog.tags || blog.tags.length === 0) return false;
         return blog.tags.some((tag) => {
           if (!tag) return false;
-          return tag.toLowerCase().includes(normalizedTag);
+          const normalizedBlogTag = tag.toLowerCase().trim();
+          // Exact match for precise filtering
+          return normalizedBlogTag === normalizedTag;
         });
       });
     }
 
     if (normalizedSearch) {
+      // Split search query into individual words for better matching
+      const searchWords = normalizedSearch.split(/\s+/).filter(word => word.length > 0);
+      
       base = base.filter((blog) => {
-        return (
-          blog.title.toLowerCase().includes(normalizedSearch) ||
-          (blog.excerpt || "").toLowerCase().includes(normalizedSearch)
-        );
+        const blogTitle = blog.title.toLowerCase();
+        const blogExcerpt = (blog.excerpt || "").toLowerCase();
+        const blogCategory = blog.category.toLowerCase();
+        const blogTags = (blog.tags || []).map(tag => tag ? tag.toLowerCase() : "").filter(tag => tag.length > 0);
+        
+        // Check if any search word matches in any of the fields
+        return searchWords.some(word => {
+          // Search in title (most important for "blog names")
+          if (blogTitle.includes(word)) return true;
+          
+          // Search in excerpt
+          if (blogExcerpt.includes(word)) return true;
+          
+          // Search in category
+          if (blogCategory.includes(word)) return true;
+          
+          // Search in tags
+          if (blogTags.some(tag => tag.includes(word))) return true;
+          
+          return false;
+        });
       });
     }
 
@@ -137,12 +196,28 @@ export default function BlogsClient() {
   return (
     <section className={styles.blogsSection}>
       <header className={styles.header}>
-        <h2>Insights That Spark Career Growth.</h2>
+        <h2>
+          {decodedTag 
+            ? `Blogs tagged: ${decodedTag}` 
+            : decodedCategory 
+            ? `Blogs in ${decodedCategory}` 
+            : "Insights That Spark Career Growth."}
+        </h2>
         <p>
-          Learn how to outsmart hiring systems, stand out to recruiters, and
-          stay ahead with{" "}
-          <span className={styles.highlight}>Flashfire's expert-backed</span>{" "}
-          tips.
+          {decodedTag || decodedCategory ? (
+            <>
+              Showing {filteredBlogs.length} blog{filteredBlogs.length !== 1 ? 's' : ''} 
+              {decodedTag && ` tagged with "${decodedTag}"`}
+              {decodedCategory && ` in "${decodedCategory}"`}
+            </>
+          ) : (
+            <>
+              Learn how to outsmart hiring systems, stand out to recruiters, and
+              stay ahead with{" "}
+              <span className={styles.highlight}>Flashfire's expert-backed</span>{" "}
+              tips.
+            </>
+          )}
         </p>
       </header>
 
@@ -204,9 +279,16 @@ export default function BlogsClient() {
           ))}
         </div>
       ) : (
-        decodedTag && (
+        (decodedTag || decodedCategory || searchQuery) && (
           <div className={styles.noResults}>
-            <p>No blogs found for tag: <strong>{decodedTag}</strong></p>
+            <p>
+              {decodedTag && `No blogs found for tag: `}
+              {decodedCategory && `No blogs found for category: `}
+              {searchQuery && !decodedTag && !decodedCategory && `No blogs found for search: `}
+              <strong>
+                {decodedTag || decodedCategory || searchQuery}
+              </strong>
+            </p>
             <Link href="/blogs" className={styles.clearFilterLink}>
               View all blogs
             </Link>

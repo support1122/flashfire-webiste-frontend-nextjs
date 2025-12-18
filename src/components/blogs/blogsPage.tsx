@@ -54,11 +54,21 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
       ),
     []
   );
-  // Tags for this post; if missing, fall back to category as a single tag
+  // Tags for this post - show default tags on every blog for UI consistency
+  // But filtering will only match blogs that actually have that tag in their data
+  const defaultDisplayTags = [
+    "Career Advice",
+    "Job Search Strategy",
+    "Success Stories",
+    "Visa & Immigration",
+    "Career Planning",
+    "International Students"
+  ];
   const postTags = useMemo(() => {
-    if (post.tags && post.tags.length > 0) return post.tags;
-    return [post.category].filter(Boolean);
-  }, [post.tags, post.category]);
+    // Always show default tags on every blog page for UI consistency
+    // The actual filtering in blogsClient.tsx will use the blog's real tags
+    return defaultDisplayTags;
+  }, []);
 
   const overviewText = post.excerpt || "";
 

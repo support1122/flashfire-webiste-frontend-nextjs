@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import HomePagePricingPlans from "@/src/components/homePagePricingPlans/homePagePricingPlans";
+import HomePageOfferLetters from "@/src/components/homePageOfferLetters/homePageOfferLetters";
 import HomePageHappyUsers from "@/src/components/homePageHappyUsers/homePageHappyUsers";
 import HomePageFoundersNote from "@/src/components/homePageFoundersNote/homePageFoundersNote";
 import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
@@ -41,7 +42,10 @@ export default function PricingPageClient() {
     <>
       <Navbar />
       <HomePagePricingPlans />
-      <HomePageHappyUsers />
+      <HomePageOfferLetters />
+      <div className="mt-10 md:mt-14">
+        <HomePageHappyUsers />
+      </div>
       <HomePageFoundersNote />
       <HomePageFAQ />
       <Footer />
