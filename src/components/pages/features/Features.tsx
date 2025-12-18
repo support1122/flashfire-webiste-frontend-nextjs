@@ -240,7 +240,7 @@ export default function Features() {
         </div>
       </section>
 
-      <footer className="flex justify-center relative z-10">
+        <footer className="flex justify-center relative z-10">
         <div className="flex flex-col lg:flex-row gap-8 max-w-7xl w-full">
           {/* WhatsApp CTA - Circular design */}
           <div className="flex-1 bg-white p-12 text-center shadow-2xl border border-gray-100 relative overflow-hidden max-[768px]:p-8">
