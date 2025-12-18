@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import HomePage from "@/src/components/pages/home/Home";
 import CanadaHome from "@/src/components/countries/ca/Home";
@@ -9,6 +10,46 @@ interface LocalePageProps {
 }
 
 const validLocales = ["en-ca"];
+
+export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isCanada = locale === "en-ca";
+
+  if (!isCanada) {
+    return {
+      title: "FLASHFIRE - AI-Powered Job Search Automation | Land Your Dream Job Faster",
+      description:
+        "We apply to 1000+ jobs on your behalf with tailored resumes for every role. Save 150+ hours, skip the grunt work, and stay in control with real-time updates. Your job hunt—automated.",
+      robots: {
+        index: true,
+        follow: true,
+      },
+      alternates: {
+        canonical: "https://www.flashfirejobs.com/",
+      },
+    };
+  }
+
+  return {
+    title: "FLASHFIRE - AI-Powered Job Search Automation | Land Your Dream Job Faster (Canada)",
+    description:
+      "We apply to 1000+ jobs on your behalf with tailored resumes for every role. Save 150+ hours, skip the grunt work, and stay in control with real-time updates. Your job hunt—automated.",
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: "https://www.flashfirejobs.com/en-ca",
+    },
+    openGraph: {
+      title: "FLASHFIRE - AI-Powered Job Search Automation (Canada)",
+      description:
+        "We apply to 1000+ jobs on your behalf with tailored resumes for every role. Save 150+ hours, skip the grunt work, and stay in control with real-time updates.",
+      url: "https://www.flashfirejobs.com/en-ca",
+      type: "website",
+    },
+  };
+}
 
 export default async function LocalePage({ params }: LocalePageProps) {
   const { locale } = await params;
