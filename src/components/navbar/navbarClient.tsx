@@ -754,6 +754,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   
   const isBookPage = pathname === "/schedule-a-free-career-call" || pathname === "/en-ca/schedule-a-free-career-call";
   const isImageTestimonialsPage = pathname === "/testimonials" || pathname === "/en-ca/testimonials" || pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
+  const isBlogsPage = pathname.startsWith("/blogs") || pathname.startsWith("/en-ca/blogs");
   
   // Geo-bypass hook for Book Now button
   const { getButtonProps: getBookNowButtonProps } = useGeoBypass({
@@ -1528,7 +1529,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     </nav>
 
     {/* Slots Remaining Banner - Below Navbar */}
-    {!isImageTestimonialsPage && (
+    {!isImageTestimonialsPage && !isBlogsPage && (
     <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
       <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
         {/* Text part - hidden on mobile */}
