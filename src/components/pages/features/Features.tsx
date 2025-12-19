@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { FaPlus, FaTimes, FaWhatsapp } from "react-icons/fa"
 import { questionsData } from "@/src/data/questionsData"
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css"
@@ -80,6 +81,7 @@ const steps = [
 ]
 
 export default function Features() {
+  const pathname = usePathname()
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
 
   const handleFaqToggle = (index: number) => {
@@ -96,10 +98,31 @@ export default function Features() {
   }
 
   const handleGetStarted = () => {
-    // You can add navigation or modal trigger here
+    // Dispatch modal event
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"))
     }
+
+    // Check current path
+    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '')
+    const normalizedPath = currentPath.split('?')[0] // Remove query params
+    const isOnFeatures = normalizedPath === '/feature' ||
+      normalizedPath === '/features' ||
+      normalizedPath === '/en-ca/feature' ||
+      normalizedPath === '/en-ca/features'
+
+    // If on features page, change URL but keep page content visible
+    if (isOnFeatures) {
+      const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-started-now' : '/get-started-now'
+      if (typeof window !== 'undefined') {
+        window.history.pushState({}, '', targetPath)
+      }
+      // Just trigger the modal, don't navigate
+      return
+    }
+
+    // For other pages, navigate normally (if needed)
+    // Currently just showing modal, navigation can be added if required
   }
 
   return (
@@ -388,7 +411,7 @@ export default function Features() {
             </blockquote>
             <div className="flex justify-start items-center gap-4 text-left max-[1024px]:justify-center max-[1024px]:text-center">
               <div>
-                <p className="text-[0.95rem] font-semibold">Adit Jain</p>
+                <p className="text-[0.95rem] font-semibold text-white">Adit Jain</p>
                 <p className="text-[0.8rem] text-[#aaa]">Partner</p>
               </div>
               <div className="flex items-center gap-2">
@@ -400,7 +423,7 @@ export default function Features() {
                     className="brightness-100"
                   />
                 </div>
-                <p className="font-semibold">Flashfire</p>
+                <p className="font-semibold text-white">Flashfire</p>
               </div>
             </div>
           </div>

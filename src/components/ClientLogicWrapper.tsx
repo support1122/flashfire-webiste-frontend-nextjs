@@ -252,8 +252,9 @@ function ClientLogicWrapperContent({
             
             const wasDismissed = modalDismissedForRouteRef.current === currentRouteKey;
             
-            // Show modal if it hasn't been dismissed and there are query params (from button click)
-            if (!wasDismissed && searchParams.toString()) {
+            // Show modal if it hasn't been dismissed (works for both direct visits and button clicks)
+            // This allows the modal to open when visiting /book-now directly from email links
+            if (!wasDismissed) {
                 // Check if user is from India - show geo-block modal instead
                 if (isFromIndia && !geoBypassActive) {
                     setShowGeoBlockModal(true);

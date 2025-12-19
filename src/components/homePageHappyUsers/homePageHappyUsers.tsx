@@ -57,6 +57,8 @@ export default function HomePageHappyUsers() {
       linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
       profileImage:
         "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-19.jpg",
+      smallProfileImage:
+        "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
     },
     {
       videoUrl: "https://www.youtube.com/embed/nYEO8K0q38c",
@@ -65,6 +67,8 @@ export default function HomePageHappyUsers() {
       linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
       profileImage:
         "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-20.jpg",
+      smallProfileImage:
+        "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg",
     },
     {
       videoUrl: "https://www.youtube.com/embed/p9kzhLHjJuI",
@@ -73,6 +77,8 @@ export default function HomePageHappyUsers() {
       linkedinUrl: "#",
       profileImage:
         "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-18.jpg",
+      smallProfileImage:
+        "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg",
     },
   ];
   
@@ -197,7 +203,7 @@ export default function HomePageHappyUsers() {
                   <div className="flex items-center gap-3 w-full h-full">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
                       <Image
-                        src={video.profileImage}
+                        src={(video as any).smallProfileImage || video.profileImage}
                         alt={video.name}
                         width={40}
                         height={40}

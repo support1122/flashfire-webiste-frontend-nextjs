@@ -127,6 +127,10 @@ export default function HowItWorks() {
   const carouselRef = useInViewOnce();
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const autoAdvancePausedRef = useRef(false);
+  const stepsSectionRef = useRef<HTMLDivElement>(null);
+  const [isScrollLocked, setIsScrollLocked] = useState(false);
+  const autoPlayCompletedRef = useRef(false);
+  const scrollAttemptRef = useRef(false);
 
   const handleTalkToExpertClick = (buttonLocation: string) => {
     // Get UTM parameters from localStorage
@@ -166,7 +170,146 @@ export default function HowItWorks() {
     window.open(WHATSAPP_SUPPORT_URL, "_blank");
   };
 
-  // Auto-advance steps every 5 seconds
+  // Lock/unlock body scroll
+  useEffect(() => {
+    if (isScrollLocked) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+    } else {
+      // Restore scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
+    }
+
+    return () => {
+      // Cleanup: always unlock on unmount
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+    };
+  }, [isScrollLocked]);
+
+  // Intersection Observer to detect when steps section enters view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Only trigger when section is mostly visible (like in photo 2)
+          // Check if at least 80% is visible and the section is well-positioned in viewport
+          const rect = entry.boundingClientRect;
+          const viewportHeight = window.innerHeight;
+          
+          // Check if section is well-positioned (not too high, not too low)
+          const isWellPositioned = 
+            rect.top >= 0 && 
+            rect.top <= viewportHeight * 0.3 && // Top of section is in upper 30% of viewport
+            rect.bottom >= viewportHeight * 0.6; // Bottom is at least 60% down
+          
+          if (
+            entry.isIntersecting && 
+            entry.intersectionRatio >= 0.8 && 
+            isWellPositioned &&
+            !autoPlayCompletedRef.current
+          ) {
+            // Steps section is fully in view and sequence hasn't completed yet
+            setIsScrollLocked(true);
+            setCurrentStep(0); // Start from step 1 (index 0)
+            scrollAttemptRef.current = false;
+
+            // Disconnect observer after first trigger
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: [0.6, 0.7, 0.8, 0.9], // Multiple thresholds to check
+        rootMargin: "0px",
+      }
+    );
+
+    if (stepsSectionRef.current) {
+      observer.observe(stepsSectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Handle scroll attempts to advance steps
+  useEffect(() => {
+    if (!isScrollLocked) return;
+
+    const advanceStep = () => {
+      // Prevent multiple rapid triggers
+      if (scrollAttemptRef.current) return;
+      scrollAttemptRef.current = true;
+
+      // Advance to next step
+      setCurrentStep((prev) => {
+        const nextStep = prev + 1;
+        
+        if (nextStep > 3) {
+          // Step 4 (index 3) completed, unlock scrolling
+          setIsScrollLocked(false);
+          autoPlayCompletedRef.current = true;
+          return 3; // Stay on step 4
+        }
+        
+        // Reset the ref after a short delay to allow next scroll attempt
+        setTimeout(() => {
+          scrollAttemptRef.current = false;
+        }, 300);
+        
+        return nextStep;
+      });
+    };
+
+    const handleScrollAttempt = (e: WheelEvent | TouchEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      advanceStep();
+    };
+
+    const handleKeyboardScroll = (e: KeyboardEvent) => {
+      // Handle arrow keys, page up/down, space
+      if (
+        e.key === "ArrowDown" ||
+        e.key === "ArrowUp" ||
+        e.key === "PageDown" ||
+        e.key === "PageUp" ||
+        (e.key === " " && !e.shiftKey) // Space bar (down)
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        advanceStep();
+      }
+    };
+
+    // Listen for wheel (mouse scroll), touch events, and keyboard
+    window.addEventListener("wheel", handleScrollAttempt, { passive: false });
+    window.addEventListener("touchmove", handleScrollAttempt, { passive: false });
+    window.addEventListener("keydown", handleKeyboardScroll, { passive: false });
+
+    return () => {
+      window.removeEventListener("wheel", handleScrollAttempt);
+      window.removeEventListener("touchmove", handleScrollAttempt);
+      window.removeEventListener("keydown", handleKeyboardScroll);
+    };
+  }, [isScrollLocked]);
+
+  // Auto-advance steps every 1.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       if (!autoAdvancePausedRef.current) {
@@ -175,12 +318,16 @@ export default function HowItWorks() {
           return (prev + 1) % steps.length;
         });
       }
-    }, 5000); // 5 seconds
+    }, 1500); // 1.5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [steps.length]);
 
   const handleStepClick = (stepIndex: number) => {
+    // Disable clicks during scroll-locked sequence
+    if (isScrollLocked && !autoPlayCompletedRef.current) {
+      return;
+    }
     setCurrentStep(stepIndex);
     // Pause auto-advance for 10 seconds after user interaction, then resume
     autoAdvancePausedRef.current = true;
@@ -220,7 +367,7 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="mt-12 md:mt-16">
+        <section ref={stepsSectionRef} className="mt-12 md:mt-16">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex-1 max-w-xl space-y-5">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
@@ -287,40 +434,26 @@ export default function HowItWorks() {
                     const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
                       normalizedPath === '/en-ca/get-me-interview';
 
-                    // If on how-it-works page, just show modal without navigating
+                    // Dispatch custom event to force show modal FIRST
+                    if (typeof window !== 'undefined') {
+                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                    }
+
+                    // If on how-it-works page, change URL but keep page content visible
                     if (isOnHowItWorks) {
-                      // Save current scroll position before modal opens
-                      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-                      // Dispatch custom event to force show modal
+                      // Change URL to /get-me-interview without navigating (keep how-it-works page visible)
+                      const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
                       if (typeof window !== 'undefined') {
-                        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                        window.history.pushState({}, '', targetPath);
                       }
-
-                      // Restore scroll position immediately after modal opens
-                      requestAnimationFrame(() => {
-                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                        requestAnimationFrame(() => {
-                          window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                          setTimeout(() => {
-                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                          }, 50);
-                        });
-                      });
-
                       // Just trigger the modal, don't navigate
                       return;
                     }
 
-                    // If already on the route, save scroll position and prevent navigation
+                    // If already on the route, just show modal without navigating
                     if (isAlreadyOnGetMeInterview) {
                       // Save current scroll position before modal opens
                       const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-                      // Dispatch custom event to force show modal
-                      if (typeof window !== 'undefined') {
-                        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                      }
 
                       // Restore scroll position immediately after modal opens
                       requestAnimationFrame(() => {
@@ -337,18 +470,13 @@ export default function HowItWorks() {
                       return;
                     }
 
-                    // Dispatch custom event to force show modal FIRST
-                    if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                    }
-
                     // Save current scroll position before navigation to preserve it
                     if (typeof window !== 'undefined') {
                       const currentScrollY = window.scrollY;
                       sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
                     }
 
-                    // Only navigate if NOT already on the page and NOT on how-it-works
+                    // Navigate to get-me-interview page (for other pages)
                     const targetPath = '/get-me-interview';
                     router.push(targetPath);
                   }}
@@ -409,27 +537,44 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Vertical Progress Indicator */}
-                <div className="flex flex-col items-center justify-center gap-1.5 min-h-[540px]">
+                <div className="flex flex-col items-center justify-center gap-1 min-h-[540px]">
                   {steps.map((_, index) => {
                     const isActive = index === currentStep;
                     const isPast = index < currentStep;
                     return (
                       <div key={index} className="flex flex-col items-center">
-                        {/* Circle */}
-                        <div
+                        {/* Number Marker */}
+                        <button
                           onClick={() => handleStepClick(index)}
-                          className={`w-3 h-3 rounded-full border-2 transition-all duration-300 cursor-pointer hover:scale-110 ${
+                          disabled={isScrollLocked && !autoPlayCompletedRef.current}
+                          className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${
+                            isScrollLocked && !autoPlayCompletedRef.current
+                              ? "cursor-not-allowed opacity-50"
+                              : "cursor-pointer hover:scale-110"
+                          } ${
                             isActive
-                              ? "bg-[#ff4c00] border-[#ff4c00] scale-125"
+                              ? "bg-[#ff4c00] border-[#ff4c00] scale-110 shadow-lg"
                               : isPast
                               ? "bg-white border-[#ff4c00]"
                               : "bg-white border-gray-300"
                           }`}
-                        />
+                        >
+                          <span
+                            className={`text-xs font-bold ${
+                              isActive
+                                ? "text-white"
+                                : isPast
+                                ? "text-[#ff4c00]"
+                                : "text-gray-400"
+                            }`}
+                          >
+                            {index + 1}
+                          </span>
+                        </button>
                         {/* Vertical Line */}
                         {index < steps.length - 1 && (
                           <div
-                            className={`w-0.5 h-12 transition-all duration-300 ${
+                            className={`w-0.5 h-10 transition-all duration-300 ${
                               isPast ? "bg-[#ff4c00]" : "bg-gray-300"
                             }`}
                           />
