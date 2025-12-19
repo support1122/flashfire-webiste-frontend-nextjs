@@ -132,7 +132,7 @@ export default function Features() {
 
     <section
       id="feature"
-        className="relative overflow-hidden bg-[#fffefb] py-16 px-4 font-['Space_Grotesk',sans-serif] sm:px-6 lg:px-8 md:py-24"
+        className="relative overflow-hidden bg-[#fff6f4] py-16 px-4 font-['Space_Grotesk',sans-serif] sm:px-6 lg:px-8 md:py-24"
       >
         {/* Why Choose Flashfire Section */}
         <header className="relative z-10 mx-auto mb-16 max-w-4xl text-center md:mb-20">
