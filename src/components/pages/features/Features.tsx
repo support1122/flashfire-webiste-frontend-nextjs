@@ -149,10 +149,6 @@ export default function Features() {
 
         {/* Features Grid - 3 rows x 2 columns */}
         <div className="relative z-10 mx-auto mb-16 max-w-6xl md:mb-20 overflow-visible">
-          {/* Orange gradient backgrounds - positioned relative to this section */}
-          <div className="pointer-events-none absolute -top-40 -right-40 h-[40rem] w-[40rem] bg-gradient-to-br from-orange-700/40 via-orange-600/30 to-orange-500/20 blur-3xl rounded-full" />
-          <div className="pointer-events-none absolute -bottom-40 -left-40 h-[40rem] w-[40rem] bg-gradient-to-tr from-orange-700/40 via-orange-600/30 to-orange-500/20 blur-3xl rounded-full" />
-          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
             {features.map((feature, index) => (
               <article
@@ -445,10 +441,6 @@ export default function Features() {
 
         {/* CTA Footer */}
         <div className="relative mt-16 overflow-visible">
-          {/* Orange gradient circles at bottom - left and right */}
-          <div className="pointer-events-none absolute -bottom-60 -left-40 h-[40rem] w-[40rem] bg-gradient-to-tr from-orange-700/40 via-orange-600/30 to-orange-500/20 blur-3xl rounded-full" />
-          <div className="pointer-events-none absolute -bottom-60 -right-40 h-[40rem] w-[40rem] bg-gradient-to-br from-orange-700/40 via-orange-600/30 to-orange-500/20 blur-3xl rounded-full" />
-          
           <div className="mx-auto max-w-4xl mt-16 text-center relative z-10">
             <h2 className="text-4xl font-bold text-[#ff4c00] mb-4 md:text-5xl">
               Ready to move from applying to interviewing?
