@@ -109,11 +109,11 @@ export default function PricingCard({
   return (
     <div className="flex flex-col w-full h-full">
     <div
-      className={`bg-white border rounded-[0.3rem] p-8 flex-1 flex flex-col text-left relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] max-[768px]:p-6 ${highlight ? "border-2 border-[#ff4c00]" : "border border-black"}`}
+      className={`bg-white border rounded-[0.3rem] p-4 sm:p-6 lg:p-8 flex-1 flex flex-col text-left relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] ${highlight ? "border-2 border-[#ff4c00]" : "border border-black"}`}
     >
       {tag && (
         <div
-          className={`absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[0.9rem] font-semibold rounded px-3 py-1 ${
+          className={`absolute -top-3 left-1/2 -translate-x-1/2 text-white text-xs sm:text-[0.9rem] font-semibold rounded px-2 sm:px-3 py-0.5 sm:py-1 ${
             tag === "MOST POPULAR" ? "bg-[#ff4c00]" : "bg-[#111]"
           }`}
         >
@@ -121,39 +121,39 @@ export default function PricingCard({
         </div>
       )}
 
-      <h4 className="text-[#ff4c00] text-[1.5rem] font-bold mb-1 max-[768px]:text-[1.3rem] max-[480px]:text-[1.2rem]">
+      <h4 className="text-[#ff4c00] text-lg sm:text-xl lg:text-[1.5rem] font-bold mb-1">
         {title}
       </h4>
       
-      <div className="flex items-baseline gap-2.5 mb-3">
-        <h3 className="text-[1.8rem] font-bold text-black max-[768px]:text-[1.6rem]">
+      <div className="flex items-baseline gap-2 sm:gap-2.5 mb-2 sm:mb-3">
+        <h3 className="text-xl sm:text-2xl lg:text-[1.8rem] font-bold text-black">
           {formattedPrice}
         </h3>
         {oldPrice && (
-          <span className="text-base text-[#999] line-through max-[768px]:text-sm">
+          <span className="text-sm sm:text-base text-[#999] line-through">
             {oldPrice}
           </span>
         )}
       </div>
 
-      <p className="text-[#555] text-base mb-6 max-[768px]:text-[0.9rem]">
+      <p className="text-[#555] text-sm sm:text-base mb-4 sm:mb-6">
         {description}
       </p>
 
-      <hr className="-mt-1 mb-3 text-black" />
+      <hr className="-mt-1 mb-2 sm:mb-3 text-black" />
 
-      <ul className="list-none p-0 mb-6 flex-grow max-[480px]:min-h-[10rem]">
+      <ul className="list-none p-0 mb-4 sm:mb-6 flex-grow min-h-[8rem] sm:min-h-[10rem]">
         {/* Subtitle as first feature item - bold and colored */}
-        <li className="flex items-center gap-2 text-base font-extrabold text-[#ff4c00] mb-3 max-[768px]:text-[0.95rem] max-[480px]:text-[0.9rem]">
-          <FaBolt className="text-[#ff4c00] text-lg flex-shrink-0" /> 
+        <li className="flex items-center gap-2 text-sm sm:text-base font-extrabold text-[#ff4c00] mb-2 sm:mb-3">
+          <FaBolt className="text-[#ff4c00] text-base sm:text-lg flex-shrink-0" /> 
           <span className="font-extrabold text-[#ff4c00]">{subTitle}</span>
         </li>
         {features.map((feature, i) => (
           <li
             key={i}
-            className="flex items-center gap-2 text-base text-black mb-2 max-[768px]:text-[0.9rem] max-[480px]:text-[0.85rem]"
+            className="flex items-center gap-2 text-sm sm:text-base text-black mb-1.5 sm:mb-2"
           >
-            <FaBolt className="text-[#ff4c00] text-base" /> {feature}
+            <FaBolt className="text-[#ff4c00] text-sm sm:text-base flex-shrink-0" /> <span>{feature}</span>
           </li>
         ))}
       </ul>
@@ -173,12 +173,12 @@ export default function PricingCard({
               }
             }
           }}
-          className="bg-[#ff4c00] text-white border-none py-2 px-4 font-semibold text-sm rounded-[0.5rem] w-full cursor-pointer transition-all duration-300 hover:bg-[#e24300] mb-4"
+          className="bg-[#ff4c00] text-white border-none py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-xs sm:text-sm rounded-[0.5rem] w-full cursor-pointer transition-all duration-300 hover:bg-[#e24300] mb-3 sm:mb-4"
         >
           {addOn && hasUpgradeOptions ? "View Options" : addOn && title === "EXECUTIVE" ? "View Options" : addOn ? "Booster Add-On" : "Upgrade Plan"}
         </button>
       ) : (
-        <div className="mb-4 h-[2.5rem]"></div>
+        <div className="mb-3 sm:mb-4 h-[2rem] sm:h-[2.5rem]"></div>
       )}
 
        {/* <p className="text-[0.85rem] text-[#555] mb-5">
@@ -186,7 +186,7 @@ export default function PricingCard({
       </p> */}
 
       <button
-        className="bg-black text-white border-none py-[0.9rem] px-4 font-semibold text-[0.95rem] rounded-[0.4rem] w-full cursor-pointer transition-all duration-300 hover:bg-[#111] max-[768px]:text-[0.9rem] max-[768px]:py-3 max-[480px]:text-[0.85rem] max-[480px]:py-[0.7rem] max-[480px]:px-[0.9rem]"
+        className="bg-black text-white border-none py-2.5 sm:py-[0.9rem] px-3 sm:px-4 font-semibold text-sm sm:text-[0.95rem] rounded-[0.4rem] w-full cursor-pointer transition-all duration-300 hover:bg-[#111]"
         onClick={() => {
           const utmSource = typeof window !== "undefined"
             ? localStorage.getItem("utm_source") || "WEBSITE"
