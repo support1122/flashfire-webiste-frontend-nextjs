@@ -39,16 +39,16 @@ export async function generateMetadata({ params }: LocaleBlogsPageProps): Promis
       type: "website",
       images: [
         {
-          url: "https://www.flashfirejobs.com/favicon.svg",
-          width: 803,
-          height: 781,
+          url: "https://www.flashfirejobs.com/images/flashfire-logo.png",
+          width: 1200,
+          height: 630,
           alt: "FLASHFIRE Logo",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      images: ["https://www.flashfirejobs.com/favicon.svg"],
+      images: ["https://www.flashfirejobs.com/images/flashfire-logo.png"],
     },
   };
 }
