@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
       type: "website",
       images: [
         {
-          url: "https://www.flashfirejobs.com/images/flashfire-logo.png",
+          url: "https://www.flashfirejobs.com/images/og-image.png",
           width: 1200,
           height: 630,
           alt: "FLASHFIRE Logo",
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
     },
     twitter: {
       card: "summary_large_image",
-      images: ["https://www.flashfirejobs.com/images/flashfire-logo.png"],
+      images: ["https://www.flashfirejobs.com/images/og-image.png"],
     },
   };
 }
