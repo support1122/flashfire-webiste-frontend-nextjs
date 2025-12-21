@@ -2,7 +2,19 @@ import { Reader } from '@maxmind/geoip2-node';
 import fs from 'fs';
 import path from 'path';
 
-let geoReader: Reader | null = null;
+// Type assertion for Reader with country method
+type GeoIPReader = Reader & {
+  country: (ip: string) => {
+    country?: {
+      isoCode?: string;
+      names?: {
+        en?: string;
+      };
+    };
+  } | null;
+};
+
+let geoReader: GeoIPReader | null = null;
 const ipCache = new Map<string, { countryCode: string; country: string; expiresAt: number }>();
 const TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
@@ -48,7 +60,7 @@ export async function initGeoIp(): Promise<void> {
       return;
     }
     const buffer = fs.readFileSync(dbPath);
-    geoReader = await Reader.openBuffer(buffer);
+    geoReader = (await Reader.openBuffer(buffer)) as GeoIPReader;
     console.log(`✅ [GeoIP] Database loaded from: ${dbPath}`);
   } catch (error: any) {
     console.error('❌ [GeoIP] Failed to load database:', error.message);
