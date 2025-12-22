@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import HappyUsersGalleryPage from "@/src/components/homePageHappyUsers/HappyUsersGalleryPage";
+import ImagePreloader from "./ImagePreloader";
 
 export const metadata: Metadata = {
   title: "Success Stories & Testimonials | Flashfire",
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
   return (
     <>
+      <ImagePreloader />
       <Navbar />
       <HappyUsersGalleryPage />
       <Footer />

@@ -21,6 +21,33 @@ const optimizeCloudinaryUrl = (url: string, width: number = 1200) => {
   return url;
 };
 
+const videos = [
+  {
+    videoUrl: "https://www.youtube.com/embed/p41OvikonKo",
+    name: "Anjali Shah",
+    company: "Skyworks Solutions, Inc.",
+    linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
+    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-19.jpg",
+    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
+  },
+  {
+    videoUrl: "https://www.youtube.com/embed/nYEO8K0q38c",
+    name: "Rijul Jain",
+    company: "Wise",
+    linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
+    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-20.jpg",
+    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg",
+  },
+  {
+    videoUrl: "https://www.youtube.com/embed/p9kzhLHjJuI",
+    name: "Aryan Gupta",
+    company: "IBM",
+    linkedinUrl: "#",
+    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-18.jpg",
+    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg",
+  },
+];
+
 export default function HappyUsersGalleryPage() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
@@ -29,32 +56,20 @@ export default function HappyUsersGalleryPage() {
   const preloadedImages = useRef<Set<string>>(new Set());
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const videos = [
-    {
-      videoUrl: "https://www.youtube.com/embed/p41OvikonKo",
-      name: "Anjali Shah",
-      company: "Skyworks Solutions, Inc.",
-      linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
-      profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-19.jpg",
-      smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
-    },
-    {
-      videoUrl: "https://www.youtube.com/embed/nYEO8K0q38c",
-      name: "Rijul Jain",
-      company: "Wise",
-      linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
-      profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-20.jpg",
-      smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg",
-    },
-    {
-      videoUrl: "https://www.youtube.com/embed/p9kzhLHjJuI",
-      name: "Aryan Gupta",
-      company: "IBM",
-      linkedinUrl: "#",
-      profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-18.jpg",
-      smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg",
-    },
-  ];
+  // Preload video thumbnail images on mount
+  useEffect(() => {
+    videos.forEach((video) => {
+      // Preload main profile image
+      const img1 = new window.Image();
+      img1.src = video.profileImage;
+      
+      // Preload small profile image
+      if (video.smallProfileImage) {
+        const img2 = new window.Image();
+        img2.src = video.smallProfileImage;
+      }
+    });
+  }, []);
 
   const handlePlay = (index: number) => {
     setPlayingIndex(index);
@@ -70,33 +85,70 @@ export default function HappyUsersGalleryPage() {
     setImageLoading(false);
   };
 
-  // Preload first 12 images immediately on mount for instant display
+  // Preload ALL images immediately on mount for instant display - no lag!
   useEffect(() => {
-    const preloadImages = async () => {
-      const firstBatch = ALL_REVIEW_IMAGES.slice(0, 12);
-      firstBatch.forEach((url, index) => {
-        const img = new window.Image();
-        img.src = optimizeCloudinaryUrl(url, 1200);
-        img.onload = () => {
-          setLoadedImages(prev => new Set(prev).add(index));
-        };
-      });
+    const preloadAllImages = () => {
+      // Load all images in batches to avoid blocking the main thread
+      const batchSize = 6; // Load 6 images at a time
+      let currentBatch = 0;
+
+      const loadBatch = () => {
+        const start = currentBatch * batchSize;
+        const end = Math.min(start + batchSize, ALL_REVIEW_IMAGES.length);
+        
+        for (let i = start; i < end; i++) {
+          const url = ALL_REVIEW_IMAGES[i];
+          const img = new window.Image();
+          img.src = optimizeCloudinaryUrl(url, 1200);
+          img.onload = () => {
+            setLoadedImages(prev => {
+              const newSet = new Set(prev);
+              newSet.add(i);
+              return newSet;
+            });
+          };
+          img.onerror = () => {
+            // Still mark as loaded to avoid infinite loading state
+            setLoadedImages(prev => {
+              const newSet = new Set(prev);
+              newSet.add(i);
+              return newSet;
+            });
+          };
+        }
+
+        currentBatch++;
+        
+        // Continue loading next batch after a short delay to keep UI responsive
+        if (end < ALL_REVIEW_IMAGES.length) {
+          setTimeout(loadBatch, 50); // 50ms delay between batches
+        }
+      };
+
+      // Start loading immediately
+      loadBatch();
     };
-    preloadImages();
+
+    preloadAllImages();
   }, []);
 
-  // Intersection Observer for lazy loading remaining images
+  // Intersection Observer for fallback loading (in case preload missed any)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            if (!loadedImages.has(index) && index >= 12) {
+            // Only load if not already loaded (fallback safety)
+            if (!loadedImages.has(index)) {
               const img = new window.Image();
               img.src = optimizeCloudinaryUrl(ALL_REVIEW_IMAGES[index], 1200);
               img.onload = () => {
-                setLoadedImages(prev => new Set(prev).add(index));
+                setLoadedImages(prev => {
+                  const newSet = new Set(prev);
+                  newSet.add(index);
+                  return newSet;
+                });
               };
             }
             observer.unobserve(entry.target);
@@ -104,7 +156,7 @@ export default function HappyUsersGalleryPage() {
         });
       },
       {
-        rootMargin: '300px', // Start loading 300px before image enters viewport
+        rootMargin: '500px', // Start loading 500px before image enters viewport for smoother experience
         threshold: 0.01
       }
     );
@@ -167,7 +219,7 @@ export default function HappyUsersGalleryPage() {
             {ALL_REVIEW_IMAGES.map((imageSrc, i) => {
               const optimizedUrl = optimizeCloudinaryUrl(imageSrc, 1200);
               const isLoaded = loadedImages.has(i);
-              const isEager = i < 12; // First 12 images load eagerly
+              const isEager = i < 20; // First 20 images are critical (above the fold)
               
               return (
                 <div
