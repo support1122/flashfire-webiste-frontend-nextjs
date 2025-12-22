@@ -764,7 +764,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   });
   
   const isExternalHref = (href: string) => href.startsWith("http");
-  const primaryIsExternal = isExternalHref(ctas.primary.href);
+  const primaryIsExternal = ctas.primary ? isExternalHref(ctas.primary.href) : false;
   const secondaryIsExternal = ctas.secondary ? isExternalHref(ctas.secondary.href) : false;
   
   const getHref = (href: string) => {
@@ -1223,7 +1223,7 @@ export default function NavbarClient({ links, ctas }: Props) {
 
         {/* Right Section: CTAs (Desktop) */}
         <div className={styles.navRight}>
-          {primaryIsExternal ? (
+          {ctas.primary && primaryIsExternal ? (
             <a
               href={ctas.primary.href}
               className={styles.navPrimaryButton}
@@ -1243,7 +1243,7 @@ export default function NavbarClient({ links, ctas }: Props) {
             >
               {ctas.primary.label}
             </a>
-          ) : ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert" ? (
+          ) : ctas.primary && (ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert") ? (
             <button
               className={styles.navPrimaryButton}
               onClick={(e) => {
@@ -1286,9 +1286,9 @@ export default function NavbarClient({ links, ctas }: Props) {
                 window.open(WHATSAPP_SUPPORT_URL, "_blank");
               }}
             >
-              {ctas.primary.label}
+              {ctas.primary?.label}
             </button>
-          ) : (
+          ) : ctas.primary ? (
             <Link
               href={ctas.primary.href}
               className={styles.navPrimaryButton}
@@ -1306,7 +1306,7 @@ export default function NavbarClient({ links, ctas }: Props) {
             >
               {ctas.primary.label}
             </Link>
-          )}
+          ) : null}
         </div>
 
         {/* Mobile Menu Icon */}
@@ -1438,7 +1438,7 @@ export default function NavbarClient({ links, ctas }: Props) {
             })}
           </ul>
           <div className={styles.navMobileButtons}>
-            {primaryIsExternal ? (
+            {ctas.primary && primaryIsExternal ? (
               <a
                 href={ctas.primary.href}
                 className={styles.navMobilePrimary}
@@ -1458,7 +1458,7 @@ export default function NavbarClient({ links, ctas }: Props) {
               >
                 {ctas.primary.label}
               </a>
-            ) : ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert" ? (
+            ) : ctas.primary && (ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert") ? (
               <button
                 className={styles.navMobilePrimary}
                 onClick={(e) => {
@@ -1502,9 +1502,9 @@ export default function NavbarClient({ links, ctas }: Props) {
                   window.open(WHATSAPP_SUPPORT_URL, "_blank");
                 }}
               >
-                {ctas.primary.label}
+                {ctas.primary?.label}
               </button>
-            ) : (
+            ) : ctas.primary ? (
               <Link
                 href={ctas.primary.href}
                 className={styles.navMobilePrimary}
@@ -1522,7 +1522,7 @@ export default function NavbarClient({ links, ctas }: Props) {
               >
                 {ctas.primary.label}
               </Link>
-            )}
+            ) : null}
           </div>
         </div>
       )}

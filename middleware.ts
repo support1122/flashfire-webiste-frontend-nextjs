@@ -8,33 +8,30 @@ const STORAGE_KEY = 'ff_country_code_v1';
 const countryCache = new Map<string, { code: string; expiresAt: number }>();
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
-async function fetchCountryFromBackend(ip: string): Promise<string | null> {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  
-  if (!baseUrl) {
-    console.warn('[Middleware] NEXT_PUBLIC_API_BASE_URL not set');
-    return null;
-  }
-  
+async function fetchCountryFromLocalApi(ip: string, request: NextRequest): Promise<string | null> {
   try {
-    const response = await fetch(`${baseUrl}/api/geo`, {
+    const url = new URL('/api/geo', request.url);
+    if (ip) {
+      url.searchParams.set('ip', ip);
+    }
+    
+    const response = await fetch(url.toString(), {
       headers: {
-        'x-forwarded-for': ip,
-        'x-real-ip': ip,
-        'ngrok-skip-browser-warning': 'true'
+        'x-forwarded-for': ip || '',
+        'x-real-ip': ip || '',
       },
       cache: 'no-store' // Don't cache in middleware
     });
 
     if (!response.ok) {
-      console.warn('[Middleware] Backend geo API not ok:', response.status);
+      console.warn('[Middleware] Local geo API not ok:', response.status);
       return null;
     }
 
     const data = await response.json();
     return data?.countryCode || null;
   } catch (error) {
-    console.error('[Middleware] Failed to fetch country from backend:', error);
+    console.error('[Middleware] Failed to fetch country from local API:', error);
     return null;
   }
 }
@@ -111,8 +108,8 @@ export async function middleware(request: NextRequest) {
       if (cached && cached.expiresAt > now) {
         countryCode = cached.code;
       } else {
-        // Try to fetch from backend
-        countryCode = await fetchCountryFromBackend(ip);
+        // Try to fetch from local Next.js API (faster, no backend dependency)
+        countryCode = await fetchCountryFromLocalApi(ip, request);
         
         // Cache the result if we got one
         if (countryCode) {

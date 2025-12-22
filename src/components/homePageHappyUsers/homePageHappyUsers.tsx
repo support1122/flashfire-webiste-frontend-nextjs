@@ -2,45 +2,56 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import React from "react";
+
+// Helper function to optimize Cloudinary URLs for fast loading
+const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
+  if (url.includes('res.cloudinary.com')) {
+    const parts = url.split('/upload/');
+    if (parts.length === 2) {
+      return `${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`;
+    }
+  }
+  return url;
+};
 
 // Export full list so a dedicated gallery page can show all images
 export const ALL_REVIEW_IMAGES = [
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image7.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image2.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image8.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image9.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image10.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image11.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image5.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image12.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image6.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image18.jpg", // 10
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204030/image29_zwh3vm.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204030/image30_chtdsv.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204030/image31_qqfkqe.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204029/image28_vuemm5.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204028/image26_gccg1d.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204027/image22_rx8zqm.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204027/image25_olv1fx.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204026/image27_b1jiaa.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204026/image24_lep6eo.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204026/image23_s1ky7z.png", // 10
 
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image1.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image13.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image14.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image4.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image22.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image16.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image17.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image19.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image20.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image21.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204025/image20_xttrfl.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image21_e2ftbw.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image13_f3mubl.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image13_f3mubl.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image19_nxbjhs.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204023/image15_leype3.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204023/image17_tq2ul3.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204022/image16_aulqus.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204022/image14_bslkfz.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204022/image18_pdvylr.jpg",
 
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image15.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image3.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image23.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image24.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204021/image9_mhagc2.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204020/image12_zmzj7r.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204020/image8_j0gfwt.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204019/image7_m3kys4.jpg",
 
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image25.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image26.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image27.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image28.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image29.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image30.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image31.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204019/image5_y4ywbn.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204019/image6_usjiww.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image2_qveizf.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image3_bbkufe.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image1_qgcecr.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image1_qgcecr.jpg",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image10_mwk9v3.jpg",
 ];
 
 
@@ -86,11 +97,63 @@ export default function HomePageHappyUsers() {
   const reviewImages = ALL_REVIEW_IMAGES.slice(0, 24);
 
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const handlePlay = (index: number) => {
     // Close all other videos
     setPlayingIndex(index);
   };
+
+  // Preload first 8 images immediately on mount for instant display
+  useEffect(() => {
+    const preloadImages = async () => {
+      const firstBatch = reviewImages.slice(0, 8);
+      firstBatch.forEach((url, index) => {
+        const img = new window.Image();
+        img.src = optimizeCloudinaryUrl(url, 800);
+        img.onload = () => {
+          setLoadedImages(prev => new Set(prev).add(index));
+        };
+      });
+    };
+    preloadImages();
+  }, []);
+
+  // Intersection Observer for lazy loading remaining images
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            if (!loadedImages.has(index) && index >= 8) {
+              const img = new window.Image();
+              img.src = optimizeCloudinaryUrl(reviewImages[index], 800);
+              img.onload = () => {
+                setLoadedImages(prev => new Set(prev).add(index));
+              };
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: '200px', // Start loading 200px before image enters viewport
+        threshold: 0.01
+      }
+    );
+
+    imageRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      imageRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [reviewImages, loadedImages]);
 
   return (
     <section
@@ -119,22 +182,40 @@ export default function HomePageHappyUsers() {
           id="happy-users-gallery"
           className="columns-5 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1"
         >
-          {reviewImages.map((imageSrc, i) => (
-            <div
-              key={i}
-              className="inline-block w-full mb-4 [break-inside:avoid] rounded-[0.6rem] overflow-hidden bg-[#fffaf8] shadow-[0_3px_10px_rgba(0,0,0,0.25)]"
-            >
-              <Image
-                src={imageSrc}
-                alt={`Flashfire user review ${i + 1}`}
-                width={400}
-                height={600}
-                className="w-full h-auto object-contain block rounded-[0.4rem]"
-                style={{ width: "100%", height: "auto" }}
-                unoptimized
-              />
-            </div>
-          ))}
+          {reviewImages.map((imageSrc, i) => {
+            const optimizedUrl = optimizeCloudinaryUrl(imageSrc, 800);
+            const isLoaded = loadedImages.has(i);
+            const isEager = i < 8; // First 8 images load eagerly
+            
+            return (
+              <div
+                key={i}
+                ref={(el) => {
+                  imageRefs.current[i] = el;
+                }}
+                data-index={i}
+                className="inline-block w-full mb-4 [break-inside:avoid] rounded-[0.6rem] overflow-hidden bg-[#fffaf8] shadow-[0_3px_10px_rgba(0,0,0,0.25)]"
+              >
+                {isLoaded || isEager ? (
+                  <Image
+                    src={optimizedUrl}
+                    alt={`Flashfire user review ${i + 1}`}
+                    width={400}
+                    height={600}
+                    className="w-full h-auto object-contain block rounded-[0.4rem] transition-opacity duration-300"
+                    style={{ width: "100%", height: "auto" }}
+                    loading={isEager ? "eager" : "lazy"}
+                    unoptimized
+                    priority={isEager}
+                  />
+                ) : (
+                  <div className="w-full aspect-[2/3] bg-slate-200 animate-pulse rounded-[0.4rem] flex items-center justify-center">
+                    <div className="w-8 h-8 border-2 border-slate-400 border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <Image

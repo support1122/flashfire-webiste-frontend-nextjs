@@ -57,7 +57,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               alt: post.title,
             },
           ]
-        : [],
+        : [
+            {
+              url: "https://www.flashfirejobs.com/images/og-image.png",
+              width: 1200,
+              height: 630,
+              alt: "FLASHFIRE Logo",
+            },
+          ],
       publishedTime: post.date,
       authors: ["Flashfire"],
       section: post.category,
@@ -66,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: post.image ? [post.image] : [],
+      images: post.image ? [post.image] : ["https://www.flashfirejobs.com/images/og-image.png"],
     },
   };
 }

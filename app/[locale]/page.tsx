@@ -47,6 +47,18 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
         "We apply to 1000+ jobs on your behalf with tailored resumes for every role. Save 150+ hours, skip the grunt work, and stay in control with real-time updates.",
       url: "https://www.flashfirejobs.com/en-ca",
       type: "website",
+      images: [
+        {
+          url: "https://www.flashfirejobs.com/images/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "FLASHFIRE Logo",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["https://www.flashfirejobs.com/images/og-image.png"],
     },
   };
 }
