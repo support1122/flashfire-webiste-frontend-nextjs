@@ -59,139 +59,7 @@ export default function HomePageDemoCTA() {
         </h5>
 
         <h2 
-          {...getButtonProps()}
-          style={{
-            cursor: 'pointer',
-          }}
           className={styles.demoHeading}
-          onClick={(e) => {
-            try {
-              e.preventDefault();
-              e.stopPropagation();
-            } catch (err) {
-              // Ignore cross-origin errors on event methods
-            }
-            try {
-              const utmSource = typeof window !== "undefined" && window.localStorage
-                ? localStorage.getItem("utm_source") || "WEBSITE"
-                : "WEBSITE";
-              const utmMedium = typeof window !== "undefined" && window.localStorage
-                ? localStorage.getItem("utm_medium") || "Demo_CTA_Section"
-                : "Demo_CTA_Section";
-              
-              try {
-                GTagUTM({
-                  eventName: "sign_up_click",
-                  label: "Demo_CTA_Heading_Button",
-                  utmParams: {
-                    utm_source: utmSource,
-                    utm_medium: utmMedium,
-                    utm_campaign: typeof window !== "undefined" && window.localStorage
-                      ? localStorage.getItem("utm_campaign") || "Website"
-                      : "Website",
-                  },
-                });
-              } catch (gtagError) {
-                console.warn('GTagUTM error:', gtagError);
-              }
-              
-              try {
-                trackButtonClick("BOOK A DEMO CALL", "demo_cta", "cta", {
-                  button_location: "demo_cta_heading",
-                  section: "demo_cta",
-                  target_url: "/book-my-demo-call"
-                });
-                trackSignupIntent("demo_cta", {
-                  signup_source: "demo_cta_heading",
-                  funnel_stage: "signup_intent",
-                  target_url: "/book-my-demo-call"
-                });
-              } catch (trackError) {
-                console.warn('Tracking error:', trackError);
-              }
-            } catch (error) {
-              console.warn('Error in heading click handler:', error);
-            }
-            
-            // Dispatch custom event to force show modal
-            if (typeof window !== 'undefined') {
-              window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-            }
-            
-            // Check current path
-            const currentPath = pathname;
-            const isImageTestimonialsPage = currentPath === '/testimonials' || currentPath === '/en-ca/testimonials' || currentPath === '/image-testimonials' || currentPath === '/en-ca/image-testimonials';
-            const isAboutUsPage = currentPath === '/about-us' || currentPath === '/en-ca/about-us';
-            const isAlreadyOnBookMyDemoCall = currentPath === '/book-my-demo-call' || currentPath === '/en-ca/book-my-demo-call';
-            
-            // If on image-testimonials page, change URL but keep page content visible
-            if (isImageTestimonialsPage) {
-              // Change URL to /book-my-demo-call without navigating (keep testimonials page visible)
-              const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
-              if (typeof window !== 'undefined') {
-                window.history.pushState({}, '', targetPath);
-              }
-              // Just trigger the modal, don't navigate
-              return;
-            }
-            
-            // If on about-us page, change URL but keep page content visible
-            if (isAboutUsPage) {
-              // Save the previous page path to sessionStorage
-              if (typeof window !== 'undefined') {
-                sessionStorage.setItem('previousPageBeforeBookMyDemoCall', currentPath);
-              }
-              
-              // Save current scroll position before modal opens
-              const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-              if (typeof window !== 'undefined') {
-                sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-              }
-              
-              // Change URL to /book-my-demo-call using pushState
-              const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
-              if (typeof window !== 'undefined') {
-                window.history.pushState({}, '', targetPath);
-              }
-              
-              // Dispatch custom event to force show modal FIRST
-              if (typeof window !== 'undefined') {
-                window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-              }
-              
-              // Use router.replace to update Next.js state
-              router.replace(targetPath);
-              
-              // Restore scroll position immediately after modal opens
-              requestAnimationFrame(() => {
-                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                requestAnimationFrame(() => {
-                  window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                  setTimeout(() => {
-                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                  }, 50);
-                });
-              });
-              
-              return;
-            }
-            
-            // If already on book-my-demo-call route, just show modal
-            if (isAlreadyOnBookMyDemoCall) {
-              // Just trigger the modal, don't navigate
-              return;
-            }
-            
-            // Navigate to /book-my-demo-call for other pages
-            const targetPath = '/book-my-demo-call';
-            
-            // Save current scroll position to sessionStorage before navigation
-            if (typeof window !== 'undefined') {
-              sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-            }
-            
-            router.push(targetPath);
-          }}
         >
           BOOK A DEMO{" "}
           <span
@@ -276,9 +144,20 @@ export default function HomePageDemoCTA() {
             const isImageTestimonialsPage = currentPath === '/testimonials' || currentPath === '/en-ca/testimonials' || currentPath === '/image-testimonials' || currentPath === '/en-ca/image-testimonials';
             const isAboutUsPage = currentPath === '/about-us' || currentPath === '/en-ca/about-us';
             const isAlreadyOnBookMyDemoCall = currentPath === '/book-my-demo-call' || currentPath === '/en-ca/book-my-demo-call';
-            const isOnHomePage = currentPath === '/' || currentPath === '/en-ca';
+            const isOnHomePage = currentPath === '/' || currentPath === '/en-ca' || currentPath === '';
             
             console.log('Button clicked - currentPath:', currentPath, 'isOnHomePage:', isOnHomePage);
+            
+            // If on home page, just show modal without navigating
+            if (isOnHomePage) {
+              // Clear any old sessionStorage values to prevent showing wrong page
+              if (typeof window !== 'undefined') {
+                sessionStorage.removeItem('previousPageBeforeBookMyDemoCall');
+                sessionStorage.removeItem('preserveScrollPosition');
+              }
+              // Just trigger the modal, don't navigate - stay on home page
+              return;
+            }
             
             // If on image-testimonials page, change URL but keep page content visible
             if (isImageTestimonialsPage) {
@@ -304,7 +183,7 @@ export default function HomePageDemoCTA() {
                 sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
               }
               
-              // Change URL to /book-my-demo-call using pushState
+              // Change URL to /book-my-demo-call using pushState only (don't use router to prevent scroll)
               const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
               if (typeof window !== 'undefined') {
                 window.history.pushState({}, '', targetPath);
@@ -315,19 +194,8 @@ export default function HomePageDemoCTA() {
                 window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
               }
               
-              // Use router.replace to update Next.js state
-              router.replace(targetPath);
-              
-              // Restore scroll position immediately after modal opens
-              requestAnimationFrame(() => {
-                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                requestAnimationFrame(() => {
-                  window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                  setTimeout(() => {
-                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                  }, 50);
-                });
-              });
+              // Don't use router.replace - it causes scroll to top
+              // Just change URL with pushState and show modal, page stays in place
               
               return;
             }
