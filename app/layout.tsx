@@ -159,6 +159,12 @@ export default function RootLayout({
           href="https://assets.calendly.com"
           crossOrigin="anonymous"
         />
+        {/* Cloudinary preconnect for fast image loading */}
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        {/* R2 bucket preconnect for video thumbnails */}
+        <link rel="preconnect" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" />
       </head>
       <body
         suppressHydrationWarning
