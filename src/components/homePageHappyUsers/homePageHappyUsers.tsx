@@ -105,54 +105,100 @@ export default function HomePageHappyUsers() {
     setPlayingIndex(index);
   };
 
-  // Preload first 8 images immediately on mount for instant display
+  // Preload ALL images and video thumbnails immediately on mount for instant display - no lag!
   useEffect(() => {
-    const preloadImages = async () => {
-      const firstBatch = reviewImages.slice(0, 8);
-      firstBatch.forEach((url, index) => {
-        const img = new window.Image();
-        img.src = optimizeCloudinaryUrl(url, 800);
-        img.onload = () => {
-          setLoadedImages(prev => new Set(prev).add(index));
-        };
+    const preloadAllImages = () => {
+      const batchSize = 8;
+      let currentBatch = 0;
+
+      const loadBatch = () => {
+        const start = currentBatch * batchSize;
+        const end = Math.min(start + batchSize, reviewImages.length);
+
+        for (let i = start; i < end; i++) {
+          const url = reviewImages[i];
+          const optimizedUrl = optimizeCloudinaryUrl(url, 800);
+          const img = new window.Image();
+          img.src = optimizedUrl;
+          img.loading = 'eager';
+          img.onload = () => {
+            setLoadedImages(prev => new Set(prev).add(i));
+          };
+          img.onerror = () => {
+            // Still mark as loaded to avoid infinite loading state
+            setLoadedImages(prev => new Set(prev).add(i));
+          };
+        }
+
+        currentBatch++;
+        
+        // Continue loading next batch
+        if (end < reviewImages.length) {
+          setTimeout(loadBatch, 30); // Small delay to avoid blocking
+        }
+      };
+
+      // Start loading immediately
+      loadBatch();
+    };
+
+    const preloadVideoThumbnails = () => {
+      videos.forEach((video) => {
+        // Preload main profile image
+        const img1 = new window.Image();
+        img1.src = video.profileImage;
+        img1.loading = 'eager';
+        
+        // Preload small profile image
+        if (video.smallProfileImage) {
+          const img2 = new window.Image();
+          img2.src = video.smallProfileImage;
+          img2.loading = 'eager';
+        }
       });
     };
-    preloadImages();
-  }, []);
 
-  // Intersection Observer for lazy loading remaining images
+    preloadAllImages();
+    preloadVideoThumbnails();
+  }, [reviewImages]);
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            if (!loadedImages.has(index) && index >= 8) {
-              const img = new window.Image();
-              img.src = optimizeCloudinaryUrl(reviewImages[index], 800);
-              img.onload = () => {
-                setLoadedImages(prev => new Set(prev).add(index));
-              };
+    // Small delay to ensure preloading has started
+    const timer = setTimeout(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const index = parseInt(entry.target.getAttribute('data-index') || '0');
+              if (!loadedImages.has(index)) {
+                const img = new window.Image();
+                img.src = optimizeCloudinaryUrl(reviewImages[index], 800);
+                img.onload = () => {
+                  setLoadedImages(prev => new Set(prev).add(index));
+                };
+              }
+              observer.unobserve(entry.target);
             }
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        rootMargin: '200px', // Start loading 200px before image enters viewport
-        threshold: 0.01
-      }
-    );
+          });
+        },
+        {
+          rootMargin: '100px',
+          threshold: 0.01
+        }
+      );
 
-    imageRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
       imageRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
+        if (ref) observer.observe(ref);
       });
-    };
+
+      return () => {
+        imageRefs.current.forEach((ref) => {
+          if (ref) observer.unobserve(ref);
+        });
+      };
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, [reviewImages, loadedImages]);
 
   return (
@@ -185,7 +231,7 @@ export default function HomePageHappyUsers() {
           {reviewImages.map((imageSrc, i) => {
             const optimizedUrl = optimizeCloudinaryUrl(imageSrc, 800);
             const isLoaded = loadedImages.has(i);
-            const isEager = i < 8; // First 8 images load eagerly
+            const isEager = i < 24; // All images load eagerly now (first 24 get priority)
             
             return (
               <div
@@ -204,7 +250,7 @@ export default function HomePageHappyUsers() {
                     height={600}
                     className="w-full h-auto object-contain block rounded-[0.4rem] transition-opacity duration-300"
                     style={{ width: "100%", height: "auto" }}
-                    loading={isEager ? "eager" : "lazy"}
+                    loading="eager"
                     unoptimized
                     priority={isEager}
                   />
@@ -267,7 +313,9 @@ export default function HomePageHappyUsers() {
                       fill
                       className="w-full h-full object-cover rounded-none"
                       onClick={() => handlePlay(index)}
-                    unoptimized
+                      priority
+                      loading="eager"
+                      unoptimized
                     />
                     {/* Play Button Overlay */}
                     <div
@@ -293,6 +341,8 @@ export default function HomePageHappyUsers() {
                           const target = e.currentTarget;
                           target.style.display = "none";
                         }}
+                        priority
+                        loading="eager"
                         unoptimized
                       />
                     </div>

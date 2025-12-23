@@ -25,16 +25,45 @@ export default function ImagePreloader() {
     dnsPrefetch.href = 'https://res.cloudinary.com';
     document.head.appendChild(dnsPrefetch);
 
-    // Preload critical images (first 20) for instant display
-    const criticalImages = ALL_REVIEW_IMAGES.slice(0, 20);
-    criticalImages.forEach((imageSrc, index) => {
-      const optimizedUrl = optimizeCloudinaryUrl(imageSrc, 1200);
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = optimizedUrl;
-      document.head.appendChild(link);
-    });
+    const preloadAllImages = () => {
+      const batchSize = 10; // Load 10 images at a time to avoid blocking
+      let currentBatch = 0;
+      const totalImages = ALL_REVIEW_IMAGES.length;
+
+      const loadBatch = () => {
+        const start = currentBatch * batchSize;
+        const end = Math.min(start + batchSize, totalImages);
+
+        for (let i = start; i < end; i++) {
+          const imageSrc = ALL_REVIEW_IMAGES[i];
+          const optimizedUrl = optimizeCloudinaryUrl(imageSrc, 1200);
+          
+          // Create image element to preload
+          const img = new window.Image();
+          img.src = optimizedUrl;
+          img.loading = 'eager';
+          
+          // Also add as link preload for critical images (first 30)
+          if (i < 30) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = optimizedUrl;
+            document.head.appendChild(link);
+          }
+        }
+
+        currentBatch++;
+        
+        if (end < totalImages) {
+          setTimeout(loadBatch, 40); // 40ms delay between batches
+        }
+      };
+
+      loadBatch();
+    };
+
+    preloadAllImages();
 
     return () => {
     };
