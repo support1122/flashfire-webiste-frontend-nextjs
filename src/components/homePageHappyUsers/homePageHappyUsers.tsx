@@ -10,7 +10,11 @@ const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
   if (url.includes('res.cloudinary.com')) {
     const parts = url.split('/upload/');
     if (parts.length === 2) {
-      return `${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`;
+      // Extract just the image path (everything after the last slash in parts[1])
+      const pathParts = parts[1].split('/');
+      const imagePath = pathParts[pathParts.length - 1];
+      // Reconstruct with optimized parameters
+      return `${parts[0]}/upload/f_auto,q_auto:best,w_${width},c_limit,dpr_auto/${imagePath}`;
     }
   }
   return url;
@@ -95,51 +99,80 @@ export default function HomePageHappyUsers() {
   const [loadedProfileImages, setLoadedProfileImages] = useState<Set<number>>(new Set());
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const profileImageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // Persistent cache for preloaded images - survives re-renders
+  const preloadedImageCache = useRef<Set<string>>(new Set());
 
   const handlePlay = (index: number) => {
     // Close all other videos
     setPlayingIndex(index);
   };
 
+  // Preload images immediately on mount - only runs once
   useEffect(() => {
-    const preloadImages = async () => {
-      const firstBatch = reviewImages.slice(0, 8);
-      firstBatch.forEach((url, index) => {
-        if (!loadedImages.has(index)) {
-          const img = new window.Image();
-          img.src = optimizeCloudinaryUrl(url, 800);
-          img.onload = () => {
-            setLoadedImages(prev => new Set(prev).add(index));
-          };
-        }
-      });
-
+    const preloadImages = () => {
+      // Preload video profile images first (critical for UX)
       videos.forEach((video, index) => {
-        if (!loadedProfileImages.has(index * 2)) {
+        const profileImageUrl = optimizeCloudinaryUrl(video.profileImage, 800);
+        const smallProfileImageUrl = optimizeCloudinaryUrl(video.smallProfileImage, 100);
+        
+        // Only preload if not already cached
+        if (!preloadedImageCache.current.has(profileImageUrl)) {
+          preloadedImageCache.current.add(profileImageUrl);
           const profileImg = new window.Image();
-          // Add cache-busting parameter if needed
-          profileImg.src = `${video.profileImage}${video.profileImage.includes('?') ? '&' : '?'}t=${new Date().getTime()}`;
+          profileImg.src = profileImageUrl;
           profileImg.onload = () => {
             setLoadedProfileImages(prev => new Set(prev).add(index * 2));
           };
           profileImg.onerror = () => {
-            profileImg.src = video.profileImage.replace('f_auto', 'f_jpg');
+            // Fallback without optimization
+            const fallbackUrl = video.profileImage.replace('f_auto', 'f_jpg');
+            profileImg.src = fallbackUrl;
+            preloadedImageCache.current.add(fallbackUrl);
           };
+        } else {
+          // Already cached, mark as loaded immediately
+          setLoadedProfileImages(prev => new Set(prev).add(index * 2));
         }
 
-        if (!loadedProfileImages.has(index * 2 + 1)) {
+        if (!preloadedImageCache.current.has(smallProfileImageUrl)) {
+          preloadedImageCache.current.add(smallProfileImageUrl);
           const smallProfileImg = new window.Image();
-          smallProfileImg.src = `${video.smallProfileImage}${video.smallProfileImage.includes('?') ? '&' : '?'}t=${new Date().getTime()}`;
+          smallProfileImg.src = smallProfileImageUrl;
           smallProfileImg.onload = () => {
             setLoadedProfileImages(prev => new Set(prev).add(index * 2 + 1));
           };
+          smallProfileImg.onerror = () => {
+            const fallbackUrl = video.smallProfileImage.replace('f_auto', 'f_jpg');
+            smallProfileImg.src = fallbackUrl;
+            preloadedImageCache.current.add(fallbackUrl);
+          };
+        } else {
+          // Already cached, mark as loaded immediately
+          setLoadedProfileImages(prev => new Set(prev).add(index * 2 + 1));
+        }
+      });
+
+      // Preload first batch of review images
+      const firstBatch = reviewImages.slice(0, 8);
+      firstBatch.forEach((url, index) => {
+        const optimizedUrl = optimizeCloudinaryUrl(url, 800);
+        if (!preloadedImageCache.current.has(optimizedUrl)) {
+          preloadedImageCache.current.add(optimizedUrl);
+          const img = new window.Image();
+          img.src = optimizedUrl;
+          img.onload = () => {
+            setLoadedImages(prev => new Set(prev).add(index));
+          };
+        } else {
+          // Already cached, mark as loaded immediately
+          setLoadedImages(prev => new Set(prev).add(index));
         }
       });
     };
-    if (loadedImages.size < 8 || loadedProfileImages.size < videos.length * 2) {
-      preloadImages();
-    }
-  }, [reviewImages, videos, loadedImages, loadedProfileImages]);
+    
+    preloadImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array - only run once on mount
 
   // Intersection Observer for lazy loading remaining images
   useEffect(() => {
@@ -156,19 +189,42 @@ export default function HomePageHappyUsers() {
               
               if (!loadedProfileImages.has(index)) {
                 const video = videos[videoIndex];
-                const img = new window.Image();
-                img.src = isSmallImage ? video.smallProfileImage : video.profileImage;
-                img.onload = () => {
+                const imageUrl = isSmallImage ? video.smallProfileImage : video.profileImage;
+                const optimizedUrl = optimizeCloudinaryUrl(imageUrl, isSmallImage ? 100 : 800);
+                
+                // Check if already cached
+                if (preloadedImageCache.current.has(optimizedUrl)) {
                   setLoadedProfileImages(prev => new Set(prev).add(index));
-                };
+                } else {
+                  preloadedImageCache.current.add(optimizedUrl);
+                  const img = new window.Image();
+                  img.src = optimizedUrl;
+                  img.onload = () => {
+                    setLoadedProfileImages(prev => new Set(prev).add(index));
+                  };
+                  img.onerror = () => {
+                    // Fallback without optimization if optimized version fails
+                    const fallbackUrl = imageUrl.replace('f_auto', 'f_jpg');
+                    img.src = fallbackUrl;
+                    preloadedImageCache.current.add(fallbackUrl);
+                  };
+                }
               }
             } else if (!loadedImages.has(index) && index >= 8) {
               // Handle review images
-              const img = new window.Image();
-              img.src = optimizeCloudinaryUrl(reviewImages[index], 800);
-              img.onload = () => {
+              const optimizedUrl = optimizeCloudinaryUrl(reviewImages[index], 800);
+              
+              // Check if already cached
+              if (preloadedImageCache.current.has(optimizedUrl)) {
                 setLoadedImages(prev => new Set(prev).add(index));
-              };
+              } else {
+                preloadedImageCache.current.add(optimizedUrl);
+                const img = new window.Image();
+                img.src = optimizedUrl;
+                img.onload = () => {
+                  setLoadedImages(prev => new Set(prev).add(index));
+                };
+              }
             }
             
             if (!isProfileImage) {
@@ -317,13 +373,14 @@ export default function HomePageHappyUsers() {
                     >
                       {loadedProfileImages.has(index * 2) ? (
                         <Image
-                          src={video.profileImage}
+                          src={optimizeCloudinaryUrl(video.profileImage, 800)}
                           alt={`${video.name} - Click to play video`}
                           fill
                           className="object-cover rounded-none cursor-pointer"
                           onClick={() => handlePlay(index)}
                           loading="eager"
                           priority
+                          unoptimized
                         />
                       ) : (
                         <div className="w-full h-full bg-gray-200 animate-pulse" />
@@ -353,13 +410,14 @@ export default function HomePageHappyUsers() {
                       >
                         {loadedProfileImages.has(index * 2 + 1) ? (
                           <Image
-                            src={video.smallProfileImage}
+                            src={optimizeCloudinaryUrl(video.smallProfileImage, 100)}
                             alt={video.name}
                             width={40}
                             height={40}
                             className="w-full h-full object-cover"
                             loading="eager"
                             priority
+                            unoptimized
                             onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
                               const target = e.currentTarget;
                               target.style.display = "none";

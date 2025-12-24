@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import HomePage from "@/src/components/pages/home/Home";
+import HomeImagePreloader from "./HomeImagePreloader";
 
 export const metadata: Metadata = {
   title: "FLASHFIRE - AI-Powered Job Search Automation | Land Your Dream Job Faster",
@@ -34,5 +35,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <HomePage />;
+  return (
+    <>
+      <HomeImagePreloader />
+      <HomePage />
+    </>
+  );
 }

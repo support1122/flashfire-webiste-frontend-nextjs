@@ -131,6 +131,21 @@ const nextConfig: NextConfig = {
         destination: "/blog/the-job-hunt-nearly-broke-me-until-i-discovered-this-one-strategy-that-changed-everything",
         permanent: true,
       },
+      {
+        source: "/blogs",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/:locale/blogs",
+        destination: "/:locale/blog",
+        permanent: true,
+      },
+      {
+        source: "/en-ca/blogs",
+        destination: "/en-ca/blog",
+        permanent: true,
+      },
     ];
   },
 };

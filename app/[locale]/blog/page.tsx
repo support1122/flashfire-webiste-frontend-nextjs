@@ -4,13 +4,13 @@ import BlogsClient from "@/src/components/blogs/blogsClient";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 
-interface LocaleBlogsPageProps {
+interface LocaleBlogPageProps {
   params: Promise<{
     locale: string;
   }>;
 }
 
-export async function generateMetadata({ params }: LocaleBlogsPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: LocaleBlogPageProps): Promise<Metadata> {
   const { locale } = await params;
   const isCanada = locale === "en-ca";
   
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: LocaleBlogsPageProps): Promis
   };
 }
 
-export default async function LocaleBlogsPage({ params }: LocaleBlogsPageProps) {
+export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
   await params; // Await params even if not used
   return (
     <>

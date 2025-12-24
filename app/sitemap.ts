@@ -39,7 +39,7 @@ export default function sitemap(): SitemapEntry[] {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/blogs`,
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.8,

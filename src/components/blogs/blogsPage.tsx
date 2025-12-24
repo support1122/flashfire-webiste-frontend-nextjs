@@ -308,14 +308,14 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Blogs",
-        item: "https://www.flashfirejobs.com/blogs",
+        name: "Blog",
+        item: "https://www.flashfirejobs.com/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.category,
-        item: `https://www.flashfirejobs.com/blogs?category=${encodeURIComponent(post.category)}`,
+        item: `https://www.flashfirejobs.com/blog?category=${encodeURIComponent(post.category)}`,
       },
       {
         "@type": "ListItem",
@@ -368,9 +368,9 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
-            <Link href="/blogs">Blogs</Link>
+            <Link href="/blog">Blog</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
-            <Link href={`/blogs?category=${encodeURIComponent(post.category)}`}>{post.category}</Link>
+            <Link href={`/blog?category=${encodeURIComponent(post.category)}`}>{post.category}</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
             <span className={styles.breadcrumbCurrent} title={post.title}>{post.title}</span>
           </nav>
@@ -404,7 +404,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   {postTags.map((tag, index) => (
                     <Link
                       key={index}
-                      href={`/blogs?tag=${encodeURIComponent(tag)}`}
+                      href={`/blog?tag=${encodeURIComponent(tag)}`}
                       className={styles.tag}
                     >
                       {tag}
