@@ -27,24 +27,24 @@ const videos = [
     name: "Anjali Shah",
     company: "Skyworks Solutions, Inc.",
     linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
-    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-19.jpg",
-    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
+    profileImage: "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552896/website_thumbnails-19_imnzdt.jpg",
+    smallProfileImage: "https://res.cloudinary.com/drcka8x04/image/upload/c_thumb,g_face,w_100,h_100,f_auto,q_auto:good/v1766552896/website_thumbnails-19_imnzdt.jpg"
   },
   {
     videoUrl: "https://www.youtube.com/embed/nYEO8K0q38c",
     name: "Rijul Jain",
     company: "Wise",
     linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
-    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-20.jpg",
-    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg",
+    profileImage: "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552897/website_thumbnails-20_bxnl2z.jpg",
+    smallProfileImage: "https://res.cloudinary.com/drcka8x04/image/upload/c_thumb,g_face,w_100,h_100,f_auto,q_auto:good/v1766552897/website_thumbnails-20_bxnl2z.jpg"
   },
   {
     videoUrl: "https://www.youtube.com/embed/p9kzhLHjJuI",
     name: "Aryan Gupta",
     company: "IBM",
     linkedinUrl: "#",
-    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Website/website%20thumbnails-18.jpg",
-    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg",
+    profileImage: "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552895/website_thumbnails-18_j1ormv.jpg",
+    smallProfileImage: "https://res.cloudinary.com/drcka8x04/image/upload/c_thumb,g_face,w_100,h_100,f_auto,q_auto:good/v1766552895/website_thumbnails-18_j1ormv.jpg"
   },
 ];
 
@@ -53,23 +53,34 @@ export default function HappyUsersGalleryPage() {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [imageLoading, setImageLoading] = useState<boolean>(false);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const [loadedProfileImages, setLoadedProfileImages] = useState<Set<number>>(new Set());
   const preloadedImages = useRef<Set<string>>(new Set());
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const profileImageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Preload video thumbnail images on mount
+  // Preload video thumbnail images on mount with proper caching
   useEffect(() => {
-    videos.forEach((video) => {
-      // Preload main profile image
-      const img1 = new window.Image();
-      img1.src = video.profileImage;
-      
-      // Preload small profile image
-      if (video.smallProfileImage) {
-        const img2 = new window.Image();
-        img2.src = video.smallProfileImage;
+    videos.forEach((video, index) => {
+      if (!loadedProfileImages.has(index * 2)) {
+        const profileImg = new window.Image();
+        profileImg.src = `${video.profileImage}${video.profileImage.includes('?') ? '&' : '?'}t=${new Date().getTime()}`;
+        profileImg.onload = () => {
+          setLoadedProfileImages(prev => new Set(prev).add(index * 2));
+        };
+        profileImg.onerror = () => {
+          profileImg.src = video.profileImage.replace('f_auto', 'f_jpg');
+        };
+      }
+
+      if (!loadedProfileImages.has(index * 2 + 1)) {
+        const smallProfileImg = new window.Image();
+        smallProfileImg.src = `${video.smallProfileImage}${video.smallProfileImage.includes('?') ? '&' : '?'}t=${new Date().getTime()}`;
+        smallProfileImg.onload = () => {
+          setLoadedProfileImages(prev => new Set(prev).add(index * 2 + 1));
+        };
       }
     });
-  }, []);
+  }, [loadedProfileImages]);
 
   const handlePlay = (index: number) => {
     setPlayingIndex(index);
