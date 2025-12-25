@@ -1202,7 +1202,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </div>
                             <div className={styles.featureTexts}>
                               <span className={styles.featureTitle}>
-                                ATS Optimizer
+                                Resume Optimizer
                               </span>
                               <span className={styles.featureSub}>
                                 Resume score for ATS
@@ -1509,7 +1509,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
                                 router.push(getHref("/features/ats-optimizer"));
-                                trackButtonClick("ATS Optimizer", "navigation", "link", {
+                                trackButtonClick("Resume Optimizer", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
                                   destination: "/features/ats-optimizer"
@@ -1527,7 +1527,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                               </div>
                               <div className={styles.featureTexts}>
                                 <span className={styles.featureTitle}>
-                                  ATS Optimizer
+                                  Resume Optimizer
                                 </span>
                                 <span className={styles.featureSub}>
                                   Resume score for ATS
