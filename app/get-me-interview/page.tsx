@@ -8,7 +8,7 @@ import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import dynamic from "next/dynamic";
 
-const ATSPage = dynamic(() => import("@/app/features/ats-optimizer/page"), {
+const ATSPage = dynamic(() => import("@/app/features/resume-optimizer/page"), {
   ssr: false,
 });
 
@@ -85,7 +85,9 @@ export default function GetMeInterviewPage() {
         );
     }
 
-    if (previousPage === '/features/ats-optimizer' ||
+    if (previousPage === '/features/resume-optimizer' ||
+        previousPage === '/en-ca/features/resume-optimizer' ||
+        previousPage === '/features/ats-optimizer' ||
         previousPage === '/en-ca/features/ats-optimizer' ||
         previousPage === '/ats-optimized-resume-checker' || 
         previousPage === '/en-ca/ats-optimized-resume-checker') {
