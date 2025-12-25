@@ -154,6 +154,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/sitemap-html`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.5,
     }
   ]
 
