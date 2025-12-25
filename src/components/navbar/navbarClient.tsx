@@ -742,6 +742,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFeatureOpen, setIsFeatureOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const featureCloseTimer = useRef<NodeJS.Timeout | null>(null);
   const cancelFeatureClose = () => {
     if (featureCloseTimer.current) {
@@ -764,12 +765,14 @@ export default function NavbarClient({ links, ctas }: Props) {
   });
   const [slotsRemaining, setSlotsRemaining] = useState(5);
   const pathname = usePathname();
-  const isCanadaContext = pathname.startsWith("/en-ca");
+  // Ensure pathname is always a string to prevent hydration mismatches
+  const safePathname = pathname || (typeof window !== 'undefined' ? window.location.pathname : '') || '';
+  const isCanadaContext = safePathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
   
-  const isBookPage = pathname === "/schedule-a-free-career-call" || pathname === "/en-ca/schedule-a-free-career-call";
-  const isImageTestimonialsPage = pathname === "/testimonials" || pathname === "/en-ca/testimonials" || pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
-  const isBlogsPage = pathname.startsWith("/blogs") || pathname.startsWith("/en-ca/blogs");
+  const isBookPage = safePathname === "/schedule-a-free-career-call" || safePathname === "/en-ca/schedule-a-free-career-call";
+  const isImageTestimonialsPage = safePathname === "/testimonials" || safePathname === "/en-ca/testimonials" || safePathname === "/image-testimonials" || safePathname === "/en-ca/image-testimonials";
+  const isBlogsPage = safePathname.startsWith("/blogs") || safePathname.startsWith("/en-ca/blogs");
   
   // Geo-bypass hook for Book Now button
   const { getButtonProps: getBookNowButtonProps } = useGeoBypass({
@@ -871,6 +874,11 @@ export default function NavbarClient({ links, ctas }: Props) {
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Set mounted to true after component mounts to prevent hydration mismatches
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   // Countdown timer - Runs from 1st of month to end of month (30th or 31st)
@@ -1157,8 +1165,9 @@ export default function NavbarClient({ links, ctas }: Props) {
                   <>
                     <button
                       type="button"
-                      className={styles.featureToggle}
+                      className={`${styles.navLinkText} ${styles.featureToggle}`}
                       onClick={() => setIsFeatureOpen((prev) => !prev)}
+                      suppressHydrationWarning
                     >
                       {link.name}
                       <span
@@ -1463,9 +1472,9 @@ export default function NavbarClient({ links, ctas }: Props) {
             {links.map((link) => {
               const sectionLinks: string[] = []; // No section links anymore
               const isSectionLink = sectionLinks.includes(link.href);
-              const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
-              const isOnPricingPage = pathname === '/pricing' || pathname === '/en-ca/pricing' || pathname === prefix + '/pricing';
-              const isOnSectionPage = pathname === getHref(link.href) || pathname === link.href || pathname === prefix + link.href;
+              const isOnHomePage = safePathname === '/' || safePathname === '/en-ca' || safePathname === prefix + '/';
+              const isOnPricingPage = safePathname === '/pricing' || safePathname === '/en-ca/pricing' || safePathname === prefix + '/pricing';
+              const isOnSectionPage = safePathname === getHref(link.href) || safePathname === link.href || safePathname === prefix + link.href;
               const isExternal = isExternalHref(link.href) || link.target === "_blank";
               const isFeaturesLink = link.name.toLowerCase() === "features";
               
@@ -1477,6 +1486,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                         type="button"
                         className={`${styles.navMobileLink} ${styles.featureToggleMobile}`}
                         onClick={() => setIsFeatureOpen((prev) => !prev)}
+                        suppressHydrationWarning
                       >
                         {link.name}
                         <span
