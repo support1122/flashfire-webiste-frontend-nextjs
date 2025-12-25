@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    qualities: [75, 85],
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -14,6 +15,18 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "logo.clearbit.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
+      },
+      {
+        protocol: "https",
+        hostname: "www.google.com",
+      },
+      {
+        protocol: "https",
+        hostname: "t1.gstatic.com",
       },
       {
         protocol: "https",
@@ -131,19 +144,25 @@ const nextConfig: NextConfig = {
         destination: "/blog/the-job-hunt-nearly-broke-me-until-i-discovered-this-one-strategy-that-changed-everything",
         permanent: true,
       },
+      // Redirect old feature pages to new /features/ paths
       {
-        source: "/blogs",
-        destination: "/blog",
+        source: "/ats-optimized-resume-checker",
+        destination: "/features/ats-optimizer",
         permanent: true,
       },
       {
-        source: "/:locale/blogs",
-        destination: "/:locale/blog",
+        source: "/job-application-automation",
+        destination: "/features/job-automation",
         permanent: true,
       },
       {
-        source: "/en-ca/blogs",
-        destination: "/en-ca/blog",
+        source: "/linkedin-profile-optimization-services",
+        destination: "/features/linkedin-profile-optimization",
+        permanent: true,
+      },
+      {
+        source: "/features/linkedin-profile-optimization-services",
+        destination: "/features/linkedin-profile-optimization",
         permanent: true,
       },
     ];
