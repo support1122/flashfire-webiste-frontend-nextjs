@@ -1157,7 +1157,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                   <>
                     <button
                       type="button"
-                      className={`${styles.navLinkText} ${styles.featureToggle}`}
+                      className={styles.featureToggle}
                       onClick={() => setIsFeatureOpen((prev) => !prev)}
                     >
                       {link.name}
