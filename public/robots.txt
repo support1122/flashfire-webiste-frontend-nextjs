@@ -1,13 +1,4 @@
 User-agent: *
-Allow: /
-# Block API endpoints from being indexed
 Disallow: /api/
 
-# Allow Google to crawl all content pages
-User-agent: Googlebot
-Allow: /
-Disallow: /api/
-
-# Sitemap location
 Sitemap: https://www.flashfirejobs.com/sitemap.xml
-
