@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { RefreshCw, Mail, BarChart3, PhoneCall } from "lucide-react";
+
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
@@ -85,7 +87,7 @@ const steps = [
     ],
     image: "/images/step2.png",
   },
- 
+
 ];
 
 const differentiators = [
@@ -209,16 +211,16 @@ export default function HowItWorks() {
           // Check if at least 80% is visible and the section is well-positioned in viewport
           const rect = entry.boundingClientRect;
           const viewportHeight = window.innerHeight;
-          
+
           // Check if section is well-positioned (not too high, not too low)
-          const isWellPositioned = 
-            rect.top >= 0 && 
+          const isWellPositioned =
+            rect.top >= 0 &&
             rect.top <= viewportHeight * 0.3 && // Top of section is in upper 30% of viewport
             rect.bottom >= viewportHeight * 0.6; // Bottom is at least 60% down
-          
+
           if (
-            entry.isIntersecting && 
-            entry.intersectionRatio >= 0.8 && 
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.8 &&
             isWellPositioned &&
             !autoPlayCompletedRef.current
           ) {
@@ -259,19 +261,19 @@ export default function HowItWorks() {
       // Advance to next step
       setCurrentStep((prev) => {
         const nextStep = prev + 1;
-        
+
         if (nextStep > 3) {
           // Step 4 (index 3) completed, unlock scrolling
           setIsScrollLocked(false);
           autoPlayCompletedRef.current = true;
           return 3; // Stay on step 4
         }
-        
+
         // Reset the ref after a short delay to allow next scroll attempt
         setTimeout(() => {
           scrollAttemptRef.current = false;
         }, 300);
-        
+
         return nextStep;
       });
     };
@@ -337,7 +339,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <div className="bg-[#fff6f4] text-black min-h-screen"> 
+    <div className="bg-[#fff6f4] text-black min-h-screen">
       <Navbar />
 
       <main className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
@@ -346,7 +348,7 @@ export default function HowItWorks() {
             How it works
           </p>
           <h1 className="mt-3 text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
-            Your shortcut to interview calls 
+            Your shortcut to interview calls
           </h1>
           <p className="mt-4 text-lg text-gray-700 md:text-xl">
             Flashfire turns your long, exhausting job search into a smooth,
@@ -367,225 +369,172 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section ref={stepsSectionRef} className="mt-12 md:mt-16">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-            <div className="flex-1 max-w-xl space-y-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
-                Path to success
-              </p>
-              <h2 className="text-[2.8rem] leading-[1.1] font-bold text-black max-[1024px]:text-[2.4rem]">
-                From searching to interviewing, just 4 simple steps.
-              </h2>
-              <div className="space-y-3 text-lg text-[#111]">
-                {["You share your goals", "We build your winning profile", "Flashfire applies while you chill", "You start getting interview calls"].map(
-                  (item, idx) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full border border-black text-base font-semibold">
-                        {idx + 1}
-                      </span>
-                      <span>{item}</span>
+        <section ref={stepsSectionRef} className="bg-[#fff6f4] py-20">
+          <div className="mx-auto max-w-6xl px-4 text-center">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-black">
+              How Flashfire Works in 4 Simple Steps
+            </h2>
+
+            <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
+              The process of finding a job is complicated and time-consuming.
+              Flashfire simplifies everything so you get interview calls faster
+              with minimum effort.
+            </p>
+
+
+
+            <div className="relative mt-16 mx-auto max-w-5xl">
+
+              {/* Connector line – perfectly centered */}
+              {/* ================= STEPPER ================= */}
+              <div className="mt-20 mx-auto max-w-5xl">
+                <div className="grid grid-cols-4 items-start text-center">
+
+
+                  {/* STEP 1 */}
+                  <div className="relative flex flex-col items-center">
+                    {/* Circle */}
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
+                        1
+                      </div>
                     </div>
-                  )
-                )}
+
+                    {/* Line to step 2 */}
+                    <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
+                    <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
+                      Create your profile and upload your CV
+                    </p>
+                  </div>
+
+                  {/* STEP 2 */}
+                  <div className="relative flex flex-col items-center">
+                    {/* Circle */}
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
+                        2
+                      </div>
+                    </div>
+
+                    {/* Line to step 3 */}
+                    <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
+                    <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
+                      Select your desired job titles, locations and many other optional
+                      settings
+                    </p>
+                  </div>
+
+                  {/* STEP 3 */}
+                  <div className="relative flex flex-col items-center">
+                    {/* Circle */}
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
+                        3
+                      </div>
+                    </div>
+
+                   
+                    <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
+                    <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
+                      Flashfire will search for jobs and either apply on your behalf or give
+                      you total control of your applications
+                    </p>
+                  </div>
+
+                  {/* STEP 4 */}
+                  <div className="relative flex flex-col items-center">
+                    {/* Circle */}
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
+                        4
+                      </div>
+                    </div>
+
+                    <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
+                    Start receiving interview calls from relevant job opportunities
+
+                    </p>
+                  </div>
+
+
+                </div>
               </div>
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Link
-                  href="/see-flashfire-in-action"
-                  className="inline-flex items-center justify-center rounded-lg border border-black bg-white px-5 py-3 text-sm font-semibold text-black shadow-[0_3px_0_#ff4c00] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_0_#ff4c00]"
-                >
-                  See Flashfire in Action →
-                </Link>
-                <button
-                  onClick={() => {
-                    const utmSource = typeof window !== "undefined"
-                      ? localStorage.getItem("utm_source") || "WEBSITE"
-                      : "WEBSITE";
-                    const utmMedium = typeof window !== "undefined"
-                      ? localStorage.getItem("utm_medium") || "Website_How_It_Works"
-                      : "Website_How_It_Works";
 
-                    GTagUTM({
-                      eventName: "sign_up_click",
-                      label: "How_It_Works_Get_Me_Interview_Button",
-                      utmParams: {
-                        utm_source: utmSource,
-                        utm_medium: utmMedium,
-                        utm_campaign: typeof window !== "undefined"
-                          ? localStorage.getItem("utm_campaign") || "Website"
-                          : "Website",
-                      },
-                    });
 
-                    // PostHog tracking
-                    trackButtonClick("Get Me Interview", "how_it_works_cta", "cta", {
-                      button_location: "how_it_works_main_cta",
-                      section: "how_it_works"
-                    });
-                    trackSignupIntent("how_it_works_cta", {
-                      signup_source: "how_it_works_button",
-                      funnel_stage: "signup_intent"
-                    });
-
-                    // Check current path first
-                    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-                    const normalizedPath = currentPath.split('?')[0]; // Remove query params
-                    const isOnHowItWorks = normalizedPath === '/how-it-works' ||
-                      normalizedPath === '/en-ca/how-it-works';
-                    const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
-                      normalizedPath === '/en-ca/get-me-interview';
-
-                    // Dispatch custom event to force show modal FIRST
-                    if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                    }
-
-                    // If on how-it-works page, change URL but keep page content visible
-                    if (isOnHowItWorks) {
-                      // Change URL to /get-me-interview without navigating (keep how-it-works page visible)
-                      const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
-                      if (typeof window !== 'undefined') {
-                        window.history.pushState({}, '', targetPath);
-                      }
-                      // Just trigger the modal, don't navigate
-                      return;
-                    }
-
-                    // If already on the route, just show modal without navigating
-                    if (isAlreadyOnGetMeInterview) {
-                      // Save current scroll position before modal opens
-                      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-                      // Restore scroll position immediately after modal opens
-                      requestAnimationFrame(() => {
-                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                        requestAnimationFrame(() => {
-                          window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                          setTimeout(() => {
-                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                          }, 50);
-                        });
-                      });
-
-                      // Just trigger the modal, don't navigate or scroll
-                      return;
-                    }
-
-                    // Save current scroll position before navigation to preserve it
-                    if (typeof window !== 'undefined') {
-                      const currentScrollY = window.scrollY;
-                      sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-                    }
-
-                    // Navigate to get-me-interview page (for other pages)
-                    const targetPath = '/get-me-interview';
-                    router.push(targetPath);
-                  }}
-                  className={ctaButtonClass}
-                >
-                  Get Me Interview →
-                </button>
-              </div>
             </div>
 
-              <div className="flex-1 flex items-start gap-6" ref={carouselRef}>
-                {/* Step Cards */}
-                <div className="flex-1">
-                  <div
-                    className="relative min-h-[540px] steps-carousel"
-                    role="presentation"
-                  >
-                    {steps.map((step, index) => {
-                      const isActive = index === currentStep;
-                      return (
-                        <div
-                          key={step.title}
-                          className={`step-card absolute inset-0 bg-gradient-to-br from-[#f9e8dc] via-[#fdf5f0] to-[#f6d7c6] rounded-[1.1rem] p-1 border border-[#f5cdb7] shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-opacity duration-500 ease-out overflow-hidden ${
-                            isActive ? "in-view" : "opacity-0 pointer-events-none"
-                          }`}
-                        >
-                          <div className="bg-white rounded-[0.9rem] p-6 shadow-sm h-full flex flex-col overflow-hidden">
-                            <div className="flex-shrink-0">
-                              <h3 className="text-[2.4rem] font-bold tracking-[0.08em] mb-2 bg-gradient-to-r from-[rgba(245,93,29,1)] to-[rgba(0,0,0,1)] text-transparent bg-clip-text">
-                                \\ STEP {index + 1}
-                              </h3>
+            {/* ================= CARDS ================= */}
+            <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
-                              <h4 className="text-[1.6rem] font-bold text-[#111] mb-3">
-                                {step.title}
-                              </h4>
 
-                              <div className="text-[1.05rem] text-[#333] leading-[1.6] space-y-2">
-                                {step.points.map((point) => (
-                                  <p key={point}>{point}</p>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div className="flex justify-center items-center mt-auto pt-4 overflow-hidden">
-                              <Image
-                                src={step.image}
-                                alt={step.title}
-                                width={220}
-                                height={220}
-                                className="max-w-full max-h-[180px] w-auto h-auto object-contain"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+              {/* Card 1 */}
+              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
+                <div className="mb-6 flex justify-center">
+                  <RefreshCw className="h-7 w-7 text-black" strokeWidth={1.5} />
                 </div>
+                <h3 className="text-lg font-semibold text-black">
+                  Automatically apply to jobs
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-gray-600">
+                  Flashfire collects new job postings every day and automatically
+                  applies using ATS-safe resumes. Prefer control? Apply manually.
+                </p>
 
-                {/* Vertical Progress Indicator */}
-                <div className="flex flex-col items-center justify-center gap-1 min-h-[540px]">
-                  {steps.map((_, index) => {
-                    const isActive = index === currentStep;
-                    const isPast = index < currentStep;
-                    return (
-                      <div key={index} className="flex flex-col items-center">
-                        {/* Number Marker */}
-                        <button
-                          onClick={() => handleStepClick(index)}
-                          disabled={isScrollLocked && !autoPlayCompletedRef.current}
-                          className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${
-                            isScrollLocked && !autoPlayCompletedRef.current
-                              ? "cursor-not-allowed opacity-50"
-                              : "cursor-pointer hover:scale-110"
-                          } ${
-                            isActive
-                              ? "bg-[#ff4c00] border-[#ff4c00] scale-110 shadow-lg"
-                              : isPast
-                              ? "bg-white border-[#ff4c00]"
-                              : "bg-white border-gray-300"
-                          }`}
-                        >
-                          <span
-                            className={`text-xs font-bold ${
-                              isActive
-                                ? "text-white"
-                                : isPast
-                                ? "text-[#ff4c00]"
-                                : "text-gray-400"
-                            }`}
-                          >
-                            {index + 1}
-                          </span>
-                        </button>
-                        {/* Vertical Line */}
-                        {index < steps.length - 1 && (
-                          <div
-                            className={`w-0.5 h-10 transition-all duration-300 ${
-                              isPast ? "bg-[#ff4c00]" : "bg-gray-300"
-                            }`}
-                          />
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
               </div>
+
+              {/* Card 2 */}
+              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
+                <div className="mb-6 flex justify-center">
+                  <Mail className="h-7 w-7 text-black" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-semibold text-black">
+                  Automatically email recruiters
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-gray-600">
+                  We find recruiter emails and send personalised outreach
+                  using proven or custom templates.
+                </p>
+
+              </div>
+
+              {/* Card 3 */}
+              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
+                <div className="mb-6 flex justify-center">
+                  <BarChart3 className="h-7 w-7 text-black" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-semibold text-black">
+                  Measure and improve
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-gray-600">
+                  Track opens, replies, resume performance and keyword impact
+                  to improve interview conversion.
+                </p>
+
+              </div>
+              {/* Card 4 */}
+              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
+                <div className="mb-6 flex justify-center">
+                  <PhoneCall className="h-7 w-7 text-black" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-semibold text-black">
+                  Get Interview Calls
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-gray-600">
+                  Start receiving interview invites as we track and optimize every
+                  application. You focus on prep, we handle the hustle.
+                </p>
+              </div>
+
+
+            </div>
           </div>
         </section>
+
+
 
         <section className="mt-14">
           <div className="rounded-3xl bg-white/70 p-4 shadow-sm ring-1 ring-orange-100 md:p-6">
@@ -669,9 +618,8 @@ export default function HowItWorks() {
               {faqs.map((faq, index) => (
                 <div
                   key={faq.q}
-                  className={`${styles.faqItem} ${
-                    activeFaq === index ? styles.active : ""
-                  }`}
+                  className={`${styles.faqItem} ${activeFaq === index ? styles.active : ""
+                    }`}
                 >
                   <button
                     className={styles.faqQuestion}

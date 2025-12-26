@@ -34,6 +34,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       }
     })
+  
+  // Log for debugging (only in development)
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[Sitemap] Generated ${blogUrls.length} blog URLs`)
+  }
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -49,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/blogs`,
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.8,
@@ -65,6 +70,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/features`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blogs`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/about-us`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/testimonials`,
@@ -131,6 +154,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/sitemap-html`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.5,
     }
   ]
 

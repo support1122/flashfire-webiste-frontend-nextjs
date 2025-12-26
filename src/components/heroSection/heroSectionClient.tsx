@@ -40,7 +40,7 @@ export default function HeroSectionClient({ data }: Props) {
   });
 
   return (
-    <section className="bg-[#f9e8e0] text-center p-8 pb-16 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
+    <section className="bg-[#f8ebe5] text-center p-8 pb-16 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
       {/* === Top Badges === */}
       <div className="flex justify-center gap-2 flex-wrap mb-6 mt-4 max-[768px]:mb-4 max-[768px]:mt-2 max-[480px]:gap-1.5 max-[480px]:mb-3">
         {data.badges.map((badge) => (
@@ -220,7 +220,7 @@ export default function HeroSectionClient({ data }: Props) {
                       }
                       // Hide logo if all attempts fail
                       if (attempts >= 1) {
-                        target.style.opacity = '0.3';
+                      target.style.opacity = '0.3';
                         target.style.pointerEvents = 'none';
                       }
                     }}

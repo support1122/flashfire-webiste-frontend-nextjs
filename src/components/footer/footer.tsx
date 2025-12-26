@@ -82,8 +82,11 @@ export default function Footer() {
               <Link href={getHref("/testimonials")} className={styles.footerLink}>Testimonials</Link>
               <Link href={getHref("/pricing")} className={styles.footerLink}>Pricing</Link>
               <Link href={getHref("/faq")} className={styles.footerLink} onClick={handleFAQClick}>FAQ</Link>
-              <Link href={getHref("/blogs")} className={styles.footerLink}>Blog</Link>
+              <Link href={getHref("/blog")} className={styles.footerLink}>Blog</Link>
               <Link href={getHref("/about-us")} className={styles.footerLink}>About Us</Link>
+              <Link href={getHref("/features/resume-optimizer")} className={styles.footerLink}>Resume Optimizer</Link>
+              <Link href={getHref("/features/job-automation")} className={styles.footerLink}>Job Automation</Link>
+              <Link href={getHref("/features/linkedin-profile-optimization")} className={styles.footerLink}>LinkedIn Profile Optimization</Link>
             </div>
           </div>
 

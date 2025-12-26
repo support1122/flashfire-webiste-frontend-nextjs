@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import styles from "./homePageResultStats.module.css";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
@@ -20,15 +19,15 @@ export default function HomePageResultStats() {
     <section className={styles.resultSection}>
       {/* Right Side (Image first in HTML so it appears on top on mobile) */}
       <div className={styles.resultRight}>
-        <Image
+        <img
           src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/heroResultImage.jpg"
           alt="Interview illustration"
           className={styles.resultImage}
           width={700}
           height={700}
-          priority
-          quality={85}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 700px"
+          loading="eager"
+          decoding="async"
+          suppressHydrationWarning
         />
       </div>
 

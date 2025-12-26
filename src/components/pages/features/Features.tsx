@@ -3,42 +3,49 @@
 import { useState, memo, useMemo } from "react"
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
-import { FaPlus, FaTimes, FaWhatsapp } from "react-icons/fa"
+import { FaPlus, FaTimes, FaWhatsapp, FaBrain, FaFileAlt, FaLinkedin, FaBullseye, FaBolt, FaChartBar } from "react-icons/fa"
 import { questionsData } from "@/src/data/questionsData"
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css"
 import FlashfireLogo from "@/src/components/FlashfireLogo"
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking"
+import { GTagUTM } from "@/src/utils/GTagUTM"
 
 const features = [
   {
     title: "AI-Powered Matching",
     description:
       "For each and every application, your base resume is automatically optimized to the job description with ATS-friendly keywords and skills.",
+    icon: FaBrain,
   },
   {
     title: "Dynamic Resume Optimization",
     description:
       "We build your base resume from scratch and tailor it for each job, making it ATS-friendly and recruiter-visible.",
+    icon: FaFileAlt,
   },
   {
     title: "LinkedIn Profile Optimization",
     description:
       "We professionally optimize your LinkedIn profile to boost recruiter visibility and align with your job search goals.",
+    icon: FaLinkedin,
   },
   {
     title: "Precision Targeting",
     description:
       "We only apply to jobs that fit your pay, location, company size, and career goals — and only to jobs posted in the last 24–48 hours.",
+    icon: FaBullseye,
   },
   {
     title: "Lightning Fast Applications",
     description:
       "A dedicated team of 4–5 people handles your job hunt, applying to 1200+ roles in 6–7 weeks. We'll keep you posted with every update in a WhatsApp group made just for you.",
+    icon: FaBolt,
   },
   {
     title: "Dashboard & Analytics",
     description:
       "Access a personalized dashboard to track applications, monitor success rates, and get real-time insights to improve your job search strategy.",
+    icon: FaChartBar,
   },
 ]
 
@@ -187,7 +194,112 @@ function Features() {
   return (
     <div className="bg-[#f9e8e0] min-h-screen">
       {/* Orange Header Bar */}
-     
+      <header className="bg-[#f9e8e0] py-24 mb-24">
+  <div className="mx-auto max-w-4xl text-center px-4">
+
+    <h1 className="text-4xl md:text-5xl font-extrabold text-[#ff4c00] mb-6 leading-tight">
+      Everything you need to get interviews — automated.
+    </h1>
+
+    <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">
+      Flashfire combines{" "}
+      <span className="font-semibold text-[#ff4c00]">AI precision</span> and{" "}
+      <span className="font-semibold text-[#ff4c00]">human expertise</span>{" "}
+      to turn job applications into real interview opportunities.
+    </p>
+
+    {/* CTA */}
+    <div className="flex justify-center">
+      <button
+        onClick={() => {
+          try {
+            const utmSource =
+              typeof window !== "undefined" && window.localStorage
+                ? localStorage.getItem("utm_source") || "WEBSITE"
+                : "WEBSITE";
+
+            const utmMedium =
+              typeof window !== "undefined" && window.localStorage
+                ? localStorage.getItem("utm_medium") || "LinkedIn_Page"
+                : "LinkedIn_Page";
+
+            try {
+              GTagUTM({
+                eventName: "sign_up_click",
+                label: "LinkedIn_Get_Me_Interview_Button",
+                utmParams: {
+                  utm_source: utmSource,
+                  utm_medium: utmMedium,
+                  utm_campaign:
+                    typeof window !== "undefined" && window.localStorage
+                      ? localStorage.getItem("utm_campaign") || "Website"
+                      : "Website",
+                },
+              });
+            } catch {}
+
+            try {
+              trackButtonClick("Get Me Interview", "linkedin_cta", "cta", {
+                button_location: "features_hero_section",
+                section: "features_hero",
+              });
+
+              trackSignupIntent("linkedin_cta", {
+                signup_source: "features_hero_button",
+                funnel_stage: "signup_intent",
+              });
+            } catch {}
+
+            const currentPath =
+              pathname ||
+              (typeof window !== "undefined"
+                ? window.location.pathname
+                : "");
+
+            const normalizedPath = currentPath.split("?")[0];
+
+            if (
+              normalizedPath === "/get-me-interview" ||
+              normalizedPath === "/en-ca/get-me-interview"
+            ) {
+              window.dispatchEvent(
+                new CustomEvent("showGetMeInterviewModal")
+              );
+              return;
+            }
+
+            // Save current page and scroll position before navigation
+            if (typeof window !== "undefined") {
+              const currentScrollY = window.scrollY;
+              const isOnFeatures = normalizedPath === '/feature' ||
+                normalizedPath === '/features' ||
+                normalizedPath === '/en-ca/feature' ||
+                normalizedPath === '/en-ca/features';
+              
+              if (isOnFeatures) {
+                sessionStorage.setItem('previousPageBeforeGetMeInterview', normalizedPath);
+                sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+              }
+            }
+
+            window.dispatchEvent(
+              new CustomEvent("showGetMeInterviewModal")
+            );
+            
+            const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
+            router.push(targetPath);
+          } catch {}
+        }}
+        className="bg-white border-2 border-black px-8 py-4 font-bold text-black text-lg hover:bg-[#f9e8e0] transition-colors rounded-xl inline-flex items-center justify-center"
+        style={{ boxShadow: "0 5px 0 0 rgba(245, 93, 29, 1)" }}
+      >
+        Get Me Interview →
+      </button>
+    </div>
+
+  </div>
+</header>
+
 
     <section
       id="feature"
@@ -209,20 +321,30 @@ function Features() {
         {/* Features Grid - 3 rows x 2 columns */}
         <div className="relative z-10 mx-auto mb-16 max-w-6xl md:mb-20 overflow-visible">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-            {features.map((feature, index) => (
-              <article
-                key={index}
-                className="bg-white border border-[#ff4c00]/50 border-b-4 border-b-[#ff4c00] rounded-lg p-6 text-left shadow-sm"
-              >
-                <h3 className="mb-3 text-xl font-bold text-[#ff4c00] md:text-2xl">
-                  {feature.title}
-                </h3>
-                <p className="text-base leading-relaxed text-gray-700">
-                  {feature.description}
-            </p>
-          </article>
-            ))}
-            </div>
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <article
+                  key={index}
+                  className="group bg-white border border-[#ff4c00]/50 border-b-4 border-b-[#ff4c00] rounded-lg p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Icon Container */}
+                  <div className="mb-4 flex items-center justify-start">
+                    <div className="bg-gradient-to-br from-[#ff4c00] to-[#ff6b2b] p-3 rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
+                      <IconComponent className="text-white text-2xl" />
+                    </div>
+                  </div>
+                  
+                  <h3 className="mb-3 text-xl font-bold text-[#ff4c00] md:text-2xl group-hover:text-[#e24300] transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray-700">
+                    {feature.description}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
         </div>
 
         {/* Steps Section - Orange Background */}

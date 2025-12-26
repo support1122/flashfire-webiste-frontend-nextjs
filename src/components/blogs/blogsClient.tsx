@@ -246,7 +246,7 @@ export default function BlogsClient() {
       {allCategories.length > 0 && (
         <div className={styles.categoryChips}>
           <Link
-            href="/blogs"
+            href="/blog"
             className={`${styles.categoryChip} ${
               !decodedCategory && !decodedTag ? styles.categoryChipActive : ""
             }`}
@@ -260,7 +260,7 @@ export default function BlogsClient() {
             return (
               <Link
                 key={cat}
-                href={`/blogs?category=${encodeURIComponent(cat)}`}
+                href={`/blog?category=${encodeURIComponent(cat)}`}
                 className={`${styles.categoryChip} ${
                   isActive ? styles.categoryChipActive : ""
                 }`}
@@ -289,7 +289,7 @@ export default function BlogsClient() {
                 {decodedTag || decodedCategory || searchQuery}
               </strong>
             </p>
-            <Link href="/blogs" className={styles.clearFilterLink}>
+            <Link href="/blog" className={styles.clearFilterLink}>
               View all blogs
             </Link>
           </div>

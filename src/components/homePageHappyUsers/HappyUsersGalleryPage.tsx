@@ -28,7 +28,7 @@ const videos = [
     company: "Skyworks Solutions, Inc.",
     linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
     profileImage: "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552896/website_thumbnails-19_imnzdt.jpg",
-    smallProfileImage: "https://res.cloudinary.com/drcka8x04/image/upload/c_thumb,g_face,w_100,h_100,f_auto,q_auto:good/v1766552896/website_thumbnails-19_imnzdt.jpg"
+    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
   },
   {
     videoUrl: "https://www.youtube.com/embed/nYEO8K0q38c",
@@ -36,7 +36,7 @@ const videos = [
     company: "Wise",
     linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
     profileImage: "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552897/website_thumbnails-20_bxnl2z.jpg",
-    smallProfileImage: "https://res.cloudinary.com/drcka8x04/image/upload/c_thumb,g_face,w_100,h_100,f_auto,q_auto:good/v1766552897/website_thumbnails-20_bxnl2z.jpg"
+    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg"
   },
   {
     videoUrl: "https://www.youtube.com/embed/p9kzhLHjJuI",
@@ -44,7 +44,7 @@ const videos = [
     company: "IBM",
     linkedinUrl: "#",
     profileImage: "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552895/website_thumbnails-18_j1ormv.jpg",
-    smallProfileImage: "https://res.cloudinary.com/drcka8x04/image/upload/c_thumb,g_face,w_100,h_100,f_auto,q_auto:good/v1766552895/website_thumbnails-18_j1ormv.jpg"
+    smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg"
   },
 ];
 

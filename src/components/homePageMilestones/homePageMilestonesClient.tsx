@@ -465,7 +465,7 @@ export default function HomePageMilestonesClient() {
                         }
                         // Hide logo if all attempts fail
                         if (attempts >= 1) {
-                          target.style.opacity = '0.3';
+                        target.style.opacity = '0.3';
                           target.style.pointerEvents = 'none';
                         }
                       }}
@@ -532,7 +532,7 @@ export default function HomePageMilestonesClient() {
                     }
                     // Hide logo if all attempts fail
                     if (attempts >= 1) {
-                      target.style.opacity = '0.3';
+                    target.style.opacity = '0.3';
                       target.style.pointerEvents = 'none';
                     }
                   }}

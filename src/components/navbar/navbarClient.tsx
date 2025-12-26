@@ -721,6 +721,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./navbar.module.css";
@@ -742,6 +743,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFeatureOpen, setIsFeatureOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const featureCloseTimer = useRef<NodeJS.Timeout | null>(null);
   const cancelFeatureClose = () => {
     if (featureCloseTimer.current) {
@@ -764,12 +766,14 @@ export default function NavbarClient({ links, ctas }: Props) {
   });
   const [slotsRemaining, setSlotsRemaining] = useState(5);
   const pathname = usePathname();
-  const isCanadaContext = pathname.startsWith("/en-ca");
+  // Ensure pathname is always a string to prevent hydration mismatches
+  const safePathname = pathname || (typeof window !== 'undefined' ? window.location.pathname : '') || '';
+  const isCanadaContext = safePathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
   
-  const isBookPage = pathname === "/schedule-a-free-career-call" || pathname === "/en-ca/schedule-a-free-career-call";
-  const isImageTestimonialsPage = pathname === "/testimonials" || pathname === "/en-ca/testimonials" || pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
-  const isBlogsPage = pathname.startsWith("/blogs") || pathname.startsWith("/en-ca/blogs");
+  const isBookPage = safePathname === "/schedule-a-free-career-call" || safePathname === "/en-ca/schedule-a-free-career-call";
+  const isImageTestimonialsPage = safePathname === "/testimonials" || safePathname === "/en-ca/testimonials" || safePathname === "/image-testimonials" || safePathname === "/en-ca/image-testimonials";
+  const isBlogsPage = safePathname.startsWith("/blogs") || safePathname.startsWith("/en-ca/blogs");
   
   // Geo-bypass hook for Book Now button
   const { getButtonProps: getBookNowButtonProps } = useGeoBypass({
@@ -871,6 +875,11 @@ export default function NavbarClient({ links, ctas }: Props) {
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Set mounted to true after component mounts to prevent hydration mismatches
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   // Countdown timer - Runs from 1st of month to end of month (30th or 31st)
@@ -1136,7 +1145,7 @@ export default function NavbarClient({ links, ctas }: Props) {
             const isExternal = isExternalHref(link.href) || link.target === "_blank";
             
             const isFeaturesLink = link.name.toLowerCase() === "features";
-
+            
             return (
               <li
                 key={link.href}
@@ -1159,6 +1168,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                       type="button"
                       className={`${styles.navLinkText} ${styles.featureToggle}`}
                       onClick={() => setIsFeatureOpen((prev) => !prev)}
+                      suppressHydrationWarning
                     >
                       {link.name}
                       <span
@@ -1178,7 +1188,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                       >
                         <div className={styles.featureDropdownGrid}>
                           <Link
-                            href={getHref("/ats-optimized-resume-checker")}
+                            href={getHref("/features/resume-optimizer")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1193,7 +1203,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </div>
                             <div className={styles.featureTexts}>
                               <span className={styles.featureTitle}>
-                                ATS Checker
+                                Resume Optimizer
                               </span>
                               <span className={styles.featureSub}>
                                 Resume score for ATS
@@ -1202,9 +1212,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </Link>
 
                           <Link
-                            href={getHref(
-                              "/linkedin-profile-optimization-services"
-                            )}
+                            href={getHref("/features/linkedin-profile-optimization")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1217,7 +1225,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </div>
                             <div className={styles.featureTexts}>
                               <span className={styles.featureTitle}>
-                                LinkedIn Opt.
+                                LinkedIn Optimization
                               </span>
                               <span className={styles.featureSub}>
                                 Optimize LinkedIn profile
@@ -1226,7 +1234,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </Link>
 
                           <Link
-                            href={getHref("/job-application-automation")}
+                            href={getHref("/features/job-automation")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1465,9 +1473,9 @@ export default function NavbarClient({ links, ctas }: Props) {
             {links.map((link) => {
               const sectionLinks: string[] = []; // No section links anymore
               const isSectionLink = sectionLinks.includes(link.href);
-              const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
-              const isOnPricingPage = pathname === '/pricing' || pathname === '/en-ca/pricing' || pathname === prefix + '/pricing';
-              const isOnSectionPage = pathname === getHref(link.href) || pathname === link.href || pathname === prefix + link.href;
+              const isOnHomePage = safePathname === '/' || safePathname === '/en-ca' || safePathname === prefix + '/';
+              const isOnPricingPage = safePathname === '/pricing' || safePathname === '/en-ca/pricing' || safePathname === prefix + '/pricing';
+              const isOnSectionPage = safePathname === getHref(link.href) || safePathname === link.href || safePathname === prefix + link.href;
               const isExternal = isExternalHref(link.href) || link.target === "_blank";
               const isFeaturesLink = link.name.toLowerCase() === "features";
               
@@ -1479,6 +1487,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                         type="button"
                         className={`${styles.navMobileLink} ${styles.featureToggleMobile}`}
                         onClick={() => setIsFeatureOpen((prev) => !prev)}
+                        suppressHydrationWarning
                       >
                         {link.name}
                         <span
@@ -1494,17 +1503,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                         <div className={styles.featureDropdownMobile}>
                           <div className={styles.featureDropdownGridMobile}>
                             <a
-                              href={getHref("/ats-optimized-resume-checker")}
+                              href={getHref("/features/resume-optimizer")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/ats-optimized-resume-checker"));
-                                trackButtonClick("ATS Checker", "navigation", "link", {
+                                router.push(getHref("/features/resume-optimizer"));
+                                trackButtonClick("Resume Optimizer", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/ats-optimized-resume-checker"
+                                  destination: "/features/resume-optimizer"
                                 });
                               }}
                             >
@@ -1519,7 +1528,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                               </div>
                               <div className={styles.featureTexts}>
                                 <span className={styles.featureTitle}>
-                                  ATS Checker
+                                  Resume Optimizer
                                 </span>
                                 <span className={styles.featureSub}>
                                   Resume score for ATS
@@ -1528,17 +1537,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </a>
 
                             <a
-                              href={getHref("/linkedin-profile-optimization-services")}
+                              href={getHref("/features/linkedin-profile-optimization")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/linkedin-profile-optimization-services"));
+                                router.push(getHref("/features/linkedin-profile-optimization"));
                                 trackButtonClick("LinkedIn Opt.", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/linkedin-profile-optimization-services"
+                                  destination: "/features/linkedin-profile-optimization"
                                 });
                               }}
                             >
@@ -1560,17 +1569,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </a>
 
                             <a
-                              href={getHref("/job-application-automation")}
+                              href={getHref("/features/job-automation")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/job-application-automation"));
+                                router.push(getHref("/features/job-automation"));
                                 trackButtonClick("Job Automation", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/job-application-automation"
+                                  destination: "/features/job-automation"
                                 });
                               }}
                             >
@@ -1680,7 +1689,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                     </a>
                   ) : (
                     <a
-                      href={getHref(link.href)}
+                      href={getHref(link.href)} 
                       className={styles.navMobileLink}
                       onClick={(e) => {
                         e.preventDefault();

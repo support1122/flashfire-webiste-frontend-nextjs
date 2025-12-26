@@ -144,6 +144,37 @@ const nextConfig: NextConfig = {
         destination: "/blog/the-job-hunt-nearly-broke-me-until-i-discovered-this-one-strategy-that-changed-everything",
         permanent: true,
       },
+      // Redirect old feature pages to new /features/ paths
+      {
+        source: "/ats-optimized-resume-checker",
+        destination: "/features/resume-optimizer",
+        permanent: true,
+      },
+      {
+        source: "/features/ats-optimizer",
+        destination: "/features/resume-optimizer",
+        permanent: true,
+      },
+      {
+        source: "/en-ca/features/ats-optimizer",
+        destination: "/en-ca/features/resume-optimizer",
+        permanent: true,
+      },
+      {
+        source: "/job-application-automation",
+        destination: "/features/job-automation",
+        permanent: true,
+      },
+      {
+        source: "/linkedin-profile-optimization-services",
+        destination: "/features/linkedin-profile-optimization",
+        permanent: true,
+      },
+      {
+        source: "/features/linkedin-profile-optimization-services",
+        destination: "/features/linkedin-profile-optimization",
+        permanent: true,
+      },
     ];
   },
 };

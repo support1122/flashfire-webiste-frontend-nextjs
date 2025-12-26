@@ -265,35 +265,105 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     }
   };
 
+  // Helper function to convert date to ISO format (YYYY-MM-DD)
+  const convertToISODate = (dateString: string): string => {
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return dateString; // Return original if invalid
+      return date.toISOString().split('T')[0];
+    } catch {
+      return dateString;
+    }
+  };
+
+  // Extract FAQ questions and answers from content
+  const extractFAQ = useMemo(() => {
+    if (!post?.content || typeof window === "undefined") return [];
+    
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(post.content, "text/html");
+      const faqItems: Array<{ question: string; answer: string }> = [];
+      
+      // Look for FAQ section - typically has h2 with "FAQ" and then h3 questions
+      const faqSection = Array.from(doc.querySelectorAll("h2")).find(
+        (h2) => h2.textContent?.toLowerCase().includes("faq")
+      );
+      
+      if (faqSection) {
+        let currentElement = faqSection.nextElementSibling;
+        while (currentElement) {
+          // Check if it's a question (h3 heading)
+          if (currentElement.tagName === "H3") {
+            const question = currentElement.textContent?.trim() || "";
+            // Remove numbering if present (e.g., "1. Question" -> "Question")
+            const cleanQuestion = question.replace(/^\d+\.\s*/, "");
+            
+            // Get the answer from the next paragraph
+            const answerElement = currentElement.nextElementSibling;
+            if (answerElement && answerElement.tagName === "P") {
+              const answer = answerElement.textContent?.trim() || "";
+              if (question && answer) {
+                faqItems.push({ question: cleanQuestion, answer });
+              }
+            }
+          }
+          // Stop if we hit another h2 (next section)
+          if (currentElement.tagName === "H2") break;
+          currentElement = currentElement.nextElementSibling;
+        }
+      }
+      
+      return faqItems;
+    } catch (error) {
+      console.error("Error extracting FAQ:", error);
+      return [];
+    }
+  }, [post?.content]);
+
   // Generate structured data for SEO
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt || post.title,
-    image: post.image,
-    datePublished: post.date,
-    dateModified: post.lastUpdated || post.date,
-    author: {
-      "@type": "Person",
-      name: post.author?.name || "Flashfire Team",
-      description: post.author?.bio,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Flashfire",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://www.flashfirejobs.com/logo.png",
-      },
-    },
+    "@type": "BlogPosting",
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://www.flashfirejobs.com/blog/${post.slug}`,
     },
-    articleSection: post.category,
-    keywords: post.tags?.join(", ") || "",
+    headline: post.title,
+    description: post.excerpt || post.title,
+    image: post.image,
+    author: {
+      "@type": "Person",
+      name: post.author?.name || "Arjun Sharma",
+      url: post.author?.name 
+        ? `https://www.flashfirejobs.com/author/${post.author.name.toLowerCase().replace(/\s+/g, "-")}`
+        : "https://www.flashfirejobs.com/author/arjun-sharma",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "FlashFire Jobs",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.flashfirejobs.com/favicon.ico",
+      },
+    },
+    datePublished: convertToISODate(post.date),
+    dateModified: convertToISODate(post.lastUpdated || post.date),
   };
+
+  // Generate FAQ schema if FAQ items exist
+  const faqStructuredData = extractFAQ.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: extractFAQ.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  } : null;
 
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
@@ -308,14 +378,14 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Blogs",
-        item: "https://www.flashfirejobs.com/blogs",
+        name: "Blog",
+        item: "https://www.flashfirejobs.com/blog",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.category,
-        item: `https://www.flashfirejobs.com/blogs?category=${encodeURIComponent(post.category)}`,
+        item: `https://www.flashfirejobs.com/blog?category=${encodeURIComponent(post.category)}`,
       },
       {
         "@type": "ListItem",
@@ -337,6 +407,12 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+      )}
       <Navbar />
       {/* Floating Share */}
       <div className={styles.floatingShare}>
@@ -368,9 +444,9 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
-            <Link href="/blogs">Blogs</Link>
+            <Link href="/blog">Blog</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
-            <Link href={`/blogs?category=${encodeURIComponent(post.category)}`}>{post.category}</Link>
+            <Link href={`/blog?category=${encodeURIComponent(post.category)}`}>{post.category}</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
             <span className={styles.breadcrumbCurrent} title={post.title}>{post.title}</span>
           </nav>
@@ -404,7 +480,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   {postTags.map((tag, index) => (
                     <Link
                       key={index}
-                      href={`/blogs?tag=${encodeURIComponent(tag)}`}
+                      href={`/blog?tag=${encodeURIComponent(tag)}`}
                       className={styles.tag}
                     >
                       {tag}
@@ -711,3 +787,4 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     </>
   );
 }
+
