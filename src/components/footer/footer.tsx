@@ -1,129 +1,163 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import styles from "./footer.module.css";
-import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import Link from "next/link";
+import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import { smoothScrollToElement } from "@/src/utils/smoothScroll";
 
 export default function Footer() {
   const pathname = usePathname();
   const router = useRouter();
+
   const isCanadaContext = pathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
-  
+
   const getHref = (href: string) => {
-    if (href.startsWith("http")) {
-      return href;
-    }
+    if (href.startsWith("http")) return href;
     return `${prefix}${href}`;
   };
 
   const handleFAQClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const isHomePage = pathname === "/" || pathname === "/en-ca" || pathname === prefix + "/";
-    
-    if (isHomePage) {
-      // Already on home page, just scroll to FAQ section
+    const isHome =
+      pathname === "/" || pathname === "/en-ca" || pathname === `${prefix}/`;
+
+    if (isHome) {
       setTimeout(() => {
-        const faqSection = document.getElementById("faq");
-        if (faqSection) {
-          smoothScrollToElement("faq", {
-            duration: 800,
-            easing: 'easeInOutCubic',
-          });
-        }
+        smoothScrollToElement("faq", {
+          duration: 800,
+          easing: "easeInOutCubic",
+        });
       }, 100);
     } else {
-      // Navigate to home page first, then scroll to FAQ
       router.push(getHref("/"));
-      // Wait for page to load, then scroll to FAQ
       setTimeout(() => {
-        const attemptScroll = (attempt = 1, maxAttempts = 10) => {
-          const faqSection = document.getElementById("faq");
-          if (faqSection) {
+        const tryScroll = (count = 0) => {
+          if (document.getElementById("faq")) {
             smoothScrollToElement("faq", {
               duration: 800,
-              easing: 'easeInOutCubic',
+              easing: "easeInOutCubic",
             });
-          } else if (attempt < maxAttempts) {
-            setTimeout(() => attemptScroll(attempt + 1, maxAttempts), 200);
+          } else if (count < 10) {
+            setTimeout(() => tryScroll(count + 1), 200);
           }
         };
-        attemptScroll();
+        tryScroll();
       }, 300);
     }
   };
 
+  const linkClass =
+    "text-white text-[0.9rem] underline underline-offset-4 hover:opacity-80 transition";
+
   return (
-    <footer className={styles.footer}>
-      {/* === Top Section === */}
-      <div className={styles.footerTop}>
-        {/* Logo */}
-        <div className={styles.logoSection}>
-          <div className={styles.logoWrapper}>
-            <img
-              src="/images/flashfire-logo-white.png"
-              alt="Flashfire Logo"
-              width={40}
-              height={40}
-              className={styles.logoImage}
-            />
-            <span className={styles.logoText}>FLASHFIRE</span>
-          </div>
+    <footer className="bg-[#f55d1d] text-white px-8 pt-12 pb-6 max-[768px]:px-6 max-[480px]:px-4">
+
+      {/* TOP SECTION: LOGO + LINKS (SAME ROW) */}
+      <div className="flex justify-between border-b border-white pb-8 mb-6">
+
+        {/* LOGO BLOCK */}
+        <div className="flex items-center -mt-36 gap-3 w-[260px] shrink-0">
+          <img
+            src="/images/flashfire-logo-white.png"
+            alt="Flashfire Logo"
+            className="w-10 h-10 object-contain"
+          />
+          <span className="text-lg font-bold tracking-wide">
+            FLASHFIRE
+          </span>
         </div>
 
-        {/* Links aligned row-wise with headings */}
-        <div className={styles.linksContainer}>
-          <div className={styles.linkRow}>
-            <h4>QUICK ACCESS</h4>
-            <div className={styles.linkItems}>
-              <Link href={getHref("/features")} className={styles.footerLink}>Features</Link>
-              <Link href={getHref("/testimonials")} className={styles.footerLink}>Testimonials</Link>
-              <Link href={getHref("/pricing")} className={styles.footerLink}>Pricing</Link>
-              <Link href={getHref("/faq")} className={styles.footerLink} onClick={handleFAQClick}>FAQ</Link>
-              <Link href={getHref("/blog")} className={styles.footerLink}>Blog</Link>
-              <Link href={getHref("/about-us")} className={styles.footerLink}>About Us</Link>
-              <Link href={getHref("/features/resume-optimizer")} className={styles.footerLink}>Resume Optimizer</Link>
-              <Link href={getHref("/features/job-automation")} className={styles.footerLink}>Job Automation</Link>
-              <Link href={getHref("/features/linkedin-profile-optimization")} className={styles.footerLink}>LinkedIn Profile Optimization</Link>
+        {/* LINKS GRID */}
+        <div
+          className="
+            grid grid-cols-4 gap-12
+            max-[1024px]:grid-cols-2
+            max-[768px]:grid-cols-1
+            max-[768px]:mt-8
+          "
+        >
+          {/* QUICK ACCESS */}
+          <div>
+            <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4]">
+              QUICK ACCESS
+            </h4>
+            <div className="flex flex-col gap-1.5">
+              <Link href={getHref("/features")} className={linkClass}>Features</Link>
+              <Link href={getHref("/testimonials")} className={linkClass}>Testimonials</Link>
+              <Link href={getHref("/pricing")} className={linkClass}>Pricing</Link>
+              <Link href={getHref("/faq")} className={linkClass} onClick={handleFAQClick}>FAQ</Link>
+              <Link href={getHref("/blog")} className={linkClass}>Blog</Link>
+              <Link href={getHref("/about-us")} className={linkClass}>About Us</Link>
             </div>
           </div>
 
-          <div className={styles.linkRow}>
-            <h4>COMPANY STUFF</h4>
-            <div className={styles.linkItems}>
-              <Link href={getHref("/refund-policy")} className={styles.footerLink} target="_blank" rel="noopener noreferrer">Refund Policy</Link>
-              <Link href={getHref("/privacy-policy")} className={styles.footerLink} target="_blank" rel="noopener noreferrer">Privacy Policy</Link>
-              <Link href={getHref("/payment-policy")} className={styles.footerLink} target="_blank" rel="noopener noreferrer">Payment Policy</Link>
-              <Link href={getHref("/terms-of-service")} className={styles.footerLink} target="_blank" rel="noopener noreferrer">Terms of Service</Link>
+          {/* PRODUCT */}
+          <div>
+            <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4]">
+              PRODUCT
+            </h4>
+            <div className="flex flex-col gap-1.5">
+              <Link href={getHref("/features/resume-optimizer")} className={linkClass}>
+                Resume Optimizer
+              </Link>
+              <Link href={getHref("/features/job-automation")} className={linkClass}>
+                Job Automation
+              </Link>
+              <Link
+                href={getHref("/features/linkedin-profile-optimization")}
+                className={linkClass}
+              >
+                LinkedIn Optimization
+              </Link>
             </div>
           </div>
 
-          <div className={styles.linkRow}>
-            <h4>FOLLOW US</h4>
-            <div className={styles.socialIcons}>
+          {/* COMPANY */}
+          <div>
+            <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4]">
+              COMPANY
+            </h4>
+            <div className="flex flex-col gap-1.5">
+              <Link href={getHref("/refund-policy")} className={linkClass} target="_blank">
+                Refund Policy
+              </Link>
+              <Link href={getHref("/privacy-policy")} className={linkClass} target="_blank">
+                Privacy Policy
+              </Link>
+              <Link href={getHref("/payment-policy")} className={linkClass} target="_blank">
+                Payment Policy
+              </Link>
+              <Link href={getHref("/terms-of-service")} className={linkClass} target="_blank">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+
+          {/* FOLLOW US */}
+          <div>
+            <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4]">
+              FOLLOW US
+            </h4>
+            <div className="flex items-center gap-3">
               <Link
                 href="https://www.linkedin.com/company/flashfire-pvt-ltd/"
-                aria-label="LinkedIn"
                 target="_blank"
-                rel="noopener noreferrer"
+                className="text-xl hover:scale-110 transition"
               >
                 <FaLinkedinIn />
               </Link>
               <Link
                 href="https://www.instagram.com/flashfirejobs/"
-                aria-label="Instagram"
                 target="_blank"
-                rel="noopener noreferrer"
+                className="text-xl hover:scale-110 transition"
               >
                 <FaInstagram />
               </Link>
               <Link
                 href="https://www.youtube.com/@flashfireindia"
-                aria-label="YouTube"
                 target="_blank"
-                rel="noopener noreferrer"
+                className="text-xl hover:scale-110 transition"
               >
                 <FaYoutube />
               </Link>
@@ -132,13 +166,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* === Bottom Section === */}
-      <div className={styles.footerBottom}>
-        <p className={styles.copyText}>
-          @ Flashfire 2025 | All Rights Reserved
-        </p>
-        <p className={styles.companyText}>Flashfire Pvt. Ltd.</p>
+      {/* BOTTOM */}
+      <div className="flex justify-between text-sm opacity-90 max-[768px]:flex-col gap-2">
+        <p>© Flashfire 2025. All Rights Reserved.</p>
+        <p>Flashfire Pvt. Ltd.</p>
       </div>
+
     </footer>
   );
 }

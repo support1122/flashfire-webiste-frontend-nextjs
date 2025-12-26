@@ -194,7 +194,7 @@ function Features() {
   return (
     <div className="bg-[#f9e8e0] min-h-screen">
       {/* Orange Header Bar */}
-      <header className="bg-[#f9e8e0] py-24 mb-24">
+      <header className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-[#fffaf7] py-24 ">
   <div className="mx-auto max-w-4xl text-center px-4">
 
     <h1 className="text-4xl md:text-5xl font-extrabold text-[#ff4c00] mb-6 leading-tight">
