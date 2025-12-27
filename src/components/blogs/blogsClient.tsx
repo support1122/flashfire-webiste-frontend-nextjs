@@ -7,6 +7,11 @@ import styles from "./blogs.module.css";
 import BlogCard from "./blogCard";
 import { blogPosts } from "@/src/data/blogsData";
 import { FaSearch } from "react-icons/fa";
+import { categoryToSlug, slugToCategory } from "@/src/utils/blogCategoryUtils";
+
+type BlogsClientProps = {
+  categorySlug?: string;
+};
 
 // Function to generate default tags based on category and content
 function getDefaultTags(category: string, title: string, excerpt: string): string[] {
@@ -73,7 +78,7 @@ const blogsWithTags = blogPosts.map((blog) => {
   };
 });
 
-export default function BlogsClient() {
+export default function BlogsClient({ categorySlug }: BlogsClientProps = {}) {
   const searchParams = useSearchParams();
   const tagParam = searchParams.get("tag");
   const categoryParam = searchParams.get("category");
@@ -85,11 +90,20 @@ export default function BlogsClient() {
     return decodeURIComponent(tagParam.replace(/\+/g, " ")).trim();
   }, [tagParam]);
 
-  // Decode and normalize category from URL
+  // Decode and normalize category from URL (prioritize categorySlug prop over query param)
   const decodedCategory = useMemo(() => {
+    if (categorySlug) {
+      return slugToCategory(categorySlug);
+    }
     if (!categoryParam) return "";
-    return decodeURIComponent(categoryParam.replace(/\+/g, " ")).trim();
-  }, [categoryParam]);
+    try {
+      const decoded = decodeURIComponent(categoryParam.replace(/\+/g, "%20"));
+      const slug = decoded.toLowerCase().trim();
+      return slugToCategory(slug);
+    } catch (error) {
+      return categoryParam.toLowerCase().trim();
+    }
+  }, [categorySlug, categoryParam]);
 
   // All unique categories for chip display
   const allCategories = useMemo(() => {
@@ -113,7 +127,7 @@ export default function BlogsClient() {
 
     if (normalizedCategory) {
       base = base.filter((blog) =>
-        blog.category.toLowerCase().includes(normalizedCategory)
+        blog.category.toLowerCase() === normalizedCategory // Exact match
       );
     } else if (normalizedTag) {
       base = base.filter((blog) => {
@@ -260,7 +274,7 @@ export default function BlogsClient() {
             return (
               <Link
                 key={cat}
-                href={`/blog?category=${encodeURIComponent(cat)}`}
+                href={`/blog/${categoryToSlug(cat)}`}
                 className={`${styles.categoryChip} ${
                   isActive ? styles.categoryChipActive : ""
                 }`}

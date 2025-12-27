@@ -305,8 +305,8 @@
 .overviewBox {
   margin: 1rem 0 1.5rem;
   padding: 1rem 1.25rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
+  /* border: 1px solid #e5e7eb; */
+  /* border-radius: 0.75rem; */
   background: #f9fafb;
 }
 
@@ -322,6 +322,17 @@
   color: #4b5563;
   line-height: 1.6;
   font-size: 0.95rem;
+}
+
+.overviewText p {
+  margin: 0 0 0.75rem 0;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 1.11rem;
+}
+
+.overviewText p:last-child {
+  margin-bottom: 0;
 }
 
 /* === TOP SIDEBAR === */

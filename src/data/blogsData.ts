@@ -4,7 +4,7 @@ export const blogPosts = [
     slug: "how-to-write-a-good-resume",
     title: "How to Write a Good Resume: A Complete Guide to Getting Job Interviews",
     excerpt:
-      "How to write a good resume for a job step by step. Get the best tips to optimize your resume and increase interview calls with FlashFire Jobs. Start now!",
+      "You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health. This Flashfirejobs blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations. You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.",
     date: "Jan 15, 2025",
     lastUpdated: "Dec 24, 2025",
     readTime: "12 min",
@@ -243,7 +243,7 @@ export const blogPosts = [
     slug: "why-is-it-so-hard-to-find-a-job-in-us",
     title: "Why Is It So Hard to Find a Job in the US Market? Top Reasons Explained",
     excerpt:
-      "Why Is It So Hard to Find a Job today? Learn why it's hard to find a job in the US market and how to overcome it faster. Apply now on FlashfireJobs.",
+      "You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health. This Flashfirejobs blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations. You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.",
     date: "Jan 12, 2025",
     lastUpdated: "Dec 24, 2025",
     readTime: "12 min",
@@ -390,7 +390,7 @@ export const blogPosts = [
     slug: "how-to-get-your-first-job-in-the-us",
     title: "How to Get Your First Job: A Step-by-Step Guide for Beginners",
     excerpt:
-      "How to get your first job with no experience. Learn entry-level roles, resume tips, interview prep, and job search strategies. Start applying today!",
+      "You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health. This Flashfirejobs blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations. You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.",
     date: "Dec 24, 2025",
     lastUpdated: "Dec 24, 2025",
     readTime: "12 min",

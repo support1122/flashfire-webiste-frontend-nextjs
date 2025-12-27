@@ -14,6 +14,7 @@ import Footer from "../footer/footer";
 import Link from "next/link";
 import { FaLinkedinIn, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import { blogPosts } from "@/src/data/blogsData";
+import { categoryToSlug } from "@/src/utils/blogCategoryUtils";
 
 type BlogPost = {
   id: number;
@@ -71,6 +72,32 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
   }, []);
 
   const overviewText = post.excerpt || "";
+
+  // Split overview into paragraphs for first 3 blogs (deterministic, no client-side checks)
+  const overviewParagraphs = useMemo(() => {
+    if (!overviewText) return null;
+    
+    // Only split for first 3 blogs with the specific content pattern
+    if (post.id <= 3 && overviewText.includes("You're not the only one")) {
+      // Split into 3 paragraphs based on content structure
+      const p1End = overviewText.indexOf("mental health.");
+      const p2Start = overviewText.indexOf("This Flashfirejobs");
+      const p3Start = overviewText.indexOf("You will also learn");
+      
+      // Ensure all markers are found and in correct order
+      if (p1End > 0 && p2Start > p1End && p3Start > p2Start) {
+        const para1 = overviewText.substring(0, p1End + "mental health.".length).trim();
+        const para2 = overviewText.substring(p2Start, p3Start).trim();
+        const para3 = overviewText.substring(p3Start).trim();
+        
+        // Return only if all paragraphs are non-empty
+        if (para1 && para2 && para3) {
+          return [para1, para2, para3];
+        }
+      }
+    }
+    return null;
+  }, [overviewText, post.id]);
 
   // Process content and generate table of contents (client-side only)
   const [processedContent, setProcessedContent] = useState<string>(post?.content || "");
@@ -276,9 +303,14 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     }
   };
 
-  // Extract FAQ questions and answers from content
-  const extractFAQ = useMemo(() => {
-    if (!post?.content || typeof window === "undefined") return [];
+  // Extract FAQ questions and answers from content (client-side only to avoid hydration issues)
+  const [extractFAQ, setExtractFAQ] = useState<Array<{ question: string; answer: string }>>([]);
+  
+  useEffect(() => {
+    if (!post?.content) {
+      setExtractFAQ([]);
+      return;
+    }
     
     try {
       const parser = new DOMParser();
@@ -314,10 +346,10 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
         }
       }
       
-      return faqItems;
+      setExtractFAQ(faqItems);
     } catch (error) {
       console.error("Error extracting FAQ:", error);
-      return [];
+      setExtractFAQ([]);
     }
   }, [post?.content]);
 
@@ -351,8 +383,8 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     dateModified: convertToISODate(post.lastUpdated || post.date),
   };
 
-  // Generate FAQ schema if FAQ items exist
-  const faqStructuredData = extractFAQ.length > 0 ? {
+  // Generate FAQ schema if FAQ items exist (use empty array to avoid hydration issues)
+  const faqStructuredData = extractFAQ && extractFAQ.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: extractFAQ.map((item) => ({
@@ -385,7 +417,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
         "@type": "ListItem",
         position: 3,
         name: post.category,
-        item: `https://www.flashfirejobs.com/blog?category=${encodeURIComponent(post.category)}`,
+        item: `https://www.flashfirejobs.com/blog/${categoryToSlug(post.category)}`,
       },
       {
         "@type": "ListItem",
@@ -446,7 +478,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
             <span className={styles.breadcrumbSeparator}> &gt; </span>
             <Link href="/blog">Blog</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
-            <Link href={`/blog?category=${encodeURIComponent(post.category)}`}>{post.category}</Link>
+            <Link href={`/blog/${categoryToSlug(post.category)}`}>{post.category}</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
             <span className={styles.breadcrumbCurrent} title={post.title}>{post.title}</span>
           </nav>
@@ -540,8 +572,16 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               {/* === BLOG OVERVIEW === */}
               {overviewText && (
                 <div className={styles.overviewBox}>
-                  <h3 className={styles.overviewTitle}>Blog Overview</h3>
-                  <p className={styles.overviewText}>{overviewText}</p>
+                  <h3 className={styles.overviewTitle}>Overview</h3>
+                  {overviewParagraphs ? (
+                    <div className={styles.overviewText}>
+                      <p style={{ marginBottom: '0.75rem' }}>{overviewParagraphs[0]}</p>
+                      <p style={{ marginBottom: '0.75rem' }}>{overviewParagraphs[1]}</p>
+                      <p style={{ marginBottom: 0 }}>{overviewParagraphs[2]}</p>
+                    </div>
+                  ) : (
+                    <p className={styles.overviewText}>{overviewText}</p>
+                  )}
                 </div>
               )}
 
