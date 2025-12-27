@@ -572,12 +572,20 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               {/* === BLOG OVERVIEW === */}
               {overviewText && (
                 <div className={styles.overviewBox}>
-                  <h3 className={styles.overviewTitle}>Overview</h3>
+                  <h3 className={styles.overviewTitle}> Blog Overview</h3>
                   {overviewParagraphs ? (
                     <div className={styles.overviewText}>
                       <p style={{ marginBottom: '0.75rem' }}>{overviewParagraphs[0]}</p>
                       <p style={{ marginBottom: '0.75rem' }}>{overviewParagraphs[1]}</p>
                       <p style={{ marginBottom: 0 }}>{overviewParagraphs[2]}</p>
+                    </div>
+                  ) : overviewText.includes('\n\n') ? (
+                    <div className={styles.overviewText}>
+                      {overviewText.split('\n\n').map((para, index, array) => (
+                        <p key={index} style={{ marginBottom: index < array.length - 1 ? '0.75rem' : 0 }}>
+                          {para.trim()}
+                        </p>
+                      ))}
                     </div>
                   ) : (
                     <p className={styles.overviewText}>{overviewText}</p>

@@ -4,7 +4,7 @@ export const blogPosts = [
     slug: "how-to-write-a-good-resume",
     title: "How to Write a Good Resume: A Complete Guide to Getting Job Interviews",
     excerpt:
-      "You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health. This Flashfirejobs blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations. You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.",
+      "A strong resume is your first impression within the hiring system and often the deciding thing in whether you get an interview. One of the most important parts of looking for a job is writing a resume, but it's also one of the most misunderstood. A lot of people think that a resume is just a list of jobs, degrees, and skills. A resume is actually a strategic document that shows value, relevance, and potential in a very short amount of time. The goal of this blog is to help readers fully understand how to write a good resume in today's tech-driven and competitive job market.\n\nThis manual breaks down how to write a good resume format, what to encompass, and common errors to avoid. You'll also see examples of a way to write a terrific resume, alongside pointers for college students, freshers, and specialists.",
     date: "Jan 15, 2025",
     lastUpdated: "Dec 24, 2025",
     readTime: "12 min",
@@ -18,10 +18,7 @@ export const blogPosts = [
       "https://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webp",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
-        <p style='margin-bottom:12px; line-height:1.7;'>A strong resume is your first impression within the hiring system and often the deciding thing in whether you get an interview. One of the most important parts of looking for a job is writing a resume, but it's also one of the most misunderstood. A lot of people think that a resume is just a list of jobs, degrees, and skills. A resume is actually a strategic document that shows value, relevance, and potential in a very short amount of time. The goal of this blog is to help readers fully understand how to write a good resume in today's tech-driven and competitive job market.</p>
-
-        <p style='margin-bottom:12px; line-height:1.7;'>This manual breaks down how to write a good resume format, what to encompass, and common errors to avoid. You'll also see examples of a way to write a terrific resume, alongside pointers for college students, freshers, and specialists.</p>
-
+        
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What Makes a Good Resume?</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>An excellent resume is greater than a listing of your education and jobs. It's a strategic marketing document that suggests why you are the proper fit for a specific position. While thinking about the ways on how to write a good resume for job applications, it's essential to understand that recruiters go through resumes in seconds. So your resume ought to be:</p>
 
@@ -257,12 +254,8 @@ export const blogPosts = [
       "https://res.cloudinary.com/drit9nkha/image/upload/v1752832446/46d07f8b-261d-49cf-b140-5eaf609b874e_kkjjml.webp",
     categoryColor: "bg-green-100 text-green-600",
     content: `
-        <p style='margin-bottom:12px; line-height:1.7;'>You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health.</p>
 
-        <p style='margin-bottom:12px; line-height:1.7;'>This <strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfirejobs</a></strong> blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations.</p>
-
-        <p style='margin-bottom:12px; line-height:1.7;'>You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.</p>
-
+        
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Statistics and Scenario for the Job Market in 2026</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>The unemployment rate is 4.2% as of 2025. This is the lowest it has been in a long time, but it is still better than the 3.5% rate in early 2023. But the information about unemployment doesn't tell the whole story. There are a lot fewer job openings now than there were in early 2023, when there were well over 8 million. By March 2025, there were only about 7.2 million.</p>
 
@@ -390,7 +383,7 @@ export const blogPosts = [
     slug: "how-to-get-your-first-job-in-the-us",
     title: "How to Get Your First Job: A Step-by-Step Guide for Beginners",
     excerpt:
-      "You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health. This Flashfirejobs blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations. You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.",
+      "Landing your first job in the USA or even in any new country can be challenging and hard, but it's not impossible once you get the gist of how to do it in a planned manner. Whether you are a student, a recent graduate, or want to change your career path, this article will guide you on how to get a first job in the US even when you have little to no experience.",
     date: "Dec 24, 2025",
     lastUpdated: "Dec 24, 2025",
     readTime: "12 min",
@@ -404,9 +397,8 @@ export const blogPosts = [
       "https://res.cloudinary.com/drit9nkha/image/upload/v1752832996/freepik__the-style-is-candid-image-photography-with-natural__35759_dnwqka.webp",
     categoryColor: "bg-purple-100 text-purple-600",
     content: `
-        <p style='margin-bottom:12px; line-height:1.7;'>Landing your first job in the USA or even in any new country can be challenging and hard, but it's not impossible once you get the gist of how to do it in a planned manner. Whether you are a student, a recent graduate, or want to change your career path, this article will guide you on how to get a first job in the US even when you have little to no experience.</p>
 
-        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Overview</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mt-16 mb-3">Overview</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>It can be really hard and overwhelming to find your first job as a recent graduate with no real work experience. Many people looking for their first job end up in a cycle of applying, waiting, and not hearing back. This makes people ask a common and annoying question: how to get your first job when it seems like every job needs experience?</p>
 
         <p style='margin-bottom:12px; line-height:1.7;'>This blog aims to break that cycle. It explains what "no experience" really means, how employers think about hiring people with little to no experience, and what makes a first-time candidate stand out. It also helps you understand how to execute your job applications, use job boards, and handle interviews confidently.</p>
