@@ -1,38 +1,58 @@
 export const questionsData = [
   {
-    question: "What would the costs be, and are there any extra fees?",
-    answer: "You pay once up front, and the charges depend on the plan you choose.There are no hidden charges, and you get all the functions in your plan (resume optimization, job applications, LinkedIn help, and interview support).",
+    question: "Why are we the best job hunting site to find opportunities quickly?",
+    answer: "Ans. Because we don't just show jobs — we apply to them for you. You skip browsing, resume editing, and forms. We do it all.",
   },
   {
-    question: "If I am not satisfied with the service, do I get a refund?",
-    answer: "Our priority is to ensure your satisfaction. If your expectations are not met, we additionally apply to 150-200 more jobs on your behalf, however initiating a refund is not possible. Nonetheless, we ensure you get the maximum benefit from the service you have chosen.",
+    question: "How does AI job search improve my chances of finding relevant positions?",
+    answer: "Ans. Our AI scans thousands of listings and matches them to your profile. It also optimizes your resume with keywords hiring managers and ATS systems are looking for.",
   },
   {
-    question: "What if I don't get any calls for interviews?",
-    answer: "We will send 100 more applications and give you a free resume upgrade if you don't get any interview calls by the end of your plan. Only people who have signed up for our Premium Plan will be applicable for this. Your career is important to us, and we will help you every step of the way.",
+    question: "Can AI job application tools help me apply for jobs faster?",
+    answer: "Ans. Yes, but with FlashFireJobs, it's not just AI. We combine AI resume optimization with manual applications by our team, ensuring quality and speed.",
   },
   {
-    question: "Why should I consider Flashfire, when I can apply on my own?",
-    answer: "Flashfire automates your entire job search process. A team applies to 1200+ high-matching jobs in just 5-6 weeks on your behalf and your resume is optimized for each role, so you can just focus on interviews and skills building. You will save 200 hours with us and double your callback rates.",
+    question: "What are the benefits of using AI for job search on FlashFireJobs?",
+    answer: "Ans. You get smarter targeting, resume customization at scale, and time savings — all while improving your chances of getting shortlisted.",
   },
   {
-    question: "How successful is Flashfire at securing job placements?",
-    answer: "More than 90% of the people who use Flashfire will get interview calls within the first four weeks. Most people get interviews faster than they thought they would with targeted applications and optimized resumes. Premium users get even better results.",
+    question: "Does FlashFireJobs act as an AI job board for modern job seekers?",
+    answer: "Ans. No. We are not a job board. FlashFireJobs is a done-for-you job application service that combines AI tools with human effort.",
   },
   {
-    question: "How does Flashfire differ from any other job portal?",
-    answer: "We don't wait for you to apply like most job boards do. Instead, we apply for you every day. Our AI and human experts make each resume unique and keep track of all the submissions in your dashboard. No spam, no guessing, just results.",
+    question: "How does an AI-powered job search differ from traditional job searching?",
+    answer: "Ans. Instead of browsing jobs and applying manually, AI targets roles for you and our team applies, saving you 150+ hours.",
   },
   {
-    question: "How will I track my job applications and progress?",
-    answer: "You will be given credentials to your personalized dashboard where you can track your progress along with that a dedicated WhatsApp group of 3-4 people is created just for you. You will be kept updated throughout the process.",
+    question: "What is a job search virtual assistant and how can it make job hunting easier?",
+    answer: "Ans. FlashFireJobs acts as your virtual assistant and team — finding jobs, optimizing your resume, and applying for you every day.",
   },
   {
-    question: "Is Flashfire a good choice for students and job seekers in the U.S.?",
-    answer: "Of course. Flashfire is made for people with OPT, CPT, or H1B visas and international students. We know that every application is important, and our team makes sure you have the best chance of getting hired in the U.S. job market.",
+    question: "Can FlashFireJobs auto apply to jobs on my behalf?",
+    answer: "Ans. Yes, but not using bots. Every application is submitted manually by our in-house team, ensuring accuracy and avoiding errors.",
   },
   {
-    question: "How many job applications will be applied for per day?",
-    answer: "It depends on the number of relevant opening, but our team applies to 30 jobs each day to ensure efficiency and quality.",
+    question: "What job application assistance features does FlashFireJobs offer?",
+    answer: "Ans. ✔️ Resume optimization ✔️ Cover letter submission ✔️ 1,200+ manual applications ✔️ LinkedIn profile tips ✔️ Live job tracker ✔️ WhatsApp support ✔️ Weekly progress updates",
+  },
+  {
+    question: "Which is the best app to find job opportunities in my field?",
+    answer: "Ans. FlashFireJobs is ideal if you want results. We don't show jobs — we apply to them with tailored resumes and real human effort.",
+  },
+  {
+    question: "What are the best job searching websites available right now?",
+    answer: "Ans. LinkedIn and Indeed are good for research. FlashFireJobs is better if you want action — not just information.",
+  },
+  {
+    question: "How can FlashFireJobs support my career job search goals?",
+    answer: "Ans. We help you reach your goals by targeting the right roles and sending tailored, optimized applications at scale — so you focus on interviews.",
+  },
+  {
+    question: "What job application app features should I expect for easy applying?",
+    answer: "Ans. FlashFireJobs offers: • Resume + LinkedIn optimization • Cover letter submissions • Manual applications • 24/7 job tracking • Human support throughout",
+  },
+  {
+    question: "How do AI hiring tools and AI recruitment platforms help streamline job placements?",
+    answer: "Ans. Our AI enhances your profile with the right keywords and format so employers' AI systems shortlist you faster, increasing interview chances.",
   },
 ];
