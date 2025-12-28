@@ -37,7 +37,7 @@ export default function JobApplicationAutomationPage() {
     },
     {
       question: "Can job application automation help me land my dream job faster?",
-      answer: "Ans. Yes — by applying to high-fit roles consistently and quickly, you're more likely to land interviews and offers in less time."
+      answer: "Ans. By applying to high-fit roles consistently and quickly, you're more likely to land interviews and offers in less time."
     },
     {
       question: "How do I optimise my LinkedIn profile to improve automated job application results?",
@@ -53,7 +53,7 @@ export default function JobApplicationAutomationPage() {
     },
     {
       question: "Does FlashFireJobs act as an AI job board with built-in automation features?",
-      answer: "Ans. Yes — it combines AI resume matching + human-powered application submission, unlike traditional job boards."
+      answer: "Ans. It combines AI resume matching + human-powered application submission, unlike traditional job boards."
     },
     {
       question: "What are the best practices for job application automation to avoid common pitfalls?",
@@ -61,7 +61,7 @@ export default function JobApplicationAutomationPage() {
     },
     {
       question: "Can I use job application automation while still customizing applications for each job?",
-      answer: "Ans. Absolutely. Every application on FlashFire is resume-optimized per job, and our cover letter is generalized for broad relevance."
+      answer: "Ans. Every application on FlashFire is resume-optimized per job, and our cover letter is generalized for broad relevance."
     },
     {
       question: "How does automating job applications work with AI-powered job matching and alerts?",
