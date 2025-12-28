@@ -51,7 +51,7 @@ export default function LinkedInOptimizationPage() {
     },
     {
       question: "Should my LinkedIn profile match my ATS optimized resume for better results?",
-      answer: "Ans. Yes. Having consistent language, roles, and keywords across both ensures higher trust, better visibility, and more interview calls."
+      answer: "Ans. Having consistent language, roles, and keywords across both ensures higher trust, better visibility, and more interview calls."
     }
   ];
 
