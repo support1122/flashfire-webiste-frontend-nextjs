@@ -11,6 +11,9 @@ export default function ContactForm() {
     phone: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,11 +24,74 @@ export default function ContactForm() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // You can add API call here
+    setError("");
+    setSuccess(false);
+    setLoading(true);
+
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+    console.log("Form submission started", { formData, baseUrl });
+
+    if (!baseUrl) {
+      console.error("NEXT_PUBLIC_API_BASE_URL is not set");
+      setError("Configuration error. Please contact support.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      // Remove trailing slash from baseUrl and ensure proper URL construction
+      const baseUrlClean = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+      const apiUrl = `${baseUrlClean}/api/contact`;
+      console.log("Sending request to:", apiUrl);
+      console.log("Request payload:", formData);
+
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      console.log("Response status:", response.status);
+      console.log("Response ok:", response.ok);
+
+      // Get response as text first to handle both JSON and HTML responses
+      const responseText = await response.text();
+      let result: any = {};
+
+      // Try to parse as JSON
+      try {
+        result = JSON.parse(responseText);
+        console.log("Response data:", result);
+      } catch (parseError) {
+        // If it's not JSON, it's probably an HTML error page
+        console.error("Non-JSON response received:", responseText.substring(0, 200));
+        setError(`Server error (${response.status}). Please check if the API endpoint is correct.`);
+        return;
+      }
+
+      if (response.ok && (response.status === 200 || response.status === 201)) {
+        setSuccess(true);
+        setFormData({
+          fullName: "",
+          email: "",
+          company: "",
+          phone: "",
+          message: "",
+        });
+        // Reset success message after 5 seconds
+        setTimeout(() => setSuccess(false), 5000);
+      } else {
+        setError(result?.error || result?.message || "Failed to submit form. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -148,12 +214,27 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Error Message */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          {error}
+        </div>
+      )}
+
+      {/* Success Message */}
+      {success && (
+        <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+          Thank you for contacting us! We'll get back to you soon.
+        </div>
+      )}
+
       {/* Submit Button */}
       <button
         type="submit"
-        className="w-full bg-[#ff4c00] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#e64400] transition-colors duration-200 shadow-md hover:shadow-lg"
+        disabled={loading}
+        className="w-full bg-[#ff4c00] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#e64400] transition-colors duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Send Message
+        {loading ? "Sending..." : "Send Message"}
       </button>
     </form>
   );
