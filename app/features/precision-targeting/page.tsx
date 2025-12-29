@@ -240,15 +240,15 @@ export default function PrecisionTargetingPage() {
     </div>
   </div>
 </section>
-<section className="py-32 bg-black text-white relative overflow-hidden">
+<section className="py-32 bg-[#fff7f2] text-white relative overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
     {/* ===== Section Header ===== */}
     <div className="text-center mb-20">
-      <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+      <h2 className="text-4xl md:text-5xl text-black font-extrabold mb-6">
         Real Results from <span className="text-[#ff4c00]">Precision Targeting</span>
       </h2>
-      <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+      <p className="text-lg text-gray-900 max-w-3xl mx-auto">
         Our AI-driven targeting strategy focuses your effort where it matters most —
         leading to measurable improvements in interviews, efficiency, and outcomes.
       </p>
@@ -269,7 +269,7 @@ export default function PrecisionTargetingPage() {
           <p className="text-5xl font-extrabold text-[#ff4c00] mb-4">
             {stat.value}
           </p>
-          <p className="text-sm md:text-base text-gray-300">
+          <p className="text-sm md:text-base text-gray-900">
             {stat.label}
           </p>
         </div>

@@ -5,25 +5,22 @@
   padding: 3rem 2rem 1.5rem;
 }
 
-
-/* === Top Section === */
+/* ================= TOP SECTION ================= */
 .footerTop {
   display: flex;
   justify-content: space-between;
-  align-items: space-between;
   flex-wrap: wrap;
   border-bottom: 1px solid #fff;
   padding-bottom: 2rem;
   margin-bottom: 1.5rem;
 }
 
-/* === Logo === */
+/* ================= LOGO ================= */
 .logoSection {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 1.5rem;
 }
 
 .logoWrapper {
@@ -36,7 +33,6 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
-  flex-shrink: 0;
 }
 
 .logoText {
@@ -45,28 +41,26 @@
   letter-spacing: 0.05em;
 }
 
-/* === Link Groups === */
+/* ================= LINKS ================= */
 .linksContainer {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  justify-content: flex-start;
+  gap: 1.2rem;
 }
 
 .linkRow {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 1rem;
 }
 
 .linkRow h4 {
+  width: 10rem;
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #fff7f4;
-  width: 10rem;
   flex-shrink: 0;
 }
 
@@ -83,9 +77,6 @@
   text-decoration: underline;
   transition: opacity 0.2s ease;
   cursor: pointer;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
 }
 
 .linkItems a:hover,
@@ -93,7 +84,7 @@
   opacity: 0.8;
 }
 
-/* === Social Icons Row === */
+/* ================= SOCIAL ================= */
 .socialIcons {
   display: flex;
   align-items: center;
@@ -103,9 +94,7 @@
 .socialIcons a {
   color: #fff;
   font-size: 1.2rem;
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .socialIcons a:hover {
@@ -113,7 +102,7 @@
   opacity: 0.9;
 }
 
-/* === Bottom Section === */
+/* ================= BOTTOM ================= */
 .footerBottom {
   display: flex;
   justify-content: space-between;
@@ -122,82 +111,77 @@
   opacity: 0.9;
 }
 
-.copyText {
-  margin: 0;
-}
-
+.copyText,
 .companyText {
   margin: 0;
 }
 
-/* === Responsive === */
+/* ================================================= */
+/* =================== MOBILE ======================= */
+/* ================================================= */
+
 @media (max-width: 768px) {
   .footer {
-    padding: 2rem 1.5rem 1rem;
+    padding: 2rem 1.5rem 1.25rem;
   }
 
   .footerTop {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .logoSection {
-    margin-bottom: 0;
+    width: 100%;
   }
 
   .linksContainer {
     width: 100%;
-    flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .linkRow {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-    width: 100%;
+    gap: 0.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .linkRow:last-child {
+    border-bottom: none;
   }
 
   .linkRow h4 {
     width: auto;
     font-size: 0.85rem;
-    margin-bottom: 0.25rem;
   }
 
-  .linkItems {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.75rem 1rem;
-  }
-
-  .footerLink {
+  .linkItems a {
     font-size: 0.85rem;
-  }
-
-  .socialIcons {
-    gap: 0.75rem;
-  }
-
-  .socialIcons a {
-    font-size: 1.1rem;
+    padding: 0.2rem 0;
   }
 
   .footerBottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.6rem;
     font-size: 0.8rem;
   }
 }
+
+/* ================= SMALL PHONES ================= */
 
 @media (max-width: 480px) {
   .footer {
     padding: 1.5rem 1rem 1rem;
   }
 
+  .logoSection {
+    justify-content: center;
+    text-align: center;
+  }
+
   .logoWrapper {
-    gap: 0.5rem;
+    justify-content: center;
   }
 
   .logoImage {
@@ -209,19 +193,29 @@
     font-size: 1rem;
   }
 
+  .linksContainer {
+    gap: 2.2rem;
+  }
+
   .linkRow h4 {
     font-size: 0.8rem;
   }
 
-  .footerLink {
-    font-size: 0.8rem;
-  }
-
-  .socialIcons a {
-    font-size: 1rem;
+  .linkItems {
+    gap: 0.6rem 0.8rem;
   }
 
   .footerBottom {
+    align-items: center;
+    text-align: center;
     font-size: 0.75rem;
+  }
+
+  .socialIcons {
+    justify-content: center;
+  }
+
+  .socialIcons a {
+    font-size: 1.05rem;
   }
 }

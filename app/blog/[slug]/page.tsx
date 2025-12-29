@@ -39,47 +39,47 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Check if it's a blog post
   const post = blogPosts.find((p) => p.slug === slug);
   if (post) {
-    return {
-      title: `${post.title} | Flashfire Blog`,
+  return {
+    title: `${post.title} | Flashfire Blog`,
+    description: post.excerpt,
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `https://www.flashfirejobs.com/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: post.title,
       description: post.excerpt,
-      robots: {
-        index: true,
-        follow: true,
-      },
-      alternates: {
-        canonical: `https://www.flashfirejobs.com/blog/${post.slug}`,
-      },
-      openGraph: {
-        title: post.title,
-        description: post.excerpt,
-        url: `https://www.flashfirejobs.com/blog/${post.slug}`,
-        type: "article",
-        images: post.image
-          ? [
-              {
-                url: post.image,
-                width: 1200,
-                height: 630,
-                alt: post.title,
-              },
-            ]
-          : [
-              {
-                url: "https://www.flashfirejobs.com/images/og-image.png",
-                width: 1200,
-                height: 630,
-                alt: "FLASHFIRE Logo",
-              },
-            ],
-        publishedTime: post.date,
-        authors: ["Flashfire"],
-        section: post.category,
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: post.title,
-        description: post.excerpt,
-        images: post.image ? [post.image] : ["https://www.flashfirejobs.com/images/og-image.png"],
+      url: `https://www.flashfirejobs.com/blog/${post.slug}`,
+      type: "article",
+      images: post.image
+        ? [
+            {
+              url: post.image,
+              width: 1200,
+              height: 630,
+              alt: post.title,
+            },
+          ]
+        : [
+            {
+              url: "https://www.flashfirejobs.com/images/og-image.png",
+              width: 1200,
+              height: 630,
+              alt: "FLASHFIRE Logo",
+            },
+          ],
+      publishedTime: post.date,
+      authors: ["Flashfire"],
+      section: post.category,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : ["https://www.flashfirejobs.com/images/og-image.png"],
       },
     };
   }
@@ -133,7 +133,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogSlugPage({ params }: Props) {
   const resolvedParams = await params;
   const { slug } = resolvedParams;
-
+  
   // Validate params
   if (!slug || slug === "undefined") {
     return notFound();
@@ -142,9 +142,9 @@ export default async function BlogSlugPage({ params }: Props) {
   // Check if it's a blog post
   const post = blogPosts.find((p) => p.slug === slug);
   if (post) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-expect-error
-    return <BlogsPage post={post} />;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-expect-error
+  return <BlogsPage post={post} />;
   }
 
   // Check if it's a category

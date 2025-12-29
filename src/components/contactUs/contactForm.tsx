@@ -52,8 +52,8 @@ export default function ContactForm() {
             required
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
           />
-        </div>
-      </div>
+          </div>
+          </div>
 
       {/* Email */}
       <div>
@@ -78,7 +78,7 @@ export default function ContactForm() {
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
           />
         </div>
-      </div>
+          </div>
 
       {/* Company / School */}
       <div>
@@ -102,7 +102,7 @@ export default function ContactForm() {
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
           />
         </div>
-      </div>
+          </div>
 
       {/* Phone */}
       <div>
@@ -136,7 +136,7 @@ export default function ContactForm() {
         >
           How can we help?
         </label>
-        <textarea
+          <textarea
           id="message"
           name="message"
           value={formData.message}

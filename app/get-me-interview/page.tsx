@@ -37,6 +37,10 @@ const DashboardAnalyticsPage = dynamic(() => import("@/app/features/dashboard-an
   ssr: false,
 });
 
+const CoverLetterPage = dynamic(() => import("@/app/features/cover-letter/page"), {
+  ssr: false,
+});
+
 export default function GetMeInterviewPage() {
     const [previousPage, setPreviousPage] = useState<string | null>(null);
     const [isMounted, setIsMounted] = useState(false);
@@ -135,6 +139,11 @@ export default function GetMeInterviewPage() {
     if (previousPage === '/features/dashboard-analytics' ||
         previousPage === '/en-ca/features/dashboard-analytics') {
         return <DashboardAnalyticsPage />;
+    }
+
+    if (previousPage === '/features/cover-letter' ||
+        previousPage === '/en-ca/features/cover-letter') {
+        return <CoverLetterPage />;
     }
 
     return <HomePage />;
