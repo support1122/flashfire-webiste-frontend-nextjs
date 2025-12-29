@@ -1,106 +1,160 @@
 "use client";
 
-import styles from "./contactUs.module.css";
+import { useState } from "react";
+import { FaUser, FaEnvelope, FaBuilding, FaPhone } from "react-icons/fa";
 
 export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+    // You can add API call here
+  };
+
   return (
-    <form className={styles.form}>
-      <h3 className={styles.formHeader}>Share your details to connect</h3>
-
-      {/* === Company Information === */}
-      <section className={styles.formSection}>
-        <h4>🏢 Company Information</h4>
-        <div className={styles.formGrid}>
-          <div className={styles.formGroup}>
-            <label>Company Name*</label>
-            <input type="text" placeholder="Enter company name" />
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Full Name */}
+      <div>
+        <label
+          htmlFor="fullName"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Your Full Name
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaUser className="text-gray-400" />
           </div>
-          <div className={styles.formGroup}>
-            <label>Industry</label>
-            <input type="text" placeholder="i.e., Technology, Finance" />
-          </div>
-          <div className={styles.formGroup}>
-            <label>Company Size</label>
-            <select>
-              <option>Select Company Size</option>
-              <option>1–50</option>
-              <option>51–200</option>
-              <option>201–1000</option>
-              <option>1000+</option>
-            </select>
-          </div>
-          <div className={styles.formGroup}>
-            <label>Location</label>
-            <input type="text" placeholder="City / State / Country" />
-          </div>
-        </div>
-      </section>
-
-      {/* === Contact Information === */}
-      <section className={styles.formSection}>
-        <h4>📞 Contact Information</h4>
-        <div className={styles.formGrid}>
-          <div className={styles.formGroup}>
-            <label>Contact Name*</label>
-            <input type="text" placeholder="Your full name" />
-          </div>
-          <div className={styles.formGroup}>
-            <label>Email Address*</label>
-            <input type="email" placeholder="you@company.com" />
-          </div>
-          <div className={styles.formGroupFull}>
-            <label>Phone Number</label>
-            <input type="text" placeholder="+1 000 000 0000" />
-          </div>
-        </div>
-      </section>
-
-      {/* === Hiring Needs === */}
-      <section className={styles.formSection}>
-        <h4>🧾 Hiring Needs</h4>
-        <div className={styles.formGroupFull}>
-          <label>Job Title / Position</label>
           <input
             type="text"
-            placeholder="i.e., Software Engineer, Data Analyst"
+            id="fullName"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+            placeholder="Enter your First Name"
+            required
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
           />
-        </div>
-        <div className={styles.formGrid}>
-          <div className={styles.formGroup}>
-            <label>Salary Range</label>
-            <input type="text" placeholder="₹10,00,000 – ₹18,00,000" />
           </div>
-          <div className={styles.formGroup}>
-            <label>Urgency</label>
-            <select>
-              <option>Select</option>
-              <option>Immediate</option>
-              <option>Within 1 Month</option>
-              <option>Flexible</option>
-            </select>
           </div>
-        </div>
-        <div className={styles.formGroupFull}>
-          <label>Job Description</label>
-          <textarea
-            placeholder="Brief description of the role & requirements"
-            rows={3}
-          />
-        </div>
-        <div className={styles.formGroupFull}>
-          <label>Additional Hiring Needs</label>
-          <textarea
-            placeholder="Any specific requirement or additional information"
-            rows={2}
-          />
-        </div>
-      </section>
 
-      <div className={styles.submitWrapper}>
-        <button type="submit" className={styles.submitButton}>
-          Submit Hiring Request →
-        </button>
+      {/* Email */}
+      <div>
+        <label
+          htmlFor="email"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Email Address
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaEnvelope className="text-gray-400" />
+          </div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your Email"
+            required
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+          />
+        </div>
+          </div>
+
+      {/* Company / School */}
+      <div>
+        <label
+          htmlFor="company"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Company / School <span className="text-gray-400 font-normal">(optional)</span>
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaBuilding className="text-gray-400" />
+          </div>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            placeholder="Enter your Company / School"
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+          />
+        </div>
+          </div>
+
+      {/* Phone */}
+      <div>
+        <label
+          htmlFor="phone"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Phone <span className="text-gray-400 font-normal">(optional)</span>
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaPhone className="text-gray-400" />
+          </div>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Enter your Phone Number"
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+          />
+        </div>
       </div>
+
+      {/* Message */}
+      <div>
+        <label
+          htmlFor="message"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          How can we help?
+        </label>
+          <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Enter Message Here"
+          rows={5}
+          required
+          className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition resize-y"
+        />
+      </div>
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="w-full bg-[#ff4c00] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#e64400] transition-colors duration-200 shadow-md hover:shadow-lg"
+      >
+        Send Message
+      </button>
     </form>
   );
 }

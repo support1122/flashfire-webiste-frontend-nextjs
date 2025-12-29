@@ -1,37 +1,120 @@
 "use client";
 
-import styles from "./contactUs.module.css";
 import ContactForm from "./contactForm";
-import Image from "next/image";
+import { FaEnvelope, FaPhone, FaBuilding, FaUser, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function ContactUsClient() {
   return (
-    <section className={styles.contactSection}>
-      {/* === Left: Fixed Image === */}
-      <div className={styles.leftPanel}>
-        <Image
-          src="/images/partnerWithFF.jpg"
-          alt="Partner with Flashfire"
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className={styles.image}
-          priority
-        />
-        <div className={styles.textOverlay}>
-          <h2>
-            Partner with <span className={styles.brand}>Flashfire</span> to Find
-            Top Talent, Fast.
-          </h2>
-          <p>
-            Flashfire’s AI platform helps you discover, screen, and hire the
-            best talent with <em>speed and precision.</em>
-          </p>
-        </div>
-      </div>
+    <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Top Section: Contact Info + Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  mb-16">
+          {/* Left Panel: Contact Information */}
+          <div className="flex flex-col mt-16 ">
+            <h1 className="text-6xl md:text-7xl font-bold mb-4">
+              Contact{" "}
+              <span className="text-[#ff4c00]">Flashfire</span>
+            </h1>
+            <p className="text-xl text-gray-700 leading-relaxed">
+              We're thrilled to connect! Contact us to learn about our products, get job search tips, or make corporate inquiries anytime.
+            </p>
+          </div>
 
-      {/* === Right: Scrollable Form === */}
-      <div className={styles.rightPanel}>
-        <ContactForm />
+          {/* Right Panel: Contact Form */}
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-orange-100">
+            <ContactForm />
+          </div>
+        </div>
+
+        {/* Bottom Section: Three Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Customer Support */}
+          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              Customer Support
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Got questions? We're just an email away.
+            </p>
+            <div className="flex flex-col gap-2">
+              <a
+                href="mailto:support@flashfirejobs.com"
+                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
+              >
+                SUPPORT@FLASHFIREJOBS.COM
+              </a>
+              <a
+                href="/faq"
+                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
+              >
+                HELP CENTER
+              </a>
+            </div>
+          </div>
+
+          {/* Card 2: Sales Enquiry */}
+          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              Sales Enquiry
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Partner with us to elevate your career solutions.
+            </p>
+            <div className="flex flex-col gap-2">
+              <a
+                href="/get-me-interview"
+                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
+              >
+                SCHEDULE A DEMO
+              </a>
+              <a
+                href="/pricing"
+                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
+              >
+                KNOW MORE
+              </a>
+            </div>
+          </div>
+
+          {/* Card 3: Join our Community */}
+          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              Join our Community
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Join our community for career tips and updates.
+            </p>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.linkedin.com/company/flashfire-pvt-ltd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedinIn className="text-2xl" />
+              </a>
+              <a
+                href="https://www.instagram.com/flashfirejobs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="text-2xl" />
+              </a>
+              <a
+                href="https://www.youtube.com/@flashfireindia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
+                aria-label="YouTube"
+              >
+                <FaYoutube className="text-2xl" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

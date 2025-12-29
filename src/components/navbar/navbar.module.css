@@ -110,13 +110,13 @@
   box-shadow: 0 16px 40px rgba(255, 76, 0, 0.14);
   border-radius: 16px;
   padding: 12px;
-  min-width: 360px;
+  min-width: 600px;
   z-index: 50;
 }
 
 .featureDropdownGrid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
 
@@ -194,7 +194,7 @@
 .featureDropdownFooter {
   display: block;
   margin-top: 12px;
-  padding: 12px 14px;
+  padding: 8px 14px;
   text-align: center;
   background: #ff4c00;
   color: #fff;

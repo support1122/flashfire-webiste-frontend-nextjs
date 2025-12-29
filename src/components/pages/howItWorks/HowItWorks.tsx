@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { RefreshCw, Mail, BarChart3, PhoneCall } from "lucide-react";
+import { RefreshCw, Mail, BarChart3, PhoneCall, FileText, Rocket } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
@@ -87,7 +88,7 @@ const steps = [
     ],
     image: "/images/step2.png",
   },
-
+ 
 ];
 
 const differentiators = [
@@ -211,16 +212,16 @@ export default function HowItWorks() {
           // Check if at least 80% is visible and the section is well-positioned in viewport
           const rect = entry.boundingClientRect;
           const viewportHeight = window.innerHeight;
-
+          
           // Check if section is well-positioned (not too high, not too low)
-          const isWellPositioned =
-            rect.top >= 0 &&
+          const isWellPositioned = 
+            rect.top >= 0 && 
             rect.top <= viewportHeight * 0.3 && // Top of section is in upper 30% of viewport
             rect.bottom >= viewportHeight * 0.6; // Bottom is at least 60% down
-
+          
           if (
-            entry.isIntersecting &&
-            entry.intersectionRatio >= 0.8 &&
+            entry.isIntersecting && 
+            entry.intersectionRatio >= 0.8 && 
             isWellPositioned &&
             !autoPlayCompletedRef.current
           ) {
@@ -261,19 +262,19 @@ export default function HowItWorks() {
       // Advance to next step
       setCurrentStep((prev) => {
         const nextStep = prev + 1;
-
+        
         if (nextStep > 3) {
           // Step 4 (index 3) completed, unlock scrolling
           setIsScrollLocked(false);
           autoPlayCompletedRef.current = true;
           return 3; // Stay on step 4
         }
-
+        
         // Reset the ref after a short delay to allow next scroll attempt
         setTimeout(() => {
           scrollAttemptRef.current = false;
         }, 300);
-
+        
         return nextStep;
       });
     };
@@ -339,7 +340,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <div className="bg-[#fff6f4] text-black min-h-screen">
+    <div className="bg-[#fff6f4] text-black min-h-screen"> 
       <Navbar />
 
       <main className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
@@ -348,7 +349,7 @@ export default function HowItWorks() {
             How it works
           </p>
           <h1 className="mt-3 text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
-            Your shortcut to interview calls
+            Your shortcut to interview calls 
           </h1>
           <p className="mt-4 text-lg text-gray-700 md:text-xl">
             Flashfire turns your long, exhausting job search into a smooth,
@@ -416,7 +417,7 @@ export default function HowItWorks() {
                       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
                         2
                       </div>
-                    </div>
+              </div>
 
                     {/* Line to step 3 */}
                     <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
@@ -468,69 +469,69 @@ export default function HowItWorks() {
             </div>
 
             {/* ================= CARDS ================= */}
-            <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-
-              {/* Card 1 */}
-              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
-                <div className="mb-6 flex justify-center">
-                  <RefreshCw className="h-7 w-7 text-black" strokeWidth={1.5} />
+              {/* Card 1: Resume Tailoring */}
+              <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+                <div className="mb-4 flex justify-center">
+                  <div className="bg-[#10b981] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
+                    <FileText className="h-5 w-5 text-white" strokeWidth={2.5} />
+                              </div>
                 </div>
-                <h3 className="text-lg font-semibold text-black">
-                  Automatically apply to jobs
+                <h3 className="text-lg font-bold text-black mb-3 text-center">
+                  Resume Tailoring
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-gray-600">
-                  Flashfire collects new job postings every day and automatically
-                  applies using ATS-safe resumes. Prefer control? Apply manually.
+                <p className="text-sm leading-relaxed text-gray-700 text-center">
+                  Your resume is customized for each role with role-specific keywords and formatting recruiters love.
                 </p>
+                            </div>
 
-              </div>
-
-              {/* Card 2 */}
-              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
-                <div className="mb-6 flex justify-center">
-                  <Mail className="h-7 w-7 text-black" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-semibold text-black">
-                  Automatically email recruiters
+              {/* Card 2: LinkedIn Optimization */}
+              <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+                <div className="mb-4 flex justify-center">
+                  <div className="bg-[#ff4c00] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
+                    <FaLinkedin className="h-5 w-5 text-white" />
+                            </div>
+                          </div>
+                <h3 className="text-lg font-bold text-black mb-3 text-center">
+                  LinkedIn Optimization
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-gray-600">
-                  We find recruiter emails and send personalised outreach
-                  using proven or custom templates.
+                <p className="text-sm leading-relaxed text-gray-700 text-center">
+                  We rewrite your LinkedIn to stand out in U.S. recruiter searches, using AI-powered keyword matching.
                 </p>
+                        </div>
 
-              </div>
-
-              {/* Card 3 */}
-              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
-                <div className="mb-6 flex justify-center">
-                  <BarChart3 className="h-7 w-7 text-black" strokeWidth={1.5} />
+              {/* Card 3: Smart Job Applications */}
+              <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+                <div className="mb-4 flex justify-center">
+                  <div className="bg-[#8b5cf6] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
+                    <Rocket className="h-5 w-5 text-white" strokeWidth={2.5} />
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-black">
-                  Measure and improve
+                <h3 className="text-lg font-bold text-black mb-3 text-center">
+                  Smart Job Applications
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-gray-600">
-                  Track opens, replies, resume performance and keyword impact
-                  to improve interview conversion.
+                <p className="text-sm leading-relaxed text-gray-700 text-center">
+                  We apply to 1000+ curated jobs that match your goals, location, and visa needs — no spam, just precision.
                 </p>
-
-              </div>
-              {/* Card 4 */}
-              <div className="rounded-xl bg-white px-8 py-12 shadow-md">
-                <div className="mb-6 flex justify-center">
-                  <PhoneCall className="h-7 w-7 text-black" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-semibold text-black">
+
+              {/* Card 4: Get Interview Calls */}
+              <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+                <div className="mb-4 flex justify-center">
+                  <div className="bg-[#ef4444] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
+                    <PhoneCall className="h-5 w-5 text-white" strokeWidth={2.5} />
+                      </div>
+                </div>
+                <h3 className="text-lg font-bold text-black mb-3 text-center">
                   Get Interview Calls
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-gray-600">
-                  Start receiving interview invites as we track and optimize every
-                  application. You focus on prep, we handle the hustle.
+                <p className="text-sm leading-relaxed text-gray-700 text-center">
+                  Start receiving interview invites as we track and optimize every application. You focus on prep, we handle the hustle.
                 </p>
               </div>
 
-
-            </div>
+              </div>
           </div>
         </section>
 
@@ -619,7 +620,7 @@ export default function HowItWorks() {
                 <div
                   key={faq.q}
                   className={`${styles.faqItem} ${activeFaq === index ? styles.active : ""
-                    }`}
+                  }`}
                 >
                   <button
                     className={styles.faqQuestion}

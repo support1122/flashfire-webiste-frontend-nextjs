@@ -1254,6 +1254,95 @@ export default function NavbarClient({ links, ctas }: Props) {
                               </span>
                             </div>
                           </Link>
+
+                          <Link
+                            href={getHref("/features/job-tracker")}
+                            className={styles.featureDropdownItem}
+                            onClick={() => setIsFeatureOpen(false)}
+                          >
+                            <div className={styles.featureIcon}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M12 8V12L15 15" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                            <div className={styles.featureTexts}>
+                              <span className={styles.featureTitle}>
+                                Job Tracker
+                              </span>
+                              <span className={styles.featureSub}>
+                                Track applications
+                              </span>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href={getHref("/features/precision-targeting")}
+                            className={styles.featureDropdownItem}
+                            onClick={() => setIsFeatureOpen(false)}
+                          >
+                            <div className={styles.featureIcon}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <circle cx="12" cy="12" r="6" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <circle cx="12" cy="12" r="2" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                            <div className={styles.featureTexts}>
+                              <span className={styles.featureTitle}>
+                                Precision Targeting
+                              </span>
+                              <span className={styles.featureSub}>
+                                Smart job matching
+                              </span>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href={getHref("/features/dashboard-analytics")}
+                            className={styles.featureDropdownItem}
+                            onClick={() => setIsFeatureOpen(false)}
+                          >
+                            <div className={styles.featureIcon}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3V21H21" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M7 16L12 11L16 15L21 10" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M21 10V3H14" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                            <div className={styles.featureTexts}>
+                              <span className={styles.featureTitle}>
+                                Dashboard & Analytics
+                              </span>
+                              <span className={styles.featureSub}>
+                                Performance insights
+                              </span>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href={getHref("/features/cover-letter")}
+                            className={styles.featureDropdownItem}
+                            onClick={() => setIsFeatureOpen(false)}
+                          >
+                            <div className={styles.featureIcon}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M14 2V8H20" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M16 13H8" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M16 17H8" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M10 9H9H8" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                            <div className={styles.featureTexts}>
+                              <span className={styles.featureTitle}>
+                                Cover Letter Builder
+                              </span>
+                              <span className={styles.featureSub}>
+                                AI-powered writing
+                              </span>
+                            </div>
+                          </Link>
                         </div>
 
                         <Link
@@ -1596,6 +1685,135 @@ export default function NavbarClient({ links, ctas }: Props) {
                                 </span>
                                 <span className={styles.featureSub}>
                                   Auto apply to roles
+                                </span>
+                              </div>
+                            </a>
+
+                            <a
+                              href={getHref("/features/job-tracker")}
+                              className={styles.featureDropdownItemMobile}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsMenuOpen(false);
+                                setIsFeatureOpen(false);
+                                router.push(getHref("/features/job-tracker"));
+                                trackButtonClick("Job Tracker", "navigation", "link", {
+                                  button_location: "navbar_mobile_features",
+                                  navigation_type: "internal_link",
+                                  destination: "/features/job-tracker"
+                                });
+                              }}
+                            >
+                              <div className={styles.featureIcon}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <path d="M12 8V12L15 15" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </div>
+                              <div className={styles.featureTexts}>
+                                <span className={styles.featureTitle}>
+                                  Job Tracker
+                                </span>
+                                <span className={styles.featureSub}>
+                                  Track applications
+                                </span>
+                              </div>
+                            </a>
+
+                            <a
+                              href={getHref("/features/precision-targeting")}
+                              className={styles.featureDropdownItemMobile}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsMenuOpen(false);
+                                setIsFeatureOpen(false);
+                                router.push(getHref("/features/precision-targeting"));
+                                trackButtonClick("Precision Targeting", "navigation", "link", {
+                                  button_location: "navbar_mobile_features",
+                                  navigation_type: "internal_link",
+                                  destination: "/features/precision-targeting"
+                                });
+                              }}
+                            >
+                              <div className={styles.featureIcon}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <circle cx="12" cy="12" r="10" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <circle cx="12" cy="12" r="6" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <circle cx="12" cy="12" r="2" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </div>
+                              <div className={styles.featureTexts}>
+                                <span className={styles.featureTitle}>
+                                  Precision Targeting
+                                </span>
+                                <span className={styles.featureSub}>
+                                  Smart job matching
+                                </span>
+                              </div>
+                            </a>
+
+                            <a
+                              href={getHref("/features/dashboard-analytics")}
+                              className={styles.featureDropdownItemMobile}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsMenuOpen(false);
+                                setIsFeatureOpen(false);
+                                router.push(getHref("/features/dashboard-analytics"));
+                                trackButtonClick("Dashboard & Analytics", "navigation", "link", {
+                                  button_location: "navbar_mobile_features",
+                                  navigation_type: "internal_link",
+                                  destination: "/features/dashboard-analytics"
+                                });
+                              }}
+                            >
+                              <div className={styles.featureIcon}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3 3V21H21" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <path d="M7 16L12 11L16 15L21 10" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <path d="M21 10V3H14" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </div>
+                              <div className={styles.featureTexts}>
+                                <span className={styles.featureTitle}>
+                                  Dashboard & Analytics
+                                </span>
+                                <span className={styles.featureSub}>
+                                  Performance insights
+                                </span>
+                              </div>
+                            </a>
+
+                            <a
+                              href={getHref("/features/cover-letter")}
+                              className={styles.featureDropdownItemMobile}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsMenuOpen(false);
+                                setIsFeatureOpen(false);
+                                router.push(getHref("/features/cover-letter"));
+                                trackButtonClick("Cover Letter Builder", "navigation", "link", {
+                                  button_location: "navbar_mobile_features",
+                                  navigation_type: "internal_link",
+                                  destination: "/features/cover-letter"
+                                });
+                              }}
+                            >
+                              <div className={styles.featureIcon}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <path d="M14 2V8H20" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <path d="M16 13H8" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <path d="M16 17H8" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                  <path d="M10 9H9H8" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </div>
+                              <div className={styles.featureTexts}>
+                                <span className={styles.featureTitle}>
+                                  Cover Letter Builder
+                                </span>
+                                <span className={styles.featureSub}>
+                                  AI-powered writing
                                 </span>
                               </div>
                             </a>
