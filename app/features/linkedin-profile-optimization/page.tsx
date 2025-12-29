@@ -6,7 +6,8 @@ import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import Image from "next/image";
 import { ArrowRight, Check, Copy } from "lucide-react";
-import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 import styles from "@/src/components/homePageDemoCTA/homePageDemoCTA.module.css";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
@@ -16,11 +17,47 @@ export default function LinkedInOptimizationPage() {
   const router = useRouter();
   const pathname = usePathname();
   const [emailCopied, setEmailCopied] = useState(false);
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       // Bypass will be handled by the event listener
     },
   });
+
+  const linkedinOptimizationFAQs = [
+    {
+      question: "What does it mean to optimise a LinkedIn profile for job search success?",
+      answer: "Ans. It means structuring your profile with industry-specific keywords, achievements, and recruiter-friendly formatting to boost visibility."
+    },
+    {
+      question: "How does optimizing your LinkedIn profile help attract recruiters?",
+      answer: "Ans. Optimized profiles rank higher in LinkedIn search results, making it easier for recruiters to find and contact you."
+    },
+    {
+      question: "What are LinkedIn optimization services, and who should use them?",
+      answer: "Ans. They're expert services that rewrite and optimize your profile to increase your chances of getting hired — useful for job seekers at all levels."
+    },
+    {
+      question: "How often should I update my LinkedIn profile for better visibility?",
+      answer: "Ans. Ideally, every 2–3 months or whenever your role, skills, or job goals change. Frequent updates boost algorithm visibility too."
+    },
+    {
+      question: "What is an ATS optimized resume, and why is it important for hiring systems?",
+      answer: "Ans. It's a resume designed to pass Applicant Tracking Systems by using the right format and keywords so recruiters see it."
+    },
+    {
+      question: "How does resume optimization for ATS improve resume shortlisting?",
+      answer: "Ans. It increases match scores with job descriptions, helping your resume appear at the top of recruiter pipelines."
+    },
+    {
+      question: "Should my LinkedIn profile match my ATS optimized resume for better results?",
+      answer: "Ans. Having consistent language, roles, and keywords across both ensures higher trust, better visibility, and more interview calls."
+    }
+  ];
+
+  const handleFaqToggle = (index: number) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
 
   const handleCopyEmail = async () => {
     const email = "support@flashfirejobs.com";
@@ -460,7 +497,42 @@ export default function LinkedInOptimizationPage() {
 
 
       {/* ================= FAQ ================= */}
-      <HomePageFAQ />
+      <section id="faq" className={faqStyles.faqSection}>
+        <div id="faq-header" className={faqStyles.header}>
+          <h2>Question? We Got You Answers.</h2>
+          <p>
+            We get it, LinkedIn optimization can sound complex. Here's everything
+            explained, plain and simple.
+          </p>
+        </div>
+
+        <div className={faqStyles.faqContainer}>
+          {linkedinOptimizationFAQs.map((faq, index) => (
+            <div
+              key={index}
+              className={`${faqStyles.faqItem} ${
+                activeFaqIndex === index ? faqStyles.active : ""
+              }`}
+            >
+              <button
+                className={faqStyles.faqQuestion}
+                onClick={() => handleFaqToggle(index)}
+              >
+                <span>{faq.question}</span>
+                <span className={faqStyles.icon}>
+                  {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
+                </span>
+              </button>
+
+              {activeFaqIndex === index && (
+                <div className={faqStyles.faqAnswer}>
+                  <p>{faq.answer}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ================= FINAL CTA ================= */}
       <section className={styles.demoSectionOuter}>

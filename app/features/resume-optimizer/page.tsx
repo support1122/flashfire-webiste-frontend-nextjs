@@ -19,6 +19,8 @@ import {
   TrendingUp,
   Award,
 } from "lucide-react"
+import { FaPlus, FaTimes } from "react-icons/fa"
+import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css"
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking"
 import { GTagUTM } from "@/src/utils/GTagUTM"
 import { useGeoBypass } from "@/src/utils/useGeoBypass"
@@ -91,6 +93,7 @@ const CardDescription = ({ className = "", children }: { className?: string; chi
 
 export default function Page() {
   const [score, setScore] = useState(82)
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null)
   const router = useRouter()
   const pathname = usePathname()
   const { getButtonProps } = useGeoBypass({
@@ -98,6 +101,73 @@ export default function Page() {
       // Bypass will be handled by the event listener
     },
   })
+
+  const resumeOptimizerFAQs = [
+    {
+      question: "What is an ATS optimized resume, and why do I need one?",
+      answer: "Ans. It's a resume that's formatted and keyword-optimized to pass recruiter software filters, ensuring you're not rejected automatically."
+    },
+    {
+      question: "How does resume optimization for ATS improve my job application success?",
+      answer: "Ans. It increases your visibility in recruiter searches and boosts your chances of getting shortlisted — especially when applying in bulk."
+    },
+    {
+      question: "What is an ATS resume checker, and how does it work?",
+      answer: "Ans. It scans your resume against a job description to assess keyword match, formatting, and readability for Applicant Tracking Systems."
+    },
+    {
+      question: "Is there a resume maker for fresher beginners on FlashFireJobs?",
+      answer: "Ans. Our team builds ATS-compliant resumes even for freshers, highlighting education, projects, and relevant skills with proper structure."
+    },
+    {
+      question: "Which resume builder app is best for creating professional resumes?",
+      answer: "Ans. FlashFireJobs offers a team-built resume service with AI-backed optimization — more powerful than typical drag-and-drop builders."
+    },
+    {
+      question: "Where can I find the best ATS resume checker free online?",
+      answer: "Ans. FlashFireJobs offers a free resume checker as part of our application service. You can also request a manual review."
+    },
+    {
+      question: "Is there an ATS resume checker free tool I can use right now?",
+      answer: "Ans. Users can access resume feedback and ATS alignment checks as part of their FlashFireJobs onboarding."
+    },
+    {
+      question: "What features should I look for in the best free resume builder?",
+      answer: "Ans. Look for tools that include ATS formatting, keyword optimization, PDF export, and tailored suggestions for your field."
+    },
+    {
+      question: "Can I create a resume using a free resume builder AI?",
+      answer: "Ans. FlashFire goes a step beyond by manually optimizing your resume with AI guidance and human input."
+    },
+    {
+      question: "How does a free resume maker AI help me craft a compelling resume?",
+      answer: "Ans. It identifies the right structure, skills, and job keywords, helping you build a resume that's clear, relevant, and compliant."
+    },
+    {
+      question: "What is the best app for resume making for both freshers and experienced candidates?",
+      answer: "Ans. FlashFireJobs supports both — we customize resumes for early-career, mid-level, and senior professionals, tailored to your goals."
+    },
+    {
+      question: "Does FlashFireJobs offer an AI job board to find smart job matches?",
+      answer: "Ans. We scrape jobs based on your preferences, optimize your resume, and apply on your behalf to save 150+ hours."
+    },
+    {
+      question: "How does an AI powered job search help me find jobs faster?",
+      answer: "Ans. AI filters out irrelevant roles and matches you with high-fit jobs, increasing application success and reducing manual effort."
+    },
+    {
+      question: "What is a job search virtual assistant, and how can it simplify my job hunt?",
+      answer: "Ans. It's a human-assisted AI system (like FlashFire) that manages your job hunt end-to-end, from resume to application to tracking."
+    },
+    {
+      question: "Can FlashFireJobs auto apply to jobs and provide job application assistance to streamline my applications?",
+      answer: "Ans. Our team manually applies to 1,200+ jobs on your behalf, using AI-optimized resumes, tracked in a real-time dashboard."
+    }
+  ]
+
+  const handleFaqToggle = (index: number) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index)
+  }
 
   const handleGetMeInterview = () => {
     try {
@@ -615,6 +685,44 @@ export default function Page() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className={styles.faqSection}>
+          <div id="faq-header" className={styles.header}>
+            <h2>Question? We Got You Answers.</h2>
+            <p>
+              We get it, ATS resume optimization can sound complex. Here's everything
+              explained, plain and simple.
+            </p>
+          </div>
+
+          <div className={styles.faqContainer}>
+            {resumeOptimizerFAQs.map((faq, index) => (
+              <div
+                key={index}
+                className={`${styles.faqItem} ${
+                  activeFaqIndex === index ? styles.active : ""
+                }`}
+              >
+                <button
+                  className={styles.faqQuestion}
+                  onClick={() => handleFaqToggle(index)}
+                >
+                  <span>{faq.question}</span>
+                  <span className={styles.icon}>
+                    {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
+                  </span>
+                </button>
+
+                {activeFaqIndex === index && (
+                  <div className={styles.faqAnswer}>
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </section>
 
