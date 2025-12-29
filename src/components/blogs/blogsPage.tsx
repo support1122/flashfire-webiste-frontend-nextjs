@@ -130,14 +130,27 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
         });
       });
 
+      // Add Overview at the top of the TOC if overview text exists
+      const finalToc =
+        overviewText && overviewText.trim().length > 0
+          ? [
+              {
+                title: "Overview",
+                anchor: "overview-section",
+                level: 2,
+              },
+              ...toc,
+            ]
+          : toc;
+
       setProcessedContent(doc.body.innerHTML);
-      setTableOfContents(toc);
+      setTableOfContents(finalToc);
     } catch (error) {
       // Fallback to original content if parsing fails
       setProcessedContent(post.content);
       setTableOfContents([]);
     }
-  }, [post?.content]);
+  }, [post?.content, overviewText]);
 
   // Track active section on scroll
   useEffect(() => {
@@ -556,11 +569,11 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   </div>
                 </div>
                 <div className={styles.dateInfo}>
-                  <span className={styles.dateLabel}>Published:</span>
-                  <time dateTime={post.date} itemProp="datePublished">{post.date}</time>
+                  {/* <span className={styles.dateLabel}>Published:</span> */}
+                  {/* <time dateTime={post.date} itemProp="datePublished">{post.date}</time> */}
                   {post.lastUpdated && post.lastUpdated !== post.date && (
                     <>
-                      <span className={styles.dateSeparator}>|</span>
+                      {/* <span className={styles.dateSeparator}>|</span> */}
                       <span className={styles.dateLabel}>Updated:</span>
                       <time dateTime={post.lastUpdated} itemProp="dateModified">{post.lastUpdated}</time>
                     </>
@@ -571,8 +584,8 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
 
               {/* === BLOG OVERVIEW === */}
               {overviewText && (
-                <div className={styles.overviewBox}>
-                  <h3 className={styles.overviewTitle}> Blog Overview</h3>
+                <div id="overview-section" className={styles.overviewBox}>
+                  {/* <h3 className={styles.overviewTitle}> Blog Overview</h3> */}
                   {overviewParagraphs ? (
                     <div className={styles.overviewText}>
                       <p style={{ marginBottom: '0.75rem' }}>{overviewParagraphs[0]}</p>
@@ -823,6 +836,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
             <a
               href="https://www.flashfirejobs.com"
               target="_blank"
+              
               rel="noopener noreferrer"
               className={styles.ctaButton}
             >

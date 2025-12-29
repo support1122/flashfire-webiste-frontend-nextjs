@@ -322,6 +322,7 @@
   color: #4b5563;
   line-height: 1.6;
   font-size: 0.95rem;
+  text-align: justify;
 }
 
 .overviewText p {
@@ -329,6 +330,7 @@
   color: #4b5563;
   line-height: 1.6;
   font-size: 1.11rem;
+  text-align: justify;
 }
 
 .overviewText p:last-child {
@@ -399,8 +401,8 @@
 }
 
 .tocList {
-  list-style: none;
-  padding: 0;
+  list-style: disc;
+  padding-left: 1.1rem;
   margin: 0;
 }
 
@@ -495,6 +497,7 @@
   line-height: 1.85 !important;
   color: #374151 !important;
   font-size: 1.125rem !important;
+  text-align: justify;
 }
 
 .content ul,

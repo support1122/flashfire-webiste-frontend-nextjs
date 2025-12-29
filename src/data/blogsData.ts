@@ -83,42 +83,45 @@ export const blogPosts = [
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Key Components of a Great Resume</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>Following are the key components of a decent resume:</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Header</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>The header of your resume should include Name, contact details, LinkedIn/portfolio</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Resume Summary or Objective</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>How to write a good resume summary:</strong></p>
-        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+     
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Header</h3>
+       <ul style='margin-left:25px; margin-bottom:12px; line-height:1.6;'>
+        <li>The header of your resume should include Name, contact details, LinkedIn/portfolio</li>
+       </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">  2. Resume Summary or Objective</h3>
+        
+        <p style='margin-bottom:12px; margin-left:20px;  line-height:1.7;'><strong>1. How to write a good resume summary:</strong></p>
+        
+        <ul style='margin-left:25px; margin-bottom:12px; line-height:1.6;'>
           <li>3-4 lines to highlight the profile, your work experience, and your skills</li>
-        </ol>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>Another important component is the objective statement:</strong></p>
-        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        </ul>
+        <p style='margin-bottom:12px; margin-left:25px; line-height:1.7;'><strong>&nbsp;&nbsp;2. Another important component is the objective statement:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Elaborate on how you can add value to the team and your skills.</li>
-        </ol>
+        </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Professional experience and internships</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Professional experience and internships</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Include your job title, location, start date, and end date.</li>
           <li>Include 3-6 bullet points for each role, detailing your achievements and responsibilities. Make sure to quantify your achievements.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Include your projects and academic work.</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Include your projects and academic work.</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Add the project name, tools used, and results.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Education</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. Education</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Include the degree obtained, the name of the institution, the year of graduation, the CGPA (if it is strong), relevant coursework, and any scholarships received.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Skills</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Skills</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Add your hard and soft skills, like communication, teamwork, or leadership skills.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Additional Sections</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Additional Sections</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Include sections for certificates, volunteering, extracurricular activities, published articles, and any other achievements.</li>
         </ul>
@@ -128,33 +131,33 @@ export const blogPosts = [
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Tips on how to write a good Resume</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>Here are actionable tips to write an excellent resume and make it stand out:</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Use a clear, simple format</h3>
-        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Use a clear, simple format</h3>
+        <ul style='margin-left:25px; margin-bottom:12px; line-height:1.6;'>
           <li>Avoid heavy photos, complex tables, or fancy fonts—particularly for ATS.</li>
           <li>Stick to one or two expert fonts and consistent spacing.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to write a good resume headline:</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. How to write a good resume headline:</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Use a quick word beneath your call, e.g., "Entry-level Software Engineer | Java & React."</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Use powerful movement verbs</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Use powerful movement verbs</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Use verbs like "led," "created," "analyzed," "implemented," "designed," "coordinated," and "stepped forward."</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Quantify wherever viable</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Quantify wherever viable</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>"Extended engagement by using 30%," "controlled a group of five," and "analyzed facts from one hundred+ respondents." You should use quantifiable words.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Use key phrases from the process description</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. Use key phrases from the process description</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Important for ATS.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Keep it concise</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Keep it concise</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>1 page for college students and early-career candidates, 1–2 pages for professionals.</li>
         </ul>
@@ -210,29 +213,29 @@ export const blogPosts = [
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs on how to write a good resume for a job</h2>
         
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. How to write a good resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Use a professional and neat layout. Clearly mention each heading, use simple fonts like Arial or Calibri, 10-12 pt, the formatting should be the same throughout, and use bullet points instead of paragraphs. Margins should be between 0.5 and 1 inch, and you shouldn't use a lot of graphics. One page is best for students and people who are just starting out in their careers.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How to write a good resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A.  Use a professional and neat layout. Clearly mention each heading, use simple fonts like Arial or Calibri, 10-12 pt, the formatting should be the same throughout, and use bullet points instead of paragraphs. Margins should be between 0.5 and 1 inch, and you shouldn't use a lot of graphics. One page is best for students and people who are just starting out in their careers.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Where can I get a free resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>You can use Google Docs, Microsoft Word templates, Canva, Indeed Resume Builder, or Zety's free version. Colleges also offer free resume builders.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Where can I get a free resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. You can use Google Docs, Microsoft Word templates, Canva, Indeed Resume Builder, or Zety's free version. Colleges also offer free resume builders.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. How do you make a resume in Google Docs?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>To use a resume template in Google Docs, open the program, click "Template Gallery," choose a template, and replace the placeholder text with your information. Change the fonts and spacing, then save it as a PDF before using it.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How do you make a resume in Google Docs?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. To use a resume template in Google Docs, open the program, click "Template Gallery," choose a template, and replace the placeholder text with your information. Change the fonts and spacing, then save it as a PDF before using it.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. How do you use Microsoft Word to write a resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Click "File" and then "New." Type "resume" into the search box, choose a template, replace the text with your own, and save it as both .docx and .pdf files.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How do you use Microsoft Word to write a resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Click "File" and then "New." Type "resume" into the search box, choose a template, replace the text with your own, and save it as both .docx and .pdf files.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. How many jobs should you put on your resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>List three to five jobs you've had in the last ten to fifteen years that are related to the job you're applying for. Look at recent, relevant jobs that show growth and accomplishments. People who are just starting out in their careers can list all of their relevant jobs.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How many jobs should you put on your resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. List three to five jobs you've had in the last ten to fifteen years that are related to the job you're applying for. Look at recent, relevant jobs that show growth and accomplishments. People who are just starting out in their careers can list all of their relevant jobs.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. How does AI impact the screening of resumes?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Before people look at resumes, ATS software scans them for keywords and formatting. Make sure each resume matches the job description and is easy to read so that automated screening can pass it.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How does AI impact the screening of resumes?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Before people look at resumes, ATS software scans them for keywords and formatting. Make sure each resume matches the job description and is easy to read so that automated screening can pass it.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Should I put my address on my CV?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>No. To show where you are while keeping your privacy, just list your city and state. Instead, write "Open to Remote Work" for jobs that can be done from home.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Should I put my address on my CV?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. No. To show where you are while keeping your privacy, just list your city and state. Instead, write "Open to Remote Work" for jobs that can be done from home.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. What kind and size of file should I use?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>To preserve the formatting, save as a PDF (unless you are told to do something else). File size should be less than 1 MB. Provide your file a name that makes sense, like "FirstName_LastName_Resume.pdf."</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. What kind and size of file should I use?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A .To preserve the formatting, save as a PDF (unless you are told to do something else). File size should be less than 1 MB. Provide your file a name that makes sense, like "FirstName_LastName_Resume.pdf."</p>
       `,
   },
   {
@@ -319,12 +322,12 @@ export const blogPosts = [
         <p style='margin-bottom:12px; line-height:1.7;'>If you work in a field where there is a lot of competition, like civil engineering or computer science, take online classes, get certifications, or do side projects that show you are willing to learn and grow.</p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Improve Your Chances of Getting a Job?</h2>
-        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li style='margin-bottom:8px;'><strong>Network on Purpose:</strong> Go to job fairs and industry events, and connect with experts on LinkedIn. Many jobs are filled by referrals before they are even advertised.</li>
           <li style='margin-bottom:8px;'><strong>Utilize Google Maps:</strong> Identify local businesses in your field and directly submit your resume to them. Smaller businesses often post job openings on their websites to avoid the flood of applicants on big job boards.</li>
           <li style='margin-bottom:8px;'><strong>ATS optimization:</strong> Make sure your resume is ATS optimized and contains all the keywords.</li>
           <li style='margin-bottom:8px;'><strong>Research the company:</strong> Research the company you are interviewing for, and if rejected, send an mail asking for feedback and for any future postings.</li>
-        </ol>
+        </ul>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">When Will the Job Market Get Better?</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>The big question on everyone's mind is: when will the job market get better or will this situation stay the same?</p>
@@ -347,35 +350,35 @@ export const blogPosts = [
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQ</h2>
         
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Why is it so hard to find work if you don't have any experience?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Employers look for people who have some work experience, even if it isn't official. To prove that you can do the job, focus on internships, volunteer work, and skills that can be used in other jobs.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work if you don't have any experience?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Employers look for people who have some work experience, even if it isn't official. To prove that you can do the job, focus on internships, volunteer work, and skills that can be used in other jobs.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Why is it so hard to find work even if you have a degree?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Just because you have a degree doesn't mean you'll get a job. Employers care more about how well someone fits in with the culture, their skills, and their experience than their credentials. Many graduates end up doing jobs that have nothing to do with what they studied.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work even if you have a degree?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Just because you have a degree doesn't mean you'll get a job. Employers care more about how well someone fits in with the culture, their skills, and their experience than their credentials. Many graduates end up doing jobs that have nothing to do with what they studied.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Why is it so hard to find work?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>There are a lot of rounds in the process, ATS screening, but not much feedback. This makes things take longer and be more of a pain.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. There are a lot of rounds in the process, ATS screening, but not much feedback. This makes things take longer and be more of a pain.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Why do employers have such high standards?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Companies don't want to hire the wrong people, especially when the economy is bad. They make the hiring process long to find people who meet all of their needs, even for entry-level jobs.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why do employers have such high standards?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Companies don't want to hire the wrong people, especially when the economy is bad. They make the hiring process long to find people who meet all of their needs, even for entry-level jobs.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. How is the job market doing?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>The job market is made up of the number of jobs, the number of people looking for work, and the rules for hiring people.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How is the job market doing?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. The job market is made up of the number of jobs, the number of people looking for work, and the rules for hiring people.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Why is it so hard to get a job?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Since 2023, it's been much harder to find a job because there are fewer openings, more people applying for each job, ghost jobs, layoffs from hiring too many people, and ATS screening.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to get a job?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Since 2023, it's been much harder to find a job because there are fewer openings, more people applying for each job, ghost jobs, layoffs from hiring too many people, and ATS screening.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Do workers have a lot of work to do?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Not at this time. The US is currently in a "low-hire, low-fire" phase, which means that employers are in charge.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Do workers have a lot of work to do?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Not at this time. The US is currently in a "low-hire, low-fire" phase, which means that employers are in charge.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. How will the job market change?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Policy changes, interest rates, and events happening around the global market all results in the change of the job market.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How will the job market change?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Policy changes, interest rates, and events happening around the global market all results in the change of the job market.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. Why is it hard to find a job?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>Businesses are being careful because the economy isn't stable, costs are high, and growth is slow. A lot of people are putting off hiring new people or only hiring people when they really need them.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it hard to find a job?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. Businesses are being careful because the economy isn't stable, costs are high, and growth is slow. A lot of people are putting off hiring new people or only hiring people when they really need them.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. How many people who graduated from college are now unemployed?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>By the end of 2025, the unemployment rate will be approximately 4.2%</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How many people who graduated from college are now unemployed?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A. By the end of 2025, the unemployment rate will be approximately 4.2%</p>
       `,
   },
   {
@@ -4353,7 +4356,7 @@ export const blogPosts = [
     </blockquote>
 
     <h2>Tips to Maximize Loan ROI</h2>
-    <ol>
+    <ul>
       <li><strong>Plan early:</strong> Research programs with strong internship-to-job pathways</li>
       <li><strong>Negotiate salary:</strong> Don't settle; your loan is an investment</li>
       <li><strong>Side projects & certifications:</strong> Boost employability and justify ROI</li>
@@ -4620,7 +4623,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Those words stayed with me.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>That night, I made a list of every single thing I was doing and asked myself three questions for each:</p>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>Do I genuinely enjoy this?</li>
       <li>Does it help me grow or teach me something new?</li>
       <li>Can I sustain it without burning out?</li>
@@ -5065,7 +5068,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>In an era where résumés are filtered by algorithms and applications are buried under thousands of identical submissions, referrals remain one of the few human currencies recruiters still trust. They cut through the noise, offering something no keyword or cover letter can — credibility.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>When a current employee refers a candidate, it tells the recruiter three important things:</p>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>This person has already been vetted. Someone inside the company is willing to put their name behind them.</li>
       <li>They understand our culture. Referred candidates often mirror the mindset and values of those already thriving in the organization.</li>
       <li>They reduce hiring risk. Every wrong hire costs time, money, and morale — referrals make that risk smaller.</li>
@@ -5409,7 +5412,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>If you're an international student, use your OPT and CPT windows strategically. Focus on companies that value diversity and measurable contribution — not just work authorization. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire's</a> own placement insights show that employers increasingly prioritize value over paperwork.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Your 90-Day Pivot Plan</h2>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>Choose one field from the list that excites you.</li>
       <li>Complete one hands-on project to prove skill, not theory.</li>
       <li>Update your résumé and LinkedIn to reflect that direction.</li>
@@ -5623,7 +5626,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What "Great for International Students" Really Means</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>From our data, the best universities share four common traits:</p>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li><strong>Hands-on U.S. experience:</strong> Co-ops and long internships that convert to full-time roles.</li>
       <li><strong>Transparency:</strong> Public outcome dashboards that show real hiring data.</li>
       <li><strong>Employer access:</strong> Cities like Boston, Austin, NYC, and Atlanta drive opportunity density.</li>
@@ -5631,7 +5634,7 @@ export const blogPosts = [
     </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Flashfire Framework: Choosing the Right University</h2>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>Visit the school's Career Outcomes page.</li>
       <li>Review metrics: time-to-offer, salary, and top employers.</li>
       <li>Check for STEM designation and CPT/OPT timelines.</li>
@@ -5902,7 +5905,7 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>An informational interview is a brief conversation with someone in your target field to learn about their career path, challenges, and advice.</p>
 
     <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Steps to succeed:</h4>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>Introduce yourself briefly with your background and goals</li>
       <li>Highlight a shared connection or network</li>
       <li>Request 15–20 minutes to discuss their career journey</li>
@@ -6089,7 +6092,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Tailoring for International Students</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>As an international student, your resume should answer two unspoken recruiter questions:</p>
     
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>Can you legally work in the U.S.?</li>
       <li>Do you have relevant U.S.-based experience?</li>
     </ul>
@@ -6715,7 +6718,7 @@ export const blogPosts = [
     </ul>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. How Flashfire Turns Chaos Into Strategy</h2>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li><strong>Smart Targeting:</strong> Curates roles by visa eligibility, recency, skill match</li>
       <li><strong>AI-Optimized Resumes:</strong> Injects ATS keywords per description</li>
       <li><strong>Automated Submissions:</strong> 30–35/day for consistent volume</li>
@@ -6962,7 +6965,7 @@ export const blogPosts = [
     <p>Rohan (Energy + AI minor) used Flashfire to target 800+ grid roles; now in battery storage analytics. Sara (Applied AI for Health) is in digital health bridging ML and patient safety.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Choose Strategically</h2>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>Use BLS/DOE trends, not headlines</li>
       <li>Pair majors with complementary skills (AI+Health, Energy+Data)</li>
       <li>Ship one portfolio project per term</li>
@@ -7085,7 +7088,7 @@ export const blogPosts = [
 
     <p>Collaboration replaced competition in three key ways:</p>
 
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li><strong>AI as a career strategist:</strong> helping students choose where to focus their effort based on data, not guesswork.</li>
       <li><strong>AI as a storyteller:</strong> transforming technical experience into recruiter-friendly language.</li>
       <li><strong>AI as a support system:</strong> automating repetitive tasks — so students could focus on interviews, not spreadsheets.</li>
@@ -7460,7 +7463,7 @@ export const blogPosts = [
 
     <p>This disparity exists because six-figure entry-level salaries depend on three levers:</p>
 
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li>Industry demand (Tech, AI, Cloud, Finance)</li>
       <li>Skill specialization (e.g., Python, AWS, Machine Learning, React)</li>
       <li>Company and location (Big Tech hubs like Seattle, Austin, San Francisco, and New York)</li>
@@ -7735,7 +7738,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Redefining “Career Success” for International Graduates</h2>
     <p>For an international graduate, success extends beyond the first job. It includes:</p>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li><strong>Employability:</strong> Finding degree-relevant work fast.</li>
       <li><strong>Visa Flexibility:</strong> Sufficient time and options to gain experience.</li>
       <li><strong>Sponsorship Support:</strong> Employers willing to invest in visas.</li>
@@ -7982,11 +7985,11 @@ export const blogPosts = [
     <p>The real risk is not <em>that</em> you negotiate — it’s <em>how</em> you negotiate.</p>
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Flashfire’s Simple Negotiation Framework</h2>
     <p>Use this three-step structure for email or live conversations:</p>
-    <ol class="list-decimal ml-6 my-3">
+    <ul class="list-decimal ml-6 my-3">
       <li><strong>Express appreciation</strong> for the offer and the opportunity.</li>
       <li><strong>Briefly reinforce your value</strong> — skills, experience, or alignment with the role.</li>
       <li><strong>Make a specific, data-backed request</strong> for base salary or total compensation.</li>
-    </ol>
+    </ul>
     <p>Here’s a template you can adapt:</p>
     <pre style="white-space:pre-wrap; background:#0f172a; color:#e5e7eb; padding:14px; border-radius:8px; font-size:0.9rem;">
 Subject: Offer Discussion
