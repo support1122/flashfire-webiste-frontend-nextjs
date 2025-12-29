@@ -1,121 +1,217 @@
 "use client";
 
-import ContactForm from "./contactForm";
-import { FaEnvelope, FaPhone, FaBuilding, FaUser, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
+import { useState } from "react";
+import { FaUser, FaEnvelope, FaBuilding, FaPhone } from "react-icons/fa";
 
-export default function ContactUsClient() {
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setSuccess(false);
+    setLoading(true);
+
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+    if (!baseUrl) {
+      console.error("NEXT_PUBLIC_API_BASE_URL is not set");
+      setError("Configuration error. Please contact support.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(`${baseUrl}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && (response.status === 200 || response.status === 201)) {
+        setSuccess(true);
+        setFormData({
+          fullName: "",
+          email: "",
+          company: "",
+          phone: "",
+          message: "",
+        });
+        // Reset success message after 5 seconds
+        setTimeout(() => setSuccess(false), 5000);
+      } else {
+        setError(result?.error || result?.message || "Failed to submit form. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Top Section: Contact Info + Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  mb-16">
-          {/* Left Panel: Contact Information */}
-          <div className="flex flex-col mt-16 ">
-            <h1 className="text-6xl md:text-7xl font-bold mb-4">
-              Contact{" "}
-              <span className="text-[#ff4c00]">Flashfire</span>
-            </h1>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              We're thrilled to connect! Contact us to learn about our products, get job search tips, or make corporate inquiries anytime.
-            </p>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Full Name */}
+      <div>
+        <label
+          htmlFor="fullName"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Your Full Name
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaUser className="text-gray-400" />
+          </div>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+            placeholder="Enter your First Name"
+            required
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+          />
+          </div>
           </div>
 
-          {/* Right Panel: Contact Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 border border-orange-100">
-            <ContactForm />
+      {/* Email */}
+      <div>
+        <label
+          htmlFor="email"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Email Address
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaEnvelope className="text-gray-400" />
           </div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your Email"
+            required
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+          />
         </div>
-
-        {/* Bottom Section: Three Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: Customer Support */}
-          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Customer Support
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Got questions? We're just an email away.
-            </p>
-            <div className="flex flex-col gap-2">
-              <a
-                href="mailto:support@flashfirejobs.com"
-                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
-              >
-                SUPPORT@FLASHFIREJOBS.COM
-              </a>
-              <a
-                href="/faq"
-                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
-              >
-                HELP CENTER
-              </a>
-            </div>
           </div>
 
-          {/* Card 2: Sales Enquiry */}
-          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Sales Enquiry
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Partner with us to elevate your career solutions.
-            </p>
-            <div className="flex flex-col gap-2">
-              <a
-                href="/get-me-interview"
-                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
-              >
-                SCHEDULE A DEMO
-              </a>
-              <a
-                href="/pricing"
-                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
-              >
-                KNOW MORE
-              </a>
-            </div>
+      {/* Company / School */}
+      <div>
+        <label
+          htmlFor="company"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Company / School <span className="text-gray-400 font-normal">(optional)</span>
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaBuilding className="text-gray-400" />
+          </div>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            placeholder="Enter your Company / School"
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+          />
+        </div>
           </div>
 
-          {/* Card 3: Join our Community */}
-          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Join our Community
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Join our community for career tips and updates.
-            </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/company/flashfire-pvt-ltd/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn className="text-2xl" />
-              </a>
-              <a
-                href="https://www.instagram.com/flashfirejobs/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
-                aria-label="Instagram"
-              >
-                <FaInstagram className="text-2xl" />
-              </a>
-              <a
-                href="https://www.youtube.com/@flashfireindia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
-                aria-label="YouTube"
-              >
-                <FaYoutube className="text-2xl" />
-              </a>
-            </div>
+      {/* Phone */}
+      <div>
+        <label
+          htmlFor="phone"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Phone <span className="text-gray-400 font-normal">(optional)</span>
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FaPhone className="text-gray-400" />
           </div>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Enter your Phone Number"
+            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+          />
         </div>
       </div>
-    </section>
+
+      {/* Message */}
+      <div>
+        <label
+          htmlFor="message"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          How can we help?
+        </label>
+          <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Enter Message Here"
+          rows={5}
+          required
+          className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition resize-y"
+        />
+      </div>
+
+      {/* Error Message */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          {error}
+        </div>
+      )}
+
+      {/* Success Message */}
+      {success && (
+        <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+          Thank you for contacting us! We'll get back to you soon.
+        </div>
+      )}
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-[#ff4c00] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#e64400] transition-colors duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {loading ? "Sending..." : "Send Message"}
+      </button>
+    </form>
   );
 }
