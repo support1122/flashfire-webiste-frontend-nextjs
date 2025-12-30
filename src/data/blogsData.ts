@@ -254,7 +254,7 @@ export const blogPosts = [
       bio: "Career coach specializing in job search strategies for international students and new graduates.",
     },
     image:
-      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767101989/Screenshot_2025-12-30_190535_zqke1j.png",
+      "https://res.cloudinary.com/drcka8x04/image/upload/v1767125164/blog_thumbnails-51_ga1fa6.jpg",
     categoryColor: "bg-green-100 text-green-600",
     content: `
 
