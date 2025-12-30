@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
-import LinkedInOptimizationContent from "./LinkedInOptimizationContent";
+import LinkedInOptimizationContent from "@/src/components/linkedin/LinkedInOptimizationContent"; // ✅ FIXED path
 
 export const metadata: Metadata = {
   title: "LinkedIn Optimization Services | Optimize Your LinkedIn Profile",
