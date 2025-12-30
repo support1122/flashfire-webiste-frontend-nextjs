@@ -90,16 +90,26 @@ export default function PrecisionTargetingPage() {
         window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
       }
 
-      // If on precision targeting page, change URL but keep page content visible
+      // If on precision targeting features page, change URL but keep page content visible
       if (isOnPrecisionTargetingPage) {
+        const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+        
+        // Update URL for tracking without navigation
         if (typeof window !== 'undefined') {
-          const currentScrollY = window.scrollY;
-          sessionStorage.setItem('previousPageBeforeGetMeInterview', normalizedPath);
-          sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+          const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
+          window.history.pushState({}, '', targetPath);
         }
-
-        const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
-        router.replace(targetPath);
+        
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+            setTimeout(() => {
+              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+            }, 50);
+          });
+        });
+        
         return;
       }
 
@@ -107,6 +117,9 @@ export default function PrecisionTargetingPage() {
       if (typeof window !== 'undefined') {
         const currentScrollY = window.scrollY;
         sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+        
+        const targetPath = '/get-me-interview';
+        window.history.pushState({}, '', targetPath);
       }
 
       // Only navigate if NOT already on the page

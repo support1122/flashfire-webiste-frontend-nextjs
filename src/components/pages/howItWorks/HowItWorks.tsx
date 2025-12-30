@@ -406,7 +406,7 @@ export default function HowItWorks() {
                     <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
 
                     <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
-                      Create your profile and upload your CV
+                      Share your personal details with us
                     </p>
                   </div>
 
@@ -423,8 +423,7 @@ export default function HowItWorks() {
                     <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
 
                     <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
-                      Select your desired job titles, locations and many other optional
-                      settings
+                      Team will work upon your resume + LinkedIn opt + cover letter
                     </p>
                   </div>
 
@@ -441,8 +440,7 @@ export default function HowItWorks() {
                     <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
 
                     <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
-                      Flashfire will search for jobs and either apply on your behalf or give
-                      you total control of your applications
+                      Team will submit 30-40 applications per day with optimized resume
                     </p>
                   </div>
 
@@ -456,8 +454,7 @@ export default function HowItWorks() {
                     </div>
 
                     <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
-                    Start receiving interview calls from relevant job opportunities
-
+                      You will receive the interview calls and assessments
                     </p>
                   </div>
 
