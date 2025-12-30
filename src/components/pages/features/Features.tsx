@@ -2,6 +2,7 @@
 
 import { useState, memo, useMemo } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { FaPlus, FaTimes, FaWhatsapp, FaBrain, FaFileAlt, FaLinkedin, FaBullseye, FaBolt, FaChartBar } from "react-icons/fa"
 import { questionsData } from "@/src/data/questionsData"
@@ -10,42 +11,56 @@ import FlashfireLogo from "@/src/components/FlashfireLogo"
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking"
 import { GTagUTM } from "@/src/utils/GTagUTM"
 
-const features = [
+type FeatureItem = {
+  title: string
+  description: string
+  icon: any
+  href: string
+}
+
+const features: FeatureItem[] = [
   {
     title: "AI-Powered Matching",
     description:
       "For each and every application, your base resume is automatically optimized to the job description with ATS-friendly keywords and skills.",
     icon: FaBrain,
+    // Best match with existing feature page
+    href: "/features/job-automation",
   },
   {
     title: "Dynamic Resume Optimization",
     description:
-      "We build your base resume from scratch and tailor it for each job, making it ATS-friendly and recruiter-visible.",
+      "We build your base resume from scratch and tailor it for each job, making it ATS-friendly and recruiter-visible.we also provide you with a personalized job strategy for US & Canada roles.",
     icon: FaFileAlt,
+    href: "/features/resume-optimizer",
   },
   {
     title: "LinkedIn Profile Optimization",
     description:
-      "We professionally optimize your LinkedIn profile to boost recruiter visibility and align with your job search goals.",
+      "We professionally optimize your LinkedIn profile to boost recruiter visibility and align with your job search goals.it also includes a personalized job strategy for US & Canada roles.",
     icon: FaLinkedin,
+    href: "/features/linkedin-profile-optimization",
   },
   {
     title: "Precision Targeting",
     description:
       "We only apply to jobs that fit your pay, location, company size, and career goals — and only to jobs posted in the last 24–48 hours.",
     icon: FaBullseye,
+    href: "/features/precision-targeting",
   },
   {
     title: "Lightning Fast Applications",
     description:
       "A dedicated team of 4–5 people handles your job hunt, applying to 1200+ roles in 6–7 weeks. We'll keep you posted with every update in a WhatsApp group made just for you.",
     icon: FaBolt,
+    href: "/features/job-tracker",
   },
   {
     title: "Dashboard & Analytics",
     description:
       "Access a personalized dashboard to track applications, monitor success rates, and get real-time insights to improve your job search strategy.",
     icon: FaChartBar,
+    href: "/features/dashboard-analytics",
   },
 ]
 
@@ -64,7 +79,7 @@ const steps = [
     title: "STEP 2",
     subtitle: "We build your winning profile.",
     description:
-      "We make your resume from scratch and optimize LinkedIn to match top U.S. recruiter searches. Your profile starts showing up where it matters, on the right screens.",
+      "We make your resume from scratch and optimize LinkedIn to match top U.S. recruiter searches. Your profile starts showing up where it matters, on the right screens. We also provide you with a personalized job strategy for US & Canada roles.",
     image: "/images/step2.png",
     position: "left",
   },
@@ -73,7 +88,7 @@ const steps = [
     title: "STEP 3",
     subtitle: "Flashfire AI applies for you.",
     description:
-      "We apply to 1000+ curated roles for you, based on your goals and visa needs. No spam, no mass blasts, only smart, targeted applications.",
+      "We apply to 1000+ curated roles for you, based on your goals and visa needs. No spam, no mass blasts, only smart, targeted applications. If you are eligible for the role, we will apply for you.",
     image: "/images/step3.png",
     position: "right",
   },
@@ -92,6 +107,14 @@ function Features() {
   const pathname = usePathname()
   const router = useRouter()
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
+  
+  const isCanadaContext = pathname.startsWith("/en-ca")
+  const prefix = isCanadaContext ? "/en-ca" : ""
+
+  const getHref = (href: string) => {
+    if (href.startsWith("http")) return href
+    return `${prefix}${href}`
+  }
   
   // Memoize FAQ data to prevent re-computation
   const faqData = useMemo(() => questionsData.slice(0, 6), [])
@@ -197,8 +220,8 @@ function Features() {
       <header className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-[#fffaf7] py-24 ">
   <div className="mx-auto max-w-4xl text-center px-4">
 
-    <h1 className="text-4xl md:text-5xl font-extrabold text-[#ff4c00] mb-6 leading-tight">
-      Everything you need to get interviews — automated.
+    <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-10 leading-tight">
+      Everything you need to get interviews — <span className="text-[#ff4c00]">automated</span>
     </h1>
 
     <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">
@@ -324,24 +347,29 @@ function Features() {
             {features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
-                <article
+                <Link
                   key={index}
-                  className="group bg-white border border-[#ff4c00]/50 border-b-4 border-b-[#ff4c00] rounded-lg p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  href={getHref(feature.href)}
+                  className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-[#f9e8e0] rounded-lg"
                 >
-                  {/* Icon Container */}
-                  <div className="mb-4 flex items-center justify-start">
-                    <div className="bg-gradient-to-br from-[#ff4c00] to-[#ff6b2b] p-3 rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
-                      <IconComponent className="text-white text-2xl" />
+                  <article
+                    className="bg-white border border-[#ff4c00]/50 border-b-4 border-b-[#ff4c00] rounded-lg p-6 text-left shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                  >
+                    {/* Icon Container */}
+                    <div className="mb-4 flex items-center justify-start">
+                      <div className="bg-gradient-to-br from-[#ff4c00] to-[#ff6b2b] p-3 rounded-xl shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-110">
+                        <IconComponent className="text-white text-2xl" />
+                      </div>
                     </div>
-                  </div>
-                  
-                  <h3 className="mb-3 text-xl font-bold text-[#ff4c00] md:text-2xl group-hover:text-[#e24300] transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
-                    {feature.description}
-                  </p>
-                </article>
+                    
+                    <h3 className="mb-3 text-xl font-bold text-[#ff4c00] md:text-2xl group-hover:text-[#e24300] transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+                    <p className="text-base leading-relaxed text-gray-700">
+                      {feature.description}
+                    </p>
+                  </article>
+                </Link>
               );
             })}
           </div>

@@ -83,6 +83,7 @@ export default function Footer() {
                 QUICK ACCESS
               </h4>
               <div className="flex flex-col gap-1.5 max-[480px]:gap-1">
+                <Link href={getHref("/job-search")} className={linkClass}>Job Search</Link>
                 <Link href={getHref("/features")} className={linkClass}>Features</Link>
                 <Link href={getHref("/testimonials")} className={linkClass}>Testimonials</Link>
                 <Link href={getHref("/pricing")} className={linkClass}>Pricing</Link>
@@ -110,6 +111,19 @@ export default function Footer() {
                 >
                   LinkedIn Optimization
                 </Link>
+                <Link href={getHref("/features/job-tracker")} className={linkClass}>
+                  Job Tracker
+                </Link>
+                <Link href={getHref("/features/cover-letter")} className={linkClass}>
+                  Cover Letter Builder
+                </Link>
+                <Link href={getHref("/features/precision-targeting")} className={linkClass}>
+                Precision Targeting
+                </Link>
+                <Link href={getHref("/features/dashboard-analytics")} className={linkClass}>
+                Dashboard & Analytics
+                </Link>
+
               <Link href={getHref("/contact-us")} className={linkClass}>
                 Contact Us
               </Link>

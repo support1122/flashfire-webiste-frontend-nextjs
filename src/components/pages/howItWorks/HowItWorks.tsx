@@ -103,23 +103,23 @@ const differentiators = [
 const faqs = [
   {
     q: "Does Flashfire really apply for jobs automatically?",
-    a: "Ans: Yes. From form filling to resume tailoring, each application is automated and tracked.",
+    a: " Yes. From form filling to resume tailoring, each application is automated and tracked.",
   },
   {
     q: "Will Flashfire help me get interview calls?",
-    a: "Ans: That is the core purpose of the platform—targeted, optimized applications that convert to interviews.",
+    a: " That is the core purpose of the platform—targeted, optimized applications that convert to interviews.",
   },
   {
     q: "Does Flashfire work for OPT/CPT students?",
-    a: "Ans: Absolutely. We were built around visa-friendly job matching for OPT, CPT, STEM OPT, and H-1B paths.",
+    a: " Absolutely. We were built around visa-friendly job matching for OPT, CPT, STEM OPT, and H-1B paths.",
   },
   {
     q: "How fast can I expect interview calls?",
-    a: "Ans: Most students begin receiving responses within 2–6 weeks, depending on their profile and target roles.",
+    a: " Most students begin receiving responses within 2–6 weeks, depending on their profile and target roles.",
   },
   {
     q: "Is my data secure?",
-    a: "Ans: Yes. Your data is encrypted and never shared with third parties.",
+    a: " Yes. Your data is encrypted and never shared with third parties.",
   },
 ];
 

@@ -4,6 +4,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import HomePage from "@/src/components/pages/home/Home";
 import AboutUs from "@/src/components/pages/aboutUs/AboutUs";
 import Features from "@/src/components/pages/features/Features";
+import ContactUsClient from "@/src/components/contactUs/contactUsClient";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import dynamic from "next/dynamic";
@@ -38,6 +39,10 @@ const DashboardAnalyticsPage = dynamic(() => import("@/app/features/dashboard-an
 });
 
 const CoverLetterPage = dynamic(() => import("@/app/features/cover-letter/page"), {
+  ssr: false,
+});
+
+const JobSearchPage = dynamic(() => import("@/app/job-search/page"), {
   ssr: false,
 });
 
@@ -144,6 +149,22 @@ export default function GetMeInterviewPage() {
     if (previousPage === '/features/cover-letter' ||
         previousPage === '/en-ca/features/cover-letter') {
         return <CoverLetterPage />;
+    }
+
+    if (previousPage === '/job-search' ||
+        previousPage === '/en-ca/job-search') {
+        return <JobSearchPage />;
+    }
+
+    if (previousPage === '/contact-us' ||
+        previousPage === '/en-ca/contact-us') {
+        return (
+            <>
+                <Navbar />
+                <ContactUsClient />
+                <Footer />
+            </>
+        );
     }
 
     return <HomePage />;
