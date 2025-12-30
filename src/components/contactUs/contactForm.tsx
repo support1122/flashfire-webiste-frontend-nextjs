@@ -10,13 +10,14 @@ export default function ContactForm() {
     company: "",
     phone: "",
     message: "",
+    workAuthorization: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({
       ...formData,
@@ -80,6 +81,7 @@ export default function ContactForm() {
           company: "",
           phone: "",
           message: "",
+          workAuthorization: "",
         });
         // Reset success message after 5 seconds
         setTimeout(() => setSuccess(false), 5000);
@@ -192,6 +194,28 @@ export default function ContactForm() {
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
           />
         </div>
+      </div>
+
+      {/* Work Authorization */}
+      <div>
+        <label
+          htmlFor="workAuthorization"
+          className="block text-sm font-semibold text-gray-700 mb-2"
+        >
+          Work Authorization <span className="text-gray-400 font-normal">(optional)</span>
+        </label>
+        <select
+          id="workAuthorization"
+          name="workAuthorization"
+          value={formData.workAuthorization}
+          onChange={handleChange}
+          className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff4c00] focus:border-[#ff4c00] outline-none transition"
+        >
+          <option value="">Select work authorization status</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="pending">Pending</option>
+        </select>
       </div>
 
       {/* Message */}

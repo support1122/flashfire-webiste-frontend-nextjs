@@ -288,7 +288,7 @@ export default function CalendlyModal({
 
   return (
     <div
-      className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center w-full"
+      className="fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center w-full"
       style={{ display: isVisible ? "flex" : "none" }}
       onClick={onClose}
     >

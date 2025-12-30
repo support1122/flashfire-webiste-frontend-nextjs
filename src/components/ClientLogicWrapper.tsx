@@ -176,27 +176,22 @@ function ClientLogicWrapperContent({
         // This allows modal to show on testimonials page while keeping that page visible
         // IMPORTANT: Check this BEFORE geoLoading check so modal can show immediately
         if (forceShowModal) {
-            setForceShowModal(false); // Reset the flag
-            modalDismissedForRouteRef.current = null; // Reset dismissed state
+            setForceShowModal(false);
+            modalDismissedForRouteRef.current = null;
             
-            // Save scroll position before opening modal to prevent scroll-to-top
             const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
             
-            // Show geo-block modal if from India (and geo detection is done), otherwise show Calendly modal
-            // If geoLoading is still true, default to showing Calendly modal
             if (!geoLoading && isFromIndia && !geoBypassActive) {
                 setShowGeoBlockModal(true);
                 setShowCalendlyModal(false);
                 setShowSignupModal(false);
             } else {
-                // Show Calendly modal for book-my-demo-call functionality
-                const savedFormData = loadFormData();
+                loadFormData();
                 setShowCalendlyModal(true);
                 setShowSignupModal(false);
                 setShowGeoBlockModal(false);
             }
             
-            // Restore scroll position after modal opens to prevent scroll-to-top
             if (typeof window !== 'undefined' && currentScrollY > 0) {
                 requestAnimationFrame(() => {
                     window.scrollTo({ top: currentScrollY, behavior: 'instant' });
@@ -209,7 +204,7 @@ function ClientLogicWrapperContent({
                 });
             }
             
-            return; // Don't process route-based logic when showing modal from button click
+            return;
         }
 
         // Don't do anything else while loading geo info
