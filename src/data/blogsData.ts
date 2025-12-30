@@ -15,7 +15,7 @@ export const blogPosts = [
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
     image:
-      "https://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webp",
+      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767101831/Screenshot_2025-12-30_190459_rzd2qb.png",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
         
@@ -61,7 +61,7 @@ export const blogPosts = [
           <li>To write a solid resume with no job experience, replace work experience with internships, tasks, volunteering, or applicable coursework.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Educational Information</h3>
+        <h3 class="text-xl font-semibold texhttps://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webpt-gray-800 mt-6 mb-2">4. Educational Information</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Please provide your degree, the name of the university, its location, your graduation year, and any key achievements.</li>
         </ul>
@@ -254,7 +254,7 @@ export const blogPosts = [
       bio: "Career coach specializing in job search strategies for international students and new graduates.",
     },
     image:
-      "https://res.cloudinary.com/drit9nkha/image/upload/v1752832446/46d07f8b-261d-49cf-b140-5eaf609b874e_kkjjml.webp",
+      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767101989/Screenshot_2025-12-30_190535_zqke1j.png",
     categoryColor: "bg-green-100 text-green-600",
     content: `
 
@@ -397,7 +397,7 @@ export const blogPosts = [
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
     image:
-      "https://res.cloudinary.com/drit9nkha/image/upload/v1752832996/freepik__the-style-is-candid-image-photography-with-natural__35759_dnwqka.webp",
+      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767102051/Screenshot_2025-12-30_190552_ll1eol.png",
     categoryColor: "bg-purple-100 text-purple-600",
     content: `
 
