@@ -58,15 +58,15 @@ export default function Footer() {
 
         {/* LOGO BLOCK */}
         <div className="flex items-center gap-3 mb-8 max-[768px]:mb-6 max-[768px]:justify-center max-[480px]:mb-4">
-          <img
-            src="/images/flashfire-logo-white.png"
-            alt="Flashfire Logo"
+        <img
+          src="/images/flashfire-logo-white.png"
+          alt="Flashfire Logo"
             className="w-10 h-10 object-contain max-[480px]:w-8 max-[480px]:h-8"
-          />
+        />
           <span className="text-lg font-bold tracking-wide max-[480px]:text-base">
             FLASHFIRE
           </span>
-        </div>
+      </div>
 
           {/* LINKS GRID */}
           <div
@@ -126,7 +126,7 @@ export default function Footer() {
 
               <Link href={getHref("/contact-us")} className={linkClass}>
                 Contact Us
-              </Link>
+                </Link>
               </div>
             </div>
 
