@@ -12,8 +12,8 @@ export default function PrivacyPolicy() {
 
       {/* Content */}
       <main className="relative">
-        <div className="max-w-4xl mx-auto px-6 py-12 md:py-20">
-          <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 md:p-16 text-slate-600 leading-relaxed space-y-20">
+        <div className="max-w-4xl mx-auto px-6 py-10 md:py-16">
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-6 md:p-10 text-slate-600 leading-relaxed space-y-12">
           <div className="space-y-4">
               <div className="max-w-4xl mx-auto ">
                 <Link
@@ -52,20 +52,20 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 2. Information We Collect */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">2. Information We Collect</h2>
               <p className="text-pretty">
                 We collect only the information that is reasonably required to deliver our services efficiently and
                 improve your job search outcomes.
               </p>
 
-              <div className="grid md:grid-cols-2 gap-8 mt-8">
-                <div className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100">
+              <div className="grid md:grid-cols-2 gap-6 mt-6">
+                <div className="bg-slate-50/50 rounded-2xl p-5 border border-slate-100">
                   <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                     Personal Information
                   </h3>
-                  <ul className="space-y-3 text-sm">
+                  <ul className="space-y-2 text-sm">
                     {[
                       "Full name and contact details",
                       "Educational qualifications",
@@ -81,12 +81,12 @@ export default function PrivacyPolicy() {
                   </ul>
                 </div>
 
-                <div className="bg-slate-50/50 rounded-2xl p-6 border border-slate-100">
+                <div className="bg-slate-50/50 rounded-2xl p-5 border border-slate-100">
                   <h3 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                     Usage & Technical
                   </h3>
-                  <ul className="space-y-3 text-sm">
+                  <ul className="space-y-2 text-sm">
                     {[
                       "Job applications submitted",
                       "Platform usage patterns",
@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 3. Use of Information */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">3. How We Use Your Information</h2>
               <p>
                 Flashfire processes personal data strictly for legitimate business purposes related to service delivery.
@@ -132,9 +132,9 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 4. Security */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">4. Data Security & Protection</h2>
-              <div className="bg-[#ff4c00]/10 text-[#ff4c00] p-8 rounded-3xl relative overflow-hidden group">
+              <div className="bg-[#ff4c00]/10 text-[#ff4c00] p-6 rounded-3xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 blur-3xl rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700" />
                 <p className="relative z-10 text-lg leading-relaxed text-pretty">
                   We implement industry-standard security measures including
@@ -145,13 +145,13 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 5. Sharing */}
-            <section className="space-y-3">
+            <section className="space-y-2">
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">5. Information Sharing & Disclosure</h2>
               <p className="text-pretty">
                 Flashfire does not sell, rent, or trade your personal data. Information may be disclosed only under the
                 following circumstances:
               </p>
-              <ul className="list-disc ml-6 space-y-3">
+              <ul className="list-disc ml-6 space-y-2">
                 <li>To employers when submitting job applications</li>
                 <li>To trusted third-party service providers</li>
                 <li>When required by law or legal process</li>
@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 6. Cookies */}
-            <section className="space-y-3">
+            <section className="space-y-2">
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">6. Cookies & Tracking Technologies</h2>
               <p className="text-pretty">
                 Flashfire uses cookies and similar technologies to improve user experience, analyze usage trends, and
@@ -169,7 +169,7 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 7. Retention */}
-            <section className="space-y-3">
+            <section className="space-y-2">
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">7. Data Retention</h2>
               <p className="text-pretty">
                 We retain personal information only for as long as necessary to provide our services, meet legal
@@ -178,7 +178,7 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 8. Rights */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">8. Your Rights & Choices</h2>
               <p className="text-pretty">Subject to applicable laws, you may exercise the following rights:</p>
               <ul className="list-disc ml-6 space-y-3">
@@ -191,7 +191,7 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 9. Compliance */}
-            <section className="space-y-3">
+            <section className="space-y-2">
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">9. Children’s Privacy</h2>
               <p className="text-pretty">
                 Flashfire services are not intended for individuals under the age of 18. We do not knowingly collect
@@ -217,9 +217,9 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* 12. Contact */}
-            <section className="space-y-6 pt-10 border-t border-slate-100">
+            <section className="space-y-4 pt-8 border-t border-slate-100">
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight">12. Contact Information</h2>
-              <div className="bg-orange-50/50 border border-orange-100 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 justify-between">
+              <div className="bg-orange-50/50 border border-orange-100 rounded-2xl p-5 md:p-6 flex flex-col md:flex-row gap-6 justify-between">
                 <div className="space-y-1">
                   <p className="text-xs font-bold uppercase tracking-widest text-orange-600 mb-2">Email Support</p>
                   <p className="text-lg font-semibold text-slate-900">support@flashfirejobs.com</p>
@@ -232,7 +232,7 @@ export default function PrivacyPolicy() {
             </section>
 
             {/* Trust Footer */}
-            <section className="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center">
+            <section className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center">
               <div className="flex justify-center mb-4 text-orange-500 opacity-50">
                 <FaShieldAlt className="w-6 h-6" />
               </div>

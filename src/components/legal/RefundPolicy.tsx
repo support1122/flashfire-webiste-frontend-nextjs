@@ -5,12 +5,12 @@ import { RotateCcw, ChevronLeft, Calendar, FileText, CheckCircle2 } from "lucide
 
 export default function RefundPolicy() {
   return (
-    <div className="bg-white min-h-screen  mt-10 pb-20">
+    <div className="bg-white min-h-screen  mt-10 pb-16">
            
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-6 -mt-10">
+      <main className="max-w-4xl mx-auto px-6 -mt-8">
         <div className="bg-white border border-[#ff4c00]/20 shadow-xl shadow-[#ff4c00]/10 rounded-2xl">
-          <div className="p-8 md:p-16 space-y-20 text-gray-700 leading-[1.8]">
+          <div className="p-6 md:p-10 space-y-12 text-gray-700 leading-relaxed">
           <div className="space-y-4">
               <div className="max-w-4xl mx-auto ">
                 <Link
@@ -34,7 +34,7 @@ export default function RefundPolicy() {
             </div>
             {/* Intro */}
             <section>
-              <p className="text-lg">
+              <p className="text-base leading-7">
                 At Flashfire, we are committed to your satisfaction and success in finding your dream job. This Refund
                 Policy explains our approach to ensuring you receive maximum value from our AI-powered job application
                 automation services.
@@ -42,7 +42,7 @@ export default function RefundPolicy() {
             </section>
 
             {/* No Refund Policy */}
-            <section className="space-y-8">
+            <section className="space-y-5">
               <SectionHeader title="No Refund Policy" />
 
               <div className="bg-[#ff4c00]/10 border border-[#ff4c00]/30 p-6 rounded-xl">
@@ -54,7 +54,7 @@ export default function RefundPolicy() {
             </section>
 
             {/* Premium Plan Guarantee */}
-            <section className="space-y-8">
+            <section className="space-y-5">
               <SectionHeader title="Premium Plan Guarantee" />
 
               <div className="bg-[#ff4c00]/10 border border-[#ff4c00]/30 p-6 rounded-xl">
@@ -67,7 +67,7 @@ export default function RefundPolicy() {
             </section>
 
             {/* Value Guarantee */}
-            <section className="space-y-8">
+            <section className="space-y-5">
               <SectionHeader title="Value Guarantee" />
 
               <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
@@ -80,7 +80,7 @@ export default function RefundPolicy() {
                 service that includes:
               </p>
 
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 <li className="flex gap-3">
                   <span className="text-[#ff4c00] font-bold">•</span>
                   <span>150–200+ targeted job applications aligned to your profile</span>
@@ -105,7 +105,7 @@ export default function RefundPolicy() {
             </section>
 
             {/* Service Commitment */}
-            <section className="space-y-8">
+            <section className="space-y-5">
               <SectionHeader title="Service Commitment" />
 
               <p>
@@ -116,7 +116,7 @@ export default function RefundPolicy() {
             </section>
 
             {/* Policy Modifications */}
-            <section className="space-y-8">
+            <section className="space-y-5">
               <SectionHeader title="Modifications to This Policy" />
 
               <p>
@@ -127,7 +127,7 @@ export default function RefundPolicy() {
             </section>
 
             {/* Support */}
-            <section className="pt-10 text-center border-t border-[#ff4c00]/20">
+            <section className="pt-8 text-center border-t border-[#ff4c00]/20">
               <p className="text-sm italic text-gray-600 mb-4">Questions about our services? We're here to help.</p>
               <p className="font-semibold text-gray-900">support@flashfirejobs.com</p>
               <p className="text-sm text-gray-600 mt-2">Response Time: Within 24 business hours</p>

@@ -5,12 +5,12 @@ import { FileText, ChevronLeft, Calendar, CheckCircle2 } from "lucide-react"
 
 export default function TermsOfService() {
   return (
-    <div className="bg-white min-h-screen  mt-10 pb-20">
+    <div className="bg-white min-h-screen  mt-10 pb-16">
      
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-6 -mt-10">
+      <main className="max-w-4xl mx-auto px-6 -mt-8">
         <div className="bg-white border border-[#ff4c00]/20 shadow-xl shadow-[#ff4c00]/10 rounded-2xl">
-          <div className="p-8 md:p-16 space-y-16 text-gray-700 leading-[1.8]">
+          <div className="p-6 md:p-10 space-y-10 text-gray-700 leading-relaxed">
           <div className="space-y-4">
               <div className="max-w-4xl mx-auto ">
                 <Link
@@ -34,7 +34,7 @@ export default function TermsOfService() {
             </div>
             {/* Intro */}
             <section>
-              <p className="text-lg">
+              <p className="text-base leading-7">
                 These Terms of Service ("Terms") govern your access to and use of Flashfire's AI-powered job application
                 automation platform, services, and website. By accessing or using Flashfire, you agree to be bound by
                 these Terms.
@@ -42,7 +42,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Service Description */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="1. Service Description" />
               <p>
                 Flashfire provides automated job application services, resume optimization, and job search assistance
@@ -52,7 +52,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Eligibility */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="2. Eligibility" />
               <p>
                 You must be at least 18 years old to use Flashfire. By using our services, you confirm that the
@@ -62,7 +62,7 @@ export default function TermsOfService() {
             </section>
 
             {/* User Responsibilities */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="3. User Responsibilities" />
               <div className="space-y-3">
                 <div className="flex gap-3">
@@ -85,7 +85,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Account Access */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="4. Account Access & Termination" />
               <div className="bg-[#ff4c00]/10 border border-[#ff4c00]/30 p-6 rounded-xl">
                 <p>
@@ -96,7 +96,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Payments */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="5. Payments & Fees" />
               <p>
                 All payments for Flashfire services are governed by our Payment Policy. By purchasing any plan, you
@@ -105,7 +105,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Refunds */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="6. Refund Policy" />
               <p>
                 Flashfire does not offer monetary refunds. All refund-related terms are governed by our Refund Policy,
@@ -114,7 +114,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Intellectual Property */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="7. Intellectual Property" />
               <p>
                 All content, branding, software, and intellectual property associated with Flashfire remain the
@@ -124,7 +124,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Limitation of Liability */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="8. Limitation of Liability" />
               <p>
                 Flashfire shall not be liable for indirect, incidental, consequential, or special damages arising from
@@ -133,7 +133,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Disclaimer */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="9. Disclaimer of Warranties" />
               <p>
                 Flashfire services are provided "as is" and "as available" without warranties of any kind, either
@@ -142,7 +142,7 @@ export default function TermsOfService() {
             </section>
 
             {/* Governing Law */}
-            <section className="space-y-6">
+            <section className="space-y-4">
               <SectionHeader title="10. Governing Law" />
               <p>
                 These Terms shall be governed and interpreted in accordance with the laws of the United States, without

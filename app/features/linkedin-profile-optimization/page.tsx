@@ -27,31 +27,31 @@ export default function LinkedInOptimizationPage() {
   const linkedinOptimizationFAQs = [
     {
       question: "What does it mean to optimise a LinkedIn profile for job search success?",
-      answer: "Ans. It means structuring your profile with industry-specific keywords, achievements, and recruiter-friendly formatting to boost visibility."
+      answer: " It means structuring your profile with industry-specific keywords, achievements, and recruiter-friendly formatting to boost visibility."
     },
     {
       question: "How does optimizing your LinkedIn profile help attract recruiters?",
-      answer: "Ans. Optimized profiles rank higher in LinkedIn search results, making it easier for recruiters to find and contact you."
+      answer: " Optimized profiles rank higher in LinkedIn search results, making it easier for recruiters to find and contact you."
     },
     {
       question: "What are LinkedIn optimization services, and who should use them?",
-      answer: "Ans. They're expert services that rewrite and optimize your profile to increase your chances of getting hired — useful for job seekers at all levels."
+      answer: " They're expert services that rewrite and optimize your profile to increase your chances of getting hired — useful for job seekers at all levels."
     },
     {
       question: "How often should I update my LinkedIn profile for better visibility?",
-      answer: "Ans. Ideally, every 2–3 months or whenever your role, skills, or job goals change. Frequent updates boost algorithm visibility too."
+      answer: " Ideally, every 2–3 months or whenever your role, skills, or job goals change. Frequent updates boost algorithm visibility too."
     },
     {
       question: "What is an ATS optimized resume, and why is it important for hiring systems?",
-      answer: "Ans. It's a resume designed to pass Applicant Tracking Systems by using the right format and keywords so recruiters see it."
+      answer: " It's a resume designed to pass Applicant Tracking Systems by using the right format and keywords so recruiters see it."
     },
     {
       question: "How does resume optimization for ATS improve resume shortlisting?",
-      answer: "Ans. It increases match scores with job descriptions, helping your resume appear at the top of recruiter pipelines."
+      answer: " It increases match scores with job descriptions, helping your resume appear at the top of recruiter pipelines."
     },
     {
       question: "Should my LinkedIn profile match my ATS optimized resume for better results?",
-      answer: "Ans. Having consistent language, roles, and keywords across both ensures higher trust, better visibility, and more interview calls."
+      answer: " Having consistent language, roles, and keywords across both ensures higher trust, better visibility, and more interview calls."
     }
   ];
 
