@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import HomePage from "@/src/components/pages/home/Home";
-import ScrollToSection from "@/src/utils/ui/scrollToSection";
+import HowItWorks from "@/src/components/pages/howItWorks/HowItWorks";
 
 export const metadata: Metadata = {
-  title: "How It Works - Flashfire Job Search Automation | Flashfire",
+  title:
+    "How It Works - Flashfire Job Search Automation for Students | Flashfire",
   description:
-    "Learn how Flashfire automates your job search. We apply to 1000+ jobs with tailored resumes, saving you 150+ hours. See how our AI-powered platform works.",
+    "See how Flashfire gets international students interview calls faster: visa-aware matching, ATS-ready resumes, automated applications, tracking, and interview prep.",
   robots: {
     index: true,
     follow: true,
@@ -16,17 +16,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How It Works - Flashfire Job Search Automation",
     description:
-      "Learn how Flashfire automates your job search with AI-powered resume tailoring and automated applications.",
+      "Understand how Flashfire automates sourcing, tailoring, and submitting applications so students land interviews faster.",
     url: "https://www.flashfirejobs.com/en-ca/how-it-works",
     type: "website",
   },
 };
 
-export default function HowItWorksPageCA() {
-  return (
-    <>
-      <HomePage />
-      <ScrollToSection targetId="demo" />
-    </>
-  );
+export default function HowItWorksPage() {
+  return <HowItWorks />;
 }

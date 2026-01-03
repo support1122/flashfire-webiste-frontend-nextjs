@@ -7,18 +7,15 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <Link
+       
+        {/* Content */}
+        <div className="bg-white rounded-lg shadow-sm p-8">
+        <Link
             href="/"
-            className="flex items-center space-x-2 text-orange-600 hover:text-orange-700 mb-4 transition-colors duration-200"
+            className="flex  space-x-2 text-orange-600 hover:text-orange-700 mb-4 transition-colors duration-200"
           >
             <span>← Back to Home</span>
           </Link>
-        </div>
-
-        {/* Content */}
-        <div className="bg-white rounded-lg shadow-sm p-8">
           <div className="flex items-center space-x-3 mb-4">
             <div className="p-2 bg-blue-100 rounded-lg">
               <FaShieldAlt className="w-6 h-6 text-blue-600" />

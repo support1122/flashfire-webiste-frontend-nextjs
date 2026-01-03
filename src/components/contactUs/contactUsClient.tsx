@@ -192,8 +192,8 @@ export default function ContactUsClient() {
               >
                 KNOW MORE
               </a>
-            </div>
-          </div>
+        </div>
+      </div>
 
           {/* Card 3: Join our Community */}
           <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">

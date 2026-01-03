@@ -29,43 +29,43 @@ export default function JobApplicationAutomationPage() {
   const jobAutomationFAQs = [
     {
       question: "What is job application automation and how can it help me apply to more jobs?",
-      answer: "Ans. Job application automation lets a system handle the repetitive tasks of applying, allowing you to reach 1,000+ jobs fast without spending hours daily."
+      answer: " Job application automation lets a system handle the repetitive tasks of applying, allowing you to reach 1,000+ jobs fast without spending hours daily."
     },
     {
       question: "How does automating job applications increase my chances of landing interviews?",
-      answer: "Ans. It lets you apply to more roles quickly, with resumes tailored to each one — increasing visibility to recruiters and Applicant Tracking Systems (ATS)."
+      answer: " It lets you apply to more roles quickly, with resumes tailored to each one — increasing visibility to recruiters and Applicant Tracking Systems (ATS)."
     },
     {
       question: "Can job application automation help me land my dream job faster?",
-      answer: "Ans. By applying to high-fit roles consistently and quickly, you're more likely to land interviews and offers in less time."
+      answer: " By applying to high-fit roles consistently and quickly, you're more likely to land interviews and offers in less time."
     },
     {
       question: "How do I optimise my LinkedIn profile to improve automated job application results?",
-      answer: "Ans. Make sure your profile matches your target job title, keywords, and skills. FlashFire's team also does this manually for you."
+      answer: " Make sure your profile matches your target job title, keywords, and skills. FlashFire's team also does this manually for you."
     },
     {
       question: "What is an ATS resume, and why is it important for automated job applications?",
-      answer: "Ans. An ATS resume is optimized to pass recruiter filters and software systems, which improves shortlisting odds. FlashFire tailors yours for each job."
+      answer: " An ATS resume is optimized to pass recruiter filters and software systems, which improves shortlisting odds. FlashFire tailors yours for each job."
     },
     {
       question: "How does AI for job search integrate with job application automation tools?",
-      answer: "Ans. Our AI scans job descriptions, extracts key requirements, and inserts them into your resume before our team submits each application."
+      answer: " Our AI scans job descriptions, extracts key requirements, and inserts them into your resume before our team submits each application."
     },
     {
       question: "Does FlashFireJobs act as an AI job board with built-in automation features?",
-      answer: "Ans. It combines AI resume matching + human-powered application submission, unlike traditional job boards."
+      answer: " It combines AI resume matching + human-powered application submission, unlike traditional job boards."
     },
     {
       question: "What are the best practices for job application automation to avoid common pitfalls?",
-      answer: "Ans. Avoid mass-blind applications. Instead, target fresh, relevant roles with optimized resumes — which FlashFire does manually for each job."
+      answer: " Avoid mass-blind applications. Instead, target fresh, relevant roles with optimized resumes — which FlashFire does manually for each job."
     },
     {
       question: "Can I use job application automation while still customizing applications for each job?",
-      answer: "Ans. Every application on FlashFire is resume-optimized per job, and our cover letter is generalized for broad relevance."
+      answer: " Every application on FlashFire is resume-optimized per job, and our cover letter is generalized for broad relevance."
     },
     {
       question: "How does automating job applications work with AI-powered job matching and alerts?",
-      answer: "Ans. We use AI to match jobs based on your preferences, optimize your resume, then apply — while keeping you updated via WhatsApp."
+      answer: " We use AI to match jobs based on your preferences, optimize your resume, then apply — while keeping you updated via WhatsApp."
     }
   ];
 

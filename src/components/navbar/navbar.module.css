@@ -192,22 +192,26 @@
 }
 
 .featureDropdownFooter {
-  display: block;
-  margin-top: 12px;
-  padding: 8px 14px;
+  display: block;              /* important for width + auto margin */
+  width: 50%;
+  margin: 8px 0 0 auto;        /* pushes it to the right */
+  padding: 6px 10px;
   text-align: center;
-  background: #ff4c00;
-  color: #fff;
-  border-radius: 16px;
+  background: #ffffff;
+  color: #565454;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 0.01em;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.005em;
   transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 10px 24px rgba(255, 76, 0, 0.18);
+ 
 }
 
+
 .featureDropdownFooter:hover {
-  background: #e24400;
+  background: #ff4c00;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
