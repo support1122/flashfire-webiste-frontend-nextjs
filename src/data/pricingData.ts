@@ -53,7 +53,6 @@ export const usPricingPlans: PricingPlan[] = [
     oldPrice: "$449",
     features: [
       "Everything in Ignite",
-      "Priority job matching",
       "Advance analytics & insights",
       "LinkedIn profile optimization",
       "Interview preparation tips",
