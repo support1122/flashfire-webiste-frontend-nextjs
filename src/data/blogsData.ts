@@ -1002,7 +1002,7 @@ export const blogPosts = [
       name: "Vikram Mehta",
       bio: "Job search strategist helping international students navigate the U.S. job market successfully.",
     },
-    image: "/images/blog8.jpeg",
+    image: "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767448871/blog_thumbnails-55_xyihoj.jpg",
     categoryColor: "bg-green-100 text-green-600",
     content: `
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Overview</h2>
@@ -8277,7 +8277,7 @@ Best regards,
       bio: "Career expert and resume strategist helping job seekers create winning resumes for the US job market.",
     },
     image:
-      "https://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webp",
+      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767448871/blog_thumbnails-53_ptlae2.jpg",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
     <p style='margin-bottom:12px; line-height:1.7;'>It's not the same to write a resume for the US job market as it is for other countries. Many people who apply for jobs get turned down not because they don't have the right skills, but because their resume doesn't follow US standards. Therefore it's essential to know some useful resume tips before you apply.</p>
@@ -8385,7 +8385,7 @@ Best regards,
       bio: "Career expert and job search strategist helping job seekers navigate US job portals effectively.",
     },
     image:
-      "https://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webp",
+      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767448871/blog_thumbnails-54_o0ylwo.jpg",
     categoryColor: "bg-purple-100 text-purple-600",
     content: `
     <p style='margin-bottom:12px; line-height:1.7;'>In today's competitive job market, finding the perfect job is more than just a good resume—proper guidance on where to look is also required. Job portals in the USA have quickly become the primary gateway for connecting millions of job seekers and employers, making the hiring process quicker and more user-friendly than ever before. One's knowledge about a job portal and its primary purpose may facilitate using these platforms in a strategic manner and obtaining one's next role quickly. This guide covers everything from what job portals are to how modern platforms use AI, including a list of job portals and strategies to ensure your success.</p>
@@ -8566,7 +8566,7 @@ Best regards,
       bio: "Career expert and internship strategist helping students and recent graduates land their dream internships.",
     },
     image:
-      "https://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webp",
+      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1767448871/blog_thumbnails-56_boqfmr.jpg",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
     <p style='margin-bottom:12px; line-height:1.7;'>Getting an internship in the US can provide you opportunities for full-time roles, networking, and hands-on experience. However, it is necessary to understand what is an internship, where to find one, and how to land an internship, especially if you are an international student or a fresher.</p>
