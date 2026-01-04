@@ -5,7 +5,7 @@ import HomeImagePreloader from "./HomeImagePreloader";
 export const metadata: Metadata = {
   title: "AI Job Search, Job Application Platform | Ai Job Hunting Sites - FlashFireJobs",
   description:
-    "FlashFireJobs is an AI-powered job search platform offering auto apply to jobs, job application assistance, AI job board & smart career job search tools.",
+    "Use AI powered job search platforms to learn how to get interview calls faster with targeted job matching. Apply smarter and get hired with Flashfire.",
   robots: {
     index: true,
     follow: true,
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Job Search, Job Application Platform | Ai Job Hunting Sites - FlashFireJobs",
     description:
-      "FlashFireJobs is an AI-powered job search platform offering auto apply to jobs, job application assistance, AI job board & smart career job search tools.",
+      "Use AI powered job search platforms to learn how to get interview calls faster with targeted job matching. Apply smarter and get hired with Flashfire.",
     url: "https://www.flashfirejobs.com/",
     type: "website",
     images: [
