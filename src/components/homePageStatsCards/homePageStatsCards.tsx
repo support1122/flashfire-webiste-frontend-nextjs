@@ -19,8 +19,7 @@ export default function HomePageStatsCards() {
             <span className={styles.highlight}>200x</span> Return on Investment
           </h3>
           <p>
-            Clients see 200x ROI with higher salaries, faster offers, and
-            lasting growth.
+            Students see a 200x ROI with greater pay, quicker offers, and long-term growth.
           </p>
         </div>
 
@@ -35,12 +34,10 @@ export default function HomePageStatsCards() {
             />
           </div>
           <h3>
-            <span className={styles.highlight}>300k+</span> Applications Sent
-            Smartly
+            <span className={styles.highlight}>300K+</span> Applications Sent Wisely
           </h3>
           <p>
-            Over 300k applications optimized with ATS-friendly resumes and
-            custom cover letters.
+            ATS-friendly resumes and personalized cover letters have been added to more than 300k applications.
           </p>
         </div>
 
@@ -55,12 +52,10 @@ export default function HomePageStatsCards() {
             />
           </div>
           <h3>
-            <span className={styles.highlight}>1 Week</span> to Your First
-            Interview
+            <span className={styles.highlight}>One Week</span> Before Your Initial Interview
           </h3>
           <p>
-            Flashfire users report getting interview calls within their first 7
-            days of usage.
+            Within the first seven days of using Flashfire, users report receiving calls for interviews.
           </p>
         </div>
       </div>
