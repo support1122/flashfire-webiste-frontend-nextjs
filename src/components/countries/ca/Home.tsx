@@ -1,21 +1,24 @@
 "use client";
-
 import { useEffect } from "react";
-import HeroSection from "../../heroSection/heroSection";
-import HomePageVideo from "../../homePageVideo/homePageVideo";
-import HomePageResultStats from "../../homePageResultStats/homePageResultStats";
-import HomePageMilestones from "../../homePageMilestones/homePageMilestones";
-import HomePageSteps from "../../homePageSteps/homePageSteps";
-import HomePageOfferLetters from "../../homePageOfferLetters/homePageOfferLetters";
-import HomePageWhyChooseFF from "../../homePageWhyChooseFF/homePageWhyChooseFF";
-import HomePageHappyUsers from "../../homePageHappyUsers/homePageHappyUsers";
-import HomePagePTNote from "../../homePagePTNote/homePagePTNote";
-import HomePageFAQ from "../../homePageFAQ/homePageFAQ";
-import HomePageFoundersNote from "../../homePageFoundersNote/homePageFoundersNote";
-import HomePageCareerCTA from "../../homePageCareerCTA/homePageCareerCTA";
-import Navbar from "../../navbar/navbar";
-import Footer from "../../footer/footer";
 import { usePathname } from "next/navigation";
+import Footer from "@/src/components/footer/footer";
+import HeroSection from "@/src/components/heroSection/heroSection";
+import HomePageCareerCTA from "@/src/components/homePageCareerCTA/homePageCareerCTA";
+import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
+import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
+import HomePageFoundersNote from "@/src/components/homePageFoundersNote/homePageFoundersNote";
+import HomePageHappyUsers from "@/src/components/homePageHappyUsers/homePageHappyUsers";
+import HomePageMilestones from "@/src/components/homePageMilestones/homePageMilestones";
+import HomePageOfferLetters from "@/src/components/homePageOfferLetters/homePageOfferLetters";
+import HomePagePTNote from "@/src/components/homePagePTNote/homePagePTNote";
+import HomePageResultStats from "@/src/components/homePageResultStats/homePageResultStats";
+import HomePageStatsCards from "@/src/components/homePageStatsCards/homePageStatsCards";
+import HomePageSteps from "@/src/components/homePageSteps/homePageSteps";
+import HomePageVideo from "@/src/components/homePageVideo/homePageVideo";
+import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWhyChooseFF";
+import Navbar from "@/src/components/navbar/navbar";
+import SalesPopUp from "@/src/components/SalesPopUp";
+import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
 
 export default function CanadaHome() {
   const pathname = usePathname();
@@ -49,20 +52,36 @@ export default function CanadaHome() {
 
   return (
     <>
-      <Navbar />
-      <HeroSection />
-      <HomePageVideo />
-      <HomePageResultStats />
-      <HomePageMilestones />
-      <HomePageSteps />
-      <HomePageOfferLetters />
-      <HomePageWhyChooseFF />
-      <HomePageHappyUsers />
-      <HomePagePTNote />
-      <HomePageFAQ />
-      <HomePageFoundersNote />
+     <Navbar />
+      <HeroSection /> {/* using useState, so client */}
       <HomePageCareerCTA />
+      <HomePageBeforeAfter />
+      <HomePageResultStats />
+      <HomePageStatsCards />
+      <HomePageOfferLetters />
+     
+      <HomePageMilestones /> 
+      <HomePageVideo />
+      <HomePageSteps />
+     
+     
+      <HomePageWhyChooseFF /> 
+      <HomePageHappyUsers />
+      <HomePageFoundersNote />
+
+      {/* using useState, so client */}
+     
+       {/* using useState, so client */}
+      {/* AJ section not so good */}
+      
+      <HomePagePTNote /> {/* PT section not so good */}
+     
+      <HomePageFAQ /> {/* using useState, so client */}
+      <HomePageDemoCTA />
+     
+     
       <Footer />
+      <SalesPopUp />
     </>
   );
 }
