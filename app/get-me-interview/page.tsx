@@ -5,6 +5,8 @@ import HomePage from "@/src/components/pages/home/Home";
 import AboutUs from "@/src/components/pages/aboutUs/AboutUs";
 import Features from "@/src/components/pages/features/Features";
 import ContactUsClient from "@/src/components/contactUs/contactUsClient";
+import InterviewBuddy from "@/src/components/interviewBuddy/interviewBuddy";
+import CareerAdvisor from "@/src/components/careerAdvisor/careerAdvisor";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import dynamic from "next/dynamic";
@@ -162,6 +164,28 @@ export default function GetMeInterviewPage() {
             <>
                 <Navbar />
                 <ContactUsClient />
+                <Footer />
+            </>
+        );
+    }
+
+    if (previousPage === '/career-advisor' ||
+        previousPage === '/en-ca/career-advisor') {
+        return (
+            <>
+                <Navbar />
+                <CareerAdvisor />
+                <Footer />
+            </>
+        );
+    }
+
+    if (previousPage === '/interview-buddy' ||
+        previousPage === '/en-ca/interview-buddy') {
+        return (
+            <>
+                <Navbar />
+                <InterviewBuddy />
                 <Footer />
             </>
         );

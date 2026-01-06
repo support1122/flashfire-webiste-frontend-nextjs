@@ -286,21 +286,16 @@ export default function Page() {
   }
 
   const handleHowItWorks = () => {
-    try {
-      trackButtonClick("How It Works", "ats_cta", "cta", {
-        button_location: "ats_hero_section",
-        section: "ats_hero",
-        action: "how_it_works"
-      })
-    } catch (trackError) {
-      console.warn('Tracking error:', trackError)
-    }
-
-    // Navigate to the How It Works page
-    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '')
-    const normalizedPath = currentPath.split('?')[0]
-    const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/how-it-works' : '/how-it-works'
-    router.push(targetPath)
+    const section = document.getElementById("how-it-works")
+    if (!section) return
+  
+    const yOffset = -80 // adjust if navbar height changes
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset
+  
+    window.scrollTo({ top: y, behavior: "smooth" })
   }
 
   return (
@@ -343,8 +338,9 @@ export default function Page() {
                     Get Me Interview →
                   </button>
                   <button
-                    onClick={handleHowItWorks}
-                    className="border-2 border-[#ff4c00] text-[#ff4c00] bg-transparent hover:bg-[#fff2ea] px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg transition-colors rounded-lg inline-flex items-center justify-center gap-2"
+                  onClick={handleHowItWorks}
+                  
+                    className="  border-2 border-[#ff4c00] text-[#ff4c00] bg-transparent hover:bg-[#fff2ea] px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg transition-colors rounded-lg inline-flex items-center justify-center gap-2"
                   >
                     How It Works
                   </button>

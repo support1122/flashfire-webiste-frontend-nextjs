@@ -130,6 +130,8 @@ export default function CoverLetterPage() {
     }
   };
 
+  
+  
   return (
     <>
       <Navbar />
@@ -185,20 +187,7 @@ export default function CoverLetterPage() {
                 >
                   Get Me Interview →
                 </button>
-                <button
-                  onClick={() => {
-                    trackButtonClick("How It Works", "cover_letter_page", "cta", {
-                      button_location: "hero_section",
-                    });
-                    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-                    const normalizedPath = currentPath.split('?')[0];
-                    const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/how-it-works' : '/how-it-works';
-                    router.push(targetPath);
-                  }}
-                  className="border-2 border-[#ff4c00] text-[#ff4c00] bg-transparent hover:bg-[#fff2ea] px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg transition-colors rounded-lg inline-flex items-center justify-center gap-2"
-                >
-                  How It Works
-                </button>
+                
               </div>
             </div>
 

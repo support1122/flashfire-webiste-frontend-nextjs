@@ -187,23 +187,7 @@ export default function JobApplicationAutomationPage() {
     }
   };
 
-  const handleHowItWorks = () => {
-    try {
-      trackButtonClick("How It Works", "job_automation_cta", "cta", {
-        button_location: "job_automation_hero_section",
-        section: "job_automation_hero",
-        action: "how_it_works"
-      });
-    } catch (trackError) {
-      console.warn('Tracking error:', trackError);
-    }
-
-    // Navigate to the How It Works page
-    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-    const normalizedPath = currentPath.split('?')[0];
-    const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/how-it-works' : '/how-it-works';
-    router.push(targetPath);
-  };
+  
 
   // Prevent hydration mismatch by ensuring client-only rendering
   if (!isMounted) {
@@ -255,12 +239,7 @@ export default function JobApplicationAutomationPage() {
               >
                 Get Me Interview →
               </button>
-              <button
-                onClick={handleHowItWorks}
-                className="border-2 border-[#ff4c00] text-[#ff4c00] bg-transparent hover:bg-[#fff2ea] px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg transition-colors rounded-lg inline-flex items-center justify-center"
-              >
-                How It Works
-              </button>
+             
             </div>
 
             <div className="mt-14 grid md:grid-cols-3 gap-6">
