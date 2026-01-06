@@ -131,15 +131,17 @@ export default function PrecisionTargetingPage() {
   };
 
   const handleHowItWorks = () => {
-    trackButtonClick("How It Works", "precision_targeting_page", "cta", {
-      button_location: "hero_section",
-    });
-    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-    const normalizedPath = currentPath.split('?')[0];
-    const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/how-it-works' : '/how-it-works';
-    router.push(targetPath);
-  };
-
+    const section = document.getElementById("how-it-works")
+    if (!section) return
+  
+    const yOffset = -80 // adjust if navbar height changes
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset
+  
+    window.scrollTo({ top: y, behavior: "smooth" })
+  }
   return (
     <>
       <Navbar />
@@ -253,6 +255,76 @@ export default function PrecisionTargetingPage() {
     </div>
   </div>
 </section>
+{/* ================= HOW IT WORKS ================= */}
+<section id="how-it-works" className="py-28 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* Header */}
+    <div className="text-center max-w-3xl mx-auto mb-20">
+      <span className="text-sm font-semibold tracking-wide text-[#ff4c00]">
+        HOW IT WORKS
+      </span>
+      <h2 className="mt-4 text-4xl md:text-5xl font-extrabold text-[#0b1220]">
+        Precision targeting,
+        <br />
+        <span className="text-[#ff4c00]">
+          done the right way
+        </span>
+      </h2>
+      <p className="mt-6 text-lg text-[#5b6475]">
+        We don’t apply everywhere.  
+        We apply where you actually have a chance.
+      </p>
+    </div>
+
+    {/* Steps */}
+    <div className="grid md:grid-cols-2 gap-10">
+
+      {[
+        {
+          step: "01",
+          title: "Understand your profile",
+          desc: "We analyze your resume, experience, skills, and past roles to identify where you truly fit.",
+        },
+        {
+          step: "02",
+          title: "Filter high-fit jobs",
+          desc: "Jobs are filtered based on ATS score, skill match, role relevance, and hiring patterns.",
+        },
+        {
+          step: "03",
+          title: "Apply with intent",
+          desc: "Applications are sent only to roles where your profile ranks competitively.",
+        },
+        {
+          step: "04",
+          title: "Improve continuously",
+          desc: "Feedback, rejections, and responses are used to refine targeting every week.",
+        },
+      ].map((item) => (
+        <div
+          key={item.step}
+          className="bg-[#fff7f2] border border-[#ffd6c4] rounded-2xl p-1 hover:-translate-y-1 transition"
+        >
+          <div className="bg-white rounded-xl p-8 h-full">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-10 h-10 rounded-full bg-[#ff4c00] text-white font-bold flex items-center justify-center">
+                {item.step}
+              </div>
+              <h3 className="text-xl font-extrabold text-[#0b1220]">
+                {item.title}
+              </h3>
+            </div>
+            <p className="text-[#5b6475] leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 <section className="py-32 bg-[#fff7f2] text-white relative overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
@@ -266,7 +338,7 @@ export default function PrecisionTargetingPage() {
         leading to measurable improvements in interviews, efficiency, and outcomes.
       </p>
     </div>
-
+    
     {/* ===== Stats Grid ===== */}
     <div className="grid md:grid-cols-4 gap-10">
       {[

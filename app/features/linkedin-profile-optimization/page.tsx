@@ -90,6 +90,18 @@ export default function LinkedInOptimizationPage() {
       document.body.removeChild(textArea);
     }
   };
+  const handleHowItWorks = () => {
+    const section = document.getElementById("how-it-works")
+    if (!section) return
+  
+    const yOffset = -80 // adjust if navbar height changes
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset
+  
+    window.scrollTo({ top: y, behavior: "smooth" })
+  }
   return (
     <div className="min-h-screen bg-white text-[#0b0b0b]">
       <Navbar />
@@ -247,23 +259,7 @@ export default function LinkedInOptimizationPage() {
               </button>
 
               <button
-                onClick={() => {
-                  try {
-                    trackButtonClick("How It Works", "linkedin_cta", "cta", {
-                      button_location: "linkedin_hero_section",
-                      section: "linkedin_hero",
-                      action: "how_it_works"
-                    });
-                  } catch (trackError) {
-                    console.warn('Tracking error:', trackError);
-                  }
-
-                  // Navigate to the How It Works page
-                  const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-                  const normalizedPath = currentPath.split('?')[0];
-                  const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/how-it-works' : '/how-it-works';
-                  router.push(targetPath);
-                }}
+                onClick={handleHowItWorks}
                 className="border-2 border-[#ff4c00] text-[#ff4c00] bg-transparent hover:bg-[#fff2ea] px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg transition-colors rounded-lg inline-flex items-center justify-center"
               >
                 How It Works

@@ -85,14 +85,14 @@ const offerLetters: OfferLetterData[] = [
     profileImagePath:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rudraksh.jpg",
   },
-  {
-    name: "Sai Krishna",
-    company: "Urban Electric Power",
-    linkedinUrl: "https://www.linkedin.com/in/sai-krishna-grandhi/",
-    imagePath: "/images/saikrishna_offer.png",
-    profileImagePath:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/SAI%20KRISHNA.jpeg",
-  },
+  // {
+  //   name: "Sai Krishna",
+  //   company: "Urban Electric Power",
+  //   linkedinUrl: "https://www.linkedin.com/in/sai-krishna-grandhi/",
+  //   imagePath: "/images/saikrishna_offer.png",
+  //   profileImagePath:
+  //     "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/SAI%20KRISHNA.jpeg",
+  // },
   {
     name: "Rijul Jain",
     company: "Wise",

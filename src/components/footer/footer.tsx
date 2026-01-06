@@ -90,6 +90,7 @@ export default function Footer() {
                 <Link href={getHref("/faq")} className={linkClass} onClick={handleFAQClick}>FAQ</Link>
                 <Link href={getHref("/blog")} className={linkClass}>Blog</Link>
                 <Link href={getHref("/about-us")} className={linkClass}>About Us</Link>
+                <Link href={getHref("/contact-us")} className={linkClass}>Contact Us</Link>
               </div>
             </div>
 
@@ -124,8 +125,11 @@ export default function Footer() {
                 Dashboard & Analytics
                 </Link>
 
-              <Link href={getHref("/contact-us")} className={linkClass}>
-                Contact Us
+                <Link href={getHref("/career-advisor")} className={linkClass}>
+                Career Advisor
+                </Link>
+                <Link href={getHref("/interview-buddy")} className={linkClass}>
+                Interview Buddy
                 </Link>
               </div>
             </div>

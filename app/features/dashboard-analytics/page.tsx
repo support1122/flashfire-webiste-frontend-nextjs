@@ -131,13 +131,16 @@ export default function DashboardAnalyticsPage() {
   };
 
   const handleHowItWorks = () => {
-    trackButtonClick("How It Works", "dashboard_analytics_page", "cta", {
-      button_location: "hero_section",
-    });
-    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-    const normalizedPath = currentPath.split('?')[0];
-    const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/how-it-works' : '/how-it-works';
-    router.push(targetPath);
+    const section = document.getElementById("how-it-works")
+    if (!section) return
+  
+    const yOffset = -80 // adjust if navbar height changes
+    const y =
+      section.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset
+  
+    window.scrollTo({ top: y, behavior: "smooth" })
   };
 
   return (
@@ -231,7 +234,7 @@ export default function DashboardAnalyticsPage() {
     </div>
   </div>
 </section>
-<section className="py-32 bg-[#fff7f2]">
+<section id="how-it-works" className="py-32 bg-[#fff7f2]">
   <div className="max-w-7xl mx-auto px-6">
 
     {/* ===== Header ===== */}

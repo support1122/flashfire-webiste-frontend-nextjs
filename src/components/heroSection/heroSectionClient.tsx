@@ -51,16 +51,16 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       {/* === Headline === */}
-      <h1 className="text-[3.5rem] leading-[0.85] font-bold text-black max-w-[900px] w-full mx-auto mb-2 flex flex-col items-center justify-center text-center break-words px-4 gap-0 max-[1200px]:text-[3rem] max-[1200px]:max-w-[800px] max-[968px]:text-[2.5rem] max-[968px]:max-w-[700px] max-[768px]:text-2xl max-[768px]:leading-[0.9] max-[768px]:max-w-full max-[768px]:w-full max-[768px]:px-3 max-[768px]:mb-3 max-[480px]:text-xl max-[480px]:leading-[0.95] max-[480px]:px-2 max-[480px]:mb-2">
+      <h1 className="text-[3.5rem] leading-[0.85] font-bold text-black max-w-[900px] w-full mx-auto mb-2 flex flex-col items-center justify-center text-center break-words px-4 gap-0 max-[1200px]:text-[3rem] max-[1200px]:max-w-[800px] max-[968px]:text-[2.5rem] max-[968px]:max-w-[700px] max-[768px]:text-2xl max-[768px]:leading-[1.05] max-[768px]:max-w-full max-[768px]:w-full max-[768px]:px-3 max-[768px]:mb-4 max-[480px]:text-xl max-[480px]:leading-[1.15] max-[480px]:px-2 max-[480px]:mb-3">
         <span className="block text-center w-full m-0 p-0">{data.headlineMain}</span>
-        <span className="block text-center w-full m-0 p-0 flex items-center justify-center flex-wrap gap-0 -mt-4 max-[768px]:-mt-3 max-[480px]:-mt-2">
-          <span className="text-black tracking-[-0.02em] inline-block">{data.headlineHighlight}</span>
+        <span className="block text-center w-full m-0 p-0 flex items-center justify-center flex-wrap gap-3 -mt-4 max-[768px]:flex-nowrap max-[768px]:gap-0 max-[768px]:-mt-1 max-[480px]:gap-0">
+          <span className="text-black tracking-[-0.02em] inline-block max-[768px]:mr-[0.05rem]">{data.headlineHighlight}</span>
           <FlashfireLogo
             width={80}
             height={80}
-            className="inline-block align-middle h-[2.4em] w-auto leading-none flex-shrink-0 object-contain -mx-8 max-[768px]:h-[2.6em] max-[768px]:-mx-6 max-[480px]:h-[2.2em] max-[480px]:-mx-4"
+            className="inline-block align-middle h-[2.4em] w-auto leading-none flex-shrink-0 object-contain -mx-8 max-[768px]:h-10 max-[768px]:w-auto max-[768px]:mx-[0.05rem]"
           />
-          <span className="text-black tracking-[-0.02em] inline-block">{data.headlineSuffix}</span>
+          <span className="text-black tracking-[-0.02em] inline-block max-[768px]:ml-[0.05rem]">{data.headlineSuffix}</span>
         </span>
       </h1>
 
