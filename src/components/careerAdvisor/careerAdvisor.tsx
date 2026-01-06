@@ -13,6 +13,44 @@ export default function CareerAdvisor() {
     },
   });
 
+  const handleGetCareerAdvice = () => {
+    const utmSource =
+      typeof window !== "undefined"
+        ? localStorage.getItem("utm_source") || "WEBSITE"
+        : "WEBSITE";
+    const utmMedium =
+      typeof window !== "undefined"
+        ? localStorage.getItem("utm_medium") || "Career_Advisor_Page"
+        : "Career_Advisor_Page";
+
+    GTagUTM({
+      eventName: "sign_up_click",
+      label: "Career_Advisor_Get_Career_Advice_Button",
+      utmParams: {
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign:
+          typeof window !== "undefined"
+            ? localStorage.getItem("utm_campaign") || "Website"
+            : "Website",
+      },
+    });
+
+    trackButtonClick("Get Career Advice", "career_advisor_cta", "cta", {
+      button_location: "career_advisor_hero_section",
+      section: "career_advisor_hero",
+    });
+
+    trackSignupIntent("career_advisor_cta", {
+      signup_source: "career_advisor_hero_button",
+      funnel_stage: "signup_intent",
+    });
+
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+    }
+  };
+
   return (
     <div className="bg-[#fff7f3] text-[#1a1a1a]">
       
@@ -36,40 +74,7 @@ export default function CareerAdvisor() {
           <div className="mt-8 flex gap-4">
             <button
             {...getButtonProps()}
-            onClick={() => {
-              const utmSource = typeof window !== "undefined"
-                ? localStorage.getItem("utm_source") || "WEBSITE"
-                : "WEBSITE";
-              const utmMedium = typeof window !== "undefined"
-                ? localStorage.getItem("utm_medium") || "Career_Advisor_Page"
-                : "Career_Advisor_Page";
-
-              GTagUTM({
-                eventName: "sign_up_click",
-                label: "Career_Advisor_Get_Career_Advice_Button",
-                utmParams: {
-                  utm_source: utmSource,
-                  utm_medium: utmMedium,
-                  utm_campaign: typeof window !== "undefined"
-                    ? localStorage.getItem("utm_campaign") || "Website"
-                    : "Website",
-                },
-              });
-
-              trackButtonClick("Get Career Advice", "career_advisor_cta", "cta", {
-                button_location: "career_advisor_hero_section",
-                section: "career_advisor_hero",
-              });
-
-              trackSignupIntent("career_advisor_cta", {
-                signup_source: "career_advisor_hero_button",
-                funnel_stage: "signup_intent",
-              });
-
-              if (typeof window !== "undefined") {
-                window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
-              }
-            }}
+            onClick={handleGetCareerAdvice}
             className="bg-[#ff4c00] text-white px-6 py-3 shadow-[0_3px_0_black] rounded-xl font-semibold flex items-center gap-2 hover:opacity-90">
               Get Career Advice
               <ArrowRight size={18} />
@@ -142,14 +147,16 @@ export default function CareerAdvisor() {
           {/* LEFT TEXT */}
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a1a]">
-              From classroom to career
+            A System That Works for You.
             </h2>
 
             <ul className="mt-8 space-y-5 text-gray-700">
               {[
-                "Translate your academic achievements into job-ready professional skills",
-                "Understand how your coursework and projects map to real industry roles",
-                "Get clarity on bridging the gap between student life and workplace expectations",
+                "Personalized career path recommendations",
+                "Skill gap analysis and learning roadmap",
+                "Resume & ATS optimization suggestions",
+                "Job market demand insights",
+                "Next 30-60-90 day action plan",
               ].map((item, i) => (
                 <li key={i} className="flex gap-4">
                   <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15 text-[#ff4c00]">
@@ -192,14 +199,16 @@ export default function CareerAdvisor() {
           {/* RIGHT TEXT */}
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a1a]">
-              Entry-level job recommendations
+            Who Is This For?
             </h2>
 
             <ul className="mt-8 space-y-5 text-gray-700">
               {[
-                "Discover entry-level roles that match your degree and interests",
-                "Learn how to leverage internships, part-time work, and projects",
-                "Get tailored guidance on industries open to fresh graduates",
+                "Recent graduates looking for career direction",
+                "Mid-career professionals seeking new opportunities",
+                "Career changers exploring new fields",
+                "Students mapping coursework to real industry roles",
+                "Job seekers aiming for the top 10% of job market",
               ].map((item, i) => (
                 <li key={i} className="flex gap-4">
                   <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15 text-[#ff4c00]">
@@ -212,7 +221,26 @@ export default function CareerAdvisor() {
           </div>
         </div>
       </section>
- 
+      <section className="py-32 bg-[#fff1ea] text-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl text-black font-extrabold mb-6">
+                Ready to stop manually applying to <span className="text-[#ff4c00]">Get job calls?</span>
+              </h2>
+              <p className="text-lg text-gray-900 max-w-3xl mx-auto mb-10">
+                Join thousands of job seekers who use FlashFire to create compelling 
+                cover letters that increase their interview chances.
+              </p>
+              <button
+                {...getButtonProps()}
+                onClick={handleGetCareerAdvice}
+                className="bg-[#ff4c00] hover:bg-[#e24400] shadow-[0_3px_0_black] text-white px-8 py-4 font-bold text-lg rounded-lg transition-colors inline-flex items-center justify-center gap-2"
+              >
+                Get Career Advice →
+              </button>
+            </div>
+          </div>
+        </section>
       
 
     </div>
