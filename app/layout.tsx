@@ -120,18 +120,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ scrollBehavior: 'auto' }}>
+    <html lang="en">
       <head>
-        {/* Disable scroll restoration as early as possible */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('scrollRestoration' in window.history) {
-                window.history.scrollRestoration = 'manual';
-              }
-            `,
-          }}
-        />
         {/* Font Preconnect for Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
