@@ -982,6 +982,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     const stayOnPageRoutes = [
       '/features', '/en-ca/features',
       '/how-it-works', '/en-ca/how-it-works',
+      '/how-flashfire-ai-job-automation-platform-works', '/en-ca/how-flashfire-ai-job-automation-platform-works',
       '/pricing', '/en-ca/pricing',
       '/feature', '/en-ca/feature'
     ];
@@ -1188,7 +1189,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                       >
                         <div className={styles.featureDropdownGrid}>
                           <Link
-                            href={getHref("/features/resume-optimizer")}
+                            href={getHref("/features/ats-resume-optimizer")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1212,7 +1213,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </Link>
 
                           <Link
-                            href={getHref("/features/linkedin-profile-optimization")}
+                            href={getHref("/features/linkedin-profile-optimization-tool")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1234,7 +1235,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </Link>
 
                           <Link
-                            href={getHref("/features/job-automation")}
+                            href={getHref("/features/automated-job-applications")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1256,7 +1257,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </Link>
 
                           <Link
-                            href={getHref("/features/job-tracker")}
+                            href={getHref("/features/job-application-tracker")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1277,7 +1278,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </Link>
 
                           <Link
-                            href={getHref("/features/precision-targeting")}
+                            href={getHref("/features/ai-job-targeting")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1321,7 +1322,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </Link>
 
                           <Link
-                            href={getHref("/features/cover-letter")}
+                            href={getHref("/features/ai-cover-letter-generator")}
                             className={styles.featureDropdownItem}
                             onClick={() => setIsFeatureOpen(false)}
                           >
@@ -1592,17 +1593,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                         <div className={styles.featureDropdownMobile}>
                           <div className={styles.featureDropdownGridMobile}>
                             <a
-                              href={getHref("/features/resume-optimizer")}
+                              href={getHref("/features/ats-resume-optimizer")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/features/resume-optimizer"));
+                                router.push(getHref("/features/ats-resume-optimizer"));
                                 trackButtonClick("Resume Optimizer", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/features/resume-optimizer"
+                                  destination: "/features/ats-resume-optimizer"
                                 });
                               }}
                             >
@@ -1626,17 +1627,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </a>
 
                             <a
-                              href={getHref("/features/linkedin-profile-optimization")}
+                              href={getHref("/features/linkedin-profile-optimization-tool")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/features/linkedin-profile-optimization"));
+                                router.push(getHref("/features/linkedin-profile-optimization-tool"));
                                 trackButtonClick("LinkedIn Opt.", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/features/linkedin-profile-optimization"
+                                  destination: "/features/linkedin-profile-optimization-tool"
                                 });
                               }}
                             >
@@ -1658,17 +1659,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </a>
 
                             <a
-                              href={getHref("/features/job-automation")}
+                              href={getHref("/features/automated-job-applications")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/features/job-automation"));
+                                router.push(getHref("/features/automated-job-applications"));
                                 trackButtonClick("Job Automation", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/features/job-automation"
+                                  destination: "/features/automated-job-applications"
                                 });
                               }}
                             >
@@ -1690,17 +1691,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </a>
 
                             <a
-                              href={getHref("/features/job-tracker")}
+                              href={getHref("/features/job-application-tracker")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/features/job-tracker"));
+                                router.push(getHref("/features/job-application-tracker"));
                                 trackButtonClick("Job Tracker", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/features/job-tracker"
+                                  destination: "/features/job-application-tracker"
                                 });
                               }}
                             >
@@ -1721,17 +1722,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </a>
 
                             <a
-                              href={getHref("/features/precision-targeting")}
+                              href={getHref("/features/ai-job-targeting")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/features/precision-targeting"));
+                                router.push(getHref("/features/ai-job-targeting"));
                                 trackButtonClick("Precision Targeting", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/features/precision-targeting"
+                                  destination: "/features/ai-job-targeting"
                                 });
                               }}
                             >
@@ -1785,17 +1786,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </a>
 
                             <a
-                              href={getHref("/features/cover-letter")}
+                              href={getHref("/features/ai-cover-letter-generator")}
                               className={styles.featureDropdownItemMobile}
                               onClick={(e) => {
                                 e.preventDefault();
                                 setIsMenuOpen(false);
                                 setIsFeatureOpen(false);
-                                router.push(getHref("/features/cover-letter"));
+                                router.push(getHref("/features/ai-cover-letter-generator"));
                                 trackButtonClick("Cover Letter Builder", "navigation", "link", {
                                   button_location: "navbar_mobile_features",
                                   navigation_type: "internal_link",
-                                  destination: "/features/cover-letter"
+                                  destination: "/features/ai-cover-letter-generator"
                                 });
                               }}
                             >
