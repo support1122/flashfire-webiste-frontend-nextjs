@@ -16,8 +16,6 @@ export default function InterviewBuddy() {
     });
     return (
         <div className="w-full bg-white">
-            {/* Invisible anchor div for smooth scrolling from footer */}
-            <div id="interview-buddy" className="absolute top-0 left-0 w-0 h-0 invisible pointer-events-none" aria-hidden="true" />
 
             {/* ================= HERO SECTION ================= */}
             <section className="relative overflow-hidden">
