@@ -1343,6 +1343,29 @@ export default function NavbarClient({ links, ctas }: Props) {
                               </span>
                             </div>
                           </Link>
+
+                          <Link
+                            href={getHref("/features/interview-tips")}
+                            className={styles.featureDropdownItem}
+                            onClick={() => setIsFeatureOpen(false)}
+                          >
+                            <div className={styles.featureIcon}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20V16H5.17L4 17.17V4Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M8 9H16" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M8 13H12" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M10 20L14 16" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </div>
+                            <div className={styles.featureTexts}>
+                              <span className={styles.featureTitle}>
+                                Interview Tips
+                              </span>
+                              <span className={styles.featureSub}>
+                                Real-time AI prep
+                              </span>
+                            </div>
+                          </Link>
                         </div>
 
                         <Link
@@ -1814,6 +1837,39 @@ export default function NavbarClient({ links, ctas }: Props) {
                                 </span>
                                 <span className={styles.featureSub}>
                                   AI-powered writing
+                                </span>
+                              </div>
+                            </a>
+
+                            <a
+                              href={getHref("/features/interview-tips")}
+                              className={styles.featureDropdownItemMobile}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsMenuOpen(false);
+                                setIsFeatureOpen(false);
+                                router.push(getHref("/features/interview-tips"));
+                                trackButtonClick("Interview Tips", "navigation", "link", {
+                                  button_location: "navbar_mobile_features",
+                                  navigation_type: "internal_link",
+                                  destination: "/features/interview-tips"
+                                });
+                              }}
+                            >
+                              <div className={styles.featureIcon}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4 4H20V16H5.17L4 17.17V4Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M8 9H16" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M8 13H12" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M10 20L14 16" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                              </div>
+                              <div className={styles.featureTexts}>
+                                <span className={styles.featureTitle}>
+                                  Interview Tips
+                                </span>
+                                <span className={styles.featureSub}>
+                                  Real-time AI prep
                                 </span>
                               </div>
                             </a>

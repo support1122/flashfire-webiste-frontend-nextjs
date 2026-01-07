@@ -131,6 +131,11 @@ export default function Footer() {
                 <Link href={getHref("/interview-buddy")} className={linkClass}>
                 Interview Buddy
                 </Link>
+                <Link href={getHref("/offer-and-salary")} className={linkClass}> 
+                Offer & Salary Negotiation Skills</Link>
+                <Link href={getHref("/recent-job-openings")} className={linkClass}>
+                Recent Job Openings  
+                </Link>
               </div>
             </div>
 
