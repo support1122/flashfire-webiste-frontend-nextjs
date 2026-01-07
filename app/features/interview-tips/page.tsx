@@ -136,91 +136,57 @@ export default function FlashFireInterview() {
 
           {/* RIGHT MOCK BOX */}
           <div className="rounded-3xl border border-[#ff4c00]/40 bg-white p-6 shadow-sm">
-            <div className="flex justify-between items-center">
-              <span className="font-semibold text-sm">
-                Question {index + 1} of {QUESTIONS.length}
-              </span>
-              <span className="text-xs text-slate-600">{progress}%</span>
-            </div>
+  {/* Header */}
+  <div className="flex justify-between items-center">
+    <h3 className="text-lg font-bold text-slate-900">
+      Interview Readiness Overview
+    </h3>
+    <span className="text-sm font-semibold text-[#ff4c00]">
+      AI Assessment
+    </span>
+  </div>
 
-            <div className="mt-3 h-2 bg-[#ff4c00]/15 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-[#ff4c00]"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
+  {/* Progress */}
+  <div className="mt-5">
+    <div className="flex justify-between text-sm text-slate-600">
+      <span>Overall readiness</span>
+      <span>72%</span>
+    </div>
+    <div className="mt-2 h-2 rounded-full bg-[#ff4c00]/15 overflow-hidden">
+      <div className="h-full w-[72%] bg-[#ff4c00]" />
+    </div>
+  </div>
 
-            <h2 className="mt-5 text-xl font-bold">{qa.q}</h2>
+  {/* Skill Areas */}
+  <div className="mt-6 grid grid-cols-2 gap-4">
+    {[
+      { label: "Communication", value: "Strong" },
+      { label: "Problem Solving", value: "Good" },
+      { label: "Confidence", value: "Average" },
+      { label: "Structure", value: "Needs work" },
+    ].map((item) => (
+      <div
+        key={item.label}
+        className="rounded-2xl border border-[#ff4c00]/20 bg-[rgba(251,240,235,1)] p-4"
+      >
+        <p className="text-sm text-slate-600">{item.label}</p>
+        <p className="mt-1 font-semibold text-slate-900">
+          {item.value}
+        </p>
+      </div>
+    ))}
+  </div>
 
-            <textarea
-              className="mt-4 w-full min-h-[130px] rounded-2xl border border-[#ff4c00]/30 p-4 focus:ring-2 focus:ring-[#ff4c00]/30"
-              placeholder="Type your answer here..."
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-            />
+  {/* Insight */}
+  <div className="mt-6 rounded-2xl bg-white border border-[#ff4c00]/30 p-4">
+    <p className="text-sm text-slate-700">
+      💡 <span className="font-semibold">AI Insight:</span>  
+      Your answers are clear, but adding more real-world examples and metrics
+      will significantly improve interview performance.
+    </p>
+  </div>
+</div>
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              <button
-                onClick={() => {
-                  setChecked(true);
-                  setShowSample(false);
-                }}
-                className="px-4 py-2 rounded-xl bg-[#ff4c00] text-white hover:bg-[#e64500]"
-              >
-                Check Answer
-              </button>
-
-              <button
-                onClick={() => {
-                  setShowSample(true);
-                  setChecked(false);
-                }}
-                className="px-4 py-2 rounded-xl border border-[#ff4c00]/40"
-              >
-                Show Sample
-              </button>
-
-              <div className="ml-auto flex gap-2">
-                <button
-                  disabled={index === 0}
-                  onClick={() => setIndex(index - 1)}
-                  className="px-3 py-2 border border-[#ff4c00]/40 rounded-xl disabled:opacity-40"
-                >
-                  Prev
-                </button>
-                <button
-                  disabled={index === QUESTIONS.length - 1}
-                  onClick={() => setIndex(index + 1)}
-                  className="px-3 py-2 border border-[#ff4c00]/40 rounded-xl disabled:opacity-40"
-                >
-                  Next
-                </button>
-              </div>
-            </div>
-
-            {checked && (
-              <div className="mt-5 rounded-2xl bg-[rgba(251,240,235,1)] border border-[#ff4c00]/30 p-4">
-                <div className="flex justify-between">
-                  <span className="font-semibold">Feedback</span>
-                  <span className="text-[#ff4c00] font-semibold">
-                    {result.label} · {result.score}/10
-                  </span>
-                </div>
-                <ul className="mt-3 list-disc pl-5 text-sm space-y-1">
-                  {qa.tips.map((t) => (
-                    <li key={t}>{t}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {showSample && (
-              <div className="mt-5 rounded-2xl border border-[#ff4c00]/30 p-4">
-                <h3 className="font-semibold">Sample Answer</h3>
-                <p className="mt-2 text-sm text-slate-700">{qa.a}</p>
-              </div>
-            )}
-          </div>
         </div>
       </div>
 
