@@ -37,8 +37,36 @@ export const metadata: Metadata = {
 };
 
 export default function TestimonialsPage() {
+  const reviewSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": "Aman Guleria"
+    },
+    "itemReviewed": {
+      "@type": "Product",
+      "name": "AI Job Search Platform"
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "name": "Best AI Powered Job Searching Platform",
+    "reviewBody": "Flashfire guided me through my entire application process with precision and efficiency. The platform's comprehensive approach — from resume optimization to automated applications — made everything seamless. The real-time updates and tracking kept me informed throughout. I landed interviews at Barclays within 10 days, and the structured process made all the difference!",
+    "datePublished": "2025-05-11",
+    "publisher": {
+      "@type": "Organization",
+      "name": "FlashFire"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
       <ImagePreloader />
       <Navbar />
       <HappyUsersGalleryPage />
