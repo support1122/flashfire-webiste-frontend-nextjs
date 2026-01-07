@@ -87,7 +87,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     title: "PRIME",
     subTitle: "160 Applications",
     description: "Perfect starter plan for job seekers",
-    price: "CA$179",
+    price: "CA$139",
     oldPrice: undefined,
     features: [
       "AI-powered job matching",
@@ -97,13 +97,13 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/PRIME_CA_PLACEHOLDER",
+    paymentLink: "https://www.paypal.com/ncp/payment/83KSCHQNBM68W",
   },
   {
     title: "IGNITE",
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
-    price: "CA$279",
+    price: "CA$239",
     oldPrice: "CA$389",
     features: [
       "AI-powered job matching",
@@ -113,7 +113,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/XE595XT8FUR3W",
+    paymentLink: "https://www.paypal.com/ncp/payment/TLKWRAXG373KA",
   },
   {
     title: "PROFESSIONAL",
@@ -132,7 +132,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/XHDEFS696TUSW",
+    paymentLink: "https://www.paypal.com/ncp/payment/S4RB5SV4QN37E",
   },
   {
     title: "EXECUTIVE",
@@ -152,7 +152,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: true,
-    paymentLink: "https://www.paypal.com/ncp/payment/BDTDTA7CRXXWQ",
+    paymentLink: "https://www.paypal.com/ncp/payment/HSUW63VZUHQUW",
   },
 ];
 
