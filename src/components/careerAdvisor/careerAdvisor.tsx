@@ -53,8 +53,6 @@ export default function CareerAdvisor() {
 
   return (
     <div className="bg-[#fff7f3] text-[#1a1a1a]">
-      {/* Invisible anchor div for smooth scrolling from footer */}
-      <div id="career-advisor" className="absolute top-0 left-0 w-0 h-0 invisible pointer-events-none" aria-hidden="true" />
       
       {/* HERO */}
       <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
