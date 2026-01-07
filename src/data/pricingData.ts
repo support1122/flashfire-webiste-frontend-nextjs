@@ -120,7 +120,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     tag: "Most Popular",
     subTitle: "500 Applications",
     description: "Most popular for mid-level professionals",
-    price: "CA$489",
+    price: "CA$449",
     oldPrice: "CA$619",
     features: [
       "Everything in Ignite",
@@ -139,7 +139,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     tag: "Premium",
     subTitle: "1200+ Applications",
     description: "For early professionals & executives",
-    price: "CA$839",
+    price: "CA$7999",
     oldPrice: "CA$949",
     features: [
       "Everything in Professional",
