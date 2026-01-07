@@ -103,7 +103,9 @@ export default function LinkedInOptimizationPage() {
     window.scrollTo({ top: y, behavior: "smooth" })
   }
   return (
-    <div className="min-h-screen bg-white text-[#0b0b0b]">
+    <div className="min-h-screen bg-white text-[#0b0b0b] relative">
+      {/* Invisible anchor div for smooth scrolling from footer */}
+      <div id="linkedin-profile-optimization" className="absolute top-0 left-0 w-0 h-0 invisible pointer-events-none" aria-hidden="true" />
       <Navbar />
 
 

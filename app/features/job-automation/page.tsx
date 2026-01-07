@@ -213,7 +213,9 @@ export default function JobApplicationAutomationPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-white text-[#0f172a] font-['Space_Grotesk',sans-serif]">
+      <main className="min-h-screen bg-white text-[#0f172a] font-['Space_Grotesk',sans-serif] relative">
+        {/* Invisible anchor div for smooth scrolling from footer */}
+        <div id="job-automation" className="absolute top-0 left-0 w-0 h-0 invisible pointer-events-none" aria-hidden="true" />
         {/* Hero */}
         <section className="min-h-[95vh] -mt-20 flex items-center bg-[#fff6f4]">
           <div className="mx-auto max-w-6xl px-6 text-center">

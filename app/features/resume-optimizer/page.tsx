@@ -302,7 +302,9 @@ export default function Page() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-[#fff7f2] text-[#0f172a]">
+      <main className="min-h-screen bg-[#fff7f2] text-[#0f172a] relative">
+        {/* Invisible anchor div for smooth scrolling from footer */}
+        <div id="resume-optimizer" className="absolute top-0 left-0 w-0 h-0 invisible pointer-events-none" aria-hidden="true" />
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-[#fffaf7]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_15%,rgba(255,76,0,0.12),transparent_45%)]" />

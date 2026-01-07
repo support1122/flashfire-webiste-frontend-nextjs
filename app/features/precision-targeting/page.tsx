@@ -145,7 +145,9 @@ export default function PrecisionTargetingPage() {
   return (
     <>
       <Navbar />
-      <div className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen">
+      <div className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen relative">
+        {/* Invisible anchor div for smooth scrolling from footer */}
+        <div id="precision-targeting" className="absolute top-0 left-0 w-0 h-0 invisible pointer-events-none" aria-hidden="true" />
         {/* Hero Section */}
         <section className="relative bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white py-24">
   <div className="max-w-6xl mx-auto px-6 text-center">

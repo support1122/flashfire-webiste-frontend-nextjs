@@ -8,6 +8,7 @@ import GeoBypassSuccessModal from "@/src/components/modals/GeoBypassSuccessModal
 import SignupModal from "@/src/components/signupModal/SignupModal";
 import CalendlyModal from "@/src/components/calendlyModal/CalendlyModal";
 import { loadFormData } from "@/src/utils/LocalStorageUtils";
+import { scrollToTopInstant } from "@/src/utils/scrollToTop";
 
 function ClientLogicWrapperContent({
     children,
@@ -36,6 +37,7 @@ function ClientLogicWrapperContent({
     const lastRouteWithModalRef = useRef<string | null>(null);
     const modalDismissedForRouteRef = useRef<string | null>(null);
     const pathnameRef = useRef<string>(pathname);
+    const previousPathnameRef = useRef<string>(pathname);
 
     // Capture UTM params on mount and when searchParams change
     useEffect(() => {
@@ -45,6 +47,51 @@ function ClientLogicWrapperContent({
     // Update pathname ref when pathname changes
     useEffect(() => {
         pathnameRef.current = pathname;
+    }, [pathname]);
+
+    // Scroll to top on route change (except for routes that preserve scroll position)
+    useEffect(() => {
+        // Skip scroll-to-top on initial mount (when previousPathnameRef equals current pathname)
+        const isInitialMount = previousPathnameRef.current === pathname;
+        
+        if (isInitialMount) {
+            // Still update the ref for future comparisons
+            previousPathnameRef.current = pathname;
+            return;
+        }
+
+        // Routes where we want to preserve scroll position (e.g., book-now with modal)
+        const preserveScrollRoutes = [
+            '/book-now', 
+            '/en-ca/book-now',
+            '/get-me-interview',
+            '/en-ca/get-me-interview'
+        ];
+        const isPreserveScrollRoute = preserveScrollRoutes.some(route => 
+            pathname === route || previousPathnameRef.current === route
+        );
+
+        // Check if we're preserving scroll position from sessionStorage
+        const preserveScrollPosition = typeof window !== 'undefined' && 
+            sessionStorage.getItem('preserveScrollPosition');
+
+        // Only scroll to top if:
+        // 1. Pathname actually changed (not initial mount)
+        // 2. Not a preserve-scroll route
+        // 3. No scroll position preservation in sessionStorage
+        if (!isPreserveScrollRoute && !preserveScrollPosition) {
+            // Scroll to absolute top immediately to ensure promotional banner is fully visible
+            scrollToTopInstant();
+        } else if (preserveScrollPosition) {
+            // If we have a preserved scroll position, we're navigating away from a modal route
+            // Clear it so future navigations scroll to top properly
+            if (typeof window !== 'undefined') {
+                sessionStorage.removeItem('preserveScrollPosition');
+            }
+        }
+
+        // Update previous pathname for next comparison
+        previousPathnameRef.current = pathname;
     }, [pathname]);
 
     // Listen for button click events from anywhere in the app
