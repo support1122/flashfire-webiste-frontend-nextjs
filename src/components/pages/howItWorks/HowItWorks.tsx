@@ -339,8 +339,62 @@ export default function HowItWorks() {
     }, 10000);
   };
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.flashfirejobs.com/#organization",
+    "name": "Flashfirejobs",
+    "url": "https://www.flashfirejobs.com/",
+    "logo": "https://www.flashfirejobs.com/favicon.ico",
+    "description": "Flashfire is an AI-powered job search platform helping candidates get interview calls faster through intelligent job matching and automation.",
+    "sameAs": [
+      "https://www.instagram.com/flashfirejobs/",
+      "https://www.youtube.com/@flashfireindia",
+      "https://www.linkedin.com/company/flashfire-pvt-ltd/"
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Flashfire Really Apply For Jobs Automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. From form filling to resume tailoring, each application is automated and tracked."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will Flashfire Help Me Get Interview Calls?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That is the core purpose of the platform—targeted, optimized applications that convert to interviews."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Flashfire Work for OPT/CPT Students?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We were built around visa-friendly job matching for OPT, CPT, STEM OPT, and H-1B paths."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="bg-[#fff6f4] text-black min-h-screen"> 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navbar />
 
       <main className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
@@ -374,7 +428,7 @@ export default function HowItWorks() {
           <div className="mx-auto max-w-6xl px-4 text-center">
 
             <h2 className="text-3xl md:text-4xl font-bold text-black">
-              How Flashfire Works in 4 Simple Steps
+              How Flashfire's AI Job Automation Platform Works in 4 Simple Steps
             </h2>
 
             <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
@@ -542,7 +596,7 @@ export default function HowItWorks() {
                   Demo
                 </p>
                 <h3 className="mt-1 text-2xl font-semibold text-gray-900">
-                  Watch Flashfire handle applications end-to-end
+                  Watch Flashfire handle AI Job applications end-to-end
                 </h3>
                 <p className="text-sm text-gray-700">
                   See the actual workflow we use to source, tailor, and submit

@@ -14,7 +14,9 @@ export default function Footer() {
 
   const getHref = (href: string) => {
     if (href.startsWith("http")) return href;
-    return `${prefix}${href}`;
+    // Ensure no hash fragments are added to feature URLs
+    const cleanHref = href.split('#')[0];
+    return `${prefix}${cleanHref}`;
   };
 
   const handleFAQClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -100,25 +102,25 @@ export default function Footer() {
                 PRODUCT
               </h4>
               <div className="flex flex-col gap-1.5 max-[480px]:gap-1">
-                <Link href={getHref("/features/resume-optimizer")} className={linkClass}>
+                <Link href={getHref("/features/ats-resume-optimizer")} className={linkClass}>
                   Resume Optimizer
                 </Link>
-                <Link href={getHref("/features/job-automation")} className={linkClass}>
+                <Link href={getHref("/features/automated-job-applications")} className={linkClass}>
                   Job Automation
                 </Link>
                 <Link
-                  href={getHref("/features/linkedin-profile-optimization")}
+                  href={getHref("/features/linkedin-profile-optimization-tool")}
                   className={linkClass}
                 >
                   LinkedIn Optimization
                 </Link>
-                <Link href={getHref("/features/job-tracker")} className={linkClass}>
+                <Link href={getHref("/features/job-application-tracker")} className={linkClass}>
                   Job Tracker
                 </Link>
-                <Link href={getHref("/features/cover-letter")} className={linkClass}>
+                <Link href={getHref("/features/ai-cover-letter-generator")} className={linkClass}>
                   Cover Letter Builder
                 </Link>
-                <Link href={getHref("/features/precision-targeting")} className={linkClass}>
+                <Link href={getHref("/features/ai-job-targeting")} className={linkClass}>
                 Precision Targeting
                 </Link>
                 <Link href={getHref("/features/dashboard-analytics")} className={linkClass}>

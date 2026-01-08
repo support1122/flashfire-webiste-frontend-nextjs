@@ -218,7 +218,9 @@ export default function Page() {
         normalizedPath === '/features/resume-optimizer' ||
         normalizedPath === '/en-ca/features/resume-optimizer' ||
         normalizedPath === '/features/ats-optimizer' ||
-        normalizedPath === '/en-ca/features/ats-optimizer'
+        normalizedPath === '/en-ca/features/ats-optimizer' ||
+        normalizedPath === '/features/ats-resume-optimizer' ||
+        normalizedPath === '/en-ca/features/ats-resume-optimizer'
 
       // If already on the route, save scroll position and prevent navigation
       if (isAlreadyOnGetMeInterview) {

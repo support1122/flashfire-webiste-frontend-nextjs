@@ -87,7 +87,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     title: "PRIME",
     subTitle: "160 Applications",
     description: "Perfect starter plan for job seekers",
-    price: "CA$179",
+    price: "CA$139",
     oldPrice: undefined,
     features: [
       "AI-powered job matching",
@@ -97,13 +97,13 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/PRIME_CA_PLACEHOLDER",
+    paymentLink: "https://www.paypal.com/ncp/payment/83KSCHQNBM68W",
   },
   {
     title: "IGNITE",
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
-    price: "CA$279",
+    price: "CA$239",
     oldPrice: "CA$389",
     features: [
       "AI-powered job matching",
@@ -113,14 +113,14 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/XE595XT8FUR3W",
+    paymentLink: "https://www.paypal.com/ncp/payment/TLKWRAXG373KA",
   },
   {
     title: "PROFESSIONAL",
     tag: "Most Popular",
     subTitle: "500 Applications",
     description: "Most popular for mid-level professionals",
-    price: "CA$489",
+    price: "CA$449",
     oldPrice: "CA$619",
     features: [
       "Everything in Ignite",
@@ -132,14 +132,14 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/XHDEFS696TUSW",
+    paymentLink: "https://www.paypal.com/ncp/payment/S4RB5SV4QN37E",
   },
   {
     title: "EXECUTIVE",
     tag: "Premium",
     subTitle: "1200+ Applications",
     description: "For early professionals & executives",
-    price: "CA$839",
+    price: "CA$7999",
     oldPrice: "CA$949",
     features: [
       "Everything in Professional",
@@ -152,7 +152,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: true,
-    paymentLink: "https://www.paypal.com/ncp/payment/BDTDTA7CRXXWQ",
+    paymentLink: "https://www.paypal.com/ncp/payment/HSUW63VZUHQUW",
   },
 ];
 

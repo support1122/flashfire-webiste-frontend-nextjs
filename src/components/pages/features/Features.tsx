@@ -25,35 +25,35 @@ const features: FeatureItem[] = [
       "For each and every application, your base resume is automatically optimized to the job description with ATS-friendly keywords and skills.",
     icon: FaBrain,
     // Best match with existing feature page
-    href: "/features/job-automation",
+    href: "/features/automated-job-applications",
   },
   {
     title: "Dynamic Resume Optimization",
     description:
       "We build your base resume from scratch and tailor it for each job, making it ATS-friendly and recruiter-visible.we also provide you with a personalized job strategy for US & Canada roles.",
     icon: FaFileAlt,
-    href: "/features/resume-optimizer",
+    href: "/features/ats-resume-optimizer",
   },
   {
     title: "LinkedIn Profile Optimization",
     description:
       "We professionally optimize your LinkedIn profile to boost recruiter visibility and align with your job search goals.it also includes a personalized job strategy for US & Canada roles.",
     icon: FaLinkedin,
-    href: "/features/linkedin-profile-optimization",
+    href: "/features/linkedin-profile-optimization-tool",
   },
   {
     title: "Precision Targeting",
     description:
       "We only apply to jobs that fit your pay, location, company size, and career goals — and only to jobs posted in the last 24–48 hours.",
     icon: FaBullseye,
-    href: "/features/precision-targeting",
+    href: "/features/ai-job-targeting",
   },
   {
     title: "Lightning Fast Applications",
     description:
       "A dedicated team of 4–5 people handles your job hunt, applying to 1200+ roles in 6–7 weeks. We'll keep you posted with every update in a WhatsApp group made just for you.",
     icon: FaBolt,
-    href: "/features/job-tracker",
+    href: "/features/job-application-tracker",
   },
   {
     title: "Dashboard & Analytics",
@@ -214,14 +214,68 @@ function Features() {
     router.push(targetPath)
   }
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.flashfirejobs.com/#organization",
+    "name": "Flashfirejobs",
+    "url": "https://www.flashfirejobs.com/",
+    "logo": "https://www.flashfirejobs.com/favicon.ico",
+    "description": "Flashfire is an AI-powered job search platform helping candidates get interview calls faster through intelligent job matching and automation.",
+    "sameAs": [
+      "https://www.instagram.com/flashfirejobs/",
+      "https://www.youtube.com/@flashfireindia",
+      "https://www.linkedin.com/company/flashfire-pvt-ltd/"
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why Are We The Best Job Hunting Site To Find Opportunities Quickly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because we don't just show jobs, we apply to them for you. You skip browsing, resume editing, and forms. We do it all."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How Does AI Job Search Improve My Chances Of Finding Relevant Positions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our AI scans thousands of listings and matches them to your profile. It also optimizes your resume with keywords hiring managers and ATS systems are looking for."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI Job Application Tools Help Me Apply For Jobs Faster?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. AI job application tools automate form filling, resume tailoring, and submission, letting you apply to hundreds of jobs in the time it takes to manually apply to one."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="bg-[#f9e8e0] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Orange Header Bar */}
       <header className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-[#fffaf7] py-24 ">
   <div className="mx-auto max-w-4xl text-center px-4">
 
     <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-10 leading-tight">
-      Everything you need to get interviews — <span className="text-[#ff4c00]">automated</span>
+      Best AI Job Search Tools to Get Interviews - <span className="text-[#ff4c00]">Fully Automated</span>
     </h1>
 
     <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">
@@ -331,7 +385,7 @@ function Features() {
         {/* Why Choose Flashfire Section */}
         <header className="relative z-10 mx-auto mb-16 max-w-4xl text-center md:mb-20">
           <h2 className="font-['Satoshi',sans-serif] text-4xl font-extrabold leading-tight tracking-tight text-[#ff4c00] md:text-5xl mb-5">
-          Why Choose Flashfire?
+          Why Choose Flashfire AI Powered Job Search Tools?
         </h2>
           <p className="font-['Satoshi',sans-serif] text-base font-medium leading-relaxed text-gray-700 md:text-xl">
           We don&apos;t just apply, we <strong className="font-bold italic text-gray-900">make you get noticed.</strong>{" "}
