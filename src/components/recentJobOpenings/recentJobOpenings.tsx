@@ -48,7 +48,7 @@ export default function RecentJobOpenings() {
 
     return (
         <>
-            <section className="bg-white py-28">
+            <section className="bg-white pt-[120px] md:pt-[100px]">
                 <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
                     {/* LEFT: VISUAL STACK */}

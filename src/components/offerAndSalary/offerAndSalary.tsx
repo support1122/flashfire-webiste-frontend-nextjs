@@ -58,7 +58,7 @@ export default function SalaryNegotiationUI() {
     };
 
     return (
-        <div className="bg-[rgba(251,240,235,1)] text-slate-900">
+        <div className="bg-[rgba(251,240,235,1)] text-slate-900 pt-[120px] md:pt-[100px]">
 
             <section className="py-24 bg-[rgba(251,240,235,1)]">
                 <div className="max-w-3xl mx-auto text-center px-4">
