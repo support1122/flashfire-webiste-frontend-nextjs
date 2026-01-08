@@ -85,7 +85,10 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             )}
           </p>
 
-          <p className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3">{blog.excerpt}</p>
+          <p
+            className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3"
+            dangerouslySetInnerHTML={{ __html: blog.excerpt || "" }}
+          />
 
           <div className="flex flex-row gap-5 text-[0.95rem] text-[#777] font-medium">
             <span>
