@@ -588,20 +588,34 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   {/* <h3 className={styles.overviewTitle}> Blog Overview</h3> */}
                   {overviewParagraphs ? (
                     <div className={styles.overviewText}>
-                      <p style={{ marginBottom: '0.75rem' }}>{overviewParagraphs[0]}</p>
-                      <p style={{ marginBottom: '0.75rem' }}>{overviewParagraphs[1]}</p>
-                      <p style={{ marginBottom: 0 }}>{overviewParagraphs[2]}</p>
+                      <p
+                        style={{ marginBottom: "0.75rem" }}
+                        dangerouslySetInnerHTML={{ __html: overviewParagraphs[0] }}
+                      />
+                      <p
+                        style={{ marginBottom: "0.75rem" }}
+                        dangerouslySetInnerHTML={{ __html: overviewParagraphs[1] }}
+                      />
+                      <p
+                        style={{ marginBottom: 0 }}
+                        dangerouslySetInnerHTML={{ __html: overviewParagraphs[2] }}
+                      />
                     </div>
                   ) : overviewText.includes('\n\n') ? (
                     <div className={styles.overviewText}>
                       {overviewText.split('\n\n').map((para, index, array) => (
-                        <p key={index} style={{ marginBottom: index < array.length - 1 ? '0.75rem' : 0 }}>
-                          {para.trim()}
-                        </p>
+                        <p
+                          key={index}
+                          style={{ marginBottom: index < array.length - 1 ? "0.75rem" : 0 }}
+                          dangerouslySetInnerHTML={{ __html: para.trim() }}
+                        />
                       ))}
                     </div>
                   ) : (
-                    <p className={styles.overviewText}>{overviewText}</p>
+                    <p
+                      className={styles.overviewText}
+                      dangerouslySetInnerHTML={{ __html: overviewText }}
+                    />
                   )}
                 </div>
               )}

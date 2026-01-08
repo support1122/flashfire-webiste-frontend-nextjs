@@ -52,10 +52,10 @@ export default function CareerAdvisor() {
   };
 
   return (
-    <div className="bg-[#fff7f3] text-[#1a1a1a]">
+    <div className="bg-[#fff7f3] text-[#1a1a1a] pt-[120px] md:pt-[100px]">
       
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <span className="inline-block bg-[#ff4c00]/10 text-[#ff4c00] px-4 py-1 rounded-full text-sm font-semibold mb-4">
             AI-Powered Career Guidance

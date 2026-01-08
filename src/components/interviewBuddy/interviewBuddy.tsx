@@ -15,7 +15,7 @@ export default function InterviewBuddy() {
         },
     });
     return (
-        <div className="w-full bg-white">
+        <div className="w-full bg-white  pt-[120px] md:pt-[100px]">
 
             {/* ================= HERO SECTION ================= */}
             <section className="relative overflow-hidden">

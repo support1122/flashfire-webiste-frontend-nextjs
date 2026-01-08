@@ -214,28 +214,28 @@ export const blogPosts = [
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs on how to write a good resume for a job</h2>
         
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How to write a good resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A.  Use a professional and neat layout. Clearly mention each heading, use simple fonts like Arial or Calibri, 10-12 pt, the formatting should be the same throughout, and use bullet points instead of paragraphs. Margins should be between 0.5 and 1 inch, and you shouldn't use a lot of graphics. One page is best for students and people who are just starting out in their careers.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Use a professional and neat layout. Clearly mention each heading, use simple fonts like Arial or Calibri, 10-12 pt, the formatting should be the same throughout, and use bullet points instead of paragraphs. Margins should be between 0.5 and 1 inch, and you shouldn't use a lot of graphics. One page is best for students and people who are just starting out in their careers.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Where can I get a free resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. You can use Google Docs, Microsoft Word templates, Canva, Indeed Resume Builder, or Zety's free version. Colleges also offer free resume builders.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> You can use Google Docs, Microsoft Word templates, Canva, Indeed Resume Builder, or Zety's free version. Colleges also offer free resume builders.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How do you make a resume in Google Docs?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. To use a resume template in Google Docs, open the program, click "Template Gallery," choose a template, and replace the placeholder text with your information. Change the fonts and spacing, then save it as a PDF before using it.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> To use a resume template in Google Docs, open the program, click "Template Gallery," choose a template, and replace the placeholder text with your information. Change the fonts and spacing, then save it as a PDF before using it.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How do you use Microsoft Word to write a resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Click "File" and then "New." Type "resume" into the search box, choose a template, replace the text with your own, and save it as both .docx and .pdf files.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Click "File" and then "New." Type "resume" into the search box, choose a template, replace the text with your own, and save it as both .docx and .pdf files.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How many jobs should you put on your resume?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. List three to five jobs you've had in the last ten to fifteen years that are related to the job you're applying for. Look at recent, relevant jobs that show growth and accomplishments. People who are just starting out in their careers can list all of their relevant jobs.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> List three to five jobs you've had in the last ten to fifteen years that are related to the job you're applying for. Look at recent, relevant jobs that show growth and accomplishments. People who are just starting out in their careers can list all of their relevant jobs.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How does AI impact the screening of resumes?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Before people look at resumes, ATS software scans them for keywords and formatting. Make sure each resume matches the job description and is easy to read so that automated screening can pass it.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Before people look at resumes, ATS software scans them for keywords and formatting. Make sure each resume matches the job description and is easy to read so that automated screening can pass it.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Should I put my address on my CV?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. No. To show where you are while keeping your privacy, just list your city and state. Instead, write "Open to Remote Work" for jobs that can be done from home.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> No. To show where you are while keeping your privacy, just list your city and state. Instead, write "Open to Remote Work" for jobs that can be done from home.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. What kind and size of file should I use?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A .To preserve the formatting, save as a PDF (unless you are told to do something else). File size should be less than 1 MB. Provide your file a name that makes sense, like "FirstName_LastName_Resume.pdf."</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> To preserve the formatting, save as a PDF (unless you are told to do something else). File size should be less than 1 MB. Provide your file a name that makes sense, like "FirstName_LastName_Resume.pdf."</p>
       `,
   },
   {
@@ -243,7 +243,7 @@ export const blogPosts = [
     slug: "why-is-it-so-hard-to-find-a-job-in-us",
     title: "Why Is It So Hard to Find a Job in the US Market? Top Reasons Explained",
     excerpt:
-      "You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health. This Flashfirejobs blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations. You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.",
+      "You're not the only one who feels frustrated, confused, or even discouraged while seeking employment. People looking for work all over the US are asking the same thing: why is it so hard to find a job when they have degrees, experience, and skills? There has never been a bigger gap between job openings and actual hiring, and getting turned down or not hearing back can be very hard on your mental health. This <a href=\"https://www.flashfirejobs.com\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:#2563eb; text-decoration: underline;\">Flashfirejobs</a> blog discusses the real reasons why it is so difficult to find a job in the US right now and goes deeper than just the surface issues and explains the underlying dynamics. This guide explains why job searching feels harder than ever, from changes in the economy and hiring slowdowns to automation, applicant tracking systems, and employer expectations. You will also learn how to tell if your job search is challenging because of personal issues or the job market, what to do when your job search isn't going well, how to improve your chances, and what experts think will happen in the future of hiring. This blog is for you, whether you're a recent graduate, an experienced professional, or someone who is going back to work.",
     date: "Jan 12, 2025",
     lastUpdated: "Dec 24, 2025",
     readTime: "12 min",
@@ -351,34 +351,34 @@ export const blogPosts = [
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQ</h2>
         
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work if you don't have any experience?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Employers look for people who have some work experience, even if it isn't official. To prove that you can do the job, focus on internships, volunteer work, and skills that can be used in other jobs.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Employers look for people who have some work experience, even if it isn't official. To prove that you can do the job, focus on internships, volunteer work, and skills that can be used in other jobs.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work even if you have a degree?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Just because you have a degree doesn't mean you'll get a job. Employers care more about how well someone fits in with the culture, their skills, and their experience than their credentials. Many graduates end up doing jobs that have nothing to do with what they studied.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Just because you have a degree doesn't mean you'll get a job. Employers care more about how well someone fits in with the culture, their skills, and their experience than their credentials. Many graduates end up doing jobs that have nothing to do with what they studied.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. There are a lot of rounds in the process, ATS screening, but not much feedback. This makes things take longer and be more of a pain.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> There are a lot of rounds in the process, ATS screening, but not much feedback. This makes things take longer and be more of a pain.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why do employers have such high standards?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Companies don't want to hire the wrong people, especially when the economy is bad. They make the hiring process long to find people who meet all of their needs, even for entry-level jobs.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Companies don't want to hire the wrong people, especially when the economy is bad. They make the hiring process long to find people who meet all of their needs, even for entry-level jobs.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How is the job market doing?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. The job market is made up of the number of jobs, the number of people looking for work, and the rules for hiring people.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> The job market is made up of the number of jobs, the number of people looking for work, and the rules for hiring people.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to get a job?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Since 2023, it's been much harder to find a job because there are fewer openings, more people applying for each job, ghost jobs, layoffs from hiring too many people, and ATS screening.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Since 2023, it's been much harder to find a job because there are fewer openings, more people applying for each job, ghost jobs, layoffs from hiring too many people, and ATS screening.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Do workers have a lot of work to do?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Not at this time. The US is currently in a "low-hire, low-fire" phase, which means that employers are in charge.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Not at this time. The US is currently in a "low-hire, low-fire" phase, which means that employers are in charge.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How will the job market change?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Policy changes, interest rates, and events happening around the global market all results in the change of the job market.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Policy changes, interest rates, and events happening around the global market all results in the change of the job market.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it hard to find a job?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. Businesses are being careful because the economy isn't stable, costs are high, and growth is slow. A lot of people are putting off hiring new people or only hiring people when they really need them.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Businesses are being careful because the economy isn't stable, costs are high, and growth is slow. A lot of people are putting off hiring new people or only hiring people when they really need them.</p>
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How many people who graduated from college are now unemployed?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'>A. By the end of 2025, the unemployment rate will be approximately 4.2%</p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> By the end of 2025, the unemployment rate will be approximately 4.2%</p>
       `,
   },
   {
