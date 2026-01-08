@@ -175,6 +175,16 @@ const nextConfig: NextConfig = {
         destination: "/features/linkedin-profile-optimization",
         permanent: true,
       },
+      {
+        source: "/how-it-works",
+        destination: "/how-flashfire-ai-job-automation-platform-works",
+        permanent: true,
+      },
+      {
+        source: "/en-ca/how-it-works",
+        destination: "/en-ca/how-flashfire-ai-job-automation-platform-works",
+        permanent: true,
+      },
     ];
   },
 };
