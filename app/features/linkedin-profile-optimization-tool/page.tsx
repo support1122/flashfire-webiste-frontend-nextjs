@@ -697,7 +697,9 @@ export default function LinkedInOptimizationPage() {
                 currentPath === '/features/linkedin-profile-optimization-services' ||
                 currentPath === '/en-ca/features/linkedin-profile-optimization-services' ||
                 currentPath === '/features/linkedin-profile-optimization' ||
-                currentPath === '/en-ca/features/linkedin-profile-optimization';
+                currentPath === '/en-ca/features/linkedin-profile-optimization' ||
+                currentPath === '/features/linkedin-profile-optimization-tool' ||
+                currentPath === '/en-ca/features/linkedin-profile-optimization-tool';
               const isAlreadyOnBookMyDemoCall = currentPath === '/book-my-demo-call' || currentPath === '/en-ca/book-my-demo-call';
               const isOnHomePage = currentPath === '/' || currentPath === '/en-ca' || currentPath === '';
               

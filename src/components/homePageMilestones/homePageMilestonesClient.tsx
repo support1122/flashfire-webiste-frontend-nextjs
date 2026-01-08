@@ -428,7 +428,7 @@ export default function HomePageMilestonesClient() {
   return (
     <section className={styles.milestoneContainer}>
       {/* === Section Heading === */}
-      <h4 className={styles.sectionHeading}>INTERVIEWS CRACKED</h4>
+      <h4 className={styles.sectionHeading}>Interviews Secured Through Flashfire Smart Job Search</h4>
 
       {/* === Continuous Marquee Testimonials === */}
       <div className={styles.marqueeContainer}>

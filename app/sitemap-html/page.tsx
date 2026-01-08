@@ -26,6 +26,7 @@ export default function HTMLSitemapPage() {
     { url: "/about-us", title: "About Us" },
     { url: "/contact-us", title: "Contact Us" },
     { url: "/how-it-works", title: "How It Works" },
+    { url: "/how-flashfire-ai-job-automation-platform-works", title: "How Flashfire's AI Job Automation Platform Works" },
     { url: "/talk-to-an-expert", title: "Talk to an Expert" },
     { url: "/see-flashfire-in-action", title: "See Flashfire in Action" },
     { url: "/book-my-demo-call", title: "Book My Demo Call" },
