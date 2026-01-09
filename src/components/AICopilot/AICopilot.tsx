@@ -85,7 +85,7 @@ export default function AICopilot() {
                   onClick={handleStartApplyingClick}
                   className="bg-[#ff4c00] text-white px-6 sm:px-5 py-3 sm:py-4 shadow-[0_3px_0_black] rounded-xl text-lg font-semibold hover:scale-105 transition"
                 >
-                  Start Applying with AI
+                  get me interview
                 </button>
 
                 <button
