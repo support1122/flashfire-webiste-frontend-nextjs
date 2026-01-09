@@ -9,6 +9,7 @@ import InterviewBuddy from "@/src/components/interviewBuddy/interviewBuddy";
 import CareerAdvisor from "@/src/components/careerAdvisor/careerAdvisor";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
+import AICopilot from "@/src/components/AICopilot/AICopilot";
 import dynamic from "next/dynamic";
 
 const ATSPage = dynamic(() => import("@/app/features/resume-optimizer/page"), {
@@ -85,6 +86,17 @@ export default function GetMeInterviewPage() {
 
     if (!isMounted) {
         return <HomePage />;
+    }
+
+    if (previousPage === '/AI-copilot' ||
+        previousPage === '/en-ca/AI-copilot') {
+        return (
+            <>
+                <Navbar />
+                <AICopilot />
+                <Footer />
+            </>
+        );
     }
 
     if (previousPage === '/about-us' || previousPage === '/en-ca/about-us') {

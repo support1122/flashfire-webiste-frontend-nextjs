@@ -31,20 +31,15 @@ export const ALL_REVIEW_IMAGES = [
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204027/image25_olv1fx.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204026/image27_b1jiaa.jpg",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204026/image24_lep6eo.png",
-  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204026/image23_s1ky7z.png", // 10
-   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image32.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image33.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204026/image23_s1ky7z.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image3_bbkufe.jpg", // 10
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image34.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image35.png",
-  
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image43.png",
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image44.png",
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image45.png",
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image46.png",
-
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204025/image20_xttrfl.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image21_e2ftbw.jpg",
-  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image13_f3mubl.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image13_f3mubl.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204024/image19_nxbjhs.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204023/image15_leype3.png",
@@ -52,12 +47,14 @@ export const ALL_REVIEW_IMAGES = [
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204022/image16_aulqus.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204022/image14_bslkfz.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204022/image18_pdvylr.jpg",
-
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204021/image9_mhagc2.png",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204020/image12_zmzj7r.jpg",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204020/image8_j0gfwt.jpg",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204019/image7_m3kys4.jpg",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image32.png",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image33.png",
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image36.png",
+  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image1_qgcecr.jpg",
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image37.png",
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image38.png",
   "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/happy-users-sc/image39.png",
@@ -67,9 +64,9 @@ export const ALL_REVIEW_IMAGES = [
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204019/image5_y4ywbn.jpg",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204019/image6_usjiww.jpg",
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image2_qveizf.jpg",
-  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image3_bbkufe.jpg",
+
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image1_qgcecr.jpg",
-  "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image1_qgcecr.jpg",
+ 
   "https://res.cloudinary.com/drcka8x04/image/upload/v1766204018/image10_mwk9v3.jpg",
   
 ];
