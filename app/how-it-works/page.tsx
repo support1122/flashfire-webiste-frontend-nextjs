@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
+    canonical: "https://www.flashfirejobs.com/how-it-works",
   },
   openGraph: {
     title: "How Flashfire's AI Job Automation Platform Works?",
     description:
       "Understand how Flashfire's AI Job Automation Platform automates sourcing, tailoring, and submitting applications so students land interviews faster.",
-    url: "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
+    url: "https://www.flashfirejobs.com/how-it-works",
     type: "website",
   },
 };

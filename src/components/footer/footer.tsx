@@ -138,8 +138,12 @@ export default function Footer() {
                 <Link href={getHref("/recent-job-openings")} className={linkClass}>
                 Recent Job Openings  
                 </Link>
+                <Link href={getHref("/AI-copilot")} className={linkClass}>
+                  AI Copilot
+                </Link>
               </div>
             </div>
+
 
             {/* COMPANY */}
             <div className="max-[480px]:mb-2">

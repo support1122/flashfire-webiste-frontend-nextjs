@@ -373,7 +373,7 @@ export default function HomePageMilestonesClient() {
       text: "Flashfire's personalized approach made all the difference in my job search. The platform generated tailored cover letters and optimized my resume for each role, ensuring I got noticed by recruiters. The detailed tracking system kept me organized throughout the process. My IBM offer was secured thanks to Flashfire's intelligent automation and attention to detail!",
       user: "Aryan",
       role: "Software Engineer",
-      image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/utkarsh.jpg",
+      image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg",
     },
     {
       company: "Armorcode",
