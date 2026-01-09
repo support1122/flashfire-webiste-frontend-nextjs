@@ -1,6 +1,7 @@
 "use client"
 import { Search, FileCheck, Send, MapPin, Briefcase, TrendingUp, ArrowRight, } from "lucide-react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { trackButtonClick, trackExternalLink } from "@/src/utils/PostHogTracking";
 import { WHATSAPP_SUPPORT_URL } from "@/src/utils/whatsapp";
 import HomePageHappyUsers from "../homePageHappyUsers/homePageHappyUsers";
@@ -12,11 +13,34 @@ const dispatchCustomEvent = (eventName: string) => {
 };
 
 export default function AICopilot() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const prefix = pathname.startsWith("/en-ca") ? "/en-ca" : "";
+
   const handleStartApplyingClick = () => {
+    const currentScrollY =
+      typeof window !== "undefined" ? window.scrollY : undefined;
+
     trackButtonClick("Start Applying with AI", "ai_copilot_section", "cta", {
       section: "ai_copilot",
     });
     dispatchCustomEvent("showCalendlyModal");
+
+    if (typeof window !== "undefined") {
+      const origin =
+        pathname && pathname !== `${prefix}/AI-copilot`
+          ? pathname
+          : `${prefix}/AI-copilot`;
+      sessionStorage.setItem("previousPageBeforeGetMeInterview", origin);
+      if (currentScrollY !== undefined) {
+        sessionStorage.setItem(
+          "preserveScrollPosition",
+          currentScrollY.toString()
+        );
+      }
+    }
+
+    router.push(`${prefix}/AI-copilot/get-me-interview`);
   };
 
   const handleTalkToExpertClick = () => {
@@ -59,7 +83,7 @@ export default function AICopilot() {
                 <button
                   type="button"
                   onClick={handleStartApplyingClick}
-                  className="bg-[#ff4c00] text-white px-10 py-4 shadow-[0_3px_0_black] rounded-xl text-lg font-semibold hover:scale-105 transition"
+                  className="bg-[#ff4c00] text-white px-6 sm:px-5 py-3 sm:py-4 shadow-[0_3px_0_black] rounded-xl text-lg font-semibold hover:scale-105 transition"
                 >
                   Start Applying with AI
                 </button>
@@ -211,7 +235,7 @@ export default function AICopilot() {
                 STEP 3
               </div>
               <h3 className="text-xl font-semibold text-black mb-3">
-                AI applies every day
+              FlashFire teams up with you to apply every day
               </h3>
               <p className="text-gray-700 leading-relaxed">
                 FlashFire finds new relevant jobs daily, optimizes your resume,
@@ -222,6 +246,7 @@ export default function AICopilot() {
           </div>
         </div>
       </section>
+      {/* Why Use FlashFire Section */}
       <section className="w-full bg-white py-28">
         <div className="max-w-[1200px] mx-auto px-6">
 
@@ -242,7 +267,7 @@ export default function AICopilot() {
             {/* ROW 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div>
-                <h3 className="text-2xl font-semibold text-black mb-4">
+                <h3 className="text-3xl md:text-4xl font-semibold text-black mb-4">
                   Get More Interviews
                 </h3>
                 <div className="w-14 h-[3px] bg-[#ff4c00] mb-6" />
@@ -277,7 +302,7 @@ export default function AICopilot() {
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold text-black mb-4">
+                <h3 className="text-3xl md:text-4xl font-semibold text-black mb-4">
                   Never Miss an Opportunity
                 </h3>
                 <div className="w-14 h-[3px] bg-[#ff4c00] mb-6" />
@@ -291,7 +316,7 @@ export default function AICopilot() {
             {/* ROW 3 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div>
-                <h3 className="text-2xl font-semibold text-black mb-4">
+                <h3 className="text-3xl md:text-4xl font-semibold text-black mb-4">
                   Auto-Apply to the Right Jobs
                 </h3>
                 <div className="w-14 h-[3px] bg-[#ff4c00] mb-6" />
@@ -325,7 +350,7 @@ export default function AICopilot() {
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold text-black mb-4">
+                  <h3 className="text-3xl md:text-4xl font-semibold text-black mb-4">
                   Save Hours Every Week
                 </h3>
                 <div className="w-14 h-[3px] bg-[#ff4c00] mb-6" />
