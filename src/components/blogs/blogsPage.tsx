@@ -376,13 +376,13 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     },
     headline: post.title,
     description: post.excerpt || post.title,
-    image: post.image,
+    image: post.image || "",
     author: {
       "@type": "Person",
       name: post.author?.name || "Arjun Sharma",
-      url: post.author?.name 
-        ? `https://www.flashfirejobs.com/author/${post.author.name.toLowerCase().replace(/\s+/g, "-")}`
-        : "https://www.flashfirejobs.com/author/arjun-sharma",
+      ...(post.author?.name && {
+        url: `https://www.flashfirejobs.com/author/${post.author.name.toLowerCase().replace(/\s+/g, "-")}`,
+      }),
     },
     publisher: {
       "@type": "Organization",
