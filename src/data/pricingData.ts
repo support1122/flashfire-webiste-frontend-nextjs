@@ -117,10 +117,10 @@ export const canadaPricingPlans: PricingPlan[] = [
   },
   {
     title: "PROFESSIONAL",
-    tag: "Most Popular",
+    tag: "ECONOMICAL",
     subTitle: "500 Applications",
     description: "Most popular for mid-level professionals",
-    price: "CA$449",
+    price: "CA$409",
     oldPrice: "CA$619",
     features: [
       "Everything in Ignite",
@@ -132,14 +132,14 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/S4RB5SV4QN37E",
+    paymentLink: "https://www.paypal.com/ncp/payment/MXTA9N9VPFKZ6",
   },
   {
     title: "EXECUTIVE",
-    tag: "Premium",
+    tag: "MOST POPULAR",
     subTitle: "1200+ Applications",
     description: "For early professionals & executives",
-    price: "CA$7999",
+    price: "CA$799",
     oldPrice: "CA$949",
     features: [
       "Everything in Professional",
@@ -155,4 +155,3 @@ export const canadaPricingPlans: PricingPlan[] = [
     paymentLink: "https://www.paypal.com/ncp/payment/HSUW63VZUHQUW",
   },
 ];
-

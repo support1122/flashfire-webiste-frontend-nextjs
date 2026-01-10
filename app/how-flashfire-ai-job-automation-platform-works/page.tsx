@@ -24,3 +24,4 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return <HowItWorks />;
 }
+
