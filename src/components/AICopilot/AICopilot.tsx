@@ -17,7 +17,7 @@ export default function AICopilot() {
   const pathname = usePathname();
   const prefix = pathname.startsWith("/en-ca") ? "/en-ca" : "";
 
-  const handleStartApplyingClick = () => {
+  const handleStartApplyingClick = (target: "modal" | "cta" = "modal") => {
     const currentScrollY =
       typeof window !== "undefined" ? window.scrollY : undefined;
 
@@ -40,7 +40,14 @@ export default function AICopilot() {
       }
     }
 
-    router.push(`${prefix}/AI-copilot/get-me-interview`);
+    // Change URL without actual navigation
+    const newUrl =
+      target === "modal"
+        ? `${prefix}/AI-copilot/get-me-interview`
+        : `${prefix}/AI-copilot/Start-applying-with-AI`;
+    if (typeof window !== "undefined") {
+      window.history.pushState({}, "", newUrl);
+    }
   };
 
   const handleTalkToExpertClick = () => {
@@ -82,10 +89,10 @@ export default function AICopilot() {
               <div className="mt-10 flex items-center gap-6">
                 <button
                   type="button"
-                  onClick={handleStartApplyingClick}
+                  onClick={() => handleStartApplyingClick("modal")}
                   className="bg-[#ff4c00] text-white px-6 sm:px-5 py-3 sm:py-4 shadow-[0_3px_0_black] rounded-xl text-lg font-semibold hover:scale-105 transition"
                 >
-                  get me interview
+                  Get me interview
                 </button>
 
                 <button
@@ -387,7 +394,7 @@ export default function AICopilot() {
           <div className="mt-10 flex justify-center">
             <button
               type="button"
-              onClick={handleStartApplyingClick}
+              onClick={() => handleStartApplyingClick("cta")}
               className="
                 inline-flex
                 items-center
