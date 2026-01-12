@@ -9030,7 +9030,7 @@ Best regards,
     slug: "flashfire-ai-career-advisor",
     title: "How to Automate Your Job Applications Using AI (Step-by-Step Guide)",
     excerpt: `<p style='margin-bottom:12px; line-height:1.7;'>In 2026, “automate your job applications” cannot mean blasting low-quality submissions. Recruiters see through spam, ATS filters tighten daily, and the candidates who win combine structured automation with human judgment.</p>
-    <p style='margin-bottom:12px; line-height:1.7;'>Workflow automation is the modern alternative. It looks like this:</p>
+    <p style='margin-bottom:12px; line-height:1.7;'><strong>Workflow automation is the modern alternative. It looks like this:</strong></p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.7; list-style:disc;'>
       <li>Automate the process of finding and ranking high-fit jobs.</li>
       <li>Automate resume customization assistance (without inventing experience).</li>
