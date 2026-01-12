@@ -9028,10 +9028,34 @@ Best regards,
   {
     id: 57,
     slug: "flashfire-ai-career-advisor",
-    title: "Flashfire's AI Career Advisor: Real-Time Guidance for Job Seekers",
-    excerpt:
-      "Flashfire's new AI Career Advisor helps candidates plan roles, close skill gaps, and stay interview ready with personalized guidance delivered directly from the product experience.",
-    date: "Jan 26, 2026",
+    title: "How to Automate Your Job Applications Using AI (Step-by-Step Guide)",
+    excerpt: `<p style='margin-bottom:12px; line-height:1.7;'>In 2026, “automate your job applications” cannot mean blasting low-quality submissions. Recruiters see through spam, ATS filters tighten daily, and the candidates who win combine structured automation with human judgment.</p>
+    <p style='margin-bottom:12px; line-height:1.7;'>Workflow automation is the modern alternative. It looks like this:</p>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.7; list-style:disc;'>
+      <li>Automate the process of finding and ranking high-fit jobs.</li>
+      <li>Automate resume customization assistance (without inventing experience).</li>
+      <li>Automate tracking, reminders, and follow-ups.</li>
+      <li>Reduce the time spent retyping the same answers into forms.</li>
+      <li>Protect your human energy for networking, proof of work, and interview prep.</li>
+    </ul>
+    <p style='margin-bottom:12px; line-height:1.7;'><strong>Why this matters right now:</strong></p>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.7; list-style:disc;'>
+      <li><strong>The number of applications has increased</strong>. Workday reported a 31% increase in
+      applications and a 7% increase in job requests (H1 2024 vs. H1 2023). <a href="https://www.workday.com/en-us/newsroom/press-releases/workday-reports-second-quarter-2024-results.html" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Newsroom | Workday</a>.</li>
+      <li><strong>ATS is almost ubiquitous in big companies</strong> : 97.8% of Fortune 500 career sites had an
+      ATS, according to a 2025 analysis. <a href="https://www.jobscan.com/blog/ats-usage-2025/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Jobscan</a>.</li>
+      <li><strong>Adoption of AI by recruiters is speeding up</strong>: according to Workday's report, 77% of
+      companies intended to use AI more in hiring within the next year. <a href="https://www.workday.com/en-us/newsroom/press-releases/workday-reports-second-quarter-2024-results.html" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Newsroom | Workday</a>.</li>
+      <li><strong>In the meantime, candidates are becoming more and more overwhelmed by
+     cumbersome application processes</strong>. <a href="https://www.wired.com/story/job-application-hiring-ai/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Wired</a>, an experiment involving 250
+     applications revealed that the average application took 2 minutes and 42 seconds, with
+     some taking significantly longer because of ATS friction. <a href="https://www.wired.com/story/job-application-hiring-ai/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Wired</a>.</li>
+      <li><strong>Additionally, lengthy applications lead to drop-offs</strong>. According to CareerBuilder, 60%
+      of job seekers give up on applications in the middle if they are too complicated or
+     lengthy. <a href="https://www.shrm.org/resourcesandtools/hr-topics/recruiting-staffing/pages/how-to-improve-application-process-for-job-seekers.aspx" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">SHRM</a></li>
+     </li>
+    </ul>
+    <p style='margin-bottom:12px; line-height:1.7;'><strong>The 2026 reality is simple:</strong> the system determines the winning strategy — not chaos. This guide shows how to build a repeatable, ethical automation setup that boosts both volume and quality.</p>`, date: "Jan 12, 2026",
     readTime: "6 min",
     category: "Career Advice",
     author: {
@@ -9042,46 +9066,628 @@ Best regards,
       "https://res.cloudinary.com/dcrj8p79e/image/upload/v1768220882/ChatGPT_Image_Jan_12_2026_05_27_30_PM_zd1x0q.png",
     categoryColor: "bg-orange-100 text-orange-600",
     content: `
-    <p style='margin-bottom:12px; line-height:1.7;'>Flashfire has quietly shipped one of its most-requested experiences: a dedicated <strong>AI Career Advisor</strong> that operates more like a personal job strategy coach than a landing page. You can explore the full experience here: <a href="https://flashfire-webiste-frontend-nextjs-i.vercel.app/career-advisor/" target="_blank" rel="noopener noreferrer" style="color:#f97316; text-decoration: underline;">flashfire-webiste-frontend-nextjs-i.vercel.app/career-advisor/</a>.</p>
+   
+ <h2 style="margin-left:12px;" class="text-2xl font-bold text-gray-900 mt-10 mb-3">
+  In 2026, what "job application automation" should mean.
+</h2>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What You See When You Land</h2>
-    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-      <li><strong>Hero copy</strong> that sets the intent immediately — “Your personal AI Career Advisor built for real jobs.”</li>
-      <li>A trust bar that highlights the exact outcomes users can expect: role recommendations, skill gap reports, ATS improvements, job market insights, and 30-60-90 plans.</li>
-      <li>Multiple CTA surfaces (“Get Career Advice”) that keep visitors in the experience while routing attribution data to product analytics.</li>
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+  <strong>The best kind of automation (suggested)</strong>
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+This is workflow automation—reducing repetitive tasks while increasing relevance through the use of AI and tools:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Automatically gather jobs that fit your location, role, and salary requirements.</li>
+  <li>Prioritise and score roles based on fit.</li>
+  <li>Create customised bullet suggestions based on your prior knowledge.</li>
+  <li>Make outreach drafts for hiring managers and recruiters.</li>
+  <li>Keep track of all application and resume versions in one location.</li>
+  <li>Automatically schedule follow-ups.</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+  <strong>The dangerous type of automation (avoid):</strong>
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>
+    Botting – Auto-filling forms, submitting in bulk, aggressively scraping websites, and breaking platform rules are all examples of botting.
+  </li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">It frequently produces:</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Applications of poor quality</li>
+  <li>Duplicate submissions</li>
+  <li>Inconsistent responses on different forms</li>
+  <li>"AI spam" writing that recruiters can judge easily</li>
+  <li>Account limitations on job boards</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+If your aim is interviews, don't optimize for "applications sent". Optimise for consistently delivered qualified applications.
+</p>
+
+<h2 style="margin-left:12px;" class="text-2xl font-bold text-gray-900 mt-10 mb-3">
+  The AI automation stack (necessary tools and templates)
+</h2>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Consider things in layers. Twenty tools are not necessary; all you need is a tidy setup.
+</p>
+
+<p style="margin-left:28px;"><strong>Layer A: Automation of job discovery</strong></p>
+<ul style="margin-left:48px;">
+  <li>Job alerts (company career pages, Indeed, and LinkedIn).</li>
+  <li>Email rules (such as "Jobs—To Apply" and "Jobs—Applied").</li>
+  <li>One "inbox" where opportunities show.</li>
+</ul>
+
+<p style="margin-left:28px;"><strong>Layer B: Priorities automation</strong></p>
+<ul style="margin-left:48px;">
+  <li>Fit score (0–10), Visa/Location match, Seniority match, Skills match.</li>
+  <li>AI-powered "JD summariser".</li>
+</ul>
+
+<p style="margin-left:28px;"><strong>Layer C: Resume and cover letter assistance</strong></p>
+<ul style="margin-left:48px;">
+  <li>Master resume + two base versions.</li>
+  <li>AI keyword mapping and bullet rewrites.</li>
+</ul>
+
+<p style="margin-left:28px;"><strong>Layer D: Outreach and follow-ups</strong></p>
+<ul style="margin-left:48px;">
+  <li>Recruiter, hiring manager, referral templates.</li>
+  <li>Automated reminders.</li>
+</ul>
+
+<p style="margin-left:28px;"><strong>Layer E: Analytics and tracking</strong></p>
+<ul style="margin-left:48px;">
+  <li>Job tracker with role, resume version, outreach and status.</li>
+  <li>Weekly evaluation.</li>
+</ul>
+
+<p style="margin-left:28px;">
+With this configuration, job search becomes an operating system.
+</p>
+
+<h2 style="margin-left:12px;" class="text-2xl font-bold text-gray-900 mt-10 mb-3">
+  Step-by-step configuration: from tracking to targeting
+</h2>
+
+<p style="margin-left:28px;"><strong>Step 1: By defining your goal, tighten the funnel.</strong></p>
+<p style="margin-left:28px;">For a sprint of four to six weeks, choose no more than one or two target roles.</p>
+
+<ul style="margin-left:48px;">
+  <li>"BI Analyst" plus "Data Analyst"</li>
+  <li>"Platform Engineer" plus "Backend Engineer"</li>
+  <li>"Product Analyst" plus "Growth Analyst"</li>
+</ul>
+
+<p style="margin-left:28px;">
+Why? Whatever you feed automation, it amplifies it.
+</p>
+
+<p style="margin-left:28px;"><strong>Deliverable:</strong></p>
+<p style="margin-left:28px;">
+"I'm looking for [Role] positions in [Location] with [X] years of experience, concentrating on [2–3 skill areas]."
+</p>
+
+<p style="margin-left:28px;"><strong>Step 2: Target companies</strong></p>
+
+<ul style="margin-left:48px;">
+  <li>Business</li>
+  <li>Careers page</li>
+  <li>Desired positions</li>
+  <li>Notes</li>
+</ul>
+
+<p style="margin-left:28px;">
+Conversion improves when automation focuses on high-fit companies.
+</p>
+
+<p style="margin-left:28px;"><strong>Step 3: Configure alerts</strong></p>
+
+<ul style="margin-left:48px;">
+  <li>Company alerts</li>
+  <li>Role alerts</li>
+  <li>Network alerts</li>
+</ul>
+
+<p style="margin-left:28px;">
+Pro tip: Send all alerts to one inbox.
+</p>
+<h3 style="margin-left:28px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Step 4: Make an AI-ready "candidate profile" (one source of truth).
+</h3>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Repeating the same information across forms is the main source of application friction. Make that right.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Make a single document that contains:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Your ideal job titles</li>
+  <li>2-3 sentence bio</li>
+  <li>Permission to work plus preferred location</li>
+  <li>List of core skills</li>
+  <li>Links: GitHub, LinkedIn, and portfolio</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Typical answers:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Pay expectations (range)</li>
+  <li>Date of start</li>
+  <li>Remote/relocation preferences</li>
+  <li>Sponsorship preferences (if any)</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+This lowers errors and serves as your copy-paste foundation.
+</p>
+
+<hr />
+
+<h3 style="margin-left:28px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Step 5: Create two to three ATS-first formatted resume base versions.
+</h3>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Given that 97.8% of Fortune 500 career sites have ATS, maintain simple formatting: Jobscan
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Single column</li>
+  <li>Standard headings: Projects, Education, Experience, Skills, and Summary</li>
+  <li>Minimal graphics, no text boxes, and no tables</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Make:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Resume v1: Role family A (Backend, for example)</li>
+  <li>Resume v2: Role family B (such as analytics and data)</li>
+  <li>Resume v3 (optional): Area of expertise (AI/ML, for example)</li>
+</ul>
+
+<hr />
+
+<h3 style="margin-left:28px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Step 6: Customise your life with AI without changing it
+</h3>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+The safest way to use AI is as follows:
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>INPUT</strong> – The job description and your basic resume.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>OUTPUT</strong> –
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Top keywords and specifications</li>
+  <li>Which of your bullets do already meet?</li>
+  <li>3–5 bullet rewrites (more precise, truthful)</li>
+  <li>1–2 modifications to the project or skills</li>
+  <li>A two-line introduction to a cover letter (optional)</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+A standard prompt that you can apply again:
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+"From this JD, extract the top ten requirements. Connect each prerequisite to supporting details
+from my CV. Then, without adding any new skills or metrics, rewrite four bullets to make
+them more relevant and clear."
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+This maintains the integrity of AI and the consistency of your applications.
+</p>
+
+<hr />
+
+<h3 style="margin-left:28px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Step 7: Use a scoring rule to automate the "apply decision."
+</h3>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Not every task calls for customisation.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Make a quick formula for scoring (0–10):
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Title match (0–2)</li>
+  <li>Seniority game (0–2)</li>
+  <li>Skill matching (0–3)</li>
+  <li>Location and visa matching (0–2)</li>
+  <li>Sincere interest (0–1)</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Next:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>8–10: customise + apply + outreach</li>
+  <li>6–7: light tailor plus apply</li>
+  <li>0–5: skip (or put away for later)</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+This keeps automation from becoming spam.
+</p>
+
+<hr />
+
+<h3 style="margin-left:28px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Step 8: Apply effectively (increase consistency, decrease form time).
+</h3>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+According to Wired's experiment, average applications can be quick but vary greatly due to ATS friction,
+and SHRM/CareerBuilder highlights abandonment when it's too lengthy or complicated.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Thus, your approach ought to be:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Start by applying to new positions (24–72 hours).</li>
+  <li>When feasible, give priority to platforms with quicker flows.</li>
+  <li>To prevent retyping, use your "candidate profile."</li>
+  <li>Maintain consistency in your responses on all forms.</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Here, automation eliminates repetition rather than botting.
+</p>
+<h3 style="margin-left:28px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Step 9: Automate follow-ups (this is where most people fall short).
+</h3>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+The majority of applicants apply and then vanish. However, follow-up is a crucial differentiator,
+particularly in situations where recruiters are overworked.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Although the timing varies, Indeed reports that many candidates receive a response in one to two weeks.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Developing a follow-up cadence is your next step:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Day 2: brief recruiter note</li>
+  <li>Day 7: follow-up plus one project/metric proof point</li>
+  <li>Day 14: one last push or change to a different contact</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Automation tip: use your calendar or tracker to set up these reminders automatically.
+</p>
+
+<hr />
+
+<h3 style="margin-left:28px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Step 10: Monitor everything so that your system gets better every week.
+</h3>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+You cannot get better if you don't track.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+The bare minimum of tracker columns:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Company, Job Profile, and Link</li>
+  <li>Date found, Date applied</li>
+  <li>Fit rating</li>
+  <li>Used version of the resume</li>
+  <li>Outreach was sent (Y/N)</li>
+  <li>Status (Offer, Rejected, Interview, Screen, and Applied)</li>
+  <li>Notes (the reasons you believe it was successful)</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+This is a major difference between "job search" and "job search strategy".
+</p>
+
+<hr />
+
+<h2 style="margin-left:12px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+   Automation of resumes that is ATS-friendly (without keyword stuffing).
+</h2>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Given how prevalent ATS is at the top end, you want your resume to be:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Simple to understand</li>
+  <li>Keyword-oriented</li>
+  <li>Captivating to people in ten seconds</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>2026's top bullet format</strong>
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Tool + Action + Scope + Metric Result
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+For instances:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>"Adding Redis caching and query optimisation reduced API latency by 28%, improving checkout reliability during peak traffic."</li>
+  <li>"Used S3/Glue/Lambda to process ~600GB/day telemetry into partitioned datasets, reducing runtime from 3 hours to ~40 minutes."</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>What should be automated in this situation?</strong>
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>JD keyword extraction</li>
+  <li>Clarity-enhancing bullet rewrites</li>
+  <li>Alignment of the skills section</li>
+  <li>"Top 3 highlights" summary update</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Things NOT to Automate:</strong>
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Creating metrics</li>
+  <li>Including tools that you didn't use</li>
+  <li>Verbatim copying of the JD text</li>
+  <li>White text with keywords hidden (easy rejection)</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Clarity is the key to ATS alignment, not tricks.
+</p>
+
+<hr />
+
+<h2 style="margin-left:12px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Automated outreach and follow-up that still sounds human.
+</h2>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Generic AI messages are disregarded in 2026. Your automated outreach needs to feel targeted.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Template for recruiter messages (customisable)</strong>
+</p>
+
+<ol style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Context: the position you applied for.</li>
+  <li>Fit: one proof of evidence.</li>
+  <li>Verify that you're on the same page and are willing to have a brief conversation.</li>
+</ol>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Automation Tip: Let AI draft three versions (short, medium, and very short). You select the best and modify one line.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Template for referral requests (high leverage)</strong>
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+In many hiring contexts, referrals frequently outperform job-board applicants in terms of conversion.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Thus, automate your workflow for referrals:
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Compile a list of employees.</li>
+  <li>Submit five excellent requests every week.</li>
+  <li>Monitor results.</li>
+</ul>
+
+<hr />
+
+<h2 style="margin-left:12px;" class="text-2xl font-bold text-gray-900 mt-10 mb-3">
+  A "job search operating system" that you can use every week.
+</h2>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+This straightforward weekly schedule compounds:
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Every day (45–75 minutes):</strong>
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Review new alerts for 15 minutes, starting with new roles.</li>
+  <li>Apply to two to five high-fit jobs in 30 to 45 minutes.</li>
+  <li>Outreach to one or two people for ten to fifteen minutes.</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Every week (60 minutes):</strong>
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Which version of the resume received the most screens?</li>
+  <li>Which job titles are answering?</li>
+  <li>Where are you experiencing rapid rejection?</li>
+  <li>Does targeting need to be tightened?</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Even when application volume exceeds job growth, this is how you turn increasing volume into target outcomes.
+</p>
+
+<hr />
+
+<h2 style="margin-left:12px;" class="text-xl font-semibold text-gray-800 mt-6 mb-2">
+  Avoid these mistakes (the automation traps).
+</h2>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Error 1:</strong> Automating volume rather than relevance
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Relevance wins because recruiters are filtering more thoroughly as a result.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Error 2:</strong> "AI voice" everywhere
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+You blend in if every sentence sounds professional but unremarkable.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Error 3:</strong> Over-tailoring for roles that don't fit
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+You burn out and waste time.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Error 4:</strong> Not monitoring
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+You never learn, so you keep making the same mistakes.
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+<strong>Error 5:</strong> Violating platform guidelines
+</p>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+You may be restricted by aggressive automation and botting.
+</p>
+
+<hr />
+
+<h2 style="margin-left:12px;" class="text-2xl font-bold text-gray-900 mt-10 mb-3">
+  Flashfire's place (AI + human execution).
+</h2>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+The best model in 2026 is AI + humans if you want the benefits of automation without making job searching a second job.
+</p>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Jobs are scraped and filtered based on role, location, and salary.</li>
+  <li>AI improves resume relevance and ATS alignment.</li>
+  <li>Applications are submitted manually (no bots).</li>
+  <li>A dashboard tracks each application.</li>
+  <li>LinkedIn optimisation is handled manually.</li>
+</ul>
+
+<p style="margin-left:28px; margin-bottom:12px; line-height:1.7;">
+Structured automation + consistent execution beats spam automation.
+</p>
+
+<hr />
+
+<h2 style="margin-left:12px;" class="text-2xl font-bold text-gray-900 mt-10 mb-3">
+  FAQs
+</h2>
+
+<ol style="margin-left:48px; margin-bottom:12px; line-height:1.7;">
+  
+  <li style="margin-bottom:12px;">
+    <strong>Q. Can AI be used in job applications?</strong><br />
+    <strong>A.</strong> Indeed, companies are increasingly incorporating AI into their hiring processes.
+    The secret is to use AI in an ethical manner—no fake metrics, no fake experiences. 
+    Newsroom | Workday
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Q. How many jobs should I apply for each day?</strong><br />
+    <strong>A.</strong> Two to five excellent applications per day, along with outreach, is a good benchmark for 2026.
+    Your role, seniority, and time all affect the precise figure. The main point is that when
+    application volume is high, quality outweighs volume. 
+    Newsroom | Workday
+  </li>
+
+  <li style="margin-bottom:12px;">
+    <strong>Q. How can I apply more quickly?</strong><br />
+    <strong>A.</strong> Make:
+    <ul style="margin-left:28px; margin-top:6px; line-height:1.6;">
+      <li>Just one "candidate profile"</li>
+      <li>Two to three base resumes</li>
+      <li>A tracker</li>
     </ul>
+    <p style="margin-left:28px; margin-top:6px;">
+      Next, employ AI for bullet rewrites and keyword mapping (truthful only).
+    </p>
+  </li>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Why It Matters</h2>
-    <p style='margin-bottom:12px; line-height:1.7;'>Across our user interviews, the biggest blocker wasn’t “I can’t find jobs,” but “I don’t know if I’m working on the right things.” The AI Career Advisor page responds with structured guidance:</p>
-    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-      <li>Summaries of the exact deliverables (skill mapping, personalized scripts, job-ready plans).</li>
-      <li>Use cases for students, mid-career professionals, and career changers.</li>
-      <li>Social-proof powered sections (loved by 1,000+ users) that anchor the page.</li>
+  <li style="margin-bottom:12px;">
+    <strong>Q. Why am I not receiving any responses?</strong><br />
+    <strong>A.</strong> Typical causes:
+    <ul style="margin-left:28px; margin-top:6px; line-height:1.6;">
+      <li>Your resume doesn't seem to fit in 10 seconds.</li>
+      <li>You're applying too late for positions with a high volume of incoming applications.</li>
+      <li>You're not following up.</li>
+      <li>Your targeting is excessively wide.</li>
     </ul>
+  </li>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Use the Page in Your Funnel</h2>
-    <p style='margin-bottom:12px; line-height:1.7;'>If you’re sending lifecycle emails, paid ads, or social traffic, this page can act as a high-intent destination before nudging users to book a call or test the product. A few ideas:</p>
-    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-      <li>Link from nurture emails with the subject line “Get a personalized AI career audit in 60 seconds.”</li>
-      <li>Use the hero video and bullet stack inside your LinkedIn carousel or X (Twitter) thread.</li>
-      <li>Add the CTA to your in-app empty states for users who stalled before completing their setup.</li>
-    </ul>
+</ol>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Key Copy Blocks You Can Repurpose</h2>
-    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-      <li><strong>“Built for real jobs.”</strong> — reinforces that Flashfire maps insights to job-ready outcomes, not generic career quotes.</li>
-      <li><strong>“Get clarity on roles, skills, resumes, and strategy.”</strong> — doubles as a strong LinkedIn hook.</li>
-      <li><strong>“Ready to stop manually applying?” CTA block</strong> — works well for retargeting creative.</li>
-    </ul>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Quick Wins for Content & SEO</h2>
-    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-      <li>Embed screenshots or GIFs from the page into your blog posts about career planning and link back to the experience.</li>
-      <li>Target long-tail keywords like “AI career advisor” or “AI career coach” in supporting content and interlink to this URL.</li>
-      <li>Use the testimonials module as micro-copy inside other “job search” articles to lift trust.</li>
-    </ul>
+<hr />
 
-    <p style='margin-bottom:12px; line-height:1.7;'>Bottom line: this landing page isn’t just a marketing asset — it’s a narrative anchor for Flashfire’s promise. Share it with prospective users whenever they ask, “What does Flashfire actually do for my career plan?”</p>
-  `,
+<h2 style="margin-left:12px;" class="text-2xl font-bold text-gray-900 mt-10 mb-3">
+  Conclusion
+</h2>
+
+<ul style="margin-left:48px; margin-bottom:12px; line-height:1.6;">
+  <li>Automatically seize opportunities.</li>
+  <li>Prioritise high-fit roles.</li>
+  <li>Truthfully customise resumes.</li>
+  <li>Apply consistently.</li>
+  <li>Follow up on time.</li>
+  <li>Track and improve weekly.</li>
+</ul>
+
+
+`,
   },
 ];
