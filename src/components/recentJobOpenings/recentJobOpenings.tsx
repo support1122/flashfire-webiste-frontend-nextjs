@@ -13,7 +13,16 @@ export default function RecentJobOpenings() {
         },
     });
 
-    const handleCTAClick = (label: string, location: string) => {
+    const pushCustomUrl = (path?: string) => {
+        if (typeof window === "undefined" || !path) return;
+        const isCanada = window.location.pathname.startsWith("/en-ca");
+        const normalized = path.startsWith("/en-ca")
+            ? path
+            : isCanada ? `/en-ca${path}` : path;
+        window.history.pushState({}, "", normalized);
+    };
+
+    const handleCTAClick = (label: string, location: string, targetPath?: string) => {
         const getLocal = (key: string, fallback: string) =>
             typeof window !== "undefined" ? localStorage.getItem(key) || fallback : fallback;
 
@@ -44,6 +53,8 @@ export default function RecentJobOpenings() {
         if (typeof window !== "undefined") {
             window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
         }
+
+        pushCustomUrl(targetPath);
     };
 
     return (
@@ -117,7 +128,7 @@ export default function RecentJobOpenings() {
 
                         <button
                             {...getButtonProps()}
-                            onClick={() => handleCTAClick("Get Started", "recent_jobs_hero")}
+                            onClick={() => handleCTAClick("Get Started", "recent_jobs_hero", "/recent-job-openings/get-me-interview")}
                             className="mt-10 inline-flex items-center shadow-[0_3px_0_black] gap-2 px-8 py-4 bg-[#ff4c00] text-white rounded-2xl font-semibold hover:bg-[#e64500]">
                             Get Started
                             <ArrowUpRight className="h-5 w-5" />
@@ -300,7 +311,7 @@ export default function RecentJobOpenings() {
 
     <button
       {...getButtonProps()}
-      onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom")}
+      onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom", "/recent-job-openings/get-me-interview")}
       className="mt-10 px-8 py-6 bg-[#ff4c00] text-white rounded-2xl font-semibold hover:bg-[#e64500]">
       Start with FlashFire
     </button>

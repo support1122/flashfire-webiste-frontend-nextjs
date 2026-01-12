@@ -24,7 +24,16 @@ export default function SalaryNegotiationUI() {
         }
     });
 
-    const handleCTAClick = (label: string, location: string) => {
+    const pushCustomUrl = (path?: string) => {
+        if (typeof window === "undefined" || !path) return;
+        const isCanada = window.location.pathname.startsWith("/en-ca");
+        const normalized = path.startsWith("/en-ca")
+            ? path
+            : isCanada ? `/en-ca${path}` : path;
+        window.history.pushState({}, "", normalized);
+    };
+
+    const handleCTAClick = (label: string, location: string, targetPath?: string) => {
         const getLocal = (key: string, fallback: string) =>
             typeof window !== "undefined" ? localStorage.getItem(key) || fallback : fallback;
 
@@ -41,7 +50,7 @@ export default function SalaryNegotiationUI() {
                 utm_campaign: utmCampaign,
             },
         });
-
+          
         trackButtonClick(label, `${location}_cta`, "cta", {
             button_location: location,
             section: "offer_and_salary",
@@ -55,6 +64,8 @@ export default function SalaryNegotiationUI() {
         if (typeof window !== "undefined") {
             window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
         }
+
+        pushCustomUrl(targetPath);
     };
 
     return (
@@ -77,7 +88,7 @@ export default function SalaryNegotiationUI() {
 
                     <button
                         {...getButtonProps()}
-                        onClick={() => handleCTAClick("Analyze My Offer", "offer_salary_hero")}
+                        onClick={() => handleCTAClick("Analyze My Offer", "offer_salary_hero", "/offer-and-salary-negotiation-advisor/get-me-interview")}
                         className="mt-8 px-8 py-4 rounded-2xl bg-[#ff4c00] shadow-[0_3px_0_black] text-white text-lg font-semibold hover:bg-[#e64500]">
                         Analyze My Offer
                     </button>
