@@ -9025,4 +9025,63 @@ Best regards,
     </ul>
   `,
   },
+  {
+    id: 57,
+    slug: "flashfire-ai-career-advisor",
+    title: "Flashfire's AI Career Advisor: Real-Time Guidance for Job Seekers",
+    excerpt:
+      "Flashfire's new AI Career Advisor helps candidates plan roles, close skill gaps, and stay interview ready with personalized guidance delivered directly from the product experience.",
+    date: "Jan 26, 2026",
+    readTime: "6 min",
+    category: "Career Advice",
+    author: {
+      name: "Rachna Goyal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
+    image:
+      "https://res.cloudinary.com/dcrj8p79e/image/upload/v1768220882/ChatGPT_Image_Jan_12_2026_05_27_30_PM_zd1x0q.png",
+    categoryColor: "bg-orange-100 text-orange-600",
+    content: `
+    <p style='margin-bottom:12px; line-height:1.7;'>Flashfire has quietly shipped one of its most-requested experiences: a dedicated <strong>AI Career Advisor</strong> that operates more like a personal job strategy coach than a landing page. You can explore the full experience here: <a href="https://flashfire-webiste-frontend-nextjs-i.vercel.app/career-advisor/" target="_blank" rel="noopener noreferrer" style="color:#f97316; text-decoration: underline;">flashfire-webiste-frontend-nextjs-i.vercel.app/career-advisor/</a>.</p>
+
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What You See When You Land</h2>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li><strong>Hero copy</strong> that sets the intent immediately — “Your personal AI Career Advisor built for real jobs.”</li>
+      <li>A trust bar that highlights the exact outcomes users can expect: role recommendations, skill gap reports, ATS improvements, job market insights, and 30-60-90 plans.</li>
+      <li>Multiple CTA surfaces (“Get Career Advice”) that keep visitors in the experience while routing attribution data to product analytics.</li>
+    </ul>
+
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Why It Matters</h2>
+    <p style='margin-bottom:12px; line-height:1.7;'>Across our user interviews, the biggest blocker wasn’t “I can’t find jobs,” but “I don’t know if I’m working on the right things.” The AI Career Advisor page responds with structured guidance:</p>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>Summaries of the exact deliverables (skill mapping, personalized scripts, job-ready plans).</li>
+      <li>Use cases for students, mid-career professionals, and career changers.</li>
+      <li>Social-proof powered sections (loved by 1,000+ users) that anchor the page.</li>
+    </ul>
+
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Use the Page in Your Funnel</h2>
+    <p style='margin-bottom:12px; line-height:1.7;'>If you’re sending lifecycle emails, paid ads, or social traffic, this page can act as a high-intent destination before nudging users to book a call or test the product. A few ideas:</p>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>Link from nurture emails with the subject line “Get a personalized AI career audit in 60 seconds.”</li>
+      <li>Use the hero video and bullet stack inside your LinkedIn carousel or X (Twitter) thread.</li>
+      <li>Add the CTA to your in-app empty states for users who stalled before completing their setup.</li>
+    </ul>
+
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Key Copy Blocks You Can Repurpose</h2>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li><strong>“Built for real jobs.”</strong> — reinforces that Flashfire maps insights to job-ready outcomes, not generic career quotes.</li>
+      <li><strong>“Get clarity on roles, skills, resumes, and strategy.”</strong> — doubles as a strong LinkedIn hook.</li>
+      <li><strong>“Ready to stop manually applying?” CTA block</strong> — works well for retargeting creative.</li>
+    </ul>
+
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Quick Wins for Content & SEO</h2>
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>Embed screenshots or GIFs from the page into your blog posts about career planning and link back to the experience.</li>
+      <li>Target long-tail keywords like “AI career advisor” or “AI career coach” in supporting content and interlink to this URL.</li>
+      <li>Use the testimonials module as micro-copy inside other “job search” articles to lift trust.</li>
+    </ul>
+
+    <p style='margin-bottom:12px; line-height:1.7;'>Bottom line: this landing page isn’t just a marketing asset — it’s a narrative anchor for Flashfire’s promise. Share it with prospective users whenever they ask, “What does Flashfire actually do for my career plan?”</p>
+  `,
+  },
 ];
