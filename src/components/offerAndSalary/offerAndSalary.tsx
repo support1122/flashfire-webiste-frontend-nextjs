@@ -88,7 +88,7 @@ export default function SalaryNegotiationUI() {
 
                     <button
                         {...getButtonProps()}
-                        onClick={() => handleCTAClick("Analyze My Offer", "offer_salary_hero", "/offer-and-salary-negotiation-advisor/get-me-interview")}
+                        onClick={() => handleCTAClick("Analyze My Offer", "offer_salary_hero", "/offer-and-salary-negotiation-advisor/analyze-my-offer")}
                         className="mt-8 px-8 py-4 rounded-2xl bg-[#ff4c00] shadow-[0_3px_0_black] text-white text-lg font-semibold hover:bg-[#e64500]">
                         Analyze My Offer
                     </button>

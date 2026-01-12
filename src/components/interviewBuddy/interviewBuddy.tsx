@@ -14,6 +14,16 @@ export default function InterviewBuddy() {
             // Bypass will be handled by the event listener
         },
     });
+    const pushCustomUrl = (path?: string) => {
+            if (typeof window === "undefined" || !path) return;
+            const isCanada = window.location.pathname.startsWith("/en-ca");
+            const normalized = path.startsWith("/en-ca")
+              ? path
+              : isCanada
+              ? `/en-ca${path}`
+              : path;
+            window.history.pushState({}, "", normalized);
+          };
     return (
         <div className="w-full bg-white  pt-[120px] md:pt-[100px]">
 
@@ -74,6 +84,7 @@ export default function InterviewBuddy() {
                             if (typeof window !== "undefined") {
                                 window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
                             }
+                            pushCustomUrl("/interview-buddy/Start-free");
                         }}
                         className="bg-[#ff4c00] text-white px-8 py-4 rounded-xl font-semibold shadow-[0_3px_0_black] hover:opacity-90">
                             Start free

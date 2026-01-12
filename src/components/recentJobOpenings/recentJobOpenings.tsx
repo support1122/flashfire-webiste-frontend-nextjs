@@ -128,7 +128,7 @@ export default function RecentJobOpenings() {
 
                         <button
                             {...getButtonProps()}
-                            onClick={() => handleCTAClick("Get Started", "recent_jobs_hero", "/recent-job-openings/get-me-interview")}
+                            onClick={() => handleCTAClick("Get Started", "recent_jobs_hero", "/recent-job-openings/Get-started")}
                             className="mt-10 inline-flex items-center shadow-[0_3px_0_black] gap-2 px-8 py-4 bg-[#ff4c00] text-white rounded-2xl font-semibold hover:bg-[#e64500]">
                             Get Started
                             <ArrowUpRight className="h-5 w-5" />
@@ -311,7 +311,7 @@ export default function RecentJobOpenings() {
 
     <button
       {...getButtonProps()}
-      onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom", "/recent-job-openings/get-me-interview")}
+      onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom", "/recent-job-openings/Start-with-Flashfire")}
       className="mt-10 px-8 py-6 bg-[#ff4c00] text-white rounded-2xl font-semibold hover:bg-[#e64500]">
       Start with FlashFire
     </button>
