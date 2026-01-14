@@ -316,7 +316,7 @@ export default function CalendlyModal({
                 <h2 className="text-lg font-bold">
                   Schedule Your Flashfire Consultation
                 </h2>
-                <p className="text-orange-100 text-sm">30 Minutes • Free</p>
+                <p className="text-orange-100 text-sm">15 Minutes • Free</p>
               </div>
             </div>
           </div>
@@ -372,7 +372,7 @@ export default function CalendlyModal({
                   <h2 className="text-2xl font-bold">
                     Schedule Your Flashfire Consultation
                   </h2>
-                  <p className="text-orange-100">30 Minutes • Free</p>
+                  <p className="text-orange-100">15 Minutes • Free</p>
                 </div>
               </div>
               <p className="text-orange-100 text-lg leading-relaxed">
