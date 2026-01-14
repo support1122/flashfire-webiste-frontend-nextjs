@@ -1,10 +1,14 @@
 "use client"
+import { useEffect } from "react";
 import { Search, FileCheck, Send, MapPin, Briefcase, TrendingUp, ArrowRight, } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { trackButtonClick, trackExternalLink } from "@/src/utils/PostHogTracking";
 import { WHATSAPP_SUPPORT_URL } from "@/src/utils/whatsapp";
-import HomePageHappyUsers from "../homePageHappyUsers/homePageHappyUsers";
+import HomePageHappyUsers from "@/src/components/homePageHappyUsers/homePageHappyUsers";
+import Navbar from "@/src/components/navbar/navbar";
+import Footer from "@/src/components/footer/footer";
+
 
 const dispatchCustomEvent = (eventName: string) => {
   if (typeof window !== "undefined") {
@@ -16,6 +20,19 @@ export default function AICopilot() {
   const router = useRouter();
   const pathname = usePathname();
   const prefix = pathname.startsWith("/en-ca") ? "/en-ca" : "";
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const cta = document.getElementById("cta-section");
+      if (cta) {
+        cta.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 300); // small delay so page renders first
+  
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleStartApplyingClick = (target: "modal" | "cta" = "modal") => {
     const currentScrollY =
@@ -39,7 +56,8 @@ export default function AICopilot() {
         );
       }
     }
-
+   
+      
     // Change URL without actual navigation
     const newUrl =
       target === "modal"
@@ -65,6 +83,7 @@ export default function AICopilot() {
 
   return (
     <>
+    <Navbar/>
       <section className="w-full bg-white">
         <div className="max-w-[1280px] mx-auto px-6 pt-32 pb-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
@@ -373,7 +392,8 @@ export default function AICopilot() {
       </section>
       <HomePageHappyUsers />
       {/* CTA SECTION */}
-      <section className="w-full bg-white py-28">
+      <section 
+      id="cta-section"className="w-full bg-white py-28">
       <div className="max-w-[1200px] mx-auto px-6">
 
         <div className="
@@ -419,6 +439,7 @@ export default function AICopilot() {
 
       </div>
     </section>
+    <Footer/>
     </>
   );
 }

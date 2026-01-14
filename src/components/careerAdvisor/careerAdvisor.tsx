@@ -13,6 +13,17 @@ export default function CareerAdvisor() {
     },
   });
 
+  const pushCustomUrl = (path?: string) => {
+    if (typeof window === "undefined" || !path) return;
+    const isCanada = window.location.pathname.startsWith("/en-ca");
+    const normalized = path.startsWith("/en-ca")
+      ? path
+      : isCanada
+      ? `/en-ca${path}`
+      : path;
+    window.history.pushState({}, "", normalized);
+  };
+
   const handleGetCareerAdvice = () => {
     const utmSource =
       typeof window !== "undefined"
@@ -49,6 +60,8 @@ export default function CareerAdvisor() {
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
     }
+
+    pushCustomUrl("/career-advisor/Get-Career-Advice");
   };
 
   return (
@@ -234,6 +247,7 @@ export default function CareerAdvisor() {
               <button
                 {...getButtonProps()}
                 onClick={handleGetCareerAdvice}
+                
                 className="bg-[#ff4c00] hover:bg-[#e24400] shadow-[0_3px_0_black] text-white px-8 py-4 font-bold text-lg rounded-lg transition-colors inline-flex items-center justify-center gap-2"
               >
                 Get Career Advice →
