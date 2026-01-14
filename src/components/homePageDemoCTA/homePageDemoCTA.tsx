@@ -218,7 +218,7 @@ export default function HomePageDemoCTA() {
             router.push(targetPath);
           }}
         >
-          Schedule a Free Career Call →
+          Schedule a Free Career Call 
         </button>
 
         <p className={styles.demoNote}>

@@ -145,7 +145,7 @@ export default function HomePageResultStats() {
             router.push(targetPath);
           }}
         >
-          Schedule a Free Career Call →
+          Schedule a Free Career Call 
         </button>
       </div>
     </section>

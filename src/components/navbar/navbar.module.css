@@ -382,7 +382,7 @@
   text-decoration: none;
   transition: all 0.25s ease;
   position: relative;
-  box-shadow: 0 0.3rem 0 #ff4c00;
+  box-shadow: 0 0.3rem 0 ;
   opacity: 1;
   display: flex;
   align-items: center;
@@ -395,7 +395,7 @@
 /* Secondary Button */
 .navSecondaryButton {
   background-color: #fff;
-  color: #000;
+  color: #ff4c00;
   border: 1px solid #dcdcdc;
 }
 
@@ -405,14 +405,15 @@
 
 /* Primary Button */
 .navPrimaryButton {
-  background-color: #000;
+  background-color: #ff4c00;
   color: #fff;
   border: none;
   padding: 0.9rem 1.6rem;
+  box-shadow: 0 0.3rem 0 black;
 }
 
 .navPrimaryButton:hover {
-  background-color: #222;
+  background-color: #ff4c00;
 }
 
 /* === Mobile Menu Icon === */
