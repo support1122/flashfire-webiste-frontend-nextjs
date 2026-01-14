@@ -2163,56 +2163,78 @@ export default function NavbarClient({ links, ctas }: Props) {
           )}
         </nav>
 
-        {/* Slots Remaining Banner - Below Navbar */}
-        {!isImageTestimonialsPage && !isBlogsPage && (
-  <div className="w-full bg-[#ffe6da] border-y border-[#ffcdb9] shadow-[0_6px_25px_rgba(0,0,0,0.08)]">
-    <div className="max-w-[1400px] mx-auto flex flex-col items-center justify-center gap-4 px-4 py-1 text-center font-['Space_Grotesk',sans-serif] text-[#0f0f0f] md:flex-row md:gap-8">
-    <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-black uppercase tracking-[0.18em]">
-        <span className="text-[#ff4c00] font-bold text-2xl">✱</span>
-        <span className="whitespace-nowrap">
-          Hurry up only {slotsRemaining} slots remaining
-        </span>
-        <span className="text-[#ff4c00] font-bold text-2xl">✱</span>
-      </div>
-
-      {/* RIGHT CONTENT */}
-      <div className="flex flex-wrap items-center justify-center gap-4">
-
-        {/* COUNTDOWN */}
-        <div className="flex items-center gap-3">
-          {countdownItems.map((item) => (
-            <div key={item.label} className="flex flex-col items-center">
-              <div className="relative flex h-[80px] w-[70px] flex-col items-center justify-center rounded-[0.5rem] border-2 border-black bg-white ">
-                {/* Divider Line */}
-                <div className="absolute left-2 right-2 top-1/2 h-[2px] bg-black" />
-
-                {/* Number */}
-                <span className="relative z-10 text-3xl font-extrabold">
-                  {formatCountdownValue(item.value)}
-                </span>
-              </div>
-
-              {/* Label */}
-              <span className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-[#333]">
-                {item.label}
-              </span>
-            </div>
-          ))}
+         {/* Slots Remaining Banner - Below Navbar */}
+    {!isImageTestimonialsPage && !isBlogsPage && (
+    <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
+      <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
+        {/* Text part - hidden on mobile */}
+        <div className="flex items-center gap-2 max-[600px]:hidden">
+          <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
+            ✱
+          </span>
+          <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
+            Hurry up only {slotsRemaining} slots remaining
+          </span>
+          <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
+            ✱
+          </span>
         </div>
-
-        {/* BUTTON */}
-        <button
-          {...getBookNowButtonProps()}
-          onClick={openCalendly}
-          className="rounded-xl bg-[#ff3d00] px-6 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-[0_6px_0_#111] transition-all hover:translate-y-[2px] hover:shadow-[0_4px_0_#111]"
-        >
-          Book Now
-        </button>
-
+        {/* Mobile text part - visible only on mobile */}
+        <div className="hidden max-[600px]:flex items-center justify-center gap-1.5 w-full">
+          <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
+            ✱
+          </span>
+          <span className="font-bold text-[0.75rem] text-black tracking-[0.02em] uppercase whitespace-nowrap">
+            Hurry up only {slotsRemaining} slots remaining
+          </span>
+          <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
+            ✱
+          </span>
+        </div>
+        <div className="flex gap-1 items-center max-[600px]:gap-0.5">
+          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
+            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
+              {String(timeLeft.days).padStart(2, "0")}
+            </div>
+            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
+              Days
+            </div>
+          </div>
+          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
+            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
+              {String(timeLeft.hours).padStart(2, "0")}
+            </div>
+            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
+              Hrs
+            </div>
+          </div>
+          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
+            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
+              {String(timeLeft.minutes).padStart(2, "0")}
+            </div>
+            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
+              Mins
+            </div>
+          </div>
+          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
+            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
+              {String(timeLeft.seconds).padStart(2, "0")}
+            </div>
+            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
+              Secs
+            </div>
+          </div>
+          <button
+            {...getBookNowButtonProps()}
+            onClick={openCalendly}
+            className="rounded-lg bg-[#ff4c00]   text-white font-semibold py-1.5 px-4 sm:px-5 border-b-4 border-b-black hover:bg-white hover:text-black hover:border-b-[#ff4c00] transition-all shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-sm sm:text-base ml-3 max-[500px]:ml-2 cursor-pointer"
+          >
+            Book Now
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-)}
+    )}
 
       </div>
     </>
