@@ -93,25 +93,23 @@ export default function HeroSectionClient({ data }: Props) {
           });
 
           // PostHog tracking
-          trackButtonClick("schedule a free career call", "hero_cta", "cta", {
+          trackButtonClick("Get me interview", "hero_cta", "cta", {
             button_location: "hero_main_cta",
-            section: "hero_landing",
-            target_url: "/schedule-a-free-career-call"
+            section: "hero_landing"
           });
           trackSignupIntent("hero_cta", {
             signup_source: "hero_main_button",
-            funnel_stage: "signup_intent",
-            target_url: "/schedule-a-free-career-call"
+            funnel_stage: "signup_intent"
           });
 
           // Check current path first
           const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
           const normalizedPath = currentPath.split('?')[0]; // Remove query params
-          const isAlreadyOnScheduleACareerCall = normalizedPath === '/schedule-a-free-career-call' ||
-            normalizedPath === '/en-ca/schedule-a-free-career-call';
+          const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
+            normalizedPath === '/en-ca/get-me-interview';
 
           // If already on the route, save scroll position and prevent navigation
-          if (isAlreadyOnScheduleACareerCall) {
+          if (isAlreadyOnGetMeInterview) {
             // Save current scroll position before modal opens
             const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
 
@@ -147,10 +145,10 @@ export default function HeroSectionClient({ data }: Props) {
           }
 
           // Only navigate if NOT already on the page
-          const targetPath = '/schedule-a-free-career-call';
+          const targetPath = '/get-me-interview';
           router.push(targetPath);
         }}
-        className="inline-block bg-[#ff4c00] text-white py-3.5 px-7 rounded-lg font-semibold no-underline mb-6 shadow-[0_3px_0_black] transition-all duration-300 border-none cursor-pointer text-base font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3.5 max-[768px]:px-6 max-[768px]:text-[0.95rem] max-[768px]:mb-5 max-[480px]:py-3 max-[480px]:px-5 max-[480px]:text-sm max-[480px]:mb-4 max-[480px]:w-full max-[480px]:max-w-[280px]"
+        className="inline-block bg-black text-white py-3.5 px-7 rounded-lg font-semibold no-underline mb-6 shadow-[0_3px_0_#ff4c00] transition-all duration-300 border-none cursor-pointer text-base font-inherit hover:bg-[#222] hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3.5 max-[768px]:px-6 max-[768px]:text-[0.95rem] max-[768px]:mb-5 max-[480px]:py-3 max-[480px]:px-5 max-[480px]:text-sm max-[480px]:mb-4 max-[480px]:w-full max-[480px]:max-w-[280px]"
       >
         {data.cta.label}
       </button>

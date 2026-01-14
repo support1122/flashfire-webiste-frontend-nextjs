@@ -368,10 +368,10 @@
 
 .navSecondaryButton,
 .navPrimaryButton {
-  width: 200px;
+  width: 181.9384765625px;
   height: 54px;
   border-radius: 0.6rem;
-  padding: 0.8rem 1.4rem;
+  padding: 0.7rem 1.4rem;
   font-family: var(--font-inter), "Inter", sans-serif;
   font-size: 13.29px;
   font-weight: 500;
@@ -382,7 +382,7 @@
   text-decoration: none;
   transition: all 0.25s ease;
   position: relative;
-  box-shadow: 0 0.3rem 0 ;
+  box-shadow: 0 0.3rem 0 #ff4c00;
   opacity: 1;
   display: flex;
   align-items: center;
@@ -395,7 +395,7 @@
 /* Secondary Button */
 .navSecondaryButton {
   background-color: #fff;
-  color: #ff4c00;
+  color: #000;
   border: 1px solid #dcdcdc;
 }
 
@@ -405,15 +405,13 @@
 
 /* Primary Button */
 .navPrimaryButton {
-  background-color: #ff4c00;
+  background-color: #000;
   color: #fff;
   border: none;
-  padding: 0.9rem 1.6rem;
-  box-shadow: 0 0.3rem 0 black;
 }
 
 .navPrimaryButton:hover {
-  background-color: #ff4c00;
+  background-color: #222;
 }
 
 /* === Mobile Menu Icon === */
