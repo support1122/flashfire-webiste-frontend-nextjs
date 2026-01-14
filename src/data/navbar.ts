@@ -11,5 +11,5 @@ export const navbarLinks: NavLink[] = [
 ];
 
 export const navbarCTAs: NavbarCTA = {
-  primary: { label: "Talk to an Expert →", href: "/talk-to-an-expert" },
+  primary: { label: "Schedule a Free Career Call ", href: "/schedule-a-free-career-call" },
 };
