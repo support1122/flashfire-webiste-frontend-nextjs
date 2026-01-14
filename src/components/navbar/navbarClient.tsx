@@ -726,13 +726,13 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import type { NavLink, NavbarCTA } from "../../types/navbarData";
-import { trackButtonClick, trackSignupIntent, trackModalOpen } from "@/src/utils/PostHogTracking";
+import { trackButtonClick, trackModalOpen } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
-
-
+import { WHATSAPP_SUPPORT_URL } from "@/src/utils/whatsapp";
+import { trackExternalLink } from "@/src/utils/PostHogTracking";
 
 type Props = {
   links: NavLink[];
@@ -791,17 +791,6 @@ export default function NavbarClient({ links, ctas }: Props) {
       return href;
     }
     return `${prefix}${href}`;
-  };
-
-  const pushCustomUrl = (path?: string) => {
-    if (typeof window === "undefined" || !path) return;
-    const isCanada = window.location.pathname.startsWith("/en-ca");
-    const normalized = path.startsWith("/en-ca")
-      ? path
-      : isCanada
-      ? `/en-ca${path}`
-      : path;
-    window.history.pushState({}, "", normalized);
   };
 
   // Handle section clicks - jump to section start AND update URL
@@ -1504,27 +1493,15 @@ export default function NavbarClient({ links, ctas }: Props) {
                   navigation_type: "primary_cta"
                 });
                 if (ctas.primary.href.includes("calendly")) {
-                  trackSignupIntent("navbar_cta", {
-                    signup_source: "navbar_cta",
-                    funnel_stage: "signup_intent",
-                    target_url: "/schedule-a-free-career-call"
+                  trackModalOpen("calendly_modal", "navigation_button", {
+                    trigger_source: "navbar_cta"
                   });
-                }
-              }}
-              onMouseEnter={() => {
-                if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                }
-              }}
-              onMouseLeave={() => {
-                if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('hideGetMeInterviewModal'));
                 }
               }}
             >
               {ctas.primary.label}
             </a>
-          ) : ctas.primary && (ctas.primary.href === "/schedule-a-free-career-call" || ctas.primary.href === "/en-ca/schedule-a-free-career-call") ? (
+          ) : ctas.primary && (ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert") ? (
             <button
               className={styles.navPrimaryButton}
               onClick={(e) => {
@@ -1543,7 +1520,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                 // Track with both GTag and PostHog
                 GTagUTM({
                   eventName: "whatsapp_support_click",
-                  label: "Navbar_Schedule_A_Career_Call_Button",
+                  label: "Navbar_Talk_To_Expert_Button",
                   utmParams: {
                     utm_source: utmSource,
                     utm_medium: utmMedium,
@@ -1552,25 +1529,19 @@ export default function NavbarClient({ links, ctas }: Props) {
                 });
 
                 // PostHog tracking
-                trackButtonClick("Schedule a Free Career Call", "navigation", "cta", {
+                trackButtonClick("Talk to an Expert", "navigation", "cta", {
                   button_location: "navbar",
                   navigation_type: "primary_cta",
-                  page: "schedule-a-free-career-call",
+                  page: "talk-to-an-expert",
                 });
-                trackSignupIntent("schedule_a_career_call", {
-                  signup_source: "navbar_button",
-                  funnel_stage: "signup_intent",
-                  target_url: "/schedule-a-free-career-call"
+                trackExternalLink(WHATSAPP_SUPPORT_URL, "Talk to an Expert", "navigation", {
+                  link_type: "whatsapp_support",
+                  contact_method: "whatsapp",
+                  source: "navbar_button",
                 });
 
-                const targetPath = ctas.primary?.href || "/schedule-a-free-career-call";
-                const previousPath = safePathname || (typeof window !== "undefined" ? window.location.pathname : "/");
-
-                if (typeof window !== "undefined") {
-                  sessionStorage.setItem("previousPageBeforeGetMeInterview", previousPath);
-                  window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
-                  pushCustomUrl(targetPath);
-                }
+                // Open WhatsApp in a new tab
+                window.open(WHATSAPP_SUPPORT_URL, "_blank");
               }}
             >
               {ctas.primary?.label}
@@ -1585,25 +1556,13 @@ export default function NavbarClient({ links, ctas }: Props) {
                   navigation_type: "primary_cta"
                 });
                 if (ctas.primary.href.includes("calendly")) {
-                  trackSignupIntent("calendly_modal", {
-                    signup_source: "navbar_cta",
-                    funnel_stage: "signup_intent",
-                    target_url: "/schedule-a-free-career-call"
+                  trackModalOpen("calendly_modal", "navigation_button", {
+                    trigger_source: "navbar_cta"
                   });
                 }
               }}
-              onMouseEnter={() => {
-                if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                }
-              }}
-              onMouseLeave={() => {
-                if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('hideGetMeInterviewModal'));
-                }
-              }}
-              >
-                {ctas.primary.label}
+            >
+              {ctas.primary.label}
             </Link>
           ) : null}
         </div>
@@ -2081,7 +2040,7 @@ export default function NavbarClient({ links, ctas }: Props) {
               >
                 {ctas.primary.label}
               </a>
-            ) : ctas.primary && (ctas.primary.href === "/schedule-a-free-career-call" || ctas.primary.href === "/en-ca/schedule-a-free-career-call") ? (
+            ) : ctas.primary && (ctas.primary.href === "/talk-to-an-expert" || ctas.primary.href === "/en-ca/talk-to-an-expert") ? (
               <button
                 className={styles.navMobilePrimary}
                 onClick={(e) => {
@@ -2101,7 +2060,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                   // Track with both GTag and PostHog
                   GTagUTM({
                     eventName: "whatsapp_support_click",
-                    label: "Navbar_Schedule_A_Career_Call_Button_Mobile",
+                    label: "Navbar_Talk_To_Expert_Button_Mobile",
                     utmParams: {
                       utm_source: utmSource,
                       utm_medium: utmMedium,
@@ -2110,25 +2069,19 @@ export default function NavbarClient({ links, ctas }: Props) {
                   });
 
                   // PostHog tracking
-                  trackButtonClick("Schedule a Free Career Call", "navigation", "cta", {
+                  trackButtonClick("Talk to an Expert", "navigation", "cta", {
                     button_location: "navbar_mobile",
                     navigation_type: "primary_cta",
-                    page: "schedule-a-free-career-call",
+                    page: "talk-to-an-expert",
                   });
-                  trackSignupIntent("schedule_a_career_call_mobile", {
-                    signup_source: "navbar_mobile_button",
-                    funnel_stage: "signup_intent",
-                    target_url: "/schedule-a-free-career-call"
+                  trackExternalLink(WHATSAPP_SUPPORT_URL, "Talk to an Expert", "navigation", {
+                    link_type: "whatsapp_support",
+                    contact_method: "whatsapp",
+                    source: "navbar_mobile_button",
                   });
 
-                  const targetPath = ctas.primary?.href || "/schedule-a-free-career-call";
-                  const previousPath = safePathname || (typeof window !== "undefined" ? window.location.pathname : "/");
-
-                  if (typeof window !== "undefined") {
-                    sessionStorage.setItem("previousPageBeforeGetMeInterview", previousPath);
-                    window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
-                    pushCustomUrl(targetPath);
-                  }
+                  // Open WhatsApp in a new tab
+                  window.open(WHATSAPP_SUPPORT_URL, "_blank");
                 }}
               >
                 {ctas.primary?.label}
