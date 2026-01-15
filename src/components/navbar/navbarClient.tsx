@@ -900,17 +900,29 @@ export default function NavbarClient({ links, ctas }: Props) {
     setMounted(true);
   }, []);
  // timer for 10days 
+
+
+ // ✅ Upper Pricing Offer Timer — 1 Day Persistent (does NOT reset)
 useEffect(() => {
   if (typeof window === "undefined") return;
 
-  // Set target = now + 10 days
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 10);
+  const STORAGE_KEY = "pricingOfferEndTime";
+
+  // Get saved end time or create new one
+  let savedEndTime = localStorage.getItem(STORAGE_KEY);
+  let targetTime: number;
+
+  if (savedEndTime) {
+    targetTime = parseInt(savedEndTime, 10);
+  } else {
+    // Create new end time = now + 1 day (24 hours)
+    targetTime = Date.now() + 24 * 60 * 60 * 1000;
+    localStorage.setItem(STORAGE_KEY, targetTime.toString());
+  }
 
   const calculatePricingTimer = () => {
-    const now = new Date().getTime();
-    const end = targetDate.getTime();
-    const diff = end - now;
+    const now = Date.now();
+    const diff = targetTime - now;
 
     if (diff > 0) {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -924,7 +936,9 @@ useEffect(() => {
 
       setPricingTimeLeft({ days, hours, minutes, seconds });
     } else {
+      // Timer expired
       setPricingTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      localStorage.removeItem(STORAGE_KEY); // Optional: reset for next visit
     }
   };
 
@@ -1148,8 +1162,8 @@ useEffect(() => {
     <>
     {/* for pricing offer - upper Navbar */}
       {!isImageTestimonialsPage && !isBlogsPage && (
-    <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
-      <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
+        <div className="fixed top-0 left-0 w-full z-[60] bg-[#f5f5f0] border-b border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
+        <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
         {/* Text part - hidden on mobile */}
         <div className="flex items-center gap-2 max-[600px]:hidden">
          <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">✱</span>
@@ -1167,10 +1181,10 @@ useEffect(() => {
           
         </div> */}
         <div className="flex gap-1 items-center max-[600px]:gap-0.5">
-            <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
+            {/* <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
               {String(pricingTimeLeft.days).padStart(2, "0")}d
             </div>
-            
+             */}
             <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
               {String(pricingTimeLeft.hours).padStart(2, "0")}hr
             </div>
@@ -1189,16 +1203,16 @@ useEffect(() => {
              </div>  
           <button
             onClick={() => router.push(getHref('/pricing'))}
-            className="rounded-full bg-[#ff4c00]   text-white font-semibold py-1 px-2 border-b-4 border-b-black hover:bg-white hover:text-black hover:border-b-[#ff4c00] transition-all shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-sm sm:text-base ml-3 max-[500px]:ml-2 cursor-pointer"
+            className="rounded-[0.7rem] bg-[#ff4c00]   text-white font-semibold py-1 px-2 border-b-4 border-b-black hover:bg-white hover:text-black hover:border-b-[#ff4c00] transition-all shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-sm sm:text-base ml-3 max-[500px]:ml-2 cursor-pointer"
           >
-            ➔
+            ➤
           </button>
         </div>
       </div>
     </div>
     )}
       {/* Sticky Container for Navbar and Banner */}
-      <div className="sticky top-0 z-50">
+      <div className="sticky top-[40px] z-50">
         <nav 
           className={styles.navContainer}
           style={{
@@ -2250,11 +2264,11 @@ useEffect(() => {
     </nav>
 
     {/* Slots Remaining Banner - Below Navbar */}
-    {!isImageTestimonialsPage && !isBlogsPage && (
+    {/* {!isImageTestimonialsPage && !isBlogsPage && (
     <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
-      <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
+      <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2"> */}
         {/* Text part - hidden on mobile */}
-        <div className="flex items-center gap-2 max-[600px]:hidden">
+        {/* <div className="flex items-center gap-2 max-[600px]:hidden">
           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
             ✱
           </span>
@@ -2264,9 +2278,9 @@ useEffect(() => {
           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
             ✱
           </span>
-        </div>
+        </div> */}
         {/* Mobile text part - visible only on mobile */}
-        <div className="hidden max-[600px]:flex items-center justify-center gap-1.5 w-full">
+        {/* <div className="hidden max-[600px]:flex items-center justify-center gap-1.5 w-full">
           <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
             ✱
           </span>
@@ -2319,8 +2333,8 @@ useEffect(() => {
           </button>
         </div>
       </div>
-    </div>
-    )}
+    </div> 
+    )}*/}
     </div>
     </>
   );
