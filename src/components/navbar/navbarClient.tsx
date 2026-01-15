@@ -780,7 +780,11 @@ export default function NavbarClient({ links, ctas }: Props) {
 
   const isBookPage = safePathname === "/schedule-a-free-career-call" || safePathname === "/en-ca/schedule-a-free-career-call";
   const isImageTestimonialsPage = safePathname === "/testimonials" || safePathname === "/en-ca/testimonials" || safePathname === "/image-testimonials" || safePathname === "/en-ca/image-testimonials";
-  const isBlogsPage = safePathname.startsWith("/blogs") || safePathname.startsWith("/en-ca/blogs");
+  const isBlogsPage =
+    safePathname.startsWith("/blogs") ||
+    safePathname.startsWith("/blog") ||
+    safePathname.startsWith("/en-ca/blogs") ||
+    safePathname.startsWith("/en-ca/blog");
 
   // Geo-bypass hook for Book Now button
   const { getButtonProps: getBookNowButtonProps } = useGeoBypass({
@@ -1164,8 +1168,8 @@ export default function NavbarClient({ links, ctas }: Props) {
       {/* Sticky Container for Navbar and Banner */}
       <div className="sticky top-0 left-0 right-0 z-50">
         {/* for pricing offer - upper Navbar */}
-       {!isBlogsPage&& (
-          <div className=" w-full z-[60] bg-[#f5f5f0] border-b border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
+        {!isBlogsPage && (
+          <div className="w-full bg-[#f5f5f0] border-b border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
             <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
               {/* Text part - hidden on mobile */}
               <div className="flex items-center gap-2 ">
