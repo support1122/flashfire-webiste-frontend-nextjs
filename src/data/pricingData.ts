@@ -88,7 +88,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     subTitle: "160 Applications",
     description: "Perfect starter plan for job seekers",
     price: "CA$139",
-    oldPrice: undefined,
+    oldPrice: "CA$199",
     features: [
       "AI-powered job matching",
       "160 tailored applications",
