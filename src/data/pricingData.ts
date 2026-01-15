@@ -16,8 +16,8 @@ export const usPricingPlans: PricingPlan[] = [
     title: "PRIME",
     subTitle: "160 Applications",
     description: "Your starter plan to begin applying",
-    price: "$119",
-    oldPrice: undefined,
+    price: "$99",
+    oldPrice: "$119",
     features: [
       "No Time Constraint",
       "AI-powered job matching",
@@ -32,8 +32,8 @@ export const usPricingPlans: PricingPlan[] = [
     title: "IGNITE",
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
-    price: "$199",
-    oldPrice: "$299",
+    price: "$179",
+    oldPrice: "$199",
     features: [
       "No Time Constraint",
       "AI-powered job matching",
@@ -49,8 +49,8 @@ export const usPricingPlans: PricingPlan[] = [
     tag: "ECONOMICAL",
     subTitle: "500 Applications",
     description: "Most popular for mid-level professionals",
-    price: "$349",
-    oldPrice: "$449",
+    price: "$299",
+    oldPrice: "$349",
     features: [
       "Everything in Ignite",
       "Advance analytics & insights",
@@ -66,8 +66,8 @@ export const usPricingPlans: PricingPlan[] = [
     tag: "MOST POPULAR",
     subTitle: "1200+ Applications",
     description: "For early professionals & executives",
-    price: "$599",
-    oldPrice: "$699",
+    price: "$499",
+    oldPrice: "$599",
     features: [
       "Everything in Professional",
       "Executive-level job targeting",
