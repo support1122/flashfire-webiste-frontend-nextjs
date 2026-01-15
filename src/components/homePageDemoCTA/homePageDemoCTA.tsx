@@ -103,7 +103,7 @@ export default function HomePageDemoCTA() {
               try {
                 GTagUTM({
                   eventName: "sign_up_click",
-                  label: "Demo_CTA_Button",
+                  label: "Schedule_ACareer_Call_CTA_Button",
                   utmParams: {
                     utm_source: utmSource,
                     utm_medium: utmMedium,
@@ -117,15 +117,15 @@ export default function HomePageDemoCTA() {
               }
               
               try {
-                trackButtonClick("Book My Demo Call", "demo_cta", "cta", {
+                trackButtonClick("Schedule a Free Career Call", "demo_cta", "cta", {
                   button_location: "demo_cta_button",
                   section: "demo_cta",
-                  target_url: "/book-my-demo-call"
+                  target_url: "/schedule-a-free-career-call"
                 });
                 trackSignupIntent("demo_cta", {
                   signup_source: "demo_cta_button",
                   funnel_stage: "signup_intent",
-                  target_url: "/book-my-demo-call"
+                  target_url: "/schedule-a-free-career-call"
                 });
               } catch (trackError) {
                 console.warn('Tracking error:', trackError);
@@ -143,7 +143,7 @@ export default function HomePageDemoCTA() {
             const currentPath = pathname;
             const isImageTestimonialsPage = currentPath === '/testimonials' || currentPath === '/en-ca/testimonials' || currentPath === '/image-testimonials' || currentPath === '/en-ca/image-testimonials';
             const isAboutUsPage = currentPath === '/about-us' || currentPath === '/en-ca/about-us';
-            const isAlreadyOnBookMyDemoCall = currentPath === '/book-my-demo-call' || currentPath === '/en-ca/book-my-demo-call';
+            const isAlreadyOnScheduleACareerCall = currentPath === '/schedule-a-free-career-call' || currentPath === '/en-ca/schedule-a-free-career-call';
             const isOnHomePage = currentPath === '/' || currentPath === '/en-ca' || currentPath === '';
             
             console.log('Button clicked - currentPath:', currentPath, 'isOnHomePage:', isOnHomePage);
@@ -152,7 +152,7 @@ export default function HomePageDemoCTA() {
             if (isOnHomePage) {
               // Clear any old sessionStorage values to prevent showing wrong page
               if (typeof window !== 'undefined') {
-                sessionStorage.removeItem('previousPageBeforeBookMyDemoCall');
+                sessionStorage.removeItem('previousPageBeforeScheduleACareerCall');
                 sessionStorage.removeItem('preserveScrollPosition');
               }
               // Just trigger the modal, don't navigate - stay on home page
@@ -161,8 +161,8 @@ export default function HomePageDemoCTA() {
             
             // If on image-testimonials page, change URL but keep page content visible
             if (isImageTestimonialsPage) {
-              // Change URL to /book-my-demo-call without navigating (keep testimonials page visible)
-              const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
+              // Change URL to /schedule-a-free-career-call without navigating (keep testimonials page visible)
+              const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/schedule-a-free-career-call' : '/schedule-a-free-career-call';
               if (typeof window !== 'undefined') {
                 window.history.pushState({}, '', targetPath);
               }
@@ -174,7 +174,7 @@ export default function HomePageDemoCTA() {
             if (isAboutUsPage) {
               // Save the previous page path to sessionStorage
               if (typeof window !== 'undefined') {
-                sessionStorage.setItem('previousPageBeforeBookMyDemoCall', currentPath);
+                sessionStorage.setItem('previousPageBeforeScheduleACareerCall', currentPath);
               }
               
               // Save current scroll position before modal opens
@@ -183,8 +183,8 @@ export default function HomePageDemoCTA() {
                 sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
               }
               
-              // Change URL to /book-my-demo-call using pushState only (don't use router to prevent scroll)
-              const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
+              // Change URL to /schedule-a-free-career-call using pushState only (don't use router to prevent scroll)
+              const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/schedule-a-free-career-call' : '/schedule-a-free-career-call';
               if (typeof window !== 'undefined') {
                 window.history.pushState({}, '', targetPath);
               }
@@ -200,15 +200,15 @@ export default function HomePageDemoCTA() {
               return;
             }
             
-            // If already on book-my-demo-call route, just show modal
-            if (isAlreadyOnBookMyDemoCall) {
-              console.log('Already on book-my-demo-call route, showing modal only');
+            // If already on schedule-a-free-career-call route, just show modal
+            if (isAlreadyOnScheduleACareerCall) {
+              console.log('Already on schedule-a-free-career-call route, showing modal only');
               // Just trigger the modal, don't navigate
               return;
             }
             
-            // Navigate to /book-my-demo-call for other pages
-            const targetPath = '/book-my-demo-call';
+            // Navigate to /schedule-a-free-career-call for other pages
+            const targetPath = '/schedule-a-free-career-call';
             
             // Save current scroll position to sessionStorage before navigation
             if (typeof window !== 'undefined') {
@@ -218,7 +218,7 @@ export default function HomePageDemoCTA() {
             router.push(targetPath);
           }}
         >
-          Book My Demo Call →
+          Schedule a Free Career Call 
         </button>
 
         <p className={styles.demoNote}>

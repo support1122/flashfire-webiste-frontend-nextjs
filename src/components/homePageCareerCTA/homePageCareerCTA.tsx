@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import styles from "./homePageCareerCTA.module.css";
 import { FaBolt } from "react-icons/fa";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
@@ -10,6 +10,7 @@ import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 export default function HomePageCareerCTA() {
   const router = useRouter();
+  const pathname = usePathname();
   const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
     onBypass: () => {
       // Bypass will be handled by the event listener
@@ -82,20 +83,61 @@ export default function HomePageCareerCTA() {
                   target_url: "/schedule-a-free-career-call"
                 });
 
-                // Save current scroll position to sessionStorage before navigation
-                if (typeof window !== 'undefined') {
-                  sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-                }
+                // Check current path first
+                const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+                const normalizedPath = currentPath.split('?')[0]; // Remove query params
+                const isAlreadyOnScheduleACareerCall = normalizedPath === '/schedule-a-free-career-call' ||
+                  normalizedPath === '/en-ca/schedule-a-free-career-call';
 
                 // Navigate to /schedule-a-free-career-call WITHOUT exposing UTM params in the URL
                 const targetPath = '/schedule-a-free-career-call';
 
-                // Dispatch custom event to force show modal (even if already on the route)
+                // Dispatch custom event to force show modal FIRST
                 if (typeof window !== 'undefined') {
                   window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
                 }
 
-                router.push(targetPath);
+                // If already on the route, save scroll position and prevent navigation
+                if (isAlreadyOnScheduleACareerCall) {
+                  // Save current scroll position before modal opens
+                  const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+
+                  // Restore scroll position immediately after modal opens
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                    requestAnimationFrame(() => {
+                      window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                      setTimeout(() => {
+                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                      }, 50);
+                    });
+                  });
+
+                  // Just trigger the modal, don't navigate or scroll
+                  return;
+                }
+
+                // Save current scroll position before navigation to preserve it
+                if (typeof window !== 'undefined') {
+                  const currentScrollY = window.scrollY;
+                  sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+                  
+                  // Navigate to the target path
+                  router.push(targetPath);
+                  
+                  // Immediately restore scroll position to prevent scroll to top
+                  requestAnimationFrame(() => {
+                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                    requestAnimationFrame(() => {
+                      window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                      setTimeout(() => {
+                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+                      }, 50);
+                    });
+                  });
+                } else {
+                  router.push(targetPath);
+                }
               }}
             >
               Schedule a Free Career Call

@@ -87,23 +87,25 @@ export default function HomePageResultStats() {
             });
 
             // PostHog tracking
-            trackButtonClick("Get Me Interview", "result_stats_cta", "cta", {
+            trackButtonClick("schedule a free career call", "result_stats_cta", "cta", {
               button_location: "result_stats_section",
-              section: "result_stats"
+              section: "result_stats",
+              target_url: "/schedule-a-free-career-call"
             });
             trackSignupIntent("result_stats_cta", {
               signup_source: "result_stats_button",
-              funnel_stage: "signup_intent"
+              funnel_stage: "signup_intent",
+              target_url: "/schedule-a-free-career-call"
             });
 
             // Check current path first
             const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
             const normalizedPath = currentPath.split('?')[0]; // Remove query params
-            const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
-              normalizedPath === '/en-ca/get-me-interview';
+            const isAlreadyOnScheduleACareerCall = normalizedPath === '/schedule-a-free-career-call' ||
+              normalizedPath === '/en-ca/schedule-a-free-career-call';
 
             // If already on the route, save scroll position and prevent navigation
-            if (isAlreadyOnGetMeInterview) {
+            if (isAlreadyOnScheduleACareerCall) {
               // Save current scroll position before modal opens
               const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
 
@@ -139,11 +141,11 @@ export default function HomePageResultStats() {
             }
 
             // Only navigate if NOT already on the page
-            const targetPath = '/get-me-interview';
+            const targetPath = '/schedule-a-free-career-call';
             router.push(targetPath);
           }}
         >
-          Get Me Interview →
+          Schedule a Free Career Call 
         </button>
       </div>
     </section>
