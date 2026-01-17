@@ -85,7 +85,7 @@ export default function StrategyCallCard({ onClose }: Props) {
         window.open(`tel:${dialerNumber}`, "_self");
     };
     return (
-        <div className="relative w-full max-w-[480px] mt-20 rounded-2xl bg-white px-7 py-8 shadow-2xl border border-orange-100 text-center">
+<div className="relative w-full max-w-[480px] mt-20 min-h-[500px] rounded-2xl bg-white px-7 py-9 shadow-2xl border border-orange-100 text-center">
       
           {/* Close Button */}
           {onClose && (
@@ -98,11 +98,11 @@ export default function StrategyCallCard({ onClose }: Props) {
           )}
       
           {/* Icon */}
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-orange-100">
+          {/* <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-orange-100">
             <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-orange-500">
               <div className="h-2.5 w-2.5 rounded-full bg-orange-500" />
             </div>
-          </div>
+          </div> */}
       
           {/* Heading */}
           <h2 className="text-[1.35rem] font-semibold text-gray-900 leading-snug">
@@ -123,6 +123,20 @@ export default function StrategyCallCard({ onClose }: Props) {
             <div className="flex items-center justify-start gap-2">
               <CheckCircle size={15} className="text-orange-500" />
               Personalized job search strategy 
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle size={15} className="text-orange-500" />
+              Curated job openings matched to your profile
+            </div>
+
+            <div className="flex items-center gap-2">
+              <CheckCircle size={15} className="text-orange-500" />
+              Application tracking & follow-up reminders
+            </div>
+
+            <div className="flex items-center gap-2">
+              <CheckCircle size={15} className="text-orange-500" />
+              Skill gap analysis & learning roadmap
             </div>
           </div>
       
