@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { blogPosts } from '@/src/data/blogsData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.flashfirejobs.com'
+  const baseUrl = 'https://flashfirejobs.com'
   
   // Filter and map blog posts to sitemap entries
   const blogUrls: MetadataRoute.Sitemap = blogPosts
@@ -65,12 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/feature`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
+   
     {
       url: `${baseUrl}/features`,
       lastModified: new Date(),
@@ -131,12 +126,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/how-it-works`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    },
+    
     {
       url: `${baseUrl}/how-flashfire-ai-job-automation-platform-works`,
       lastModified: new Date(),

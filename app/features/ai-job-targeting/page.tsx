@@ -149,7 +149,7 @@ export default function PrecisionTargetingPage() {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "AI Job Targeting",
-    "image": "",
+    "image": "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/job-tracker.png",
     "description": "Precision job targeting using AI ensures every application matches recruiter intent. Stop wasting applications and start getting interviews.",
     "brand": {
       "@type": "Brand",
