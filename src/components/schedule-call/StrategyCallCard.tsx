@@ -85,7 +85,7 @@ export default function StrategyCallCard({ onClose }: Props) {
         window.open(`tel:${dialerNumber}`, "_self");
     };
     return (
-        <div className="relative w-full max-w-[520px] mt-20 rounded-2xl bg-white px-8 py-7 shadow-2xl border border-orange-100 text-center">
+        <div className="relative w-full max-w-[480px] mt-20 rounded-2xl bg-white px-7 py-8 shadow-2xl border border-orange-100 text-center">
       
           {/* Close Button */}
           {onClose && (
@@ -105,17 +105,29 @@ export default function StrategyCallCard({ onClose }: Props) {
           </div>
       
           {/* Heading */}
-          <h2 className="text-[1.35rem] font-semibold text-gray-900">
+          <h2 className="text-[1.35rem] font-semibold text-gray-900 leading-snug">
             Get Your Personalized Job Search Strategy
           </h2>
       
           {/* Description */}
-          <p className="mt-2 text-sm leading-relaxed text-gray-500 px-2">
-            15-minute call with our team to accelerate your job search and unlock better opportunities.
+          <p className="mt-2 text-sm leading-relaxed text-gray-500 px-1">
+            15-minute expert call to accelerate your job search and unlock better opportunities.
           </p>
       
+          {/* Extra Content */}
+          <div className="mt-4 px-1 space-y-2 text-sm text-gray-600">
+            <div className="flex  items-center justify-start gap-2">
+              <CheckCircle size={15} className="text-orange-500" />
+              Resume & LinkedIn feedback 
+            </div>
+            <div className="flex items-center justify-start gap-2">
+              <CheckCircle size={15} className="text-orange-500" />
+              Personalized job search strategy 
+            </div>
+          </div>
+      
           {/* Highlight Box */}
-          <div className="mt-5 rounded-lg  text-sm font-semibold text-orange-600">
+          <div className="mt-5 rounded-lg py-2.5 text-sm font-semibold text-orange-600">
             100% Free • No obligation • Limited slots
           </div>
       
@@ -132,7 +144,7 @@ export default function StrategyCallCard({ onClose }: Props) {
           </button>
       
           {/* Meta */}
-          <div className="mt-3 flex items-center justify-center gap-5 text-[11px] text-gray-400">
+          <div className="mt-3 flex items-center justify-center gap-4 text-[11px] text-gray-400">
             <span className="flex items-center gap-1">
               <Clock size={12} /> 15 min
             </span>
@@ -162,6 +174,5 @@ export default function StrategyCallCard({ onClose }: Props) {
       
         </div>
       );
-      
-      
+          
 }
