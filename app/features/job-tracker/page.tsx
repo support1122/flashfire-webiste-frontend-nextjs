@@ -149,7 +149,7 @@ export default function JobTrackerPage() {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "Job Application Tracker",
-    "image": "",
+    "image": "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/job-tracker.png",
     "description": "Job application tracker that helps you monitor, manage, and follow up on every application in one place. Stay organized and never miss updates—try Flashfire free.",
     "brand": {
       "@type": "Brand",

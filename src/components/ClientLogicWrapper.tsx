@@ -8,6 +8,7 @@ import GeoBypassSuccessModal from "@/src/components/modals/GeoBypassSuccessModal
 import SignupModal from "@/src/components/signupModal/SignupModal";
 import CalendlyModal from "@/src/components/calendlyModal/CalendlyModal";
 import { loadFormData } from "@/src/utils/LocalStorageUtils";
+import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
 
 function ClientLogicWrapperContent({
     children,
@@ -23,7 +24,18 @@ function ClientLogicWrapperContent({
 
     const [showSignupModal, setShowSignupModal] = useState(false);
     const [showCalendlyModal, setShowCalendlyModal] = useState(false);
+    const [showStrategyCallCard, setShowStrategyCallCard] = useState(false);
     
+    
+
+    useEffect(() => {
+        if (typeof document === "undefined") return;
+        document.body.style.overflow = showStrategyCallCard ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [showStrategyCallCard]);
+
     // Track button clicks to force show modal
     const [forceShowModal, setForceShowModal] = useState(false);
     const [forceShowCalendlyModal, setForceShowCalendlyModal] = useState(false);
@@ -50,6 +62,7 @@ function ClientLogicWrapperContent({
     // Listen for button click events from anywhere in the app
     useEffect(() => {
         const handleButtonClick = () => {
+            
             setForceShowModal(true);
             // Reset dismissed state so modal can show
             modalDismissedForRouteRef.current = null;
@@ -79,19 +92,30 @@ function ClientLogicWrapperContent({
             modalDismissedForRouteRef.current = null;
         };
 
+        const handleStrategyCallCard = () => {
+            if (!geoLoading && isFromIndia && !geoBypassActive) {
+                setShowGeoBlockModal(true);
+                setShowStrategyCallCard(false);
+            } else {
+                setShowStrategyCallCard(true);
+            }
+        };
+
         // Listen for custom events
         window.addEventListener('showGetMeInterviewModal', handleButtonClick);
         window.addEventListener('showCalendlyModal', handleCalendlyModal);
         window.addEventListener('bypassGeoBlock', handleGeoBypass);
         window.addEventListener('showGeoBypassSuccess', handleShowBypassSuccess);
+        window.addEventListener('showStrategyCallCard', handleStrategyCallCard);
         
         return () => {
             window.removeEventListener('showGetMeInterviewModal', handleButtonClick);
             window.removeEventListener('showCalendlyModal', handleCalendlyModal);
             window.removeEventListener('bypassGeoBlock', handleGeoBypass);
             window.removeEventListener('showGeoBypassSuccess', handleShowBypassSuccess);
+            window.removeEventListener('showStrategyCallCard', handleStrategyCallCard);
         };
-    }, []);
+    }, [geoLoading, isFromIndia, geoBypassActive]);
 
     // Detect User Country (Client-side fallback logic)
     useEffect(() => {
@@ -429,6 +453,16 @@ function ClientLogicWrapperContent({
                     };
                 })()}
             />
+            {showStrategyCallCard && (
+                <div
+                    className="fixed inset-0 z-[9980] bg-black/40 backdrop-blur-sm flex items-center justify-center px-4 py-8"
+                    onClick={() => setShowStrategyCallCard(false)}
+                >
+                    <div onClick={(e) => e.stopPropagation()}>
+                        <StrategyCallCard onClose={() => setShowStrategyCallCard(false)} />
+                    </div>
+                </div>
+            )}
         </>
     );
 }

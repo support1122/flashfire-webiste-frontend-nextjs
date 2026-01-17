@@ -2276,8 +2276,8 @@ export default function NavbarClient({ links, ctas }: Props) {
             ✱
           </span>
           <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
-            Hurry up only {slotsRemaining} slots remaining
-          </span>
+                  Hurry up only {slotsRemaining} slots remaining
+                </span>
           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
             ✱
           </span>
@@ -2293,16 +2293,16 @@ export default function NavbarClient({ links, ctas }: Props) {
           <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
             ✱
           </span>
-        </div>
+              </div>
         <div className="flex gap-1 items-center max-[600px]:gap-0.5">
           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
               {String(timeLeft.days).padStart(2, "0")}
-            </div>
+                    </div>
             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
               Days
-            </div>
-          </div>
+                    </div>
+                  </div>
           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
               {String(timeLeft.hours).padStart(2, "0")}
@@ -2327,16 +2327,16 @@ export default function NavbarClient({ links, ctas }: Props) {
               Secs
             </div>
           </div>
-          <button
-            {...getBookNowButtonProps()}
-            onClick={openCalendly}
+                <button
+                  {...getBookNowButtonProps()}
+                  onClick={openCalendly}
             className="rounded-lg bg-[#ff4c00]   text-white font-semibold py-1.5 px-4 sm:px-5 border-b-4 border-b-black hover:bg-white hover:text-black hover:border-b-[#ff4c00] transition-all shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-sm sm:text-base ml-3 max-[500px]:ml-2 cursor-pointer"
-          >
-            Book Now
+                >
+                  Book Now
                 </button>
               </div>
             </div>
-          </div> 
+          </div>
           )}*/}
       </div>
     </>

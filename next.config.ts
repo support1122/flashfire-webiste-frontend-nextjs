@@ -52,6 +52,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.adobe.com",
       },
+      {
+        protocol: "https",
+        hostname: "pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev",
+      },
     ],
   },
   

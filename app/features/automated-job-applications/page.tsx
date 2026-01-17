@@ -216,7 +216,7 @@ export default function JobApplicationAutomationPage() {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "Automated Job Applications",
-    "image": "",
+    "image": "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/job-automation.png",
     "description": "Automated job applications powered by AI help you apply faster, target the right roles, and get interview calls sooner with FlashfireJobs. Check out now",
     "brand": {
       "@type": "Brand",

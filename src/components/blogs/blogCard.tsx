@@ -85,8 +85,9 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             )}
           </p>
 
-          <p
+          <div
             className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3"
+            suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: blog.excerpt || "" }}
           />
 

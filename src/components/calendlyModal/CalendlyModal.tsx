@@ -293,7 +293,8 @@ export default function CalendlyModal({
       onClick={onClose}
     >
       <div 
-        className="relative bg-white max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col lg:flex-row"
+        className="relative bg-white/80 backdrop-blur-sm
+ max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col lg:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -327,7 +328,8 @@ export default function CalendlyModal({
             style={{ height: "calc(100vh - 100px)" }}
           >
             {isLoading && (
-              <div className="absolute inset-0 bg-white flex items-center justify-center z-50">
+              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm
+ flex items-center justify-center z-50">
                 <div className="text-center px-6">
                   <div className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
                   <p className="text-gray-600 text-sm">Loading calendar...</p>
@@ -446,7 +448,8 @@ export default function CalendlyModal({
           {/* Calendar Section */}
           <div className="w-3/5 bg-white overflow-hidden rounded-r-xl relative">
             {isLoading && (
-              <div className="absolute inset-0 bg-white flex items-center justify-center z-50">
+              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm
+ flex items-center justify-center z-50">
                 <div className="text-center px-8">
                   <div className="w-20 h-20 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
                   <p className="text-gray-700 text-lg font-medium">

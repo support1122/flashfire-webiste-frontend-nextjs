@@ -107,7 +107,7 @@ export default function LinkedInOptimizationPage() {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "LinkedIn Profile Optimization Tool",
-    "image": "",
+    "image": "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/linkedin.png",
     "description": "LinkedIn profile optimization tool that helps recruiters find you faster. Optimize headlines, keywords, and summaries to boost profile visibility with FlashfireJobs.",
     "brand": {
       "@type": "Brand",

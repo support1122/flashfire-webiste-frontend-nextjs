@@ -293,6 +293,21 @@ export default function HomePageMilestonesClient() {
     return domain.split('/')[0].split('?')[0];
   };
 
+  // Local logo mapping - maps company names to local logo file paths
+  const localLogoMap: Record<string, string> = {
+    "IBM": "/logo/ibm.png",
+    "Deloitte": "/logo/deloitte.png",
+    "Amazon": "/logo/amazon.png",
+    "Google": "/logo/google.avif",
+    "Akamai Technologies": "/logo/akamai.png",
+    "Akamai": "/logo/akamai.png",
+    "Skyworks Solutions": "/logo/skyworks.png",
+    "Skyworks": "/logo/skyworks.png",
+    "State Street": "/logo/statestreet.png",
+    "LVIS": "/logo/lvis.jpeg",
+    "Armorcode": "/logo/armorcode.jpeg",
+  };
+
   // Company name to Simple Icons brand name and color mapping (for colored logos)
   const companyBrandMap: Record<string, { brand: string; color: string }> = {
     "IBM": { brand: "ibm", color: "006699" },
@@ -306,6 +321,19 @@ export default function HomePageMilestonesClient() {
     "Barclays": { brand: "barclays", color: "00AEEF" },
     "Cvent": { brand: "cvent", color: "00A4E4" },
     "State Street": { brand: "statestreet", color: "0066CC" },
+  };
+
+  // Helper function to get logo source (local first, then external)
+  const getLogoSrc = (companyName: string, cleanDomain: string): string => {
+    // Check for local logo first
+    if (localLogoMap[companyName]) {
+      return localLogoMap[companyName];
+    }
+    // Fallback to external services
+    const brandInfo = companyBrandMap[companyName];
+    return brandInfo
+      ? `https://cdn.simpleicons.org/${brandInfo.brand}/${brandInfo.color}`
+      : `https://logo.clearbit.com/${cleanDomain}?size=128`;
   };
 
   const footerCompanies = [
@@ -435,18 +463,14 @@ export default function HomePageMilestonesClient() {
         <div className={styles.marqueeTrack}>
           {[...testimonials, ...testimonials].map((t, i) => {
             const cleanDomain = getCleanDomain(t.domain);
-            const brandInfo = companyBrandMap[t.company];
+            const logoSrc = getLogoSrc(t.company, cleanDomain);
             
             return (
               <div key={i} className={styles.marqueeCard}>
                 <div className={styles.companyHeader}>
                   <div className={styles.companyLogoIcon}>
                     <Image
-                      src={
-                        brandInfo
-                          ? `https://cdn.simpleicons.org/${brandInfo.brand}/${brandInfo.color}`
-                          : `https://logo.clearbit.com/${cleanDomain}?size=128`
-                      }
+                      src={logoSrc}
                       alt={t.company}
                       width={32}
                       height={32}
@@ -457,15 +481,24 @@ export default function HomePageMilestonesClient() {
                         const target = e.target as HTMLImageElement;
                         let attempts = parseInt(target.getAttribute('data-attempts') || '0');
                         
-                        // Fail fast - skip to Google favicons if external services fail
-                        if (attempts === 0 && (target.src.includes('simpleicons.org') || target.src.includes('clearbit.com'))) {
+                        // If local logo fails, try external services
+                        if (attempts === 0 && target.src.startsWith('/logo/')) {
                           target.setAttribute('data-attempts', '1');
+                          const brandInfo = companyBrandMap[t.company];
+                          target.src = brandInfo
+                            ? `https://cdn.simpleicons.org/${brandInfo.brand}/${brandInfo.color}`
+                            : `https://logo.clearbit.com/${cleanDomain}?size=128`;
+                          return;
+                        }
+                        // Fail fast - skip to Google favicons if external services fail
+                        if (attempts <= 1 && (target.src.includes('simpleicons.org') || target.src.includes('clearbit.com'))) {
+                          target.setAttribute('data-attempts', '2');
                           target.src = `https://www.google.com/s2/favicons?domain=${cleanDomain}&sz=128`;
                           return;
                         }
                         // Hide logo if all attempts fail
-                        if (attempts >= 1) {
-                        target.style.opacity = '0.3';
+                        if (attempts >= 2) {
+                          target.style.opacity = '0.3';
                           target.style.pointerEvents = 'none';
                         }
                       }}
@@ -504,10 +537,7 @@ export default function HomePageMilestonesClient() {
       <div className={styles.footerLogos}>
         {footerCompanies.map((company, i) => {
           const cleanDomain = getCleanDomain(company.domain);
-          const brandInfo = companyBrandMap[company.name];
-          const logoSrc = brandInfo
-            ? `https://cdn.simpleicons.org/${brandInfo.brand}/${brandInfo.color}`
-            : `https://logo.clearbit.com/${cleanDomain}?size=128`;
+          const logoSrc = getLogoSrc(company.name, cleanDomain);
           
           return (
             <span key={i}>
@@ -524,15 +554,24 @@ export default function HomePageMilestonesClient() {
                     const target = e.target as HTMLImageElement;
                     let attempts = parseInt(target.getAttribute('data-attempts') || '0');
                     
-                    // Fail fast - skip to Google favicons if external services fail
-                    if (attempts === 0 && (target.src.includes('simpleicons.org') || target.src.includes('clearbit.com'))) {
+                    // If local logo fails, try external services
+                    if (attempts === 0 && target.src.startsWith('/logo/')) {
                       target.setAttribute('data-attempts', '1');
+                      const brandInfo = companyBrandMap[company.name];
+                      target.src = brandInfo
+                        ? `https://cdn.simpleicons.org/${brandInfo.brand}/${brandInfo.color}`
+                        : `https://logo.clearbit.com/${cleanDomain}?size=128`;
+                      return;
+                    }
+                    // Fail fast - skip to Google favicons if external services fail
+                    if (attempts <= 1 && (target.src.includes('simpleicons.org') || target.src.includes('clearbit.com'))) {
+                      target.setAttribute('data-attempts', '2');
                       target.src = `https://www.google.com/s2/favicons?domain=${cleanDomain}&sz=128`;
                       return;
                     }
                     // Hide logo if all attempts fail
-                    if (attempts >= 1) {
-                    target.style.opacity = '0.3';
+                    if (attempts >= 2) {
+                      target.style.opacity = '0.3';
                       target.style.pointerEvents = 'none';
                     }
                   }}

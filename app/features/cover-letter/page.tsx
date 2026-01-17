@@ -138,7 +138,7 @@ export default function CoverLetterPage() {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "AI Cover Letter Generator",
-    "image": "",
+    "image": "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/cover-letter.png",
     "description": "AI cover letter generator built to create custom cover letters for every job. Use Flashfire's free cover letter generator and stand out faster.",
     "brand": {
       "@type": "Brand",
