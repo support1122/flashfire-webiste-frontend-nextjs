@@ -7,6 +7,7 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
+import { useRouter } from "next/navigation";
 const UNIVERSITY_LOGOS: Record<string, string> = {
   "Harvard University": "https://logo.clearbit.com/harvard.edu",
   "Stanford University": "https://logo.clearbit.com/stanford.edu",
@@ -30,6 +31,7 @@ type Props = {
 };
 
 export default function HeroSectionClient({ data }: Props) {
+  const router = useRouter();
   const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
@@ -78,18 +80,7 @@ export default function HeroSectionClient({ data }: Props) {
         //     ? localStorage.getItem("utm_medium") || "Website_Front_Page"
         //     : "Website_Front_Page";
 
-        //   GTagUTM({
-        //     eventName: "sign_up_click",
-        //     label: "Hero_Start_Free_Trial_Button",
-        //     utmParams: {
-        //       utm_source: utmSource,
-        //       utm_medium: utmMedium,
-        //       utm_campaign: typeof window !== "undefined"
-        //         ? localStorage.getItem("utm_campaign") || "Website"
-        //         : "Website",
-        //     },
-        //   });
-
+         
         //   // PostHog tracking
         //   trackButtonClick("schedule a free career call", "hero_cta", "cta", {
         //     button_location: "hero_main_cta",
@@ -150,6 +141,35 @@ export default function HeroSectionClient({ data }: Props) {
         // }}
         onClick={() => {
           if (typeof window !== "undefined") {
+            const utmSource = typeof window !== "undefined"
+              ? localStorage.getItem("utm_source") || "WEBSITE"
+              : "WEBSITE";
+            const utmMedium = typeof window !== "undefined"
+              ? localStorage.getItem("utm_medium") || "Hero_Section"
+              : "Hero_Section";
+            GTagUTM({
+              eventName: "sign_up_click",
+              label: "Hero_Start_Free_Trial_Button",
+              utmParams: {
+                utm_source: utmSource,
+                utm_medium: utmMedium,
+                utm_campaign: typeof window !== "undefined"
+                  ? localStorage.getItem("utm_campaign") || "Website"
+                  : "Website",
+              },
+            });
+            trackButtonClick("schedule a free career call", "hero_cta", "cta", {
+              button_location: "hero_main_cta",
+              section: "hero_landing",
+              target_url: "/schedule-a-free-career-call"
+            });
+            trackSignupIntent("hero_cta", {
+              signup_source: "hero_main_button",
+              funnel_stage: "signup_intent",
+              target_url: "/schedule-a-free-career-call"
+            });
+            sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
+            router.push('/schedule-a-free-career-call');
             window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
           }
         }}

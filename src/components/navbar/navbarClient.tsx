@@ -786,12 +786,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     safePathname.startsWith("/en-ca/blogs") ||
     safePathname.startsWith("/en-ca/blog");
 
-  // Geo-bypass hook for Book Now button
-  const { getButtonProps: getBookNowButtonProps } = useGeoBypass({
-    onBypass: () => {
-      // Bypass will be handled by the event listener in ClientLogicWrapper
-    },
-  });
+ 
 
   const isExternalHref = (href: string) => href.startsWith("http");
   const primaryIsExternal = ctas.primary ? isExternalHref(ctas.primary.href) : false;
@@ -815,6 +810,13 @@ export default function NavbarClient({ links, ctas }: Props) {
     window.history.pushState({}, "", normalized);
   };
 
+  const { getButtonProps } = useGeoBypass({
+    onBypass: () => {
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
+      }
+    },
+  });
   // Handle section clicks - jump to section start AND update URL
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, skipNavigation = false) => {
     const sectionMap: { [key: string]: string } = {};
@@ -1179,16 +1181,16 @@ export default function NavbarClient({ links, ctas }: Props) {
                 </span>
 
               </div>
-                    {/* Mobile text part - visible only on mobile */}
-                     {/* <div className="hidden max-[600px]:flex items-center justify-center  w-full">
+              {/* Mobile text part - visible only on mobile */}
+              {/* <div className="hidden max-[600px]:flex items-center justify-center  w-full">
                      <ClockIcon className="w-4 h-4 text-[#ff4c00]" />
                 <span className="font-medium text-[0.7rem] text-black tracking-[0.02em]  whitespace-nowrap">
                 Limited-Time Special Offer
                 </span>
                 
               </div> */}
-                    <div className="flex gap-1 items-center max-[600px]:gap-0.5">
-                      {/* <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
+              <div className="flex gap-1 items-center max-[600px]:gap-0.5">
+                {/* <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
                     {String(pricingTimeLeft.days).padStart(2, "0")}d
                   </div>
                   */}
@@ -1602,121 +1604,32 @@ export default function NavbarClient({ links, ctas }: Props) {
 
             {/* Right Section: CTAs (Desktop) */}
             <div className={styles.navRight}>
-              {ctas.primary && primaryIsExternal ? (
-                <a
-                  href={ctas.primary.href}
+              {ctas.primary && (
+                <button
+                  {...getButtonProps()}
                   className={styles.navPrimaryButton}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   onClick={() => {
                     trackButtonClick(ctas.primary.label, "navigation", "cta", {
-                      button_location: "navbar_desktop",
-                      navigation_type: "primary_cta"
-                    });
-                    if (ctas.primary.href.includes("calendly")) {
-                      trackSignupIntent("navbar_cta", {
-                        signup_source: "navbar_cta",
-                        funnel_stage: "signup_intent",
-                        target_url: "/schedule-a-free-career-call"
-                      });
-                    }
-                  }}
-                  onMouseEnter={() => {
-                    if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                    }
-                  }}
-                  onMouseLeave={() => {
-                    if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('hideGetMeInterviewModal'));
-                    }
-                  }}
-                >
-                  {ctas.primary.label}
-                </a>
-              ) : ctas.primary && (ctas.primary.href === "/schedule-a-free-career-call" || ctas.primary.href === "/en-ca/schedule-a-free-career-call") ? (
-                <button
-                  className={styles.navPrimaryButton}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    // Get UTM parameters from localStorage
-                    const utmSource = typeof window !== "undefined"
-                      ? localStorage.getItem("utm_source") || "WEBSITE"
-                      : "WEBSITE";
-                    const utmMedium = typeof window !== "undefined"
-                      ? localStorage.getItem("utm_medium") || "Navigation_Navbar_Button"
-                      : "Navigation_Navbar_Button";
-                    const utmCampaign = typeof window !== "undefined"
-                      ? localStorage.getItem("utm_campaign") || "Website"
-                      : "Website";
-
-                    // Track with both GTag and PostHog
-                    GTagUTM({
-                      eventName: "whatsapp_support_click",
-                      label: "Navbar_Schedule_A_Career_Call_Button",
-                      utmParams: {
-                        utm_source: utmSource,
-                        utm_medium: utmMedium,
-                        utm_campaign: utmCampaign,
-                      },
-                    });
-
-                    // PostHog tracking
-                    trackButtonClick("Schedule a Free Career Call", "navigation", "cta", {
                       button_location: "navbar",
                       navigation_type: "primary_cta",
-                      page: "schedule-a-free-career-call",
                     });
-                    trackSignupIntent("schedule_a_career_call", {
+
+                    trackSignupIntent("navbar_cta", {
                       signup_source: "navbar_button",
                       funnel_stage: "signup_intent",
-                      target_url: "/schedule-a-free-career-call"
+                      target_url: "/schedule-a-free-career-call",
                     });
-
-                    const targetPath = ctas.primary?.href || "/schedule-a-free-career-call";
-                    const previousPath = safePathname || (typeof window !== "undefined" ? window.location.pathname : "/");
 
                     if (typeof window !== "undefined") {
-                      sessionStorage.setItem("previousPageBeforeGetMeInterview", previousPath);
-                      window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
-                      pushCustomUrl(targetPath);
-                    }
-                  }}
-                >
-                  {ctas.primary?.label}
-                </button>
-              ) : ctas.primary ? (
-                <Link
-                  href={ctas.primary.href}
-                  className={styles.navPrimaryButton}
-                  onClick={() => {
-                    trackButtonClick(ctas.primary.label, "navigation", "cta", {
-                      button_location: "navbar_desktop",
-                      navigation_type: "primary_cta"
-                    });
-                    if (ctas.primary.href.includes("calendly")) {
-                      trackSignupIntent("calendly_modal", {
-                        signup_source: "navbar_cta",
-                        funnel_stage: "signup_intent",
-                        target_url: "/schedule-a-free-career-call"
-                      });
-                    }
-                  }}
-                  onMouseEnter={() => {
-                    if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-                    }
-                  }}
-                  onMouseLeave={() => {
-                    if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('hideGetMeInterviewModal'));
+                      window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
                     }
                   }}
                 >
                   {ctas.primary.label}
-                </Link>
-              ) : null}
+                </button>
+              )}
             </div>
+
 
             {/* Mobile Menu Icon */}
             <button
