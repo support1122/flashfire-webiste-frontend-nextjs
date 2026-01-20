@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "@maxmind/geoip2-node": "^6.3.4",
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.553.0",
     "next": "^16.0.7",
     "posthog-js": "^1.290.0",
@@ -28,7 +30,8 @@
     "react-calendly": "^4.4.0",
     "react-dom": "19.2.0",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.10.1"
+    "react-router-dom": "^7.10.1",
+    "validator": "^13.15.26"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

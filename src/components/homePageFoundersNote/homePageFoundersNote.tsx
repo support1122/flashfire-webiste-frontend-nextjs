@@ -1,144 +1,101 @@
-"use client";
 import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa";
 
-
 export default function HomePageFoundersNote() {
-  const whatsappNumber = "919817349846";
-  const defaultMessage = "Hi! I'm interested in a free strategy call with Flashfire.";
-  const encodedMessage = encodeURIComponent(defaultMessage);
-
-  const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
-  };
-
   return (
-    <section
-      id="founders-note"
-      className="relative bg-[#fdf7f4] min-h-screen pl-56  pt-24  font-['Space_Grotesk',sans-serif] overflow-hidden max-[768px]:py-12 max-[768px]:px-4 max-[768px]:pl-4"
-    >
-      {/* Background Mascot */}
-      <div className="absolute bottom-0 right-0 opacity-20 pointer-events-none">
-        <Image
-          src="/images/character2.png"
-          alt="Flashfire mascot"
-          width={700}
-          height={700}
-          className="w-[700px] h-[700px] max-[768px]:w-[350px] max-[768px]:h-[350px]"
-          unoptimized
-        />
-      </div>
+    <section id="founders-note" className="bg-[rgba(249,238,234,1)] py-24 px-6 font-['Space_Grotesk',sans-serif] max-[768px]:py-12 max-[768px]:px-4">
+      <div className="max-w-[1200px] mx-auto flex justify-between items-start gap-6 max-[1024px]:flex-col max-[1024px]:items-center max-[1024px]:text-center">
+        {/* === LEFT COLUMN === */}
+        <div className="flex-[1.6] font-semibold text-left text-black text-[1.4rem] leading-[1.5] max-[1024px]:order-2 max-[1024px]:w-[90%] max-[768px]:text-base">
+          <p className=" text-black mb-6">
+            To Every Job Seeker Who’s Ready to Move Forward,
+          </p>
 
+          <p className="mb-5">
+            I know how exhausting the job search can be. You keep sending out
+            applications, waiting for replies, and start to wonder if it’s you.
+            Especially in the U.S., where hundreds apply for the same role, even
+            the most talented people begin to lose hope.
+          </p>
 
-      <div className="max-w-[1200px] mx-auto relative z-10">
-        {/* Text Section */}
-        <div className="max-w-[820px] mb-20">
-          <h2 className="text-[#ff4c00] font-bold text-3xl leading-tight mb-8 max-[768px]:text-2xl">
-            To Every Job Seeker Who&apos;s Ready To Move Forward,
-          </h2>
+          <p className="mb-5">
+            Flashfire was born from that same feeling. I watched my sister—
+            smart, capable, and hardworking—apply to hundreds of roles and still
+            get no response. It wasn’t her fault. The system had stopped seeing
+            people for who they are.
+          </p>
 
-          <div className="space-y-6 text-black font-['Space_Grotesk',sans-serif] font-medium text-lg leading-relaxed max-[768px]:text-base">
-            <p>
-              I know how exhausting the job search can be. You keep sending out
-              applications, waiting for replies, and start to wonder if it&apos;s
-              you. Especially in the U.S., where hundreds apply for the same role,
-              even the most talented people begin to lose hope.
-            </p>
+          <blockquote className=" font-medium italic text-black border-l-4 border-[#ff4c00] pl-4 my-8 leading-[1.6]">
+            The problem was never the people. It was the process.
+          </blockquote>
 
-            <p>
-              Flashfire was born from that same feeling. I watched my sister—smart,
-              capable, and hardworking—apply to hundreds of roles and still get no
-              response. It wasn&apos;t her fault. The system had stopped seeing people
-              for who they are.
-            </p>
+          <p className="mb-5">
+            That’s when{" "}
+            <span className="text-[#ff4c00] font-bold">Pranjal</span> joined me.
+            He had been through the same struggle—preparing hard, clearing
+            rounds, yet still falling short. Not because he wasn’t good enough,
+            but because the process wasn’t fair.
+          </p>
 
-            <div className="bg-[#ff4c00]/10 border-l-4 border-[#ff4c00] px-6 py-4 rounded-md font-semibold text-black">
-              The Problem Was Never The People. It Was The Process.
-            </div>
-
-            <p>
-              That&apos;s when <span className="text-[#ff4c00] font-bold">Pranjal</span>{" "}
-              joined me. He had been through the same struggle—preparing hard,
-              clearing rounds, yet still falling short. Not because he wasn&apos;t good
-              enough, but because the process wasn&apos;t fair.
-            </p>
-
-            <p>
-              Together, we started building Flashfire with belief, empathy, and
-              persistence. What began as a way to help one person is now helping
-              hundreds find their “yes.”
-            </p>
-          </div>
+          <p>
+            Together, we started building Flashfire with belief, empathy, and
+            persistence. What began as a way to help one person is now helping
+            hundreds find their “yes.”
+          </p>
         </div>
 
+        {/* === RIGHT COLUMN === */}
+        <div className="flex-1 flex flex-col items-center gap-8 max-[1024px]:order-1 max-[1024px]:mb-8">
+          <Image
+            src="/images/hat.png"
+            alt="Graduation Icon"
+            width={320}
+            height={320}
+            className="w-48 h-48 object-contain max-[768px]:w-32 max-[768px]:h-32 -mt-10"
+          />
+          <div className="relative w-full max-w-[330px] -mt-10 max-[1024px]:mt-0 max-[1024px]:max-w-[280px]">
+            <div className="border-[5px] border-white outline outline-2 outline-[#ff4c00] overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] w-full">
+              <Image
+                src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Adit.jpg"
+                alt="Adit Jain"
+                width={280}
+                height={400}
+                className="w-full h-[26rem] object-cover object-center transition-transform duration-300 hover:scale-[1.03] max-[1024px]:h-[22rem] max-[768px]:h-[18rem]"
+                unoptimized
+              />
 
-        <div className="flex items-start gap-6 mb-20 max-[800px]:flex-col max-[800px]:items-start">
 
-          <div className="relative">
-
-            {/* LEFT ORANGE STRIP */}
-            <div className="absolute top-[6px] -left-[8px] h-[calc(100%-6px)] w-[8px] 
-             bg-[#ff4c00] rounded-tl-lg z-0" />
-
-            {/* BOTTOM ORANGE STRIP */}
-            <div className="absolute -bottom-[8px] left-[-8px] w-[calc(100%+8px)] h-[8px] 
-             bg-[#ff4c00] rounded-bl-lg rounded-br-md z-0" />
-
-
-            {/* CARD */}
-            <div className="relative bg-white p-[4px] z-10">
-              {/* IMAGE WRAPPER */}
-              <div className="relative w-[260px] h-[300px]  overflow-visible ">
-                <Image
-                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Adit.jpg"
-                  alt="Adit Jain"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-
-                {/* TOP-RIGHT BADGE */}
-                <div className="absolute -top-6 -right-6 w-16 h-16 flex items-center justify-center z-20">
-                  <Image
-                    src="/images/character2.png"
-                    alt="Flashfire"
-                    fill
-                    className="object-contain"
-                    unoptimized
-                  />
+              <div className="absolute bottom-2 left-2 right-2 bg-black/90 text-white flex items-center justify-between px-4 py-3 backdrop-blur-[3px] text-left border border-white rounded-lg">
+                <div className="space-y-1">
+                  <p className="text-sm text-[#bbb] m-0">Partner</p>
+                  <p className="text-base font-semibold m-0">Adit</p>
                 </div>
-
+                <a
+                  href="https://www.linkedin.com/in/adit-jain-907555218/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white text-xl transition-transform duration-200 hover:scale-110 hover:text-[#0077b5]"
+                >
+                  <FaLinkedin />
+                </a>
               </div>
             </div>
+            <Image
+              src="/images/character2.png"
+              alt="Flashfire Mascot"
+              width={220}
+              height={220}
+              className="absolute -top-16 -right-10 w-[10rem] h-[10rem] max-[768px]:w-[6rem] max-[768px]:h-[6rem]"
+            />
           </div>
-
-          {/* TEXT SECTION */}
-          <div className="relative bg-[#fdf7f4] min-w-[150px] flex flex-col gap-2">
-
-            <div className="mt-2">
-              <p className="font-bold text-xl">Adit</p>
-              <p className="text-gray-600 text-sm">Partner, Flashfire</p>
-            </div>
-
-            <a
-              href="https://www.linkedin.com/in/adit-jain-907555218/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black hover:text-[#0077b5] transition"
-            >
-              <FaLinkedin className="text-xl" />
-            </a>
-          </div>
-
-          {/* CTA */}
-          <a
-            onClick={handleWhatsAppClick}
-            className="text-[#ff4c00] font-semibold text-lg hover:underline mt-[250px] -ml-[170px]"
-          >
-            LET&apos;S TALK →
-          </a>
+          <Image
+            src="/images/boy.png"
+            alt="Pixel Person Icon"
+            width={320}
+            height={320}
+            className="w-48 h-48 object-contain max-[768px]:w-32 max-[768px]:h-32 -mb-10"
+          />
         </div>
-
       </div>
     </section>
   );
