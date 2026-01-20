@@ -7,15 +7,25 @@ import { FaBolt } from "react-icons/fa";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import { useEffect, useState } from "react";
 
 export default function HomePageCareerCTA() {
   const router = useRouter();
   const pathname = usePathname();
-  const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
+  const [showStrategyCard, setShowStrategyCard] = useState(false);
+  const { getButtonProps } = useGeoBypass({
     onBypass: () => {
-      // Bypass will be handled by the event listener
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
+      }
     },
   });
+  useEffect(() => {
+    const openCard = () => setShowStrategyCard(true);
+    window.addEventListener("showStrategyCallCard", openCard);
+    return () =>
+      window.removeEventListener("showStrategyCallCard", openCard);
+  }, []);
   return (
     <section className={styles.careerSection}>
       <div className={styles.container}>
@@ -94,7 +104,7 @@ export default function HomePageCareerCTA() {
 
                 // Dispatch custom event to force show modal FIRST
                 if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                  window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                 }
 
                 // If already on the route, save scroll position and prevent navigation

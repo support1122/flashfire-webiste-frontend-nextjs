@@ -1,6 +1,13 @@
-import { heroSectionData } from "@/src/data/herosection";
+"use client";
+
+import { usePathname } from "next/navigation";
+import { heroSectionData, heroSectionDataCA } from "@/src/data/herosection";
 import HeroSectionClient from "./heroSectionClient";
 
 export default function HeroSection() {
-  return <HeroSectionClient data={heroSectionData} />;
+  const pathname = usePathname();
+  const isCanadaContext = pathname?.startsWith("/en-ca") || false;
+  const data = isCanadaContext ? heroSectionDataCA : heroSectionData;
+  
+  return <HeroSectionClient data={data} />;
 }

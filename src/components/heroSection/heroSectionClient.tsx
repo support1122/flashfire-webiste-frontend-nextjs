@@ -1,13 +1,13 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { HeroSectionData } from "@/src/types/heroSectionData";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-
+import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
+import { useRouter } from "next/navigation";
 const UNIVERSITY_LOGOS: Record<string, string> = {
   "Harvard University": "https://logo.clearbit.com/harvard.edu",
   "Stanford University": "https://logo.clearbit.com/stanford.edu",
@@ -32,13 +32,13 @@ type Props = {
 
 export default function HeroSectionClient({ data }: Props) {
   const router = useRouter();
-  const pathname = usePathname();
   const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
     onBypass: () => {
-      // Bypass will be handled by the event listener
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
+      }
     },
   });
-
   return (
     <section className="bg-[#f8ebe5] text-center p-8 pb-16 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
       {/* === Top Badges === */}
@@ -72,83 +72,106 @@ export default function HeroSectionClient({ data }: Props) {
       {/* === CTA Button === */}
       <button
         {...getButtonProps()}
+        // onClick={() => {
+        //   const utmSource = typeof window !== "undefined"
+        //     ? localStorage.getItem("utm_source") || "WEBSITE"
+        //     : "WEBSITE";
+        //   const utmMedium = typeof window !== "undefined"
+        //     ? localStorage.getItem("utm_medium") || "Website_Front_Page"
+        //     : "Website_Front_Page";
+
+         
+        //   // PostHog tracking
+        //   trackButtonClick("schedule a free career call", "hero_cta", "cta", {
+        //     button_location: "hero_main_cta",
+        //     section: "hero_landing",
+        //     target_url: "/schedule-a-free-career-call"
+        //   });
+        //   trackSignupIntent("hero_cta", {
+        //     signup_source: "hero_main_button",
+        //     funnel_stage: "signup_intent",
+        //     target_url: "/schedule-a-free-career-call"
+        //   });
+
+        //   // Check current path first
+        //   const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+        //   const normalizedPath = currentPath.split('?')[0]; // Remove query params
+        //   const isAlreadyOnScheduleACareerCall = normalizedPath === '/schedule-a-free-career-call' ||
+        //     normalizedPath === '/en-ca/schedule-a-free-career-call';
+
+        //   // If already on the route, save scroll position and prevent navigation
+        //   if (isAlreadyOnScheduleACareerCall) {
+        //     // Save current scroll position before modal opens
+        //     const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+
+        //     // Dispatch custom event to force show modal
+        //     if (typeof window !== 'undefined') {
+        //       window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+        //     }
+
+        //     // Restore scroll position immediately after modal opens
+        //     requestAnimationFrame(() => {
+        //       window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+        //       requestAnimationFrame(() => {
+        //         window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+        //         setTimeout(() => {
+        //           window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+        //         }, 50);
+        //       });
+        //     });
+
+        //     // Just trigger the modal, don't navigate or scroll
+        //     return;
+        //   }
+
+        //   // Dispatch custom event to force show modal FIRST
+        //   if (typeof window !== 'undefined') {
+        //     window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+        //   }
+
+        //   // Save current scroll position before navigation to preserve it
+        //   if (typeof window !== 'undefined') {
+        //     const currentScrollY = window.scrollY;
+        //     sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+        //   }
+
+        //   // Only navigate if NOT already on the page
+        //   const targetPath = '/schedule-a-free-career-call';
+        //   router.push(targetPath);
+        // }}
         onClick={() => {
-          const utmSource = typeof window !== "undefined"
-            ? localStorage.getItem("utm_source") || "WEBSITE"
-            : "WEBSITE";
-          const utmMedium = typeof window !== "undefined"
-            ? localStorage.getItem("utm_medium") || "Website_Front_Page"
-            : "Website_Front_Page";
-
-          GTagUTM({
-            eventName: "sign_up_click",
-            label: "Hero_Start_Free_Trial_Button",
-            utmParams: {
-              utm_source: utmSource,
-              utm_medium: utmMedium,
-              utm_campaign: typeof window !== "undefined"
-                ? localStorage.getItem("utm_campaign") || "Website"
-                : "Website",
-            },
-          });
-
-          // PostHog tracking
-          trackButtonClick("schedule a free career call", "hero_cta", "cta", {
-            button_location: "hero_main_cta",
-            section: "hero_landing",
-            target_url: "/schedule-a-free-career-call"
-          });
-          trackSignupIntent("hero_cta", {
-            signup_source: "hero_main_button",
-            funnel_stage: "signup_intent",
-            target_url: "/schedule-a-free-career-call"
-          });
-
-          // Check current path first
-          const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-          const normalizedPath = currentPath.split('?')[0]; // Remove query params
-          const isAlreadyOnScheduleACareerCall = normalizedPath === '/schedule-a-free-career-call' ||
-            normalizedPath === '/en-ca/schedule-a-free-career-call';
-
-          // If already on the route, save scroll position and prevent navigation
-          if (isAlreadyOnScheduleACareerCall) {
-            // Save current scroll position before modal opens
-            const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-            // Dispatch custom event to force show modal
-            if (typeof window !== 'undefined') {
-              window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-            }
-
-            // Restore scroll position immediately after modal opens
-            requestAnimationFrame(() => {
-              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-              requestAnimationFrame(() => {
-                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                setTimeout(() => {
-                  window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                }, 50);
-              });
+          if (typeof window !== "undefined") {
+            const utmSource = typeof window !== "undefined"
+              ? localStorage.getItem("utm_source") || "WEBSITE"
+              : "WEBSITE";
+            const utmMedium = typeof window !== "undefined"
+              ? localStorage.getItem("utm_medium") || "Hero_Section"
+              : "Hero_Section";
+            GTagUTM({
+              eventName: "sign_up_click",
+              label: "Hero_Start_Free_Trial_Button",
+              utmParams: {
+                utm_source: utmSource,
+                utm_medium: utmMedium,
+                utm_campaign: typeof window !== "undefined"
+                  ? localStorage.getItem("utm_campaign") || "Website"
+                  : "Website",
+              },
             });
-
-            // Just trigger the modal, don't navigate or scroll
-            return;
+            trackButtonClick("schedule a free career call", "hero_cta", "cta", {
+              button_location: "hero_main_cta",
+              section: "hero_landing",
+              target_url: "/schedule-a-free-career-call"
+            });
+            trackSignupIntent("hero_cta", {
+              signup_source: "hero_main_button",
+              funnel_stage: "signup_intent",
+              target_url: "/schedule-a-free-career-call"
+            });
+            sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
+            router.push('/schedule-a-free-career-call');
+            window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
           }
-
-          // Dispatch custom event to force show modal FIRST
-          if (typeof window !== 'undefined') {
-            window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
-          }
-
-          // Save current scroll position before navigation to preserve it
-          if (typeof window !== 'undefined') {
-            const currentScrollY = window.scrollY;
-            sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-          }
-
-          // Only navigate if NOT already on the page
-          const targetPath = '/schedule-a-free-career-call';
-          router.push(targetPath);
         }}
         className="inline-block bg-[#ff4c00] text-white py-3.5 px-7 rounded-lg font-semibold no-underline mb-6 shadow-[0_3px_0_black] transition-all duration-300 border-none cursor-pointer text-base font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3.5 max-[768px]:px-6 max-[768px]:text-[0.95rem] max-[768px]:mb-5 max-[480px]:py-3 max-[480px]:px-5 max-[480px]:text-sm max-[480px]:mb-4 max-[480px]:w-full max-[480px]:max-w-[280px]"
       >

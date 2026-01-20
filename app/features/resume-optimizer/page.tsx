@@ -303,7 +303,7 @@ export default function Page() {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "ATS Resume Optimizer",
-    "image": "",
+    "image": "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/resume.png",
     "description": "ATS resume optimizer for creating an ATS-friendly resume optimized for job postings, recruiter screening systems, and higher interview success with FlashfireJobs.",
     "brand": {
       "@type": "Brand",
