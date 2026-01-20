@@ -26,7 +26,7 @@ type Blog = {
 
 export default function BlogCard({ blog }: { blog: Blog }) {
   const router = useRouter();
-  
+
   // Ensure slug exists before rendering link
   if (!blog.slug) {
     return null;
@@ -85,11 +85,10 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             )}
           </p>
 
-          <div
-            className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3"
-            suppressHydrationWarning
-            dangerouslySetInnerHTML={{ __html: blog.excerpt || "" }}
-          />
+          <p className="text-base text-[#555] mb-1 leading-[1.4] line-clamp-3">
+            {blog.excerpt}
+          </p>
+
 
           <div className="flex flex-row gap-5 text-[0.95rem] text-[#777] font-medium">
             <span>
