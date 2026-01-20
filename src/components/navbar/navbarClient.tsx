@@ -2148,7 +2148,7 @@ export default function NavbarClient({ links, ctas }: Props) {
 
                       if (typeof window !== "undefined") {
                         sessionStorage.setItem("previousPageBeforeGetMeInterview", previousPath);
-                        window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+                        window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
                         pushCustomUrl(targetPath);
                       }
                     }}

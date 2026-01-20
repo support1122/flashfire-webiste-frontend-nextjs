@@ -106,7 +106,7 @@ export default function HeroSectionClient({ data }: Props) {
 
         //     // Dispatch custom event to force show modal
         //     if (typeof window !== 'undefined') {
-        //       window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+        //       window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
         //     }
 
         //     // Restore scroll position immediately after modal opens
@@ -126,7 +126,7 @@ export default function HeroSectionClient({ data }: Props) {
 
         //   // Dispatch custom event to force show modal FIRST
         //   if (typeof window !== 'undefined') {
-        //     window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+        //     window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
         //   }
 
         //   // Save current scroll position before navigation to preserve it

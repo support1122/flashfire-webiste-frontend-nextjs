@@ -102,7 +102,7 @@ export default function JobSearchNearMeContent() {
           typeof window !== "undefined" ? window.scrollY : 0;
 
         if (typeof window !== "undefined") {
-          window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+          window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
         }
 
         requestAnimationFrame(() => {
@@ -120,7 +120,7 @@ export default function JobSearchNearMeContent() {
 
       // Dispatch custom event to force show modal FIRST
       if (typeof window !== "undefined") {
-        window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+        window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
       }
 
       // If on job search page, change URL but keep page content visible

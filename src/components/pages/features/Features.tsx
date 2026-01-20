@@ -164,7 +164,7 @@ function Features() {
 
       // Dispatch custom event to force show modal
       if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'))
+        window.dispatchEvent(new CustomEvent('showStrategyCallCard'))
       }
 
       // Restore scroll position immediately after modal opens
@@ -184,7 +184,7 @@ function Features() {
 
     // Dispatch custom event to force show modal FIRST
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'))
+      window.dispatchEvent(new CustomEvent('showStrategyCallCard'))
     }
 
     // If on features page, change URL but keep page content visible
@@ -340,7 +340,7 @@ function Features() {
               normalizedPath === "/en-ca/get-me-interview"
             ) {
               window.dispatchEvent(
-                new CustomEvent("showGetMeInterviewModal")
+                new CustomEvent("showStrategyCallCard")
               );
               return;
             }
@@ -360,7 +360,7 @@ function Features() {
             }
 
             window.dispatchEvent(
-              new CustomEvent("showGetMeInterviewModal")
+              new CustomEvent("showStrategyCallCard")
             );
             
             const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';

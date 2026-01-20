@@ -67,7 +67,7 @@ export default function JobApplicationAutomationPage() {
         const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
 
         if (typeof window !== 'undefined') {
-          window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+          window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
         }
 
         requestAnimationFrame(() => {
@@ -85,7 +85,7 @@ export default function JobApplicationAutomationPage() {
 
       // Dispatch custom event to force show modal FIRST
       if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+        window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
       }
 
       // If on job automation page, change URL but keep page content visible

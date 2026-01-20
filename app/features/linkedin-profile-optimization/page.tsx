@@ -257,7 +257,7 @@ export default function LinkedInOptimizationPage() {
                       const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
 
                       if (typeof window !== 'undefined') {
-                        window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                        window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                       }
 
                       requestAnimationFrame(() => {
@@ -275,7 +275,7 @@ export default function LinkedInOptimizationPage() {
 
                     // Dispatch custom event to force show modal FIRST
                     if (typeof window !== 'undefined') {
-                      window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                      window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                     }
 
                     // If on LinkedIn features page, change URL but keep page content visible
@@ -685,7 +685,7 @@ export default function LinkedInOptimizationPage() {
               
               // Dispatch custom event to force show modal
               if (typeof window !== 'undefined') {
-                window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
               }
               
               // Check current path
@@ -744,7 +744,7 @@ export default function LinkedInOptimizationPage() {
                 
                 // Dispatch custom event to force show modal FIRST
                 if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                  window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                 }
                 
                 // Don't use router.replace - it causes scroll to top
@@ -774,7 +774,7 @@ export default function LinkedInOptimizationPage() {
                 
                 // Dispatch custom event to force show modal FIRST
                 if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                  window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                 }
                 
                 // Don't use router.replace - it causes scroll to top

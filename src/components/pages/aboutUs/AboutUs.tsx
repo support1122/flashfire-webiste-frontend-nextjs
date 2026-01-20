@@ -151,7 +151,7 @@ export default function AboutUs() {
 
                   // Dispatch custom event to force show modal
                   if (typeof window !== 'undefined') {
-                    window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                    window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                   }
 
                   // Restore scroll position immediately after modal opens
@@ -190,7 +190,7 @@ export default function AboutUs() {
 
                   // Dispatch custom event to force show modal FIRST
                   if (typeof window !== 'undefined') {
-                    window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                    window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                   }
 
                   // Use router.replace to update Next.js state
@@ -212,7 +212,7 @@ export default function AboutUs() {
 
                 // Dispatch custom event to force show modal FIRST
                 if (typeof window !== 'undefined') {
-                  window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                  window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                 }
 
                 // Save current scroll position before navigation to preserve it
