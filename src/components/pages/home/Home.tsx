@@ -51,7 +51,8 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <HeroSection /> {/* using useState, so client */}
+      <HeroSection />
+      <HomePageSteps /> {/* using useState, so client */}
       <HomePageCareerCTA />
       <HomePageBeforeAfter />
       <HomePageResultStats />
@@ -60,7 +61,7 @@ const Home = () => {
      
       <HomePageMilestones /> 
       <HomePageVideo />
-      <HomePageSteps />
+      
      
      
       <HomePageWhyChooseFF /> 
