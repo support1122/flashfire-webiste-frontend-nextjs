@@ -175,17 +175,18 @@
     gap: 2.5rem;
   }
 
-  .rightGrid {
+  .leftContent {
     order: 1;
+    width: 100%;
+    text-align: center;
+  }
+  .rightGrid {
+    order: 2;
     width: 100%;
     gap: 1rem;
   }
 
-  .leftContent {
-    order: 2;
-    width: 100%;
-    text-align: center;
-  }
+  
 
   .heading {
     font-size: 2.3rem;
@@ -227,14 +228,7 @@
   }
 
   /* Stats Grid First */
-  .rightGrid {
-    order: 1;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 1rem;
-  }
+  
 
   .rightGridTop,
   .rightGridBottom {
@@ -249,11 +243,18 @@
 
   /* Text Below */
   .leftContent {
-    order: 2;
+    order: 1;
     width: 100%;
     text-align: left;
   }
-
+  .rightGrid {
+    order: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1rem;
+  }
   .heading {
     font-size: 2rem;
     margin-bottom: 1rem;
