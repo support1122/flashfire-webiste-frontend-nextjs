@@ -80,7 +80,7 @@ const Home = () => {
      
      
       <Footer />
-      <SalesPopUp />
+      {/* <SalesPopUp /> */}
     </>
   );
 };
