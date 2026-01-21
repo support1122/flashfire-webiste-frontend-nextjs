@@ -88,7 +88,7 @@ export default function FlashFireInterview() {
     });
 
     if (typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+      window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
     }
   }, []);
 

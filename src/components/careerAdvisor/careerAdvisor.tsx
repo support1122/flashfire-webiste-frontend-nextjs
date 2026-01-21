@@ -58,7 +58,7 @@ export default function CareerAdvisor() {
     });
 
     if (typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+      window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
     }
 
     pushCustomUrl("/career-advisor/Get-Career-Advice");

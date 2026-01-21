@@ -4,22 +4,8 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { ALL_REVIEW_IMAGES } from "./homePageHappyUsers";
-import HomePageOfferLetters from "@/src/components/homePageOfferLetters/homePageOfferLetters";
 import HomePageMilestones from "@/src/components/homePageMilestones/homePageMilestones";
 import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
-
-// Helper function to optimize Cloudinary URLs for fast loading (no compression for testimonials)
-const optimizeCloudinaryUrl = (url: string, width: number = 1200) => {
-  // For testimonials page: f_auto = auto format, q_auto:best = best quality (no compression)
-  // w_1200 = width constraint, c_limit = maintain aspect ratio, dpr_auto = device pixel ratio
-  if (url.includes('res.cloudinary.com')) {
-    const parts = url.split('/upload/');
-    if (parts.length === 2) {
-      return `${parts[0]}/upload/f_auto,q_auto:best,w_${width},c_limit,dpr_auto/${parts[1]}`;
-    }
-  }
-  return url;
-};
 
 const videos = [
   {
@@ -52,122 +38,48 @@ export default function HappyUsersGalleryPage() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [imageLoading, setImageLoading] = useState<boolean>(false);
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-  const [loadedProfileImages, setLoadedProfileImages] = useState<Set<number>>(new Set());
-  const preloadedImages = useRef<Set<string>>(new Set());
+  const [visibleImages, setVisibleImages] = useState<Set<number>>(new Set());
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const profileImageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  
+  // Only load first 12 images immediately (above the fold)
+  const INITIAL_LOAD_COUNT = 12;
 
-  // Preload video thumbnail images on mount with proper caching
   useEffect(() => {
-    videos.forEach((video, index) => {
-      if (!loadedProfileImages.has(index * 2)) {
-        const profileImg = new window.Image();
-        profileImg.src = `${video.profileImage}${video.profileImage.includes('?') ? '&' : '?'}t=${new Date().getTime()}`;
-        profileImg.onload = () => {
-          setLoadedProfileImages(prev => new Set(prev).add(index * 2));
-        };
-        profileImg.onerror = () => {
-          profileImg.src = video.profileImage.replace('f_auto', 'f_jpg');
-        };
-      }
-
-      if (!loadedProfileImages.has(index * 2 + 1)) {
-        const smallProfileImg = new window.Image();
-        smallProfileImg.src = `${video.smallProfileImage}${video.smallProfileImage.includes('?') ? '&' : '?'}t=${new Date().getTime()}`;
-        smallProfileImg.onload = () => {
-          setLoadedProfileImages(prev => new Set(prev).add(index * 2 + 1));
-        };
-      }
-    });
-  }, [loadedProfileImages]);
-
-  const handlePlay = (index: number) => {
-    setPlayingIndex(index);
-  };
-
-  const handleImageClick = (index: number) => {
-    setImageLoading(true);
-    setSelectedImageIndex(index);
-  };
-
-  const closeImageModal = () => {
-    setSelectedImageIndex(null);
-    setImageLoading(false);
-  };
-
-  // Preload ALL images immediately on mount for instant display - no lag!
-  useEffect(() => {
-    const preloadAllImages = () => {
-      // Load all images in batches to avoid blocking the main thread
-      const batchSize = 6; // Load 6 images at a time
-      let currentBatch = 0;
-
-      const loadBatch = () => {
-        const start = currentBatch * batchSize;
-        const end = Math.min(start + batchSize, ALL_REVIEW_IMAGES.length);
-        
-        for (let i = start; i < end; i++) {
-          const url = ALL_REVIEW_IMAGES[i];
-          const img = new window.Image();
-          img.src = optimizeCloudinaryUrl(url, 1200);
-          img.onload = () => {
-            setLoadedImages(prev => {
-              const newSet = new Set(prev);
-              newSet.add(i);
-              return newSet;
-            });
-          };
-          img.onerror = () => {
-            // Still mark as loaded to avoid infinite loading state
-            setLoadedImages(prev => {
-              const newSet = new Set(prev);
-              newSet.add(i);
-              return newSet;
-            });
-          };
-        }
-
-        currentBatch++;
-        
-        // Continue loading next batch after a short delay to keep UI responsive
-        if (end < ALL_REVIEW_IMAGES.length) {
-          setTimeout(loadBatch, 50); // 50ms delay between batches
-        }
-      };
-
-      // Start loading immediately
-      loadBatch();
-    };
-
-    preloadAllImages();
+    // Load first batch immediately
+    const initialSet = new Set<number>();
+    for (let i = 0; i < Math.min(INITIAL_LOAD_COUNT, ALL_REVIEW_IMAGES.length); i++) {
+      initialSet.add(i);
+    }
+    setVisibleImages(initialSet);
   }, []);
 
-  // Intersection Observer for fallback loading (in case preload missed any)
+  // Intersection Observer for lazy loading - limits concurrent loads to prevent hang
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            // Only load if not already loaded (fallback safety)
-            if (!loadedImages.has(index)) {
-              const img = new window.Image();
-              img.src = optimizeCloudinaryUrl(ALL_REVIEW_IMAGES[index], 1200);
-              img.onload = () => {
-                setLoadedImages(prev => {
-                  const newSet = new Set(prev);
-                  newSet.add(index);
-                  return newSet;
-                });
-              };
+            if (!visibleImages.has(index)) {
+              // Use requestIdleCallback to avoid blocking main thread
+              if ('requestIdleCallback' in window) {
+                (window as any).requestIdleCallback(() => {
+                  setVisibleImages(prev => new Set(prev).add(index));
+                }, { timeout: 100 });
+              } else {
+                setTimeout(() => {
+                  setVisibleImages(prev => new Set(prev).add(index));
+                }, 50);
+              }
+              observer.unobserve(entry.target);
             }
-            observer.unobserve(entry.target);
           }
         });
       },
       {
-        rootMargin: '500px', // Start loading 500px before image enters viewport for smoother experience
+        rootMargin: '200px', // Start loading 200px before image enters viewport
         threshold: 0.01
       }
     );
@@ -181,15 +93,20 @@ export default function HappyUsersGalleryPage() {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, [loadedImages]);
+  }, [visibleImages]);
 
-  // Preload image on hover for faster modal opening
-  const handleImageHover = (imageSrc: string, index: number) => {
-    if (typeof window === 'undefined' || preloadedImages.current.has(imageSrc)) return;
-    
-    preloadedImages.current.add(imageSrc);
-    const img = new window.Image();
-    img.src = optimizeCloudinaryUrl(imageSrc, 1200);
+  const handlePlay = (index: number) => {
+    setPlayingIndex(index);
+  };
+
+  const handleImageClick = (index: number) => {
+    setImageLoading(true);
+    setSelectedImageIndex(index);
+  };
+
+  const closeImageModal = () => {
+    setSelectedImageIndex(null);
+    setImageLoading(false);
   };
 
   // Close modal on ESC key press
@@ -228,9 +145,8 @@ export default function HappyUsersGalleryPage() {
 
           <div className="columns-4 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1">
             {ALL_REVIEW_IMAGES.map((imageSrc, i) => {
-              const optimizedUrl = optimizeCloudinaryUrl(imageSrc, 1200);
-              const isLoaded = loadedImages.has(i);
-              const isEager = i < 20; // First 20 images are critical (above the fold)
+              const shouldLoad = visibleImages.has(i);
+              const isEager = i < INITIAL_LOAD_COUNT;
               
               return (
                 <div
@@ -241,22 +157,22 @@ export default function HappyUsersGalleryPage() {
                   data-index={i}
                   className="inline-block w-full mb-4 [break-inside:avoid] rounded-[0.6rem] overflow-hidden bg-[#fffaf8] shadow-[0_3px_10px_rgba(0,0,0,0.25)] cursor-pointer hover:shadow-[0_5px_15px_rgba(0,0,0,0.35)] transition-all duration-300"
                   onClick={() => handleImageClick(i)}
-                  onMouseEnter={() => handleImageHover(imageSrc, i)}
                 >
-                  {isLoaded || isEager ? (
+                  {shouldLoad ? (
                     <Image
-                      src={optimizedUrl}
+                      src={imageSrc}
                       alt={`Flashfire user review ${i + 1}`}
                       width={400}
                       height={600}
-                      className="w-full h-auto object-contain block rounded-[0.4rem] transition-opacity duration-300"
+                      className="w-full h-auto object-contain block rounded-[0.4rem]"
                       loading={isEager ? "eager" : "lazy"}
                       priority={isEager}
-                      unoptimized
+                      quality={85}
+                      sizes="(max-width: 400px) 100vw, (max-width: 900px) 50vw, (max-width: 1200px) 33vw, 25vw"
                     />
                   ) : (
-                    <div className="w-full aspect-[2/3] bg-slate-200 animate-pulse rounded-[0.4rem] flex items-center justify-center">
-                      <div className="w-8 h-8 border-2 border-slate-400 border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-full aspect-[2/3] bg-slate-100 rounded-[0.4rem] flex items-center justify-center min-h-[200px]">
+                      <div className="w-6 h-6 border-2 border-slate-300 border-t-transparent rounded-full animate-spin"></div>
                     </div>
                   )}
                 </div>
@@ -289,7 +205,7 @@ export default function HappyUsersGalleryPage() {
               </div>
             )}
             <Image
-              src={optimizeCloudinaryUrl(ALL_REVIEW_IMAGES[selectedImageIndex], 1600)}
+              src={ALL_REVIEW_IMAGES[selectedImageIndex]}
               alt={`Flashfire user review ${selectedImageIndex + 1}`}
               width={1200}
               height={1800}
@@ -297,9 +213,9 @@ export default function HappyUsersGalleryPage() {
                 imageLoading ? "opacity-0" : "opacity-100"
               }`}
               style={{ width: "auto", height: "auto" }}
-              priority
               onLoad={() => setImageLoading(false)}
-              unoptimized
+              priority
+              quality={90}
             />
           </div>
         </div>
@@ -342,13 +258,14 @@ export default function HappyUsersGalleryPage() {
                 {/* Thumbnail Image Overlay - Show when video is not playing */}
                 {playingIndex !== index && (
                   <>
-                    <Image
+                    <img
                       src={video.profileImage}
                       alt={`${video.name} - Click to play video`}
-                      fill
-                      className="w-full h-full object-cover rounded-none"
+                      className="w-full h-full object-cover rounded-none cursor-pointer"
                       onClick={() => handlePlay(index)}
-                    unoptimized
+                      loading="eager"
+                      decoding="async"
+                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
                     />
                     {/* Play Button Overlay */}
                     <div
@@ -364,7 +281,7 @@ export default function HappyUsersGalleryPage() {
                 <div className="absolute bottom-2 left-2 right-2 h-[5.5rem] bg-black border border-[#ff4c00] text-white text-left py-3 px-4 flex items-center z-20">
                   <div className="flex items-center gap-3 w-full h-full">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
-                      <Image
+                      <img
                         src={(video as any).smallProfileImage || video.profileImage}
                         alt={video.name}
                         width={40}
@@ -374,7 +291,8 @@ export default function HappyUsersGalleryPage() {
                           const target = e.currentTarget;
                           target.style.display = "none";
                         }}
-                        unoptimized
+                        loading="eager"
+                        decoding="async"
                       />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">

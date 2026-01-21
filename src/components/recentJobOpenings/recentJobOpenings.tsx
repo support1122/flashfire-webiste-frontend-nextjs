@@ -51,7 +51,7 @@ export default function RecentJobOpenings() {
         });
 
         if (typeof window !== "undefined") {
-            window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+            window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
         }
 
         pushCustomUrl(targetPath);

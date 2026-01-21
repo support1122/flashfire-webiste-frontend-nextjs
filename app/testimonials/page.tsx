@@ -36,6 +36,10 @@ export const metadata: Metadata = {
   },
 };
 
+// Force static generation - no dynamic content, cache forever
+export const dynamic = 'force-static';
+export const revalidate = false; // Never revalidate - page is static
+
 export default function TestimonialsPage() {
   const reviewSchema = {
     "@context": "https://schema.org/",

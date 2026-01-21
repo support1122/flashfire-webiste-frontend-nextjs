@@ -134,9 +134,9 @@ export default function HomePageDemoCTA() {
               console.warn('Error in button click handler:', error);
             }
             
-            // Dispatch custom event to force show modal
+            // Dispatch custom event to force show StrategyCallCard modal first
             if (typeof window !== 'undefined') {
-              window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+              window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
             }
             
             // Check current path
@@ -189,9 +189,9 @@ export default function HomePageDemoCTA() {
                 window.history.pushState({}, '', targetPath);
               }
               
-              // Dispatch custom event to force show modal FIRST
+              // Dispatch custom event to force show StrategyCallCard modal FIRST
               if (typeof window !== 'undefined') {
-                window.dispatchEvent(new CustomEvent('showGetMeInterviewModal'));
+                window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
               }
               
               // Don't use router.replace - it causes scroll to top

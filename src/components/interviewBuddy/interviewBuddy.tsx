@@ -82,7 +82,7 @@ export default function InterviewBuddy() {
                             });
 
                             if (typeof window !== "undefined") {
-                                window.dispatchEvent(new CustomEvent("showGetMeInterviewModal"));
+                                window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
                             }
                             pushCustomUrl("/interview-buddy/Start-free");
                         }}
