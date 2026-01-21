@@ -70,8 +70,7 @@ export default function HomePageSteps() {
       {/* Connector line – perfectly centered */}
       {/* ================= STEPPER ================= */}
       <div className="mt-20 mx-auto max-w-5xl">
-        <div className="grid grid-cols-4 items-start text-center">
-
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-0 items-start text-center">
 
           {/* STEP 1 */}
           <div className="relative flex flex-col items-center">
@@ -83,7 +82,8 @@ export default function HomePageSteps() {
             </div>
 
             {/* Line to step 2 */}
-            <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+            <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
 
             <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
               Share your personal details with us
@@ -100,7 +100,8 @@ export default function HomePageSteps() {
             </div>
 
             {/* Line to step 3 */}
-            <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+            <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
 
             <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
               Team will work upon your resume + LinkedIn opt + cover letter
@@ -117,7 +118,8 @@ export default function HomePageSteps() {
             </div>
 
 
-            <div className="absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+            <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
 
             <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
               Team will submit 30-40 applications per day with optimized resume

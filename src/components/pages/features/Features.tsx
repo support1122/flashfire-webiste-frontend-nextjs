@@ -10,6 +10,8 @@ import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css"
 import FlashfireLogo from "@/src/components/FlashfireLogo"
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking"
 import { GTagUTM } from "@/src/utils/GTagUTM"
+import { Rocket, ShieldCheck, BarChart3 } from "lucide-react";
+
 
 type FeatureItem = {
   title: string
@@ -270,108 +272,89 @@ function Features() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      {/* Orange Header Bar */}
-      <header className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-[#fffaf7] py-24 ">
-  <div className="mx-auto max-w-4xl text-center px-4">
+    {/* ================= HERO SECTION ================= */}
+<header className="relative overflow-hidden bg-gradient-to-br from-[#fff3eb] via-[#fff7f2] to-white py-6 md:py-6">
 
-    <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-10 leading-tight">
-      Best AI Job Search Tools to Get Interviews - <span className="text-[#ff4c00]">Fully Automated</span>
-    </h1>
+  {/* Soft Background Glow */}
+  <div className="absolute -top-32 -left-32 w-[420px] h-[420px] bg-[#ff4c00]/10 rounded-full blur-[140px]" />
+  <div className="absolute top-1/2 -right-40 w-[420px] h-[420px] bg-[#ff4c00]/10 rounded-full blur-[140px]" />
 
-    <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10">
-      Flashfire combines{" "}
-      <span className="font-semibold text-[#ff4c00]">AI precision</span> and{" "}
-      <span className="font-semibold text-[#ff4c00]">human expertise</span>{" "}
-      to turn job applications into real interview opportunities.
-    </p>
+  <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
-    {/* CTA */}
-    <div className="flex justify-center">
-      <button
-        onClick={() => {
-          try {
-            const utmSource =
-              typeof window !== "undefined" && window.localStorage
-                ? localStorage.getItem("utm_source") || "WEBSITE"
-                : "WEBSITE";
+    {/* ================= LEFT CONTENT ================= */}
+    <div>
+      <span className="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-semibold tracking-wide">
+        <Rocket className="w-4 h-4" />
+        AI-Powered Job Automation Platform
+      </span>
 
-            const utmMedium =
-              typeof window !== "undefined" && window.localStorage
-                ? localStorage.getItem("utm_medium") || "LinkedIn_Page"
-                : "LinkedIn_Page";
+      <h1 className="max-w-xl text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight text-black mb-6">
+        Get Interview Calls Faster with{" "}
+        <span className="text-[#ff4c00]">AI-Driven Job Automation</span>
+      </h1>
 
-            try {
-              GTagUTM({
-                eventName: "sign_up_click",
-                label: "LinkedIn_Get_Me_Interview_Button",
-                utmParams: {
-                  utm_source: utmSource,
-                  utm_medium: utmMedium,
-                  utm_campaign:
-                    typeof window !== "undefined" && window.localStorage
-                      ? localStorage.getItem("utm_campaign") || "Website"
-                      : "Website",
-                },
-              });
-            } catch {}
+      <p className="max-w-xl text-lg md:text-xl text-gray-700 leading-relaxed mb-9">
+        Flashfire blends <strong>AI precision</strong> and <strong>human expertise</strong> to optimize your resume,
+        apply intelligently, and convert applications into real interview calls.
+      </p>
 
-            try {
-              trackButtonClick("Get Me Interview", "linkedin_cta", "cta", {
-                button_location: "features_hero_section",
-                section: "features_hero",
-              });
+      {/* Trust Metrics */}
+      {/* <div className="flex flex-wrap gap-4 mb-10">
 
-              trackSignupIntent("linkedin_cta", {
-                signup_source: "features_hero_button",
-                funnel_stage: "signup_intent",
-              });
-            } catch {}
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border shadow-sm">
+          <Rocket className="w-4 h-4 text-[#ff4c00]" />
+          <span className="text-sm font-medium">1200+ Automated Applications</span>
+        </div>
 
-            const currentPath =
-              pathname ||
-              (typeof window !== "undefined"
-                ? window.location.pathname
-                : "");
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border shadow-sm">
+          <ShieldCheck className="w-4 h-4 text-[#ff4c00]" />
+          <span className="text-sm font-medium">ATS-Optimized Profiles</span>
+        </div>
 
-            const normalizedPath = currentPath.split("?")[0];
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border shadow-sm">
+          <BarChart3 className="w-4 h-4 text-[#ff4c00]" />
+          <span className="text-sm font-medium">Live Performance Tracking</span>
+        </div>
 
-            if (
-              normalizedPath === "/get-me-interview" ||
-              normalizedPath === "/en-ca/get-me-interview"
-            ) {
-              window.dispatchEvent(
-                new CustomEvent("showGetMeInterviewModal")
-              );
-              return;
-            }
+      </div> */}
 
-            // Save current page and scroll position before navigation
-            if (typeof window !== "undefined") {
-              const currentScrollY = window.scrollY;
-              const isOnFeatures = normalizedPath === '/feature' ||
-                normalizedPath === '/features' ||
-                normalizedPath === '/en-ca/feature' ||
-                normalizedPath === '/en-ca/features';
-              
-              if (isOnFeatures) {
-                sessionStorage.setItem('previousPageBeforeGetMeInterview', normalizedPath);
-                sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-              }
-            }
+      {/* CTA */}
+      <div className="flex flex-col sm:flex-row mb-4">
+        <button
+          onClick={handleGetStarted}
+          className="bg-[#ff4c00] text-white px-9 py-4 rounded-xl font-semibold shadow-[0_3px_0_black] text-lg  hover:scale-[1.02] transition"
+        >
+          Get Me Interview →
+        </button>
 
-            window.dispatchEvent(
-              new CustomEvent("showGetMeInterviewModal")
-            );
-            
-            const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
-            router.push(targetPath);
-          } catch {}
-        }}
-        className="bg-white border-2 border-black px-8 py-4 font-bold text-black text-lg hover:bg-[#f9e8e0] transition-colors rounded-xl inline-flex items-center justify-center"
-        style={{ boxShadow: "0 5px 0 0 rgba(245, 93, 29, 1)" }}
-      >
-        Get Me Interview →
-      </button>
+        
+        
+      </div>
+    </div>
+
+    {/* ================= RIGHT VISUAL ================= */}
+    <div className="relative flex justify-center lg:justify-end">
+
+      {/* Main Preview Card */}
+      <div className="relative bg-white rounded-2xl border shadow-xl p-3 max-w-[460px] w-full">
+        <Image
+          src="/images/step1.png"   // replace with real dashboard later
+          alt="Flashfire Platform Preview"
+          width={460}
+          height={320}
+          className="rounded-xl object-contain"
+          priority
+        />
+      </div>
+
+      {/* Floating Stat Card */}
+      <div className="absolute -top-6 -left-6 bg-white px-4 py-3 rounded-xl shadow-lg border hidden md:block">
+        <p className="text-sm font-semibold text-black">Avg Interview in 14 Days</p>
+        <p className="text-xs text-gray-500">Based on recent users</p>
+      </div>
+
+      {/* Accent Glow */}
+      <div className="absolute -bottom-12 right-10 w-40 h-40 bg-[#ff4c00]/20 blur-[90px] rounded-full" />
     </div>
 
   </div>
