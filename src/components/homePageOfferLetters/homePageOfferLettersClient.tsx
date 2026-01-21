@@ -56,7 +56,7 @@ const offerLetters: OfferLetterData[] = [
   {
     name: "Teja",
     company: "LVIS",
-    linkedinUrl: "https://www.linkedin.com/in/tejasunkara/",
+    linkedinUrl: "https://www.linkedin.com",
     imagePath: "/images/teja_offer.png",
     profileImagePath:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/TEJA.jpeg",
