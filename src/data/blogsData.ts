@@ -13598,29 +13598,29 @@ FAQs
 </h2>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
-  <strong>Q.</strong> What is the best resume format for ATS?<br />
-  <strong>A.</strong>A single-column, simple layout using standard headings like 'Summary', 'Experience', 'Skills', and 'Education' is best.
+  <strong>Q. </strong> What is the best resume format for ATS?<br />
+  <strong>A. </strong>A single-column, simple layout using standard headings like 'Summary', 'Experience', 'Skills', and 'Education' is best.
   <br/>
-  <strong>Q.</strong> How many keywords should I use to optimize a resume for ATS?<br />
-  <strong>A.</strong> Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.
+  <strong>Q. </strong> How many keywords should I use to optimize a resume for ATS?<br />
+  <strong>A. </strong> Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.
   <br/>
-  <strong>Q.</strong> Does ATS reject PDF resumes?<br />
-  <strong>A.</strong> Some ATS systems struggle with PDFs. DOCX is usually the safest option.
+  <strong>Q. </strong> Does ATS reject PDF resumes?<br />
+  <strong>A. </strong> Some ATS systems struggle with PDFs. DOCX is usually the safest option.
 <br/>
-  <strong>Q.</strong> Can ATS read two-column resumes?<br />
-   <strong>A.</strong>Most ATS systems cannot read columns properly. Always use one column.
+  <strong>Q. </strong> Can ATS read two-column resumes?<br />
+   <strong>A. </strong>Most ATS systems cannot read columns properly. Always use one column.
 <br/>
-  <strong>Q.</strong> How do I find the right keywords for ATS optimization?<br />
-   <strong>A.</strong>Use the job description. Look for repeated skills, tools, and job titles.
+  <strong>Q. </strong> How do I find the right keywords for ATS optimization?<br />
+   <strong>A. </strong>Use the job description. Look for repeated skills, tools, and job titles.
 <br/>
-  <strong>Q.</strong> Do ATS systems rank resumes automatically?<br />
-   <strong>A.</strong>Yes. ATS assigns scores based on keyword match, experience, and structure.
+  <strong>Q. </strong> Do ATS systems rank resumes automatically?<br />
+   <strong>A. </strong>Yes. ATS assigns scores based on keyword match, experience, and structure.
 <br/>
-  <strong>Q.</strong> Can the same resume work for every job application?<br />
-   <strong>A.</strong>No. You should customise your resume for every role.
+  <strong>Q. </strong> Can the same resume work for every job application?<br />
+   <strong>A. </strong>No. You should customise your resume for every role.
 <br/>
-  <strong>Q.</strong> How often should I update my ATS-optimized resume?<br />
-   <strong>A.</strong>Update it whenever you gain new skills, change roles, or apply for a different type of job.
+  <strong>Q. </strong> How often should I update my ATS-optimized resume?<br />
+   <strong>A. </strong>Update it whenever you gain new skills, change roles, or apply for a different type of job.
 </ul>
 
 `,
