@@ -13437,7 +13437,7 @@ In your work experience section, use action verbs, metrics, and job-specific ter
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Add a Clear and Relevant Skills Section
+5.Add a Clear and Relevant Skills Section
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13462,7 +13462,7 @@ Use bullet points, such as job description keywords, such as:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-5.Use Standard Job Titles and Terminology
+6. Use Standard Job Titles and Terminology
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13474,7 +13474,7 @@ ATS understands standard terms better than jargon.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-6.Tailoring Standard Resume Heading for Each Job
+7.Tailoring Standard Resume Heading for Each Job
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
