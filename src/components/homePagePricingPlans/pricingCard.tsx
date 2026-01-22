@@ -159,9 +159,7 @@ export default function PricingCard({
             <h3 className="text-3xl sm:text-4xl font-extrabold text-black leading-none">
               {formattedPrice}
             </h3>
-            <span className="text-sm font-semibold text-black mb-1">
-              /month
-            </span>
+           
           </div>
         </div>
 
