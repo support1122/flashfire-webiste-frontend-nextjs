@@ -13252,7 +13252,7 @@ An ATS, or an Applicant Tracking System, is software that companies use to colle
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-What an ATS (Applicant Tracking System) Is
+1.What an ATS (Applicant Tracking System) Is
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13272,7 +13272,7 @@ So, in simple words, an ATS model decides who moves forward and who gets rejecte
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Why Companies Use ATS Software
+2.Why Companies Use ATS Software
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13429,7 +13429,7 @@ These help the ATS and the recruiters to understand you easily and quickly.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Optimize Work Experience with Job Description Keywords
+4.Optimize Work Experience with Job Description Keywords
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13462,7 +13462,7 @@ Use bullet points, such as job description keywords, such as:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Use Standard Job Titles and Terminology
+5.Use Standard Job Titles and Terminology
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13474,7 +13474,7 @@ ATS understands standard terms better than jargon.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Tailoring Standard Resume Heading for Each Job
+6.Tailoring Standard Resume Heading for Each Job
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13517,7 +13517,7 @@ Common Mistakes That Hurt ATS Resume Optimization
 </h2>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Keyword stuffing vs smart keyword placement
+1.Keyword stuffing vs smart keyword placement
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13525,7 +13525,7 @@ Don’t use “SEO SEO SEO”; instead, use “Led SEO strategy using keyword re
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Don't use fancy design templates
+2.Don't use fancy design templates
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13533,7 +13533,7 @@ Heavily designed templates look good but fail in ATS. So avoid Canva-style desig
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Missing important sections
+3.Missing important sections
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13541,7 +13541,7 @@ Never skip skill sets, work experience, and educational qualifications. ATS need
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Inconsistent formatting
+4.Inconsistent formatting
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13549,7 +13549,7 @@ Don't mix fonts, sizes, and bullet styles. Consistency helps both ATS and humans
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Uploading resumes with incorrect file names
+5.Uploading resumes with incorrect file names
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13557,7 +13557,7 @@ Don't save something like “resume_final_v7_reallyfinal.docx”; rather, you ca
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Using Headers, Footers, or Images
+6.Using Headers, Footers, or Images
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
