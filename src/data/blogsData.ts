@@ -13163,7 +13163,7 @@ Although the process is more complex, it also provides global career exposure an
 FAQs
 </h2>
 
-<ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
+
 <p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> Can international students work in the US while studying?  
   <br /><strong>A. </strong>Yes. You can work on campus and off campus with CPT authorization.
@@ -13438,7 +13438,7 @@ These help the ATS and the recruiters to understand you easily and quickly.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-4.Optimize Work Experience with Job Description Keywords
+4. Optimize Work Experience with Job Description Keywords
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13446,7 +13446,7 @@ In your work experience section, use action verbs, metrics, and job-specific ter
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-5.Add a Clear and Relevant Skills Section
+5. Add a Clear and Relevant Skills Section
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13483,7 +13483,7 @@ ATS understands standard terms better than jargon.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-7.Tailoring Standard Resume Heading for Each Job
+7. Tailoring Standard Resume Heading for Each Job
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13526,7 +13526,7 @@ Common Mistakes That Hurt ATS Resume Optimization
 </h2>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-1.Keyword stuffing vs smart keyword placement
+1. Keyword stuffing vs smart keyword placement
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13534,7 +13534,7 @@ Don’t use “SEO SEO SEO”; instead, use “Led SEO strategy using keyword re
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-2.Don't use fancy design templates
+2. Don't use fancy design templates
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13606,40 +13606,40 @@ www.flashfirejobs.com
 FAQs
 </h2>
 
-<ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
+
 <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> What is the best resume format for ATS?<br />
+  <strong>Q. </strong>What is the best resume format for ATS?<br/>
   <strong>A. </strong>A single-column, simple layout using standard headings like 'Summary', 'Experience', 'Skills', and 'Education' is best.
   </p>
 <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> How many keywords should I use to optimize a resume for ATS?<br />
-  <strong>A. </strong> Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.
+  <strong>Q. </strong>How many keywords should I use to optimize a resume for ATS?<br/>
+  <strong>A. </strong>Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.<br/>
   </p>
 <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> Does ATS reject PDF resumes?<br />
-  <strong>A. </strong> Some ATS systems struggle with PDFs. DOCX is usually the safest option.
+  <strong>Q. </strong>Does ATS reject PDF resumes?<br/>
+  <strong>A. </strong>Some ATS systems struggle with PDFs. DOCX is usually the safest option.
   </p>
 <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> Can ATS read two-column resumes?<br />
+  <strong>Q. </strong>Can ATS read two-column resumes?<br/>
    <strong>A. </strong>Most ATS systems cannot read columns properly. Always use one column.
   </p>
 <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> How do I find the right keywords for ATS optimization?<br />
+  <strong>Q. </strong>How do I find the right keywords for ATS optimization?<br/>
    <strong>A. </strong>Use the job description. Look for repeated skills, tools, and job titles.
   </p>
 <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> Do ATS systems rank resumes automatically?<br />
-   <strong>A. </strong>Yes. ATS assigns scores based on keyword match, experience, and structure.
+  <strong>Q. </strong>Do ATS systems rank resumes automatically?<br/>
+   <strong>A. </strong>Yes. ATS assigns scores based on keyword match, experience, and structure.</br>
     </p>
   <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> Can the same resume work for every job application?<br />
+  <strong>Q. </strong>Can the same resume work for every job application?<br/>
    <strong>A. </strong>No. You should customise your resume for every role.
   </p>
   <p style='margin-bottom:12px; line-height:1.7;'>
-  <strong>Q. </strong> How often should I update my ATS-optimized resume?<br />
+  <strong>Q. </strong>How often should I update my ATS-optimized resume?</br>
    <strong>A. </strong>Update it whenever you gain new skills, change roles, or apply for a different type of job.
   </p>
-</ul>
+
 
 `,
 }
