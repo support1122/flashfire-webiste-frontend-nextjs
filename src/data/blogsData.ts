@@ -12632,7 +12632,7 @@ Your success also depends on understanding visa rules, choosing the right indust
     name:"Rachna Goyal",
     bio:"Career expert and resume strategist helping job seekers land their dream roles.",
   },
-  image:"https://res.cloudinary.com/dcrj8p79e/image/upload/v1769071435/us-job-market-for-international-students.png",
+  image:"https://res.cloudinary.com/drcka8x04/image/upload/v1769200104/Screenshot_2026-01-24_at_1.57.35_AM_wmtobr.png",
   categoryColor:"",
   content:`
 
