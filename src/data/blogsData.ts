@@ -12766,7 +12766,7 @@ International students can find jobs in the US, but success depends on choosing 
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-On-campus vs off-campus employment options
+1. On-campus vs off-campus employment options
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12799,7 +12799,7 @@ Most students start with internships because employers use them as “trial peri
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Work visas (OPT, CPT, H-1B) and post-study job options.
+2. Work visas (OPT, CPT, H-1B) and post-study job options.
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12830,7 +12830,7 @@ H-1B
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Entry-level roles are commonly open to international students
+3. Entry-level roles are commonly open to international students
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12851,7 +12851,7 @@ These roles often appear on job search platforms/databases for sponsorship infor
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Real-world examples: STEM vs non-STEM
+4. Real-world examples: STEM vs non-STEM
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12874,7 +12874,7 @@ Non-STEM students:
   <li>Often focus on global companies</li>
 </ul>
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-Visa Rules and Work Authorization International Students Should Know
+ Visa Rules and Work Authorization International Students Should Know
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12882,7 +12882,7 @@ A lack of visa knowledge can lead to compliance issues, even after securing a jo
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-F-1 visa work limitations
+1. F-1 visa work limitations
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12896,7 +12896,7 @@ On F-1:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-CPT vs OPT differences
+2. CPT vs OPT differences
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12920,7 +12920,7 @@ OPT:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-STEM OPT extension eligibility
+3. STEM OPT extension eligibility
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12938,7 +12938,7 @@ This gives you more time to seek H-1B sponsorship.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-H-1B sponsorship basics
+4. H-1B sponsorship basics
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12956,7 +12956,7 @@ The H-1B application process must be initiated and managed by the employer
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-If any Visa timelines and compliance issues come up
+5. If any Visa timelines and compliance issues come up
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12982,7 +12982,7 @@ Certain industries face ongoing talent shortages, making them more open to hirin
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-High-demand industries such as tech, healthcare, and engineering
+1. High-demand industries such as tech, healthcare, and engineering
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13003,7 +13003,7 @@ These kinds of fields struggle to find enough skilled workers, so they’re more
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Who are visa sponsorship employers
+2. Who are visa sponsorship employers
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13026,7 +13026,7 @@ Salary Expectations and Job Reality in the US Job Market
 </h2>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Salary expectations and starting wages
+1. Salary expectations and starting wages
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13045,7 +13045,7 @@ STEM graduates usually earn more, but any field can pay well with the right role
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Cost-of-living considerations
+2. Cost-of-living considerations
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13057,7 +13057,7 @@ Challenges You Should Expect
 </h2>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Employment challenges and competition ahead
+ Employment challenges and competition ahead
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13114,7 +13114,7 @@ Economic Impact of International Students
 </h2>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Economic contribution and job creation
+1. Economic contribution and job creation
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13164,29 +13164,38 @@ FAQs
 </h2>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> Can international students work in the US while studying?  
-  <br /><strong>A.</strong>Yes. You can work on campus and off campus with CPT authorization.</li>
-
+  <br /><strong>A. </strong>Yes. You can work on campus and off campus with CPT authorization.
+</p>
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> What jobs are available for international students in the US?  
-  <br /><strong>A.</strong>Internships, research roles, tech jobs, engineering, business, and many entry-level positions.</li>
-
+  <br /><strong>A. </strong>Internships, research roles, tech jobs, engineering, business, and many entry-level positions.
+</p>
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> Do US employers sponsor international students?  
-  <br /><strong>A.</strong>Yes, many do—especially in high-demand industries.</li>
-
+  <br /><strong>A. </strong>Yes, many do—especially in high-demand industries.
+</p>
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> What is the difference between CPT and OPT?  
-  <br /><strong>A.</strong>CPT is during studies and tied to classes. OPT is after graduation.</li>
-
+  <br /><strong>A. </strong>CPT is during studies and tied to classes. OPT is after graduation.
+</p>
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> How long can international students work after graduation?  
-  <br /><strong>A.</strong>12 months for most, 36 months for STEM majors.</li>
-
+  <br /><strong>A. </strong>12 months for most, 36 months for STEM majors.
+</p>
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> Is the US job market competitive for international students?  
-  <br /><strong>A.</strong>Yes. You face more rules and competition than domestic students.</li>
-
+  <br /><strong>A. </strong>Yes. You face more rules and competition than domestic students.
+</p>
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> Which industries hire international students the most?  
-  <br /><strong><strong>A.</strong>.</strong>Tech, healthcare, engineering, finance, and research.</li>
-
+  <br /><strong>A. </strong>Tech, healthcare, engineering, finance, and research.
+</p>
+<p style='margin-bottom:12px; line-height:1.7;'>
   <strong>Q.</strong> Can international students switch visas after graduation?  
-  <br /><strong>A.</strong>Yes, often from F-1 to H-1B, and sometimes to other work visas.</li>
+  <br /><strong>A. </strong>Yes, often from F-1 to H-1B, and sometimes to other work visas.
+</p>
 </ul>
 
 `,
@@ -13252,7 +13261,7 @@ An ATS, or an Applicant Tracking System, is software that companies use to colle
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-1.What an ATS (Applicant Tracking System) Is
+1. What an ATS (Applicant Tracking System) Is
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13272,7 +13281,7 @@ So, in simple words, an ATS model decides who moves forward and who gets rejecte
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-2.Why Companies Use ATS Software
+2. Why Companies Use ATS Software
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13533,7 +13542,7 @@ Heavily designed templates look good but fail in ATS. So avoid Canva-style desig
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-3.Missing important sections
+3. Missing important sections
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13541,7 +13550,7 @@ Never skip skill sets, work experience, and educational qualifications. ATS need
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-4.Inconsistent formatting
+4. Inconsistent formatting
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13549,7 +13558,7 @@ Don't mix fonts, sizes, and bullet styles. Consistency helps both ATS and humans
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-5.Uploading resumes with incorrect file names
+5. Uploading resumes with incorrect file names
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13557,7 +13566,7 @@ Don't save something like “resume_final_v7_reallyfinal.docx”; rather, you ca
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-6.Using Headers, Footers, or Images
+6. Using Headers, Footers, or Images
 </h3>
 
 <p style="margin-bottom:12px; line-height:1.7;">
