@@ -120,7 +120,23 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
     return Array.from(set);
   }, []);
 
-  // Filter blogs by tag if tag parameter exists
+  // Helper function to parse date string (e.g., "Jan 15, 2025") to Date object
+  const parseDate = (dateString: string): Date => {
+    try {
+      const date = new Date(dateString);
+      // Check if date is valid
+      if (isNaN(date.getTime())) {
+        // Return very old date for invalid dates (will appear at bottom)
+        return new Date(0);
+      }
+      return date;
+    } catch {
+      // Fallback to very old date for invalid dates (will appear at bottom)
+      return new Date(0);
+    }
+  };
+
+  // Filter and sort blogs by date (newest first)
   const filteredBlogs = useMemo(() => {
     const normalizedCategory = decodedCategory.toLowerCase().trim();
     const normalizedTag = decodedTag.toLowerCase().trim();
@@ -174,7 +190,16 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
       });
     }
 
-    return base;
+    // Sort by date (newest first) - use lastUpdated if available, otherwise use date
+    // This ensures the latest blogs appear at the top of the list
+    const sorted = [...base].sort((a, b) => {
+      const dateA = parseDate(a.lastUpdated || a.date);
+      const dateB = parseDate(b.lastUpdated || b.date);
+      // Descending order: newest dates first (larger timestamp - smaller timestamp)
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    return sorted;
   }, [decodedCategory, decodedTag, searchQuery]);
 
   // Scroll to header title when category or tag changes
