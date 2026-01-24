@@ -11,5 +11,5 @@ export const navbarLinks: NavLink[] = [
 ];
 
 export const navbarCTAs: NavbarCTA = {
-  primary: { label: "Book a Demo", href: "/book-a-demo" },
+  primary: { label: "Book a Demo →", href: "/book-a-demo" },
 };
