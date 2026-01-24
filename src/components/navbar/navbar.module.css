@@ -368,10 +368,10 @@
 
 .navSecondaryButton,
 .navPrimaryButton {
-  width: 200px;
-  height: 54px;
+  width: 150px;
+  height: 44px;
   border-radius: 0.6rem;
-  padding: 0.8rem 1.4rem;
+  padding: 0.8rem 0.8rem;
   font-family: var(--font-inter), "Inter", sans-serif;
   font-size: 13.29px;
   font-weight: 500;
@@ -408,12 +408,21 @@
   background-color: #ff4c00;
   color: #fff;
   border: none;
-  padding: 0.9rem 1.6rem;
+  padding: 0.9rem 0.8rem;
   box-shadow: 0 0.3rem 0 black;
+  cursor: pointer;
+  user-select: none;
 }
 
 .navPrimaryButton:hover {
-  background-color: #ff4c00;
+  background-color: #ff5a0f;
+  transform: translateY(-1px);
+  box-shadow: 0 0.4rem 0 black;
+}
+
+.navPrimaryButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 0.2rem 0 black;
 }
 
 /* === Mobile Menu Icon === */
@@ -580,12 +589,19 @@
   color: #fff;
   box-shadow: 0 0.3rem 0 #ff4c00;
   border: none;
+  cursor: pointer;
+  user-select: none;
 }
 
 .navMobilePrimary:hover {
   background-color: #222;
   transform: translateY(-1px);
   box-shadow: 0 0.4rem 0 #ff4c00;
+}
+
+.navMobilePrimary:active {
+  transform: translateY(1px);
+  box-shadow: 0 0.2rem 0 #ff4c00;
 }
 
 /* === Black Friday Sale Banner === */

@@ -35,7 +35,7 @@ export default function HeroSectionClient({ data }: Props) {
   const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
-        window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
+        window.dispatchEvent(new CustomEvent("showCalendlyModal"));
       }
     },
   });
@@ -158,19 +158,19 @@ export default function HeroSectionClient({ data }: Props) {
                   : "Website",
               },
             });
-            trackButtonClick("schedule a free career call", "hero_cta", "cta", {
+            trackButtonClick("Get Started", "hero_cta", "cta", {
               button_location: "hero_main_cta",
               section: "hero_landing",
-              target_url: "/schedule-a-free-career-call"
+              target_url: "/Get-Started"
             });
             trackSignupIntent("hero_cta", {
               signup_source: "hero_main_button",
               funnel_stage: "signup_intent",
-              target_url: "/schedule-a-free-career-call"
+              target_url: "/Get-Started"
             });
             sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-            router.push('/schedule-a-free-career-call');
-            window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
+            router.push('/Get-Started');
+            window.dispatchEvent(new CustomEvent("showCalendlyModal"));
           }
         }}
         className="inline-block bg-[#ff4c00] text-white py-3.5 px-7 rounded-lg font-semibold no-underline mb-6 shadow-[0_3px_0_black] transition-all duration-300 border-none cursor-pointer text-base font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3.5 max-[768px]:px-6 max-[768px]:text-[0.95rem] max-[768px]:mb-5 max-[480px]:py-3 max-[480px]:px-5 max-[480px]:text-sm max-[480px]:mb-4 max-[480px]:w-full max-[480px]:max-w-[280px]"
