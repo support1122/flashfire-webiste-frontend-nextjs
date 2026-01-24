@@ -39,8 +39,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Check if it's a blog post
   const post = blogPosts.find((p) => p.slug === slug);
   if (post) {
+  // Custom meta title for specific blogs
+  const metaTitle = post.slug === "how-to-optimize-resume-for-ats" 
+    ? "How to Optimize a Resume for ATS | ATS Resume Optimization"
+    : post.slug === "how-to-search-for-a-new-job"
+    ? "How to Search for a New Job: Step-by-Step Guide"
+    : post.slug === "how-to-automate-job-applications"
+    ? "How to Automate Job Applications | Job Application Automation"
+    : `${post.title} | Flashfire Blog`;
+  
   return {
-    title: `${post.title} | Flashfire Blog`,
+    title: metaTitle,
     description: post.excerpt,
     robots: {
       index: true,
@@ -50,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `https://www.flashfirejobs.com/blog/${post.slug}`,
     },
     openGraph: {
-      title: post.title,
+      title: metaTitle,
       description: post.excerpt,
       url: `https://www.flashfirejobs.com/blog/${post.slug}`,
       type: "article",
@@ -77,7 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: metaTitle,
       description: post.excerpt,
       images: post.image ? [post.image] : ["https://www.flashfirejobs.com/images/og-image.png"],
       },
