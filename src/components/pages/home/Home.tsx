@@ -20,6 +20,7 @@ import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWh
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
+import ReelGallery from "@/src/components/ReelGallery/ReelGallery";
 
 const Home = () => {
   const pathname = usePathname();
@@ -52,6 +53,7 @@ const Home = () => {
     <>
       <Navbar />
       <HeroSection />
+    
       <HomePageSteps /> {/* using useState, so client */}
       <HomePageCareerCTA />
       <HomePageBeforeAfter />
@@ -80,6 +82,7 @@ const Home = () => {
      
      
       <Footer />
+      
       {/* <SalesPopUp /> */}
     </>
   );

@@ -6,7 +6,7 @@ export const heroSectionData: HeroSectionData = {
   headlineSuffix: "AI Copilot",
   description:
     "We apply to 1,200+ USA job applications & track everything while you focus on winning the interview.",
-  cta: { label: "Schedule a Free Career Call ", href: "/contact-us" },
+  cta: { label: "Get Started →", href: "/contact-us" },
   trustText: "Trusted by 260+ Users",
   universityHeading:
     "Trusted by students and graduates from top global universities.",
@@ -35,7 +35,7 @@ export const heroSectionDataCA: HeroSectionData = {
   headlineSuffix: "AI Copilot",
   description:
     "We apply to 1,200+ Canada job applications & track everything while you focus on winning the interview.",
-  cta: { label: "Schedule a Free Career Call ", href: "/contact-us" },
+  cta: { label: "Get Started →", href: "/contact-us" },
   trustText: "Trusted by 260+ Users",
   universityHeading:
     "Trusted by students and graduates from top global universities.",
