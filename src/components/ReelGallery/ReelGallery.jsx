@@ -226,7 +226,7 @@ export default function ReelGallery() {
                         {popupCollapsed ? (
                             <button
                                 onClick={() => setPopupCollapsed(false)}
-                                className="fixed bottom-6 right-4 sm:bottom-[7rem] sm:right-7 z-50 p-3 sm:p-4 bg-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 hover:bg-gray-50 transition-colors"
+                                className="fixed bottom-20 right-4 sm:bottom-[7rem] sm:right-7 z-[70] p-3 sm:p-4 bg-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 hover:bg-gray-50 transition-colors"
                                 aria-label="Expand reels"
                             >
                                 <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
@@ -234,7 +234,7 @@ export default function ReelGallery() {
                         ) : (
                             <div
                                 ref={popupRef}
-                                className={`fixed bottom-6 right-4 sm:bottom-[6rem] sm:right-7 z-50 flex flex-col gap-2 p-3 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 transition-all duration-300 ${expandedPopupId ? "max-w-[calc(100vw-2rem)] sm:max-w-[320px] w-[min(320px,calc(100vw-2rem))] sm:w-[min(320px,calc(100vw-3rem))]" : "max-w-[calc(100vw-2rem)] sm:max-w-[240px]"}`}
+                                className={`fixed bottom-20 right-4 sm:bottom-[6rem] sm:right-7 z-[70] flex flex-col gap-2 p-3 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 transition-all duration-300 ${expandedPopupId ? "max-w-[calc(100vw-2rem)] sm:max-w-[320px] w-[min(320px,calc(100vw-2rem))] sm:w-[min(320px,calc(100vw-3rem))]" : "max-w-[calc(100vw-2rem)] sm:max-w-[240px]"}`}
                             >
                                 <div className="flex items-center justify-between mb-1 px-1">
                                     {expandedPopupId ? (
