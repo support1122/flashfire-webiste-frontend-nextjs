@@ -9,17 +9,17 @@ const reels = [
     {
         id: 1,
         url: "https://res.cloudinary.com/dcrj8p79e/video/upload/v1769255994/reel1_il5icu.mp4",
-        title: "Real user feedback",
+       
     },
     {
         id: 2,
         url: "https://res.cloudinary.com/dcrj8p79e/video/upload/v1769256004/reel2_cv2a7g.mp4",
-        title: "Landing interviews faster",
+       
     },
     {
         id: 3,
         url: "https://res.cloudinary.com/dcrj8p79e/video/upload/v1769426768/reel4_bpeots.mp4",
-        title: "Success story",
+        
     },
 ];
 
@@ -283,9 +283,7 @@ export default function ReelGallery() {
                                                 playsInline
                                                 className="w-full aspect-[9/16] max-h-[20rem] object-cover"
                                             />
-                                            <div className="px-2 py-1.5 text-sm font-medium text-gray-800">
-                                                {reel.title}
-                                            </div>
+                                            
                                                 <Link
                                                     href="/book-a-demo"
                                                     {...getButtonProps()}
