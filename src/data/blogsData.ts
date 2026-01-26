@@ -13184,7 +13184,7 @@ FAQs
     name:"Rachna Goyal",
     bio:"Career expert and resume strategist helping job seekers land their dream roles.",
   },
-  image:"https://res.cloudinary.com/dcrj8p79e/image/upload/v1769071433/how-to-optimize-resume-for-ats.png",
+  image:"https://res.cloudinary.com/drcka8x04/image/upload/v1769460571/How_to_Optimize_Your_Resume_for_ATS_Applicant_Tracking_Systems_oary0h.png",
   categoryColor:"",
   content:`
 
