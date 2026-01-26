@@ -363,21 +363,21 @@
 .navRight {
   display: flex;
   gap: 16.62px;
-  align-items: center;
+  align-items: center; 
 }
 
 .navSecondaryButton,
 .navPrimaryButton {
-  width: 150px;
-  height: 44px;
+  width: 180px;
+  height: 52px;
   border-radius: 0.6rem;
-  padding: 0.8rem 0.8rem;
+  padding: 1rem 1rem;
   font-family: var(--font-inter), "Inter", sans-serif;
-  font-size: 13.29px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: -0.4px; /* -3% of 13.29px */
+  letter-spacing: -0.3px;
   text-align: center;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -408,7 +408,7 @@
   background-color: #ff4c00;
   color: #fff;
   border: none;
-  padding: 0.9rem 0.8rem;
+  padding: 1rem 1rem;
   box-shadow: 0 0.3rem 0 black;
   cursor: pointer;
   user-select: none;
@@ -565,7 +565,7 @@
   border-radius: 0.6rem;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   width: 100%;
   display: block;
   transition: all 0.2s ease;
@@ -749,7 +749,7 @@
   .navMobileSecondary,
   .navMobilePrimary {
     padding: 0.95rem 1.25rem;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 
   .saleBanner {
@@ -840,7 +840,7 @@
   .navMobileSecondary,
   .navMobilePrimary {
     padding: 0.9rem 1.15rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .saleBannerContent {
@@ -865,3 +865,4 @@
     font-size: 0.6rem;
   }
 }
+
