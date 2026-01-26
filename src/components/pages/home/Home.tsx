@@ -21,6 +21,7 @@ import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
 import ReelGallery from "@/src/components/ReelGallery/ReelGallery";
+import YouTubeVideo from "../../youtubeVideo/youtubeVideo";
 
 const Home = () => {
   const pathname = usePathname();
@@ -77,12 +78,13 @@ const Home = () => {
       
       <HomePagePTNote /> {/* PT section not so good */}
      
-      <HomePageFAQ /> {/* using useState, so client */}
+      <HomePageFAQ />
+      <YouTubeVideo />
       <HomePageDemoCTA />
      
      
       <Footer />
-      
+      <ReelGallery />
       {/* <SalesPopUp /> */}
     </>
   );
