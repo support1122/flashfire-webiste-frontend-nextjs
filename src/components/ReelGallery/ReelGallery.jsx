@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import { Play, X, ArrowLeft } from "lucide-react";
+import { Play, X, ArrowLeft, ChevronRight, ChevronLeft } from "lucide-react";
 
 const reels = [
     {
@@ -18,7 +18,7 @@ const reels = [
     },
     {
         id: 3,
-        url: "https://res.cloudinary.com/dcrj8p79e/video/upload/v1769256013/reel3_uszo4j.mp4",
+        url: "https://res.cloudinary.com/dcrj8p79e/video/upload/v1769426768/reel4_bpeots.mp4",
         title: "Success story",
     },
 ];
@@ -26,6 +26,7 @@ const reels = [
 export default function ReelGallery() {
     const [playingId, setPlayingId] = useState(null);
     const [popupDismissed, setPopupDismissed] = useState(false);
+    const [popupCollapsed, setPopupCollapsed] = useState(false);
     const [expandedPopupId, setExpandedPopupId] = useState(null);
     const videoRefs = useRef({});
     const cardRefs = useRef({});
@@ -73,9 +74,21 @@ export default function ReelGallery() {
             document.removeEventListener("pointerdown", handleGlobalClick);
     }, [playingId]);
 
-    // Auto-play muted popup previews when visible (not when expanded)
+    // Auto-play muted popup previews when visible (not when expanded or collapsed)
     useEffect(() => {
-        if (popupDismissed || expandedPopupId) return;
+        if (popupDismissed || expandedPopupId || popupCollapsed) {
+            // Pause all previews when collapsed
+            if (popupCollapsed) {
+                reels.forEach((r) => {
+                    const ref = popupVideoRefs.current[`popup-${r.id}`];
+                    if (ref) {
+                        ref.pause();
+                        ref.currentTime = 0;
+                    }
+                });
+            }
+            return;
+        }
         const timers = reels.map((r) => {
             const ref = popupVideoRefs.current[`popup-${r.id}`];
             if (!ref) return null;
@@ -85,7 +98,7 @@ export default function ReelGallery() {
             return t;
         });
         return () => timers.forEach((t) => t != null && clearTimeout(t));
-    }, [popupDismissed, expandedPopupId]);
+    }, [popupDismissed, expandedPopupId, popupCollapsed]);
 
     // Play expanded video when opened
     useEffect(() => {
@@ -132,8 +145,21 @@ export default function ReelGallery() {
         setExpandedPopupId(null);
     };
 
+    const handleCollapse = () => {
+        // Pause expanded video if playing
+        if (expandedPopupId) {
+            const v = expandedVideoRef.current;
+            if (v) {
+                v.pause();
+                v.currentTime = 0;
+            }
+            setExpandedPopupId(null);
+        }
+        setPopupCollapsed(true);
+    };
+
     return (
-        <section className="relative py-20 bg-[#fdf7f4]">
+        <section className="relative ">
             {/* <div className="max-w-7xl mx-auto px-6"> */}
                 {/* <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-3">
@@ -196,43 +222,53 @@ export default function ReelGallery() {
 
                 {/* Corner popup: three small videos / expanded big view */}
                 {!popupDismissed && (
-                    <div
-                        ref={popupRef}
-                        className={`fixed bottom-6 right-6 z-50 flex flex-col gap-2 p-3 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 transition-all duration-300 ${expandedPopupId ? "max-w-[320px] w-[min(320px,calc(100vw-3rem))]" : ""}`}
-                        style={!expandedPopupId ? { maxWidth: "240px" } : undefined}
-                    >
-                        <div className="flex items-center justify-between mb-1 px-1">
-                            {expandedPopupId ? (
-                                <>
-                                    <button
-                                        onClick={collapsePopup}
-                                        className="flex items-center gap-1.5 py-1 pr-2 rounded-lg hover:bg-gray-100 text-gray-700 text-sm font-medium"
-                                        aria-label="Back"
-                                    >
-                                        <ArrowLeft className="w-4 h-4" />
-                                        Back
-                                    </button>
-                                    <button
-                                        onClick={() => setPopupDismissed(true)}
-                                        className="p-0.5 rounded-full hover:bg-gray-100 text-gray-500"
-                                        aria-label="Dismiss"
-                                    >
-                                        <X className="w-3.5 h-3.5" />
-                                    </button>
-                                </>
-                            ) : (
-                                <>
-                                    <span className="text-xs font-semibold text-gray-700">Quick reels</span>
-                                    <button
-                                        onClick={() => setPopupDismissed(true)}
-                                        className="p-0.5 rounded-full hover:bg-gray-100 text-gray-500"
-                                        aria-label="Dismiss"
-                                    >
-                                        <X className="w-3.5 h-3.5" />
-                                    </button>
-                                </>
-                            )}
-                        </div>
+                    <>
+                        {popupCollapsed ? (
+                            <button
+                                onClick={() => setPopupCollapsed(false)}
+                                className="fixed bottom-[6rem] right-7 z-50 p-4 bg-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 border-r-0 hover:bg-gray-50 transition-colors"
+                                aria-label="Expand reels"
+                            >
+                                <ChevronLeft className="w-5 h-5 text-gray-700" />
+                            </button>
+                        ) : (
+                            <div
+                                ref={popupRef}
+                                className={`fixed bottom-[6rem] right-7 z-50 flex flex-col gap-2 p-3 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 transition-all duration-300 ${expandedPopupId ? "max-w-[320px] w-[min(320px,calc(100vw-3rem))]" : ""}`}
+                                style={!expandedPopupId ? { maxWidth: "240px" } : undefined}
+                            >
+                                <div className="flex items-center justify-between mb-1 px-1">
+                                    {expandedPopupId ? (
+                                        <>
+                                            <button
+                                                onClick={collapsePopup}
+                                                className="flex items-center gap-1.5 py-1 pr-2 rounded-lg hover:bg-gray-100 text-gray-700 text-sm font-medium"
+                                                aria-label="Back"
+                                            >
+                                                <ArrowLeft className="w-4 h-4" />
+                                                Back
+                                            </button>
+                                            <button
+                                                onClick={handleCollapse}
+                                                className="p-0.5 rounded-full hover:bg-gray-100 text-gray-500"
+                                                aria-label="Collapse"
+                                            >
+                                                <ChevronRight className="w-3.5 h-3.5" />
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <span className="text-xs font-semibold text-gray-700">Watch reels</span>
+                                            <button
+                                                onClick={handleCollapse}
+                                                className="p-0.5 rounded-full hover:bg-gray-100 text-gray-500"
+                                                aria-label="Collapse"
+                                            >
+                                                <ChevronRight className="w-3.5 h-3.5" />
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
 
                         {expandedPopupId ? (
                             <div className="flex flex-col gap-2">
@@ -254,7 +290,7 @@ export default function ReelGallery() {
                                                     href="/book-a-demo"
                                                     {...getButtonProps()}
                                                     onClick={handleBookDemoClick}
-                                                    className="mt-2 block w-full py-2.5 px-4 text-center text-sm font-semibold text-white bg-[#ff4c00] hover:bg-[#ff5a0f] rounded-xl transition-colors cursor-pointer"
+                                                    className="mt-2 block w-full py-2.5 px-4 text-center text-sm font-semibold text-white bg-[#ff4c00] hover:bg-[#ff5a0f] transition-colors cursor-pointer"
                                                 >
                                                     Book a Demo
                                                 </Link>
@@ -291,13 +327,15 @@ export default function ReelGallery() {
                                     href="/book-a-demo"
                                     {...getButtonProps()}
                                     onClick={handleBookDemoClick}
-                                    className="block w-full py-2.5 px-4 text-center text-sm font-semibold text-white bg-[#ff4c00] hover:bg-[#ff5a0f] rounded-xl transition-colors cursor-pointer"
+                                    className="block w-full py-2.5 px-4 text-center text-sm font-semibold text-white bg-[#ff4c00] hover:bg-[#ff5a0f] transition-colors cursor-pointer"
                                 >
                                     Book a Demo
                                 </Link>
                             </>
                         )}
-                    </div>
+                            </div>
+                        )}
+                    </>
                 )}
         </section>
     );

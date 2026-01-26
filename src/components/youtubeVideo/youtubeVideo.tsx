@@ -1,26 +1,26 @@
 "use client";
 import { useState } from "react";
-import { Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 const shorts = [
     {
         id: 1,
-        videoId: "r89JWWj7880",
+        videoId: "38RlLnPNtTY",
        
     },
     {
         id: 2,
-        videoId: "VyCPq7l4nh4",
+        videoId: "esns_i_hC54",
        
     },
     {
         id: 3,
-        videoId: "rR6SdGzDpKs",
+        videoId: "SdWPTpVZqYM",
       
     },
     {
         id: 4,
-        videoId: "h9_U-5bQDJg",
+        videoId: "3IWxKQP3Y88",
        
     },
 ];
@@ -33,7 +33,7 @@ export default function YouTubeVideo() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-5xl font-extrabold mb-3 text-black">
-                    Watch Flashfire <span className="text-[#F55D1D]">in Action</span>
+                    Watch Flashfire <span className="text-[#F55D1D]">Shorts</span>
                     </h2>
                     <p className="text-gray-600 text-lg font-semibold">
                     See how real users use Flashfire to land interviews faster and smarter.                    </p>
@@ -54,7 +54,7 @@ export default function YouTubeVideo() {
                                         <div
                                             className="absolute inset-0 bg-center bg-cover"
                                             style={{
-                                                backgroundImage: `url(https://img.youtube.com/vi/${short.videoId}/hqdefault.jpg)`,
+                                                backgroundImage: `url(https://img.youtube.com/vi/${short.videoId}/maxresdefault.jpg)`,
                                                 transform: "scale(1.4)",
                                             }}
                                         />
@@ -83,6 +83,9 @@ export default function YouTubeVideo() {
                             </div>
                         );
                     })}
+                </div>
+                <div className="flex justify-center mt-10">
+                  <a href="https://www.youtube.com/@flashfireindia/shorts" target="_blank" className="text-blue-500 hover:text-blue-600 flex items-center gap-2">Watch more on youtube <ArrowRight className="w-4 h-4" /></a>
                 </div>
             </div>
         </section>

@@ -82,9 +82,9 @@ const Home = () => {
       <YouTubeVideo />
       <HomePageDemoCTA />
      
-     
-      <Footer />
       <ReelGallery />
+      <Footer />
+      
       {/* <SalesPopUp /> */}
     </>
   );
