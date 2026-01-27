@@ -36,7 +36,7 @@ export default function YouTubeVideo() {
                     Watch Flashfire <span className="text-[#F55D1D]">Shorts</span>
                     </h2>
                     <p className="text-gray-600 text-lg font-semibold">
-                    See how real users use Flashfire to land interviews faster and smarter.                    </p>
+                    Relatable job-hunt moments that show what applying for jobs really feels like.                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
