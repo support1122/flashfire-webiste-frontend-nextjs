@@ -12617,7 +12617,7 @@ www.flashfirejobs.com
 },
 { id:67,
   slug:"us-job-market-for-international-students",
-  title:"US Job Market for International Students: Jobs, Visas, and Career Opportunities",
+  title:"US Job Market for International Students: Opportunities & Challenges",
   excerpt:`
   The US job market for international students is competitive, opportunity-rich, and heavily influenced by visa regulations. You can work in the U.S. in on-campus job roles, internships, CPT, OPT, and sometimes long-term sponsorship, too. 
 
@@ -12765,20 +12765,14 @@ On-Campus vs Off-Campus Employment Options
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-On-campus jobs such as
+On-campus jobs such as:
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
   <li>Library, dining hall, IT desk, research assistant, etc.</li>
+  <li>Allowed during studies (up to 20 hours a week)</li>
+  <li>No special authorisation needed</li>
 </ul>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
-Allowed during studies (up to 20 hours a week)
-</p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
-No special authorisation needed for this.
-</p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
 Off-campus jobs such as:
@@ -13190,20 +13184,20 @@ FAQs
     name:"Rachna Goyal",
     bio:"Career expert and resume strategist helping job seekers land their dream roles.",
   },
-  image:"https://res.cloudinary.com/dcrj8p79e/image/upload/v1769071433/Screenshot_2026-01-22_141150_ck41mi.png",
+  image:"https://res.cloudinary.com/drcka8x04/image/upload/v1769460571/How_to_Optimize_Your_Resume_for_ATS_Applicant_Tracking_Systems_oary0h.png",
   categoryColor:"",
   content:`
-
-<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-Introduction
-</h2>
 
 <p style="margin-bottom:12px; line-height:1.7;">
 How to optimize a resume for ATS and how to create an ATS-friendly resume have become two of the most important skills job seekers need today. Over 78% of large companies use applicant tracking systems today to filter resumes even before a human ever sees them.
 </p>
 
 <p style="margin-bottom:12px; line-height:1.7;">
-If your resume is not optimized, you might be rejected even if you’re highly qualified.
+If you are thinking about how to optimize your resume for ATS, the answer is quite simple: try using the right keywords, then follow ATS-friendly resume formatting, and match your resume closely to the job description. An optimized resume helps applicant tracking systems be able to read, rank, and forward your profile to the recruiters, giving you a real chance to get hired.
+</p>
+
+<p style="margin-bottom:12px; line-height:1.7;">
+If your resume is not optimized, you might be rejected even if you're highly qualified.
 </p>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13211,7 +13205,7 @@ So, why do even good candidates you know get filtered out?
 </p>
 
 <p style="margin-bottom:12px; line-height:1.7;">
-Let’s understand what an ATS is really looking for.
+Let's understand what an ATS is really looking for.
 </p>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13219,15 +13213,7 @@ And how can you beat them?
 </p>
 
 <p style="margin-bottom:12px; line-height:1.7;">
-Let’s break it down and help you get more interviews.
-</p>
-
-<p style="margin-bottom:12px; line-height:1.7;">
-If you are thinking about how to optimize your resume for ATS, the answer is quite simple: try using the right keywords, then follow ATS-friendly resume formatting, and match your resume closely to the job description.
-</p>
-
-<p style="margin-bottom:12px; line-height:1.7;">
-So, an optimized resume helps applicant tracking systems be able to read, rank, and forward your profile to the recruiters, giving you a real chance to get hired.
+Let's break it down and help you get more interviews.
 </p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
@@ -13320,7 +13306,7 @@ Your resume might have failed because:
 </ul>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-What is the difference between ATS screening and human review?
+What Is the Difference Between ATS Screening and Human Review?
 </h2>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13556,7 +13542,7 @@ Final Thoughts: How to Create an ATS-optimized Resume That Gets Interviews!
 </h2>
 
 <p style="margin-bottom:12px; line-height:1.7;">
-“Choosing the right resume optimization approach involves understanding how ATS systems work, using the right keywords, and keeping your resume simple, relevant, and readable.”
+Choosing the right resume optimization approach involves understanding how ATS systems work, using the right keywords, and keeping your resume simple, relevant, and readable.
 </p>
 
 <p style="margin-bottom:12px; line-height:1.7;">
@@ -13585,21 +13571,21 @@ FAQs
 </h2>
 
 <ol style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li style='margin-bottom:12px;'>What Is the Best Resume Format for ATS?<br />A single-column, simple layout using standard headings such as Summary, Experience, Skills, and Education works best.</li>
+  <li style='margin-bottom:12px;'><strong>What Is the Best Resume Format for ATS?</strong><br />A single-column, simple layout using standard headings such as Summary, Experience, Skills, and Education works best.</li>
 
-  <li style='margin-bottom:12px;'>How Many Keywords Should I Use to Optimize a Resume for ATS?<br />Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.</li>
+  <li style='margin-bottom:12px;'><strong>How Many Keywords Should I Use to Optimize a Resume for ATS?</strong><br />Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.</li>
 
-  <li style='margin-bottom:12px;'>Does ATS Reject PDF Resumes?<br />Some ATS systems struggle with PDFs. DOCX is usually the safest option.</li>
+  <li style='margin-bottom:12px;'><strong>Does ATS Reject PDF Resumes?</strong><br />Some ATS systems struggle with PDFs. DOCX is usually the safest option.</li>
 
-  <li style='margin-bottom:12px;'>Can ATS Read Two-Column Resumes?<br />Most ATS systems cannot read columns properly. Always use one column.</li>
+  <li style='margin-bottom:12px;'><strong>Can ATS Read Two-Column Resumes?</strong><br />Most ATS systems cannot read columns properly. Always use one column.</li>
 
-  <li style='margin-bottom:12px;'>How Do I Find the Right Keywords for ATS Optimization?<br />Use the job description. Look for repeated skills, tools, and job titles.</li>
+  <li style='margin-bottom:12px;'><strong>How Do I Find the Right Keywords for ATS Optimization?</strong><br />Use the job description. Look for repeated skills, tools, and job titles.</li>
 
-  <li style='margin-bottom:12px;'>Do ATS Systems Rank Resumes Automatically?<br />Yes. ATS assigns scores based on keyword match, experience, and structure.</li>
+  <li style='margin-bottom:12px;'><strong>Do ATS Systems Rank Resumes Automatically?</strong><br />Yes. ATS assigns scores based on keyword match, experience, and structure.</li>
 
-  <li style='margin-bottom:12px;'>Can the Same Resume Work for Every Job Application?<br />No. You should customize your resume for every role.</li>
+  <li style='margin-bottom:12px;'><strong>Can the Same Resume Work for Every Job Application?</strong><br />No. You should customize your resume for every role.</li>
 
-  <li style='margin-bottom:12px;'>How Often Should I Update My ATS-Optimized Resume?<br />Update it whenever you gain new skills, change roles, or apply for a different type of job.</li>
+  <li style='margin-bottom:12px;'><strong>How Often Should I Update My ATS-Optimized Resume?</strong><br />Update it whenever you gain new skills, change roles, or apply for a different type of job.</li>
 </ol>
 
 `,

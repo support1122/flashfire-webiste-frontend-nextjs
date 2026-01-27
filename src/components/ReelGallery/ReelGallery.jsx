@@ -257,7 +257,7 @@ export default function ReelGallery() {
                                         </>
                                     ) : (
                                         <>
-                                            <span className="text-xs font-semibold text-gray-700">Watch reels</span>
+                                            <span className="text-xs font-semibold text-gray-700">Land Interviews Faster</span>
                                             <button
                                                 onClick={handleCollapse}
                                                 className="p-0.5 rounded-full hover:bg-gray-100 text-gray-500"

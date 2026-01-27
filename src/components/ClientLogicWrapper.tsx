@@ -93,12 +93,10 @@ function ClientLogicWrapperContent({
         };
 
         const handleStrategyCallCard = () => {
-            if (!geoLoading && isFromIndia && !geoBypassActive) {
-                setShowGeoBlockModal(true);
-                setShowStrategyCallCard(false);
-            } else {
-                setShowStrategyCallCard(true);
-            }
+            // Skip StrategyCallCard pop-up and go directly to Calendly modal
+            // The useEffect will handle geo-blocking logic
+            setForceShowCalendlyModal(true);
+            setShowStrategyCallCard(false);
         };
 
         // Listen for custom events

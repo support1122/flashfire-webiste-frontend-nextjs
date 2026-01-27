@@ -16,7 +16,7 @@ export const usPricingPlans: PricingPlan[] = [
     title: "PRIME",
     subTitle: "160 Applications",
     description: "Your starter plan to begin applying",
-    price: "$119",
+    price: "$99",
     oldPrice: "$219",
     features: [
       "No Time Constraint",
@@ -26,7 +26,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/H7MMWP8SF27YN",
+    paymentLink: "https://www.paypal.com/ncp/payment/3M2MG4HGDJVL2",
   },
   {
     title: "IGNITE",
