@@ -56,156 +56,156 @@ export default function HomePageSteps() {
   return (
     <section className="bg-white py-12 px-6  text-center font-['Space_Grotesk',sans-serif]">
 
-          <div className="mx-auto max-w-6xl px-4 text-center">
+      <div className="mx-auto max-w-6xl px-4 text-center">
 
-            <h2 className="text-3xl md:text-4xl font-bold text-black">
-              How Flashfire's AI Job Automation Platform Works in 4 Simple Steps
-            </h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-black">
+          How Flashfire's AI Job Automation Platform Works in 4 Simple Steps
+        </h2>
 
-            <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
-              The process of finding a job is complicated and time-consuming.
-              Flashfire simplifies everything so you get interview calls faster
-              with minimum effort.
-            </p>
-      {/* Connector line – perfectly centered */}
-      {/* ================= STEPPER ================= */}
-      <div className="mt-20 mx-auto max-w-5xl">
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-0 items-start text-center">
+        <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
+          The process of finding a job is complicated and time-consuming.
+          Flashfire simplifies everything so you get interview calls faster
+          with minimum effort.
+        </p>
+        {/* Connector line – perfectly centered */}
+        {/* ================= STEPPER ================= */}
+        <div className="mt-20 mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-0 items-start text-center">
 
-          {/* STEP 1 */}
-          <div className="relative flex flex-col items-center">
-            {/* Circle */}
-            <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
-                1
+            {/* STEP 1 */}
+            <div className="relative flex flex-col items-center">
+              {/* Circle */}
+              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#ff4c00] shadow-md">
+                <div className="flex h-13 w-13 items-center justify-center rounded-full bg-white text-black text-xl font-semibold">
+                  1
+                </div>
+              </div>
+
+              {/* Line to step 2 */}
+              <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
+
+              <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
+                Share your personal details with us
+              </p>
+            </div>
+
+            {/* STEP 2 */}
+            <div className="relative flex flex-col items-center">
+              {/* Circle */}
+              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#ff4c00] shadow-md">
+                <div className="flex h-13 w-13 items-center justify-center rounded-full bg-white text-black text-xl font-semibold">
+                  2
+                </div>
+              </div>
+
+              {/* Line to step 3 */}
+              <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
+
+              <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
+                Team will work upon your resume + LinkedIn opt + cover letter
+              </p>
+            </div>
+
+            {/* STEP 3 */}
+            <div className="relative flex flex-col items-center">
+              {/* Circle */}
+              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#ff4c00] shadow-md">
+                <div className="flex h-13 w-13 items-center justify-center rounded-full bg-white text-black text-xl font-semibold">
+                  3
+                </div>
+              </div>
+
+
+              <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
+
+
+              <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
+                Team will submit 30-40 applications per day with optimized resume
+              </p>
+            </div>
+
+            {/* STEP 4 */}
+            <div className="relative flex flex-col items-center">
+              {/* Circle */}
+              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-black shadow-md">
+                <div className="flex h-13 w-13 items-center justify-center rounded-full bg-white text-[#ff4c00] text-xl font-semibold">
+                  4
+                </div>
+              </div>
+
+              <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
+                You will receive the interview calls and assessments
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+        <div className="mt-16 grid gap-6 mb-20 sm:grid-cols-2 lg:grid-cols-4">
+
+          {/* Card 1: Resume Tailoring */}
+          <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+            <div className="mb-4 flex justify-center">
+              <div className="rounded-lg border border-black bg-white p-3 flex items-center justify-center w-12 h-12">
+                <FileText className="h-6 w-6 text-[#ff4c00]" strokeWidth={2} />
               </div>
             </div>
-
-            {/* Line to step 2 */}
-            <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
-
-
-            <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
-              Share your personal details with us
+            <h3 className="text-lg font-bold text-black mb-3 text-center">
+              Resume Tailoring
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-700 text-center">
+              Your resume is customized for each role with role-specific keywords and formatting recruiters love.
             </p>
           </div>
 
-          {/* STEP 2 */}
-          <div className="relative flex flex-col items-center">
-            {/* Circle */}
-            <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
-                2
+          {/* Card 2: LinkedIn Optimization */}
+          <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+            <div className="mb-4 flex justify-center">
+              <div className="rounded-lg border border-black bg-white p-3 flex items-center justify-center w-12 h-12">
+                <FaLinkedin className="h-6 w-6 text-[#ff4c00]" strokeWidth={2} />
               </div>
             </div>
-
-            {/* Line to step 3 */}
-            <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
-
-
-            <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
-              Team will work upon your resume + LinkedIn opt + cover letter
+            <h3 className="text-lg font-bold text-black mb-3 text-center">
+              LinkedIn Optimization
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-700 text-center">
+              We rewrite your LinkedIn to stand out in U.S. recruiter searches, using AI-powered keyword matching.
             </p>
           </div>
 
-          {/* STEP 3 */}
-          <div className="relative flex flex-col items-center">
-            {/* Circle */}
-            <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
-                3
+          {/* Card 3: Smart Job Applications */}
+          <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+            <div className="mb-4 flex justify-center">
+              <div className="rounded-lg border border-black bg-white p-3 flex items-center justify-center w-12 h-12">
+                <Rocket className="h-6 w-6 text-[#ff4c00]" strokeWidth={2} />
               </div>
             </div>
-
-
-            <div className="hidden md:block absolute top-[28px] left-1/2 w-full h-px bg-gray-300" />
-
-
-            <p className="mt-5 max-w-[240px] text-sm font-medium text-black">
-              Team will submit 30-40 applications per day with optimized resume
+            <h3 className="text-lg font-bold text-black mb-3 text-center">
+              Smart Job Applications
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-700 text-center">
+              We apply to 1000+ curated jobs that match your goals, location, and visa needs — no spam, just precision.
             </p>
           </div>
 
-          {/* STEP 4 */}
-          <div className="relative flex flex-col items-center">
-            {/* Circle */}
-            <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white text-sm font-semibold">
-                4
+          {/* Card 4: Get Interview Calls */}
+          <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
+            <div className="mb-4 flex justify-center">
+              <div className="rounded-lg border border-black bg-white p-3 flex items-center justify-center w-12 h-12">
+                <PhoneCall className="h-6 w-6 text-[#ff4c00]" strokeWidth={2} />
               </div>
             </div>
-
-            <p className="mt-5 max-w-[200px] text-sm font-medium text-black">
-              You will receive the interview calls and assessments
+            <h3 className="text-lg font-bold text-black mb-3 text-center">
+              Get Interview Calls
+            </h3>
+            <p className="text-sm leading-relaxed text-gray-700 text-center">
+              Start receiving interview invites as we track and optimize every application. You focus on prep, we handle the hustle.
             </p>
           </div>
 
-
         </div>
-      </div>
-      <div className="mt-16 grid gap-6 mb-20 sm:grid-cols-2 lg:grid-cols-4">
-
-        {/* Card 1: Resume Tailoring */}
-        <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
-          <div className="mb-4 flex justify-center">
-            <div className="bg-[#10b981] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
-              <FileText className="h-5 w-5 text-white" strokeWidth={2.5} />
-            </div>
-          </div>
-          <h3 className="text-lg font-bold text-black mb-3 text-center">
-            Resume Tailoring
-          </h3>
-          <p className="text-sm leading-relaxed text-gray-700 text-center">
-            Your resume is customized for each role with role-specific keywords and formatting recruiters love.
-          </p>
-        </div>
-
-        {/* Card 2: LinkedIn Optimization */}
-        <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
-          <div className="mb-4 flex justify-center">
-            <div className="bg-[#ff4c00] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
-              <FaLinkedin className="h-5 w-5 text-white" />
-            </div>
-          </div>
-          <h3 className="text-lg font-bold text-black mb-3 text-center">
-            LinkedIn Optimization
-          </h3>
-          <p className="text-sm leading-relaxed text-gray-700 text-center">
-            We rewrite your LinkedIn to stand out in U.S. recruiter searches, using AI-powered keyword matching.
-          </p>
-        </div>
-
-        {/* Card 3: Smart Job Applications */}
-        <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
-          <div className="mb-4 flex justify-center">
-            <div className="bg-[#8b5cf6] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
-              <Rocket className="h-5 w-5 text-white" strokeWidth={2.5} />
-            </div>
-          </div>
-          <h3 className="text-lg font-bold text-black mb-3 text-center">
-            Smart Job Applications
-          </h3>
-          <p className="text-sm leading-relaxed text-gray-700 text-center">
-            We apply to 1000+ curated jobs that match your goals, location, and visa needs — no spam, just precision.
-          </p>
-        </div>
-
-        {/* Card 4: Get Interview Calls */}
-        <div className="rounded-xl bg-white px-6 py-8 shadow-md hover:shadow-lg transition-shadow">
-          <div className="mb-4 flex justify-center">
-            <div className="bg-[#ef4444] rounded-lg p-2.5 flex items-center justify-center w-12 h-12">
-              <PhoneCall className="h-5 w-5 text-white" strokeWidth={2.5} />
-            </div>
-          </div>
-          <h3 className="text-lg font-bold text-black mb-3 text-center">
-            Get Interview Calls
-          </h3>
-          <p className="text-sm leading-relaxed text-gray-700 text-center">
-            Start receiving interview invites as we track and optimize every application. You focus on prep, we handle the hustle.
-          </p>
-        </div>
-
-      </div>
       </div>
     </section>
   );
