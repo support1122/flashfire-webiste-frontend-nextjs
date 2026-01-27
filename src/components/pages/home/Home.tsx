@@ -54,12 +54,12 @@ const Home = () => {
     <>
       <Navbar />
       <HeroSection />
-    
+      <HomePageStatsCards />
       <HomePageSteps /> {/* using useState, so client */}
       <HomePageCareerCTA />
       <HomePageBeforeAfter />
       <HomePageResultStats />
-      <HomePageStatsCards />
+     
       <HomePageOfferLetters />
      
       <HomePageMilestones /> 

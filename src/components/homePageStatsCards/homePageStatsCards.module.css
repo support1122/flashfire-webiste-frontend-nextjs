@@ -1,5 +1,6 @@
 .statsSection {
-  background-color: #fff6f4;
+  background-color: #fff;
+  /* background-color: #f9e8e0; */
   padding: 3rem 2rem;
   text-align: center;
   font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
@@ -14,6 +15,7 @@
   margin: 0;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 2rem;
 }
 
 .statCard {
