@@ -46,6 +46,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "How to Search for a New Job: Step-by-Step Guide"
     : post.slug === "how-to-automate-job-applications"
     ? "How to Automate Job Applications | Job Application Automation"
+    : post.slug === "best-ai-job-application-tools"
+    ? "Best AI Job Application Tool in 2026 | Top AI Tools"
+    : post.slug === "linkedin-profile-attractive-to-recruiters"
+    ? "How to Make Your LinkedIn Profile Attractive to Recruiters"
     : `${post.title} | Flashfire Blog`;
   
   return {
