@@ -12,17 +12,14 @@ export default function BlogImagePreloader() {
     hasStartedRef.current = true;
 
     const preloadBlogImages = async () => {
-      // Extract all unique blog image URLs
+      // Extract all unique blog image URLs (post-level only).
+      // Author objects in blogsData currently don't include images, so we
+      // intentionally do not access author.image here to keep types safe.
       const blogImageUrls = Array.from(
         new Set(
           blogPosts
             .map((post) => post.image)
             .filter(Boolean)
-            .concat(
-              blogPosts
-                .map((post) => post.author?.image)
-                .filter(Boolean) as string[]
-            )
         )
       );
 
