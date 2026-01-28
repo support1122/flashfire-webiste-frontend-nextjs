@@ -12629,7 +12629,7 @@ Your success also depends on understanding visa rules, choosing the right indust
   readTime:"10 min",
   category:"job search strategy",
   author:{
-    name:"Rachna Goyal",
+    name:"Debashri Mandal",
     bio:"Career expert and resume strategist helping job seekers land their dream roles.",
   },
   image:"https://res.cloudinary.com/drcka8x04/image/upload/v1769200104/Screenshot_2026-01-24_at_1.57.35_AM_wmtobr.png",
@@ -13181,7 +13181,7 @@ FAQs
   readTime:"10 min",
   category:"job search strategy",
   author:{
-    name:"Rachna Goyal",
+    name:"Debashri Mandal",
     bio:"Career expert and resume strategist helping job seekers land their dream roles.",
   },
   image:"https://res.cloudinary.com/drcka8x04/image/upload/v1769460571/How_to_Optimize_Your_Resume_for_ATS_Applicant_Tracking_Systems_oary0h.png",
@@ -13600,7 +13600,7 @@ FAQs
   category:"Job Search Strategy",
   tags:["Job Search", "Career Tips", "Job Hunting", "Career Strategy"],
   author:{
-    name:"Rachna Goyal",
+    name:"Debashri Mandal",
     bio:"Career expert and resume strategist helping job seekers land their dream roles.",
   },
   image:"https://res.cloudinary.com/drcka8x04/image/upload/v1769198019/Screenshot_2026-01-24_at_1.23.32_AM_nf5crg.png",
@@ -13990,7 +13990,7 @@ FAQs
   category:"Job Search Strategy",
   tags:["Job Automation", "AI Tools", "Job Applications", "Career Strategy"],
   author:{
-    name:"Rachna Goyal",
+    name:"Debashri Mandal",
     bio:"Career expert and resume strategist helping job seekers land their dream roles.",
   },
   image:"https://res.cloudinary.com/drcka8x04/image/upload/v1769199240/Screenshot_2026-01-24_at_1.43.53_AM_kfdj0h.png",
@@ -14447,7 +14447,7 @@ FAQs
     category: "Job Search Strategy",
     tags: ["AI Tools", "Job Automation", "ATS Optimization", "Job Applications", "Career Strategy"],
     author: {
-      name: "Rachna Goyal",
+      name: "Debashri Mandal",
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
     image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769632070/best-ai-job-application-tools-to-automate-your-job-search_nf6nqr.jpg",
@@ -14989,7 +14989,7 @@ FAQs
     category: "Job Search Strategy",
     tags: ["LinkedIn Optimization", "Recruiter Visibility", "Job Search", "Career Strategy", "Professional Branding"],
     author: {
-      name: "Rachna Goyal",
+      name: "Debashri Mandal",
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
     image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769632414/how-to-make-your-linkedin-profile-attractive-to-recruiters_jbmjor.jpg",
