@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
-import Image from "next/image";
 import styles from "./blogsPage.module.css";
+import CachedBlogImage from "./CachedBlogImage";
 import {
   trackPageView,
   trackScrollDepth,
@@ -504,7 +504,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               {/* Category chips removed per request */}
               {/* === HERO IMAGE === */}
               <div className={styles.imageWrapper}>
-                <Image
+                <CachedBlogImage
                   src={post.image}
                   alt={post.title}
                   width={1200}
@@ -512,7 +512,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   className={styles.image}
                   priority
                   itemProp="image"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 />
               </div>
 
@@ -538,14 +538,14 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               <div className={styles.meta}>
                 <div className={styles.authorInfo} itemScope itemType="https://schema.org/Person">
                   {post.author?.image && (
-                    <Image
+                    <CachedBlogImage
                       src={post.author.image}
                       alt={post.author.name}
                       width={40}
                       height={40}
                       className={styles.authorImage}
                       itemProp="image"
-                      unoptimized
+                      sizes="40px"
                     />
                   )}
                   <div>
@@ -692,13 +692,13 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                         className={styles.recentPostLink}
                       >
                         <div className={styles.recentPostImage}>
-                          <Image
+                          <CachedBlogImage
                             src={recentPost.image}
                             alt={recentPost.title}
                             width={80}
                             height={60}
                             className={styles.recentPostImg}
-                            unoptimized
+                            sizes="80px"
                           />
                         </div>
                         <div className={styles.recentPostContent}>
@@ -727,13 +727,13 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                           className={styles.recentPostLink}
                         >
                           <div className={styles.recentPostImage}>
-                            <Image
+                            <CachedBlogImage
                               src={viewedPost.image}
                               alt={viewedPost.title}
                               width={80}
                               height={60}
                               className={styles.recentPostImg}
-                              unoptimized
+                              sizes="80px"
                             />
                           </div>
                           <div className={styles.recentPostContent}>
@@ -806,13 +806,13 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                   <article key={relatedPost.id} className={styles.relatedCard}>
                     <Link href={`/blog/${relatedPost.slug}`}>
                       <div className={styles.relatedImage}>
-                        <Image
+                        <CachedBlogImage
                           src={relatedPost.image}
                           alt={relatedPost.title}
                           width={400}
                           height={250}
                           className={styles.relatedImg}
-                          unoptimized
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                         />
                       </div>
                       <div className={styles.relatedContent}>

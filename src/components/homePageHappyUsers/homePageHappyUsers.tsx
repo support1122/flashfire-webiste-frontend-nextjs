@@ -4,6 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
+import CachedTestimonialImage from "./CachedTestimonialImage";
 
 // Helper function to optimize Cloudinary URLs for fast loading
 const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
@@ -295,8 +296,6 @@ export default function HomePageHappyUsers() {
           className="columns-5 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1"
         >
           {reviewImages.map((imageSrc, i) => {
-            const optimizedUrl = optimizeCloudinaryUrl(imageSrc, 800);
-            const isLoaded = loadedImages.has(i);
             const isEager = i < 8; // First 8 images load eagerly
             
             return (
@@ -308,23 +307,15 @@ export default function HomePageHappyUsers() {
                 data-index={i}
                 className="inline-block w-full mb-4 [break-inside:avoid] rounded-[0.6rem] overflow-hidden bg-[#fffaf8] shadow-[0_3px_10px_rgba(0,0,0,0.25)]"
               >
-                {isLoaded || isEager ? (
-                  <Image
-                    src={optimizedUrl}
-                    alt={`Flashfire user review ${i + 1}`}
-                    width={400}
-                    height={600}
-                    className="w-full h-auto object-contain block rounded-[0.4rem] transition-opacity duration-300"
-                    style={{ width: "100%", height: "auto" }}
-                    loading={isEager ? "eager" : "lazy"}
-                    unoptimized
-                    priority={isEager}
-                  />
-                ) : (
-                  <div className="w-full aspect-[2/3] bg-slate-200 animate-pulse rounded-[0.4rem] flex items-center justify-center">
-                    <div className="w-8 h-8 border-2 border-slate-400 border-t-transparent rounded-full animate-spin"></div>
-                  </div>
-                )}
+                <CachedTestimonialImage
+                  src={imageSrc}
+                  alt={`Flashfire user review ${i + 1}`}
+                  width={400}
+                  height={600}
+                  className="w-full h-auto object-contain block rounded-[0.4rem] transition-opacity duration-300"
+                  priority={isEager}
+                  sizes="(max-width: 400px) 100vw, (max-width: 600px) 50vw, (max-width: 900px) 33vw, (max-width: 1200px) 25vw, 20vw"
+                />
               </div>
             );
           })}
@@ -381,20 +372,16 @@ export default function HomePageHappyUsers() {
                       data-profile="true"
                       className="w-full h-full relative"
                     >
-                      {loadedProfileImages.has(index * 2) ? (
-                        <Image
-                          src={optimizeCloudinaryUrl(video.profileImage, 800)}
-                          alt={`${video.name} - Click to play video`}
-                          fill
-                          className="object-cover rounded-none cursor-pointer"
-                          onClick={() => handlePlay(index)}
-                          loading="eager"
-                          priority
-                          unoptimized
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gray-200 animate-pulse" />
-                      )}
+                      <CachedTestimonialImage
+                        src={video.profileImage}
+                        alt={`${video.name} - Click to play video`}
+                        width={800}
+                        height={1280}
+                        className="w-full h-full object-cover rounded-none cursor-pointer"
+                        onClick={() => handlePlay(index)}
+                        priority
+                        sizes="(max-width: 768px) 100vw, 320px"
+                      />
                     </div>
                     {/* Play Button Overlay */}
                     <div
@@ -418,24 +405,15 @@ export default function HomePageHappyUsers() {
                         data-profile="true"
                         className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50"
                       >
-                        {loadedProfileImages.has(index * 2 + 1) ? (
-                          <Image
-                            src={optimizeCloudinaryUrl(video.smallProfileImage, 100)}
-                            alt={video.name}
-                            width={40}
-                            height={40}
-                            className="w-full h-full object-cover"
-                            loading="eager"
-                            priority
-                            unoptimized
-                            onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-                              const target = e.currentTarget;
-                              target.style.display = "none";
-                            }}
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-gray-200 animate-pulse rounded-full" />
-                        )}
+                        <CachedTestimonialImage
+                          src={video.smallProfileImage}
+                          alt={video.name}
+                          width={40}
+                          height={40}
+                          className="w-full h-full object-cover rounded-full"
+                          priority
+                          sizes="40px"
+                        />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">
