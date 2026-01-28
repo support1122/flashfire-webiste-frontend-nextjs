@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { FaRegClock } from "react-icons/fa";
 import { BsCalendarEvent } from "react-icons/bs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import CachedBlogImage from "./CachedBlogImage";
 
 type Blog = {
   id: number;
@@ -50,13 +50,13 @@ export default function BlogCard({ blog }: { blog: Blog }) {
       >
         {/* === Image === */}
         <div className="w-full aspect-video overflow-hidden relative bg-[#f9f9f9] max-[768px]:aspect-[16/10]">
-          <Image
+          <CachedBlogImage
             src={blog.image}
             alt={blog.title}
             width={400}
             height={250}
             className="w-full h-full object-cover transition-transform duration-300 block"
-            unoptimized
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
 

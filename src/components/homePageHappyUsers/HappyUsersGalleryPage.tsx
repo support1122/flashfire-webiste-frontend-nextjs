@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { ALL_REVIEW_IMAGES } from "./homePageHappyUsers";
+import CachedTestimonialImage from "./CachedTestimonialImage";
 import HomePageMilestones from "@/src/components/homePageMilestones/homePageMilestones";
 import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
 
@@ -145,7 +146,6 @@ export default function HappyUsersGalleryPage() {
 
           <div className="columns-4 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1">
             {ALL_REVIEW_IMAGES.map((imageSrc, i) => {
-              const shouldLoad = visibleImages.has(i);
               const isEager = i < INITIAL_LOAD_COUNT;
               
               return (
@@ -158,23 +158,16 @@ export default function HappyUsersGalleryPage() {
                   className="inline-block w-full mb-4 [break-inside:avoid] rounded-[0.6rem] overflow-hidden bg-[#fffaf8] shadow-[0_3px_10px_rgba(0,0,0,0.25)] cursor-pointer hover:shadow-[0_5px_15px_rgba(0,0,0,0.35)] transition-all duration-300"
                   onClick={() => handleImageClick(i)}
                 >
-                  {shouldLoad ? (
-                    <Image
-                      src={imageSrc}
-                      alt={`Flashfire user review ${i + 1}`}
-                      width={400}
-                      height={600}
-                      className="w-full h-auto object-contain block rounded-[0.4rem]"
-                      loading={isEager ? "eager" : "lazy"}
-                      priority={isEager}
-                      quality={85}
-                      sizes="(max-width: 400px) 100vw, (max-width: 900px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    />
-                  ) : (
-                    <div className="w-full aspect-[2/3] bg-slate-100 rounded-[0.4rem] flex items-center justify-center min-h-[200px]">
-                      <div className="w-6 h-6 border-2 border-slate-300 border-t-transparent rounded-full animate-spin"></div>
-                    </div>
-                  )}
+                  <CachedTestimonialImage
+                    src={imageSrc}
+                    alt={`Flashfire user review ${i + 1}`}
+                    width={400}
+                    height={600}
+                    className="w-full h-auto object-contain block rounded-[0.4rem]"
+                    priority={isEager}
+                    sizes="(max-width: 400px) 100vw, (max-width: 900px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    onClick={() => handleImageClick(i)}
+                  />
                 </div>
               );
             })}
@@ -258,15 +251,18 @@ export default function HappyUsersGalleryPage() {
                 {/* Thumbnail Image Overlay - Show when video is not playing */}
                 {playingIndex !== index && (
                   <>
-                    <img
-                      src={video.profileImage}
-                      alt={`${video.name} - Click to play video`}
-                      className="w-full h-full object-cover rounded-none cursor-pointer"
-                      onClick={() => handlePlay(index)}
-                      loading="eager"
-                      decoding="async"
-                      style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-                    />
+                    <div style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
+                      <CachedTestimonialImage
+                        src={video.profileImage}
+                        alt={`${video.name} - Click to play video`}
+                        width={800}
+                        height={1280}
+                        className="w-full h-full object-cover rounded-none cursor-pointer"
+                        onClick={() => handlePlay(index)}
+                        priority
+                        sizes="(max-width: 768px) 100vw, 320px"
+                      />
+                    </div>
                     {/* Play Button Overlay */}
                     <div
                       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70px] h-[70px] rounded-full bg-black/60 text-white text-[2rem] font-bold flex justify-center items-center cursor-pointer transition-all duration-250 backdrop-blur-[2px] hover:bg-black/75 hover:scale-105 z-10"
@@ -281,18 +277,14 @@ export default function HappyUsersGalleryPage() {
                 <div className="absolute bottom-2 left-2 right-2 h-[5.5rem] bg-black border border-[#ff4c00] text-white text-left py-3 px-4 flex items-center z-20">
                   <div className="flex items-center gap-3 w-full h-full">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
-                      <img
+                      <CachedTestimonialImage
                         src={(video as any).smallProfileImage || video.profileImage}
                         alt={video.name}
                         width={40}
                         height={40}
                         className="w-full h-full object-cover rounded-full"
-                        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-                          const target = e.currentTarget;
-                          target.style.display = "none";
-                        }}
-                        loading="eager"
-                        decoding="async"
+                        priority
+                        sizes="40px"
                       />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">
