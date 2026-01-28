@@ -93,7 +93,7 @@ export default function HomePageFoundersNote() {
                   src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Adit.jpg"
                   alt="Adit Jain"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_30%]"
                   unoptimized
                 />
 
