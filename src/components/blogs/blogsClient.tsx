@@ -14,6 +14,13 @@ type BlogsClientProps = {
   tagSlug?: string;
 };
 
+// Widened blog post type so that optional metadata like tags/lastUpdated
+// don't break type compatibility when we enrich blogPosts.
+type BlogPostWithOptionalMeta = (typeof blogPosts)[number] & {
+  tags?: string[];
+  lastUpdated?: string;
+};
+
 // Function to generate default tags based on category and content
 function getDefaultTags(category: string, title: string, excerpt: string): string[] {
   const categoryTags: Record<string, string[]> = {
@@ -52,9 +59,9 @@ function getDefaultTags(category: string, title: string, excerpt: string): strin
 }
 
 // Lazy computation of blogs with tags - only compute when needed
-let blogsWithTagsCache: typeof blogPosts | null = null;
+let blogsWithTagsCache: BlogPostWithOptionalMeta[] | null = null;
 
-function getBlogsWithTags() {
+function getBlogsWithTags(): BlogPostWithOptionalMeta[] {
   if (blogsWithTagsCache) {
     return blogsWithTagsCache;
   }
@@ -71,20 +78,22 @@ function getBlogsWithTags() {
     
     // If blog already had tags, return with category added
     if (existingTags.length > 0) {
-      return {
+      const result: BlogPostWithOptionalMeta = {
         ...blog,
         tags: mergedTags,
       };
+      return result;
     }
     
     // If blog has no tags, generate relevant tags based on content
     const defaultTags = getDefaultTags(blog.category, blog.title, blog.excerpt || "");
     // Merge generated tags with category tag
     const allTags = [...new Set([...defaultTags, ...categoryTag])];
-    return {
+    const result: BlogPostWithOptionalMeta = {
       ...blog,
       tags: allTags,
     };
+    return result;
   });
   
   return blogsWithTagsCache;
