@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import HappyUsersGalleryPage from "@/src/components/homePageHappyUsers/HappyUsersGalleryPage";
-import ImagePreloader from "./ImagePreloader";
+import TestimonialImagePreloader from "@/src/components/homePageHappyUsers/TestimonialImagePreloader";
 
 export const metadata: Metadata = {
   title: "Success Stories & Testimonials | Flashfire",
@@ -71,7 +71,7 @@ export default function TestimonialsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
-      <ImagePreloader />
+      <TestimonialImagePreloader />
       <Navbar />
       <HappyUsersGalleryPage />
       <Footer />

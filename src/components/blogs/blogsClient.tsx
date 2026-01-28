@@ -14,6 +14,26 @@ type BlogsClientProps = {
   tagSlug?: string;
 };
 
+
+type BlogPostWithOptionalMeta = {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  lastUpdated?: string;
+  readTime: string;
+  category: string;
+  tags?: string[];
+  author: {
+    name: string;
+    bio: string;
+  };
+  image: string;
+  categoryColor: string;
+  content: string;
+};
+
 // Function to generate default tags based on category and content
 function getDefaultTags(category: string, title: string, excerpt: string): string[] {
   const categoryTags: Record<string, string[]> = {
@@ -51,33 +71,46 @@ function getDefaultTags(category: string, title: string, excerpt: string): strin
   return allTags.length > 0 ? allTags : ["Career Tips", "Job Search"]; // Fallback if no tags found
 }
 
-// Add tags to blogs - keep existing tags, add category as tag, or add relevant default tags if missing
-const blogsWithTags = blogPosts.map((blog) => {
-  const existingTags = blog.tags && blog.tags.length > 0 ? blog.tags : [];
-  
-  // Always include the blog's category as a tag for filtering
-  const categoryTag = blog.category ? [blog.category] : [];
-  
-  // Merge existing tags with category tag
-  const mergedTags = [...new Set([...existingTags, ...categoryTag])];
-  
-  // If blog already had tags, return with category added
-  if (existingTags.length > 0) {
-    return {
-      ...blog,
-      tags: mergedTags,
-    };
+// Lazy computation of blogs with tags - only compute when needed
+let blogsWithTagsCache: BlogPostWithOptionalMeta[] | null = null;
+
+function getBlogsWithTags(): BlogPostWithOptionalMeta[] {
+  if (blogsWithTagsCache) {
+    return blogsWithTagsCache;
   }
   
-  // If blog has no tags, generate relevant tags based on content
-  const defaultTags = getDefaultTags(blog.category, blog.title, blog.excerpt || "");
-  // Merge generated tags with category tag
-  const allTags = [...new Set([...defaultTags, ...categoryTag])];
-  return {
-    ...blog,
-    tags: allTags,
-  };
-});
+  // Compute only once and cache
+  const baseBlogs = blogPosts as unknown as BlogPostWithOptionalMeta[];
+
+  blogsWithTagsCache = baseBlogs.map((blog) => {
+    const existingTags = blog.tags && blog.tags.length > 0 ? blog.tags : [];
+    
+    // Always include the blog's category as a tag for filtering
+    const categoryTag = blog.category ? [blog.category] : [];
+    
+    // Merge existing tags with category tag
+    const mergedTags = [...new Set([...existingTags, ...categoryTag])];
+    
+    // If blog already had tags, return with category added
+    if (existingTags.length > 0) {
+      return {
+        ...blog,
+        tags: mergedTags,
+      };
+    }
+    
+    // If blog has no tags, generate relevant tags based on content
+    const defaultTags = getDefaultTags(blog.category, blog.title, blog.excerpt || "");
+    // Merge generated tags with category tag
+    const allTags = [...new Set([...defaultTags, ...categoryTag])];
+    return {
+      ...blog,
+      tags: allTags,
+    };
+  });
+  
+  return blogsWithTagsCache;
+}
 
 export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps = {}) {
   const searchParams = useSearchParams();
@@ -109,6 +142,9 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
     }
   }, [categorySlug, categoryParam]);
 
+  // Lazy load blogs with tags
+  const blogsWithTags = useMemo(() => getBlogsWithTags(), []);
+
   // All unique categories for chip display
   const allCategories = useMemo(() => {
     const set = new Set<string>();
@@ -118,7 +154,7 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
       }
     });
     return Array.from(set);
-  }, []);
+  }, [blogsWithTags]);
 
   // Helper function to parse date string (e.g., "Jan 15, 2025") to Date object
   const parseDate = (dateString: string): Date => {
@@ -136,11 +172,21 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
     }
   };
 
-  // Filter and sort blogs by date (newest first)
+  // Filter and sort blogs by date (newest first) - optimized for performance
   const filteredBlogs = useMemo(() => {
     const normalizedCategory = decodedCategory.toLowerCase().trim();
     const normalizedTag = decodedTag.toLowerCase().trim();
     const normalizedSearch = searchQuery.toLowerCase().trim();
+
+    // Early return if no filters
+    if (!normalizedCategory && !normalizedTag && !normalizedSearch) {
+      // Just sort all blogs - no filtering needed
+      return [...blogsWithTags].sort((a, b) => {
+        const dateA = parseDate(a.lastUpdated || a.date);
+        const dateB = parseDate(b.lastUpdated || b.date);
+        return dateB.getTime() - dateA.getTime();
+      });
+    }
 
     // Priority: category filter, then tag filter, else all
     let base = blogsWithTags;
@@ -200,7 +246,7 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
     });
 
     return sorted;
-  }, [decodedCategory, decodedTag, searchQuery]);
+  }, [decodedCategory, decodedTag, searchQuery, blogsWithTags]);
 
   // Scroll to header title when category or tag changes
   useEffect(() => {

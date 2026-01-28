@@ -5,6 +5,8 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import Script from "next/script";
 import { PHProvider } from "@/src/components/PostHogProvider";
 import WhatsAppButton from "@/src/components/WhatsAppButton/WhatsAppButton";
+import BlogImagePreloader from "@/src/components/BlogImagePreloader";
+import TestimonialImagePreloader from "@/src/components/homePageHappyUsers/TestimonialImagePreloader";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -161,6 +163,13 @@ export default function RootLayout({
           href="https://assets.calendly.com"
           crossOrigin="anonymous"
         />
+        {/* DNS prefetch and preconnect for Cloudinary (blog images) */}
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link
+          rel="preconnect"
+          href="https://res.cloudinary.com"
+          crossOrigin="anonymous"
+        />
       </head>
       <body
         suppressHydrationWarning
@@ -172,6 +181,8 @@ export default function RootLayout({
             <WhatsAppButton />
           </ClientLogicWrapper>
         </PHProvider>
+        <BlogImagePreloader />
+        <TestimonialImagePreloader />
         {/* Google Analytics - Load with lower priority */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"

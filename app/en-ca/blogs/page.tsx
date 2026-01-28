@@ -4,6 +4,10 @@ import BlogsClient from "@/src/components/blogs/blogsClient";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 
+// Force static generation for better performance
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export const metadata: Metadata = {
   title: "Blog - Career Tips, Job Search Advice & Industry Insights | Flashfire (Canada)",
   description:
