@@ -12875,7 +12875,7 @@ A lack of visa knowledge can lead to compliance issues, even after securing a jo
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>a. On F-1:</strong>
+<strong> On F-1:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12889,7 +12889,7 @@ A lack of visa knowledge can lead to compliance issues, even after securing a jo
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-CPT:
+<strong>a.CPT:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12899,7 +12899,7 @@ CPT:
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-OPT:
+<strong>b. OPT:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -14992,11 +14992,11 @@ FAQs
     image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769632414/how-to-make-your-linkedin-profile-attractive-to-recruiters_jbmjor.jpg",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
-<p style='margin-bottom:12px; line-height:1.7;'>
-If you're wondering how to make your LinkedIn profile attractive to recruiters, and how to increase recruiter visibility, then the answer is quite simple: optimize it for search, clarity, and relevance. Recruiters use keywords, filters, and profile signals to find candidates. When your profile speaks their language, you don't chase jobs—jobs find you.
+<p style="margin:0 0 1.125rem 0; font-size:0.9375rem; line-height:1.75; color:#374151;">
+If you're wondering how to make your LinkedIn profile attractive to recruiters, and how to increase recruiter visibility, the answer is straightforward: optimize it for search, clarity, and relevance. Recruiters use keywords, filters, and profile signals to find candidates. When your profile speaks their language, you don't chase jobs—jobs find you.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.5rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 So why aren't recruiters messaging you yet? And what are the top candidates doing differently?
 </p>
 
@@ -15004,44 +15004,45 @@ So why aren't recruiters messaging you yet? And what are the top candidates doin
 What Makes a LinkedIn Profile Attractive to Recruiters?
 </h2>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-An attractive LinkedIn profile for recruiters features clear role alignment, keyword optimization, and instant credibility. It quickly tells recruiters who you are, what you do, and why you're a fit, without forcing them to guess.
+<p style="margin:0 0 1rem 0; font-size:1rem; line-height:1.75; color:#374151;">
+An attractive LinkedIn profile for recruiters features clear role alignment, keyword optimization, and instant credibility. It quickly tells recruiters who you are, what you do, and why you're a fit—without forcing them to guess.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Let's break this down.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Recruiters don't browse LinkedIn randomly. They search with intent. Their goal is to shortlist relevant profiles in seconds.
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Sources:</strong><br />
-<li>LinkedIn – <a href="https://www.linkedin.com/business/sales/blog/profile-best-practices/17-steps-to-a-better-linkedin-profile-in-2017" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/business/sales/blog/profile-best-practices/17-steps-to-a-better-linkedin-profile-in-2017</a></li>
-<li>LinkedIn Blog – <a href="https://www.linkedin.com/blog/member/archive/7-secrets-to-attracting-recruiters-on-linkedin" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/blog/member/archive/7-secrets-to-attracting-recruiters-on-linkedin</a></li>
-<li>Forbes – <a href="https://www.forbes.com/sites/josephliu/2023/05/22/the-ultimate-guide-to-crafting-a-linkedin-profile-that-recruiters-love-advice-from-100-hiring-professionals/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.forbes.com/sites/josephliu/2023/05/22/the-ultimate-guide-to-crafting-a-linkedin-profile-that-recruiters-love-advice-from-100-hiring-professionals/</a></li>
-<li>National Career Service – <a href="https://nationalcareers.service.gov.uk/careers-advice/create-a-linkedin-profile/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://nationalcareers.service.gov.uk/careers-advice/create-a-linkedin-profile/</a></li>
-</ul
+<div style="margin:1.25rem 0; padding:1.125rem 1.25rem; background:#f8fafc; border-left:4px solid #0ea5e9; border-radius:0 8px 8px 0;">
+<p style="margin:0 0 0.625rem 0; font-size:0.8125rem; font-weight:600; color:#0c4a6e; letter-spacing:0.02em;">SOURCES</p>
+<ul style="margin:0; padding-left:1.25rem; font-size:0.9375rem; line-height:1.7; color:#475569;">
+  <li style="margin-bottom:0.5rem;"><a href="https://www.linkedin.com/business/sales/blog/profile-best-practices/17-steps-to-a-better-linkedin-profile-in-2017" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn – Profile best practices</a></li>
+  <li style="margin-bottom:0.5rem;"><a href="https://www.linkedin.com/blog/member/archive/7-secrets-to-attracting-recruiters-on-linkedin" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Blog – 7 secrets to attracting recruiters</a></li>
+  <li style="margin-bottom:0.5rem;"><a href="https://www.forbes.com/sites/josephliu/2023/05/22/the-ultimate-guide-to-crafting-a-linkedin-profile-that-recruiters-love-advice-from-100-hiring-professionals/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Forbes – LinkedIn profile guide from hiring professionals</a></li>
+  <li style="margin-bottom:0;"><a href="https://nationalcareers.service.gov.uk/careers-advice/create-a-linkedin-profile/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">National Career Service – Create a LinkedIn profile</a></li>
+</ul>
+</div>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
 What Recruiters Look for First
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Recruiters typically scan profiles in this order:
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Headline</li>
-  <li>Current role and company</li>
-  <li>Skills</li>
-  <li>About section</li>
-  <li>Activity level</li>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Headline</li>
+  <li style="margin-bottom:0.5rem;">Current role and company</li>
+  <li style="margin-bottom:0.5rem;">Skills</li>
+  <li style="margin-bottom:0.5rem;">About section</li>
+  <li style="margin-bottom:0.5rem;">Activity level</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 If these elements aren't optimized, your profile gets skipped even if you're qualified.
 </p>
 
@@ -15049,22 +15050,22 @@ If these elements aren't optimized, your profile gets skipped even if you're qua
 1. How Recruiters Search on LinkedIn, or How to Get Recruiters to Contact You on LinkedIn
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Recruiters use Boolean searches, filters, and keywords inside LinkedIn Recruiter tools. This is where LinkedIn SEO becomes critical.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 They search using:
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Job titles</li>
-  <li>Industry keywords and terms</li>
-  <li>Tools and technologies</li>
-  <li>Location and experience level</li>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Job titles</li>
+  <li style="margin-bottom:0.5rem;">Industry keywords and terms</li>
+  <li style="margin-bottom:0.5rem;">Tools and technologies</li>
+  <li style="margin-bottom:0.5rem;">Location and experience level</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 If your profile lacks industry keywords, it simply won't appear.
 </p>
 
@@ -15072,41 +15073,35 @@ If your profile lacks industry keywords, it simply won't appear.
 2. Average Profile vs Recruiter-Optimized Profile
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>a. Average profile:</strong>
-</p>
-
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Generic headline</li>
-  <li>Empty About section</li>
-  <li>Random skills</li>
-  <li>No activity</li>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>a. Average profile:</strong></p>
+<ul style="margin:0 0 1rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Generic headline</li>
+  <li style="margin-bottom:0.5rem;">Empty About section</li>
+  <li style="margin-bottom:0.5rem;">Random skills</li>
+  <li style="margin-bottom:0.5rem;">No activity</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>b. Recruiter-Optimized Profile:</strong>
-</p>
-
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Professional headline enriched with industry keywords</li>
-  <li>Clear value-driven summary</li>
-  <li>Targeted, role-specific skills</li>
-  <li>Consistent profile engagement</li>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>b. Recruiter-Optimized Profile:</strong></p>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Professional headline enriched with industry keywords</li>
+  <li style="margin-bottom:0.5rem;">Clear value-driven summary</li>
+  <li style="margin-bottom:0.5rem;">Targeted, role-specific skills</li>
+  <li style="margin-bottom:0.5rem;">Consistent profile engagement</li>
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
 3. Common Mistakes That Reduce Visibility
 </h3>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Using vague headlines like "Looking for Opportunities"</li>
-  <li>Skipping the About section</li>
-  <li>Stuffing keywords unnaturally</li>
-  <li>Poor profile photo quality</li>
-  <li>No recent activity or updates</li>
+<ul style="margin:0 0 1rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Using vague headlines like "Looking for Opportunities"</li>
+  <li style="margin-bottom:0.5rem;">Skipping the About section</li>
+  <li style="margin-bottom:0.5rem;">Stuffing keywords unnaturally</li>
+  <li style="margin-bottom:0.5rem;">Poor profile photo quality</li>
+  <li style="margin-bottom:0.5rem;">No recent activity or updates</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 These mistakes significantly decrease profile engagement with recruiters.
 </p>
 
@@ -15114,23 +15109,23 @@ These mistakes significantly decrease profile engagement with recruiters.
 4. Who Needs LinkedIn Optimization the Most?
 </h3>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Freshers entering the job market</li>
-  <li>Professionals with 3–10 years of experience</li>
-  <li>Career switchers</li>
-  <li>Freelancers and consultants</li>
-  <li>Anyone actively job hunting</li>
+<ul style="margin:0 0 1rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Freshers entering the job market</li>
+  <li style="margin-bottom:0.5rem;">Professionals with 3–10 years of experience</li>
+  <li style="margin-bottom:0.5rem;">Career switchers</li>
+  <li style="margin-bottom:0.5rem;">Freelancers and consultants</li>
+  <li style="margin-bottom:0.5rem;">Anyone actively job hunting</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-If recruiters aren't reaching out, LinkedIn profile optimization isn't optional, it's essential.
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
+If recruiters aren't reaching out, LinkedIn profile optimization isn't optional—it's essential.
 </p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 How Do Recruiters Find and Contact Candidates on LinkedIn?
 </h2>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Recruiters don't wait for applications. They proactively search. If you're asking how to get recruiters to contact you on LinkedIn, this section matters most.
 </p>
 
@@ -15138,18 +15133,18 @@ Recruiters don't wait for applications. They proactively search. If you're askin
 1. How the LinkedIn Search Algorithm Works
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 LinkedIn ranks profiles based on:
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Keyword relevance</li>
-  <li>Profile completeness</li>
-  <li>Activity and engagement</li>
-  <li>Network proximity</li>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Keyword relevance</li>
+  <li style="margin-bottom:0.5rem;">Profile completeness</li>
+  <li style="margin-bottom:0.5rem;">Activity and engagement</li>
+  <li style="margin-bottom:0.5rem;">Network proximity</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Profiles aligned with recruiter searches rank higher for recruiter visibility.
 </p>
 
@@ -15157,18 +15152,18 @@ Profiles aligned with recruiter searches rank higher for recruiter visibility.
 2. Why Keywords Matter Everywhere
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Keywords must appear in:
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Headline</li>
-  <li>About section</li>
-  <li>Experience descriptions</li>
-  <li>Skills section</li>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Headline</li>
+  <li style="margin-bottom:0.5rem;">About section</li>
+  <li style="margin-bottom:0.5rem;">Experience descriptions</li>
+  <li style="margin-bottom:0.5rem;">Skills section</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 This improves LinkedIn SEO and ensures your profile surfaces in searches.
 </p>
 
@@ -15176,11 +15171,11 @@ This improves LinkedIn SEO and ensures your profile surfaces in searches.
 3. Impact of the "Open to Work" Feature
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 The Open to Work feature signals recruiters that you're available. Profiles using it often see a noticeable increase in recruiter messages.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 You can enable it privately (visible only to recruiters) for discretion.
 </p>
 
@@ -15188,21 +15183,21 @@ You can enable it privately (visible only to recruiters) for discretion.
 4. Profile Completeness & Activity Signals
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 LinkedIn favours active users.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Recruiters are more likely to contact profiles that:
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Are 100% complete</li>
-  <li>Post or engage weekly</li>
-  <li>Update experience regularly</li>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Are 100% complete</li>
+  <li style="margin-bottom:0.5rem;">Post or engage weekly</li>
+  <li style="margin-bottom:0.5rem;">Update experience regularly</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 This boosts profile engagement and ranking.
 </p>
 
@@ -15210,19 +15205,11 @@ This boosts profile engagement and ranking.
 5. Real-World Examples
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>a. Freshers:</strong> Appear for "entry-level + skills" searches
-</p>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>a. Freshers:</strong> Appear for "entry-level + skills" searches</p>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>b. Experienced professionals:</strong> Rank for niche job titles</p>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>c. Career switchers:</strong> Show transferable skills in the About section</p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>b. Experienced professionals:</strong> Rank for niche job titles
-</p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>c. Career switchers:</strong> Show transferable skills in the About section
-</p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Recruiters don't guess—they filter.
 </p>
 
@@ -15230,7 +15217,7 @@ Recruiters don't guess—they filter.
 LinkedIn Profile Optimization Tips You Should Know
 </h2>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 This is where targeted LinkedIn profile optimization directly improves recruiter outreach.
 </p>
 
@@ -15238,40 +15225,40 @@ This is where targeted LinkedIn profile optimization directly improves recruiter
 1. Write a Keyword-Rich Professional Headline
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Your headline is your #1 visibility factor.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 A strong professional headline:
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Uses job title keywords</li>
-  <li>Mentions tools or specialization</li>
-  <li>Shows value, not fluff</li>
+<ul style="margin:0 0 1rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Uses job title keywords</li>
+  <li style="margin-bottom:0.5rem;">Mentions tools or specialization</li>
+  <li style="margin-bottom:0.5rem;">Shows value, not fluff</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Example:</strong><br />
-Digital Marketing Specialist | SEO & Paid Ads | Growth-Focused Marketer
-</p>
+<div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">Digital Marketing Specialist | SEO & Paid Ads | Growth-Focused Marketer</p>
+</div>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
 2. Optimize Your LinkedIn About Section
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Your LinkedIn About section should answer:
 </p>
 
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Who you help</li>
-  <li>What you do best</li>
-  <li>How do you create impact</li>
+<ul style="margin:0 0 1rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Who you help</li>
+  <li style="margin-bottom:0.5rem;">What you do best</li>
+  <li style="margin-bottom:0.5rem;">How you create impact</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Keep it scannable. Use short paragraphs or bullets.
 </p>
 
@@ -15279,21 +15266,18 @@ Keep it scannable. Use short paragraphs or bullets.
 3. Choose the Right Profile Photo and Banner
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Your profile photo and banner create first impressions.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Best practices:</strong>
-</p>
-
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Clear headshot with neutral background</li>
-  <li>Friendly expression</li>
-  <li>Banner highlighting skills, niche, or achievements</li>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>Best practices:</strong></p>
+<ul style="margin:0 0 1rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Clear headshot with neutral background</li>
+  <li style="margin-bottom:0.5rem;">Friendly expression</li>
+  <li style="margin-bottom:0.5rem;">Banner highlighting skills, niche, or achievements</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 LinkedIn reports profiles with photos get 14x more views.
 </p>
 
@@ -15301,62 +15285,53 @@ LinkedIn reports profiles with photos get 14x more views.
 4. Skills, Endorsements, and Experience Optimization
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Your skills and endorsements section helps recruiters validate fit.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Tips:</strong>
-</p>
-
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Add 15–25 relevant skills</li>
-  <li>Pin the top 3 skills</li>
-  <li>Ask colleagues for endorsements</li>
-  <li>Use keyword-rich experience descriptions</li>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>Tips:</strong></p>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Add 15–25 relevant skills</li>
+  <li style="margin-bottom:0.5rem;">Pin the top 3 skills</li>
+  <li style="margin-bottom:0.5rem;">Ask colleagues for endorsements</li>
+  <li style="margin-bottom:0.5rem;">Use keyword-rich experience descriptions</li>
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
 5. Custom LinkedIn URL & Settings
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 A custom URL improves credibility and searchability.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Example:</strong> linkedin.com/in/{yourname}
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
+<strong>Example:</strong> linkedin.com/in/yourname
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-Also ensure:
-</p>
-
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Location is updated</li>
-  <li>Job preferences are accurate</li>
-  <li>Recruiter visibility is enabled</li>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;">Also ensure:</p>
+<ul style="margin:0 0 1.125rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Location is updated</li>
+  <li style="margin-bottom:0.5rem;">Job preferences are accurate</li>
+  <li style="margin-bottom:0.5rem;">Recruiter visibility is enabled</li>
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
 6. Engagement Strategies That Boost Visibility
 </h3>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 0.75rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 You don't need to post daily.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Simple engagement ideas:</strong>
-</p>
-
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li>Comment on industry posts</li>
-  <li>Share insights once a week</li>
-  <li>React to recruiter content</li>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;"><strong>Simple engagement ideas:</strong></p>
+<ul style="margin:0 0 1rem 0; padding-left:1.5rem; font-size:1rem; line-height:1.75; color:#374151;">
+  <li style="margin-bottom:0.5rem;">Comment on industry posts</li>
+  <li style="margin-bottom:0.5rem;">Share insights once a week</li>
+  <li style="margin-bottom:0.5rem;">React to recruiter content</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.125rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 This increases profile engagement and keeps you visible.
 </p>
 
@@ -15364,45 +15339,58 @@ This increases profile engagement and keeps you visible.
 Choosing the Right LinkedIn Profile Strategy to Attract Recruiters
 </h2>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 To attract recruiters on LinkedIn, you need clarity, keywords, and consistency. Your profile should communicate value instantly, rank well in searches, and show an active professional presence.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Focus on optimization, not perfection. Small changes compound into real opportunities.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
+<p style="margin:0 0 1.25rem 0; font-size:1rem; line-height:1.75; color:#374151;">
 Recruiters are searching every day. Make sure they can find you.
 </p>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-To know more about increasing your LinkedIn profile views, try visiting – <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Profile Tips: How to Get Noticed by Recruiters</a>
-</p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
-For more information, you may visit <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">flashfirejobs.com</a>.
-</p>
+<div style="margin:1.25rem 0; padding:1.125rem 1.25rem; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#0c4a6e;">Related</p>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;">Learn more: <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Profile Tips: How to Get Noticed by Recruiters</a></p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;"><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">flashfirejobs.com</a></p>
+</div>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 FAQs
 </h2>
 
-<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <p style='margin-bottom:12px;'><strong>Q: How do I make my LinkedIn profile visible to recruiters?</strong><br /><strong>A: </strong> Use relevant keywords, complete all sections, enable Open to Work, and stay active weekly.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Why are recruiters not contacting me on LinkedIn?</strong><br /><strong>A: </strong> Most likely due to poor keyword alignment, weak headlines, or low activity.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Does "Open to Work" help recruiters find you?</strong><br /><strong>A: </strong> Yes. It increases recruiter visibility significantly.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How many keywords should I add to my LinkedIn profile?</strong><br /><strong>A: </strong> Enough to sound natural—usually 20–30 role-specific keywords across sections.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: What headline attracts recruiters the most?</strong><br /><strong>A: </strong> Clear job title + specialization + value statement.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How often should I update my LinkedIn profile?</strong><br /><strong>A: </strong> At least once every 2–3 months or when skills change.</p>
-                                                                                                                          
-  <p style='margin-bottom:12px;'><strong>Q: Does LinkedIn activity increase recruiter messages?</strong><br /><strong>A: </strong> Yes. Active profiles rank higher and get more views.</p>
-</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How do I make my LinkedIn profile visible to recruiters?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Use relevant keywords, complete all sections, enable Open to Work, and stay active weekly.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Why are recruiters not contacting me on LinkedIn?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Most likely due to poor keyword alignment, weak headlines, or low activity.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Does "Open to Work" help recruiters find you?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. It increases recruiter visibility significantly.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How many keywords should I add to my LinkedIn profile?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Enough to sound natural—usually 20–30 role-specific keywords across sections.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What headline attracts recruiters the most?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Clear job title + specialization + value statement.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How often should I update my LinkedIn profile?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> At least once every 2–3 months or when skills change.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Does LinkedIn activity increase recruiter messages?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. Active profiles rank higher and get more views.</p>
+  </div>
+</div>
 
 `,
   }
