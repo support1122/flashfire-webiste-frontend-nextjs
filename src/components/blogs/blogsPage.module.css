@@ -8,6 +8,7 @@
 
 /* Main container – card-style surface */
 .blogContainer {
+  font-family: Arial, sans-serif;
   background: #ffffff;
   border-radius: 16px;
   max-width: 1200px;

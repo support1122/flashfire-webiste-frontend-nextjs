@@ -349,36 +349,49 @@ export const blogPosts = [
         <p style='margin-bottom:12px; line-height:1.7;'>The task marketplace will not return to 2021–2022 anytime soon, however balance is returning, and 2026 could mark the beginning of a more confident hiring cycle. In the period in-between, focus on what you may control: your technique, your skills, and your persistence.</p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQ</h2>
-        
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work if you don't have any experience?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Employers look for people who have some work experience, even if it isn't official. To prove that you can do the job, focus on internships, volunteer work, and skills that can be used in other jobs.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work even if you have a degree?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Just because you have a degree doesn't mean you'll get a job. Employers care more about how well someone fits in with the culture, their skills, and their experience than their credentials. Many graduates end up doing jobs that have nothing to do with what they studied.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to find work?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> There are a lot of rounds in the process, ATS screening, but not much feedback. This makes things take longer and be more of a pain.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why do employers have such high standards?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Companies don't want to hire the wrong people, especially when the economy is bad. They make the hiring process long to find people who meet all of their needs, even for entry-level jobs.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How is the job market doing?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> The job market is made up of the number of jobs, the number of people looking for work, and the rules for hiring people.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it so hard to get a job?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Since 2023, it's been much harder to find a job because there are fewer openings, more people applying for each job, ghost jobs, layoffs from hiring too many people, and ATS screening.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Do workers have a lot of work to do?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Not at this time. The US is currently in a "low-hire, low-fire" phase, which means that employers are in charge.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How will the job market change?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Policy changes, interest rates, and events happening around the global market all results in the change of the job market.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. Why is it hard to find a job?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Businesses are being careful because the economy isn't stable, costs are high, and growth is slow. A lot of people are putting off hiring new people or only hiring people when they really need them.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q. How many people who graduated from college are now unemployed?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> By the end of 2025, the unemployment rate will be approximately 4.2%</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why is it so hard to find work if you don't have any experience?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Employers look for people who have some work experience, even if it isn't official. To prove that you can do the job, focus on internships, volunteer work, and skills that can be used in other jobs.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why is it so hard to find work even if you have a degree?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Just because you have a degree doesn't mean you'll get a job. Employers care more about how well someone fits in with the culture, their skills, and their experience than their credentials. Many graduates end up doing jobs that have nothing to do with what they studied.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why is it so hard to find work?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> There are a lot of rounds in the process, ATS screening, but not much feedback. This makes things take longer and be more of a pain.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why do employers have such high standards?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Companies don't want to hire the wrong people, especially when the economy is bad. They make the hiring process long to find people who meet all of their needs, even for entry-level jobs.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How is the job market doing?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> The job market is made up of the number of jobs, the number of people looking for work, and the rules for hiring people.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why is it so hard to get a job?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Since 2023, it's been much harder to find a job because there are fewer openings, more people applying for each job, ghost jobs, layoffs from hiring too many people, and ATS screening.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Do workers have a lot of work to do?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Not at this time. The US is currently in a "low-hire, low-fire" phase, which means that employers are in charge.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How will the job market change?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Policy changes, interest rates, and events happening around the global market all results in the change of the job market.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why is it hard to find a job?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Businesses are being careful because the economy isn't stable, costs are high, and growth is slow. A lot of people are putting off hiring new people or only hiring people when they really need them.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How many people who graduated from college are now unemployed?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> By the end of 2025, the unemployment rate will be approximately 4.2%</p>
+  </div>
+</div>
       `,
   },
   {
@@ -1211,15 +1224,21 @@ export const blogPosts = [
         <p style='margin-bottom:12px; line-height:1.7;'>These are the best job portal tips that help both sides save time and find better matches.</p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs For Best Job Portals In The US</h2>
-        
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 1. What Are The Best Us Job Portals?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> LinkedIn Jobs, Glassdoor, and USAJobs are some of the best job sites in the US, that's for sure.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 2. Are There Free Us Job Portals For Recruitment?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> There are a lot of free job boards in the US, such as Indeed's free listings and state workforce portals.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 3. What Are The Benefits Of Niche Job Boards?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> A niche job portal helps people with specific skills to apply for specialized jobs and makes the process fast and productive.</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 1. What Are The Best Us Job Portals?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> LinkedIn Jobs, Glassdoor, and USAJobs are some of the best job sites in the US, that's for sure.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 2. Are There Free Us Job Portals For Recruitment?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> There are a lot of free job boards in the US, such as Indeed's free listings and state workforce portals.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 3. What Are The Benefits Of Niche Job Boards?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> A niche job portal helps people with specific skills to apply for specialized jobs and makes the process fast and productive.</p>
+  </div>
+</div>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Conclusion</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>Job portals have become a key element in the hiring process all over the world. Recruiters and job seekers utilize US job portals every year. Using job portals effectively helps not just the job seekers but also employers and makes the entire hiring process better and productive.</p>
@@ -1429,15 +1448,21 @@ export const blogPosts = [
         <p style='margin-bottom:12px; line-height:1.7;'>To get an internship in the US, you need a plan, not just perfection. It's essential to have the knowledge about what an internship is, use the right internship posting sites, apply broadly but thoughtfully, and back it up with an excellent application, internship resume, and interview tips.</p>
 
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs On How to Land an Internship with no Experience</h2>
-        
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 1. How to get an internship with no experience?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Emphasize coursework, projects, volunteer work, and campus involvement. A compelling story, a good resume, and good applications are the keys to securing an internship when one has no experience.</p>
 
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 2. How can I prepare for an internship?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Research the company to obtain information on key skills for the position you have applied for. Follow general internship advice that includes being on time and asking questions.</p>
-
-        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 3. What GPA do I need for an internship?</h3>
-        <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Many programs will accept students if their GPA is a 3.0 or higher, but skills, accomplishments, or motivation may mean more than grades. In more competitive programs, excellent grades will always be an asset but not the sole deciding factor.</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 1. How to get an internship with no experience?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Emphasize coursework, projects, volunteer work, and campus involvement. A compelling story, a good resume, and good applications are the keys to securing an internship when one has no experience.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 2. How can I prepare for an internship?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Research the company to obtain information on key skills for the position you have applied for. Follow general internship advice that includes being on time and asking questions.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 3. What GPA do I need for an internship?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Many programs will accept students if their GPA is a 3.0 or higher, but skills, accomplishments, or motivation may mean more than grades. In more competitive programs, excellent grades will always be an asset but not the sole deciding factor.</p>
+  </div>
+</div>
   `,
   },
   {
@@ -5039,14 +5064,12 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. Build Income Readiness — Don't Wait for the Crisis</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Your first line of defence is earning capability.</p>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <h3 style="font-weight:bold; margin-bottom:8px;">Example:</h3>
-      <p style='margin-bottom:12px; line-height:1.7;'>Ritika, a computer science student at Northeastern University, lost half her tuition funding midway through her master's. Instead of scrambling, she activated her <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> job automation plan — already running quietly in the background.</p>
-      
-      <p style='margin-bottom:12px; line-height:1.7;'>Within 10 days, she secured an on-campus assistantship and a remote project with a startup in California. Her academic journey continued uninterrupted.</p>
-      
-      <p style='margin-bottom:12px; line-height:1.7;'>That's income readiness — not luck. It's the ability to pivot immediately because your opportunities were already in motion.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;">Ritika, a computer science student at Northeastern University, lost half her tuition funding midway through her master's. Instead of scrambling, she activated her <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> job automation plan — already running quietly in the background.</p>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;">Within 10 days, she secured an on-campus assistantship and a remote project with a startup in California. Her academic journey continued uninterrupted.</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">That's income readiness — not luck. It's the ability to pivot immediately because your opportunities were already in motion.</p>
+</div>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>How to build yours:</strong></p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -5062,12 +5085,11 @@ export const blogPosts = [
     
     <p style='margin-bottom:12px; line-height:1.7;'>Employers and recruiters respond to clarity: demonstrable skills, measurable outcomes, and active presence.</p>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <h3 style="font-weight:bold; margin-bottom:8px;">Example:</h3>
-      <p style='margin-bottom:12px; line-height:1.7;'>Yusuf, a data analytics student in Texas, used <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> to refine his résumé and LinkedIn presence before his family's business back home faced a downturn.</p>
-      
-      <p style='margin-bottom:12px; line-height:1.7;'>When the financial pressure came, his portfolio and active network meant he wasn't starting from zero — he had recruiters already reaching out. Within weeks, he accepted a paid internship that covered his tuition balance.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;">Yusuf, a data analytics student in Texas, used <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> to refine his résumé and LinkedIn presence before his family's business back home faced a downturn.</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">When the financial pressure came, his portfolio and active network meant he wasn't starting from zero — he had recruiters already reaching out. Within weeks, he accepted a paid internship that covered his tuition balance.</p>
+</div>
     
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Action steps:</strong></p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -5491,9 +5513,10 @@ export const blogPosts = [
       <li>Share your project online — recruiters notice initiative.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A graduate student analysed campus dining data and visualized usage patterns. That project became the centrepiece of her résumé and led to a data-analyst role within weeks.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A graduate student analysed campus dining data and visualized usage patterns. That project became the centrepiece of her résumé and led to a data-analyst role within weeks.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Cybersecurity</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5507,9 +5530,10 @@ export const blogPosts = [
       <li>Apply for SOC-analyst or risk-compliance roles to get hands-on early.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A senior created a virtual-lab project and documented it on LinkedIn. A cybersecurity recruiter noticed — and offered him an interview the same week.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A senior created a virtual-lab project and documented it on LinkedIn. A cybersecurity recruiter noticed — and offered him an interview the same week.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Cloud & DevOps Engineering</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5523,9 +5547,10 @@ export const blogPosts = [
       <li>Show scalability thinking — employers value optimization stories.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A student automated a research-data upload process using AWS Lambda. That single project helped her secure a DevOps internship offer.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A student automated a research-data upload process using AWS Lambda. That single project helped her secure a DevOps internship offer.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Artificial Intelligence & Machine Learning</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5539,9 +5564,10 @@ export const blogPosts = [
       <li>Highlight impact: "Automated X task, saving Y hours per week."</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A mechanical-engineering student built a chatbot for her department's website. That simple project led to an AI analyst internship.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A mechanical-engineering student built a chatbot for her department's website. That simple project led to an AI analyst internship.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. UX & Product Design</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5555,9 +5581,10 @@ export const blogPosts = [
       <li>Build a concise portfolio (2–3 solid case studies are enough).</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A psychology major redesigned a campus app's onboarding flow, improving task completion by 18%. That project landed her a UX internship.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A psychology major redesigned a campus app's onboarding flow, improving task completion by 18%. That project landed her a UX internship.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Healthcare & Health Technology</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5570,9 +5597,10 @@ export const blogPosts = [
       <li>Target hybrid roles like Clinical Data Analyst or Digital Health Coordinator.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A public-health student analysed readmission data during her internship and presented cost-reduction insights. The hospital offered her a full-time role on the analytics team.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A public-health student analysed readmission data during her internship and presented cost-reduction insights. The hospital offered her a full-time role on the analytics team.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. Renewable Energy & Sustainability</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5585,9 +5613,10 @@ export const blogPosts = [
       <li>Track measurable impact — companies love practical results.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> An engineering student helped design a solar-usage tracker for his university. That project opened doors to an energy-analytics role.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">An engineering student helped design a solar-usage tracker for his university. That project opened doors to an energy-analytics role.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Digital Marketing & Growth Analytics</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5601,9 +5630,10 @@ export const blogPosts = [
       <li>Build a visual portfolio with screenshots and dashboards.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A marketing student managed social-media ads for her university's club, driving record attendance. That success helped her secure a growth-analyst position after graduation.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A marketing student managed social-media ads for her university's club, driving record attendance. That success helped her secure a growth-analyst position after graduation.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. Supply Chain & Operations Management</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5616,9 +5646,10 @@ export const blogPosts = [
       <li>Focus on quantifiable improvements — time saved, cost reduced.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> An industrial-engineering student built a predictive model for shipment delays. That project became the highlight of his résumé and led to a logistics-analyst role.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">An industrial-engineering student built a predictive model for shipment delays. That project became the highlight of his résumé and led to a logistics-analyst role.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. Business & Product Strategy</h2>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Why It's Booming</strong></p>
@@ -5631,9 +5662,10 @@ export const blogPosts = [
       <li>Emphasize impact: outcomes achieved, not tasks completed.</li>
     </ul>
     
-    <div style="background:#f8f9fa; padding:16px; border-radius:8px; margin:16px 0;">
-      <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A business-major intern managed beta feedback for a startup product. Her initiative led to a full-time associate product-manager offer.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">A business-major intern managed beta feedback for a startup product. Her initiative led to a full-time associate product-manager offer.</p>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">The Bigger Picture</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>The U.S. job market is shifting — and that's good news for adaptable students.</p>
@@ -6166,9 +6198,10 @@ export const blogPosts = [
     </ul>
 
     <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Elevator Pitch Example:</h4>
-    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-      <p style='margin-bottom:8px; line-height:1.6;'>"Hi, I'm [Name], a [Degree] graduate with experience in [Skill/Project]. I'm passionate about [Industry/Role] and noticed your company is working on [Specific Project]. I'd love to contribute my skills and learn about potential opportunities."</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">"Hi, I'm [Name], a [Degree] graduate with experience in [Skill/Project]. I'm passionate about [Industry/Role] and noticed your company is working on [Specific Project]. I'd love to contribute my skills and learn about potential opportunities."</p>
+</div>
 
     <p style='margin-bottom:12px; line-height:1.7;'>Even virtual events can create meaningful connections when approached strategically.</p>
 
@@ -6265,9 +6298,10 @@ export const blogPosts = [
     <p style='margin-bottom:12px; line-height:1.7;'>Gone are the days of bland objectives like "Seeking a position where I can apply my skills." Recruiters want quick clarity about who you are, what you bring, and what you've achieved.</p>
 
     <h4 class="text-lg font-semibold text-gray-700 mt-6 mb-3">Example:</h4>
-    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-orange-500">
-      <p style='margin-bottom:8px; line-height:1.6;'>Data Analyst with hands-on experience in Python, SQL, and Tableau. Improved reporting efficiency by 40% through automated dashboards. F-1 student, OPT eligible through 2027.</p>
-    </div>
+    <div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">Data Analyst with hands-on experience in Python, SQL, and Tableau. Improved reporting efficiency by 40% through automated dashboards. F-1 student, OPT eligible through 2027.</p>
+</div>
     
     <p style='margin-bottom:12px; line-height:1.7;'>That single paragraph tells the recruiter you're skilled, quantifiable, and legally ready to work—all in two sentences.</p>
 
@@ -8352,21 +8386,29 @@ Best regards,
     <p style='margin-bottom:12px; line-height:1.7;'>There is no such thing as a "set in stone" resume. As you get better at your job and move up in your career, it changes. Update it like a living document so you can stay ahead of the game.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs On Best Resume Tips</h2>
-    
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 1. What is the best US resume format?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> The standard US resume format is reverse-chronological with clear sections and bullet points.</p>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 2. Are ATS resume optimization tips necessary?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Yes. ATS resume optimization tips ensure your resume passes automated screening systems.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 3. Can I use Google Docs for US resumes?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Yes. Many google resume tips recommend Google Docs for clean, ATS-friendly resumes.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 4. Are Harvard resume tips useful?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Yes. Harvard resume tips emphasize clarity, impact, and measurable results.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 5. Should students keep resumes to one page?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Yes. Most tips for the best resume recommend one page for students and early-career professionals.</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 1. What is the best US resume format?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> The standard US resume format is reverse-chronological with clear sections and bullet points.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 2. Are ATS resume optimization tips necessary?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes. ATS resume optimization tips ensure your resume passes automated screening systems.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 3. Can I use Google Docs for US resumes?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes. Many google resume tips recommend Google Docs for clean, ATS-friendly resumes.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 4. Are Harvard resume tips useful?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes. Harvard resume tips emphasize clarity, impact, and measurable results.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 5. Should students keep resumes to one page?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes. Most tips for the best resume recommend one page for students and early-career professionals.</p>
+  </div>
+</div>
   `,
   },
   {
@@ -8533,21 +8575,29 @@ Best regards,
     <p style='margin-bottom:12px; line-height:1.7;'>In case you are a job seeker checking out the best job portals in the USA or an employer seeking to utilize job portals tactics for staffing, the key to success is having a good understanding of the proper functioning of these systems and their use in a strategic way. It is going to be a continuous process to stay informed and flexible as technology continues to change the landscape of online job portals and thus the future workforce has to be prepared to adapt.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs on US Job Portals</h2>
-    
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 1. What is a job portal?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> A job portal is a site that connects job seekers and employers by collecting all job offers, applications, resumes, and recruitment tools and making them easily available in one place.</p>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 2. What is the primary purpose of job portals?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> The primary objective is to streamline the whole hiring process through a platform that not only makes it easier for candidates to apply for and discover jobs but also lets employers post jobs, screen applicants, and manage the hiring process quickly and efficiently.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 3. What are the best job portals in the USA?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> The leading job portals in the USA are Indeed, LinkedIn Jobs, Glassdoor, ZipRecruiter, Monster, CareerBuilder, FlexJobs, and Wellfound which have different characteristics attracting different sectors and professional levels.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 4. Are there free job posting portals for employers?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Indeed, Glassdoor, and LinkedIn are among the platforms that permit free basic job postings, nevertheless, paid ones provide more visibility and access to a bigger pool of candidates.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 5. Why are job portals important?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Job portals are important because companies are using AI tools to save time, to get more people to see the job, to reduce hiring bias, and to give transparent access to millions of job seekers and employers.</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 1. What is a job portal?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> A job portal is a site that connects job seekers and employers by collecting all job offers, applications, resumes, and recruitment tools and making them easily available in one place.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 2. What is the primary purpose of job portals?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> The primary objective is to streamline the whole hiring process through a platform that not only makes it easier for candidates to apply for and discover jobs but also lets employers post jobs, screen applicants, and manage the hiring process quickly and efficiently.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 3. What are the best job portals in the USA?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> The leading job portals in the USA are Indeed, LinkedIn Jobs, Glassdoor, ZipRecruiter, Monster, CareerBuilder, FlexJobs, and Wellfound which have different characteristics attracting different sectors and professional levels.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 4. Are there free job posting portals for employers?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Indeed, Glassdoor, and LinkedIn are among the platforms that permit free basic job postings, nevertheless, paid ones provide more visibility and access to a bigger pool of candidates.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 5. Why are job portals important?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Job portals are important because companies are using AI tools to save time, to get more people to see the job, to reduce hiring bias, and to give transparent access to millions of job seekers and employers.</p>
+  </div>
+</div>
   `,
   },
   {
@@ -8662,15 +8712,21 @@ Best regards,
     <p style='margin-bottom:12px; line-height:1.7;'>To get an internship in the US, you need a plan, not just perfection. It's essential to have the knowledge about what an internship is, use the right internship posting sites, apply broadly but thoughtfully, and back it up with an excellent application, internship resume, and interview tips.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs On How to Land an Internship with no Experience</h2>
-    
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 1. How to get an internship with no experience?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Emphasize coursework, projects, volunteer work, and campus involvement. A compelling story, a good resume, and good applications are the keys to securing an internship when one has no experience.</p>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 2. How can I prepare for an internship?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Research the company to obtain information on key skills for the position you have applied for. Follow general internship advice that includes being on time and asking questions.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Q 3. What GPA do I need for an internship?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>Ans.</strong> Many programs will accept students if their GPA is a 3.0 or higher, but skills, accomplishments, or motivation may mean more than grades. In more competitive programs, excellent grades will always be an asset but not the sole deciding factor.</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 1. How to get an internship with no experience?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Emphasize coursework, projects, volunteer work, and campus involvement. A compelling story, a good resume, and good applications are the keys to securing an internship when one has no experience.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 2. How can I prepare for an internship?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Research the company to obtain information on key skills for the position you have applied for. Follow general internship advice that includes being on time and asking questions.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q 3. What GPA do I need for an internship?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Many programs will accept students if their GPA is a 3.0 or higher, but skills, accomplishments, or motivation may mean more than grades. In more competitive programs, excellent grades will always be an asset but not the sole deciding factor.</p>
+  </div>
+</div>
   `,
   },
   {
@@ -8698,7 +8754,7 @@ Best regards,
     <p style='margin-bottom:12px; line-height:1.7;'>Thus, if your approach remains: "Apply frequently and hope something sticks." We've never seen a market as noisy as the one you're in.</p>
     <p style='margin-bottom:12px; line-height:1.7;'>The best AI job search tools, the new hiring trends, and a workable, repeatable method to get more interviews without coming across as a bot are all covered in this guide.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">A) What has changed in the 2026 job market?</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> What has changed in the 2026 job market?</h2>
     
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Although "busy," the market is not "responsive."</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Recruiters become overburdened when applications surpass available positions. Applications are growing far more quickly than jobs, according to Workday's data, and businesses are increasingly using AI to get by.</p>
@@ -8716,7 +8772,7 @@ Best regards,
     <p style='margin-bottom:12px; line-height:1.7;'>39% of current skill sets are predicted to change or become obsolete between 2025 and 2030, according to the World Economic Forum's Future of Jobs Report 2025, which also highlights rapidly expanding skills like cybersecurity, AI & big data, and technology literacy.</p>
     <p style='margin-bottom:12px; line-height:1.7;'>Translation: more and more, employers are looking for evidence of skills rather than just a resume.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">B. The AI Job Search Stack: Useful Resources</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> The AI Job Search Stack: Useful Resources</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Consider the job search as a pipeline:</p>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>Find → Select → Bundle → Apply → Monitor → Track → Enhance</strong></p>
     <p style='margin-bottom:12px; line-height:1.7;'>AI is most helpful when it lowers repetitive tasks and enhances signal quality.</p>
@@ -8770,7 +8826,7 @@ Best regards,
     </ul>
     <p style='margin-bottom:12px; line-height:1.7;'>This is how you create a system out of a chaotic job search.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">C. The Biggest Employment Trends in 2026</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> The Biggest Employment Trends in 2026</h2>
     
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Trend 1: "AI vs. AI" is the new standard.</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>AI helps applicants apply more quickly. AI helps recruiters screen more quickly. Because of this, generic AI resumes are being penalised: if 1,000 applicants use the same format, recruiters (as well as models) will learn to disregard them.</p>
@@ -8795,7 +8851,7 @@ Best regards,
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Trend 5: "AI literacy" is important to recruiters.</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>AI tools are reshaping every role, not because everyone must be an ML engineer. The WEF report specifically lists AI-related skills as one of the rapidly expanding categories.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">D. A Useful AI-Powered Workflow for Job Searching (2026 Edition)</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> A Useful AI-Powered Workflow for Job Searching (2026 Edition)</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>This system is effective even in a noisy market:</p>
 
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Step 1: Select 1-2 target roles instead of 8</h3>
@@ -8848,7 +8904,7 @@ Best regards,
     </ul>
     <p style='margin-bottom:12px; line-height:1.7;'>Finding a job is an experiment. Be mindful of it.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">E. ATS-Friendly Resume Approach (Free of Keyword Stuffing)</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> ATS-Friendly Resume Approach (Free of Keyword Stuffing)</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>If most big companies employ ATS, your resume needs to be both human-friendly and machine-readable.</p>
     <p style='margin-bottom:12px; line-height:1.7;'><strong>ATS checklist for 2026:</strong></p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -8874,7 +8930,7 @@ Best regards,
     </ul>
     <p style='margin-bottom:12px; line-height:1.7;'>AI ought to assist you in writing like a competitive applicant—not like a template.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">F. LinkedIn and networking in the AI age</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> LinkedIn and networking in the AI age</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>LinkedIn remains one of the most effective channels in 2026 due to:</p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>It is where recruiters look.</li>
@@ -8904,7 +8960,7 @@ Best regards,
       <li>Acting as though you worked on a project you didn't.</li>
     </ul>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">G. AI-assisted interview preparation (properly)</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> AI-assisted interview preparation (properly)</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>AI is a great practice because it-</p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>never grows weary.</li>
@@ -8939,7 +8995,7 @@ Best regards,
     </ul>
     <p style='margin-bottom:12px; line-height:1.7;'>If you remain authentic, AI can assist you in expressing that.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">H. Errors to prevent (the "AI-generated" warning signs)</h2>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> Errors to prevent (the "AI-generated" warning signs)</h2>
     
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Error 1: Applying automatically to all</h3>
     <p style='margin-bottom:12px; line-height:1.7;'>Already, the market is overflowing. Platforms even claim that AI is adding to the flood.</p>
@@ -8985,33 +9041,26 @@ Best regards,
     <p style='margin-bottom:12px; line-height:1.7;'>Employers are actively combating low-quality AI spam in 2026, so quality + consistency triumphs over chaos.</p>
     <p style='margin-bottom:12px; line-height:1.7;'>The market is already heading in the direction of this hybrid workflow if you want to benefit from AI without turning your job search into a full-time operations job—especially as hiring teams scale AI on their end as well.</p>
 
-    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">J. FAQs</h2>
-    
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">In 2026, will AI job search be "cheating"?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> No. AI tools are already being used by recruiters, and significant reports state that AI is becoming an essential component of hiring processes.</p>
-    <p style='margin-bottom:12px; line-height:1.7;'>Ethical use is crucial: don't spam, don't fabricate experience, and don't misrepresent your abilities.</p>
+    <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3"> FAQs</h2>
 
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Does my resume still needs to be modified for ATS?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Yes, particularly for larger companies where ATS use is widespread.</p>
-    <p style='margin-bottom:12px; line-height:1.7;'>Rewriting is not necessary for tailoring. It entails matching your proof to the position.</p>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why am I being turned down despite my qualifications?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Since:</p>
-    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-      <li>There are many applications.</li>
-      <li>Recruiters are using more stringent filtering.</li>
-      <li>Your resume might not demonstrate the match in ten seconds.</li>
-      <li>Your keywords may not be a clear fit for the position.</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the best advice for 2026 job seekers?</h3>
-    <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Give up trying to get "more applications." Prioritise:</p>
-    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
-      <li>enhanced targeting</li>
-      <li>improved proof</li>
-      <li>enhanced follow-up</li>
-      <li>enhanced tracking</li>
-    </ul>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: In 2026, will AI job search be "cheating"?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> No. AI tools are already being used by recruiters, and significant reports state that AI is becoming an essential component of hiring processes. Ethical use is crucial: don't spam, don't fabricate experience, and don't misrepresent your abilities.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Does my resume still need to be modified for ATS?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, particularly for larger companies where ATS use is widespread. Rewriting is not necessary for tailoring. It entails matching your proof to the position.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Why am I being turned down despite my qualifications?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Since: there are many applications; recruiters are using more stringent filtering; your resume might not demonstrate the match in ten seconds; your keywords may not be a clear fit for the position.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What is the best advice for 2026 job seekers?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Give up trying to get "more applications." Prioritise: enhanced targeting, improved proof, enhanced follow-up, enhanced tracking.</p>
+  </div>
+</div>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">K. Conclusion</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>In 2026, AI did not "ruin" job searches. It altered the rules.</p>
@@ -9628,49 +9677,24 @@ Structured automation + consistent execution beats spam automation.
   FAQs
 </h2>
 
-<ol style="margin-left:48px; margin-bottom:12px; line-height:1.7;">
-  
-  <li style="margin-bottom:12px;">
-    <strong>Q. Can AI be used in job applications?</strong><br />
-    <strong>A.</strong> Indeed, companies are increasingly incorporating AI into their hiring processes.
-    The secret is to use AI in an ethical manner—no fake metrics, no fake experiences. 
-    Newsroom | Workday
-  </li>
-
-  <li style="margin-bottom:12px;">
-    <strong>Q. How many jobs should I apply for each day?</strong><br />
-    <strong>A.</strong> Two to five excellent applications per day, along with outreach, is a good benchmark for 2026.
-    Your role, seniority, and time all affect the precise figure. The main point is that when
-    application volume is high, quality outweighs volume. 
-    Newsroom | Workday
-  </li>
-
-  <li style="margin-bottom:12px;">
-    <strong>Q. How can I apply more quickly?</strong><br />
-    <strong>A.</strong> Make:
-    <ul style="margin-left:28px; margin-top:6px; line-height:1.6;">
-      <li>Just one "candidate profile"</li>
-      <li>Two to three base resumes</li>
-      <li>A tracker</li>
-    </ul>
-    <p style="margin-left:28px; margin-top:6px;">
-      Next, employ AI for bullet rewrites and keyword mapping (truthful only).
-    </p>
-  </li>
-
-  <li style="margin-bottom:12px;">
-    <strong>Q. Why am I not receiving any responses?</strong><br />
-    <strong>A.</strong> Typical causes:
-    <ul style="margin-left:28px; margin-top:6px; line-height:1.6;">
-      <li>Your resume doesn't seem to fit in 10 seconds.</li>
-      <li>You're applying too late for positions with a high volume of incoming applications.</li>
-      <li>You're not following up.</li>
-      <li>Your targeting is excessively wide.</li>
-    </ul>
-  </li>
-
-</ol>
-
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Can AI be used in job applications?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Indeed, companies are increasingly incorporating AI into their hiring processes. The secret is to use AI in an ethical manner—no fake metrics, no fake experiences.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How many jobs should I apply for each day?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Two to five excellent applications per day, along with outreach, is a good benchmark for 2026. Your role, seniority, and time all affect the precise figure. When application volume is high, quality outweighs volume.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How can I apply more quickly?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Make: just one "candidate profile," two to three base resumes, and a tracker. Next, employ AI for bullet rewrites and keyword mapping (truthful only).</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why am I not receiving any responses?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Typical causes: your resume doesn't seem to fit in 10 seconds; you're applying too late for positions with a high volume of incoming applications; you're not following up; your targeting is excessively wide.</p>
+  </div>
+</div>
 
 <hr />
 
@@ -9937,35 +9961,48 @@ Amazon recruiters often check LinkedIn profiles. Ensure your profile includes:
 Top 10 FAQs – How to Get an Interview Call from Amazon
 </h2>
 
-<p><strong>Q. Is it hard to get an interview call from Amazon?</strong><br/>
-<strong>A.</strong> Yes, it is competitive due to high applicant volume. However, a well-optimized resume and referrals significantly improve your chances.</p>
-
-<p><strong>Q. Does Amazon use ATS?</strong><br/>
-<strong>A.</strong> Yes, Amazon uses ATS to filter resumes based on keywords and relevance.</p>
-
-<p><strong>Q. How can I optimize my resume for Amazon?</strong><br/>
-<strong>A.</strong> Use JD keywords, quantify achievements, highlight leadership principles, and keep ATS formatting.</p>
-
-<p><strong>Q. Are referrals important?</strong><br/>
-<strong>A.</strong> Yes, referrals increase visibility and speed up recruiter review.</p>
-
-<p><strong>Q. What skills does Amazon look for?</strong><br/>
-<strong>A.</strong> Problem-solving, leadership, customer focus, technical expertise, and data-driven decision making.</p>
-
-<p><strong>Q. When is the best time to apply?</strong><br/>
-<strong>A.</strong> Within 3–5 days of job posting.</p>
-
-<p><strong>Q. Do freshers get interview calls?</strong><br/>
-<strong>A.</strong> Yes, Amazon hires freshers for internships and graduate roles. Strong projects matter.</p>
-
-<p><strong>Q. How many roles should I apply weekly?</strong><br/>
-<strong>A.</strong> 5–10 highly relevant roles.</p>
-
-<p><strong>Q. Why do applications get rejected?</strong><br/>
-<strong>A.</strong> Resume mismatch, lack of keywords, poor formatting, or wrong role targeting.</p>
-
-<p><strong>Q. How long does Amazon take to respond?</strong><br/>
-<strong>A.</strong> Typically 1–2 weeks for shortlisted candidates.</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Is it hard to get an interview call from Amazon?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, it is competitive due to high applicant volume. However, a well-optimized resume and referrals significantly improve your chances.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Does Amazon use ATS?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, Amazon uses ATS to filter resumes based on keywords and relevance.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How can I optimize my resume for Amazon?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Use JD keywords, quantify achievements, highlight leadership principles, and keep ATS formatting.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Are referrals important?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, referrals increase visibility and speed up recruiter review.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. What skills does Amazon look for?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Problem-solving, leadership, customer focus, technical expertise, and data-driven decision making.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. When is the best time to apply?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Within 3–5 days of job posting.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Do freshers get interview calls?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, Amazon hires freshers for internships and graduate roles. Strong projects matter.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How many roles should I apply weekly?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> 5–10 highly relevant roles.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Why do applications get rejected?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Resume mismatch, lack of keywords, poor formatting, or wrong role targeting.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How long does Amazon take to respond?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Typically 1–2 weeks for shortlisted candidates.</p>
+  </div>
+</div>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 Conclusion
@@ -11949,25 +11986,24 @@ Although powerful, AI tools are not flawless. The risks and ways to reduce them 
 Quick FAQ
 </h2>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Q: Can AI replace recruiters or my efforts?</strong><br/>
-A: No — AI automates repetitive tasks and improves targeting, but human relationships and interview performance still matter most.
-</p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Q: Can I get jobs faster with AI?</strong><br/>
-A: Indeed, AI frequently shortens the time to interview by boosting the quantity of excellent, customised applications and raising ATS pass rates.
-</p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Q: Is it unethical to write my cover letter with the help of AI?</strong><br/>
-A: Not really. Ethical use means editing for true facts, adding personal detail, and not bluffing achievements.
-</p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Q: How much can it cost?</strong><br/>
-A: Expenses are variable; it can come with free tiers as well as subscription plans. You can start with a free trial, measure time saved, and then decide.
-</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can AI replace recruiters or my efforts?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> No — AI automates repetitive tasks and improves targeting, but human relationships and interview performance still matter most.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can I get jobs faster with AI?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Indeed, AI frequently shortens the time to interview by boosting the quantity of excellent, customised applications and raising ATS pass rates.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Is it unethical to write my cover letter with the help of AI?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Not really. Ethical use means editing for true facts, adding personal detail, and not bluffing achievements.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How much can it cost?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Expenses are variable; it can come with free tiers as well as subscription plans. You can start with a free trial, measure time saved, and then decide.</p>
+  </div>
+</div>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 Final checklist: Start it today !
@@ -13152,22 +13188,41 @@ Although the process is more complex, it also provides global career exposure an
 FAQs
 </h2>
 
-<p style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
-  <p style='margin-bottom:12px;'><strong>Q: Can International Students Work in the US While Studying?</strong><br /><strong>A:</strong> Yes. You can work on campus and off campus with CPT authorization.</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can International Students Work in the US While Studying?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. You can work on campus and off campus with CPT authorization.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What Jobs Are Available for International Students in the US?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Internships, research roles, tech jobs, engineering, business, and many entry-level positions.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Do US Employers Sponsor International Students?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes, many do—especially in high-demand industries.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What Is the Difference Between CPT and OPT?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> CPT is during studies and tied to classes. OPT is after graduation.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Long Can International Students Work After Graduation?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> 12 months for most, 36 months for STEM majors.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Is the US Job Market Competitive for International Students?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. You face more rules and competition than domestic students.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Which Industries Hire International Students the Most?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Tech, healthcare, engineering, finance, and research.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can International Students Switch Visas After Graduation?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes, often from F-1 to H-1B, and sometimes to other work visas.</p>
+  </div>
+</div>
 
-  <p style='margin-bottom:12px;'><strong>Q: What Jobs Are Available for International Students in the US?</strong><br /><strong>A:</strong> Internships, research roles, tech jobs, engineering, business, and many entry-level positions.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Do US Employers Sponsor International Students?</strong><br /><strong>A:</strong> Yes, many do—especially in high-demand industries.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: What Is the Difference Between CPT and OPT?</strong><br /><strong>A:</strong> CPT is during studies and tied to classes. OPT is after graduation.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Long Can International Students Work After Graduation?</strong><br /><strong>A:</strong> 12 months for most, 36 months for STEM majors.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Is the US Job Market Competitive for International Students?</strong><br /><strong>A:</strong> Yes. You face more rules and competition than domestic students.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Which Industries Hire International Students the Most?</strong><br /><strong>A:</strong> Tech, healthcare, engineering, finance, and research.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can International Students Switch Visas After Graduation?</strong><br /><strong>A:</strong> Yes, often from F-1 to H-1B, and sometimes to other work visas.</p>
 `,
 },  
 {id:68,
@@ -13568,23 +13623,40 @@ www.flashfirejobs.com
 FAQs
 </h2>
 
-<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <p style='margin-bottom:12px;'><strong>Q: What Is the Best Resume Format for ATS?</strong><br /><strong>A: </strong> A single-column, simple layout using standard headings such as Summary, Experience, Skills, and Education works best.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Many Keywords Should I Use to Optimize a Resume for ATS?</strong><br /><strong>A: </strong> Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Does ATS Reject PDF Resumes?</strong><br /><strong>A: </strong> Some ATS systems struggle with PDFs. DOCX is usually the safest option.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can ATS Read Two-Column Resumes?</strong><br /><strong>A: </strong> Most ATS systems cannot read columns properly. Always use one column.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Do I Find the Right Keywords for ATS Optimization?</strong><br /><strong>A: </strong> Use the job description. Look for repeated skills, tools, and job titles.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Do ATS Systems Rank Resumes Automatically?</strong><br /><strong>A: </strong> Yes. ATS assigns scores based on keyword match, experience, and structure.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can the Same Resume Work for Every Job Application?</strong><br /><strong>A: </strong> No. You should customize your resume for every role.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Often Should I Update My ATS-Optimized Resume?</strong><br /><strong>A: </strong> Update it whenever you gain new skills, change roles, or apply for a different type of job.</p>
-</p> 
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What Is the Best Resume Format for ATS?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> A single-column, simple layout using standard headings such as Summary, Experience, Skills, and Education works best.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Many Keywords Should I Use to Optimize a Resume for ATS?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Does ATS Reject PDF Resumes?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Some ATS systems struggle with PDFs. DOCX is usually the safest option.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can ATS Read Two-Column Resumes?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Most ATS systems cannot read columns properly. Always use one column.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Do I Find the Right Keywords for ATS Optimization?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Use the job description. Look for repeated skills, tools, and job titles.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Do ATS Systems Rank Resumes Automatically?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. ATS assigns scores based on keyword match, experience, and structure.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can the Same Resume Work for Every Job Application?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> No. You should customize your resume for every role.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Often Should I Update My ATS-Optimized Resume?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Update it whenever you gain new skills, change roles, or apply for a different type of job.</p>
+  </div>
+</div>
 
 `,
   },
@@ -13616,11 +13688,13 @@ How to search for a new job means clearly defining your goals, using smart tools
 <p style='margin-bottom:12px; line-height:1.7;'>
 Are you applying but not hearing back? Are you unsure which roles fit you best? Let's break it all down step by step.
 </p>
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-<strong>Sites & Sources:</strong><br />
-<li>U.S. Bureau of Labor Statistics – Job Search Methods <a href="https://www.bls.gov" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">www.bls.gov</a></li>
-<li>LinkedIn Economic Graph Reports <a href="https://economicgraph.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">economicgraph.linkedin.com</a></li>
+<div style="margin:1.25rem 0; padding:1.125rem 1.25rem; background:#f8fafc; border-left:4px solid #0ea5e9; border-radius:0 8px 8px 0;">
+<p style="margin:0 0 0.625rem 0; font-size:0.8125rem; font-weight:600; color:#0c4a6e; letter-spacing:0.02em;">SOURCES</p>
+<ul style="margin:0; padding-left:1.25rem; font-size:0.9375rem; line-height:1.7; color:#475569;">
+  <li style="margin-bottom:0.5rem;"><a href="https://www.bls.gov" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">U.S. Bureau of Labor Statistics – Job Search Methods</a></li>
+  <li style="margin-bottom:0;"><a href="https://economicgraph.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Economic Graph Reports</a></li>
 </ul>
+</div>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 What Does Searching for a New Job Actually Come With?
@@ -13819,10 +13893,10 @@ Your resume should:
   <li>Use numbers when possible</li>
 </ul>
 
-<p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Example:</strong><br />
-From "Managed social media" to "Grew social media engagement by 48% in 6 months."
-</p>
+<div style="margin:1rem 0 1.125rem 0; padding:1rem 1.25rem; background:#fffbeb; border:1px solid #fde68a; border-radius:8px;">
+<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#92400e;">Example</p>
+<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;">From "Managed social media" to "Grew social media engagement by 48% in 6 months."</p>
+</div>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
 2. Use LinkedIn Effectively
@@ -13957,23 +14031,40 @@ If you stay consistent, adapt based on feedback, and believe in your value, you 
 FAQs
 </h2>
 
-<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <p style='margin-bottom:12px;'><strong>Q: How Do I Search for a New Job While Still Employed?</strong><br /><strong>A:</strong> Use evenings and weekends. Keep your search private. Update LinkedIn quietly and apply selectively.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: What Is the Best Way to Find a New Job Quickly?</strong><br /><strong>A:</strong> Combine applications, networking, recruiters, and referrals. Speed comes from using multiple channels.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Many Jobs Should I Apply to Each Week?</strong><br /><strong>A:</strong> Quality matters more than quantity. Aim for 5–10 strong applications weekly.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Should I Use Job Boards or Company Career Pages?</strong><br /><strong>A:</strong> Use both. Job boards show volume; company pages show direct hiring needs.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Important Is Networking When Searching for a New Job?</strong><br /><strong>A:</strong> Very important. Most roles are filled through connections, not ads.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can Recruiters Help Me Find a New Job?</strong><br /><strong>A:</strong> Yes. They connect you with companies and guide your applications.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Long Does It Usually Take to Find a New Job?</strong><br /><strong>A:</strong> On average, 2–4 months depending on industry, experience, and effort.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: What Should I Do If I'm Not Getting Interview Calls?</strong><br /><strong>A:</strong> Review your resume, keywords, and application strategy. Ask for feedback and adjust.</p>
-</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Do I Search for a New Job While Still Employed?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Use evenings and weekends. Keep your search private. Update LinkedIn quietly and apply selectively.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What Is the Best Way to Find a New Job Quickly?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Combine applications, networking, recruiters, and referrals. Speed comes from using multiple channels.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Many Jobs Should I Apply to Each Week?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Quality matters more than quantity. Aim for 5–10 strong applications weekly.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Should I Use Job Boards or Company Career Pages?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Use both. Job boards show volume; company pages show direct hiring needs.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Important Is Networking When Searching for a New Job?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Very important. Most roles are filled through connections, not ads.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can Recruiters Help Me Find a New Job?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. They connect you with companies and guide your applications.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Long Does It Usually Take to Find a New Job?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> On average, 2–4 months depending on industry, experience, and effort.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What Should I Do If I'm Not Getting Interview Calls?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Review your resume, keywords, and application strategy. Ask for feedback and adjust.</p>
+  </div>
+</div>
 
 `,
 },
@@ -14001,13 +14092,14 @@ Tired of filling the same forms again and again? Wondering how to automate job a
 <p style='margin-bottom:12px; line-height:1.7;'>
 Automating job applications means using smart tools, AI platforms, and resume autofill systems to apply faster while still matching job requirements. The goal is not to blindly mass-apply but to use automation to save time, stay organized, and increase your chances through smarter targeting.
 </p>
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-<strong>Sources:</strong><br />
-<li>Harvard Business Review – Hiring and ATS Trends <a href="https://hbr.org/2022/05/tap-the-talent-your-hiring-algorithms-are-missing" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://hbr.org/2022/05/tap-the-talent-your-hiring-algorithms-are-missing</a><br /></li>
-<li>LinkedIn Hiring Statistics <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Hiring Statistics</a><br /></li>
-<li>Glassdoor Job Search Reports <a href="https://www.glassdoor.co.in/index.htm" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.glassdoor.co.in/index.htm</a></li>
-</p>
+<div style="margin:1.25rem 0; padding:1.125rem 1.25rem; background:#f8fafc; border-left:4px solid #0ea5e9; border-radius:0 8px 8px 0;">
+<p style="margin:0 0 0.625rem 0; font-size:0.8125rem; font-weight:600; color:#0c4a6e; letter-spacing:0.02em;">SOURCES</p>
+<ul style="margin:0; padding-left:1.25rem; font-size:0.9375rem; line-height:1.7; color:#475569;">
+  <li style="margin-bottom:0.5rem;"><a href="https://hbr.org/2022/05/tap-the-talent-your-hiring-algorithms-are-missing" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Harvard Business Review – Hiring and ATS Trends</a></li>
+  <li style="margin-bottom:0.5rem;"><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Hiring Statistics</a></li>
+  <li style="margin-bottom:0;"><a href="https://www.glassdoor.co.in/index.htm" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Glassdoor Job Search Reports</a></li>
 </ul>
+</div>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 What Does Job Application Automation Actually Mean?
@@ -14413,23 +14505,40 @@ If you use it wisely, automating job applications can cut effort in half and imp
 FAQs
 </h2>
 
-<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <p style='margin-bottom:12px;'><strong>Q: Is It Safe to Automate Job Applications?</strong><br /><strong>A: </strong> Yes, if you use trusted tools and follow platform rules.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How Many Job Applications Can I Automate per Day?</strong><br /><strong>A: </strong> 10–25 targeted applications are ideal.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Do Automated Job Applications Work With ATS?</strong><br /><strong>A: </strong> Yes, if your resume is ATS-optimized.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can Freshers Automate Job Applications?</strong><br /><strong>A: </strong> Yes. Automation helps freshers apply to more roles quickly.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: What's the Best AI Tool to Automate Job Applications?</strong><br /><strong>A: </strong> The best tool depends on your region, industry, and needs.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Is Job Application Automation Legal?</strong><br /><strong>A: </strong> Yes, but you must follow job portal policies.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Should I Customize Resumes When Using Automation?</strong><br /><strong>A: </strong> Yes. Even automated resumes need role-based keywords.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can Automation Reduce Job Application Rejections?</strong><br /><strong>A: </strong> Yes—if combined with smart targeting and resume optimization.</p>
-</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Is It Safe to Automate Job Applications?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes, if you use trusted tools and follow platform rules.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How Many Job Applications Can I Automate per Day?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> 10–25 targeted applications are ideal.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Do Automated Job Applications Work With ATS?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes, if your resume is ATS-optimized.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can Freshers Automate Job Applications?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. Automation helps freshers apply to more roles quickly.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What's the Best AI Tool to Automate Job Applications?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> The best tool depends on your region, industry, and needs.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Is Job Application Automation Legal?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes, but you must follow job portal policies.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Should I Customize Resumes When Using Automation?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes. Even automated resumes need role-based keywords.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can Automation Reduce Job Application Rejections?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes—if combined with smart targeting and resume optimization.</p>
+  </div>
+</div>
 
 `,
   },
@@ -14465,14 +14574,14 @@ Job seekers today send an average of 50 to 100 applications before landing inter
 <p style='margin-bottom:12px; line-height:1.7;'>
 According to LinkedIn sources, over 78% of resumes are rejected by ATS before a human ever sees them. That's why AI tools matter more than ever.
 </p>
-<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-<p style='margin-bottom:12px; line-height:1.7; text-align:left; '>
-<strong>Sources:</strong><br />
-<li>LinkedIn Talent Blog – <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/practical-ways-to-use-ai-in-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/business/talent/blog/talent-acquisition/practical-ways-to-use-ai-in-recruitment</a><br /></li>
-<li>Harvard Business Review – <a href="https://hbr.org/2025/02/how-to-get-hired-when-ai-does-the-screening" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://hbr.org/2025/02/how-to-get-hired-when-ai-does-the-screening</a><br /></li>
-<li>Indeed Career Guide – <a href="https://in.indeed.com/career-advice/career-development/ai-for-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://in.indeed.com/career-advice/career-development/ai-for-recruitment</a><br /></li>
-</p>
+<div style="margin:1.25rem 0; padding:1.125rem 1.25rem; background:#f8fafc; border-left:4px solid #0ea5e9; border-radius:0 8px 8px 0;">
+<p style="margin:0 0 0.625rem 0; font-size:0.8125rem; font-weight:600; color:#0c4a6e; letter-spacing:0.02em;">SOURCES</p>
+<ul style="margin:0; padding-left:1.25rem; font-size:0.9375rem; line-height:1.7; color:#475569;">
+  <li style="margin-bottom:0.5rem;"><a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/practical-ways-to-use-ai-in-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Talent Blog – AI in recruitment</a></li>
+  <li style="margin-bottom:0.5rem;"><a href="https://hbr.org/2025/02/how-to-get-hired-when-ai-does-the-screening" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Harvard Business Review – How to get hired when AI does the screening</a></li>
+  <li style="margin-bottom:0;"><a href="https://in.indeed.com/career-advice/career-development/ai-for-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">Indeed Career Guide – AI for recruitment</a></li>
 </ul>
+</div>
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
  What Does an AI Job Application Tool Actually Do?
 </h2>
@@ -14955,23 +15064,40 @@ The best AI job application tools don't replace effort—they multiply it. For m
 FAQs
 </h2>
 
-<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <p style='margin-bottom:12px;'><strong>Q: What is the best AI job application tool in 2026?</strong><br /><strong>A: </strong>The best tool depends on your needs, but Sonara, LazyApply, and Teal are among the top choices.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Are AI job application tools safe to use?</strong><br /><strong>A: </strong>Yes, if you follow platform rules and avoid over-automation.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can AI tools automatically apply for jobs?</strong><br /><strong>A: </strong>Yes, many tools support auto-apply jobs.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Do AI job application tools work with ATS?</strong><br /><strong>A: </strong>Most are built for ATS optimization.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Are free AI job application tools effective?</strong><br /><strong>A: </strong>They help, but paid tools offer better automation.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Can freshers use AI tools for job applications?</strong><br /><strong>A: </strong>Absolutely—AI is great for building first resumes.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: How many applications can AI tools submit per day?</strong><br /><strong>A: </strong>Usually between 50 and 200, depending on the tool and platform.</p>
-
-  <p style='margin-bottom:12px;'><strong>Q: Will AI job application tools increase interview chances?</strong><br /><strong>A: </strong>Yes—when used smartly with good resumes and real skills.</p>
-</p>
+<div style="margin-top:0.75rem;">
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: What is the best AI job application tool in 2026?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> The best tool depends on your needs, but Sonara, LazyApply, and Teal are among the top choices.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Are AI job application tools safe to use?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes, if you follow platform rules and avoid over-automation.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can AI tools automatically apply for jobs?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes, many tools support auto-apply jobs.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Do AI job application tools work with ATS?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Most are built for ATS optimization.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Are free AI job application tools effective?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> They help, but paid tools offer better automation.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Can freshers use AI tools for job applications?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Absolutely—AI is great for building first resumes.</p>
+  </div>
+  <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: How many applications can AI tools submit per day?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Usually between 50 and 200, depending on the tool and platform.</p>
+  </div>
+  <div style="margin-bottom:0;">
+    <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q: Will AI job application tools increase interview chances?</strong></p>
+    <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A:</strong> Yes—when used smartly with good resumes and real skills.</p>
+  </div>
+</div>
 
 `,
   },
@@ -15351,10 +15477,10 @@ Focus on optimization, not perfection. Small changes compound into real opportun
 Recruiters are searching every day. Make sure they can find you.
 </p>
 
-<div style="margin:1.25rem 0; padding:1.125rem 1.25rem; background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px;">
-<p style="margin:0 0 0.5rem 0; font-size:0.8125rem; font-weight:600; color:#0c4a6e;">Related</p>
-<p style="margin:0 0 0.5rem 0; font-size:1rem; line-height:1.75; color:#374151;">Learn more: <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Profile Tips: How to Get Noticed by Recruiters</a></p>
-<p style="margin:0; font-size:1rem; line-height:1.75; color:#374151;"><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">flashfirejobs.com</a></p>
+<div style="margin:1.25rem 0; padding:1.125rem 1.25rem; background:#f8fafc; border-left:4px solid #0ea5e9; border-radius:0 8px 8px 0;">
+<p style="margin:0 0 0.625rem 0; font-size:0.8125rem; font-weight:600; color:#0c4a6e; letter-spacing:0.02em;">RELATED</p>
+<p style="margin:0 0 0.5rem 0; font-size:0.9375rem; line-height:1.7; color:#475569;">Learn more: <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Profile Tips: How to Get Noticed by Recruiters</a></p>
+<p style="margin:0; font-size:0.9375rem; line-height:1.7; color:#475569;"><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">flashfirejobs.com</a></p>
 </div>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
