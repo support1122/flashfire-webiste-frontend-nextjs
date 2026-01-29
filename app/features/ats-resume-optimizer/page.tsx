@@ -129,6 +129,10 @@ export default function Page() {
       answer: " It increases your visibility in recruiter searches and boosts your chances of getting shortlisted — especially when applying in bulk."
     },
     {
+      question: "What is an ATS resume checker, and how does it work?",
+      answer: " It scans your resume against a job description to assess keyword match, formatting, and readability for Applicant Tracking Systems."
+    },
+    {
       question: "Is there a resume maker for fresher beginners on FlashFireJobs?",
       answer: " Our team builds ATS-compliant resumes even for freshers, highlighting education, projects, and relevant skills with proper structure."
     },
