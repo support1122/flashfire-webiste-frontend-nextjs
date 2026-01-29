@@ -12697,7 +12697,7 @@ Key Differences Between Domestic and International Hiring
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-Because domestic students:
+<strong>a. Because domestic students:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12707,7 +12707,7 @@ Because domestic students:
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-But international students:
+<strong>b. But international students:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12725,7 +12725,7 @@ Employer Concerns Around Work Authorization
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-US employers often worry about the following:
+<strong> US employers often worry about the following:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12743,7 +12743,7 @@ Common Misconceptions About Jobs and Visas
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-Several common misconceptions about jobs and visas need clarification:
+<strong> Several common misconceptions about jobs and visas need clarification:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12761,11 +12761,11 @@ International students can find jobs in the US, but success depends on choosing 
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-On-Campus vs Off-Campus Employment Options
+1. On-Campus vs Off-Campus Employment Options
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-On-campus jobs such as:
+<strong>a. On-campus jobs such as:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12775,7 +12775,7 @@ On-campus jobs such as:
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-Off-campus jobs such as:
+<strong>b. Off-campus jobs such as:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12788,11 +12788,11 @@ Most students start with internships because employers use them as “trial peri
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Work Visas (OPT, CPT, H-1B) and Post-Study Job Options
+2. Work Visas (OPT, CPT, H-1B) and Post-Study Job Options
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-CPT (Curricular Practical Training)
+<strong>a. CPT (Curricular Practical Training)</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12801,7 +12801,7 @@ CPT (Curricular Practical Training)
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-OPT (Optional Practical Training)
+<strong>b. OPT (Optional Practical Training)</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12810,7 +12810,7 @@ OPT (Optional Practical Training)
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-H-1B
+<strong>c. H-1B</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12819,11 +12819,11 @@ H-1B
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Entry-Level Roles Are Commonly Open to International Students
+3. Entry-Level Roles Are Commonly Open to International Students
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-Common entry-level jobs include:
+<strong>a. Common entry-level jobs include:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12840,11 +12840,11 @@ These roles often appear on job search platforms/databases for sponsorship infor
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Real-World Examples: STEM vs Non-STEM
+4. Real-World Examples: STEM vs Non-STEM
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-STEM students:
+<strong>a. STEM students:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12854,7 +12854,7 @@ STEM students:
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-Non-STEM students:
+<strong>b. Non-STEM students:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12871,11 +12871,11 @@ A lack of visa knowledge can lead to compliance issues, even after securing a jo
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-F-1 Visa Work Limitations
+1. F-1 Visa Work Limitations
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-On F-1:
+<strong>a. On F-1:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12885,7 +12885,7 @@ On F-1:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-CPT vs OPT Differences
+2. CPT vs OPT Differences
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12909,7 +12909,7 @@ OPT:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-STEM OPT Extension Eligibility
+3. STEM OPT Extension Eligibility
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12927,11 +12927,11 @@ This gives you more time to seek H-1B sponsorship.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-H-1B Sponsorship Basics
+4. H-1B Sponsorship Basics
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-H-1B:
+<strong> H-1B:</strong>
 </p>
 
 <ul style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
@@ -12945,7 +12945,7 @@ The H-1B application process must be initiated and managed by the employer
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Visa Timelines and Compliance Issues
+5. Visa Timelines and Compliance Issues
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12971,7 +12971,7 @@ Certain industries face ongoing talent shortages, making them more open to hirin
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-High-Demand Industries Such as Tech, Healthcare, and Engineering
+1. High-Demand Industries Such as Tech, Healthcare, and Engineering
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -12992,7 +12992,7 @@ These kinds of fields struggle to find enough skilled workers, so they’re more
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Who Are Visa Sponsorship Employers
+2. Who Are Visa Sponsorship Employers
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13015,7 +13015,7 @@ Salary Expectations and Job Reality in the US Job Market
 </h2>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Salary Expectations and Starting Wages
+1. Salary Expectations and Starting Wages
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13034,7 +13034,7 @@ STEM graduates usually earn more, but any field can pay well with the right role
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Cost-of-Living Considerations
+2. Cost-of-Living Considerations
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13152,24 +13152,22 @@ Although the process is more complex, it also provides global career exposure an
 FAQs
 </h2>
 
-<ol style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
-  <li style='margin-bottom:12px;'><strong>Can International Students Work in the US While Studying?</strong><br />Yes. You can work on campus and off campus with CPT authorization.</li>
+<p style="margin-left:20px; margin-bottom:12px; line-height:1.7;">
+  <p style='margin-bottom:12px;'><strong>Q: Can International Students Work in the US While Studying?</strong><br /><strong>A:</strong> Yes. You can work on campus and off campus with CPT authorization.</p>
 
-  <li style='margin-bottom:12px;'><strong>What Jobs Are Available for International Students in the US?</strong><br />Internships, research roles, tech jobs, engineering, business, and many entry-level positions.</li>
+  <p style='margin-bottom:12px;'><strong>Q: What Jobs Are Available for International Students in the US?</strong><br /><strong>A:</strong> Internships, research roles, tech jobs, engineering, business, and many entry-level positions.</p>
 
-  <li style='margin-bottom:12px;'><strong>Do US Employers Sponsor International Students?</strong><br />Yes, many do—especially in high-demand industries.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Do US Employers Sponsor International Students?</strong><br /><strong>A:</strong> Yes, many do—especially in high-demand industries.</p>
 
-  <li style='margin-bottom:12px;'><strong>What Is the Difference Between CPT and OPT?</strong><br />CPT is during studies and tied to classes. OPT is after graduation.</li>
+  <p style='margin-bottom:12px;'><strong>Q: What Is the Difference Between CPT and OPT?</strong><br /><strong>A:</strong> CPT is during studies and tied to classes. OPT is after graduation.</p>
 
-  <li style='margin-bottom:12px;'><strong>How Long Can International Students Work After Graduation?</strong><br />12 months for most, 36 months for STEM majors.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How Long Can International Students Work After Graduation?</strong><br /><strong>A:</strong> 12 months for most, 36 months for STEM majors.</p>
 
-  <li style='margin-bottom:12px;'><strong>Is the US Job Market Competitive for International Students?</strong><br />Yes. You face more rules and competition than domestic students.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Is the US Job Market Competitive for International Students?</strong><br /><strong>A:</strong> Yes. You face more rules and competition than domestic students.</p>
 
-  <li style='margin-bottom:12px;'><strong>Which Industries Hire International Students the Most?</strong><br />Tech, healthcare, engineering, finance, and research.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Which Industries Hire International Students the Most?</strong><br /><strong>A:</strong> Tech, healthcare, engineering, finance, and research.</p>
 
-  <li style='margin-bottom:12px;'><strong>Can International Students Switch Visas After Graduation?</strong><br />Yes, often from F-1 to H-1B, and sometimes to other work visas.</li>
-</ol>
-
+  <p style='margin-bottom:12px;'><strong>Q: Can International Students Switch Visas After Graduation?</strong><br /><strong>A:</strong> Yes, often from F-1 to H-1B, and sometimes to other work visas.</p>
 `,
 },  
 {id:68,
@@ -13570,23 +13568,23 @@ www.flashfirejobs.com
 FAQs
 </h2>
 
-<ol style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li style='margin-bottom:12px;'><strong>What Is the Best Resume Format for ATS?</strong><br />A single-column, simple layout using standard headings such as Summary, Experience, Skills, and Education works best.</li>
+<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
+  <p style='margin-bottom:12px;'><strong>Q: What Is the Best Resume Format for ATS?</strong><br /><strong>A: </strong> A single-column, simple layout using standard headings such as Summary, Experience, Skills, and Education works best.</p>
 
-  <li style='margin-bottom:12px;'><strong>How Many Keywords Should I Use to Optimize a Resume for ATS?</strong><br />Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How Many Keywords Should I Use to Optimize a Resume for ATS?</strong><br /><strong>A: </strong> Use all relevant keywords naturally from the job description. Do not stuff—blend them into your sentences.</p>
 
-  <li style='margin-bottom:12px;'><strong>Does ATS Reject PDF Resumes?</strong><br />Some ATS systems struggle with PDFs. DOCX is usually the safest option.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Does ATS Reject PDF Resumes?</strong><br /><strong>A: </strong> Some ATS systems struggle with PDFs. DOCX is usually the safest option.</p>
 
-  <li style='margin-bottom:12px;'><strong>Can ATS Read Two-Column Resumes?</strong><br />Most ATS systems cannot read columns properly. Always use one column.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Can ATS Read Two-Column Resumes?</strong><br /><strong>A: </strong> Most ATS systems cannot read columns properly. Always use one column.</p>
 
-  <li style='margin-bottom:12px;'><strong>How Do I Find the Right Keywords for ATS Optimization?</strong><br />Use the job description. Look for repeated skills, tools, and job titles.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How Do I Find the Right Keywords for ATS Optimization?</strong><br /><strong>A: </strong> Use the job description. Look for repeated skills, tools, and job titles.</p>
 
-  <li style='margin-bottom:12px;'><strong>Do ATS Systems Rank Resumes Automatically?</strong><br />Yes. ATS assigns scores based on keyword match, experience, and structure.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Do ATS Systems Rank Resumes Automatically?</strong><br /><strong>A: </strong> Yes. ATS assigns scores based on keyword match, experience, and structure.</p>
 
-  <li style='margin-bottom:12px;'><strong>Can the Same Resume Work for Every Job Application?</strong><br />No. You should customize your resume for every role.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Can the Same Resume Work for Every Job Application?</strong><br /><strong>A: </strong> No. You should customize your resume for every role.</p>
 
-  <li style='margin-bottom:12px;'><strong>How Often Should I Update My ATS-Optimized Resume?</strong><br />Update it whenever you gain new skills, change roles, or apply for a different type of job.</li>
-</ol>
+  <p style='margin-bottom:12px;'><strong>Q: How Often Should I Update My ATS-Optimized Resume?</strong><br /><strong>A: </strong> Update it whenever you gain new skills, change roles, or apply for a different type of job.</p>
+</p> 
 
 `,
   },
@@ -13618,12 +13616,11 @@ How to search for a new job means clearly defining your goals, using smart tools
 <p style='margin-bottom:12px; line-height:1.7;'>
 Are you applying but not hearing back? Are you unsure which roles fit you best? Let's break it all down step by step.
 </p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
+<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
 <strong>Sites & Sources:</strong><br />
-U.S. Bureau of Labor Statistics – Job Search Methods <a href="https://www.bls.gov" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">www.bls.gov</a><br />
-LinkedIn Economic Graph Reports <a href="https://economicgraph.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">economicgraph.linkedin.com</a>
-</p>
+<li>U.S. Bureau of Labor Statistics – Job Search Methods <a href="https://www.bls.gov" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">www.bls.gov</a></li>
+<li>LinkedIn Economic Graph Reports <a href="https://economicgraph.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">economicgraph.linkedin.com</a></li>
+</ul>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 What Does Searching for a New Job Actually Come With?
@@ -13634,7 +13631,7 @@ Searching for a new job is a comprehensive process that goes far beyond simply b
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-What Is the Meaning of Searching for a New Job?
+1. What Is the Meaning of Searching for a New Job?
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13642,7 +13639,7 @@ Job searching means understanding what you want, finding where those roles exist
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Common Reasons People Start a Job Search
+2. Common Reasons People Start a Job Search
 </h3>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -13658,7 +13655,7 @@ According to LinkedIn, over 63% of professionals consider changing jobs every ye
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Why Job Searching Feels Difficult or Unclear
+3. Why Job Searching Feels Difficult or Unclear
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13666,7 +13663,7 @@ It feels hard because there are too many options, unclear feedback, and long wai
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-The Difference Between Active and Passive Job Searching
+4. The Difference Between Active and Passive Job Searching
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13675,7 +13672,7 @@ The Difference Between Active and Passive Job Searching
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Who This Step-by-Step Job Search Approach Is Best Suited For
+5. Who This Step-by-Step Job Search Approach Is Best Suited For
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13787,12 +13784,12 @@ Step 5: Real-World Examples
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Career Switcher:</strong><br />
+<strong>a. Career Switcher:</strong><br />
 A teacher moving into HR highlights communication, training, and leadership skills.
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Experienced Professional:</strong><br />
+<strong>b. Experienced Professional:</strong><br />
 A marketing manager focuses on results, metrics, and leadership achievements.
 </p>
 
@@ -13809,7 +13806,7 @@ Using strong job search strategies makes the process faster and less stressful.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Optimize Your Resume and Cover Letter
+1. Optimize Your Resume and Cover Letter
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13828,7 +13825,7 @@ From "Managed social media" to "Grew social media engagement by 48% in 6 months.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Use LinkedIn Effectively
+2. Use LinkedIn Effectively
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13847,7 +13844,7 @@ Post weekly and comment on industry content. This increases visibility.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Networking and Referrals
+3. Networking and Referrals
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13870,7 +13867,7 @@ Ways to network:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Informational Interviews
+4. Informational Interviews
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13892,7 +13889,7 @@ This often leads to referrals later.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Work With Recruiters and Staffing Agencies
+5. Work With Recruiters and Staffing Agencies
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13910,7 +13907,7 @@ Tips:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Track Applications and Follow-Ups
+6. Track Applications and Follow-Ups
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -13960,23 +13957,23 @@ If you stay consistent, adapt based on feedback, and believe in your value, you 
 FAQs
 </h2>
 
-<ol style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li style='margin-bottom:12px;'>How Do I Search for a New Job While Still Employed?<br />Use evenings and weekends. Keep your search private. Update LinkedIn quietly and apply selectively.</li>
+<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
+  <p style='margin-bottom:12px;'><strong>Q: How Do I Search for a New Job While Still Employed?</strong><br /><strong>A:</strong> Use evenings and weekends. Keep your search private. Update LinkedIn quietly and apply selectively.</p>
 
-  <li style='margin-bottom:12px;'>What Is the Best Way to Find a New Job Quickly?<br />Combine applications, networking, recruiters, and referrals. Speed comes from using multiple channels.</li>
+  <p style='margin-bottom:12px;'><strong>Q: What Is the Best Way to Find a New Job Quickly?</strong><br /><strong>A:</strong> Combine applications, networking, recruiters, and referrals. Speed comes from using multiple channels.</p>
 
-  <li style='margin-bottom:12px;'>How Many Jobs Should I Apply to Each Week?<br />Quality matters more than quantity. Aim for 5–10 strong applications weekly.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How Many Jobs Should I Apply to Each Week?</strong><br /><strong>A:</strong> Quality matters more than quantity. Aim for 5–10 strong applications weekly.</p>
 
-  <li style='margin-bottom:12px;'>Should I Use Job Boards or Company Career Pages?<br />Use both. Job boards show volume; company pages show direct hiring needs.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Should I Use Job Boards or Company Career Pages?</strong><br /><strong>A:</strong> Use both. Job boards show volume; company pages show direct hiring needs.</p>
 
-  <li style='margin-bottom:12px;'>How Important Is Networking When Searching for a New Job?<br />Very important. Most roles are filled through connections, not ads.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How Important Is Networking When Searching for a New Job?</strong><br /><strong>A:</strong> Very important. Most roles are filled through connections, not ads.</p>
 
-  <li style='margin-bottom:12px;'>Can Recruiters Help Me Find a New Job?<br />Yes. They connect you with companies and guide your applications.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Can Recruiters Help Me Find a New Job?</strong><br /><strong>A:</strong> Yes. They connect you with companies and guide your applications.</p>
 
-  <li style='margin-bottom:12px;'>How Long Does It Usually Take to Find a New Job?<br />On average, 2–4 months depending on industry, experience, and effort.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How Long Does It Usually Take to Find a New Job?</strong><br /><strong>A:</strong> On average, 2–4 months depending on industry, experience, and effort.</p>
 
-  <li style='margin-bottom:12px;'>What Should I Do If I'm Not Getting Interview Calls?<br />Review your resume, keywords, and application strategy. Ask for feedback and adjust.</li>
-</ol>
+  <p style='margin-bottom:12px;'><strong>Q: What Should I Do If I'm Not Getting Interview Calls?</strong><br /><strong>A:</strong> Review your resume, keywords, and application strategy. Ask for feedback and adjust.</p>
+</p>
 
 `,
 },
@@ -14004,13 +14001,13 @@ Tired of filling the same forms again and again? Wondering how to automate job a
 <p style='margin-bottom:12px; line-height:1.7;'>
 Automating job applications means using smart tools, AI platforms, and resume autofill systems to apply faster while still matching job requirements. The goal is not to blindly mass-apply but to use automation to save time, stay organized, and increase your chances through smarter targeting.
 </p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
+<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
 <strong>Sources:</strong><br />
-Harvard Business Review – Hiring and ATS Trends <a href="https://hbr.org/2022/05/tap-the-talent-your-hiring-algorithms-are-missing" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://hbr.org/2022/05/tap-the-talent-your-hiring-algorithms-are-missing</a><br />
-LinkedIn Hiring Statistics <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Hiring Statistics</a><br />
-Glassdoor Job Search Reports <a href="https://www.glassdoor.co.in/index.htm" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.glassdoor.co.in/index.htm</a>
+<li>Harvard Business Review – Hiring and ATS Trends <a href="https://hbr.org/2022/05/tap-the-talent-your-hiring-algorithms-are-missing" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://hbr.org/2022/05/tap-the-talent-your-hiring-algorithms-are-missing</a><br /></li>
+<li>LinkedIn Hiring Statistics <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">LinkedIn Hiring Statistics</a><br /></li>
+<li>Glassdoor Job Search Reports <a href="https://www.glassdoor.co.in/index.htm" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.glassdoor.co.in/index.htm</a></li>
 </p>
+</ul>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
 What Does Job Application Automation Actually Mean?
@@ -14021,7 +14018,7 @@ Job application automation refers to using tools, software, and workflows to red
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-What "Automate Job Applications" Really Means
+1. What "Automate Job Applications" Really Means
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14029,11 +14026,11 @@ To automate job applications means letting tools handle repetitive tasks like fo
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Manual vs Automated Job Applications
+2. Manual vs Automated Job Applications
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Manual applications require you to:</strong>
+<strong>a. Manual applications require you to:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14043,7 +14040,7 @@ Manual vs Automated Job Applications
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>With job application automation, tools can handle:</strong>
+<strong>b. With job application automation, tools can handle:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14053,7 +14050,7 @@ Manual vs Automated Job Applications
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Role of AI in Job Application Automation
+3. Role of AI in Job Application Automation
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14071,7 +14068,7 @@ They rely on job-matching algorithms to predict compatibility.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Common Misconceptions
+4. Common Misconceptions
 </h3>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14085,7 +14082,7 @@ Automation is a tool, not a magic shortcut.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Who Should (and Should Not) Automate Job Applications
+5. Who Should (and Should Not) Automate Job Applications
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14199,17 +14196,17 @@ Step 6: Real-World Examples
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Fresher:</strong><br />
+<strong>a. Fresher:</strong><br />
 Uses automation to apply to 20 internships weekly with resume autofill.
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>International Student:</strong><br />
+<strong>b. International Student:</strong><br />
 Uses job matching + ATS optimization to target visa-friendly employers.
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Experienced Professional:</strong><br />
+<strong>c. Experienced Professional:</strong><br />
 Uses semi-automation to review each job before applying.
 </p>
 
@@ -14222,7 +14219,7 @@ Using the right automated job application tools makes a big difference.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-AI Job Application Tools
+1. AI Job Application Tools
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14240,7 +14237,7 @@ They rely heavily on job-matching algorithms.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Resume Autofill and Browser Extensions
+2. Resume Autofill and Browser Extensions
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14254,7 +14251,7 @@ Browser tools help with:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Job Search Automation Platforms
+3. Job Search Automation Platforms
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14268,7 +14265,7 @@ Platforms offering full job search automation provide:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-ATS-Friendly Automation Tools
+4. ATS-Friendly Automation Tools
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14282,11 +14279,11 @@ These tools focus on:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Free vs Paid Automation Tools
+5. Free vs Paid Automation Tools
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Free tools:</strong>
+<strong>a. Free tools:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14295,7 +14292,7 @@ Free vs Paid Automation Tools
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Paid tools:</strong>
+<strong>b. Paid tools:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14305,7 +14302,7 @@ Free vs Paid Automation Tools
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Key Features to Look For
+6. Key Features to Look For
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14329,7 +14326,7 @@ Automation is powerful—but not perfect.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-ATS Detection and Automation Risks
+1. ATS Detection and Automation Risks
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14337,7 +14334,7 @@ Some systems detect unusual activity from bots. Too many rapid applications can 
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Importance of Personalisation
+2. Importance of Personalisation
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14351,7 +14348,7 @@ Even with job application automation, you should:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Daily Application Limits
+3. Daily Application Limits
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14359,7 +14356,7 @@ Most platforms limit auto-apply numbers. Safe range: 10–25 quality application
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Resume and Keyword Challenges
+4. Resume and Keyword Challenges
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14367,7 +14364,7 @@ If your resume lacks keywords, automation won't help. That's why ATS optimizatio
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-When Automation Can Hurt You
+5. When Automation Can Hurt You
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14381,7 +14378,7 @@ Automation hurts when:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Compliance With Job Portal Rules
+6. Compliance With Job Portal Rules
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14397,7 +14394,7 @@ Automation should support you—not replace you. The smartest job seekers combin
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Key Takeaways
+ Key Takeaways
 </h3>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14416,23 +14413,23 @@ If you use it wisely, automating job applications can cut effort in half and imp
 FAQs
 </h2>
 
-<ol style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li style='margin-bottom:12px;'>Is It Safe to Automate Job Applications?<br />Yes, if you use trusted tools and follow platform rules.</li>
+<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
+  <p style='margin-bottom:12px;'><strong>Q: Is It Safe to Automate Job Applications?</strong><br /><strong>A: </strong> Yes, if you use trusted tools and follow platform rules.</p>
 
-  <li style='margin-bottom:12px;'>How Many Job Applications Can I Automate per Day?<br />10–25 targeted applications are ideal.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How Many Job Applications Can I Automate per Day?</strong><br /><strong>A: </strong> 10–25 targeted applications are ideal.</p>
 
-  <li style='margin-bottom:12px;'>Do Automated Job Applications Work With ATS?<br />Yes, if your resume is ATS-optimized.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Do Automated Job Applications Work With ATS?</strong><br /><strong>A: </strong> Yes, if your resume is ATS-optimized.</p>
 
-  <li style='margin-bottom:12px;'>Can Freshers Automate Job Applications?<br />Yes. Automation helps freshers apply to more roles quickly.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Can Freshers Automate Job Applications?</strong><br /><strong>A: </strong> Yes. Automation helps freshers apply to more roles quickly.</p>
 
-  <li style='margin-bottom:12px;'>What's the Best AI Tool to Automate Job Applications?<br />The best tool depends on your region, industry, and needs.</li>
+  <p style='margin-bottom:12px;'><strong>Q: What's the Best AI Tool to Automate Job Applications?</strong><br /><strong>A: </strong> The best tool depends on your region, industry, and needs.</p>
 
-  <li style='margin-bottom:12px;'>Is Job Application Automation Legal?<br />Yes, but you must follow job portal policies.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Is Job Application Automation Legal?</strong><br /><strong>A: </strong> Yes, but you must follow job portal policies.</p>
 
-  <li style='margin-bottom:12px;'>Should I Customize Resumes When Using Automation?<br />Yes. Even automated resumes need role-based keywords.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Should I Customize Resumes When Using Automation?</strong><br /><strong>A: </strong> Yes. Even automated resumes need role-based keywords.</p>
 
-  <li style='margin-bottom:12px;'>Can Automation Reduce Job Application Rejections?<br />Yes—if combined with smart targeting and resume optimization.</li>
-</ol>
+  <p style='margin-bottom:12px;'><strong>Q: Can Automation Reduce Job Application Rejections?</strong><br /><strong>A: </strong> Yes—if combined with smart targeting and resume optimization.</p>
+</p>
 
 `,
   },
@@ -14468,16 +14465,16 @@ Job seekers today send an average of 50 to 100 applications before landing inter
 <p style='margin-bottom:12px; line-height:1.7;'>
 According to LinkedIn sources, over 78% of resumes are rejected by ATS before a human ever sees them. That's why AI tools matter more than ever.
 </p>
-
-<p style='margin-bottom:12px; line-height:1.7;'>
+<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
+<p style='margin-bottom:12px; line-height:1.7; text-align:left; '>
 <strong>Sources:</strong><br />
-LinkedIn Talent Blog – <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/practical-ways-to-use-ai-in-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/business/talent/blog/talent-acquisition/practical-ways-to-use-ai-in-recruitment</a><br />
-Harvard Business Review – <a href="https://hbr.org/2025/02/how-to-get-hired-when-ai-does-the-screening" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://hbr.org/2025/02/how-to-get-hired-when-ai-does-the-screening</a><br />
-Indeed Career Guide – <a href="https://in.indeed.com/career-advice/career-development/ai-for-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://in.indeed.com/career-advice/career-development/ai-for-recruitment</a>
+<li>LinkedIn Talent Blog – <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/practical-ways-to-use-ai-in-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/business/talent/blog/talent-acquisition/practical-ways-to-use-ai-in-recruitment</a><br /></li>
+<li>Harvard Business Review – <a href="https://hbr.org/2025/02/how-to-get-hired-when-ai-does-the-screening" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://hbr.org/2025/02/how-to-get-hired-when-ai-does-the-screening</a><br /></li>
+<li>Indeed Career Guide – <a href="https://in.indeed.com/career-advice/career-development/ai-for-recruitment" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://in.indeed.com/career-advice/career-development/ai-for-recruitment</a><br /></li>
 </p>
-
+</ul>
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-1. What Does an AI Job Application Tool Actually Do?
+ What Does an AI Job Application Tool Actually Do?
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14485,7 +14482,7 @@ An AI job application tool automates and enhances the way you search for, apply 
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-What "Best AI Job Application Tool" Really Means
+1. What "Best AI Job Application Tool" Really Means
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14504,11 +14501,11 @@ It's not about replacing you; it's about upgrading you.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Manual vs AI-Powered Job Applications
+2. Manual vs AI-Powered Job Applications
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Manual applications mean:</strong>
+<strong>a. Manual applications mean:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14519,7 +14516,7 @@ Manual vs AI-Powered Job Applications
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Whereas AI-powered applications mean:</strong>
+<strong>b. Whereas AI-powered applications mean:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14534,7 +14531,7 @@ This is where job application automation and automated job search come in.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-How AI Automates Resumes and Cover Letters
+3. How AI Automates Resumes and Cover Letters
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14553,7 +14550,7 @@ You upload one resume, and AI reshapes it for every job.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Common Misconceptions
+4. Common Misconceptions
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14571,7 +14568,7 @@ Many people think that:
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Who Benefits Most?
+5. Who Benefits Most?
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14591,7 +14588,7 @@ If you apply a lot, you need AI job application tools.
 </p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-2. How Do AI Job Application Tools Work in Real Life?
+ How Do AI Job Application Tools Work in Real Life?
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14599,7 +14596,7 @@ AI tools don't just "send resumes". They follow a smart system.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Resume Parsing and Optimization
+1. Resume Parsing and Optimization
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14618,7 +14615,7 @@ Then it performs AI resume optimization by aligning your resume with job descrip
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-AI Job Matching
+2. AI Job Matching
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14636,7 +14633,7 @@ It's like having a personal recruiter working 24/7.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Auto-Apply vs Assisted Apply
+3. Auto-Apply vs Assisted Apply
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14644,19 +14641,19 @@ There are two main workflows:
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Auto-apply jobs:</strong><br />
+<strong>a. Auto-apply jobs:</strong><br />
 The tool applies automatically<br />
 Fast and large-scale
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Assisted apply:</strong><br />
+<strong>b. Assisted apply:</strong><br />
 AI prepares everything<br />
 You review before sending
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-One-Click vs Customized
+4. One-Click vs Customized
 </h3>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14669,26 +14666,26 @@ Smart users mix both.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Real-Life Examples
+5. Real-Life Examples
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Freshers:</strong><br />
+<strong>a. Freshers:</strong><br />
 AI helps them build resumes, suggest skills, and send bulk job applications.
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Professionals:</strong><br />
+<strong>b. Professionals:</strong><br />
 AI rewrites resumes for promotions or career switches.
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>International Students:</strong><br />
+<strong>c. International Students:</strong><br />
 AI finds visa-friendly jobs and filters companies.
 </p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-3. Best AI Job Application Tools You Should Know in 2026
+ Best AI Job Application Tools You Should Know in 2026
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14696,7 +14693,7 @@ Now let's talk about the best AI job application tools available today.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Comparison Overview
+1. Comparison Overview
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14711,11 +14708,11 @@ Top tools focus on:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-1. LazyApply
+2. LazyApply
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Features:</strong>
+<strong>a. Features:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14725,22 +14722,22 @@ Top tools focus on:
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Pros:</strong><br />
+<strong>b. Pros:</strong><br />
 Great for bulk job applications<br />
 Saves hours
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Cons:</strong><br />
+<strong>c. Cons:</strong><br />
 Limited customization
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-2. Teal
+3. Teal
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Features:</strong>
+<strong>a. Features:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14750,22 +14747,22 @@ Limited customization
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Pros:</strong><br />
+<strong>b. Pros:</strong><br />
 Strong ATS optimization<br />
 Clean interface
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Cons:</strong><br />
+<strong>c. Cons:</strong><br />
 Less automation
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-3. Sonara
+4. Sonara
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Features:</strong>
+<strong>a. Features:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14775,22 +14772,22 @@ Less automation
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Pros:</strong><br />
+<strong>b. Pros:</strong><br />
 True job application automation<br />
 Good for busy users
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Cons:</strong><br />
+<strong>c. Cons:</strong><br />
 Paid only
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-4. Jobscan
+5. Jobscan
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Features:</strong>
+<strong>a. Features:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14799,21 +14796,21 @@ Paid only
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Pros:</strong><br />
+<strong>b. Pros:</strong><br />
 Best for AI resume optimization
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Cons:</strong><br />
+<strong>c. Cons:</strong><br />
 No auto-apply
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Free vs Paid Tools
+6. Free vs Paid Tools
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Free tools:</strong>
+<strong>a. Free tools:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14822,7 +14819,7 @@ Free vs Paid Tools
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Paid tools:</strong>
+<strong>b. Paid tools:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -14836,7 +14833,7 @@ In most cases, paid AI tools offer deeper automation, better job matching, and s
 </p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-4. Limitations of AI Job Application Tools You Should Know
+Limitations of AI Job Application Tools You Should Know
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14844,7 +14841,7 @@ AI is powerful—but not perfect.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-ATS Detection Risks
+1. ATS Detection Risks
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14857,7 +14854,7 @@ Some platforms detect automation.
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Over-Automation vs Personalization
+2. Over-Automation vs Personalization
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14874,7 +14871,7 @@ Balance speed with personalization.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Daily Limits
+3. Daily Limits
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14887,7 +14884,7 @@ Many tools cap:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Keyword Stuffing Risks
+4. Keyword Stuffing Risks
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14904,7 +14901,7 @@ Use keywords wisely.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-When AI May Not Work
+5. When AI May Not Work
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14918,7 +14915,7 @@ AI struggles with:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Ethics and Platform Rules
+6. Ethics and Platform Rules
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14927,7 +14924,7 @@ Always check platform policies before using full automation.
 </p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">
-5. Final Thoughts: Choosing the Best AI Job Application Tool for Your Needs
+Final Thoughts: Choosing the Best AI Job Application Tool for Your Needs
 </h2>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -14958,23 +14955,23 @@ The best AI job application tools don't replace effort—they multiply it. For m
 FAQs
 </h2>
 
-<ol style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li style='margin-bottom:12px;'>What is the best AI job application tool in 2026?<br />The best tool depends on your needs, but Sonara, LazyApply, and Teal are among the top choices.</li>
+<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
+  <p style='margin-bottom:12px;'><strong>Q: What is the best AI job application tool in 2026?</strong><br /><strong>A: </strong>The best tool depends on your needs, but Sonara, LazyApply, and Teal are among the top choices.</p>
 
-  <li style='margin-bottom:12px;'>Are AI job application tools safe to use?<br />Yes, if you follow platform rules and avoid over-automation.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Are AI job application tools safe to use?</strong><br /><strong>A: </strong>Yes, if you follow platform rules and avoid over-automation.</p>
 
-  <li style='margin-bottom:12px;'>Can AI tools automatically apply for jobs?<br />Yes, many tools support auto-apply jobs.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Can AI tools automatically apply for jobs?</strong><br /><strong>A: </strong>Yes, many tools support auto-apply jobs.</p>
 
-  <li style='margin-bottom:12px;'>Do AI job application tools work with ATS?<br />Most are built for ATS optimization.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Do AI job application tools work with ATS?</strong><br /><strong>A: </strong>Most are built for ATS optimization.</p>
 
-  <li style='margin-bottom:12px;'>Are free AI job application tools effective?<br />They help, but paid tools offer better automation.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Are free AI job application tools effective?</strong><br /><strong>A: </strong>They help, but paid tools offer better automation.</p>
 
-  <li style='margin-bottom:12px;'>Can freshers use AI tools for job applications?<br />Absolutely—AI is great for building first resumes.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Can freshers use AI tools for job applications?</strong><br /><strong>A: </strong>Absolutely—AI is great for building first resumes.</p>
 
-  <li style='margin-bottom:12px;'>How many applications can AI tools submit per day?<br />Usually between 50 and 200, depending on the tool and platform.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How many applications can AI tools submit per day?</strong><br /><strong>A: </strong>Usually between 50 and 200, depending on the tool and platform.</p>
 
-  <li style='margin-bottom:12px;'>Will AI job application tools increase interview chances?<br />Yes—when used smartly with good resumes and real skills.</li>
-</ol>
+  <p style='margin-bottom:12px;'><strong>Q: Will AI job application tools increase interview chances?</strong><br /><strong>A: </strong>Yes—when used smartly with good resumes and real skills.</p>
+</p>
 
 `,
   },
@@ -15019,13 +15016,14 @@ Let's break this down.
 Recruiters don't browse LinkedIn randomly. They search with intent. Their goal is to shortlist relevant profiles in seconds.
 </p>
 
+<ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
 <p style='margin-bottom:12px; line-height:1.7;'>
 <strong>Sources:</strong><br />
-LinkedIn – <a href="https://www.linkedin.com/business/sales/blog/profile-best-practices/17-steps-to-a-better-linkedin-profile-in-2017" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/business/sales/blog/profile-best-practices/17-steps-to-a-better-linkedin-profile-in-2017</a><br />
-LinkedIn Blog – <a href="https://www.linkedin.com/blog/member/archive/7-secrets-to-attracting-recruiters-on-linkedin" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/blog/member/archive/7-secrets-to-attracting-recruiters-on-linkedin</a><br />
-Forbes – <a href="https://www.forbes.com/sites/josephliu/2023/05/22/the-ultimate-guide-to-crafting-a-linkedin-profile-that-recruiters-love-advice-from-100-hiring-professionals/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.forbes.com/sites/josephliu/2023/05/22/the-ultimate-guide-to-crafting-a-linkedin-profile-that-recruiters-love-advice-from-100-hiring-professionals/</a><br />
-National Career Service – <a href="https://nationalcareers.service.gov.uk/careers-advice/create-a-linkedin-profile/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://nationalcareers.service.gov.uk/careers-advice/create-a-linkedin-profile/</a>
-</p>
+<li>LinkedIn – <a href="https://www.linkedin.com/business/sales/blog/profile-best-practices/17-steps-to-a-better-linkedin-profile-in-2017" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/business/sales/blog/profile-best-practices/17-steps-to-a-better-linkedin-profile-in-2017</a></li>
+<li>LinkedIn Blog – <a href="https://www.linkedin.com/blog/member/archive/7-secrets-to-attracting-recruiters-on-linkedin" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.linkedin.com/blog/member/archive/7-secrets-to-attracting-recruiters-on-linkedin</a></li>
+<li>Forbes – <a href="https://www.forbes.com/sites/josephliu/2023/05/22/the-ultimate-guide-to-crafting-a-linkedin-profile-that-recruiters-love-advice-from-100-hiring-professionals/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://www.forbes.com/sites/josephliu/2023/05/22/the-ultimate-guide-to-crafting-a-linkedin-profile-that-recruiters-love-advice-from-100-hiring-professionals/</a></li>
+<li>National Career Service – <a href="https://nationalcareers.service.gov.uk/careers-advice/create-a-linkedin-profile/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">https://nationalcareers.service.gov.uk/careers-advice/create-a-linkedin-profile/</a></li>
+</ul
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
 What Recruiters Look for First
@@ -15048,7 +15046,7 @@ If these elements aren't optimized, your profile gets skipped even if you're qua
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-How Recruiters Search on LinkedIn, or How to Get Recruiters to Contact You on LinkedIn
+1. How Recruiters Search on LinkedIn, or How to Get Recruiters to Contact You on LinkedIn
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15071,11 +15069,11 @@ If your profile lacks industry keywords, it simply won't appear.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Average Profile vs Recruiter-Optimized Profile
+2. Average Profile vs Recruiter-Optimized Profile
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Average profile:</strong>
+<strong>a. Average profile:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -15086,7 +15084,7 @@ Average Profile vs Recruiter-Optimized Profile
 </ul>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Recruiter-Optimized Profile:</strong>
+<strong>b. Recruiter-Optimized Profile:</strong>
 </p>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -15097,7 +15095,7 @@ Average Profile vs Recruiter-Optimized Profile
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Common Mistakes That Reduce Visibility
+3. Common Mistakes That Reduce Visibility
 </h3>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -15113,7 +15111,7 @@ These mistakes significantly decrease profile engagement with recruiters.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Who Needs LinkedIn Optimization the Most?
+4. Who Needs LinkedIn Optimization the Most?
 </h3>
 
 <ul style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
@@ -15137,7 +15135,7 @@ Recruiters don't wait for applications. They proactively search. If you're askin
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-How the LinkedIn Search Algorithm Works
+1. How the LinkedIn Search Algorithm Works
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15156,7 +15154,7 @@ Profiles aligned with recruiter searches rank higher for recruiter visibility.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Why Keywords Matter Everywhere
+2. Why Keywords Matter Everywhere
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15175,7 +15173,7 @@ This improves LinkedIn SEO and ensures your profile surfaces in searches.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Impact of the "Open to Work" Feature
+3. Impact of the "Open to Work" Feature
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15187,7 +15185,7 @@ You can enable it privately (visible only to recruiters) for discretion.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Profile Completeness & Activity Signals
+4. Profile Completeness & Activity Signals
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15209,19 +15207,19 @@ This boosts profile engagement and ranking.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Real-World Examples
+5. Real-World Examples
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Freshers:</strong> Appear for "entry-level + skills" searches
+<strong>a. Freshers:</strong> Appear for "entry-level + skills" searches
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Experienced professionals:</strong> Rank for niche job titles
+<strong>b. Experienced professionals:</strong> Rank for niche job titles
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
-<strong>Career switchers:</strong> Show transferable skills in the About section
+<strong>c. Career switchers:</strong> Show transferable skills in the About section
 </p>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15237,7 +15235,7 @@ This is where targeted LinkedIn profile optimization directly improves recruiter
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Write a Keyword-Rich Professional Headline
+1. Write a Keyword-Rich Professional Headline
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15260,7 +15258,7 @@ Digital Marketing Specialist | SEO & Paid Ads | Growth-Focused Marketer
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Optimize Your LinkedIn About Section
+2. Optimize Your LinkedIn About Section
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15278,7 +15276,7 @@ Keep it scannable. Use short paragraphs or bullets.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Choose the Right Profile Photo and Banner
+3. Choose the Right Profile Photo and Banner
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15300,7 +15298,7 @@ LinkedIn reports profiles with photos get 14x more views.
 </p>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Skills, Endorsements, and Experience Optimization
+4. Skills, Endorsements, and Experience Optimization
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15319,7 +15317,7 @@ Your skills and endorsements section helps recruiters validate fit.
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Custom LinkedIn URL & Settings
+5. Custom LinkedIn URL & Settings
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15341,7 +15339,7 @@ Also ensure:
 </ul>
 
 <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">
-Engagement Strategies That Boost Visibility
+6. Engagement Strategies That Boost Visibility
 </h3>
 
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15390,23 +15388,21 @@ For more information, you may visit <a href="https://www.flashfirejobs.com" targ
 FAQs
 </h2>
 
-<ol style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
-  <li style='margin-bottom:12px;'>How do I make my LinkedIn profile visible to recruiters?<br />Use relevant keywords, complete all sections, enable Open to Work, and stay active weekly.</li>
+<p style="margin-left:1.5rem; margin-bottom:12px; line-height:1.7;">
+  <p style='margin-bottom:12px;'><strong>Q: How do I make my LinkedIn profile visible to recruiters?</strong><br /><strong>A: </strong> Use relevant keywords, complete all sections, enable Open to Work, and stay active weekly.</p>
 
-  <li style='margin-bottom:12px;'>Why are recruiters not contacting me on LinkedIn?<br />Most likely due to poor keyword alignment, weak headlines, or low activity.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Why are recruiters not contacting me on LinkedIn?</strong><br /><strong>A: </strong> Most likely due to poor keyword alignment, weak headlines, or low activity.</p>
 
-  <li style='margin-bottom:12px;'>Does "Open to Work" help recruiters find you?<br />Yes. It increases recruiter visibility significantly.</li>
+  <p style='margin-bottom:12px;'><strong>Q: Does "Open to Work" help recruiters find you?</strong><br /><strong>A: </strong> Yes. It increases recruiter visibility significantly.</p>
 
-  <li style='margin-bottom:12px;'>How many keywords should I add to my LinkedIn profile?<br />Enough to sound natural—usually 20–30 role-specific keywords across sections.</li>
+  <p style='margin-bottom:12px;'><strong>Q: How many keywords should I add to my LinkedIn profile?</strong><br /><strong>A: </strong> Enough to sound natural—usually 20–30 role-specific keywords across sections.</p>
 
-  <li style='margin-bottom:12px;'>What headline attracts recruiters the most?<br />Clear job title + specialization + value statement.</li>
+  <p style='margin-bottom:12px;'><strong>Q: What headline attracts recruiters the most?</strong><br /><strong>A: </strong> Clear job title + specialization + value statement.</p>
 
-  <li style='margin-bottom:12px;'>How often should I update my LinkedIn profile?<br />At least once every 2–3 months or when skills change.</li>
-
-  <li style='margin-bottom:12px;'>Can freshers attract recruiters on LinkedIn?<br />Absolutely—by highlighting skills, internships, and projects.</li>
-
-  <li style='margin-bottom:12px;'>Does LinkedIn activity increase recruiter messages?<br />Yes. Active profiles rank higher and get more views.</li>
-</ol>
+  <p style='margin-bottom:12px;'><strong>Q: How often should I update my LinkedIn profile?</strong><br /><strong>A: </strong> At least once every 2–3 months or when skills change.</p>
+                                                                                                                          
+  <p style='margin-bottom:12px;'><strong>Q: Does LinkedIn activity increase recruiter messages?</strong><br /><strong>A: </strong> Yes. Active profiles rank higher and get more views.</p>
+</p>
 
 `,
   }
