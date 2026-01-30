@@ -772,6 +772,26 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Why Flashfire Is More Than a Basic ATS Resume Checker */}
+        <section id="why-more-than-ats-checker" className="py-18 sm:py-24 bg-[#fff9f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto space-y-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance text-[#0f172a]">
+                Why Flashfire Is More Than a Basic ATS Resume Checker
+              </h2>
+              <p className="text-lg text-[#374151] leading-relaxed text-balance">
+                Flashfire isn&apos;t just an{" "}
+                <span className="font-semibold text-[#ff4c00]">ATS resume checker tool</span>
+                . It&apos;s a full{" "}
+                <span className="font-semibold text-[#ff4c00]">AI resume optimizer</span>{" "}
+                and{" "}
+                <span className="font-semibold text-[#ff4c00]">ATS resume optimizer</span>{" "}
+                that scans your resume, understands job requirements, and automatically optimizes content to improve ATS ranking and recruiter visibility.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section id="faq" className={styles.faqSection}>
           <div id="faq-header" className={styles.header}>

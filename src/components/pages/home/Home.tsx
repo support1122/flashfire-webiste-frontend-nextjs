@@ -15,6 +15,7 @@ import HomePagePTNote from "@/src/components/homePagePTNote/homePagePTNote";
 import HomePageResultStats from "@/src/components/homePageResultStats/homePageResultStats";
 import HomePageStatsCards from "@/src/components/homePageStatsCards/homePageStatsCards";
 import HomePageSteps from "@/src/components/homePageSteps/homePageSteps";
+import HomePageJobMatchingSection from "@/src/components/homePageJobMatchingSection/homePageJobMatchingSection";
 import HomePageVideo from "@/src/components/homePageVideo/homePageVideo";
 import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWhyChooseFF";
 import Navbar from "@/src/components/navbar/navbar";
@@ -56,6 +57,7 @@ const Home = () => {
       <HeroSection />
       <HomePageStatsCards />
       <HomePageSteps /> {/* using useState, so client */}
+      <HomePageJobMatchingSection />
       <HomePageCareerCTA />
       <HomePageBeforeAfter />
       <HomePageResultStats />
