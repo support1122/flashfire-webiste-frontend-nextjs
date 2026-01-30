@@ -17,9 +17,9 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
 
   if (!isCanada) {
     return {
-      title: "AI Job Search, Job Application Platform | Ai Job Hunting Sites - FlashFireJobs",
+      title: "Flashfire: Automate Job Applications with AI",
       description:
-        "FlashFireJobs is an AI-powered job search platform offering auto apply to jobs, job application assistance, AI job board & smart career job search tools.",
+        "Flashfire is an AI job application platform that automates job search, auto-applies to jobs using AI, and matches you with the right roles faster.",
       robots: {
         index: true,
         follow: true,
@@ -28,9 +28,9 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
         canonical: "https://www.flashfirejobs.com/",
       },
       openGraph: {
-        title: "AI Job Search, Job Application Platform | Ai Job Hunting Sites - FlashFireJobs",
+        title: "Flashfire: Automate Job Applications with AI",
         description:
-          "FlashFireJobs is an AI-powered job search platform offering auto apply to jobs, job application assistance, AI job board & smart career job search tools.",
+          "Flashfire is an AI job application platform that automates job search, auto-applies to jobs using AI, and matches you with the right roles faster.",
         url: "https://www.flashfirejobs.com/",
         type: "website",
         images: [
@@ -44,6 +44,9 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
       },
       twitter: {
         card: "summary_large_image",
+        title: "Flashfire: Automate Job Applications with AI",
+        description:
+          "Flashfire is an AI job application platform that automates job search, auto-applies to jobs using AI, and matches you with the right roles faster.",
         images: ["https://www.flashfirejobs.com/images/og-image.png"],
       },
     };

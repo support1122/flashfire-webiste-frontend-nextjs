@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ATS Resume Optimizer | Tailor Your Resume with AI - Flashfire",
-  description: "Get your resume ATS-ready in minutes. We optimize your base resume for each job description, ensuring it's perfectly tailored to pass ATS filters and land more interviews.",
+  title: "ATS Resume Optimizer & Free ATS Resume Checker",
+  description: "Flashfire is an AI resume optimizer and free ATS resume checker that scans your resume against job descriptions, improves ATS compatibility, and boosts recruiter visibility.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

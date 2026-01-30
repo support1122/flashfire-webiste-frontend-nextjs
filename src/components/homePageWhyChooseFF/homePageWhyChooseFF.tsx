@@ -27,7 +27,7 @@ export default function HomePageWhyChooseFF() {
       {/* === Header === */}
       <header className="w-[55%] mx-auto mb-12 max-[1024px]:w-4/5 max-[768px]:w-full">
         <h2 className="text-[50.84px] font-bold text-[#02060A] mb-4 leading-[110%] tracking-[-0.03em] font-['Satoshi',sans-serif] max-[1024px]:text-[2.4rem] max-[768px]:text-[1.8rem]">
-          Why Choose Flashfire?
+          Why Flashfire Is a Smarter AI Job Matching Platform
         </h2>
         <p className="text-[20px] font-medium text-[#02060A] leading-[139%] tracking-[-0.03em] font-['Satoshi',sans-serif] max-[1024px]:text-[1.05rem] max-[768px]:text-[1rem]">
           We don&apos;t just apply, we <strong className="font-bold italic">make you get noticed.</strong>{" "}

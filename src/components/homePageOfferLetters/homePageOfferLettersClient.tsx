@@ -115,7 +115,7 @@ const offerLetters: OfferLetterData[] = [
 export default function HomePageOfferLettersClient() {
   return (
     <section className={styles.offerSection}>
-      <h2 className={styles.offerHeading}>25+ Offer Letter Received</h2>
+      <h2 className={styles.offerHeading}>Real Results From Our AI Job Application & Auto-Apply Platform</h2>
 
       <div className={styles.offerMarqueeWrapper}>
         <div className={styles.offerMarquee}>

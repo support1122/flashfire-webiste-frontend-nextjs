@@ -63,9 +63,7 @@ export default function HomePageSteps() {
         </h2>
 
         <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600">
-          The process of finding a job is complicated and time-consuming.
-          Flashfire simplifies everything so you get interview calls faster
-          with minimum effort.
+          Flashfire simplifies job hunting using AI job application automation, handling everything from resume optimization to automated job submissions and tracking.
         </p>
         {/* Connector line – perfectly centered */}
         {/* ================= STEPPER ================= */}

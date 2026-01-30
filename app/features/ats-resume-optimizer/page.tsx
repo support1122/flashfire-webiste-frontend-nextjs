@@ -105,6 +105,22 @@ export default function Page() {
 
   const resumeOptimizerFAQs = [
     {
+      question: "What is an ATS resume optimizer?",
+      answer: "An ATS resume optimizer improves your resume's compatibility with Applicant Tracking Systems by optimizing keywords, formatting, and structure. Flashfire uses AI resume optimization to help your resume pass automated screening and reach recruiters."
+    },
+    {
+      question: "How does a resume scanner for ATS work?",
+      answer: "A resume scanner for ATS compares your resume against job descriptions, checks keyword alignment, and flags formatting issues that could block ATS parsing. Flashfire's ATS resume checker tool performs this scan instantly using AI."
+    },
+    {
+      question: "Is Flashfire a free ATS resume checker?",
+      answer: "Yes. Flashfire offers a free ATS resume checker that scans your resume, identifies optimization gaps, and provides actionable recommendations before you apply."
+    },
+    {
+      question: "What's the difference between an ATS resume checker and an AI resume optimizer?",
+      answer: "An ATS resume checker identifies issues, while an AI resume optimizer fixes them. Flashfire combines both scanning your resume for ATS compatibility and automatically optimizing it using AI."
+    },
+    {
       question: "What is an ATS optimized resume, and why do I need one?",
       answer: " It's a resume that's formatted and keyword-optimized to pass recruiter software filters, ensuring you're not rejected automatically."
     },
@@ -398,10 +414,10 @@ export default function Page() {
 
                 <div className="space-y-4">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance">
-                    Get Your Resume <span className="text-primary">ATS-Ready</span> in Minutes
+                    ATS Resume Optimizer That Helps You Pass <span className="text-primary">ATS Screening</span>
                   </h1>
                   <p className="text-lg sm:text-xl text-[#374151] text-pretty leading-relaxed">
-                    We optimize your base resume for each and every role and job description, ensuring it's perfectly tailored to pass ATS filters and land more interviews.
+                    Flashfire is an AI resume optimizer and resume scanner for ATS that analyzes your resume against job descriptions, identifies ATS issues, and improves keyword matching to increase shortlisting chances.
                   </p>
                 </div>
 
@@ -523,7 +539,7 @@ export default function Page() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">
-                Why Job Seekers Love Our Best Free <span className="text-primary">ATS Resume Checker Tool</span>
+                Why Job Seekers Trust Our Free <span className="text-primary">ATS Resume Checker & AI Resume Optimizer</span>
               </h2>
               <p className="text-lg text-[#374151] max-w-2xl mx-auto text-balance">
                 ATS-friendly, recruiter-ready, and focused on real improvements that get results.
@@ -618,7 +634,7 @@ export default function Page() {
         <section className="py-18 sm:py-24 bg-[#fff0e6]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">What Our ATS Scanner Checks</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">What Our ATS Resume Checker Tool & Resume Scanner Analyzes</h2>
               <p className="text-lg text-[#374151] max-w-2xl mx-auto text-balance">
                 Comprehensive analysis across 30+ criteria to ensure your resume passes ATS filters and impresses hiring
                 managers.
@@ -691,9 +707,9 @@ export default function Page() {
         <section id="how-it-works" className="py-18 sm:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">How Our ATS Resume Optimizer Works in 5 Simple Steps</h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance">How Our ATS Resume Optimizer & AI Resume Scanner Works in 5 Simple Steps</h2>
               <p className="text-lg text-[#374151] max-w-2xl mx-auto text-balance">
-                Get your resume optimized for each job in five simple steps. Fast, easy, and effective.
+                Flashfire acts as an ATS resume scanner by analyzing your resume against job descriptions, detecting ATS compatibility issues, and optimizing your content with AI resume optimization techniques.
               </p>
             </div>
 
@@ -855,7 +871,7 @@ export default function Page() {
         {/* FAQ Section */}
         <section id="faq" className={styles.faqSection}>
           <div id="faq-header" className={styles.header}>
-            <h2>Question? We Got You Answers.</h2>
+            <h2>FAQs About Our ATS Resume Checker, Resume Scanner & Optimization Tool</h2>
             <p>
               We get it, ATS resume optimization can sound complex. Here's everything
               explained, plain and simple.

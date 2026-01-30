@@ -5,19 +5,19 @@ export const questionsData = [
   },
   {
     question: "How does AI job search improve my chances of finding relevant positions?",
-    answer: " Our AI scans thousands of listings and matches them to your profile. It also optimizes your resume with keywords hiring managers and ATS systems are looking for.",
+    answer: "AI job search improves your chances by analyzing your resume, skills, experience, and preferences to match you with highly relevant job opportunities. FlashFireJobs uses AI-driven job matching to filter out irrelevant listings and surface roles that align with your profile, making it easier to find the right jobs faster on a smart job hunting site.",
   },
   {
     question: "Can AI job application tools help me apply for jobs faster?",
-    answer: " Yes, but with FlashFireJobs, it's not just AI. We combine AI resume optimization with manual applications by our team, ensuring quality and speed.",
+    answer: "Yes. AI job application tools significantly speed up the application process by automating repetitive tasks like form filling, resume customization, and application submission. FlashFireJobs allows users to apply to multiple jobs quickly using AI-powered resume optimization and auto-apply features, helping job seekers save time and increase application volume efficiently.",
   },
   {
     question: "What are the benefits of using AI for job search on FlashFireJobs?",
-    answer: "You get smarter targeting, resume customization at scale, and time savings — all while improving your chances of getting shortlisted.",
+    answer: "Using AI for job search on FlashFireJobs offers several benefits, including personalized job recommendations, faster applications, and improved recruiter visibility. As an AI-powered job search platform, FlashFireJobs combines intelligent job discovery, AI resume matching, and automated applications to help modern job seekers find opportunities quickly and apply with confidence.",
   },
   {
-    question: "Does FlashFireJobs act as an AI job board for modern job seekers?",
-    answer: " No. We are not a job board. FlashFireJobs is a done-for-you job application service that combines AI tools with human effort.",
+    question: "Does FlashFireJobs act as an AI job board?",
+    answer: "Flashfire works as an AI job search platform, combining job discovery, AI job matching, and automated applications.",
   },
   {
     question: "How does an AI-powered job search differ from traditional job searching?",
@@ -29,7 +29,7 @@ export const questionsData = [
   },
   {
     question: "Can FlashFireJobs auto apply to jobs on my behalf?",
-    answer: " Yes, but not using bots. Every application is submitted manually by our in-house team, ensuring accuracy and avoiding errors.",
+    answer: "Yes. Flashfire is an AI job application platform that can auto-apply to jobs using AI-driven resume matching and role-specific optimization.",
   },
   {
     question: "What job application assistance features does FlashFireJobs offer?",

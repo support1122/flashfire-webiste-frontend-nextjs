@@ -49,9 +49,7 @@ export default function HomePageResultStats() {
         <p className={styles.resultTagline}>RESULT THAT SPEAKS</p>
 
         <h2 className={styles.resultHeading}>
-          Interviews in weeks.
-          <br />
-          Offers in months.
+          Get Interviews Faster With AI Job Search & Application Automation
         </h2>
 
         <div className={styles.resultStats}>

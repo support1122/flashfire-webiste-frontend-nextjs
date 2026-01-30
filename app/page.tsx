@@ -3,9 +3,9 @@ import HomePage from "@/src/components/pages/home/Home";
 import HomeImagePreloader from "./HomeImagePreloader";
 
 export const metadata: Metadata = {
-  title: "AI Job Search, Job Application Platform | Ai Job Hunting Sites - FlashFireJobs",
+  title: "Flashfire: Automate Job Applications with AI",
   description:
-    "Use AI powered job search platforms to learn how to get interview calls faster with targeted job matching. Apply smarter and get hired with Flashfire.",
+    "Flashfire is an AI job application platform that automates job search, auto-applies to jobs using AI, and matches you with the right roles faster.",
   robots: {
     index: true,
     follow: true,
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/",
   },
   openGraph: {
-    title: "AI Job Search, Job Application Platform | Ai Job Hunting Sites - FlashFireJobs",
+    title: "Flashfire: Automate Job Applications with AI",
     description:
-      "Use AI powered job search platforms to learn how to get interview calls faster with targeted job matching. Apply smarter and get hired with Flashfire.",
+      "Flashfire is an AI job application platform that automates job search, auto-applies to jobs using AI, and matches you with the right roles faster.",
     url: "https://www.flashfirejobs.com/",
     type: "website",
     images: [
@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: "Flashfire: Automate Job Applications with AI",
+    description:
+      "Flashfire is an AI job application platform that automates job search, auto-applies to jobs using AI, and matches you with the right roles faster.",
     images: ["https://www.flashfirejobs.com/images/og-image.png"],
   },
 };

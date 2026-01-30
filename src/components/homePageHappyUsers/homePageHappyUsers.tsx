@@ -287,7 +287,7 @@ export default function HomePageHappyUsers() {
             textAlign: "center",
           }}
         >
-          100+ Happy User&rsquo;s Love!
+          Trusted by Job Seekers Using Our AI Job Search Platform
         </h2>
 
         {/* Masonry Layout */}

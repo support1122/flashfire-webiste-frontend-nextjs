@@ -43,7 +43,7 @@ export default function BeforeAfterComparison() {
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-14 space-y-5 sm:space-y-6 max-w-4xl mx-auto">
           <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            AI-Powered Job Matching Platform Based on FlashFire Intelligent Automation
+            Why Flashfire Is a Smarter AI Job Search Platform
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed px-2 sm:px-0">

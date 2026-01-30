@@ -32,7 +32,7 @@ export default function HomePageCareerCTA() {
         {/* === LEFT: Content === */}
         <div className={styles.leftContent}>
           <h2 className={styles.heading}>
-            Just Graduated? Let&apos;s Fire Up Your Career!
+            AI-Powered Job Search for Fresh Graduates & Early-Career Professionals
           </h2>
 
           <p className={styles.subtext}>
