@@ -492,16 +492,20 @@ export default function JobApplicationAutomationPage() {
           desc: "Applying to dozens of roles weekly and need speed with accuracy",
         },
         {
-          title: "International Applicants",
-          desc: "Applying across countries with different ATS and resume rules",
-        },
-        {
           title: "ATS-Rejected Candidates",
           desc: "Qualified professionals blocked by automated screening systems",
         },
         {
           title: "Automation-First Job Seekers",
           desc: "Want to automate job applications without losing quality or relevance",
+        },
+        {
+          title: "International Applicants",
+          desc: "Applying across countries with different ATS and resume rules",
+        },
+        {
+          title: "Career Changers & Recent Graduates",
+          desc: "Entering new roles or industries and need to scale applications while staying targeted",
         },
       ].map((item) => (
         <div
