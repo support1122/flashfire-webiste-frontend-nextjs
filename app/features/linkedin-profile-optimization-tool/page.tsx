@@ -518,6 +518,73 @@ export default function LinkedInOptimizationPage() {
         </div>
       </section>
 
+            {/* ================= WHO IS THIS FOR ================= */}
+<section className="py-24 bg-white">
+  <div className="mx-auto max-w-6xl px-6">
+
+    {/* HEADER */}
+    <div className="text-center mb-14">
+      <span className="inline-block mb-4 px-4 py-1 text-xs font-semibold tracking-widest text-[#ff4c00] bg-[#fff2ea] rounded-full">
+        BUILT FOR SERIOUS JOB SEEKERS
+      </span>
+
+      <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">
+        Is FlashFire’s LinkedIn Optimization Right for You?
+      </h2>
+
+      <p className="mt-4 text-lg text-[#4b5563] max-w-2xl mx-auto">
+        If recruiters aren’t reaching out, your LinkedIn profile isn’t working.
+        FlashFire fixes visibility, positioning, and conversion — together.
+      </p>
+    </div>
+
+    {/* CARDS */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      {[
+        {
+          title: "Active Job Seekers",
+          desc: "Applying regularly but not getting interview callbacks",
+        },
+        {
+          title: "Career Switchers",
+          desc: "Repositioning skills for a new role or industry",
+        },
+        {
+          title: "Mid–Senior Professionals",
+          desc: "Targeting better roles, pay, or companies",
+        },
+        {
+          title: "Low Recruiter Response",
+          desc: "Strong experience but no inbound messages",
+        },
+      ].map((item) => (
+        <div
+          key={item.title}
+          className="group bg-[#fff6f4] border border-[#f1e1d8] rounded-2xl p-6 hover:border-[#ff4c00] transition"
+        >
+          <div className="w-8 h-8 mb-4 rounded-full bg-[#ff4c00] text-white font-bold flex items-center justify-center">
+            ✓
+          </div>
+
+          <h4 className="text-lg font-extrabold mb-2">
+            {item.title}
+          </h4>
+
+          <p className="text-[#4b5563] leading-relaxed">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {/* FOOT NOTE */}
+    <p className="mt-12 text-center text-sm text-[#6b7280]">
+      We don’t just rewrite profiles — we optimize them for how recruiters actually search.
+    </p>
+
+  </div>
+</section>
 
       
       {/* ================= WHY THIS WORKS ================= */}

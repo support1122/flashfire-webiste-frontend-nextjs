@@ -458,6 +458,83 @@ export default function JobApplicationAutomationPage() {
             </div>
           </div>
         </section>
+        {/* ================= WHO IS THIS FOR ================= */}
+<section className="py-24 bg-white">
+  <div className="mx-auto max-w-6xl px-6">
+
+    {/* HEADER */}
+    <div className="text-center mb-14">
+      <span className="inline-block mb-4 px-4 py-1 text-xs font-semibold tracking-widest text-[#ff4c00] bg-[#fff2ea] rounded-full">
+        BUILT FOR MODERN JOB SEEKERS
+      </span>
+
+      <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">
+        Who Is This Job Application Automation Tool For?
+      </h2>
+
+      <p className="mt-4 text-lg text-[#4b5563] max-w-2xl mx-auto">
+        Flashfire’s <span className="font-semibold text-[#111]">job application automation system</span> is built for
+        job seekers who want to apply faster, beat ATS filters, and increase interview chances —
+        without spending hours on repetitive applications.
+      </p>
+    </div>
+
+    {/* AUDIENCE GRID */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      {[
+        {
+          title: "Active Job Seekers",
+          desc: "Applying daily and want to save time without missing opportunities",
+        },
+        {
+          title: "High-Volume Applicants",
+          desc: "Applying to dozens of roles weekly and need speed with accuracy",
+        },
+        {
+          title: "ATS-Rejected Candidates",
+          desc: "Qualified professionals blocked by automated screening systems",
+        },
+        {
+          title: "Automation-First Job Seekers",
+          desc: "Want to automate job applications without losing quality or relevance",
+        },
+        {
+          title: "International Applicants",
+          desc: "Applying across countries with different ATS and resume rules",
+        },
+        {
+          title: "Career Changers & Recent Graduates",
+          desc: "Entering new roles or industries and need to scale applications while staying targeted",
+        },
+      ].map((item) => (
+        <div
+          key={item.title}
+          className="bg-[#fff6f4] border border-[#f1e1d8] rounded-2xl p-6 hover:border-[#ff4c00] transition"
+        >
+          <div className="w-9 h-9 mb-4 rounded-full bg-[#ff4c00] text-white font-bold flex items-center justify-center">
+            ✓
+          </div>
+
+          <h4 className="text-lg font-extrabold mb-2">
+            {item.title}
+          </h4>
+
+          <p className="text-[#4b5563] leading-relaxed">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {/* TRUST LINE */}
+    <p className="mt-12 text-center text-sm text-[#6b7280]">
+      Flashfire automates applications intelligently — so every application still feels human.
+    </p>
+
+  </div>
+</section>
+
         {/* ================= WHY JOB HUNTING BREAKS ================= */}
       
 <section className="py-32 bg-[#fff6f4]">
