@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Automated Job Applications Using AI | FlashfireJobs",
-  description: "Flashfire AI Job Automation Platform works 24/7 for you. Apply to jobs faster, target the right roles, and get interview calls sooner with automated job applications.",
+  title: "Job Application Automation Tool | AI Job Applications",
+  description: "Flashfire is an AI job application automation tool that helps you automate job applications, beat ATS filters, and land interviews faster.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

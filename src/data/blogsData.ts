@@ -15531,8 +15531,8 @@ FAQs
     category: "Job Search Strategy",
     tags: ["AI Job Applications", "Resume Optimization", "Job Search", "Career Tips", "ATS Optimization"],
     author: {
-      name: "Deabshri Mandal",
-      bio: "Career experts helping job seekers leverage AI tools effectively for better job search outcomes.",
+      name: "Debashri Mandal",
+      bio: "Career expert and resume strategist helping job seekers leverage AI tools effectively for better job search outcomes.",
     },
     image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769702781/can-you-use-ai-for-job-applications_ksadd2.jpg",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -15838,8 +15838,8 @@ For more information, you can visit <a href="https://www.flashfirejobs.com" targ
     category: "Job Search Strategy",
     tags: ["AI Job Search Tools", "Job Search Automation", "Resume Optimization", "Career Tips", "ATS Optimization"],
     author: {
-      name: "Deabshri Mandal",
-      bio: "Career experts helping job seekers leverage AI tools effectively for better job search outcomes.",
+      name: "Debashri Mandal",
+      bio: "Career expert and resume strategist helping job seekers leverage AI tools effectively for better job search outcomes.",
     },
     image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769703010/ai-job-search-tools_adwmp8.jpg",
     categoryColor: "bg-blue-100 text-blue-600",
@@ -16281,6 +16281,565 @@ Use AI as your assistant, not your replacement. For more information, visit <a h
     <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Depending on the tool, anywhere from 20 to 200+ applications daily.</p>
   </div>
 </div>
+           `
+  },
+  {
+    id: 75,
+    slug: "check-if-resume-is-ats-friendly",
+    title: "How to Check If Your Resume Is ATS Friendly",
+    excerpt: "Learn how to check if your resume is ATS friendly, test ATS compatibility, and fix formatting issues to improve your chances of getting shortlisted.",
+    date: "Jan 31, 2026",
+    readTime: "10 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing", "ATS Optimization", "Job Search", "Career Tips"],
+    author: {
+      name: "Debashri Mandal",
+      bio: "Career expert and resume strategist helping job seekers optimize their resumes for ATS systems.",
+    },
+    image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769880188/check-if-resume-is-ats-friendly_pmcoao.jpg",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <p style='margin-bottom:12px; line-height:1.7;'>If you're applying for jobs online and not hearing back, you've probably asked yourself, 'Is my resume ATS-friendly?' or 'How do I check if my resume is ATS format or not?' In 2026, most companies use Applicant Tracking Systems (ATS) to screen resumes before recruiters even see them. So, how do you know whether your resume can pass ATS parsing or get rejected silently?</p>
+
+        <p style='margin-bottom:12px; line-height:1.7;'>To check if your resume is ATS-friendly, you need to test its formatting, resume ATS score, resume structure for ATS, and keyword relevance against how Applicant Tracking System compatibility works and parse resumes. An ATS-friendly format uses a clean layout, a readable file format, standard headings, and role-specific keywords so the system can correctly scan and score your application.</p>
+
+        <p style='margin-bottom:12px; line-height:1.7;'>According to industry data, over 75% of resumes are filtered out by ATS before reaching a human recruiter. That's why understanding ATS compatibility isn't optional anymore—it's essential.</p>
+
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Sources:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>How to check if your resume is ATS-friendly by LinkedIn – <a href="https://www.linkedin.com/posts/sstruan_in-2-minutes-how-to-check-if-your-r%C3%A9sum%C3%A9-activity-7272256324392964097-jHB_" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.linkedin.com/posts/sstruan_in-2-minutes-how-to-check-if-your-r%C3%A9sum%C3%A9-activity-7272256324392964097-jHB_</a></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How does resume parsing work?</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Image Source:</strong> <a href="https://www.aihr.com/wp-content/uploads/resume-parsing-Blog-1024x1024.png" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.aihr.com/wp-content/uploads/resume-parsing-Blog-1024x1024.png</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What Does an ATS-Friendly Resume Actually Mean?</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>An ATS-friendly resume can be easily read, parsed, and scored by an ATS format test, without losing critical information. Many candidates feel unsure because their resume looks great visually, but ATS doesn't "see" resumes the way humans do.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What an Applicant Tracking System (ATS) does</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>An ATS:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Scans resumes automatically</li>
+          <li>Extracts skills, experience, and keywords</li>
+          <li>Assigns a resume ATS score</li>
+          <li>Ranks candidates before recruiters review them</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>This process determines Applicant Tracking System compatibility.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">ATS-friendly format vs visually designed resumes</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Visually designed resumes:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Use columns, graphics, icons</li>
+          <li>Look impressive to humans.</li>
+          <li>Often causes ATS parsing issues.</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>ATS-friendly resumes:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Use simple layouts</li>
+          <li>Follow ATS formatting guidelines.</li>
+          <li>Prioritise readability over design.</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why recruiters rely on ATS resume checkers</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Recruiters use ATS to:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Handle high application volume</li>
+          <li>Reduce manual screening</li>
+          <li>Filter by required skills</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>This makes ATS the first gatekeeper.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Common misconceptions about ATS resume formats</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>ATS rejects all PDFs</li>
+          <li>More keywords always help.</li>
+          <li>Design doesn't matter at all.</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>All three are partially wrong.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Who needs to check if their resume is ATS-friendly?</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Freshers applying online</li>
+          <li>Professionals applying through portals</li>
+          <li>Career switchers targeting new roles</li>
+          <li>Anyone applying to mid-to-large companies</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Check If My Resume Is ATS Friendly?</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>If you're wondering, "How do I know my resume is ATS-friendly?" the answer lies in testing—not guessing.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>To know more about making your resume ATS-friendly, try watching <a href="https://www.youtube.com/watch?v=example" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Build an ATS Friendly Resume That Gets Shortlisted! 🚀</a></p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How ATS parses resumes</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS reads resumes by:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Scanning from top to bottom</li>
+          <li>Identifying section headers</li>
+          <li>Extracting keywords and dates</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Poor resume structure for ATS can break this process.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Using ATS resume checker tools</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> <a href="https://www.jobscan.co/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.jobscan.co/</a></p>
+        <p style='margin-bottom:12px; line-height:1.7;'>An ATS resume checker simulates how systems scan your resume. These tools show:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Parsing errors</li>
+          <li>Keyword gaps</li>
+          <li>Formatting problems</li>
+          <li>Overall ATS compatibility score</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>This is the fastest way to learn how to check if my resume is ATS-friendly.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Checking resume format, structure, and keywords manually</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>You can also self-test by:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Copy-pasting your resume into plain text</li>
+          <li>Checking if sections stay readable</li>
+          <li>Matching keywords with job descriptions</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>This acts as a basic resume format test.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">File formats ATS can and cannot read</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Most ATS systems support:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>.DOCX (best)</li>
+          <li>.PDF (if text-based)</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Image-based PDFs</li>
+          <li>Canva exports without text layers</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Real-world examples</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Freshers:</strong> ATS checks skills more than experience</li>
+          <li><strong>Experienced professionals:</strong> Job titles and metrics matter</li>
+          <li><strong>Career switchers:</strong> Keyword alignment is critical</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Common ATS Resume Mistakes You Should Know</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Many resumes fail ATS screening due to avoidable mistakes.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Incorrect resume formatting and layouts</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Two-column designs</li>
+          <li>Headers/footers for key info</li>
+          <li>Text boxes</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Stick to an ATS-friendly format.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Use of tables, columns, and graphics</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS struggles with:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Tables</li>
+          <li>Charts</li>
+          <li>Icons</li>
+          <li>Logos</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>These often cause ATS parsing issues.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Missing or mismatched keywords</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS compares your resume to the job description. If your resume keyword match is low, your resume won't rank even if you're qualified.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Unsupported fonts and file types</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Use standard fonts:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Arial</li>
+          <li>Calibri</li>
+          <li>Times New Roman</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Decorative fonts</li>
+          <li>Scanned resumes</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Resume sections ATS struggles to read</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Problematic section titles include:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>"What I Bring"</li>
+          <li>"Career Snapshot"</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Use standard headings:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Experience</li>
+          <li>Skills</li>
+          <li>Education</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to fix ATS parsing issues</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Simplify layout</li>
+          <li>Use clear headings</li>
+          <li>Add relevant keywords naturally.</li>
+          <li>Re-test using an ATS checker</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Thoughts: Making Sure Your Resume Is ATS Friendly</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Ensuring your resume is Applicant Tracking System (ATS) friendly is crucial if you want your application to reach a real recruiter. Focus on some of the ATS optimization tips:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Clean structure</li>
+          <li>Keyword relevance</li>
+          <li>Readable formatting</li>
+          <li>Regular testing</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>An ATS-optimized resume doesn't look boring; it looks effective. When ATS can read your resume correctly, your chances of shortlisting increase dramatically.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>To know more, you can visit <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">flashfirejobs.com</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs</h2>
+
+        <div style="margin-top:0.75rem;">
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How do I know if my resume is ATS-friendly?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Use an ATS resume checker and review formatting and keywords.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. What is the best ATS resume checker tool?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Tools that show parsing, keyword match, and ATS score are best.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Does resume design affect ATS compatibility?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes—complex designs often fail ATS scans.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Which resume format is best for ATS?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Single-column, chronological format works best.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Can ATS read PDF resumes?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, if the PDF is text-based and properly formatted.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How many keywords should I include for ATS?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Enough to match the job description naturally, avoid stuffing.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Can freshers pass ATS screening easily?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, with strong skills, keywords, and structure.</p>
+          </div>
+          <div style="margin-bottom:0;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How often should I test my resume for ATS compatibility?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Every time you apply to a new role or industry.</p>
+          </div>
+        </div>
+           `
+  },
+  {
+    id: 76,
+    slug: "how-to-beat-ats-systems",
+    title: "How to Beat ATS Systems: Proven Resume Tips That Work",
+    excerpt: "Learn how to beat ATS systems with proven resume tips, keyword strategies, and ATS-friendly formatting to get more interview calls.",
+    date: "Jan 31, 2026",
+    readTime: "12 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing", "ATS Optimization", "Job Search", "Career Tips"],
+    author: {
+      name: "Debashri Mandal",
+      bio: "Career expert and resume strategist helping job seekers beat ATS systems and land interviews.",
+    },
+    image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769880353/how-to-beat-ats-systems_zu0zlf.jpg",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <p style='margin-bottom:12px; line-height:1.7;'>If you're applying for jobs online and not getting interview calls, you're probably wondering how to beat ATS or even how to beat ATS systems altogether. In today's hiring process, your resume rarely reaches a recruiter before it passes through an Applicant Tracking System (ATS). So the real question isn't "Am I qualified?"; it's "Can my resume survive ATS screening?"</p>
+
+        <p style='margin-bottom:12px; line-height:1.7;'>To beat ATS systems, your resume must be formatted correctly, include the right keywords from the job description, and use standard resume sections that ATS software can easily parse. When your resume aligns with how ATS scans, scores, and ranks candidates, your chances of getting shortlisted increase significantly.</p>
+
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Sources:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Forbes – Resume hacks to pass ATS <a href="https://www.forbes.com/sites/ashleystahl/2022/12/12/5-resume-hacks-to-pass-ats/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.forbes.com/sites/ashleystahl/2022/12/12/5-resume-hacks-to-pass-ats/</a></li>
+          <li>LinkedIn – Beat ATS system and land interviews <a href="https://www.linkedin.com/pulse/beat-ats-land-interview-my-5-steps-christopher-ming-k2c0c" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.linkedin.com/pulse/beat-ats-land-interview-my-5-steps-christopher-ming-k2c0c</a></li>
+        </ul>
+
+        <p style='margin-bottom:12px; line-height:1.7;'>According to hiring studies, over 98% of Fortune 500 companies use an Applicant Tracking System, and nearly 75% of resumes are rejected before human review. That makes ATS optimization a non-negotiable skill for job seekers.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Try watching <a href="https://www.youtube.com/watch?v=example" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">How to beat the applicant tracking system in 2023 (UPDATED)</a> to know more about how to beat the ATS system.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What Is an ATS, and Why Do Resumes Get Rejected?</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>The Applicant Tracking System (ATS) is software used by employers to collect, scan, organise, and rank resumes before recruiters see them. Many qualified candidates get rejected simply because their resumes can't beat ATS systems.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What an ATS (Applicant Tracking System) does</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>An application tracking system:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Scans resumes automatically</li>
+          <li>Extracts data like skills, job titles, and experience</li>
+          <li>Performs resume parsing</li>
+          <li>Ranks candidates based on relevance</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Your resume becomes a data file, not a visual document.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why companies use ATS systems for hiring</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Companies use ATS to:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Handle thousands of applications</li>
+          <li>Reduce manual screening</li>
+          <li>Filter candidates objectively</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Without ATS-friendly resumes, modern hiring wouldn't scale.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How ATS scans, parses, and ranks resumes</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS systems:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Parse resume text</li>
+          <li>Identify standard resume sections</li>
+          <li>Match resume keywords with job descriptions</li>
+          <li>Assign a relevance score</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Only top-ranked resumes move forward.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Common myths about ATS rejection</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>ATS rejects resumes randomly (false)</li>
+          <li>ATS prefers "creative" resumes (false)</li>
+          <li>More keywords always win (false)</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>None of these helps you learn how to beat ATS.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why understanding ATS is the first step to beating it</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>You can't beat an ATS system you don't understand. Once you know how ATS reads resumes, optimizing becomes straightforward, not scary.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How Does an ATS System Actually Work?</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS systems don't "read" like humans; they process structured data. Understanding this logic is crucial if you want to master how to beat ATS systems.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Resume parsing and data extraction</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS parsing breaks your resume into fields:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Name</li>
+          <li>Job titles</li>
+          <li>Skills</li>
+          <li>Dates</li>
+          <li>Education</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>If parsing fails, your resume appears incomplete.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Keyword matching from job descriptions</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS compares your resume against keyword matching, such as:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>job description keywords</li>
+          <li>Required skills</li>
+          <li>Role-specific terms</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>No keyword match = low ranking.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">ATS resume scoring and ranking logic</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Each ATS resume receives a relevance score based on:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Keyword alignment</li>
+          <li>Experience relevance</li>
+          <li>Role match</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Only high scores reach recruiters.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Role of job titles, skills sections, and experience</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Exact titles matter. "Marketing Specialist" may not match "Digital Marketing Executive" unless both appear.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why exact keyword matching usage matters</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Unlike humans, ATS software does not infer meaning and relies entirely on exact keyword matching. It matches text, literally.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Most Common Reasons Resumes Fail ATS Screening</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>If you're struggling with how to beat ATS, these mistakes are often the reason.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Missing or irrelevant keywords</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>If your resume lacks required keywords, ATS assumes you're unqualified, even if you aren't.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Poor resume formatting</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Complex formatting breaks ATS readability and ranking.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Using graphics, tables, or columns</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS struggles with:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Tables</li>
+          <li>Icons</li>
+          <li>Two-column layouts</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>These cause parsing errors.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Incorrect file formats (PDF vs DOCX)</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some ATS systems struggle with image-based PDFs.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Unclear section headings</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Non-standard headings confuse ATS:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>"Career Highlights"</li>
+          <li>"What I Bring"</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Use clear, expected labels.</strong></p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Overuse of creative or non-standard layouts</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Creativity impresses humans but fails ATS.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Beat ATS With the Right Resume Formatting</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Formatting is the foundation of an ATS-friendly resume.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Best resume structure for ATS systems</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Use this order:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Header (name + contact info)</li>
+          <li>Summary</li>
+          <li>Experience</li>
+          <li>Skills section</li>
+          <li>Education</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>This ensures clean parsing.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Standard section headers ATS can read</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Stick to:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Professional Summary</li>
+          <li>Work Experience</li>
+          <li>Skills Section</li>
+          <li>Education</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid fancy labels.</strong></p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Font types and sizes that work best</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Use:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Arial</li>
+          <li>Calibri</li>
+          <li>Times New Roman</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Font size:</strong> 10.5–12 pt.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Bullet points vs paragraphs</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Bullet points improve:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>ATS scanning</li>
+          <li>Recruiter readability</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid long paragraphs.</strong></p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why simple layouts outperform designed resumes</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Minimal design = maximum compatibility.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Beat ATS Using the Right Keywords</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Keyword strategy is the heart of learning how to beat ATS systems.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to extract job descriptions' keywords</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Look for:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Repeated skills</li>
+          <li>Tools and technologies</li>
+          <li>Certifications</li>
+          <li>Job titles</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>These are ATS signals.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Difference between hard skills and soft skills</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>ATS prioritizes:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Hard skills (tools, software, frameworks)</li>
+          <li>Certifications</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Soft skills help, but don't replace hard ones.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Where to place keywords in your resume</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Best keyword locations:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Skills section</li>
+          <li>Experience bullet points</li>
+          <li>Professional summary</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Keyword density best practices</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Use keywords naturally; don't stuff.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Avoiding keyword stuffing</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Keyword stuffing:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Reduces readability</li>
+          <li>Can lower ATS scores</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Balance always wins.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Tailoring Your Resume for Each Job Application</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>One resume rarely beats every ATS.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Matching job titles exactly</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>If the role says "Product Manager", don't use "Product Lead" alone.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Customizing the skills section</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Reorder skills to match job priority.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Adjusting experience bullet points</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Highlight achievements relevant to each role.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Rewriting summaries for each role</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Your summary should mirror the job description language.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Time-efficient ways to tailor resumes</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Save multiple versions</li>
+          <li>Use keyword checklists</li>
+          <li>Edit only key sections</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Best File Formats and Resume Submission Tips</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Technical details matter more than most people think.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">PDF vs DOCX: which is better for ATS?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>DOCX = safest</strong></p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>PDF = okay if text-based</strong></p>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid scanned PDFs.</strong></p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Naming your resume file correctly</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Use:</strong> FirstName_LastName_JobTitle_Resume.docx</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Avoiding headers, footers, and text boxes</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS often ignores these sections entirely.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Submitting resumes through job portals</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Always upload, not copy-paste, unless required.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When ATS testing tools are useful</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS checkers help:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Identify parsing errors</li>
+          <li>Measure keyword match</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Use them as guides, not guarantees.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Thoughts: How to Beat ATS Systems and Get Shortlisted</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>To beat ATS systems and get your resume shortlisted, focus on using the right keywords, following ATS-friendly formatting, and tailoring your resume to each job description.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>When you understand how ATS works, how to beat ATS stops being a mystery and becomes a repeatable process.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>With the right structure, keyword strategy, and formatting discipline, knowing how to beat ATS systems becomes a skill, not luck.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>For more information about getting a filter pass through the ATS system, you can visit <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; font-weight: 600; text-decoration: underline;">flashfirejobs.com</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs</h2>
+
+        <div style="margin-top:0.75rem;">
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. What is the best way to beat ATS systems?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Use ATS-friendly formatting, exact keywords, and tailored resumes.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How many keywords should I include to beat ATS?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Enough to match the job description naturally, avoid stuffing.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Does resume design affect ATS ranking?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes. Over-designed resumes often fail ATS parsing.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Can ATS read PDF resumes correctly?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, if the PDF is text-based and well-formatted.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. How do I know if my resume is ATS-friendly?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Use ATS resume checker tools and manual text tests.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Do all companies use ATS systems?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Most mid-to-large companies do.</p>
+          </div>
+          <div style="margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #e5e7eb;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Can a resume pass ATS but still get rejected?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> Yes, ATS only gets you to human review.</p>
+          </div>
+          <div style="margin-bottom:0;">
+            <p style="margin:0 0 0.375rem 0; font-size:1rem; font-weight:600; color:#111827;"><strong>Q. Are ATS resume checker tools reliable?</strong></p>
+            <p style="margin:0; font-size:1rem; line-height:1.75; color:#4b5563;"><strong>A.</strong> They're helpful indicators, not guarantees.</p>
+          </div>
+        </div>
            `
   }
 ];
