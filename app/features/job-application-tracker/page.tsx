@@ -135,13 +135,13 @@ export default function JobTrackerPage() {
   const handleHowItWorks = () => {
     const section = document.getElementById("how-it-works")
     if (!section) return
-  
+
     const yOffset = -80 // adjust if navbar height changes
     const y =
       section.getBoundingClientRect().top +
       window.pageYOffset +
       yOffset
-  
+
     window.scrollTo({ top: y, behavior: "smooth" })
   }
 
@@ -469,6 +469,113 @@ export default function JobTrackerPage() {
             </div>
           </div>
         </section>
+       {/* ================= WHO IS THIS FOR ================= */}
+<section className="relative py-32 bg-[#fff7f2] overflow-hidden">
+
+{/* Decorative accents */}
+<div className="absolute top-0 right-0 w-[420px] h-[420px] bg-[#ffe2d4] rounded-full blur-3xl opacity-70" />
+<div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-[#ffd6c4] rounded-full blur-3xl opacity-50" />
+
+<div className="relative max-w-7xl mx-auto px-6">
+
+  {/* Header */}
+  <div className="max-w-4xl mb-24">
+    <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[#ff4c00]">
+      <span className="w-2 h-2 rounded-full bg-[#ff4c00]" />
+      WHO THIS IS BUILT FOR
+    </span>
+
+    <h2 className="mt-5 text-4xl md:text-6xl font-extrabold text-[#0b1220] leading-tight">
+      Built for Job Seekers Who <br />
+      <span className="text-[#ff4c00]">Track Everything</span>
+    </h2>
+
+    <p className="mt-6 text-lg text-[#5b6475] max-w-2xl">
+      FlashFire’s Job Tracker is built for candidates who want clarity,
+      structure, and momentum — not scattered notes and missed follow-ups.
+    </p>
+  </div>
+
+  {/* Main Content */}
+  <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-24">
+
+    {/* LEFT — Capability Panels */}
+    <div className="space-y-8">
+
+      {[
+        {
+          title: "Complete Application Visibility",
+          desc: "View every job you’ve saved, applied to, interviewed for, or followed up on — all in one organized system."
+        },
+        {
+          title: "Never Miss a Follow-Up",
+          desc: "Track recruiter conversations, interview timelines, reminders, and next steps without manual effort."
+        },
+        {
+          title: "Actionable Search Insights",
+          desc: "Understand which roles progress and which stall, so you can focus on applications that actually convert."
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group bg-white/80 backdrop-blur rounded-2xl border border-[#ffd6c4] p-8 shadow-[0_18px_45px_rgba(0,0,0,0.08)] hover:shadow-[0_28px_60px_rgba(0,0,0,0.12)] transition-shadow"
+        >
+          <h3 className="text-xl font-extrabold text-[#0b1220] mb-3">
+            {item.title}
+          </h3>
+          <p className="text-[#5b6475] leading-relaxed">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+
+    </div>
+
+    {/* RIGHT — Persona Stack */}
+    <div className="space-y-6">
+
+      {[
+        {
+          title: "High-Volume Applicants",
+          desc: "People applying to many roles who need a reliable system to track statuses and outcomes."
+        },
+        {
+          title: "International Job Seekers",
+          desc: "Candidates managing regions, visa considerations, and longer interview cycles."
+        },
+        {
+          title: "Career Switchers",
+          desc: "Professionals testing multiple roles or industries to identify what converts."
+        },
+        {
+          title: "Process-Driven Candidates",
+          desc: "Job seekers who optimize their search using structure and data — not guesswork."
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="relative bg-[#fff1ea] rounded-2xl border border-[#ffd6c4] p-7"
+        >
+          {/* Accent bar */}
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#ff4c00] rounded-l-2xl" />
+
+          <h4 className="text-lg font-extrabold text-[#0b1220]">
+            {item.title}
+          </h4>
+          <p className="mt-2 text-sm text-[#5b6475] leading-relaxed">
+            {item.desc}
+          </p>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
 
         <section className="bg-white py-24">
           <div className="max-w-7xl mx-auto px-6">

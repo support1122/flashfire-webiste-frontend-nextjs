@@ -293,8 +293,124 @@ export default function DashboardAnalyticsPage() {
     </div>
   </div>
 </section>
+{/* ================= WHO IS THIS FOR ================= */}
+{/* ================= WHO IS THIS FOR (PREMIUM) ================= */}
+<section className="py-36 bg-[#fff7f2] relative overflow-hidden">
 
-<section className="py-28 bg-white">
+  {/* Soft ambient background */}
+  <div className="absolute top-0 right-0 w-[520px] h-[520px] bg-[#ffe3d4] rounded-full blur-3xl opacity-50" />
+  <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[#fff0e6] rounded-full blur-3xl opacity-60" />
+
+  <div className="relative max-w-7xl mx-auto px-6">
+
+    {/* Outer Frame */}
+    <div className="bg-white border border-[#ffd6c4] rounded-[32px] p-10 md:p-14 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
+
+      <div className="grid lg:grid-cols-[1.1fr_1fr] gap-16 items-start">
+
+        {/* LEFT — CONTENT */}
+        <div>
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="w-3 h-3 rounded-full bg-[#ff4c00]" />
+            <span className="text-sm font-semibold tracking-wide text-[#ff4c00]">
+              WHO THIS IS BUILT FOR
+            </span>
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0b1220]">
+            Designed for Job Seekers <br />
+            Who Want{" "}
+            <span className="text-[#ff4c00]">
+              Measurable Progress
+            </span>
+          </h2>
+
+          <p className="mt-8 text-lg text-[#5b6475] leading-relaxed max-w-xl">
+            FlashFire’s job search analytics dashboard is built for candidates
+            who want visibility into their job application tracking and
+            real improvement in interview outcomes.
+          </p>
+
+          <p className="mt-4 text-[#5b6475] leading-relaxed max-w-xl">
+            Instead of guessing, you see clear signals — what converts,
+            what doesn’t, and where to focus next.
+          </p>
+
+          {/* Insight Strip */}
+          <div className="mt-10 flex flex-wrap gap-6">
+            {[
+              { label: "Applications", value: "Tracked" },
+              { label: "Interview Rate", value: "Visible" },
+              { label: "Decisions", value: "Data-Driven" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-[#fff7f2] border border-[#ffd6c4] rounded-xl px-5 py-4"
+              >
+                <div className="text-sm font-semibold text-[#0b1220]">
+                  {item.value}
+                </div>
+                <div className="text-xs text-[#5b6475]">
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT — PERSONA STACK */}
+        <div className="relative">
+
+          {/* Accent rail */}
+          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-[#ff4c00] via-[#ff9b66] to-transparent" />
+
+          <div className="space-y-7 pl-10">
+
+            {[
+              {
+                title: "High-Volume Applicants",
+                desc: "Candidates applying to many roles who need clarity on what actually converts into interviews.",
+              },
+              {
+                title: "International Candidates",
+                desc: "Track visa-friendly companies, regions, and interview success patterns in one place.",
+              },
+              {
+                title: "Optimization-Focused Professionals",
+                desc: "People continuously refining resumes, roles, and targeting using real performance data.",
+              },
+              {
+                title: "Data-Driven Job Seekers",
+                desc: "Anyone serious about improving interview outcomes with measurable insights.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group bg-[#fff7f2] border border-[#ffd6c4] rounded-2xl p-6 hover:bg-white hover:shadow-lg transition"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff4c00]" />
+                  <h3 className="text-lg font-extrabold text-[#0b1220]">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="text-sm text-[#5b6475] leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section className="py-24 bg-white">
   <div className="max-w-7xl mx-auto px-6">
 
     <div className="text-center mb-20">
@@ -335,6 +451,7 @@ export default function DashboardAnalyticsPage() {
 </section>
 
       </div>
+    
       <Footer />
     </>
   );
