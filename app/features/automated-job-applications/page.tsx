@@ -60,8 +60,8 @@ export default function JobApplicationAutomationPage() {
       answer: " Avoid mass-blind applications. Instead, target fresh, relevant roles with optimized resumes — which FlashFire does manually for each job."
     },
     {
-      question: "Can I use job application automation while still customizing applications for each job?",
-      answer: " Yes. Flashfire combines automated job applications with role-specific customization, ensuring every application is optimized without manual effort."
+      question: "Can I customize applications while using automation?",
+      answer: "Yes. Flashfire combines automated job applications with role-specific customization, ensuring every application is optimized without manual effort."
     },
     {
       question: "How does automating job applications work with AI-powered job matching and alerts?",
