@@ -135,13 +135,13 @@ export default function JobTrackerPage() {
   const handleHowItWorks = () => {
     const section = document.getElementById("how-it-works")
     if (!section) return
-  
+
     const yOffset = -80 // adjust if navbar height changes
     const y =
       section.getBoundingClientRect().top +
       window.pageYOffset +
       yOffset
-  
+
     window.scrollTo({ top: y, behavior: "smooth" })
   }
 
@@ -469,6 +469,91 @@ export default function JobTrackerPage() {
             </div>
           </div>
         </section>
+        {/* ================= WHO IS THIS FOR ================= */}
+        <section className="bg-[#fff7f2] py-28">
+          <div className="max-w-7xl mx-auto px-6">
+
+            {/* Header */}
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <span className="text-sm font-semibold tracking-wide text-[#ff4c00]">
+                WHO IT’S FOR
+              </span>
+
+              <h2 className="mt-4 text-4xl md:text-5xl font-extrabold text-[#0b1220] leading-tight">
+                Who Is This <br />
+                <span className="text-[#ff4c00]">Job Application Tracker</span> For?
+              </h2>
+
+              <p className="mt-6 text-lg text-[#5b6475] leading-relaxed">
+                FlashFire’s job application tracker is built for job seekers who want
+                clarity, structure, and momentum in their job search — without messy
+                spreadsheets or missed follow-ups.
+              </p>
+            </div>
+
+            {/* Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+              {/* Card 1 */}
+              <div className="bg-white border border-[#ffd6c4] rounded-2xl p-8 shadow-sm hover:-translate-y-1 transition">
+                <div className="w-12 h-12 rounded-xl bg-[#fff1ea] flex items-center justify-center mb-6 text-[#ff4c00] font-bold">
+                  01
+                </div>
+                <h3 className="text-lg font-extrabold text-[#0b1220] mb-3">
+                  Active Job Seekers
+                </h3>
+                <p className="text-sm text-[#5b6475] leading-relaxed">
+                  Perfect for candidates applying to multiple roles every week and
+                  needing a single place to track everything clearly.
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-white border border-[#ffd6c4] rounded-2xl p-8 shadow-sm hover:-translate-y-1 transition">
+                <div className="w-12 h-12 rounded-xl bg-[#fff1ea] flex items-center justify-center mb-6 text-[#ff4c00] font-bold">
+                  02
+                </div>
+                <h3 className="text-lg font-extrabold text-[#0b1220] mb-3">
+                  Spreadsheet-Tired Professionals
+                </h3>
+                <p className="text-sm text-[#5b6475] leading-relaxed">
+                  For professionals who are tired of managing job searches using
+                  spreadsheets, notes, and scattered bookmarks.
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-white border border-[#ffd6c4] rounded-2xl p-8 shadow-sm hover:-translate-y-1 transition">
+                <div className="w-12 h-12 rounded-xl bg-[#fff1ea] flex items-center justify-center mb-6 text-[#ff4c00] font-bold">
+                  03
+                </div>
+                <h3 className="text-lg font-extrabold text-[#0b1220] mb-3">
+                  Interview-Heavy Candidates
+                </h3>
+                <p className="text-sm text-[#5b6475] leading-relaxed">
+                  Ideal for candidates managing interviews, recruiter conversations,
+                  referrals, and follow-ups across multiple companies.
+                </p>
+              </div>
+
+              {/* Card 4 */}
+              <div className="bg-white border border-[#ffd6c4] rounded-2xl p-8 shadow-sm hover:-translate-y-1 transition">
+                <div className="w-12 h-12 rounded-xl bg-[#fff1ea] flex items-center justify-center mb-6 text-[#ff4c00] font-bold">
+                  04
+                </div>
+                <h3 className="text-lg font-extrabold text-[#0b1220] mb-3">
+                  Serious Career Builders
+                </h3>
+                <p className="text-sm text-[#5b6475] leading-relaxed">
+                  Anyone who wants a smarter, more organized job tracking system to
+                  improve consistency, follow-ups, and interview success.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
 
         <section className="bg-white py-24">
           <div className="max-w-7xl mx-auto px-6">
