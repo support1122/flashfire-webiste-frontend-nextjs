@@ -5,10 +5,11 @@ import React, { useMemo, useState, useCallback } from "react";
 import Footer from "@/src/components/footer/footer";
 import HomePageHappyUsers from "@/src/components/homePageHappyUsers/homePageHappyUsers";
 import { Users, Zap, TrendingUp, Briefcase, Brain, MessageSquareText, CheckCircle2 } from "lucide-react";
-import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
 type QA = { q: string; a: string; tips: string[] };
 
@@ -53,11 +54,31 @@ export default function FlashFireInterview() {
   const [answer, setAnswer] = useState("");
   const [showSample, setShowSample] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       // handled globally
     },
   });
+
+  const handleFaqToggle = (index: number) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
+
+  const interviewFAQs = [
+    {
+      question: "What is AI interview practice, and how does it work?",
+      answer: "AI interview practice uses artificial intelligence to simulate real interview questions and provide instant feedback. FlashFire's AI interview tool helps candidates practice mock interviews and prepare confidently for real interviews."
+    },
+    {
+      question: "Is this an AI mock interview or real interview questions?",
+      answer: "FlashFire offers AI mock interviews built from real job descriptions, allowing users to practice interview questions they are likely to face in actual interviews."
+    },
+    {
+      question: "How does AI interview preparation help improve confidence?",
+      answer: "AI interview preparation helps candidates practice repeatedly, receive instant feedback, and improve structure and clarity, leading to more confident interview performance."
+    }
+  ];
 
   const handleCTAClick = useCallback((label: string, location: string) => {
     const getLocal = (key: string, fallback: string) =>
@@ -109,13 +130,12 @@ export default function FlashFireInterview() {
             </span>
 
             <h1 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight">
-              Practice interviews with the
-              <span className="text-[#ff4c00]"> FlashFire</span> edge
+              AI Interview Practice Tool for <br />
+              <span className="text-[#ff4c00]">Realistic Mock Interviews</span>
             </h1>
 
             <p className="mt-4 text-lg text-slate-700">
-              Train with realistic interview questions, instant feedback, and
-              sample answers tailored for real jobs.
+              FlashFire is an AI-powered interview tool that helps job seekers practice mock interviews, get instant feedback, and improve interview performance. Our AI interview preparation platform uses real interview questions to build confidence and clarity before the real interview.
             </p>
 
             <div className="mt-6 grid gap-4">
@@ -145,6 +165,9 @@ export default function FlashFireInterview() {
       AI Assessment
     </span>
   </div>
+  <p className="mt-3 text-sm text-slate-600">
+    Get a real-time interview readiness score using our AI interview practice tool to identify strengths and improvement areas before your interview.
+  </p>
 
   {/* Progress */}
   <div className="mt-5">
@@ -196,7 +219,7 @@ export default function FlashFireInterview() {
     {/* Heading */}
     <div className="text-center max-w-3xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-        How FlashFire AI improves your interview answers
+        How Our AI Interview Tool Improves Mock Interview Performance
       </h2>
       <p className="mt-4 text-slate-700 text-lg">
         Practice isn’t just about answering questions — it’s about refining
@@ -209,17 +232,17 @@ export default function FlashFireInterview() {
       {[
         {
           icon: Brain,
-          title: "Understands the question deeply",
+          title: "Understands Real Interview Questions Using AI",
           desc: "FlashFire analyzes the intent behind each question so your answer stays focused on what interviewers actually want.",
         },
         {
           icon: MessageSquareText,
-          title: "Guides your response structure",
+          title: "Structures Answers for Mock Interviews Using Proven Frameworks",
           desc: "Get feedback on clarity, flow, and structure using proven frameworks like STAR and impact-driven storytelling.",
         },
         {
           icon: CheckCircle2,
-          title: "Highlights what to improve",
+          title: "AI Feedback to Improve Mock Interview Answers",
           desc: "Instantly see what’s missing — metrics, examples, or clarity — and improve before the real interview.",
         },
       ].map(({ icon: Icon, title, desc }, idx) => (
@@ -344,7 +367,45 @@ export default function FlashFireInterview() {
 </section>
 
       <HomePageHappyUsers />
-    <HomePageFAQ />
+      
+      {/* ================= FAQ ================= */}
+      <section id="faq" className={faqStyles.faqSection}>
+        <div id="faq-header" className={faqStyles.header}>
+          <h2>FAQs About Our AI Interview Practice & Mock Interview Tool</h2>
+          <p>
+            We get it, AI interview practice can sound complex. Here's everything
+            explained, plain and simple.
+          </p>
+        </div>
+
+        <div className={faqStyles.faqContainer}>
+          {interviewFAQs.map((faq, index) => (
+            <div
+              key={index}
+              className={`${faqStyles.faqItem} ${
+                activeFaqIndex === index ? faqStyles.active : ""
+              }`}
+            >
+              <button
+                className={faqStyles.faqQuestion}
+                onClick={() => handleFaqToggle(index)}
+              >
+                <span>{faq.question}</span>
+                <span className={faqStyles.icon}>
+                  {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
+                </span>
+              </button>
+
+              {activeFaqIndex === index && (
+                <div className={faqStyles.faqAnswer}>
+                  <p>{faq.answer}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* MID PAGE CTA */}
       <section className="bg-[#fcf7f4] text-slate-900 py-18 px-4">
         <div className="max-w-4xl mx-auto text-center">
