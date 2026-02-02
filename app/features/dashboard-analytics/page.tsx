@@ -146,10 +146,10 @@ export default function DashboardAnalyticsPage() {
   return (
     <>
       <Navbar />
-      <div className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen">
+      <div className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white py-28">
-  <div className="max-w-7xl mx-auto px-6 text-center">
+        <section className="relative bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white py-12 sm:py-20 lg:py-28">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
 
     {/* Eyebrow */}
     <div className="inline-flex items-center gap-2 mb-6">
@@ -160,13 +160,13 @@ export default function DashboardAnalyticsPage() {
     </div>
 
     {/* Heading */}
-    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-[#0b1220] mb-8">
-      Turn Your Job Search <br />
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] text-[#0b1220] mb-6 sm:mb-8">
+      Turn Your Job Search <br className="hidden sm:block" />
       <span className="text-[#ff4c00]">Into Actionable Insights</span>
     </h1>
 
     {/* Subheading */}
-    <p className="text-lg md:text-xl text-[#5b6475] max-w-3xl mx-auto leading-relaxed mb-12">
+    <p className="text-base sm:text-lg md:text-xl text-[#5b6475] max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-1">
       Track applications, response rates, and interview conversions in one
       powerful dashboard. Make data-driven decisions that improve results —
       not guesswork.
@@ -191,20 +191,20 @@ export default function DashboardAnalyticsPage() {
     </div>
   </div>
 </section>
-<section className="py-28 bg-white">
-  <div className="max-w-7xl mx-auto px-6">
+<section className="py-12 sm:py-20 lg:py-28 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-    <div className="text-center mb-20">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b1220]">
+    <div className="text-center mb-10 sm:mb-16 lg:mb-20">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220]">
         Everything You Need to <span className="text-[#ff4c00]">Track</span>
       </h2>
-      <p className="mt-4 text-lg text-[#5b6475] max-w-3xl mx-auto">
+      <p className="mt-4 text-base sm:text-lg text-[#5b6475] max-w-3xl mx-auto px-1">
         From applications to interviews, FlashFire gives you a complete
         picture of your job search performance.
       </p>
     </div>
 
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
       {[
         {
           title: "Application Performance",
@@ -249,7 +249,7 @@ export default function DashboardAnalyticsPage() {
     </div>
 
     {/* ===== Steps ===== */}
-    <div className="grid md:grid-cols-4 gap-10">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
       {[
         {
           step: "01",
@@ -274,10 +274,10 @@ export default function DashboardAnalyticsPage() {
       ].map((item, i) => (
         <div
           key={i}
-          className="bg-white rounded-2xl p-10 border border-[#ffd6c4] text-center hover:shadow-lg transition"
+          className="bg-white rounded-2xl p-5 sm:p-6 lg:p-10 border border-[#ffd6c4] text-center hover:shadow-lg transition"
         >
           {/* Step Badge */}
-          <div className="w-14 h-14 mx-auto mb-6 rounded-full bg-[#fff1ea] flex items-center justify-center text-[#ff4c00] font-extrabold text-lg">
+          <div className="w-14 h-14 mx-auto mb-4 sm:mb-6 rounded-full bg-[#fff1ea] flex items-center justify-center text-[#ff4c00] font-extrabold text-lg">
             {item.step}
           </div>
 
@@ -306,7 +306,7 @@ export default function DashboardAnalyticsPage() {
     {/* Outer Frame */}
     <div className="bg-white border border-[#ffd6c4] rounded-[32px] p-10 md:p-14 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
 
-      <div className="grid lg:grid-cols-[1.1fr_1fr] gap-16 items-start">
+      <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 sm:gap-12 lg:gap-16 items-start">
 
         {/* LEFT — CONTENT */}
         <div>
@@ -317,15 +317,15 @@ export default function DashboardAnalyticsPage() {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0b1220]">
-            Designed for Job Seekers <br />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-[#0b1220]">
+            Designed for Job Seekers <br className="hidden sm:block" />
             Who Want{" "}
             <span className="text-[#ff4c00]">
               Measurable Progress
             </span>
           </h2>
 
-          <p className="mt-8 text-lg text-[#5b6475] leading-relaxed max-w-xl">
+          <p className="mt-4 sm:mt-6 lg:mt-8 text-base sm:text-lg text-[#5b6475] leading-relaxed max-w-xl">
             FlashFire’s job search analytics dashboard is built for candidates
             who want visibility into their job application tracking and
             real improvement in interview outcomes.
@@ -337,7 +337,7 @@ export default function DashboardAnalyticsPage() {
           </p>
 
           {/* Insight Strip */}
-          <div className="mt-10 flex flex-wrap gap-6">
+          <div className="mt-6 sm:mt-10 flex flex-wrap gap-4 sm:gap-6">
             {[
               { label: "Applications", value: "Tracked" },
               { label: "Interview Rate", value: "Visible" },
@@ -436,9 +436,9 @@ export default function DashboardAnalyticsPage() {
       ].map((item, i) => (
         <div
           key={i}
-          className="bg-[#fff7f2] rounded-2xl p-10 border border-[#ffd6c4] hover:shadow-lg transition"
+          className="bg-[#fff7f2] rounded-2xl p-5 sm:p-6 lg:p-10 border border-[#ffd6c4] hover:shadow-lg transition"
         >
-          <h3 className="text-xl font-bold mb-4 text-[#0b1220]">
+          <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-[#0b1220]">
             {item.title}
           </h3>
           <p className="text-[#5b6475] text-sm leading-relaxed">

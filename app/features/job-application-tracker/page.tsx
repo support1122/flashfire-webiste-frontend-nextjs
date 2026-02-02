@@ -175,10 +175,10 @@ export default function JobTrackerPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <Navbar />
-      <div className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen">
+      <div className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-white">
-          <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-24 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
 
             {/* ================= LEFT ================= */}
             <div>
@@ -188,7 +188,7 @@ export default function JobTrackerPage() {
               </span>
 
               {/* Headline */}
-              <h1 className="text-[44px] md:text-[54px] xl:text-[64px] font-extrabold leading-[1.05] text-[#0b1220]">
+              <h1 className="text-3xl sm:text-4xl md:text-[44px] lg:text-[54px] xl:text-[64px] font-extrabold leading-[1.05] text-[#0b1220]">
                 Track, Organize, and <br />
                 <span className="text-[#ff4c00]">Optimize</span> Your Job <br />
                 Search
@@ -237,13 +237,13 @@ export default function JobTrackerPage() {
             </div>
 
             {/* ================= RIGHT ================= */}
-            <div className="relative">
+            <div className="relative max-w-full overflow-hidden mt-8 lg:mt-0">
 
-              {/* Soft background blob */}
-              <div className="absolute -top-10 -right-10 w-[520px] h-[520px] bg-[#fff1ea] rounded-[48px]" />
+              {/* Soft background blob - hidden on small screens to avoid overflow */}
+              <div className="hidden lg:block absolute -top-10 -right-10 w-[520px] h-[520px] bg-[#fff1ea] rounded-[48px]" />
 
               {/* Dashboard Card */}
-              <div className="relative bg-white rounded-2xl border border-[#ffd6c4] shadow-[0_20px_60px_rgba(15,23,42,0.08)] p-6">
+              <div className="relative bg-white rounded-2xl border border-[#ffd6c4] shadow-[0_20px_60px_rgba(15,23,42,0.08)] p-4 sm:p-6">
 
                 {/* Header */}
                 <div className="flex items-center justify-between mb-5">
@@ -262,7 +262,7 @@ export default function JobTrackerPage() {
                 </div>
 
                 {/* Columns */}
-                <div className="grid grid-cols-3 gap-4 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                   {[
                     { title: "Wishlist", count: 10 },
                     { title: "Applied", count: 5 },
@@ -293,22 +293,22 @@ export default function JobTrackerPage() {
 
           </div>
         </section>
-        <section className="bg-[#f9fcff] py-24">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="bg-[#f9fcff] py-12 sm:py-16 lg:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
             {/* ================= HEADING ================= */}
-            <div className="text-center max-w-3xl mx-auto mb-20">
-              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0b1220]">
-                What Makes FlashFire's Job Application <br />
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-[#0b1220]">
+                What Makes FlashFire's Job Application <br className="hidden sm:block" />
                 <span className="text-[#ff4c00]">Tracker Stand Out?</span>
               </h2>
             </div>
 
             {/* ================= CARDS ================= */}
-            <div className="grid md:grid-cols-3 gap-10 items-stretch">
+            <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 items-stretch">
 
               {/* ===== CARD 1 ===== */}
-              <div className="bg-white border border-[#ffd6c4] rounded-2xl shadow-sm p-8 flex flex-col h-full">
+              <div className="bg-white border border-[#ffd6c4] rounded-2xl shadow-sm p-5 sm:p-6 lg:p-8 flex flex-col h-full">
                 {/* Visual */}
                 <div className="h-48 bg-[#fff6f1] rounded-xl border border-[#ffd6c4] p-4 mb-8">
                   <div className="space-y-3">
@@ -335,7 +335,7 @@ export default function JobTrackerPage() {
               </div>
 
               {/* ===== CARD 2 ===== */}
-              <div className="bg-white border border-[#ffd6c4] rounded-2xl shadow-sm p-8 flex flex-col h-full">
+              <div className="bg-white border border-[#ffd6c4] rounded-2xl shadow-sm p-5 sm:p-6 lg:p-8 flex flex-col h-full">
                 {/* Visual */}
                 <div className="h-48 bg-[#fff6f1] rounded-xl border border-[#ffd6c4] p-6 mb-8 flex items-center justify-center">
                   <div className="relative w-full h-full flex items-center justify-center">
@@ -362,10 +362,10 @@ export default function JobTrackerPage() {
               </div>
 
               {/* ===== CARD 3 ===== */}
-              <div className="bg-white border border-[#ffd6c4] rounded-2xl shadow-sm p-8 flex flex-col h-full">
+              <div className="bg-white border border-[#ffd6c4] rounded-2xl shadow-sm p-5 sm:p-6 lg:p-8 flex flex-col h-full">
                 {/* Visual */}
-                <div className="h-48 bg-[#fff6f1] rounded-xl border border-[#ffd6c4] p-4 mb-8 flex gap-4">
-                  <div className="w-1/3 space-y-3">
+                <div className="h-48 bg-[#fff6f1] rounded-xl border border-[#ffd6c4] p-4 mb-8 flex flex-col sm:flex-row gap-4">
+                  <div className="w-full sm:w-1/3 space-y-3 min-w-0">
                     {["Notes", "Contacts", "Docs"].map((item) => (
                       <div
                         key={item}
@@ -398,16 +398,16 @@ export default function JobTrackerPage() {
           </div>
         </section>
         {/* ================= HOW IT WORKS ================= */}
-        <section id="how-it-works" className="bg-white py-28">
-          <div className="max-w-7xl mx-auto px-6">
+        <section id="how-it-works" className="bg-white py-12 sm:py-20 lg:py-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
             {/* Header */}
-            <div className="text-center max-w-3xl mx-auto mb-20">
+            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
               <span className="text-sm font-semibold tracking-wide text-[#ff4c00]">
                 HOW IT WORKS
               </span>
 
-              <h2 className="mt-4 text-4xl md:text-5xl font-extrabold text-[#0b1220]">
+              <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220]">
                 A smarter way to
                 <br />
                 <span className="text-[#ff4c00]">
@@ -415,14 +415,14 @@ export default function JobTrackerPage() {
                 </span>
               </h2>
 
-              <p className="mt-6 text-lg text-[#5b6475]">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#5b6475]">
                 From saving jobs to tracking interviews — everything stays
                 organized in one place.
               </p>
             </div>
 
             {/* Steps */}
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
 
               {[
                 {
@@ -450,7 +450,7 @@ export default function JobTrackerPage() {
                   key={item.step}
                   className="bg-[#fff7f2] border border-[#ffd6c4] rounded-2xl p-1 hover:-translate-y-1 transition"
                 >
-                  <div className="bg-white rounded-xl p-8 h-full">
+                    <div className="bg-white rounded-xl p-5 sm:p-6 lg:p-8 h-full">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-10 h-10 rounded-full bg-[#ff4c00] text-white font-bold flex items-center justify-center">
                         {item.step}
@@ -470,34 +470,34 @@ export default function JobTrackerPage() {
           </div>
         </section>
         {/* ================= WHO IS THIS FOR ================= */}
-        <section className="relative py-32 bg-[#fff7f2] overflow-hidden">
+        <section className="relative py-16 sm:py-24 lg:py-32 bg-[#fff7f2] overflow-hidden">
 
           {/* Decorative accents */}
-          <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-[#ffe2d4] rounded-full blur-3xl opacity-70" />
-          <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-[#ffd6c4] rounded-full blur-3xl opacity-50" />
+          <div className="absolute top-0 right-0 w-[200px] h-[200px] sm:w-[320px] sm:h-[320px] lg:w-[420px] lg:h-[420px] bg-[#ffe2d4] rounded-full blur-3xl opacity-70" />
+          <div className="absolute bottom-0 left-0 w-[160px] h-[160px] sm:w-[240px] sm:h-[240px] lg:w-[320px] lg:h-[320px] bg-[#ffd6c4] rounded-full blur-3xl opacity-50" />
 
-          <div className="relative max-w-7xl mx-auto px-6">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
 
             {/* ===== Header ===== */}
-            <div className="max-w-4xl mx-auto text-center mb-24">
+            <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-24">
               <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[#ff4c00]">
                 <span className="w-2 h-2 rounded-full bg-[#ff4c00]" />
                 WHO THIS IS BUILT FOR
               </span>
 
-              <h2 className="mt-5 text-4xl md:text-6xl font-extrabold text-[#0b1220] leading-tight">
-                Built for Job Seekers Who <br />
+              <h2 className="mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#0b1220] leading-tight">
+                Built for Job Seekers Who <br className="hidden sm:block" />
                 <span className="text-[#ff4c00]">Track Everything</span>
               </h2>
 
-              <p className="mt-6 text-lg text-[#5b6475] max-w-2xl mx-auto">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#5b6475] max-w-2xl mx-auto px-1">
                 FlashFire’s Job Tracker is built for candidates who want clarity,
                 structure, and momentum — not scattered notes and missed follow-ups.
               </p>
             </div>
 
             {/* ===== Main Content ===== */}
-            <div className="grid lg:grid-cols-2 gap-24 items-start">
+            <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-start">
 
               {/* LEFT — Capability Panels (CENTERED) */}
               <div className="flex flex-col  mt-8 space-y-8">
@@ -577,19 +577,19 @@ export default function JobTrackerPage() {
           </div>
         </section>
 
-        <section className="bg-white py-24">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="bg-white py-12 sm:py-16 lg:py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 overflow-x-hidden">
             {/* ===== Heading ===== */}
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0b1220]">
+            <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-[#0b1220]">
                 How to Use FlashFire’s <br />
                 <span className="text-[#ff4c00]">Job Application Tracker</span>
               </h2>
             </div>
 
-            <div className="space-y-20">
+            <div className="space-y-12 sm:space-y-16 lg:space-y-20">
               {/* ================= ROW 1 ================= */}
-              <div className="grid lg:grid-cols-2 gap-14 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
                 {/* Left text */}
                 <div>
                   <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-[#ff4c00] mb-4">
@@ -610,11 +610,11 @@ export default function JobTrackerPage() {
                 </div>
 
                 {/* Right visual */}
-                <div className="relative">
-                  <div className="rounded-[28px] bg-gradient-to-br from-[#fff1ea] to-[#fff8f4] border border-[#ffd6c4] p-8">
-                    <div className="bg-white rounded-2xl border border-[#ffd6c4] shadow-sm p-6">
-                      <div className="flex gap-4">
-                        <div className="w-1/3 space-y-2">
+                <div className="relative min-w-0">
+                  <div className="rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#fff1ea] to-[#fff8f4] border border-[#ffd6c4] p-4 sm:p-6 lg:p-8">
+                    <div className="bg-white rounded-xl sm:rounded-2xl border border-[#ffd6c4] shadow-sm p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="w-full sm:w-1/3 space-y-2 min-w-0">
                           {["LinkedIn", "Wellfound", "Google", "Indeed", "Others"].map((x) => (
                             <div
                               key={x}
@@ -638,12 +638,12 @@ export default function JobTrackerPage() {
               </div>
 
               {/* ================= ROW 2 ================= */}
-              <div className="grid lg:grid-cols-2 gap-14 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
                 {/* Left visual */}
-                <div className="relative order-2 lg:order-1">
-                  <div className="rounded-[28px] bg-gradient-to-br from-[#fff7f2] to-[#fff1ea] border border-[#ffd6c4] p-8">
-                    <div className="bg-white rounded-2xl border border-[#ffd6c4] shadow-sm p-6">
-                      <div className="grid grid-cols-3 gap-3">
+                <div className="relative order-2 lg:order-1 min-w-0">
+                  <div className="rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#fff7f2] to-[#fff1ea] border border-[#ffd6c4] p-4 sm:p-6 lg:p-8">
+                    <div className="bg-white rounded-xl sm:rounded-2xl border border-[#ffd6c4] shadow-sm p-4 sm:p-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         {["Wishlist", "Applied", "Interview"].map((t) => (
                           <div key={t} className="bg-[#fff1ea] border border-[#ffd6c4] rounded-xl p-3">
                             <div className="flex justify-between text-xs font-semibold text-[#0b1220] mb-2">
@@ -683,7 +683,7 @@ export default function JobTrackerPage() {
               </div>
 
               {/* ================= ROW 3 ================= */}
-              <div className="grid lg:grid-cols-2 gap-14 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
                 {/* Left text */}
                 <div>
                   <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-[#ff4c00] mb-4">
@@ -704,9 +704,9 @@ export default function JobTrackerPage() {
                 </div>
 
                 {/* Right visual */}
-                <div className="relative">
-                  <div className="rounded-[28px] bg-gradient-to-br from-[#fff1ea] to-[#fff8f4] border border-[#ffd6c4] p-8">
-                    <div className="bg-white rounded-2xl border border-[#ffd6c4] shadow-sm p-6">
+                <div className="relative min-w-0">
+                  <div className="rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#fff1ea] to-[#fff8f4] border border-[#ffd6c4] p-4 sm:p-6 lg:p-8">
+                    <div className="bg-white rounded-xl sm:rounded-2xl border border-[#ffd6c4] shadow-sm p-4 sm:p-6">
                       <div className="text-sm font-semibold text-[#0b1220] mb-4">
                         Job Search Summary ✨
                       </div>
@@ -740,13 +740,13 @@ export default function JobTrackerPage() {
               </div>
 
               {/* ================= ROW 4 ================= */}
-              <div className="grid lg:grid-cols-2 gap-14 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
                 {/* Left visual */}
                 <div className="relative order-2 lg:order-1">
-                  <div className="rounded-[28px] bg-gradient-to-br from-[#fff7f2] to-[#fff1ea] border border-[#ffd6c4] p-8">
-                    <div className="bg-white rounded-2xl border border-[#ffd6c4] shadow-sm p-6">
-                      <div className="flex gap-4">
-                        <div className="w-1/3 space-y-2">
+                  <div className="rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#fff7f2] to-[#fff1ea] border border-[#ffd6c4] p-4 sm:p-6 lg:p-8">
+                    <div className="bg-white rounded-xl sm:rounded-2xl border border-[#ffd6c4] shadow-sm p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="w-full sm:w-1/3 space-y-2 min-w-0">
                           {["Notes", "Contacts", "Docs", "History"].map((t) => (
                             <div
                               key={t}
