@@ -50,6 +50,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "Best AI Job Application Tool in 2026 | Top AI Tools"
     : post.slug === "linkedin-profile-attractive-to-recruiters"
     ? "How to Make Your LinkedIn Profile Attractive to Recruiters"
+    : post.slug === "check-if-resume-is-ats-friendly"
+    ? "How to Check If Your Resume Is ATS Friendly"
+    : post.slug === "how-to-beat-ats-systems"
+    ? "How to Beat ATS Systems & Get Your Resume Shortlisted"
     : `${post.title} | Flashfire Blog`;
   
   return {

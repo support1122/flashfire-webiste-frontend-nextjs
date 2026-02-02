@@ -31,15 +31,15 @@ export default function LinkedInOptimizationPage() {
     },
     {
       question: "How does optimizing your LinkedIn profile help attract recruiters?",
-      answer: " Optimized profiles rank higher in LinkedIn search results, making it easier for recruiters to find and contact you."
+      answer: " Optimizing your LinkedIn profile helps recruiters find you through keyword-based searches. FlashFire helps you optimize your LinkedIn profile for recruiters by improving headlines, experience sections, and keyword alignment to boost profile ranking."
     },
     {
       question: "What are LinkedIn optimization services, and who should use them?",
-      answer: " They're expert services that rewrite and optimize your profile to increase your chances of getting hired — useful for job seekers at all levels."
+      answer: " LinkedIn optimization services help improve profile visibility, keyword relevance, and recruiter engagement. FlashFire's LinkedIn profile optimization services for job seekers are ideal for professionals actively applying for jobs or struggling to appear in recruiter searches."
     },
     {
       question: "How often should I update my LinkedIn profile for better visibility?",
-      answer: " Ideally, every 2–3 months or whenever your role, skills, or job goals change. Frequent updates boost algorithm visibility too."
+      answer: " Regular updates help maintain LinkedIn profile ranking, especially when job titles, skills, or experience change. Optimized profiles should be refreshed every 3–6 months for best results."
     },
     {
       question: "What is an ATS optimized resume, and why is it important for hiring systems?",
@@ -181,20 +181,11 @@ export default function LinkedInOptimizationPage() {
             </p>
 
             <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight">
-              Your LinkedIn profile
-              <br />
-              <span className="text-[#ff4c00]">
-                shouldn't be invisible.
-              </span>
+              LinkedIn Profile Optimization That Helps You Rank Higher in Recruiter Searches
             </h1>
 
             <p className="mt-3 text-lg text-[#4b5563] max-w-xl leading-relaxed">
-              Recruiters don't scroll endlessly.
-              They search. They filter. They message only the profiles that rank and convert.
-              <br />
-              <span className="font-semibold text-[#111]">
-                FlashFire optimizes your LinkedIn to do both.
-              </span>
+              FlashFire provides LinkedIn profile optimization services for job seekers, helping you optimize your LinkedIn profile for recruiters, improve keyword alignment, and convert profile views into real interview messages.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -402,13 +393,11 @@ export default function LinkedInOptimizationPage() {
             </p>
 
             <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">
-              Flashfire's LinkedIn Profile Optimization Service doesn't just look good—it gets replies.
+              LinkedIn Profile Optimization That Helps Job Seekers Get Recruiter Replies
             </h2>
 
             <p className="mt-6 text-lg text-[#4b5563] max-w-xl">
-              FlashFire optimizes your LinkedIn profile for recruiter searches,
-              keyword ranking, and conversion — so your profile shows up
-              and actually gets responses.
+              FlashFire's LinkedIn profile optimization service is designed to improve LinkedIn profile ranking, increase recruiter visibility, and turn profile views into interview messages.
             </p>
           </div>
 
@@ -462,7 +451,7 @@ export default function LinkedInOptimizationPage() {
 
           {/* HEADER */}
           <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
-            From LinkedIn profile optimization to interview calls, in just 4 focused steps.
+            How Our LinkedIn Profile Optimization Service Helps You Rank Higher & Get Interviews
           </h2>
 
           <p className="max-w-3xl mx-auto text-lg text-[#4b5563] mb-20">
@@ -480,8 +469,8 @@ export default function LinkedInOptimizationPage() {
               },
               {
                 step: "02",
-                title: "Optimize for recruiter searches",
-                desc: "Our human team of experts fixes headlines, keywords, experience bullets, and skills to match real recruiter search behavior.",
+                title: "Optimize LinkedIn Profile for Recruiter Searches",
+                desc: "Our experts optimize headlines, experience, and skills to improve LinkedIn profile ranking and match real recruiter keyword searches.",
               },
               {
                 step: "03",
@@ -525,9 +514,7 @@ export default function LinkedInOptimizationPage() {
         <div className="mx-auto max-w-6xl px-6 text-center">
 
           <h2 className="text-3xl md:text-4xl font-extrabold mb-14">
-            How FlashFire Stands Out
-            <br />
-            <span className="text-[#ff4c00]">Your LinkedIn Profile?</span>
+            How Flashfire's LinkedIn Profile Optimization Services Improve Ranking
           </h2>
 
           <div className="grid md:grid-cols-2 gap-10 text-left">
@@ -569,7 +556,7 @@ export default function LinkedInOptimizationPage() {
       {/* ================= FAQ ================= */}
       <section id="faq" className={faqStyles.faqSection}>
         <div id="faq-header" className={faqStyles.header}>
-          <h2>Question? We Got You Answers.</h2>
+          <h2>LinkedIn Profile Optimization FAQs</h2>
           <p>
             We get it, LinkedIn optimization can sound complex. Here's everything
             explained, plain and simple.

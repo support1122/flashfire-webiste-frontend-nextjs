@@ -29,11 +29,11 @@ export default function JobApplicationAutomationPage() {
   const jobAutomationFAQs = [
     {
       question: "What is job application automation and how can it help me apply to more jobs?",
-      answer: " Job application automation lets a system handle the repetitive tasks of applying, allowing you to reach 1,000+ jobs fast without spending hours daily."
+      answer: " Job application automation uses AI to apply to jobs automatically on your behalf. Flashfire's job application automation tool helps you automate job applications, tailor resumes for ATS systems, and apply faster than manual job searches."
     },
     {
       question: "How does automating job applications increase my chances of landing interviews?",
-      answer: " It lets you apply to more roles quickly, with resumes tailored to each one — increasing visibility to recruiters and Applicant Tracking Systems (ATS)."
+      answer: " Automating job applications ensures speed, consistency, and keyword optimization. Flashfire's AI job application tool submits ATS-optimized applications instantly, improving visibility and interview conversion rates."
     },
     {
       question: "Can job application automation help me land my dream job faster?",
@@ -61,7 +61,7 @@ export default function JobApplicationAutomationPage() {
     },
     {
       question: "Can I use job application automation while still customizing applications for each job?",
-      answer: " Every application on FlashFire is resume-optimized per job, and our cover letter is generalized for broad relevance."
+      answer: " Yes. Flashfire combines automated job applications with role-specific customization, ensuring every application is optimized without manual effort."
     },
     {
       question: "How does automating job applications work with AI-powered job matching and alerts?",
@@ -200,9 +200,7 @@ export default function JobApplicationAutomationPage() {
           <section className="min-h-[100vh] flex items-center bg-[#fff6f4]">
             <div className="mx-auto max-w-6xl px-6 text-center">
               <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-[#0b0b0b] leading-tight">
-                You're not competing with people.
-                <br />
-                <span className="text-[#ff4c00]">You're competing with AI.</span>
+                Job Application Automation That Helps You Apply Faster & Get Interviews
               </h1>
             </div>
           </section>
@@ -283,15 +281,11 @@ export default function JobApplicationAutomationPage() {
           <div className="mx-auto max-w-6xl px-6 text-center">
 
             <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-[#0b0b0b] leading-tight">
-              You're not competing with people.
-              <br />
-              <span className="text-[#ff4c00]">You're competing with AI.</span>
+              Job Application Automation That Helps You Apply Faster & Get Interviews
             </h1>
 
             <p className="mt-6 text-lg text-[#6b7280] max-w-3xl mx-auto">
-              Roles get hundreds of applications in minutes.
-              AI applies first, tailors better, and never gets tired.
-              Flashfire keeps you ahead.
+              Flashfire is an AI-powered job application automation tool that helps you automate job applications, optimize resumes for ATS, and apply to roles instantly. So you stay ahead in competitive job markets.
             </p>
 
             <div className="mt-10 flex justify-center gap-4 flex-wrap">
@@ -329,11 +323,10 @@ export default function JobApplicationAutomationPage() {
 
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0b0b0b]">
-                Flashfire AI Job Automation Platform, Working 24/7 for You
+                Flashfire AI Job Application Automation Platform (Works 24/7)
               </h2>
               <p className="mt-4 text-lg text-[#6b7280] max-w-3xl mx-auto">
-                While others manually apply and wait, your AI scans, applies,
-                and optimizes continuously — without burnout.
+                While others manually apply and wait, Flashfire's automated job application system scans roles, applies instantly, and optimizes each application continuously, without burnout.
               </p>
             </div>
 
@@ -399,6 +392,10 @@ export default function JobApplicationAutomationPage() {
                   </thead>
                   <tbody>
                     {[
+                      {
+                        title: "Application Process",
+                        caption: "Manual: Repetitive, time-consuming, inconsistent | Flashfire: AI-driven job application automation at scale",
+                      },
                       {
                         title: "ATS-Friendly Resume Optimization",
                         caption: "Resumes tailored to each job description with ATS-friendly keywords",
@@ -567,7 +564,7 @@ export default function JobApplicationAutomationPage() {
       {/* LEFT — WHY IT FAILS */}
       <div>
         <h3 className="text-xl font-extrabold text-[#0b0b0b] mb-8">
-          Why traditional job hunting fails
+          Why Manual Job Applications Fail (And Why Automation Wins)
         </h3>
 
         <div className="space-y-5">
@@ -598,8 +595,8 @@ export default function JobApplicationAutomationPage() {
 
         <div className="space-y-5">
           {[
-            "Applies instantly when roles go live",
-            "Optimizes each application for ATS + recruiter keywords",
+            "Automates job applications instantly when roles go live",
+            "Uses AI to optimize automated job applications for ATS and recruiter keywords",
             "Scales applications without fatigue or burnout",
             "Learns from outcomes and continuously improves",
           ].map((item) => (
@@ -623,7 +620,7 @@ export default function JobApplicationAutomationPage() {
         {/* FAQ Section */}
         <section id="faq" className={faqStyles.faqSection}>
           <div id="faq-header" className={faqStyles.header}>
-            <h2>Question? We Got You Answers.</h2>
+            <h2>Job Application Automation FAQs</h2>
             <p>
               We get it, job application automation can sound complex. Here's everything
               explained, plain and simple.
