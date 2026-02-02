@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
@@ -8,15 +8,37 @@ import { FileText, CheckCircle, Zap, Sparkles, Target, TrendingUp } from "lucide
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
 export default function CoverLetterPage() {
   const router = useRouter();
   const pathname = usePathname();
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       // Bypass will be handled by the event listener
     },
   });
+
+  const handleFaqToggle = (index: number) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
+
+  const coverLetterFAQs = [
+    {
+      question: "What is an AI cover letter builder?",
+      answer: "An AI cover letter builder uses artificial intelligence to analyze your resume and job description and generate personalized, job-specific cover letters optimized for ATS systems."
+    },
+    {
+      question: "Are the cover letters ATS-friendly?",
+      answer: "Yes. Flashfire's AI cover letter generator creates ATS-friendly cover letters using recruiter-approved formatting and keyword optimization."
+    },
+    {
+      question: "Can I generate a cover letter for every job application?",
+      answer: "Yes. Our cover letter builder allows you to generate a customized, ATS-friendly cover letter for each job application in minutes."
+    }
+  ];
 
   const handleGetMeInterview = () => {
     try {
@@ -177,16 +199,13 @@ export default function CoverLetterPage() {
 
               {/* Headline */}
               <h1 className="text-[44px] md:text-[54px] xl:text-[64px] font-extrabold leading-[1.05] text-[#0b1220]">
-                Write Compelling Cover <br />
-                <span className="text-[#ff4c00]">Letters</span> That Get <br />
-                You Noticed
+                AI Cover Letter Builder for <br />
+                <span className="text-[#ff4c00]">ATS-Friendly Job Applications</span>
               </h1>
 
               {/* Subtext */}
               <p className="mt-7 text-lg text-[#5b6475] max-w-xl leading-relaxed">
-                Create personalized, ATS-optimized cover letters tailored to each job application. 
-                Our AI-powered builder helps you craft compelling narratives that highlight your 
-                unique value and increase your interview chances.
+                Flashfire is an AI-powered cover letter builder that helps job seekers generate personalized, ATS-friendly cover letters for every job application. Our AI cover letter generator analyzes your resume and job description to help you stand out and get interviews faster.
               </p>
 
               {/* Feature bullets */}
@@ -270,8 +289,8 @@ export default function CoverLetterPage() {
             {/* ================= HEADING ================= */}
             <div className="text-center max-w-3xl mx-auto mb-20">
               <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0b1220]">
-                Why FlashFire's Cover Letter <br />
-                <span className="text-[#ff4c00]">Builder Stands Out</span>
+                Why Flashfire Is the Best AI Cover Letter <br />
+                <span className="text-[#ff4c00]">Builder for ATS Success</span>
               </h2>
             </div>
 
@@ -316,8 +335,7 @@ export default function CoverLetterPage() {
                   ATS-Friendly Formatting
                 </h3>
                 <p className="text-[#5b6475] text-sm leading-relaxed mt-auto">
-                  Every cover letter is formatted to pass ATS screening systems, 
-                  ensuring your application reaches human recruiters.
+                  Every cover letter created using our AI cover letter builder follows ATS-friendly formatting, helping your job application pass screening systems and reach real recruiters.
                 </p>
               </div>
 
@@ -352,8 +370,8 @@ export default function CoverLetterPage() {
             {/* ===== Heading ===== */}
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#0b1220]">
-                How to Generate Your Perfect <br />
-                <span className="text-[#ff4c00]">Cover Letter</span>
+                How Our AI Cover Letter Generator Creates <br />
+                <span className="text-[#ff4c00]">ATS-Friendly Cover Letters</span>
               </h2>
             </div>
 
@@ -368,7 +386,7 @@ export default function CoverLetterPage() {
                   </div>
 
                   <h3 className="text-3xl md:text-4xl font-extrabold text-[#0b1220] leading-tight">
-                    Start with Your <span className="text-[#ff4c00]">Resume</span>
+                    Upload Your Resume to Generate an <span className="text-[#ff4c00]">AI Cover Letter</span>
                   </h3>
 
                   <p className="mt-4 text-[#5b6475] leading-relaxed max-w-lg">
@@ -425,7 +443,7 @@ export default function CoverLetterPage() {
                   </div>
 
                   <h3 className="text-3xl md:text-4xl font-extrabold text-[#0b1220] leading-tight">
-                    AI Matches Job <span className="text-[#ff4c00]">Requirements</span>
+                    AI Analyzes Job Descriptions for <span className="text-[#ff4c00]">ATS Keywords</span>
                   </h3>
 
                   <p className="mt-4 text-[#5b6475] leading-relaxed max-w-lg">
@@ -445,7 +463,7 @@ export default function CoverLetterPage() {
                   </div>
 
                   <h3 className="text-3xl md:text-4xl font-extrabold text-[#0b1220] leading-tight">
-                    Generate & <span className="text-[#ff4c00]">Refine</span>
+                    Generate and Customize Your <span className="text-[#ff4c00]">ATS-Friendly Cover Letter</span>
                   </h3>
 
                   <p className="mt-4 text-[#5b6475] leading-relaxed max-w-lg">
@@ -499,6 +517,44 @@ export default function CoverLetterPage() {
                 Get Me Interview →
               </button>
             </div>
+          </div>
+        </section>
+
+        {/* ================= FAQ ================= */}
+        <section id="faq" className={faqStyles.faqSection}>
+          <div id="faq-header" className={faqStyles.header}>
+            <h2>Question? We Got You Answers.</h2>
+            <p>
+              We get it, AI cover letter builders can sound complex. Here's everything
+              explained, plain and simple.
+            </p>
+          </div>
+
+          <div className={faqStyles.faqContainer}>
+            {coverLetterFAQs.map((faq, index) => (
+              <div
+                key={index}
+                className={`${faqStyles.faqItem} ${
+                  activeFaqIndex === index ? faqStyles.active : ""
+                }`}
+              >
+                <button
+                  className={faqStyles.faqQuestion}
+                  onClick={() => handleFaqToggle(index)}
+                >
+                  <span>{faq.question}</span>
+                  <span className={faqStyles.icon}>
+                    {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
+                  </span>
+                </button>
+
+                {activeFaqIndex === index && (
+                  <div className={faqStyles.faqAnswer}>
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </section>
       </div>
