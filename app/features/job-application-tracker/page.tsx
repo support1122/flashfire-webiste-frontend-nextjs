@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
@@ -8,15 +8,37 @@ import { CheckCircle, Target, BarChart, TrendingUp, Clock, Zap } from "lucide-re
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
 export default function JobTrackerPage() {
   const router = useRouter();
   const pathname = usePathname();
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       // Bypass will be handled by the event listener
     },
   });
+
+  const handleFaqToggle = (index: number) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
+
+  const jobTrackerFAQs = [
+    {
+      question: "What is a job application tracker?",
+      answer: "A job application tracker helps you track job applications, interviews, and recruiter interactions in one place. FlashFire's job application tracker replaces spreadsheets with a smarter, centralized dashboard."
+    },
+    {
+      question: "How does a job search tracker help you get more interviews?",
+      answer: "A job search tracker shows which applications lead to interviews and which don't. FlashFire helps you track job applications, analyze results, and optimize your job search strategy."
+    },
+    {
+      question: "Is FlashFire better than using spreadsheets to track job applications?",
+      answer: "Yes. FlashFire is a dedicated job tracking tool that automates tracking, recruiter management, and insights, features spreadsheets can't provide."
+    }
+  ];
 
   const handleGetMeInterview = () => {
     try {
@@ -189,16 +211,13 @@ export default function JobTrackerPage() {
 
               {/* Headline */}
               <h1 className="text-3xl sm:text-4xl md:text-[44px] lg:text-[54px] xl:text-[64px] font-extrabold leading-[1.05] text-[#0b1220]">
-                Track, Organize, and <br />
-                <span className="text-[#ff4c00]">Optimize</span> Your Job <br />
-                Search
+                Job Application Tracker to Track and <br />
+                <span className="text-[#ff4c00]">Manage Your Job Search</span>
               </h1>
 
               {/* Subtext */}
               <p className="mt-7 text-lg text-[#5b6475] max-w-xl leading-relaxed">
-                Forget spreadsheets and endless bookmarks. Save, apply,
-                track, and revisit job applications — all from one clean,
-                streamlined FlashFire dashboard.
+                FlashFire is a powerful job application tracker that helps you track job applications, organize your job search, and manage interviews in one centralized dashboard without spreadsheets.
               </p>
 
               {/* Feature bullets */}
@@ -302,6 +321,9 @@ export default function JobTrackerPage() {
                 What Makes FlashFire's Job Application <br className="hidden sm:block" />
                 <span className="text-[#ff4c00]">Tracker Stand Out?</span>
               </h2>
+              <p className="mt-4 text-base sm:text-lg text-[#5b6475] max-w-2xl mx-auto">
+                FlashFire is more than a basic spreadsheet alternative, it's a modern job tracking tool designed to help you track job applications, recruiters, and interviews in one place.
+              </p>
             </div>
 
             {/* ================= CARDS ================= */}
@@ -356,8 +378,7 @@ export default function JobTrackerPage() {
                   Job Search Insights
                 </h3>
                 <p className="text-[#5b6475] text-sm leading-relaxed mt-auto">
-                  Understand how your applications perform with clear
-                  insights into interviews, rejections, and offers.
+                  Understand how your applications perform using actionable insights from your job search tracker, including interviews, rejections, and offers.
                 </p>
               </div>
 
@@ -389,8 +410,7 @@ export default function JobTrackerPage() {
                   Advanced CRM Tools
                 </h3>
                 <p className="text-[#5b6475] text-sm leading-relaxed mt-auto">
-                  Manage recruiters, notes, documents, and skills — all
-                  linked directly to each job application.
+                  Manage recruiters, notes, documents, and skills using a centralized job tracking tool built to support complex job searches.
                 </p>
               </div>
 
@@ -408,10 +428,10 @@ export default function JobTrackerPage() {
               </span>
 
               <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220]">
-                A smarter way to
+                A Smarter Way to Track Job Applications
                 <br />
                 <span className="text-[#ff4c00]">
-                  manage your job search
+                  and Manage Your Job Search
                 </span>
               </h2>
 
@@ -437,8 +457,8 @@ export default function JobTrackerPage() {
                 },
                 {
                   step: "03",
-                  title: "Track progress",
-                  desc: "Visual insights show how many applications convert into interviews and offers.",
+                  title: "Track Job Application Progress",
+                  desc: "Track how many job applications convert into interviews and offers using FlashFire's built-in job application tracker.",
                 },
                 {
                   step: "04",
@@ -792,6 +812,43 @@ export default function JobTrackerPage() {
           </div>
         </section>
 
+        {/* ================= FAQ ================= */}
+        <section id="faq" className={faqStyles.faqSection}>
+          <div id="faq-header" className={faqStyles.header}>
+            <h2>Question? We Got You Answers.</h2>
+            <p>
+              We get it, job application tracking can sound complex. Here's everything
+              explained, plain and simple.
+            </p>
+          </div>
+
+          <div className={faqStyles.faqContainer}>
+            {jobTrackerFAQs.map((faq, index) => (
+              <div
+                key={index}
+                className={`${faqStyles.faqItem} ${
+                  activeFaqIndex === index ? faqStyles.active : ""
+                }`}
+              >
+                <button
+                  className={faqStyles.faqQuestion}
+                  onClick={() => handleFaqToggle(index)}
+                >
+                  <span>{faq.question}</span>
+                  <span className={faqStyles.icon}>
+                    {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
+                  </span>
+                </button>
+
+                {activeFaqIndex === index && (
+                  <div className={faqStyles.faqAnswer}>
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
 
       </div>
       <Footer />
