@@ -8,6 +8,13 @@ import { Users, Zap, TrendingUp, Briefcase, Brain, MessageSquareText, CheckCircl
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
+import {
+  User,
+  GraduationCap,
+  RefreshCw,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
@@ -365,6 +372,131 @@ export default function FlashFireInterview() {
   </div>
     
 </section>
+ 
+<section className="relative py-16 sm:py-20 bg-[#fff8f5] overflow-hidden">
+      {/* subtle background accent */}
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#ffe7de] to-transparent" />
+
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="inline-flex px-4 py-1.5 rounded-full 
+            bg-white border border-[#ffd6c6] text-[#c2410c] text-sm font-semibold">
+            AI Interview Practice
+          </span>
+
+          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+            Who Is This AI Interview Practice Tool For?
+          </h2>
+
+          <p className="mt-5 max-w-2xl mx-auto text-base sm:text-lg text-gray-700">
+            FlashFire is built for people who want structured interview practice,
+            instant AI feedback, and confidence before real interviews.
+          </p>
+        </div>
+
+        {/* Feature list */}
+        <div className="space-y-6">
+
+          {/* Active Job Seekers */}
+          <div className="flex gap-5 rounded-2xl bg-white p-6 border border-gray-200 shadow-sm hover:shadow-md transition">
+            <div className="flex-shrink-0">
+              <div className="h-10 w-10 rounded-xl bg-[#fff1ea] border border-[#ffd6c6]
+                flex items-center justify-center text-[#f97316]">
+                <User size={20} />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Active Job Seekers
+              </h3>
+              <p className="mt-1 text-gray-600">
+                Practice interviews regularly with focused questions and actionable AI feedback.
+              </p>
+            </div>
+          </div>
+
+          {/* Freshers */}
+          <div className="flex gap-5 rounded-2xl bg-white p-6 border border-gray-200 shadow-sm hover:shadow-md transition">
+            <div className="flex-shrink-0">
+              <div className="h-10 w-10 rounded-xl bg-[#fff1ea] border border-[#ffd6c6]
+                flex items-center justify-center text-[#f97316]">
+                <GraduationCap size={20} />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Freshers & Students
+              </h3>
+              <p className="mt-1 text-gray-600">
+                Learn how to answer confidently and professionally in your first interviews.
+              </p>
+            </div>
+          </div>
+
+          {/* Career Switchers */}
+          <div className="flex gap-5 rounded-2xl bg-white p-6 border border-gray-200 shadow-sm hover:shadow-md transition">
+            <div className="flex-shrink-0">
+              <div className="h-10 w-10 rounded-xl bg-[#fff1ea] border border-[#ffd6c6]
+                flex items-center justify-center text-[#f97316]">
+                <RefreshCw size={20} />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Career Switchers
+              </h3>
+              <p className="mt-1 text-gray-600">
+                Prepare for new roles or industries with role-specific interview practice.
+              </p>
+            </div>
+          </div>
+
+          {/* Confidence Builders */}
+          <div className="flex gap-5 rounded-2xl bg-white p-6 border border-gray-200 shadow-sm hover:shadow-md transition">
+            <div className="flex-shrink-0">
+              <div className="h-10 w-10 rounded-xl bg-[#fff1ea] border border-[#ffd6c6]
+                flex items-center justify-center text-[#f97316]">
+                <MessageCircle size={20} />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Confidence Builders
+              </h3>
+              <p className="mt-1 text-gray-600">
+                Improve clarity, structure, and confidence before high-pressure interviews.
+              </p>
+            </div>
+          </div>
+
+          {/* Highlight */}
+          <div className="rounded-2xl bg-gradient-to-r from-[#fff1ea] to-white
+            border border-[#ffd6c6] p-7">
+            <div className="flex items-center gap-3 mb-2 text-[#f97316]">
+              <Sparkles size={20} />
+              <h3 className="text-xl font-bold text-gray-900">
+                Anyone serious about interview success
+              </h3>
+            </div>
+            <p className="text-gray-700">
+              Ideal for candidates who want realistic mock interviews, instant insights,
+              and measurable improvement — all in one place.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Footer */}
+        <div className="mt-14 text-center">
+          <p className="text-sm font-semibold text-[#c2410c]">
+            Practice smarter. Improve faster. Perform better.
+          </p>
+        </div>
+
+      </div>
+    </section>
 
       <HomePageHappyUsers />
       

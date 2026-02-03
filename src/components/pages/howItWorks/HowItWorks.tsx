@@ -522,6 +522,96 @@ export default function HowItWorks() {
             ))}
           </div>
         </section>
+        <section className="relative py-24 mt-14 overflow-hidden bg-white rounded-3xl">
+  {/* Gradient Accent */}                                                         
+  <div className="absolute right-0 top-0 h-full w-[40%] bg-gradient-to-bl from-[#fcc194] via-[#ffa784] to-transparent hidden lg:block" />
+
+  <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      {/* LEFT: Content */}
+      <div>
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+          Who Is This <span className="text-[#ff4c00]">AI Job Application</span><br />
+          Software For?
+        </h2>
+
+        <p className="mt-6 text-lg text-gray-600 max-w-xl">
+          Flashfire is designed for students and job seekers who want to
+          <span className="font-semibold text-gray-900"> apply at scale, save time,&nbsp;</span>
+          and finally get <span className="font-semibold text-gray-900">real interview calls</span>
+           &nbsp; instead of silence or auto-rejections.
+        </p>
+
+        <p className="mt-4 text-gray-600">
+          This isn’t another “job board”. It’s an execution engine for people who want outcomes.
+        </p>
+      </div>
+
+      {/* RIGHT: Personas */}
+      <div className="space-y-6">
+
+        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
+          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+            <span className="text-[#ff4c00] font-bold">01</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              International Students
+            </h3>
+            <p className="text-gray-600 text-sm mt-1">
+              OPT, CPT, and STEM OPT candidates applying under strict visa timelines.
+            </p>
+          </div>
+        </div>
+
+        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
+          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+            <span className="text-[#ff4c00] font-bold">02</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              U.S. & Canada Job Seekers
+            </h3>
+            <p className="text-gray-600 text-sm mt-1">
+              Candidates targeting U.S. & Canada-based roles across tech, business, and operations.
+            </p>
+          </div>
+        </div>
+
+        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
+          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+            <span className="text-[#ff4c00] font-bold">03</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Burnt-Out Applicants
+            </h3>
+            <p className="text-gray-600 text-sm mt-1">
+              People tired of filling the same forms with zero response.
+            </p>
+          </div>
+        </div>
+
+        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
+          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+            <span className="text-[#ff4c00] font-bold">04</span>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Results-Driven Users
+            </h3>
+            <p className="text-gray-600 text-sm mt-1">
+              Anyone looking for an AI job application tool that actually converts.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
         <section className="mt-14 flex justify-center">
           <div className="w-full max-w-5xl">
