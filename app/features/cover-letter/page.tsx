@@ -95,13 +95,13 @@ export default function CoverLetterPage() {
       // If on cover letter features page, change URL but keep page content visible
       if (isOnCoverLetterPage) {
         const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-        
+
         // Update URL for tracking without navigation
         if (typeof window !== 'undefined') {
           const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
           window.history.pushState({}, '', targetPath);
         }
-        
+
         requestAnimationFrame(() => {
           window.scrollTo({ top: currentScrollY, behavior: 'instant' });
           requestAnimationFrame(() => {
@@ -111,7 +111,7 @@ export default function CoverLetterPage() {
             }, 50);
           });
         });
-        
+
         return;
       }
 
@@ -119,7 +119,7 @@ export default function CoverLetterPage() {
       if (typeof window !== 'undefined') {
         const currentScrollY = window.scrollY;
         sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-        
+
         const targetPath = '/get-me-interview';
         window.history.pushState({}, '', targetPath);
       }
@@ -132,7 +132,7 @@ export default function CoverLetterPage() {
     }
   };
 
-  
+
 
   const productSchema = {
     "@context": "https://schema.org/",
@@ -184,8 +184,8 @@ export default function CoverLetterPage() {
 
               {/* Subtext */}
               <p className="mt-7 text-lg text-[#5b6475] max-w-xl leading-relaxed">
-                Create personalized, ATS-optimized cover letters tailored to each job application. 
-                Our AI-powered builder helps you craft compelling narratives that highlight your 
+                Create personalized, ATS-optimized cover letters tailored to each job application.
+                Our AI-powered builder helps you craft compelling narratives that highlight your
                 unique value and increase your interview chances.
               </p>
 
@@ -216,7 +216,7 @@ export default function CoverLetterPage() {
                 >
                   Get Me Interview →
                 </button>
-                
+
               </div>
             </div>
 
@@ -294,7 +294,7 @@ export default function CoverLetterPage() {
                   Smart Content Generation
                 </h3>
                 <p className="text-[#5b6475] text-sm leading-relaxed mt-auto">
-                  Our AI analyzes job descriptions and your resume to generate 
+                  Our AI analyzes job descriptions and your resume to generate
                   personalized cover letters that highlight relevant skills and experiences.
                 </p>
               </div>
@@ -316,7 +316,7 @@ export default function CoverLetterPage() {
                   ATS-Friendly Formatting
                 </h3>
                 <p className="text-[#5b6475] text-sm leading-relaxed mt-auto">
-                  Every cover letter is formatted to pass ATS screening systems, 
+                  Every cover letter is formatted to pass ATS screening systems,
                   ensuring your application reaches human recruiters.
                 </p>
               </div>
@@ -338,7 +338,7 @@ export default function CoverLetterPage() {
                   Save Time & Effort
                 </h3>
                 <p className="text-[#5b6475] text-sm leading-relaxed mt-auto">
-                  Generate professional cover letters in minutes instead of hours. 
+                  Generate professional cover letters in minutes instead of hours.
                   Customize templates and reuse content across applications.
                 </p>
               </div>
@@ -372,7 +372,7 @@ export default function CoverLetterPage() {
                   </h3>
 
                   <p className="mt-4 text-[#5b6475] leading-relaxed max-w-lg">
-                    Upload your resume and let our AI extract your key skills, 
+                    Upload your resume and let our AI extract your key skills,
                     experiences, and achievements to build your cover letter foundation.
                   </p>
                 </div>
@@ -429,7 +429,7 @@ export default function CoverLetterPage() {
                   </h3>
 
                   <p className="mt-4 text-[#5b6475] leading-relaxed max-w-lg">
-                    Paste the job description and our AI identifies key requirements, 
+                    Paste the job description and our AI identifies key requirements,
                     keywords, and skills to tailor your cover letter accordingly.
                   </p>
                 </div>
@@ -449,7 +449,7 @@ export default function CoverLetterPage() {
                   </h3>
 
                   <p className="mt-4 text-[#5b6475] leading-relaxed max-w-lg">
-                    Get a professionally written cover letter in seconds. 
+                    Get a professionally written cover letter in seconds.
                     Edit, customize, and refine until it perfectly represents your voice and value.
                   </p>
                 </div>
@@ -479,6 +479,65 @@ export default function CoverLetterPage() {
             </div>
           </div>
         </section>
+        <section className="py-20 bg-[#f9fafb]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Header */}
+            <div className="max-w-3xl mx-auto text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                Who Is This AI Cover Letter Builder For?
+              </h2>
+              <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+                Flashfire’s AI cover letter builder is built for job seekers who want
+                high-quality, ATS-friendly cover letters without spending hours rewriting
+                the same content for every role.
+              </p>
+            </div>
+
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Apply Faster Without Compromising Quality
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Generate tailored, job-specific cover letters in minutes.
+                  Every letter is structured to align with recruiter expectations
+                  and modern ATS systems.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Personalization at Scale
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Whether you’re applying to 5 roles or 50, Flashfire adapts your
+                  experience and skills to match each job—without sounding generic.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Ideal For List */}
+            <div className="mt-12 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+              <h3 className="text-xl font-semibold text-gray-900 mb-6">
+                Ideal For
+              </h3>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
+                <li>• Active job seekers applying across platforms</li>
+                <li>• Freshers and early-career professionals</li>
+                <li>• Mid–senior candidates targeting multiple roles</li>
+                <li>• Candidates facing repeated ATS rejections</li>
+                <li>• Anyone seeking a faster, smarter cover letter workflow</li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
 
         {/* CTA Section */}
         <section className="py-32 bg-[#fff1ea] text-white relative overflow-hidden">
@@ -488,7 +547,7 @@ export default function CoverLetterPage() {
                 Ready to Write Best AI Cover Letters That <span className="text-[#ff4c00]">Get Results?</span>
               </h2>
               <p className="text-lg text-gray-900 max-w-3xl mx-auto mb-10">
-                Join thousands of job seekers who use FlashFire to create compelling 
+                Join thousands of job seekers who use FlashFire to create compelling
                 cover letters that increase their interview chances.
               </p>
               <button
