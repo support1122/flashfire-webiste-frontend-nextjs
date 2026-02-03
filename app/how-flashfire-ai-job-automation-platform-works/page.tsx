@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import HowItWorks from "@/src/components/pages/howItWorks/HowItWorks";
 
 export const metadata: Metadata = {
-  title: "How Flashfire's AI Job Automation Platform Works?",
+  title: "AI Job Application Software to Apply for Jobs Automatically",
   description:
-    "See how Flashfire's AI Job Automation Platform gets international students interview calls faster: visa-aware matching, ATS-ready resumes, automated applications, tracking, and interview prep.",
+    "Flashfire is an AI job application software that helps you apply for jobs automatically with ATS-optimized resumes and targeted applications.",
   robots: {
     index: true,
     follow: true,
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
   },
   openGraph: {
-    title: "How Flashfire's AI Job Automation Platform Works?",
+    title: "AI Job Application Software to Apply for Jobs Automatically",
     description:
-      "Understand how Flashfire's AI Job Automation Platform automates sourcing, tailoring, and submitting applications so students land interviews faster.",
+      "Flashfire is an AI job application software that helps you apply for jobs automatically with ATS-optimized resumes and targeted applications.",
     url: "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
     type: "website",
   },
