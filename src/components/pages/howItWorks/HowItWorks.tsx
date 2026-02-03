@@ -73,6 +73,14 @@ const faqs = [
     q: "Is my data secure?",
     a: " Yes. Your data is encrypted and never shared with third parties.",
   },
+  {
+    q: "Is Flashfire an AI job application tool or a full platform?",
+    a: " Flashfire is a complete AI job application platform that combines an AI job application tool, resume optimization, LinkedIn optimization, and application tracking in one system.",
+  },
+  {
+    q: "How does Flashfire improve interview chances?",
+    a: " By using ATS-optimized resumes, targeted applications, and recruiter-aligned keywords, Flashfire increases the chances of getting interview calls, not just submissions.",
+  },
 ];
 const steps = [
   {
@@ -84,13 +92,13 @@ const steps = [
   {
     heading: "We build your winning profile.",
     description:
-      "We make your resume from scratch and optimize LinkedIn to match top U.S. recruiter searches. Your profile starts showing up where it matters, on the right screens.",
+      "We create ATS-optimized resumes and optimize LinkedIn profiles so your applications pass filters and rank higher in recruiter searches.",
     image: "/images/step2.png",
   },
   {
-    heading: "Flashfire AI applies for you.",
+    heading: "Flashfire AI Applies for Jobs Automatically on Your Behalf",
     description:
-      "We apply to 1000+ curated roles for you, based on your goals and visa needs. No spam, no mass blasts, only smart, targeted applications.",
+      "Our AI job application tool automatically submits targeted applications to 1000+ curated roles using role-specific resumes and custom answers, no spam, no mass blasting.",
     image: "/images/step3.png",
   },
   {
@@ -361,6 +369,22 @@ export default function HowItWorks() {
           "@type": "Answer",
           "text": "Absolutely. We were built around visa-friendly job matching for OPT, CPT, STEM OPT, and H-1B paths."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Flashfire an AI job application tool or a full platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flashfire is a complete AI job application platform that combines an AI job application tool, resume optimization, LinkedIn optimization, and application tracking in one system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Flashfire improve interview chances?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By using ATS-optimized resumes, targeted applications, and recruiter-aligned keywords, Flashfire increases the chances of getting interview calls, not just submissions."
+        }
       }
     ]
   };
@@ -383,12 +407,10 @@ export default function HowItWorks() {
             How it works
           </p>
           <h1 className="mt-3 text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
-            Your shortcut to interview calls 
+            AI Job Application Software That Helps You Apply for Jobs Automatically
           </h1>
           <p className="mt-4 text-lg text-gray-700 md:text-xl">
-            Flashfire turns your long, exhausting job search into a smooth,
-            automated path to interview calls. You set the goal—Flashfire runs
-            the entire journey.
+            Flashfire is an AI job application tool that automates job searching, ATS-optimized resumes, and applications, helping students and job seekers apply for jobs automatically and get interview calls faster.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -408,7 +430,7 @@ export default function HowItWorks() {
       {/* === Header === */}
       <div className="w-[90%] mx-auto mb-16">
         <h2 className="w-[65%] mx-auto mb-4 text-[2.8rem] font-bold text-[#111] leading-[1.3] max-[1024px]:w-[80%] max-[1024px]:text-[2.2rem] max-[768px]:w-full max-[768px]:text-[1.8rem] max-[480px]:text-[1.6rem]">
-          From searching to interviewing, just 4 simple steps.
+          How Our AI Job Application Software Helps You Apply for Jobs Automatically
           
         
        </h2>
@@ -616,7 +638,7 @@ export default function HowItWorks() {
         <section className="mt-14 flex justify-center">
           <div className="w-full max-w-5xl">
             <div className={styles.header}>
-              <h2>Common questions from students &amp; job seekers</h2>
+              <h2>Frequently Asked Questions About Applying for Jobs Automatically with AI</h2>
               <p>
                 Ask us anything—here are the essentials to get you started.
               </p>
