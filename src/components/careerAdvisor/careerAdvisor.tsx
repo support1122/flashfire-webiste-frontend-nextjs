@@ -5,8 +5,28 @@ import Image from "next/image";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
+import { useState } from "react";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
 export default function CareerAdvisor() {
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "What is an AI career advisor?",
+      a: "An AI career advisor uses data and machine learning to analyze your background, skills, and goals to provide personalized career guidance, role recommendations, and career planning support.",
+    },
+    {
+      q: "How does AI-powered career guidance help job seekers?",
+      a: "AI-powered career guidance helps job seekers identify in-demand roles, close skill gaps, and create a structured career development plan instead of relying on generic advice.",
+    },
+    {
+      q: "Is FlashFire a career guidance platform or a coaching service?",
+      a: "FlashFire is a career guidance platform that combines AI career coaching with actionable insights like skill roadmaps, resume improvements, and job market demand analysis.",
+    },
+  ];
+
   const audiences = [
     {
       icon: GraduationCap,
@@ -107,13 +127,11 @@ export default function CareerAdvisor() {
           </span>
 
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-            Your personal <span className="text-[#ff4c00]">AI Career Advisor</span><br />
-            built for real jobs
+            AI Career Advisor for Personalized Career Guidance & Planning
           </h1>
 
           <p className="mt-6 text-lg text-gray-600">
-            Get clarity on roles, skills, resumes, and job strategies.
-            FlashFire analyzes your profile and tells you exactly what to do next.
+            FlashFire is an AI-powered career guidance platform that analyzes your profile to deliver role recommendations, skill gap insights, resume improvement suggestions, and a clear career development roadmap.
           </p>
 
           <div className="mt-8 flex gap-4">
@@ -154,8 +172,7 @@ export default function CareerAdvisor() {
     </h2>
 
     <p className="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
-      No vague advice. No random guessing. FlashFire gives you clear, data-backed
-      guidance tailored to your profile.
+      No vague advice or generic suggestions. FlashFire's AI career advisor delivers data-backed career guidance and career planning insights tailored to your profile and job market demand.
     </p>
 
     <div className="mt-14 grid md:grid-cols-3 gap-8">
@@ -192,14 +209,14 @@ export default function CareerAdvisor() {
           {/* LEFT TEXT */}
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a1a]">
-            A System That Works for You.
+            A Career Development Platform Powered by AI
             </h2>
 
             <ul className="mt-8 space-y-5 text-gray-700">
               {[
-                "Personalized career path recommendations",
-                "Skill gap analysis and learning roadmap",
-                "Resume & ATS optimization suggestions",
+                "Personalized career path recommendations using AI",
+                "Skill gap analysis with career planning roadmap",
+                "Resume and ATS optimization for career growth",
                 "Job market demand insights",
                 "Next 30-60-90 day action plan",
               ].map((item, i) => (
@@ -324,6 +341,46 @@ export default function CareerAdvisor() {
   </div>
 </section>
 
+
+      {/* FAQ Section */}
+      <section className="bg-white py-20">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className={styles.header}>
+            <h2>Frequently Asked Questions About AI Career Guidance</h2>
+            <p>
+              Ask us anything—here are the essentials to get you started.
+            </p>
+          </div>
+
+          <div className={`${styles.faqContainer} w-full`}>
+            {faqs.map((faq, index) => (
+              <div
+                key={faq.q}
+                className={`${styles.faqItem} ${activeFaq === index ? styles.active : ""
+                }`}
+              >
+                <button
+                  className={styles.faqQuestion}
+                  onClick={() =>
+                    setActiveFaq(activeFaq === index ? null : index)
+                  }
+                >
+                  <span>{faq.q}</span>
+                  <span className={styles.icon}>
+                    {activeFaq === index ? <FaTimes /> : <FaPlus />}
+                  </span>
+                </button>
+
+                {activeFaq === index && (
+                  <div className={styles.faqAnswer}>
+                    <p>{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="py-32 bg-[#fff1ea] text-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
