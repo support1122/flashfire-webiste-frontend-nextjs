@@ -54,6 +54,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "How to Check If Your Resume Is ATS Friendly"
     : post.slug === "how-to-beat-ats-systems"
     ? "How to Beat ATS Systems & Get Your Resume Shortlisted"
+    : post.slug === "highest-paying-software-engineering-jobs"
+    ? "Highest Paying Software Engineering Jobs in 2026"
+    : post.slug === "how-to-get-a-job-as-a-software-engineer"
+    ? "How to Get a Job as a Software Engineer in 2026"
     : `${post.title} | Flashfire Blog`;
   
   return {
