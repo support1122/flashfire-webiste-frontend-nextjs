@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
@@ -8,15 +8,37 @@ import { BarChart, TrendingUp, PieChart, Activity, Target, Award } from "lucide-
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
 export default function DashboardAnalyticsPage() {
   const router = useRouter();
   const pathname = usePathname();
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       // Bypass will be handled by the event listener
     },
   });
+
+  const handleFaqToggle = (index: number) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
+
+  const dashboardAnalyticsFAQs = [
+    {
+      question: "What is job search analytics?",
+      answer: "Job search analytics helps you analyze job application data such as response rates, interview conversions, and company performance. FlashFire's job search analytics dashboard turns this data into actionable insights."
+    },
+    {
+      question: "How does job application tracking improve interview rates?",
+      answer: "Job application tracking helps you see which roles and companies respond best. FlashFire combines job application tracking with analytics to help you focus on what works and improve interview rates."
+    },
+    {
+      question: "Is a job search dashboard better than using spreadsheets?",
+      answer: "Yes. A job search dashboard automatically tracks applications, analyzes performance, and surfaces insights that spreadsheets can't provide."
+    }
+  ];
 
   const handleGetMeInterview = () => {
     try {
@@ -161,15 +183,13 @@ export default function DashboardAnalyticsPage() {
 
     {/* Heading */}
     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] text-[#0b1220] mb-6 sm:mb-8">
-      Turn Your Job Search <br className="hidden sm:block" />
-      <span className="text-[#ff4c00]">Into Actionable Insights</span>
+      Job Search Analytics Dashboard for <br className="hidden sm:block" />
+      <span className="text-[#ff4c00]">Smarter Job Application Tracking</span>
     </h1>
 
     {/* Subheading */}
     <p className="text-base sm:text-lg md:text-xl text-[#5b6475] max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-1">
-      Track applications, response rates, and interview conversions in one
-      powerful dashboard. Make data-driven decisions that improve results —
-      not guesswork.
+      FlashFire's job search analytics dashboard helps you track job applications, analyze response rates, and monitor interview conversions so you can optimize your job search using real data.
     </p>
 
     {/* CTA */}
@@ -186,7 +206,7 @@ export default function DashboardAnalyticsPage() {
         onClick={handleHowItWorks}
         className="border-2 border-[#ff4c00] text-[#ff4c00] bg-transparent hover:bg-[#fff2ea] px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg transition-colors rounded-lg inline-flex items-center justify-center gap-2"
       >
-        How It Works
+        How Our Job Search Analytics Dashboard Works
       </button>
     </div>
   </div>
@@ -199,8 +219,7 @@ export default function DashboardAnalyticsPage() {
         Everything You Need to <span className="text-[#ff4c00]">Track</span>
       </h2>
       <p className="mt-4 text-base sm:text-lg text-[#5b6475] max-w-3xl mx-auto px-1">
-        From applications to interviews, FlashFire gives you a complete
-        picture of your job search performance.
+        FlashFire combines job application tracking and job search analytics to give you a complete view of your job search performance, from applications to interviews.
       </p>
     </div>
 
@@ -208,11 +227,11 @@ export default function DashboardAnalyticsPage() {
       {[
         {
           title: "Application Performance",
-          desc: "Monitor how many applications you submit and how many get responses.",
+          desc: "Monitor job application tracking metrics, including how many applications you submit and how many receive responses.",
         },
         {
           title: "Interview Conversion",
-          desc: "Understand which applications turn into interviews and offers.",
+          desc: "Understand interview conversion rates using job search analytics to see which job applications lead to interviews and offers.",
         },
         {
           title: "Company & Role Insights",
@@ -240,7 +259,7 @@ export default function DashboardAnalyticsPage() {
     {/* ===== Header ===== */}
     <div className="text-center mb-24">
       <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b1220] mb-6">
-        How Analytics <span className="text-[#ff4c00]">Improves Outcomes</span>
+        How Job Search Analytics <span className="text-[#ff4c00]">Improves Your Job Application Results</span>
       </h2>
       <p className="text-lg text-[#5b6475] max-w-3xl mx-auto">
         Turn raw application data into clear insights that help you
@@ -449,6 +468,44 @@ export default function DashboardAnalyticsPage() {
     </div>
   </div>
 </section>
+
+        {/* ================= FAQ ================= */}
+        <section id="faq" className={faqStyles.faqSection}>
+          <div id="faq-header" className={faqStyles.header}>
+            <h2>Question? We Got You Answers.</h2>
+            <p>
+              We get it, job search analytics can sound complex. Here's everything
+              explained, plain and simple.
+            </p>
+          </div>
+
+          <div className={faqStyles.faqContainer}>
+            {dashboardAnalyticsFAQs.map((faq, index) => (
+              <div
+                key={index}
+                className={`${faqStyles.faqItem} ${
+                  activeFaqIndex === index ? faqStyles.active : ""
+                }`}
+              >
+                <button
+                  className={faqStyles.faqQuestion}
+                  onClick={() => handleFaqToggle(index)}
+                >
+                  <span>{faq.question}</span>
+                  <span className={faqStyles.icon}>
+                    {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
+                  </span>
+                </button>
+
+                {activeFaqIndex === index && (
+                  <div className={faqStyles.faqAnswer}>
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
 
       </div>
     

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free Job Application Tracker to Monitor Applications Live",
-  description: "Track, organize, and optimize your job search. Save, apply, track, and revisit job applications — all from one clean, streamlined FlashFire dashboard.",
+  title: "Job Application Tracker to Track Job Applications",
+  description: "Track job applications in one place with FlashFire's job application tracker. Organize jobs, monitor interviews, and optimize your job search faster.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
