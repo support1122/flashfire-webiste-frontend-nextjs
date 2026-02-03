@@ -276,7 +276,7 @@ export default function HomePageHappyUsers() {
       {/* === Top Orange Section === */}
       <div className="bg-[#f55d1d] text-white text-center py-20 px-8 pb-40 relative pt-[90px] max-[768px]:pt-[70px]">
         <h2
-          className="mb-12 max-[600px]:text-[2rem]"
+          className="mb-4 max-[600px]:text-[2rem]"
           style={{
             fontFamily: "Space Grotesk, sans-serif",
             fontWeight: 700,
@@ -287,8 +287,21 @@ export default function HomePageHappyUsers() {
             textAlign: "center",
           }}
         >
-          Trusted by Job Seekers Using Our AI Job Search Platform
+          500+ Happy User's Love
         </h2>
+        <p
+          className="mb-12 max-[600px]:text-[1.125rem]"
+          style={{
+            fontFamily: "Space Grotesk, sans-serif",
+            fontWeight: 400,
+            fontSize: "24px",
+            lineHeight: "140%",
+            textAlign: "center",
+            opacity: 0.95,
+          }}
+        >
+          Trusted by Job Seekers Using Our <span style={{ color: "#fff", fontWeight: 600 }}>AI Job Search Platform</span>
+        </p>
 
         {/* Masonry Layout */}
         <div
