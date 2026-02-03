@@ -1,12 +1,44 @@
 "use client";
 
-import { ArrowRight, CheckCircle, Check } from "lucide-react";
+import { ArrowRight, CheckCircle, Check, GraduationCap, Briefcase, Repeat, BookOpen, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 
 export default function CareerAdvisor() {
+  const audiences = [
+    {
+      icon: GraduationCap,
+      title: "Recent Graduates",
+      description:
+        "Explore career paths aligned with your education, interests, and real market demand — before applying blindly.",
+    },
+    {
+      icon: Briefcase,
+      title: "Mid-Career Professionals",
+      description:
+        "Plan role transitions, promotions, or leadership moves with structured, data-driven career guidance.",
+    },
+    {
+      icon: Repeat,
+      title: "Career Changers",
+      description:
+        "Evaluate new industries, required skills, and realistic transition timelines before making a switch.",
+    },
+    {
+      icon: BookOpen,
+      title: "Students Planning Ahead",
+      description:
+        "Align coursework, projects, and certifications with real-world job roles companies are hiring for.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Competitive Job Seekers",
+      description:
+        "Stay relevant by understanding which roles and skills are growing in the job market.",
+    },
+  ];
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       // handled globally
@@ -234,6 +266,65 @@ export default function CareerAdvisor() {
           </div>
         </div>
       </section>
+      {/* WHO IS THIS FOR – STRONG EDITORIAL LAYOUT */}
+<section className="bg-[#fff7f3] py-32">
+  <div className="max-w-[1280px] mx-auto px-6">
+
+    <div className="grid lg:grid-cols-[420px_1fr] gap-20 items-start">
+
+      {/* LEFT – STICKY INTRO */}
+      <div className="lg:sticky lg:top-32">
+        <span className="inline-block bg-[#ff4c00]/10 text-[#ff4c00] px-4 py-1 rounded-full text-sm font-semibold mb-5">
+          Built for real career decisions
+        </span>
+
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] leading-tight">
+          Who Is This AI Career Guidance Platform For?
+        </h2>
+
+        <p className="mt-6 text-lg text-gray-700 leading-relaxed">
+          FlashFire’s AI Career Advisor is designed for people who want clarity,
+          direction, and momentum — not generic advice.
+          <br /><br />
+          Wherever you are in your journey, it adapts to help you move forward
+          with confidence.
+        </p>
+      </div>
+
+      {/* RIGHT – STEPPED AUDIENCE BLOCKS */}
+      <div className="space-y-12">
+        {audiences.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={index}
+              className={`relative bg-white rounded-3xl border border-[#ff4c00]/20 p-8 md:p-10 
+                shadow-sm transition hover:border-[#ff4c00]
+                ${index % 2 === 0 ? "ml-0 md:ml-12" : "ml-0 md:ml-32"}`}
+            >
+              {/* Icon Badge */}
+              <div className="absolute -top-6 left-8 h-12 w-12 rounded-2xl 
+                              bg-[#ff4c00] flex items-center justify-center shadow-md">
+                <Icon className="h-6 w-6 text-white" />
+              </div>
+
+              <h3 className="mt-6 text-xl font-bold text-[#1a1a1a]">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-gray-700 leading-relaxed max-w-xl">
+                {item.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
       <section className="py-32 bg-[#fff1ea] text-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
