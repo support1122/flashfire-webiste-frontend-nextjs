@@ -272,8 +272,8 @@ export default function DashboardAnalyticsPage() {
       {[
         {
           step: "01",
-          title: "Track",
-          desc: "See exactly what you’re applying to and which applications get responses.",
+          title: "Track Job Applications",
+          desc: "Track job applications, responses, and interview activity using a centralized job search dashboard.",
         },
         {
           step: "02",
@@ -309,6 +309,48 @@ export default function DashboardAnalyticsPage() {
           </p>
         </div>
       ))}
+    </div>
+  </div>
+</section>
+{/* ================= WHO IS THIS JOB SEARCH ANALYTICS DASHBOARD FOR ================= */}
+<section className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220] leading-tight">
+        Who Is This Job Search Analytics <br className="hidden sm:block" />
+        <span className="text-[#ff4c00]">Dashboard For?</span>
+      </h2>
+      <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#5b6475] max-w-2xl mx-auto px-1">
+        FlashFire's job search analytics dashboard is built for job seekers who want deeper visibility into their job application tracking and measurable improvements in interview outcomes.
+      </p>
+    </div>
+
+    <div className="max-w-4xl mx-auto">
+      <p className="text-lg font-semibold text-[#0b1220] mb-6 text-center">
+        Perfect for:
+      </p>
+      <div className="grid sm:grid-cols-2 gap-6">
+        {[
+          "High-volume job applicants",
+          "International candidates tracking visa-friendly companies",
+          "Professionals optimizing job search strategy",
+          "Data-driven job seekers",
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="bg-[#fff7f2] rounded-2xl border border-[#ffd6c4] p-6 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-start gap-3">
+              <span className="w-6 h-6 rounded-full border-2 border-[#ff4c00] text-[#ff4c00] flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                ✓
+              </span>
+              <p className="text-[#0b1220] font-medium leading-relaxed">
+                {item}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
