@@ -4,8 +4,8 @@ import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 
 export const metadata: Metadata = {
-    title: "Offer & Salary - Flashfire",
-    description: "Offer & Salary - Flashfire",
+    title: "Negotiate Salary Offer With a Proven Strategy | Flashfire",
+    description: "Flashfire helps you negotiate salary offers using a proven salary negotiation strategy backed by market data, scripts, and offer analysis.",
     robots: {
         index: true,
         follow: true,
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
         canonical: "https://www.flashfirejobs.com/offer-and-salary",
     },
     openGraph: {
-        title: "Offer & Salary - Flashfire",
-        description: "Offer & Salary - Flashfire",
+        title: "Negotiate Salary Offer With a Proven Strategy | Flashfire",
+        description: "Flashfire helps you negotiate salary offers using a proven salary negotiation strategy backed by market data, scripts, and offer analysis.",
         url: "https://www.flashfirejobs.com/offer-and-salary",
         siteName: "Flashfire",
         images: [
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Offer & Salary - Flashfire",
-        description: "Offer & Salary - Flashfire",
+        title: "Negotiate Salary Offer With a Proven Strategy | Flashfire",
+        description: "Flashfire helps you negotiate salary offers using a proven salary negotiation strategy backed by market data, scripts, and offer analysis.",
         images: [
             { url: "https://www.flashfirejobs.com/og-image.png" },
         ],
