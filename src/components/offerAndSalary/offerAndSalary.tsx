@@ -50,7 +50,7 @@ export default function SalaryNegotiationUI() {
                 utm_campaign: utmCampaign,
             },
         });
-          
+
         trackButtonClick(label, `${location}_cta`, "cta", {
             button_location: location,
             section: "offer_and_salary",
@@ -212,82 +212,149 @@ export default function SalaryNegotiationUI() {
                     ))}
                 </div>
             </section>
+            {/* ===== WHO SHOULD USE THIS STRATEGY ===== */}
+            <section className="bg-white py-20">
+                <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+                    {/* LEFT: CONTENT */}
+                    <div>
+                        <span className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-[#ff4c00]/10 text-[#ff4c00]">
+                            Salary Negotiation Strategy
+                        </span>
+
+                        <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900">
+                            Who Should Use This Salary Negotiation Strategy?
+                        </h2>
+
+                        <p className="mt-4 text-lg text-slate-700 leading-relaxed">
+                            FlashFire’s salary negotiation strategy is built for professionals who want
+                            to negotiate confidently, avoid leaving money on the table, and secure
+                            compensation that truly reflects their value — without sounding pushy or risky.
+                        </p>
+
+                        <p className="mt-4 text-slate-700">
+                            Whether you’re negotiating base pay, bonuses, equity, or benefits, FlashFire
+                            helps you approach the conversation with clarity, data, and confidence.
+                        </p>
+                    </div>
+
+                    {/* RIGHT: USE CASES */}
+                    <div className="rounded-3xl border border-[#ff4c00]/30 bg-[rgba(251,240,235,1)] p-8 space-y-6">
+
+                        {[
+                            {
+                                title: "Candidates with a New Job Offer",
+                                desc: "Understand whether your offer is competitive and how to counter professionally."
+                            },
+                            {
+                                title: "Professionals Switching Roles or Industries",
+                                desc: "Navigate unfamiliar pay ranges and negotiate from a position of knowledge."
+                            },
+                            {
+                                title: "Candidates Unsure How to Negotiate Pay",
+                                desc: "Get step-by-step guidance and scripts that remove hesitation and anxiety."
+                            },
+                            {
+                                title: "Job Seekers Negotiating Bonuses, Equity, or Benefits",
+                                desc: "See the full compensation picture — not just base salary."
+                            },
+                        ].map((item) => (
+                            <div key={item.title} className="flex gap-4 items-start">
+                                <div className="flex-shrink-0 h-10 w-10 rounded-xl bg-[#ff4c00]/15 flex items-center justify-center">
+                                    <Check className="h-5 w-5 text-[#ff4c00]" />
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold text-slate-900 text-lg">
+                                        {item.title}
+                                    </h4>
+                                    <p className="text-slate-700 text-sm mt-1">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+
+                    </div>
+
+                </div>
+            </section>
 
 
-<section className="bg-[rgba(251,240,235,1)] py-20">
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-    
-    {/* LEFT: TEXT */}
-    <div>
-      <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-        Strategic Salary Negotiation Guidance
-      </h2>
 
-      <ul className="mt-8 space-y-5 text-slate-800">
-        {[
-          "Receive personalized strategies tailored to your role and industry",
-          "Learn how to clearly articulate your value to justify higher compensation",
-          "Get guidance on the right timing to negotiate for maximum impact",
-        ].map((text) => (
-          <li key={text} className="flex items-start gap-4">
-            <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
-              <Check className="h-4 w-4 text-[#ff4c00]" />
-            </span>
-            <span className="text-lg leading-relaxed">{text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+            <section className="bg-[rgba(251,240,235,1)] py-20">
+                <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-    {/* RIGHT: ILLUSTRATION CONTAINER */}
-    <div className="bg-white rounded-3xl p-10 shadow-sm">
-      <img
-        src="/images/offer&salary1.png"
-        alt="Salary negotiation guidance"
-        className="w-full h-auto"
-      />
-    </div>
+                    {/* LEFT: TEXT */}
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+                            Strategic Salary Negotiation Guidance
+                        </h2>
 
-  </div>
-</section>
-<section className="bg-white py-20">
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                        <ul className="mt-8 space-y-5 text-slate-800">
+                            {[
+                                "Receive personalized strategies tailored to your role and industry",
+                                "Learn how to clearly articulate your value to justify higher compensation",
+                                "Get guidance on the right timing to negotiate for maximum impact",
+                            ].map((text) => (
+                                <li key={text} className="flex items-start gap-4">
+                                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
+                                        <Check className="h-4 w-4 text-[#ff4c00]" />
+                                    </span>
+                                    <span className="text-lg leading-relaxed">{text}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-    {/* LEFT: ILLUSTRATION */}
-    <div className="bg-[rgba(251,240,235,1)] rounded-3xl p-10 shadow-sm">
-      <img
-        src="/images/offer&salary2.png"
-        alt="Offer analysis"
-        className="w-full h-auto"
-      />
-    </div>
+                    {/* RIGHT: ILLUSTRATION CONTAINER */}
+                    <div className="bg-white rounded-3xl p-10 shadow-sm">
+                        <img
+                            src="/images/offer&salary1.png"
+                            alt="Salary negotiation guidance"
+                            className="w-full h-auto"
+                        />
+                    </div>
 
-    {/* RIGHT: TEXT */}
-    <div>
-      <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-        Comprehensive Offer Analysis
-      </h2>
+                </div>
+            </section>
+            <section className="bg-white py-20">
+                <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-      <ul className="mt-8 space-y-5 text-slate-800">
-        {[
-          "Compare your offer against industry benchmarks and market standards",
-          "Understand the full value of your compensation, including bonuses and benefits",
-          "Identify key leverage points to negotiate a stronger offer",
-        ].map((text) => (
-          <li key={text} className="flex items-start gap-4">
-            <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
-              <Check className="h-4 w-4 text-[#ff4c00]" />
-            </span>
-            <span className="text-lg leading-relaxed">{text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+                    {/* LEFT: ILLUSTRATION */}
+                    <div className="bg-[rgba(251,240,235,1)] rounded-3xl p-10 shadow-sm">
+                        <img
+                            src="/images/offer&salary2.png"
+                            alt="Offer analysis"
+                            className="w-full h-auto"
+                        />
+                    </div>
 
-  </div>
-</section>
+                    {/* RIGHT: TEXT */}
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+                            Comprehensive Offer Analysis
+                        </h2>
 
-           
+                        <ul className="mt-8 space-y-5 text-slate-800">
+                            {[
+                                "Compare your offer against industry benchmarks and market standards",
+                                "Understand the full value of your compensation, including bonuses and benefits",
+                                "Identify key leverage points to negotiate a stronger offer",
+                            ].map((text) => (
+                                <li key={text} className="flex items-start gap-4">
+                                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
+                                        <Check className="h-4 w-4 text-[#ff4c00]" />
+                                    </span>
+                                    <span className="text-lg leading-relaxed">{text}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+
 
         </div>
     );
