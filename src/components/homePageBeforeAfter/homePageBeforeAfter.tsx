@@ -54,7 +54,7 @@ export default function BeforeAfterComparison() {
         {/* ======================= */}
         {/* TABLE - DESKTOP & MOBILE */}
         {/* ======================= */}
-        <div className="w-full overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
+        <div className="w-full overflow-x-auto px-4 sm:px-0">
           <div className="max-w-6xl mx-auto bg-white rounded-xl md:rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
             <table className="w-full border-collapse text-left">
               <thead>

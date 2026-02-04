@@ -161,79 +161,73 @@ export default function JobSearch() {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section with Orange Gradient */}
-      <section className="bg-[#fff0e6] py-20 md:py-28 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-6 leading-tight">
+    <div className="min-h-screen w-full overflow-x-hidden">
+      {/* Hero Section */}
+      <section className="bg-[#fff0e6] py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto w-full">
+          {/* Main Heading - centered */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-4 sm:mb-6 leading-tight text-center">
             Find Jobs Faster With<br />
             <span className="text-[#ff4c00] font-bold">Human-Powered</span> Automation.
           </h1>
 
           {/* Sub-heading */}
-          <p className="text-lg md:text-2xl font-bold text-black mb-8 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-black mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto text-center px-0 sm:px-2">
             Flashfire applies to relevant jobs on your behalf so you don't have
             to search manually.
           </p>
 
-          {/* Key Benefits Bullet Points */}
-          <div className="flex flex-col gap-4 text-center max-w-2xl mx-auto mb-10">
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-black font-bold text-2xl">▪</span>
-              <p className="text-base md:text-lg font-bold text-black">
-                Flashfire scans job listings near your location
-              </p>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-black font-bold text-2xl">▪</span>
-              <p className="text-base md:text-lg font-bold text-black">
-                Our team applies to matched roles for you
-              </p>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-black font-bold text-2xl">▪</span>
-              <p className="text-base md:text-lg font-bold text-black">
-                You get updates without lifting a finger
-              </p>
-            </div>
+          {/* Key Benefits - centered container, left-aligned list for clean wrap */}
+          <div className="max-w-2xl mx-auto mb-8 sm:mb-10">
+            <ul className="flex flex-col items-center gap-3 sm:gap-4 text-center list-none pl-0">
+              <li className="flex items-center justify-center gap-3">
+                <span className="text-black font-bold text-lg shrink-0">▪</span>
+                <span className="text-base sm:text-lg font-bold text-black leading-snug">
+                  Flashfire scans job listings near your location
+                </span>
+              </li>
+              <li className="flex items-center justify-center mr-[28px] gap-3">
+                <span className="text-black font-bold text-lg shrink-0">▪</span>
+                <span className="text-base sm:text-lg font-bold text-black leading-snug">
+                  Our team applies to matched roles for you
+                </span>
+              </li>
+              <li className="flex items-center justify-center mr-[46px] gap-3">
+                <span className="text-black font-bold text-lg shrink-0">▪</span>
+                <span className="text-base sm:text-lg font-bold text-black leading-snug">
+                  You get updates without lifting a finger
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
       {/* Middle Section - Behind the Scenes */}
-      <section className="bg-[#fff0e6] py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          {/* White Card Container */}
-          <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg p-8 md:p-12">
-            {/* Section Title */}
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#ff4c00] text-center mb-12 md:mb-16">
+      <section className="bg-[#fff0e6] py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg p-6 sm:p-8 md:p-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#ff4c00] text-center mb-8 sm:mb-12 md:mb-16 px-0 sm:px-2">
               Behind the Scenes of Your Job Search
             </h2>
 
-            {/* Four-Step Process Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {steps.map((step) => {
                 const IconComponent = step.icon;
                 return (
                   <div
                     key={step.id}
-                    className="group bg-[#ff4c00] rounded-xl md:rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-white/20"
+                    className="group bg-[#ff4c00] rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-white/20 flex flex-col items-center text-center"
                   >
-                    {/* Icon Container */}
-                    <div className="flex justify-center mb-6">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 md:p-5 group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-                        <IconComponent className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={2.5} />
+                    <div className="flex justify-center mb-4 sm:mb-6 shrink-0">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 sm:p-4 md:p-5 group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
+                        <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" strokeWidth={2.5} />
                       </div>
                     </div>
-
-                    {/* Step Title */}
-                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-center leading-tight">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 leading-tight">
                       {step.title}
                     </h3>
-
-                    {/* Description */}
-                    <p className="text-base md:text-lg leading-relaxed text-white/95 text-center">
+                    <p className="text-sm sm:text-base md:text-lg leading-relaxed text-white/95">
                       {step.description}
                     </p>
                   </div>
@@ -245,23 +239,18 @@ export default function JobSearch() {
       </section>
 
       {/* Bottom CTA Section */}
-      <section className="bg-white py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* CTA Heading */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#ff4c00] mb-4">
+      <section className="bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto w-full text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#ff4c00] mb-3 sm:mb-4 px-0 sm:px-2 leading-tight">
             Ready to Let Flashfire Search & Apply for You?
           </h2>
-
-          {/* Sub-heading */}
-          <p className="text-lg md:text-xl text-black mb-10 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-black mb-8 sm:mb-10 max-w-2xl mx-auto px-0 sm:px-2">
             Set the goal. Flashfire runs the system.
           </p>
-
-          {/* CTA Button */}
           <button
             {...getButtonProps()}
             onClick={handleGetStarted}
-            className="bg-white border-2 border-[#ff4c00] text-[#ff4c00] px-8 md:px-10 py-4 md:py-5 font-bold text-lg md:text-xl rounded-xl hover:bg-[#fff0e6] transition-colors inline-flex items-center justify-center"
+            className="bg-white border-2 border-[#ff4c00] text-[#ff4c00] px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 font-bold text-base sm:text-lg md:text-xl rounded-xl hover:bg-[#fff0e6] transition-colors inline-flex items-center justify-center w-full sm:w-auto max-w-md mx-auto"
           >
             Get Started With Flashfire
           </button>

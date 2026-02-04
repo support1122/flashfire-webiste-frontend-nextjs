@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Mic, MessageSquare, Sparkles, FileText } from "lucide-react";
+import { Star, Mic, MessageSquare, Sparkles, FileText ,UserCheck, GraduationCap, Repeat, Shield } from "lucide-react";
 import HomePageHappyUsers from "../homePageHappyUsers/homePageHappyUsers";
 import HomePageFAQ from "../homePageFAQ/homePageFAQ";
 import Image from "next/image";
@@ -175,6 +175,77 @@ export default function InterviewBuddy() {
 
                 </div>
             </section>
+            {/* ================= WHO IS THIS AI INTERVIEW ASSISTANT FOR ================= */}
+            <section className="relative">
+  <div className="absolute inset-0 bg-[#fff7f3]" />
+
+  <div className="relative max-w-[1200px] mx-auto px-6 py-24">
+
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-black">
+        Who Is This AI Interview Assistant For?
+      </h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Built for candidates who want clarity, confidence, and real-time support
+        when interviews matter most.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="grid md:grid-cols-2 gap-8">
+
+      {[
+        {
+          title: "Active Job Seekers",
+          desc: "Get real-time guidance during live interviews, screenings, and technical rounds.",
+          icon: <UserCheck size={22} />,
+        },
+        {
+          title: "Freshers & Early Professionals",
+          desc: "Deliver structured, professional answers even with limited interview experience.",
+          icon: <GraduationCap size={22} />,
+        },
+        {
+          title: "Career Switchers",
+          desc: "Handle unfamiliar interview formats and explain transitions with confidence.",
+          icon: <Repeat size={22} />,
+        },
+        {
+          title: "Candidates Under Pressure",
+          desc: "Stay calm, organized, and articulate during high-stakes interview moments.",
+          icon: <Shield size={22} />,
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="relative rounded-3xl bg-gradient-to-br from-[#ff7a3d] via-[#ff4c00] to-[#ff2e00] p-[1px]"
+        >
+          <div className="bg-white rounded-3xl p-8 h-full">
+
+            {/* Icon Badge */}
+            <div className="w-11 h-11 rounded-xl bg-[#fff7f3] flex items-center justify-center text-[#ff4c00] mb-5">
+              {item.icon}
+            </div>
+
+            {/* Accent Line */}
+            <div className="w-12 h-[2px] bg-[#ff4c00]/40 mb-4" />
+
+            <h3 className="text-xl font-bold text-black mb-3">
+              {item.title}
+            </h3>
+
+            <p className="text-gray-600">
+              {item.desc}
+            </p>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
 
             <HomePageHappyUsers />
             <HomePageFAQ />
