@@ -499,101 +499,46 @@ export default function JobTrackerPage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
 
             {/* ===== Header ===== */}
-            <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-24">
-              <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[#ff4c00]">
-                <span className="w-2 h-2 rounded-full bg-[#ff4c00]" />
-                WHO THIS IS BUILT FOR
-              </span>
-
-              <h2 className="mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#0b1220] leading-tight">
-                Built for Job Seekers Who <br className="hidden sm:block" />
-                <span className="text-[#ff4c00]">Track Everything</span>
+            <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220] leading-tight">
+                Who Is This Job Application <br className="hidden sm:block" />
+                <span className="text-[#ff4c00]">Tracker For?</span>
               </h2>
 
               <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#5b6475] max-w-2xl mx-auto px-1">
-                FlashFire’s Job Tracker is built for candidates who want clarity,
-                structure, and momentum — not scattered notes and missed follow-ups.
+                FlashFire's job application tracker is built for job seekers who want to track job applications, manage recruiter conversations, and stay organized throughout their job search.
               </p>
             </div>
 
-            {/* ===== Main Content ===== */}
-            <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-start">
-
-              {/* LEFT — Capability Panels (CENTERED) */}
-              <div className="flex flex-col  mt-8 space-y-8">
-
+            {/* ===== Perfect For Section ===== */}
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg font-semibold text-[#0b1220] mb-6 text-center">
+                Perfect for:
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
                 {[
-                  {
-                    title: "Complete Application Visibility",
-                    desc: "View every job you’ve saved, applied to, interviewed for, or followed up on — all in one organized system."
-                  },
-                  {
-                    title: "Never Miss a Follow-Up",
-                    desc: "Track recruiter conversations, interview timelines, reminders, and next steps without manual effort."
-                  },
-                  {
-                    title: "Actionable Search Insights",
-                    desc: "Understand which roles progress and which stall, so you can focus on applications that actually convert."
-                  },
+                  "Active job seekers applying to multiple roles",
+                  "Professionals tired of tracking jobs in spreadsheets",
+                  "Candidates managing interviews across multiple companies",
+                  "Anyone looking for a smarter job tracking tool",
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="group bg-white/80 backdrop-blur rounded-2xl border border-[#ffd6c4]
-                     p-8 shadow-[0_18px_45px_rgba(0,0,0,0.08)]
-                     hover:shadow-[0_28px_60px_rgba(0,0,0,0.12)]
-                     transition-shadow
-                     max-w-xl w-full text-center"
+                    className="bg-white rounded-2xl border border-[#ffd6c4] p-6 shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <h3 className="text-xl font-extrabold text-[#0b1220] mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-[#5b6475] leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <div className="flex items-start gap-3">
+                      <span className="w-6 h-6 rounded-full border-2 border-[#ff4c00] text-[#ff4c00] flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                        ✓
+                      </span>
+                      <p className="text-[#0b1220] font-medium leading-relaxed">
+                        {item}
+                      </p>
+                    </div>
                   </div>
                 ))}
-
-              </div>
-
-              {/* RIGHT — Persona Stack */}
-              <div className="space-y-6">
-
-                {[
-                  {
-                    title: "High-Volume Applicants",
-                    desc: "People applying to many roles who need a reliable system to track statuses and outcomes."
-                  },
-                  {
-                    title: "International Job Seekers",
-                    desc: "Candidates managing regions, visa considerations, and longer interview cycles."
-                  },
-                  {
-                    title: "Career Switchers",
-                    desc: "Professionals testing multiple roles or industries to identify what converts."
-                  },
-                  {
-                    title: "Process-Driven Candidates",
-                    desc: "Job seekers who optimize their search using structure and data — not guesswork."
-                  },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    className="relative bg-[#fff1ea] rounded-2xl border border-[#ffd6c4] p-7"
-                  >
-                    {/* Accent bar */}
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#ff4c00] rounded-l-2xl" />
-
-                    <h4 className="text-lg font-extrabold text-[#0b1220]">
-                      {item.title}
-                    </h4>
-                    <p className="mt-2 text-sm text-[#5b6475] leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                ))}
-
               </div>
             </div>
+
           </div>
         </section>
 
