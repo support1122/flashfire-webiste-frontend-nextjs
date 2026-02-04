@@ -205,9 +205,7 @@ export default function CoverLetterPage() {
 
               {/* Subtext */}
               <p className="mt-7 text-lg text-[#5b6475] max-w-xl leading-relaxed">
-                Create personalized, ATS-optimized cover letters tailored to each job application.
-                Our AI-powered builder helps you craft compelling narratives that highlight your
-                unique value and increase your interview chances.
+                Flashfire is an AI-powered cover letter builder that helps job seekers generate personalized, ATS-friendly cover letters for every job application. Our AI cover letter generator analyzes your resume and job description to help you stand out and get interviews faster.
               </p>
 
               {/* Feature bullets */}
@@ -499,92 +497,46 @@ export default function CoverLetterPage() {
             </div>
           </div>
         </section>
-        <section className="relative py-28 bg-white overflow-hidden">
-          {/* Decorative background */}
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-[#fff3ec]" />
-          <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-orange-100 rounded-full blur-3xl opacity-40 -translate-x-1/2 -translate-y-1/2" />
+        {/* ================= WHO IS THIS AI COVER LETTER BUILDER FOR ================= */}
+        <section className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220] leading-tight">
+                Who Is This AI Cover Letter <br className="hidden sm:block" />
+                <span className="text-[#ff4c00]">Builder For?</span>
+              </h2>
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#5b6475] max-w-2xl mx-auto px-1">
+                Flashfire's AI cover letter builder is designed for job seekers who want to create ATS-friendly cover letters quickly, personalize applications at scale, and improve interview response rates.
+              </p>
+            </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-
-              {/* LEFT – Headline & Value */}
-              <div className="lg:col-span-5">
-                <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm font-semibold mb-6">
-                  Designed for Modern Job Seekers
-                </span>
-
-                <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-                  Who Is This AI <br /> Cover Letter Builder For?
-                </h2>
-
-                <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-                  Flashfire helps job seekers create ATS-friendly, role-specific cover
-                  letters in minutes—without sounding repetitive or generic.
-                </p>
-
-                <div className="mt-10 space-y-6 border-l-4 border-orange-500 pl-6">
-                  <p className="text-gray-700">
-                    ✔ Apply faster without rewriting content
-                  </p>
-                  <p className="text-gray-700">
-                    ✔ Personalize applications at scale
-                  </p>
-                  <p className="text-gray-700">
-                    ✔ Improve recruiter response rates
-                  </p>
-                </div>
-              </div>
-
-              {/* RIGHT – Audience Cards */}
-              <div className="lg:col-span-7">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-
-                  {[
-                    {
-                      title: "Active Job Seekers",
-                      desc: "Applying frequently across platforms and roles",
-                    },
-                    {
-                      title: "Freshers & Graduates",
-                      desc: "Creating strong first impressions early in their career",
-                    },
-                    {
-                      title: "Mid–Senior Professionals",
-                      desc: "Tailoring cover letters for multiple targeted roles",
-                    },
-                    {
-                      title: "ATS-Rejected Candidates",
-                      desc: "Fixing structure and keyword alignment issues",
-                    },
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="group relative bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-gray-100"
-                    >
-                      <div className="absolute -top-4 -left-4 w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold">
-                        {index + 1}
-                      </div>
-
-                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        {item.desc}
+            <div className="max-w-4xl mx-auto">
+              <p className="text-lg font-semibold text-[#0b1220] mb-6 text-center">
+                Ideal for:
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  "Active job seekers",
+                  "Freshers and early-career professionals",
+                  "Mid–senior candidates applying to multiple roles",
+                  "Candidates facing ATS rejections",
+                  "Anyone who wants a faster, smarter cover letter builder",
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-[#fff7f2] rounded-2xl border border-[#ffd6c4] p-6 shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="w-6 h-6 rounded-full border-2 border-[#ff4c00] text-[#ff4c00] flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                        ✓
+                      </span>
+                      <p className="text-[#0b1220] font-medium leading-relaxed">
+                        {item}
                       </p>
                     </div>
-                  ))}
-
-                </div>
-
-                {/* Bottom Statement */}
-                <div className="mt-10 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-2xl p-8 shadow-lg">
-                  <p className="text-lg font-medium leading-relaxed">
-                    Perfect for anyone who wants a faster, smarter, and more effective
-                    way to create cover letters—without compromising quality.
-                  </p>
-                </div>
+                  </div>
+                ))}
               </div>
-
             </div>
           </div>
         </section>
