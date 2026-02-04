@@ -3,9 +3,9 @@ import InterviewBuddy from "@/src/components/interviewBuddy/interviewBuddy";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 export const metadata: Metadata = {
-    title: "Interview Buddy - Get personalized interview tips | Flashfire",
+    title: "AI Interview Assistant for Real-Time Support",
     description:
-        "Get personalized interview tips based on your skills, experience, and career goals. Our interview buddy is here to help you land your dream job.",
+        "Get real-time AI support during interviews with Flashfire's AI interview assistant. Receive instant answers, live transcripts, and role-specific guidance.",
     robots: {
         index: true,
         follow: true,
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
         canonical: "https://www.flashfirejobs.com/interview-buddy",
     },
     openGraph: {
-        title: "Interview Buddy - Get personalized interview tips",
+        title: "AI Interview Assistant for Real-Time Support",
         description:
-            "Get personalized interview tips based on your skills, experience, and career goals.",
+            "Get real-time AI support during interviews with Flashfire's AI interview assistant. Receive instant answers, live transcripts, and role-specific guidance.",
         url: "https://www.flashfirejobs.com/interview-buddy",
         type: "website",
     },
