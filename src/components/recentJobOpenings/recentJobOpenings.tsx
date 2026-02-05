@@ -93,7 +93,7 @@ export default function RecentJobOpenings() {
                                     ${idx === 2 && "-left-6 bottom-24"}
                                     ${idx === 3 && "-left-10 top-72"}
                                 `}
-                                                >
+                            >
                                 <div className="h-8 w-8 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
                                     <Check className="h-4 w-4 text-[#ff4c00]" />
                                 </div>
@@ -200,6 +200,81 @@ export default function RecentJobOpenings() {
                     </div>
                 </div>
             </section>
+            <section className="bg-[rgba(251,240,235,0.45)] py-24">
+                <div className="max-w-7xl mx-auto px-6">
+
+                    {/* HEADER */}
+                    <div className="max-w-3xl mx-auto text-center">
+                        <span className="inline-block mb-4 px-4 py-1.5 text-sm font-medium rounded-full
+                       bg-white text-[#ff4c00] border border-[#ff4c00]/20">
+                            Designed for modern job seekers
+                        </span>
+
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                            Who is <span className="text-[#ff4c00]">FlashFire</span> for?
+                        </h2>
+
+                        <p className="mt-5 text-lg text-slate-700 max-w-2xl">
+                            Built for people who want interviews — not endless applications,
+                            repeated data entry, or burnout.
+                        </p>
+                    </div>
+
+                    {/* CARDS */}
+                    <div className="mt-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                        {[
+                            {
+                                title: "Active Job Seekers",
+                                desc: "Applying daily but losing hours to repetitive forms.",
+                            },
+                            {
+                                title: "Tech Professionals",
+                                desc: "Engineers & developers targeting better roles faster.",
+                            },
+                            {
+                                title: "Career Switchers",
+                                desc: "Changing domains with ATS-ready applications.",
+                            },
+                            {
+                                title: "Burnout Candidates",
+                                desc: "Tired of manual, slow, and error-prone submissions.",
+                            },
+                        ].map((item) => (
+                            <div
+                                key={item.title}
+                                className="group relative rounded-2xl bg-white p-6
+                     border border-slate-200
+                     hover:shadow-xl transition-all duration-300"
+                            >
+                                {/* LEFT ACCENT – BLENDED */}
+                                <div className="absolute inset-y-0 left-0 w-1.5 rounded-l-2xl
+                          bg-gradient-to-b from-[#ff4c00] to-[#ff4c00]/40" />
+
+                                <div className="pl-4">
+                                    {/* ICON */}
+                                    <div className="mb-5 h-11 w-11 rounded-xl
+                            bg-[rgba(251,240,235,1)]
+                            flex items-center justify-center
+                            group-hover:bg-[#ff4c00] transition">
+                                        <Check className="h-5 w-5 text-[#ff4c00] group-hover:text-white transition" />
+                                    </div>
+
+                                    <h3 className="text-lg font-semibold text-slate-900">
+                                        {item.title}
+                                    </h3>
+
+                                    <p className="mt-2 text-slate-700 leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </section>
+
             <section className="bg-white py-28">
                 <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
@@ -298,25 +373,103 @@ export default function RecentJobOpenings() {
 
                 </div>
             </section>
-            <section className="py-28 bg-[rgba(251,240,235,1)]">
-  <div className="max-w-4xl mx-auto text-center px-6">
-    <h2 className="text-4xl font-extrabold text-slate-900">
-      Ready to stop applying manually?
-    </h2>
+            <section className="py-32 bg-[rgba(251,240,235,1)]">
+                <div className="max-w-7xl mx-auto px-6">
 
-    <p className="mt-6 text-lg text-slate-700">
-      Let FlashFire handle job applications while you focus
-      on preparing for interviews.
-    </p>
+                    <div className="grid lg:grid-cols-2 gap-24 items-center">
 
-    <button
-      {...getButtonProps()}
-      onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom", "/recent-job-openings/Start-with-Flashfire")}
-      className="mt-10 px-8 py-6 bg-[#ff4c00] text-white rounded-2xl font-semibold hover:bg-[#e64500]">
-      Start with FlashFire
-    </button>
-  </div>
-</section>
+                        {/* LEFT */}
+                        <div>
+                            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                                Why automation beats manual job applications
+                            </h2>
+
+                            <p className="mt-6 text-lg text-slate-700 max-w-xl">
+                                Manual applications limit how many opportunities you can reach.
+                                FlashFire removes that limit — without compromising quality.
+                            </p>
+
+                            <div className="mt-14 space-y-8">
+                                {[
+                                    {
+                                        title: "Apply 10× faster",
+                                        desc: "Reach more companies daily without increasing effort.",
+                                    },
+                                    {
+                                        title: "ATS-optimized every time",
+                                        desc: "Each application is tailored to pass automated filters.",
+                                    },
+                                    {
+                                        title: "Consistent quality",
+                                        desc: "No missed fields, no rushed mistakes, no burnout.",
+                                    },
+                                    {
+                                        title: "Works while you sleep",
+                                        desc: "FlashFire applies continuously in the background.",
+                                    },
+                                ].map((item) => (
+                                    <div key={item.title} className="flex gap-5">
+                                        <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                                            <Zap className="h-6 w-6 text-[#ff4c00]" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-lg font-semibold text-slate-900">
+                                                {item.title}
+                                            </h4>
+                                            <p className="mt-1 text-slate-700">
+                                                {item.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* RIGHT – DECISION CARD */}
+                        <div className="relative">
+                            <div className="absolute -top-6 -right-6 w-full h-full rounded-3xl bg-[#ff4c00]/20" />
+                            <div className="relative bg-white rounded-3xl p-12 shadow-xl border border-slate-200">
+                                <h3 className="text-xl font-semibold text-slate-900 mb-8">
+                                    Manual vs AI-powered applications
+                                </h3>
+
+                                <div className="space-y-5 text-slate-700">
+                                    <p>❌ Manual: Slow and repetitive</p>
+                                    <p>❌ Manual: Limited daily reach</p>
+                                    <p>❌ Manual: Inconsistent quality</p>
+
+                                    <div className="pt-6 border-t">
+                                        <p className="font-semibold text-slate-900">
+                                            ✅ AI-powered: Fast, scalable, ATS-ready
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-28 bg-[#fff6f1]">
+                <div className="max-w-4xl mx-auto text-center px-6">
+                    <h2 className="text-4xl font-extrabold text-slate-900">
+                        Ready to stop applying manually?
+                    </h2>
+
+                    <p className="mt-6 text-lg text-slate-700">
+                        Let FlashFire handle job applications while you focus
+                        on preparing for interviews.
+                    </p>
+
+                    <button
+                        {...getButtonProps()}
+                        onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom", "/recent-job-openings/Start-with-Flashfire")}
+                        className="mt-10 px-8 py-6 bg-[#ff4c00] text-white rounded-2xl font-semibold hover:bg-[#e64500]">
+                        Start with FlashFire
+                    </button>
+                </div>
+            </section>
 
         </>
     );
