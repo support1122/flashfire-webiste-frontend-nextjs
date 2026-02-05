@@ -318,92 +318,105 @@ export default function AICopilot() {
           </div>
         </div>
       </section>
-      <section className="relative w-full overflow-hidden bg-[#fffaf6] py-28">
-  {/* Soft background glow */}
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,76,0,0.12),transparent_55%)]" />
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(255,76,0,0.08),transparent_60%)]" />
+      <section className="relative w-full bg-[#fffaf6] py-28 overflow-hidden">
+  {/* Warm ambient background */}
+  <div className="absolute -top-40 -right-40 h-[520px] w-[520px] rounded-full bg-[#ff4c00]/10 blur-3xl" />
+  <div className="absolute -bottom-40 -left-40 h-[520px] w-[520px] rounded-full bg-[#ff4c00]/5 blur-3xl" />
 
-  <div className="relative max-w-[1180px] mx-auto px-6">
-    {/* Header */}
-    <div className="max-w-[780px]">
-      <span className="inline-block mb-4 text-sm font-semibold tracking-wider text-[#ff4c00] uppercase">
+  <div className="relative max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-24">
+    
+    {/* LEFT — HEADER / CORE MESSAGE */}
+    <div>
+      <span className="inline-flex items-center gap-3 mb-6 text-sm font-semibold uppercase tracking-wide text-[#ff4c00]">
         Execution Engine
+        <span className="h-[1px] w-12 bg-[#ff4c00]/60" />
       </span>
 
-      <h2 className="text-[3.4rem] leading-[1.1] font-extrabold text-black">
-        Built for execution,
+      <h2 className="text-[3.4rem] leading-[1.08] font-extrabold text-[#2a1208]">
+        Execution beats
         <br />
-        <span className="text-[#ff4c00]">not just intention.</span>
+        <span className="text-[#ff4c00]">motivation.</span>
       </h2>
 
-      <p className="mt-6 text-lg text-gray-600">
-        FlashFire removes friction between effort and results —
-        so progress happens automatically, every single day.
+      <p className="mt-7 text-lg text-[#6b3b2a] max-w-[520px]">
+        FlashFire replaces fragile willpower with a system that executes
+        consistently — even when attention, energy, or time runs out.
       </p>
-    </div>
 
-    {/* Comparison Timeline */}
-    <div className="mt-24 relative">
-      {/* Vertical line */}
-      <div className="absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-transparent via-[#ff4c00]/40 to-transparent hidden md:block" />
-
-      <div className="space-y-8">
+      {/* Key outcomes */}
+      <div className="mt-12 space-y-5">
         {[
-          {
-            left: "Manual job applications",
-            right: "Automated daily execution",
-          },
-          {
-            left: "Time lost to repetition",
-            right: "One effort, infinitely scaled",
-          },
-          {
-            left: "Inconsistent activity",
-            right: "Everyday outreach without gaps",
-          },
-          {
-            left: "Execution stops under pressure",
-            right: "Execution runs quietly in background",
-          },
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="
-              group relative grid grid-cols-1 md:grid-cols-2 gap-10
-              items-center
-              px-8 py-7
-              rounded-2xl
-              bg-white
-              border border-black/10
-              shadow-sm
-              transition-all duration-300
-              hover:shadow-xl hover:-translate-y-1
-            "
-          >
-            {/* Center dot */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:block">
-              <div className="h-3 w-3 rounded-full bg-[#ff4c00] shadow-[0_0_0_6px_rgba(255,76,0,0.15)]" />
+          "Runs daily without manual effort",
+          "Scales execution automatically",
+          "Never breaks under pressure",
+          "Built for long-term momentum",
+        ].map((point, i) => (
+          <div key={i} className="flex items-center gap-4">
+            <div className="h-9 w-9 rounded-xl bg-[#ff4c00]/15 flex items-center justify-center text-[#ff4c00] font-bold">
+              ✓
             </div>
-
-            {/* Left */}
-            <div className="text-gray-500 text-base flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-gray-300" />
-              {item.left}
-            </div>
-
-            {/* Right */}
-            <div className="text-black font-semibold text-base flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#ff4c00]/10 text-[#ff4c00] font-bold">
-                →
-              </span>
-              {item.right}
-            </div>
+            <span className="text-base text-[#2a1208]">
+              {point}
+            </span>
           </div>
         ))}
       </div>
     </div>
+
+    {/* RIGHT — EXECUTION GRID (STARTS LOWER) */}
+    <div className="mt-24 grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {[
+        {
+          title: "Manual Effort",
+          desc: "Requires constant focus, energy, and daily motivation.",
+          muted: true,
+        },
+        {
+          title: "FlashFire Engine",
+          desc: "Executes automatically once configured.",
+        },
+        {
+          title: "Inconsistent Output",
+          desc: "Breaks when schedules get busy.",
+          muted: true,
+        },
+        {
+          title: "Always-On System",
+          desc: "Runs silently in the background.",
+        },
+        {
+          title: "Linear Growth",
+          desc: "Effort caps results quickly.",
+          muted: true,
+        },
+        {
+          title: "Scalable Momentum",
+          desc: "One setup compounds endlessly.",
+        },
+      ].map((card, i) => (
+        <div
+          key={i}
+          className={`
+            rounded-2xl p-6 border transition-all duration-300
+            ${
+              card.muted
+                ? "bg-white border-[#ff4c00]/20 text-[#7a4a38]"
+                : "bg-[#ff4c00]/95 text-white border-[#ff4c00] hover:-translate-y-1 hover:shadow-xl"
+            }
+          `}
+        >
+          <h4 className="text-lg font-semibold">
+            {card.title}
+          </h4>
+          <p className={`mt-3 text-sm ${card.muted ? "text-[#7a4a38]" : "text-white/85"}`}>
+            {card.desc}
+          </p>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
 
       <section className="w-full bg-white py-32">
   <div className="max-w-[1240px] mx-auto px-6">
