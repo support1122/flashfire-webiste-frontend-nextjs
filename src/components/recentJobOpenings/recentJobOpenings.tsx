@@ -250,8 +250,7 @@ export default function RecentJobOpenings() {
                         ].map(({ icon: Icon, title, desc }, idx) => (
                             <div
                                 key={idx}
-                                className="group relative rounded-xl md:rounded-2xl bg-white/70 border border-[#ff4c00]/40 backdrop-blur-xl p-5 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-[#ff4c00]/10"
-                            >
+                                className="group relative rounded-xl md:rounded-2xl bg-white/70 border border-[#ff4c00]/40 backdrop-blur-xl p-5 md:p-8 transition-all duration-300 hover:shadow-2xl hover:shadow-[#ff4c00]/10"                            >
                                 {/* subtle hover glow */}
                                 <div className="pointer-events-none absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#ff4c00]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 

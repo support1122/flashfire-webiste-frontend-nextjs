@@ -1,14 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import ContactForm from "./contactForm";
-import { FaEnvelope, FaPhone, FaBuilding, FaUser, FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaBuilding, FaUser, FaLinkedinIn, FaInstagram, FaYoutube, FaArrowRight } from "react-icons/fa";
+import { Copy, Check } from "lucide-react";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 
 export default function ContactUsClient() {
   const router = useRouter();
   const pathname = usePathname();
+  const [copied, setCopied] = useState(false);
 
   const handleScheduleDemo = () => {
     try {
@@ -57,8 +60,8 @@ export default function ContactUsClient() {
         (typeof window !== "undefined" ? window.location.pathname : "");
       const normalizedPath = currentPath.split("?")[0];
       const isAlreadyOnGetMeInterview =
-        normalizedPath === "/get-me-interview" ||
-        normalizedPath === "/en-ca/get-me-interview";
+        normalizedPath === "/schedule-a-demo-with-flashfire" ||
+        normalizedPath === "/en-ca/schedule-a-demo-with-flashfire";
       const isOnContactUsPage =
         normalizedPath === "/contact-us" ||
         normalizedPath === "/en-ca/contact-us";
@@ -105,8 +108,8 @@ export default function ContactUsClient() {
         }
 
         const targetPath = normalizedPath.startsWith("/en-ca")
-          ? "/en-ca/get-me-interview"
-          : "/get-me-interview";
+          ? "/en-ca/schedule-a-demo-with-flashfire"
+          : "/schedule-a-demo-with-flashfire";
         router.replace(targetPath);
         return;
       }
@@ -121,10 +124,21 @@ export default function ContactUsClient() {
       }
 
       // Navigate to get-me-interview
-      const targetPath = "/get-me-interview";
+      const targetPath = "/schedule-a-demo-with-flashfire";
       router.push(targetPath);
     } catch (error) {
       console.warn("Error in Schedule Demo handler:", error);
+    }
+  };
+
+  const handleCopyEmail = async () => {
+    const email = "support@flashfirejobs.com";
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy email:", err);
     }
   };
 
@@ -149,92 +163,109 @@ export default function ContactUsClient() {
             <ContactForm />
           </div>
         </div>
+       {/* === FLASHFIRE CONTACT DETAILS (CLEAN, SPACIOUS, FUNCTIONAL) === */}
+<section className="py-20 md:py-28">
+  <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
-        {/* Bottom Section: Three Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: Customer Support */}
-          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Customer Support
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Got questions? We're just an email away.
-            </p>
-            <div className="flex flex-col gap-2">
-              <a
-                href="mailto:support@flashfirejobs.com"
-                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
-              >
-                SUPPORT@FLASHFIREJOBS.COM
-              </a>
-              
-            </div>
-          </div>
+    {/* Header */}
+    <div className="max-w-3xl mx-auto text-center mb-20">
+      <span className="block text-xs font-semibold tracking-widest text-[#ff4c00] uppercase mb-4">
+        Get in touch
+      </span>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">
+        Flashfire <span className="text-[#ff4c00]">Contact Details</span>
+      </h2>
+      <p className="mt-6 text-base md:text-lg text-slate-600">
+        Clear, direct ways to reach the Flashfire team.
+      </p>
+    </div>
 
-          {/* Card 2: Sales Enquiry */}
-          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Sales Enquiry
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Partner with us to elevate your career solutions.
-            </p>
-            <div className="flex flex-col gap-2">
-              <button
-                onClick={handleScheduleDemo}
-                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline text-left"
-              >
-                SCHEDULE A DEMO
-              </button>
-              <a
-                href="/pricing"
-                className="text-[#ff4c00] font-semibold uppercase text-sm hover:underline"
-              >
-                KNOW MORE
-              </a>
+    {/* Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+
+      {/* Support */}
+        <div className="bg-white border border-orange-500 rounded-2xl p-12 transition-colors hover:border-[#ff4c00] hover:border-2">
+        <FaEnvelope className="text-[#ff4c00] text-2xl mb-10" />
+
+        <h3 className="text-xl font-semibold text-slate-900 mb-4">
+          Customer Support
+        </h3>
+
+        <p className="text-slate-600 leading-relaxed mb-8">
+          Help with accounts, applications, or platform usage.
+        </p>
+
+        <div className="flex items-center gap-4">
+          <span className="font-semibold text-[#ff4c00]">
+            support@flashfirejobs.com
+          </span>
+
+          {/* Copy clipboard */}
+          <button
+            onClick={handleCopyEmail}
+            className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-[#ff4c00] transition-colors"
+          >
+            {copied ? (
+              <>
+                <Check className="h-4 w-4" />
+                Copied
+              </>
+            ) : (
+              <>
+                <Copy className="h-4 w-4" />
+                Copy
+              </>
+            )}
+          </button>
         </div>
       </div>
 
-          {/* Card 3: Join our Community */}
-          <div className="bg-gradient-to-br from-[#fff1ec] to-white rounded-xl p-6 border border-orange-100 shadow-sm">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              Join our Community
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Join our community for career tips and updates.
-            </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/company/flashfire-pvt-ltd/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn className="text-2xl" />
-              </a>
-              <a
-                href="https://www.instagram.com/flashfirejobs/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
-                aria-label="Instagram"
-              >
-                <FaInstagram className="text-2xl" />
-              </a>
-              <a
-                href="https://www.youtube.com/@flashfireindia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#ff4c00] transition-colors"
-                aria-label="YouTube"
-              >
-                <FaYoutube className="text-2xl" />
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* Sales */}
+      <div className="bg-white border border-orange-500 rounded-2xl p-12 transition-colors hover:border-[#ff4c00] hover:border-2">
+        <FaUser className="text-[#ff4c00] text-2xl mb-10" />
+
+        <h3 className="text-xl font-semibold text-slate-900 mb-4">
+          Sales & Demos
+        </h3>
+
+        <p className="text-slate-600 leading-relaxed mb-8">
+          Explore demos, partnerships, or product questions.
+        </p>
+
+        <button
+          onClick={handleScheduleDemo}
+          className="group font-semibold text-[#ff4c00]  flex items-center gap-2"
+        >
+          Schedule a demo with Flashfire
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span>
+        </button>
       </div>
+
+      {/* Company */}
+      <div className="bg-white border border-orange-500 rounded-2xl p-12 transition-colors hover:border-[#ff4c00] hover:border-2">
+        <FaBuilding className="text-[#ff4c00] text-2xl mb-10" />
+
+        <h3 className="text-xl font-semibold text-slate-900 mb-4">
+          Company
+        </h3>
+
+        <p className="text-slate-600 leading-relaxed mb-8">
+          Official corporate and business information.
+        </p>
+
+        <p className="font-semibold text-slate-900">
+          Flashfire Pvt. Ltd.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      </div>
+
+
     </section>
   );
 }

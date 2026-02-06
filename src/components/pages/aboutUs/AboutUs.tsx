@@ -24,17 +24,17 @@ export default function AboutUs() {
     // Re-clicks are handled by navbar which prevents navigation
     if (!hasScrolledRef.current) {
       hasScrolledRef.current = true;
-      
+
       // Scroll to top when navigating to about-us page
       // Use requestAnimationFrame to ensure DOM is ready
       requestAnimationFrame(() => {
         window.scrollTo({ top: 0, behavior: "instant" });
-        
+
         // Also scroll after a short delay to catch any late scrolls from browser restoration
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: "instant" });
         }, 50);
-        
+
         // One more check after layout
         requestAnimationFrame(() => {
           setTimeout(() => {
@@ -422,6 +422,99 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
+      {/* === WHO IS THIS FOR SECTION === */}
+      <section className="bg-[#f9e8e0] py-14 sm:py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden z-10">
+        <div className="max-w-6xl mx-auto">
+
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F55D1D] uppercase"
+              style={{ textShadow: "3px 3px 0px rgba(0,0,0,1)" }}
+            >
+              Who Is This For?
+            </h2>
+            <p className="mt-4 text-base sm:text-lg font-semibold text-gray-900">
+              Flashfire’s AI job application service is built for job seekers who want
+              to stop wasting time, automate applications, and finally start getting
+              interview responses.
+            </p>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* Card 1 */}
+            <div
+              className="bg-white border-2 border-black p-6 rounded-xl"
+              style={{ boxShadow: "0 6px 0 rgba(245,93,29,1)" }}
+            >
+              <h3 className="text-xl sm:text-2xl font-bold text-[#F55D1D] mb-3">
+                Active Job Seekers Applying at Scale
+              </h3>
+              <p className="text-gray-800 font-medium leading-relaxed">
+                If you’re applying to dozens of roles every week and still hearing
+                nothing back, Flashfire helps you apply faster, smarter, and at scale
+                without burning out.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div
+              className="bg-white border-2 border-black p-6 rounded-xl"
+              style={{ boxShadow: "0 6px 0 rgba(245,93,29,1)" }}
+            >
+              <h3 className="text-base sm:text-xl md:text-2xl font-bold text-[#F55D1D] mb-3 whitespace-nowrap">
+                Professionals Targeting US &amp; Canadian Roles
+              </h3>
+              <p className="text-gray-800 font-medium leading-relaxed">
+                Flashfire is optimized for North American hiring systems, ATS rules,
+                and recruiter expectations — so your applications actually get seen.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div
+              className="bg-white border-2 border-black p-6 rounded-xl"
+              style={{ boxShadow: "0 6px 0 rgba(245,93,29,1)" }}
+            >
+              <h3 className="text-xl sm:text-2xl font-bold text-[#F55D1D] mb-3">
+                Candidates Tired of Manual Applications
+              </h3>
+              <p className="text-gray-800 font-medium leading-relaxed">
+                No more copying resumes, rewriting the same answers, or filling out
+                endless forms. Flashfire automates the busywork so you can focus on
+                interviews.
+              </p>
+            </div>
+
+            {/* Card 4 */}
+            <div
+              className="bg-white border-2 border-black p-6 rounded-xl"
+              style={{ boxShadow: "0 6px 0 rgba(245,93,29,1)" }}
+            >
+              <h3 className="text-xl sm:text-2xl font-bold text-[#F55D1D] mb-3">
+                Job Seekers Struggling with ATS Visibility
+              </h3>
+              <p className="text-gray-800 font-medium leading-relaxed">
+                If your resume never seems to pass automated systems, Flashfire uses
+                AI-driven optimization to improve keyword alignment and visibility.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Bottom Emphasis Line */}
+          <div className="mt-14 max-w-4xl border-l-4 border-[#F55D1D] pl-6">
+            <p className="text-lg sm:text-xl font-bold text-gray-900 leading-relaxed">
+              If you’re qualified, motivated, and serious about landing interviews —
+              Flashfire is built for you.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
 
       {/* === THE FLASHFIRE STORY TIMELINE SECTION === */}
       <section className="bg-[#f9e8e0] pt-8 pb-16 relative border-t-4 border-black overflow-hidden z-10">
