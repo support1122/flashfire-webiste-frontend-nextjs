@@ -116,14 +116,11 @@ export default function RecentJobOpenings() {
                         </span>
 
                         <h1 className="mt-6 md:mt-8 text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-                            Cast a wider net —
-                            <br />
-                            <span className="text-[#ff4c00]">10× your job applications</span>
+                            AI Job Search Assistant That Automates Job Applications for You
                         </h1>
 
                         <p className="mt-4 md:mt-6 text-base md:text-lg text-slate-700 max-w-xl mx-auto md:mx-0">
-                            FlashFire continuously finds and applies to relevant job openings
-                            on your behalf — so you can focus on interviews, not applications.
+                            FlashFire is an AI job search assistant and job application automation software that finds relevant roles, tailors your resume, and automatically submits applications to help you apply faster.
                         </p>
 
                         <button
@@ -143,7 +140,7 @@ export default function RecentJobOpenings() {
                     {/* Heading */}
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900">
-                            How FlashFire works behind the scenes
+                            How Our AI Job Application Automation Software Works
                         </h2>
                         <p className="mt-4 md:mt-6 text-base md:text-lg text-slate-700">
                             FlashFire automates your entire job search — from finding roles to
@@ -163,9 +160,7 @@ export default function RecentJobOpenings() {
                                 Finds relevant jobs
                             </h3>
                             <p className="mt-2 md:mt-3 text-sm md:text-base text-slate-700 leading-relaxed">
-                                FlashFire continuously scans thousands of job listings across
-                                platforms and filters opportunities that match your role, skills,
-                                experience level, and preferences.
+                                FlashFire acts as an AI job finder that scans thousands of listings daily to match your skills, experience, and preferences.
                             </p>
                         </div>
 
@@ -178,8 +173,7 @@ export default function RecentJobOpenings() {
                                 Tailors your resume
                             </h3>
                             <p className="mt-2 md:mt-3 text-sm md:text-base text-slate-700 leading-relaxed">
-                                Each application is customized with role-specific keywords and
-                                responsibilities, improving ATS match and recruiter visibility.
+                                Our AI career assistant customizes every application with optimized keywords to improve ATS matching and recruiter visibility.
                             </p>
                         </div>
 
@@ -192,8 +186,7 @@ export default function RecentJobOpenings() {
                                 Applies automatically
                             </h3>
                             <p className="mt-2 md:mt-3 text-sm md:text-base text-slate-700 leading-relaxed">
-                                FlashFire submits applications on your behalf every day, so you
-                                never miss opportunities — even while you sleep.
+                                Our job application automation software submits applications daily, helping you scale job searches without manual effort.
                             </p>
                         </div>
 
@@ -292,8 +285,7 @@ export default function RecentJobOpenings() {
                         </h2>
 
                         <p className="mt-4 md:mt-6 text-base md:text-lg text-slate-700">
-                            FlashFire is designed to help you apply faster — without risking
-                            your privacy, professionalism, or job prospects.
+                            FlashFire works as a secure job search AI tool designed to automate applications without risking privacy or professionalism.
                         </p>
 
                         <div className="mt-8 md:mt-12 space-y-6 md:space-y-8">
@@ -475,6 +467,46 @@ export default function RecentJobOpenings() {
                         className="mt-8 md:mt-10 px-6 md:px-8 py-4 md:py-6 bg-[#ff4c00] text-white rounded-xl md:rounded-2xl font-semibold hover:bg-[#e64500] text-sm md:text-base">
                         Start with FlashFire
                     </button>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="bg-white py-12 md:py-20 lg:py-28">
+                <div className="max-w-4xl mx-auto px-4 md:px-6">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+                            Frequently Asked Questions
+                        </h2>
+                        <p className="text-lg text-slate-600">
+                            Get answers about our AI job search assistant and job application automation.
+                        </p>
+                    </div>
+
+                    <div className="space-y-6">
+                        {[
+                            {
+                                question: "What is an AI job search assistant?",
+                                answer: "An AI job search assistant helps automate job discovery, resume optimization, and application submission to improve efficiency and interview opportunities."
+                            },
+                            {
+                                question: "How does job application automation software work?",
+                                answer: "Job application automation software scans listings, matches relevant roles, customizes applications, and submits them automatically based on your preferences."
+                            },
+                            {
+                                question: "Is FlashFire an AI career assistant?",
+                                answer: "Yes. FlashFire functions as an AI career assistant by helping you find jobs, optimize resumes, track applications, and prepare for interviews."
+                            }
+                        ].map((faq, index) => (
+                            <div key={index} className="bg-[rgba(251,240,235,1)] rounded-xl p-6 border border-[#ff4c00]/30">
+                                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                                    {faq.question}
+                                </h3>
+                                <p className="text-slate-700 leading-relaxed">
+                                    {faq.answer}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
