@@ -4,9 +4,9 @@ import Footer from "@/src/components/footer/footer";
 import Features from "@/src/components/pages/features/Features";
 
 export const metadata: Metadata = {
-  title: "Features - Why Choose Flashfire",
+  title: "AI-Powered Job Search & Job Search Automation",
   description:
-    "Explore Flashfire's key features: AI-powered matching, dynamic resume optimization, LinkedIn optimization, precision targeting, and more.",
+    "Flashfire offers AI-powered job search and job search automation to apply smarter, optimize resumes, and get interview calls faster.",
 };
 
 export default function FeaturesPage() {
