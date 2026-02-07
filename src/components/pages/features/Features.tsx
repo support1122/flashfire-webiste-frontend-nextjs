@@ -88,9 +88,9 @@ const steps = [
   {
     id: 3,
     title: "STEP 3",
-    subtitle: "Flashfire AI applies for you.",
+    subtitle: "AI-Powered Job Search Automation Applies for You",
     description:
-      "We apply to 1000+ curated roles for you, based on your goals and visa needs. No spam, no mass blasts, only smart, targeted applications. If you are eligible for the role, we will apply for you.",
+      "Our AI-powered job search automation applies to 1000+ curated roles on your behalf, eliminating manual effort while improving application relevance.",
     image: "/images/step3.png",
     position: "right",
   },
@@ -312,13 +312,11 @@ function Features() {
             </span>
 
             <h1 className="max-w-xl text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight text-black mb-6">
-              Get Interview Calls Faster with{" "}
-              <span className="text-[#ff4c00]">AI-Driven Job Automation</span>
+              AI-Powered Job Search & Job Search Automation That Gets Interviews
             </h1>
 
             <p className="max-w-xl text-lg md:text-xl text-gray-700 leading-relaxed mb-9">
-              Flashfire blends <strong>AI precision</strong> and <strong>human expertise</strong> to optimize your resume,
-              apply intelligently, and convert applications into real interview calls.
+              Flashfire is an AI-powered job search platform that automates your entire job search, from resume optimization to intelligent job applications—helping job seekers apply smarter and get interview calls faster.
             </p>
 
             {/* Trust Metrics */}
@@ -394,10 +392,7 @@ function Features() {
             Why Choose Flashfire AI Powered Job Search Tools?
           </h2>
           <p className="font-['Satoshi',sans-serif] text-base font-medium leading-relaxed text-gray-700 md:text-xl">
-            We don&apos;t just apply, we <strong className="font-bold italic text-gray-900">make you get noticed.</strong>{" "}
-            Flashfire combines <span className="text-[#ff4c00] font-semibold">AI precision</span> with{" "}
-            <span className="text-[#ff4c00] font-semibold">human insight</span> to get you interviews that actually
-            convert.
+            Flashfire combines an AI-powered job search with intelligent job search automation to help you apply only to the most relevant roles and convert applications into real interview calls.
           </p>
         </header>
 
@@ -441,7 +436,7 @@ function Features() {
 
           <div className="mx-auto max-w-5xl">
             <h2 className="text-4xl font-bold text-white text-center mb-4 md:text-5xl">
-              From searching to interviewing, just 4 simple steps.
+              How Our AI-Powered Job Search & Job Search Automation Works
             </h2>
             <p className="text-lg text-white text-center mb-12 md:text-xl max-w-3xl mx-auto">
               We turn your endless job hunt into a smooth, automated path to interview calls. You set the goal, Flashfire takes care of the journey.
