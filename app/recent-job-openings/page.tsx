@@ -3,8 +3,8 @@ import RecentJobOpenings from "@/src/components/recentJobOpenings/recentJobOpeni
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 export const metadata: Metadata = {
-    title: "Recent Job Openings - Flashfire",
-    description: "Recent Job Openings - Flashfire",
+    title: "AI Job Search Assistant & Job Application Automation Tool",
+    description: "FlashFire is an AI job search assistant that automates job applications, finds relevant roles, tailors resumes, and helps job seekers apply faster.",
     robots: {
         index: true,
         follow: true,
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
         canonical: "https://www.flashfirejobs.com/recent-job-openings",
     },
     openGraph: {
-        title: "Recent Job Openings - Flashfire",
-        description: "Recent Job Openings - Flashfire",
+        title: "AI Job Search Assistant & Job Application Automation Tool",
+        description: "FlashFire is an AI job search assistant that automates job applications, finds relevant roles, tailors resumes, and helps job seekers apply faster.",
         url: "https://www.flashfirejobs.com/recent-job-openings",
         siteName: "Flashfire",
         images: [
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Recent Job Openings - Flashfire",
-        description: "Recent Job Openings - Flashfire",
+        title: "AI Job Search Assistant & Job Application Automation Tool",
+        description: "FlashFire is an AI job search assistant that automates job applications, finds relevant roles, tailors resumes, and helps job seekers apply faster.",
         images: [
             { url: "https://www.flashfirejobs.com/images/og-image.png" },
         ],
