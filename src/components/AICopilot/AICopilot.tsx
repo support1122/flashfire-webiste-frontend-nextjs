@@ -72,18 +72,15 @@ export default function AICopilot() {
             {/* LEFT CONTENT */}
             <div className="max-w-[560px]">
               <p className="text-sm font-semibold text-[#ff4c00] mb-4 uppercase tracking-wide">
-                AI-powered job automation
+                AI Job Application Automation Platform
               </p>
 
               <h1 className="text-[4rem] leading-[1.05] font-extrabold text-black">
-                Apply Smarter. <br />
-                Apply Faster. <br />
-                Get Interviews.
+                AI Job Application Automation Software That Applies to Jobs for You
               </h1>
 
               <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                FlashFire uses AI to find relevant jobs, tailor your resume,
-                and apply daily on your behalf — without spam or shortcuts.
+                FlashFire is an AI job search platform that automates job applications, finds relevant roles, optimizes your resume, and submits applications daily to help you get interviews faster.
               </p>
 
               <div className="mt-10 flex items-center gap-6">
@@ -116,7 +113,7 @@ export default function AICopilot() {
                     Your Job Applications — On Autopilot
                   </h3>
                   <p className="text-sm text-gray-500 mt-1">
-                    Runs daily without manual effort
+                    FlashFire is an automatic job application software that runs daily, finds relevant roles, and applies safely on your behalf.
                   </p>
                 </div>
 
@@ -261,7 +258,7 @@ export default function AICopilot() {
           {/* Heading */}
           <div className="text-center max-w-[760px] mx-auto">
             <h2 className="text-[3.4rem] font-extrabold text-black leading-tight">
-              How <span className="text-[#ff4c00]">FlashFire</span> Works
+              How Our AI Job Application Automation Software Works
             </h2>
 
             <p className="mt-5 text-lg text-gray-600">
@@ -310,8 +307,7 @@ export default function AICopilot() {
               FlashFire teams up with you to apply every day
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                FlashFire finds new relevant jobs daily, optimizes your resume,
-                and applies automatically on your behalf.
+                Our AI job application automation software finds new roles, optimizes resumes, and applies automatically every day.
               </p>
             </div>
 
@@ -522,8 +518,7 @@ export default function AICopilot() {
               Why Use <span className="text-[#ff4c00]">FlashFire?</span>
             </h2>
             <p className="mt-5 text-lg text-gray-600">
-              AI-powered job applications that save time, increase reach,
-              and help you land more interviews.
+              FlashFire is an AI job search platform designed to automate job applications, increase reach, and help job seekers land more interviews.
             </p>
           </div>
 
@@ -678,6 +673,46 @@ export default function AICopilot() {
 
       </div>
     </section>
+
+      {/* FAQ Section */}
+      <section className="w-full bg-white py-28">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-600">
+              Get answers about AI job application automation and our platform.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: "What is AI job application automation?",
+                answer: "AI job application automation uses software to find relevant roles, tailor resumes, and automatically submit applications based on your preferences."
+              },
+              {
+                question: "Is FlashFire an AI job search platform?",
+                answer: "Yes. FlashFire is an AI job search platform that discovers jobs, optimizes applications, and applies automatically every day."
+              },
+              {
+                question: "How does automatic job application software work?",
+                answer: "Automatic job application software scans listings, matches relevant roles, customizes resumes, and submits applications automatically without manual effort."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-[#fff7f3] rounded-xl p-6 border border-[#ff4c00]/30">
+                <h3 className="text-xl font-semibold text-black mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
