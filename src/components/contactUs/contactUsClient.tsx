@@ -150,16 +150,18 @@ export default function ContactUsClient() {
           {/* Left Panel: Contact Information */}
           <div className="flex flex-col mt-16 ">
             <h1 className="text-6xl md:text-7xl font-bold mb-4">
-              Contact{" "}
-              <span className="text-[#ff4c00]">Flashfire</span>
+              Flashfire Contact – Customer Support, Sales & Enquiries
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed">
-              We're thrilled to connect! Contact us to learn about our products, get job search tips, or make corporate inquiries anytime.
+              Use the Flashfire contact page to reach customer support, sales enquiries, or general assistance. Our team is available via Flashfire email support or demo requests.
             </p>
           </div>
 
           {/* Right Panel: Contact Form */}
           <div className="bg-white rounded-2xl shadow-lg p-8 border border-orange-100">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              Contact Flashfire Customer Support or Sales Team
+            </h2>
             <ContactForm />
           </div>
         </div>
@@ -193,12 +195,12 @@ export default function ContactUsClient() {
         </h3>
 
         <p className="text-slate-600 leading-relaxed mb-8">
-          Help with accounts, applications, or platform usage.
+          Need help? Flashfire customer support is available via email to assist with your account, job search, or platform questions.
         </p>
 
         <div className="flex items-center gap-4">
           <span className="font-semibold text-[#ff4c00]">
-            support@flashfirejobs.com
+            Flashfire Email Support: support@flashfirejobs.com
           </span>
 
           {/* Copy clipboard */}
@@ -226,7 +228,7 @@ export default function ContactUsClient() {
         <FaUser className="text-[#ff4c00] text-2xl mb-10" />
 
         <h3 className="text-xl font-semibold text-slate-900 mb-4">
-          Sales & Demos
+          Flashfire Sales Enquiry & Demo Requests
         </h3>
 
         <p className="text-slate-600 leading-relaxed mb-8">
@@ -237,7 +239,7 @@ export default function ContactUsClient() {
           onClick={handleScheduleDemo}
           className="group font-semibold text-[#ff4c00]  flex items-center gap-2"
         >
-          Schedule a demo with Flashfire
+          Schedule a Flashfire Demo
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span>
         </button>
       </div>
@@ -262,6 +264,46 @@ export default function ContactUsClient() {
     </div>
   </div>
 </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-slate-600">
+              Get answers about contacting Flashfire.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: "How do I contact Flashfire customer support?",
+                answer: "You can contact Flashfire customer support by emailing support@flashfirejobs.com or using the contact form on this page."
+              },
+              {
+                question: "What are Flashfire's contact details?",
+                answer: "Flashfire contact details include our official email support channel and sales demo request options available on this page."
+              },
+              {
+                question: "Does Flashfire offer email support?",
+                answer: "Yes. Flashfire email support is available for product questions, technical issues, and general enquiries."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-[rgba(251,240,235,1)] rounded-xl p-6 border border-[#ff4c00]/30">
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-slate-700 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       </div>
 
