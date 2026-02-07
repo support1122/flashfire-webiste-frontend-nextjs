@@ -19672,7 +19672,7 @@ Use AI as your assistant, not your replacement. For more information, visit <a h
     id: 87,
     slug: "how-to-change-careers",
     title: "How to Change Careers Successfully | Step-by-Step Guide",
-    excerpt: "Learn how to change careers successfully, explore your options, and get clear steps to answer "how do I change careers?" with confidence.",
+    excerpt: "Learn how to change careers successfully, explore your options, and get clear steps to answer \"how do I change careers?\" with confidence.",
     date: "Feb 7, 2026",
     readTime: "16 min",
     category: "Career Advice",
