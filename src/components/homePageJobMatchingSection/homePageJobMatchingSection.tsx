@@ -50,105 +50,76 @@ export default function JobMatchingSection() {
     }
   };
   return (
-    <section className="relative w-full bg-[#fff5ef] py-28 px-6 md:px-12 overflow-hidden">
-    {/* Background accents */}
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,76,0,0.12),transparent_45%)]" />
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(0,0,0,0.06),transparent_45%)]" />
-  
-    <div className="relative max-w-6xl mx-auto">
-  
-      {/* Badge */}
-      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#ff4c00] bg-[#ff4c00]/10 px-4 py-1.5 rounded-full mb-6">
-        AI-Powered Matching
-      </span>
-  
-      {/* Heading */}
-      <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight max-w-4xl">
-        What Makes Flashfire a <br />
-        <span className="text-[#ff4c00]">True AI Job Matching Platform</span>
-      </h2>
-  
-      {/* Description */}
-      <p className="mt-6 text-lg text-black/75 max-w-3xl">
-        Flashfire doesn’t mass-apply. It intelligently aligns your skills,
-        experience, and intent with roles where you genuinely stand a chance —
-        before you apply.
-      </p>
-  
-      {/* Features */}
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {[
-          {
-            title: "Intelligent Skill Matching",
-            text: "Understands real skills beyond keywords to surface highly relevant opportunities.",
-            icon: Brain
-          },
-          {
-            title: "Precision Job Discovery",
-            text: "Filters out noise so you focus only on roles aligned with your career direction.",
-            icon: Target
-          },
-          {
-            title: "Adaptive Personalization",
-            text: "Your job feed evolves with your experience, interests, and long-term goals.",
-            icon: Sparkles
-          },
-          {
-            title: "Confidence-First Applications",
-            text: "Apply where you’re a strong match — increasing interviews and response rates.",
-            icon: Rocket
-          }
-        ].map((item, index) => {
-          const Icon = item.icon;
-          return (
+    <section className="w-full bg-[#f9ece5] py-20 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
+
+        {/* Heading */}
+        <h2 className="text-3xl md:text-4xl font-semibold text-black mb-5 leading-snug">
+          What Makes Flashfire an{" "}
+          <span className="text-[#ff4c00]">
+            AI Job Matching Platform
+          </span>
+        </h2>
+
+        {/* Description */}
+        <p className="text-black/80 text-lg max-w-3xl mb-14">
+          Flashfire is not just an AI job application tool. It is a
+          <span className="text-[#ff4c00] font-medium">
+            {" "}complete AI-powered job matching platform
+          </span>{" "}
+          that aligns your skills, experience, and career goals with the right
+          opportunities—before you apply.
+        </p>
+     
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          {[
+            {
+              title: "Intelligent Skill Matching",
+              text: "Flashfire understands your real skills and experience instead of relying only on keywords, resulting in more accurate matches."
+            },
+            {
+              title: "Smarter AI-Powered Job Search",
+              text: "Focus only on roles that genuinely align with your profile and career direction."
+            },
+            {
+              title: "Personalized Recommendations",
+              text: "Your job feed adapts to your experience level, interests, and long-term goals."
+            },
+            {
+              title: "Apply With Confidence",
+              text: "Apply only where you are a strong match, improving response rates and interview success."
+            }
+          ].map((item, index) => (
             <div
               key={index}
-              className="group relative rounded-2xl bg-white p-8 border border-black/5
-                         transition-all duration-300
-                         hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10"
+              className="group border border-black/10 rounded-xl p-6 transition-all duration-200
+                         hover:border-[#ff4c00] hover:-translate-y-1
+                         hover:shadow-lg hover:shadow-black/10 bg-[#f9e8e0]"
             >
-              {/* Accent bar */}
-              <div className="absolute top-0 left-0 h-1 w-0 bg-[#ff4c00] rounded-full transition-all duration-300 group-hover:w-full" />
-  
-              {/* Icon */}
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl
-                              bg-[#ff4c00]/10 text-[#ff4c00] mb-5">
-                <Icon size={22} strokeWidth={2.2} />
-              </div>
-  
-              <h3 className="text-xl font-semibold text-black mb-3">
+              <h3 className="text-lg font-medium text-black mb-2 transition-colors group-hover:text-[#ff4c00]">
                 {item.title}
               </h3>
-  
               <p className="text-black/70 leading-relaxed">
                 {item.text}
               </p>
             </div>
-          );
-        })}
+          ))}
+
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16">
+          <button {...getButtonProps()} onClick={handleStartAIJobSearch} className="bg-black text-white px-8 py-3 rounded-md font-medium shadow-[0_3px_0_[#ff4c00]]
+                             transition-all duration-200
+                             hover:bg-[#ff4c00] hover:text-black
+                             hover:shadow-lg hover:shadow-[0_4px_0_black]">
+            Start AI-Powered Job Search
+          </button>
+        </div>
+
       </div>
-  
-      {/* CTA */}
-      <div className="mt-20">
-        <button
-          {...getButtonProps()}
-          onClick={handleStartAIJobSearch}
-          className="group inline-flex items-center gap-3 bg-black text-white
-                     px-10 py-4 rounded-xl font-semibold text-lg
-                     transition-all duration-300
-                     hover:bg-[#ff4c00] hover:text-black
-                     hover:shadow-xl hover:shadow-[#ff4c00]/30"
-        >
-          Start AI-Powered Job Search
-          <span className="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </button>
-      </div>
-  
-    </div>
-  </section>
-  
-  
+    </section>
   );
 }
