@@ -1,5 +1,5 @@
 "use client";
-
+import { Brain, Target, Sparkles, Rocket } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";

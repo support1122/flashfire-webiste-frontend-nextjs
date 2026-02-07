@@ -21,7 +21,7 @@ import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWh
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
-import ReelGallery from "@/src/components/ReelGallery/ReelGallery";
+// import ReelGallery from "@/src/components/ReelGallery/ReelGallery";
 import YouTubeVideo from "../../youtubeVideo/youtubeVideo";
 
 const Home = () => {
@@ -84,7 +84,7 @@ const Home = () => {
       <YouTubeVideo />
       <HomePageDemoCTA />
      
-      <ReelGallery />
+      {/* <ReelGallery /> */}
       <Footer />
       
       {/* <SalesPopUp /> */}
