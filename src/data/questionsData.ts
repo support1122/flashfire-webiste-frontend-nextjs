@@ -4,12 +4,12 @@ export const questionsData = [
     answer: " Because we don't just show jobs — we apply to them for you. You skip browsing, resume editing, and forms. We do it all.",
   },
   {
-    question: "How does AI job search improve my chances of finding relevant positions?",
-    answer: "AI job search improves your chances by analyzing your resume, skills, experience, and preferences to match you with highly relevant job opportunities. FlashFireJobs uses AI-driven job matching to filter out irrelevant listings and surface roles that align with your profile, making it easier to find the right jobs faster on a smart job hunting site.",
+    question: "How does an AI-powered job search improve my chances of finding relevant positions?",
+    answer: "AI-powered job search uses intelligent matching, resume optimization, and automation to apply only to roles that fit your profile. Flashfire's AI-powered job search ensures higher relevance and better recruiter response rates.",
   },
   {
     question: "Can AI job application tools help me apply for jobs faster?",
-    answer: "Yes. AI job application tools significantly speed up the application process by automating repetitive tasks like form filling, resume customization, and application submission. FlashFireJobs allows users to apply to multiple jobs quickly using AI-powered resume optimization and auto-apply features, helping job seekers save time and increase application volume efficiently.",
+    answer: "Yes. Job search automation allows AI to apply for jobs automatically on your behalf, saving time while increasing application volume and accuracy.",
   },
   {
     question: "What are the benefits of using AI for job search on FlashFireJobs?",
@@ -21,7 +21,7 @@ export const questionsData = [
   },
   {
     question: "How does an AI-powered job search differ from traditional job searching?",
-    answer: " Instead of browsing jobs and applying manually, AI targets roles for you and our team applies, saving you 150+ hours.",
+    answer: "Traditional job searching is manual and time-consuming. AI-powered job search automates resume matching, job applications, and tracking, making job search automation faster and more effective.",
   },
   {
     question: "What is a job search virtual assistant and how can it make job hunting easier?",

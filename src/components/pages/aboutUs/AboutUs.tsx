@@ -67,18 +67,14 @@ export default function AboutUs() {
 
           {/* Main Headline */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-6 text-[#F55D1D] leading-tight px-2">
-            FLASHFIRE WAS BUILT TO FIX<br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>A BROKEN HIRING SYSTEM
+            AI Job Application Service That Automates Job Search & Lands Interviews Faster
           </h1>
 
           {/* Supporting Text with Mascot */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 sm:mb-12 px-2">
             <div className="text-center md:text-left">
               <p className="text-base sm:text-lg text-gray-900 mb-2">
-                Hiring today rewards <span className="text-[#F55D1D] font-bold">speed, volume, and precision.</span>
-              </p>
-              <p className="text-base sm:text-lg text-gray-900">
-                Yet candidates are still expected to do everything manually.
+                Flashfire is an AI job search platform built for job seekers who want to automate job applications, improve ATS visibility, and land more interviews without manual effort.
               </p>
             </div>
             <div className="flex-shrink-0">
@@ -390,10 +386,10 @@ export default function AboutUs() {
       <section className="bg-[#f9e8e0] py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden z-10">
         <div className="max-w-6xl mx-auto relative z-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 sm:mb-6 text-[#F55D1D] px-2">
-            How Flashfire Works for You
+            How Our AI Job Application Service Automates Your Job Search
           </h2>
           <p className="text-center text-base sm:text-lg text-gray-700 mb-8 sm:mb-12 max-w-3xl mx-auto px-2">
-            We don&apos;t just apply, <span className="font-bold">we make you get noticed.</span> Flashfire combines <span className="text-[#F55D1D] font-bold">AI precision</span> with <span className="text-[#F55D1D] font-bold">human insight</span> to get you interviews that actually convert.
+            Flashfire's AI job application service automates job discovery, resume optimization, and application submission to help job seekers get noticed and land interviews faster.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
@@ -532,6 +528,9 @@ export default function AboutUs() {
 
               {/* Introductory Paragraph */}
               <div>
+                <p className="text-sm sm:text-base text-black mb-6 leading-relaxed">
+                  Flashfire is an AI job search platform designed to solve modern hiring challenges by automating job applications and improving candidate visibility across ATS-driven hiring systems.
+                </p>
                 <p className="text-sm sm:text-base text-black mb-12 leading-relaxed">
                   Flashfire began in April 2024 with a simple insight: most candidates lose opportunities before they&apos;re even seen. Built to match the speed and precision of modern hiring, Flashfire helps candidates apply at scale across U.S. and Canadian job markets with ATS-optimized applications.
                 </p>
@@ -650,6 +649,46 @@ export default function AboutUs() {
                 <div className="hidden md:block absolute left-0 top-4 transform -translate-x-1/2 rotate-[25deg] w-0 h-0 border-t-[20px] border-t-transparent border-b-[20px] border-b-transparent border-r-[48px] border-r-[#F55D1D] z-10"></div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* === FAQ SECTION === */}
+      <section className="bg-[#f9e8e0] py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden z-10">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F55D1D] mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-700">
+              Get answers about our AI job application service.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: "What is an AI job application service?",
+                answer: "An AI job application service uses artificial intelligence to automate job applications, optimize resumes for ATS systems, and help job seekers apply to relevant roles faster and more effectively."
+              },
+              {
+                question: "How does job application automation work?",
+                answer: "Job application automation uses AI to identify relevant roles, tailor resumes, and submit applications at scale, saving time while improving interview response rates."
+              },
+              {
+                question: "Is Flashfire an AI job search platform for US jobs?",
+                answer: "Yes. Flashfire is an AI job search platform focused on automating job applications for the US and Canadian job markets with ATS-optimized workflows."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-white border-2 border-black rounded-xl p-6" style={{ boxShadow: "0 4px 0 rgba(245,93,29,1)" }}>
+                <h3 className="text-xl font-bold text-[#F55D1D] mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-800 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const metaTitle = post.slug === "how-to-optimize-resume-for-ats" 
     ? "How to Optimize a Resume for ATS | ATS Resume Optimization"
     : post.slug === "how-to-search-for-a-new-job"
-    ? "How to Search for a New Job: Step-by-Step Guide"
+    ? "How to Search for a New Job: The Best Way to Find One Fast"
     : post.slug === "how-to-automate-job-applications"
     ? "How to Automate Job Applications | Job Application Automation"
     : post.slug === "best-ai-job-application-tools"
@@ -58,6 +58,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "Highest Paying Software Engineering Jobs in 2026"
     : post.slug === "how-to-get-a-job-as-a-software-engineer"
     ? "How to Get a Job as a Software Engineer in 2026"
+    : post.slug === "find-job-after-graduation"
+    ? "How to Find a Job After Graduation in 2026"
+    : post.slug === "how-to-change-careers"
+    ? "How to Change Careers Successfully | Step-by-Step Guide"
+    : post.slug === "devops-engineer-job-responsibilities"
+    ? "DevOps Engineer Job Responsibilities & Job Profile"
+    : post.slug === "best-paying-jobs-in-the-us"
+    ? "Best Paying Jobs in the US: Top 10 High-Salary Careers"
     : `${post.title} | Flashfire Blog`;
   
   return {

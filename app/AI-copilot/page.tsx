@@ -3,9 +3,9 @@ import AICopilot from "@/src/components/AICopilot/AICopilot";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 const metadata: Metadata = {
-  title: "AI Copilot - Get personalized interview tips | Flashfire",
+  title: "AI Job Application Automation Software & Job Search Platform",
   description:
-    "Get personalized interview tips based on your skills, experience, and career goals. Our interview buddy is here to help you land your dream job.",
+    "FlashFire is an AI job search platform and automatic job application software that finds jobs, optimizes resumes, and applies daily to help you get interviews faster.",
   robots: {
     index: true,
     follow: true,
@@ -14,9 +14,9 @@ const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/AI-copilot",
   },
   openGraph: {
-    title: "AI Copilot - Get personalized interview tips",
+    title: "AI Job Application Automation Software & Job Search Platform",
     description:
-      "Get personalized interview tips based on your skills, experience, and career goals.",
+      "FlashFire is an AI job search platform and automatic job application software that finds jobs, optimizes resumes, and applies daily to help you get interviews faster.",
     url: "https://www.flashfirejobs.com/AI-copilot",
     type: "website",
   },
