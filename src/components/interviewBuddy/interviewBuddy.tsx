@@ -1,17 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Star, Mic, MessageSquare, Sparkles, FileText } from "lucide-react";
-import { FaPlus, FaTimes } from "react-icons/fa";
+import { Star, Mic, MessageSquare, Sparkles, FileText ,UserCheck, GraduationCap, Repeat, Shield } from "lucide-react";
 import HomePageHappyUsers from "../homePageHappyUsers/homePageHappyUsers";
+import HomePageFAQ from "../homePageFAQ/homePageFAQ";
 import Image from "next/image";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
-import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
 export default function InterviewBuddy() {
-    const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
     const { getButtonProps } = useGeoBypass({
         onBypass: () => {
             // Bypass will be handled by the event listener
@@ -45,11 +42,14 @@ export default function InterviewBuddy() {
                     </div>
 
                     <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-                        AI Interview Assistant for Real-Time Interview Support
+                        AI Interview Assistant for
+                        <br />
+                        <span className="text-[#ff4c00]">Real-Time Confidence</span>
                     </h1>
 
                     <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-                        Flashfire is a real-time AI interview assistant that acts as your interview copilot, providing instant answers, structured responses, and live guidance while you speak during interviews.
+                        Get live AI support during interviews. Receive instant guidance,
+                        suggested answers, and structured responses while you speak.
                     </p>
 
                     <div className="mt-10 flex justify-center items-center gap-6">
@@ -127,7 +127,7 @@ export default function InterviewBuddy() {
                         Everything you need to ace interviews
                     </h2>
                     <p className="mt-4 text-gray-600">
-                        Our AI-powered interview assistant provides real-time support to help you think clearly, respond confidently, and perform better in live interviews.
+                        Real-time AI assistance that helps you think, respond, and perform better.
                     </p>
                 </div>
 
@@ -135,7 +135,7 @@ export default function InterviewBuddy() {
 
                     {/* Feature Card 1 */}
                     <FeatureCard
-                        title="Real-Time AI Interview Helper During Live Interviews"
+                        title="On-the-spot support & guidance"
                         desc="Get instant AI suggestions when questions get tough. Stay calm and respond clearly without pauses."
                         icon={<Sparkles size={28} />}
                         mock={
@@ -156,7 +156,7 @@ export default function InterviewBuddy() {
                     {/* Feature Card 3 */}
                     <FeatureCard
                         title="Instant answers to interview questions"
-                        desc="Our interview AI assistant delivers instant, role-specific answers in real time, helping you stay confident and respond without hesitation during interviews."
+                        desc="Receive structured, role-specific answers tailored to your profile in real time."
                         icon={<MessageSquare size={28} />}
                         mock={
                             <MockInstantAnswer />
@@ -166,7 +166,7 @@ export default function InterviewBuddy() {
                     {/* Feature Card 4 */}
                     <FeatureCard
                         title="Highlight relevant experience instantly"
-                        desc="Your AI interview copilot automatically surfaces the most relevant achievements from your resume exactly when interviewers ask."
+                        desc="Surface the most relevant achievements from your resume exactly when needed."
                         icon={<FileText size={28} />}
                         mock={
                             <MockResumeHighlight />
@@ -175,69 +175,80 @@ export default function InterviewBuddy() {
 
                 </div>
             </section>
+            {/* ================= WHO IS THIS AI INTERVIEW ASSISTANT FOR ================= */}
+            <section className="relative">
+  <div className="absolute inset-0 bg-[#fff7f3]" />
+
+  <div className="relative max-w-[1200px] mx-auto px-6 py-24">
+
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-black">
+        Who Is This AI Interview Assistant For?
+      </h2>
+      <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Built for candidates who want clarity, confidence, and real-time support
+        when interviews matter most.
+      </p>
+    </div>
+
+    {/* Cards */}
+    <div className="grid md:grid-cols-2 gap-8">
+
+      {[
+        {
+          title: "Active Job Seekers",
+          desc: "Get real-time guidance during live interviews, screenings, and technical rounds.",
+          icon: <UserCheck size={22} />,
+        },
+        {
+          title: "Freshers & Early Professionals",
+          desc: "Deliver structured, professional answers even with limited interview experience.",
+          icon: <GraduationCap size={22} />,
+        },
+        {
+          title: "Career Switchers",
+          desc: "Handle unfamiliar interview formats and explain transitions with confidence.",
+          icon: <Repeat size={22} />,
+        },
+        {
+          title: "Candidates Under Pressure",
+          desc: "Stay calm, organized, and articulate during high-stakes interview moments.",
+          icon: <Shield size={22} />,
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="relative rounded-3xl bg-gradient-to-br from-[#ff7a3d] via-[#ff4c00] to-[#ff2e00] p-[1px]"
+        >
+          <div className="bg-white rounded-3xl p-8 h-full">
+
+            {/* Icon Badge */}
+            <div className="w-11 h-11 rounded-xl bg-[#fff7f3] flex items-center justify-center text-[#ff4c00] mb-5">
+              {item.icon}
+            </div>
+
+            {/* Accent Line */}
+            <div className="w-12 h-[2px] bg-[#ff4c00]/40 mb-4" />
+
+            <h3 className="text-xl font-bold text-black mb-3">
+              {item.title}
+            </h3>
+
+            <p className="text-gray-600">
+              {item.desc}
+            </p>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
+
 
             <HomePageHappyUsers />
-
-            {/* FAQ Section */}
-            <section className={styles.faqSection}>
-                <div className={styles.header}>
-                    <h2>FAQs About Our AI Interview Assistant</h2>
-                    <p>
-                        Get answers to common questions about using our real-time AI interview assistant.
-                    </p>
-                </div>
-
-                <div className={styles.faqContainer}>
-                    {[
-                        {
-                            question: "What is an AI interview assistant?",
-                            answer: "An AI interview assistant provides real-time support during live interviews by suggesting answers, structuring responses, and highlighting relevant experience as you speak."
-                        },
-                        {
-                            question: "How does a real-time AI interview assistant work?",
-                            answer: "A real-time AI interview assistant listens to interview questions, generates structured responses instantly, and acts as a live interview copilot without interrupting your flow."
-                        },
-                        {
-                            question: "Is Flashfire an AI interview copilot or interview practice tool?",
-                            answer: "Flashfire is an AI interview copilot designed for live interviews—not just practice. It supports you in real time with instant answers and guidance."
-                        },
-                        {
-                            question: "Can an AI interview helper improve interview performance?",
-                            answer: "Yes. An AI interview helper improves confidence, reduces pauses, and helps candidates deliver clear, role-specific answers during interviews."
-                        }
-                    ].map((faq, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.faqItem} ${
-                                activeFaqIndex === index ? styles.active : ""
-                            }`}
-                        >
-                            <button
-                                className={styles.faqQuestion}
-                                onClick={() => {
-                                    setActiveFaqIndex(activeFaqIndex === index ? null : index);
-                                    trackButtonClick(`FAQ ${index + 1}`, "faq_item", "link", {
-                                        button_location: "interview_buddy_faq_section",
-                                        faq_question: faq.question,
-                                        faq_index: index + 1
-                                    });
-                                }}
-                            >
-                                <span>{faq.question}</span>
-                                <span className={styles.icon}>
-                                    {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
-                                </span>
-                            </button>
-
-                            {activeFaqIndex === index && (
-                                <div className={styles.faqAnswer}>
-                                    <p>{faq.answer}</p>
-                                </div>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            </section>
+            <HomePageFAQ />
         </div>
     );
 }

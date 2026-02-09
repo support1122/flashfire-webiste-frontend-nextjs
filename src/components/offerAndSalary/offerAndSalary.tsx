@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
     Award,
     DollarSign,
@@ -13,15 +12,12 @@ import {
     MessageCircle,
     Check
 } from "lucide-react";
-import { FaPlus, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
-import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 
 export default function SalaryNegotiationUI() {
-    const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
     const { getButtonProps } = useGeoBypass({
         onBypass: () => {
             // handled globally
@@ -54,7 +50,7 @@ export default function SalaryNegotiationUI() {
                 utm_campaign: utmCampaign,
             },
         });
-          
+
         trackButtonClick(label, `${location}_cta`, "cta", {
             button_location: location,
             section: "offer_and_salary",
@@ -82,11 +78,12 @@ export default function SalaryNegotiationUI() {
                     </span>
 
                     <h1 className="mt-6 text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-                        Negotiate Salary Offer With a Proven Strategy
+                        Negotiate your job offer with confidence
                     </h1>
 
                     <p className="mt-4 text-lg text-slate-700">
-                        FlashFire helps you negotiate salary offers using a clear salary negotiation strategy backed by market data, role-specific scripts, and professional guidance.
+                        FlashFire analyzes your offer, compares it with market data, and helps
+                        you negotiate professionally — without awkward conversations.
                     </p>
 
                     <button
@@ -105,7 +102,8 @@ export default function SalaryNegotiationUI() {
                             Most candidates don’t negotiate — and lose money
                         </h2>
                         <p className="mt-4 text-lg text-slate-700">
-                            Without a clear salary negotiation strategy, many candidates accept offers below market value even when negotiation is expected.
+                            Salary negotiation isn’t about being aggressive. It’s about being informed,
+                            prepared, and professional.
                         </p>
                     </div>
 
@@ -159,7 +157,7 @@ export default function SalaryNegotiationUI() {
             <section className="py-14 px-6 lg:px-0 bg-white">
                 <div className="max-w-6xl mx-auto text-center">
                     <h2 className="text-3xl font-extrabold">
-                        What You Get to Negotiate Your Salary Offer Successfully
+                        What You Get With FlashFire
                     </h2>
                     <p className="mt-2 text-slate-700">
                         Actionable insights, negotiation scripts and confidence boosters that matter.
@@ -176,7 +174,7 @@ export default function SalaryNegotiationUI() {
                         {
                             icon: Shield,
                             title: "Confident Strategy",
-                            desc: "Use a proven salary negotiation strategy to approach discussions with clarity, confidence, and a higher chance of improving your final offer.",
+                            desc: "Approach negotiations with clarity and calm with our confident strategy.",
                         },
                         {
                             icon: UsersIcon,
@@ -186,7 +184,7 @@ export default function SalaryNegotiationUI() {
                         {
                             icon: Award,
                             title: "Maximize Compensation",
-                            desc: "A strong salary negotiation strategy helps you negotiate your salary offer beyond base pay, including bonuses, equity, and benefits.",
+                            desc: "Don’t miss equity, bonuses, or perks with our maximize compensation strategy.",
                         },
                         {
                             icon: ThumbsUpIcon,
@@ -214,139 +212,149 @@ export default function SalaryNegotiationUI() {
                     ))}
                 </div>
             </section>
+            {/* ===== WHO SHOULD USE THIS STRATEGY ===== */}
+            <section className="bg-white py-20">
+                <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
+                    {/* LEFT: CONTENT */}
+                    <div>
+                        <span className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-[#ff4c00]/10 text-[#ff4c00]">
+                            Salary Negotiation Strategy
+                        </span>
 
-<section className="bg-[rgba(251,240,235,1)] py-20">
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-    
-    {/* LEFT: TEXT */}
-    <div>
-      <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-        Strategic Salary Negotiation Guidance
-      </h2>
+                        <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-slate-900">
+                            Who Should Use This Salary Negotiation Strategy?
+                        </h2>
 
-      <ul className="mt-8 space-y-5 text-slate-800">
-        {[
-          "Receive personalized strategies tailored to your role and industry",
-          "Learn how to clearly articulate your value to justify higher compensation",
-          "Get guidance on the right timing to negotiate for maximum impact",
-        ].map((text) => (
-          <li key={text} className="flex items-start gap-4">
-            <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
-              <Check className="h-4 w-4 text-[#ff4c00]" />
-            </span>
-            <span className="text-lg leading-relaxed">{text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+                        <p className="mt-4 text-lg text-slate-700 leading-relaxed">
+                            FlashFire’s salary negotiation strategy is built for professionals who want
+                            to negotiate confidently, avoid leaving money on the table, and secure
+                            compensation that truly reflects their value — without sounding pushy or risky.
+                        </p>
 
-    {/* RIGHT: ILLUSTRATION CONTAINER */}
-    <div className="bg-white rounded-3xl p-10 shadow-sm">
-      <img
-        src="/images/offer&salary1.png"
-        alt="Salary negotiation guidance"
-        className="w-full h-auto"
-      />
-    </div>
-
-  </div>
-</section>
-<section className="bg-white py-20">
-  <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-
-    {/* LEFT: ILLUSTRATION */}
-    <div className="bg-[rgba(251,240,235,1)] rounded-3xl p-10 shadow-sm">
-      <img
-        src="/images/offer&salary2.png"
-        alt="Offer analysis"
-        className="w-full h-auto"
-      />
-    </div>
-
-    {/* RIGHT: TEXT */}
-    <div>
-      <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-        Comprehensive Offer Analysis
-      </h2>
-
-      <ul className="mt-8 space-y-5 text-slate-800">
-        {[
-          "Compare your offer against industry benchmarks and market standards",
-          "Understand the full value of your compensation, including bonuses and benefits",
-          "Identify key leverage points to negotiate a stronger offer",
-        ].map((text) => (
-          <li key={text} className="flex items-start gap-4">
-            <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
-              <Check className="h-4 w-4 text-[#ff4c00]" />
-            </span>
-            <span className="text-lg leading-relaxed">{text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-            {/* FAQ Section */}
-            <section className="bg-[rgba(251,240,235,1)] py-20">
-                <div className="max-w-6xl mx-auto px-6">
-                    <div className={styles.header}>
-                        <h2>Frequently Asked Questions About Salary Negotiation</h2>
-                        <p>
-                            Get answers to common questions about negotiating your job offer professionally.
+                        <p className="mt-4 text-slate-700">
+                            Whether you’re negotiating base pay, bonuses, equity, or benefits, FlashFire
+                            helps you approach the conversation with clarity, data, and confidence.
                         </p>
                     </div>
 
-                    <div className={styles.faqContainer}>
+                    {/* RIGHT: USE CASES */}
+                    <div className="rounded-3xl border border-[#ff4c00]/30 bg-[rgba(251,240,235,1)] p-8 space-y-6">
+
                         {[
                             {
-                                question: "How do I negotiate a salary offer professionally?",
-                                answer: "To negotiate a salary offer professionally, you need a clear salary negotiation strategy based on market data, timing, and role-specific language. Flashfire provides structured guidance and scripts to help you ask confidently."
+                                title: "Candidates with a New Job Offer",
+                                desc: "Understand whether your offer is competitive and how to counter professionally."
                             },
                             {
-                                question: "What is the best salary negotiation strategy?",
-                                answer: "The best salary negotiation strategy combines market benchmarks, clear justification of your value, and professional communication. Flashfire analyzes your offer and helps you apply the right strategy for your role and industry."
+                                title: "Professionals Switching Roles or Industries",
+                                desc: "Navigate unfamiliar pay ranges and negotiate from a position of knowledge."
                             },
                             {
-                                question: "Can negotiating a salary offer risk my job offer?",
-                                answer: "When done professionally, negotiating a salary offer rarely risks the offer. Employers often expect negotiation, especially when supported by a clear strategy and market data."
-                            }
-                        ].map((faq, index) => (
-                            <div
-                                key={index}
-                                className={`${styles.faqItem} ${
-                                    activeFaqIndex === index ? styles.active : ""
-                                }`}
-                            >
-                                <button
-                                    className={styles.faqQuestion}
-                                    onClick={() => {
-                                        setActiveFaqIndex(activeFaqIndex === index ? null : index);
-                                        trackButtonClick(`FAQ ${index + 1}`, "faq_item", "link", {
-                                            button_location: "offer_salary_faq_section",
-                                            faq_question: faq.question,
-                                            faq_index: index + 1
-                                        });
-                                    }}
-                                >
-                                    <span>{faq.question}</span>
-                                    <span className={styles.icon}>
-                                        {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
-                                    </span>
-                                </button>
-
-                                {activeFaqIndex === index && (
-                                    <div className={styles.faqAnswer}>
-                                        <p>{faq.answer}</p>
-                                    </div>
-                                )}
+                                title: "Candidates Unsure How to Negotiate Pay",
+                                desc: "Get step-by-step guidance and scripts that remove hesitation and anxiety."
+                            },
+                            {
+                                title: "Job Seekers Negotiating Bonuses, Equity, or Benefits",
+                                desc: "See the full compensation picture — not just base salary."
+                            },
+                        ].map((item) => (
+                            <div key={item.title} className="flex gap-4 items-start">
+                                <div className="flex-shrink-0 h-10 w-10 rounded-xl bg-[#ff4c00]/15 flex items-center justify-center">
+                                    <Check className="h-5 w-5 text-[#ff4c00]" />
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold text-slate-900 text-lg">
+                                        {item.title}
+                                    </h4>
+                                    <p className="text-slate-700 text-sm mt-1">
+                                        {item.desc}
+                                    </p>
+                                </div>
                             </div>
                         ))}
+
                     </div>
+
                 </div>
             </section>
+
+
+
+            <section className="bg-[rgba(251,240,235,1)] py-20">
+                <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+                    {/* LEFT: TEXT */}
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+                            Strategic Salary Negotiation Guidance
+                        </h2>
+
+                        <ul className="mt-8 space-y-5 text-slate-800">
+                            {[
+                                "Receive personalized strategies tailored to your role and industry",
+                                "Learn how to clearly articulate your value to justify higher compensation",
+                                "Get guidance on the right timing to negotiate for maximum impact",
+                            ].map((text) => (
+                                <li key={text} className="flex items-start gap-4">
+                                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
+                                        <Check className="h-4 w-4 text-[#ff4c00]" />
+                                    </span>
+                                    <span className="text-lg leading-relaxed">{text}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* RIGHT: ILLUSTRATION CONTAINER */}
+                    <div className="bg-white rounded-3xl p-10 shadow-sm">
+                        <img
+                            src="/images/offer&salary1.png"
+                            alt="Salary negotiation guidance"
+                            className="w-full h-auto"
+                        />
+                    </div>
+
+                </div>
+            </section>
+            <section className="bg-white py-20">
+                <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+
+                    {/* LEFT: ILLUSTRATION */}
+                    <div className="bg-[rgba(251,240,235,1)] rounded-3xl p-10 shadow-sm">
+                        <img
+                            src="/images/offer&salary2.png"
+                            alt="Offer analysis"
+                            className="w-full h-auto"
+                        />
+                    </div>
+
+                    {/* RIGHT: TEXT */}
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+                            Comprehensive Offer Analysis
+                        </h2>
+
+                        <ul className="mt-8 space-y-5 text-slate-800">
+                            {[
+                                "Compare your offer against industry benchmarks and market standards",
+                                "Understand the full value of your compensation, including bonuses and benefits",
+                                "Identify key leverage points to negotiate a stronger offer",
+                            ].map((text) => (
+                                <li key={text} className="flex items-start gap-4">
+                                    <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#ff4c00]/15">
+                                        <Check className="h-4 w-4 text-[#ff4c00]" />
+                                    </span>
+                                    <span className="text-lg leading-relaxed">{text}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+
 
         </div>
     );
