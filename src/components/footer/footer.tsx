@@ -141,6 +141,18 @@ export default function Footer() {
                 <Link href={getHref("/AI-copilot")} className={linkClass}>
                   AI Copilot
                 </Link>
+                <Link href={getHref("/ai-resume-builder")} className={linkClass}>
+                  AI Resume Builder
+                </Link>
+                <Link href={getHref("/ai-job-matching-platform")} className={linkClass}>
+                  AI Job Matching
+                </Link>
+                <Link href={getHref("/ai-job-alerts")} className={linkClass}>
+                  AI Job Alerts
+                </Link>
+                <Link href={getHref("/job-application-status-tracker")} className={linkClass}>
+                  Job Status Tracker
+                </Link>
               </div>
             </div>
 
