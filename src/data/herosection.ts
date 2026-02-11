@@ -7,7 +7,7 @@ export const heroSectionData: HeroSectionData = {
   description:
     "We apply to 1,200+ USA job applications & track everything while you focus on winning the interview.",
   cta: { label: "Get Started →", href: "/contact-us" },
-  trustText: "Trusted by 260+ Users",
+  trustText: "Trusted by 500+ Users",
   universityHeading:
     "Trusted by students and graduates from top global universities.",
   universities: [
@@ -36,7 +36,7 @@ export const heroSectionDataCA: HeroSectionData = {
   description:
     "We apply to 1,200+ Canada job applications & track everything while you focus on winning the interview.",
   cta: { label: "Get Started →", href: "/contact-us" },
-  trustText: "Trusted by 260+ Users",
+  trustText: "Trusted by 500+ Users",
   universityHeading:
     "Trusted by students and graduates from top global universities.",
   universities: [
