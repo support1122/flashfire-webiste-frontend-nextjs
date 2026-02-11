@@ -73,9 +73,10 @@ export default function Footer() {
           {/* LINKS GRID */}
           <div
             className="
-            grid grid-cols-4 gap-8 max-[1024px]:gap-6
-              max-[1024px]:grid-cols-2
-              max-[768px]:grid-cols-2 max-[768px]:gap-6 max-[768px]:gap-y-8
+              grid grid-cols-2 gap-8 max-[1024px]:gap-6
+              md:grid-cols-4
+              lg:grid-cols-5
+              max-[768px]:gap-y-8
               max-[480px]:grid-cols-1 max-[480px]:gap-6
             "
           >
@@ -121,22 +122,31 @@ export default function Footer() {
                   Cover Letter Builder
                 </Link>
                 <Link href={getHref("/features/ai-job-targeting")} className={linkClass}>
-                Precision Targeting
+                  Precision Targeting
                 </Link>
                 <Link href={getHref("/features/dashboard-analytics")} className={linkClass}>
-                Dashboard & Analytics
+                  Dashboard &amp; Analytics
                 </Link>
+                <Link href={getHref("/offer-and-salary")} className={linkClass}>
+                  Offer &amp; Salary Negotiation Skills
+                </Link>
+                <Link href={getHref("/recent-job-openings")} className={linkClass}>
+                  Recent Job Openings
+                </Link>
+              </div>
+            </div>
 
+            {/* AI CAREER TOOLS */}
+            <div className="max-[480px]:mb-2">
+              <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:mb-2 max-[480px]:text-xs">
+                AI CAREER TOOLS
+              </h4>
+              <div className="flex flex-col gap-1.5 max-[480px]:gap-1">
                 <Link href={getHref("/career-advisor")} className={linkClass}>
-                Career Advisor
+                  Career Advisor
                 </Link>
                 <Link href={getHref("/interview-buddy")} className={linkClass}>
-                Interview Buddy
-                </Link>
-                <Link href={getHref("/offer-and-salary")} className={linkClass}> 
-                Offer & Salary Negotiation Skills</Link>
-                <Link href={getHref("/recent-job-openings")} className={linkClass}>
-                Recent Job Openings  
+                  Interview Buddy
                 </Link>
                 <Link href={getHref("/AI-copilot")} className={linkClass}>
                   AI Copilot
