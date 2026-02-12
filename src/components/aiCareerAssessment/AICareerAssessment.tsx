@@ -296,7 +296,7 @@ export default function AICareerAssessmentPage() {
                   a: "Our AI analyzes your actual skills, experience, and market data to provide recommendations based on real hiring patterns and role requirements. It&apos;s not generic advice — it&apos;s tailored to your profile.",
                 },
                 {
-                  q: "What if I don&apos;t agree with the recommendations?",
+                  q: "What if I don't agree with the recommendations?",
                   a: "The assessment is a starting point. You can explore alternative paths, and the system learns from your preferences to refine future suggestions.",
                 },
                 {
