@@ -1,9 +1,12 @@
 "use client";
 
-import { Brain, ClipboardList, TrendingUp, Target } from "lucide-react";
+import { Brain, ClipboardList, TrendingUp, Target, Users, CheckCircle2 } from "lucide-react";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 export default function AICareerAssessmentPage() {
   const ctaLabel = "Start Career Assessment";
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   const updateCtaUrl = (basePath: string, label: string) => {
     if (typeof window === "undefined") return;
@@ -232,7 +235,123 @@ export default function AICareerAssessmentPage() {
           </div>
         </section>
 
+        {/* USE CASES SECTION */}
+        <section className="py-20 bg-white">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-extrabold">
+                Who Benefits Most
+                <span className="block text-[#ff4c00]">From This Assessment</span>
+              </h2>
+              <p className="mt-4 text-sm md:text-base text-slate-600">
+                Whether you&apos;re stuck, switching, or leveling up — clarity starts here.
+              </p>
+            </div>
+
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Career Switchers",
+                  desc: "Moving from one field to another? Understand what skills transfer and what you need to learn.",
+                  icon: <Users className="h-6 w-6 text-[#ff4c00]" />,
+                },
+                {
+                  title: "Stuck in Current Role",
+                  desc: "Feeling plateaued? Identify the exact skills blocking your next promotion or role change.",
+                  icon: <Target className="h-6 w-6 text-[#ff4c00]" />,
+                },
+                {
+                  title: "Leveling Up",
+                  desc: "Ready for senior roles? See what separates you from the next level and build that gap.",
+                  icon: <TrendingUp className="h-6 w-6 text-[#ff4c00]" />,
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-[#ffd6c2] bg-[#fffaf7] p-8 hover:shadow-lg transition"
+                >
+                  <div className="mb-4">{item.icon}</div>
+                  <h3 className="font-semibold text-lg mb-3">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="py-20 bg-[#f9e8e0]">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
+                Common Questions
+                <span className="block text-[#ff4c00]">About Career Assessment</span>
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              {[
+                {
+                  q: "How accurate is the career assessment?",
+                  a: "Our AI analyzes your actual skills, experience, and market data to provide recommendations based on real hiring patterns and role requirements. It&apos;s not generic advice — it&apos;s tailored to your profile.",
+                },
+                {
+                  q: "What if I don&apos;t agree with the recommendations?",
+                  a: "The assessment is a starting point. You can explore alternative paths, and the system learns from your preferences to refine future suggestions.",
+                },
+                {
+                  q: "How long does it take to complete?",
+                  a: "The initial assessment takes about 10–15 minutes. You&apos;ll receive your results immediately, including role recommendations, skill gaps, and an action plan.",
+                },
+                {
+                  q: "Can I reassess as I learn new skills?",
+                  a: "Yes. Update your profile anytime, and Flashfire will reassess your career path based on your new skills and experience level.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`border-b border-gray-200 transition-all ${
+                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                  }`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      {item.q}
+                    </span>
+                    <span className="text-[#ff4c00] shrink-0 ml-4">
+                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+                  {activeFaqIndex === i && (
+                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-0.3rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease;
+        }
+      `}} />
     </div>
   );
 }

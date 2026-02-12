@@ -1,6 +1,8 @@
 "use client";
 
-import { CheckCircle, CheckCircle2, FileText, Sparkles } from "lucide-react";
+import { CheckCircle, CheckCircle2, FileText, Sparkles, Briefcase } from "lucide-react";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 const updateCtaUrl = (basePath: string, label: string) => {
   if (typeof window === "undefined") return;
@@ -13,6 +15,8 @@ const updateCtaUrl = (basePath: string, label: string) => {
 };
 
 export default function AIResumeBuilderPage() {
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+
   return (
     <div className="bg-[#fff7f2] text-slate-900 min-h-screen">
       
@@ -246,11 +250,124 @@ export default function AIResumeBuilderPage() {
   </div>
 </section>
 
+        {/* USE CASES SECTION */}
+        <section className="bg-white py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-extrabold">
+                Perfect For
+                <span className="block text-[#ff4c00]">These Situations</span>
+              </h2>
+              <p className="mt-4 text-slate-600 text-sm md:text-base">
+                Whether you&apos;re switching roles or optimizing for ATS, Flashfire adapts.
+              </p>
+            </div>
+
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Career Switchers",
+                  desc: "Moving to a new field? Flashfire rewrites your experience to highlight transferable skills and align with your target role.",
+                  icon: <Briefcase className="h-6 w-6 text-[#ff4c00]" />,
+                },
+                {
+                  title: "ATS Optimization",
+                  desc: "Your resume keeps getting rejected? Flashfire restructures it so ATS systems can read and rank it correctly.",
+                  icon: <FileText className="h-6 w-6 text-[#ff4c00]" />,
+                },
+                {
+                  title: "Multiple Applications",
+                  desc: "Applying to different roles? Generate tailored resume versions for each job without rewriting everything.",
+                  icon: <Sparkles className="h-6 w-6 text-[#ff4c00]" />,
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-[#fffaf7] border border-[#ffd6c2] rounded-2xl p-8 hover:shadow-lg transition"
+                >
+                  <div className="mb-4">{item.icon}</div>
+                  <h3 className="font-semibold text-lg mb-3">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="bg-[#f9e8e0] py-24">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
+                Resume Builder
+                <span className="block text-[#ff4c00]">Questions Answered</span>
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              {[
+                {
+                  q: "How does Flashfire optimize for ATS systems?",
+                  a: "Flashfire structures your resume with proper headings, keyword placement, and formatting that ATS software can parse. We avoid complex layouts, graphics, and tables that confuse these systems.",
+                },
+                {
+                  q: "Can I customize the generated resume?",
+                  a: "Yes. Flashfire generates a tailored resume, but you can edit any section, add details, or adjust the tone. The AI provides a strong foundation you can personalize.",
+                },
+                {
+                  q: "How many resume versions can I create?",
+                  a: "As many as you need. Generate a new version for each role you&apos;re applying to. Flashfire saves all versions so you can reuse and modify them.",
+                },
+                {
+                  q: "What file formats can I export?",
+                  a: "Flashfire exports resumes in PDF and Word formats, optimized for both ATS systems and human recruiters. PDF is recommended for most job applications.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`border-b border-gray-200 transition-all ${
+                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                  }`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      {item.q}
+                    </span>
+                    <span className="text-[#ff4c00] shrink-0 ml-4">
+                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+                  {activeFaqIndex === i && (
+                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
      
       </main>
-
-
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-0.3rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease;
+        }
+      `}} />
     </div>
   );
 }

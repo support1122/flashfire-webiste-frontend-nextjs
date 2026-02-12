@@ -1,9 +1,12 @@
 "use client";
 
-import { GraduationCap, Search, Target, Sparkles } from "lucide-react";
+import { GraduationCap, Search, Target, Sparkles, Award } from "lucide-react";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 export default function AIJobSearchFreshersPage() {
   const ctaLabel = "Start Fresher Job Search";
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   const updateCtaUrl = (basePath: string, label: string) => {
     if (typeof window === "undefined") return;
@@ -204,7 +207,127 @@ export default function AIJobSearchFreshersPage() {
   </div>
 </section>
 
+        {/* SUCCESS STORIES SECTION */}
+        <section className="bg-white py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-extrabold">
+                How Freshers
+                <span className="block text-[#ff4c00]">Land Their First Jobs</span>
+              </h2>
+              <p className="mt-4 text-slate-600 text-sm md:text-base">
+                Real graduates. Real results. Real direction.
+              </p>
+            </div>
+
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "Computer Science Graduate",
+                  outcome: "Found Frontend Intern role in 3 weeks",
+                  quote: "Flashfire showed me which skills actually mattered and matched me to roles I could actually get.",
+                  icon: <Award className="h-6 w-6 text-[#ff4c00]" />,
+                },
+                {
+                  name: "Recent Engineering Grad",
+                  outcome: "Landed Junior Developer position",
+                  quote: "Instead of applying blindly, I focused on roles where my coursework and projects aligned.",
+                  icon: <Target className="h-6 w-6 text-[#ff4c00]" />,
+                },
+                {
+                  name: "New Graduate",
+                  outcome: "Got Product Trainee offer",
+                  quote: "The platform helped me understand what entry-level really means and where I fit.",
+                  icon: <Sparkles className="h-6 w-6 text-[#ff4c00]" />,
+                },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  className="bg-[#fffaf7] border border-[#ffd6c2] rounded-2xl p-6 hover:shadow-lg transition"
+                >
+                  <div className="mb-4">{item.icon}</div>
+                  <p className="text-xs font-semibold text-[#ff4c00] mb-2">{item.outcome}</p>
+                  <p className="text-sm text-slate-700 italic mb-3">&quot;{item.quote}&quot;</p>
+                  <p className="text-xs text-slate-600">— {item.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="bg-[#f9e8e0] py-24">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
+                Common Questions
+                <span className="block text-[#ff4c00]">From Freshers</span>
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              {[
+                {
+                  q: "I have no work experience. Can Flashfire still help?",
+                  a: "Absolutely. Flashfire evaluates your coursework, projects, internships, and skills — not just paid work. Many entry-level roles value academic projects and relevant coursework.",
+                },
+                {
+                  q: "How do I know which roles are realistic for me?",
+                  a: "Flashfire matches your actual skills and experience level to roles that are actively hiring freshers. You&apos;ll see match scores that indicate how well you fit each role.",
+                },
+                {
+                  q: "What if I&apos;m not sure what career path to follow?",
+                  a: "Start by entering your skills and interests. Flashfire will suggest multiple career paths that align with your background, helping you explore options before committing.",
+                },
+                {
+                  q: "Can I use this for internship searches too?",
+                  a: "Yes. Flashfire includes internships, co-ops, and entry-level roles. The platform helps you find opportunities that match your current skill level, whether that&apos;s an internship or a full-time role.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`border-b border-gray-200 transition-all ${
+                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                  }`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      {item.q}
+                    </span>
+                    <span className="text-[#ff4c00] shrink-0 ml-4">
+                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+                  {activeFaqIndex === i && (
+                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-0.3rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease;
+        }
+      `}} />
     </div>
   );
 }

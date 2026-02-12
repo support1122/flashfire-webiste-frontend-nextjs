@@ -1,6 +1,8 @@
 "use client";
 
-import { Target, Sparkles, Users, CheckCircle, Sliders, UserCheck } from "lucide-react";
+import { Target, Sparkles, Users, CheckCircle, Sliders, UserCheck, TrendingUp } from "lucide-react";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 import Link from "next/link";
 
 const updateCtaUrl = (basePath: string, label: string) => {
@@ -14,6 +16,8 @@ const updateCtaUrl = (basePath: string, label: string) => {
 };
 
 export default function AIJobMatchingPlatformPage() {
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+
   return (
     <div className="bg-[#fff7f2] text-slate-900 min-h-screen">
       
@@ -267,8 +271,145 @@ export default function AIJobMatchingPlatformPage() {
     </div>
   </div>
 </section>
-      </main>
 
+        {/* BENEFITS COMPARISON SECTION */}
+        <section className="bg-[#fff7f2] py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-extrabold">
+                Why AI Matching
+                <span className="block text-[#ff4c00]">Beats Manual Searching</span>
+              </h2>
+              <p className="mt-4 text-slate-600 text-sm md:text-base">
+                Stop wasting hours on job boards. Let AI do the filtering.
+              </p>
+            </div>
+
+            <div className="mt-16 grid md:grid-cols-2 gap-10">
+              <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8">
+                <h3 className="font-semibold text-lg mb-6 text-slate-700">
+                  Manual Job Search
+                </h3>
+                <ul className="space-y-4 text-sm text-slate-600">
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500">✗</span>
+                    <span>Spend hours scrolling through irrelevant listings</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500">✗</span>
+                    <span>Apply to roles you&apos;re not qualified for</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500">✗</span>
+                    <span>Miss high-fit opportunities buried in search results</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-500">✗</span>
+                    <span>No feedback on why applications fail</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-[#fffaf7] rounded-2xl border border-[#ffd6c2] p-8 shadow-md">
+                <h3 className="font-semibold text-lg mb-6 text-[#ff4c00]">
+                  Flashfire AI Matching
+                </h3>
+                <ul className="space-y-4 text-sm text-slate-700">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#ff4c00]">✓</span>
+                    <span>See only roles that match your profile</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#ff4c00]">✓</span>
+                    <span>Understand your fit score before applying</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#ff4c00]">✓</span>
+                    <span>Get prioritized recommendations that improve over time</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#ff4c00]">✓</span>
+                    <span>Learn which skills increase your match rate</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="bg-[#f9e8e0] py-24">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
+                Frequently Asked
+                <span className="block text-[#ff4c00]">Questions</span>
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              {[
+                {
+                  q: "How accurate is the matching algorithm?",
+                  a: "Flashfire&apos;s AI analyzes your skills semantically, compares them against real job requirements, and considers market demand. Match scores reflect actual fit, not just keyword overlap.",
+                },
+                {
+                  q: "Will I see fewer jobs than on job boards?",
+                  a: "You&apos;ll see fewer total jobs, but they&apos;re all relevant. Quality over quantity — every recommendation is worth your time to review and potentially apply to.",
+                },
+                {
+                  q: "Can I adjust my matching preferences?",
+                  a: "Yes. Update your skills, location preferences, salary range, or experience level anytime. The system immediately recalculates matches based on your new profile.",
+                },
+                {
+                  q: "How does the system learn and improve?",
+                  a: "Flashfire tracks which roles you apply to, which ones lead to interviews, and your feedback. Over time, recommendations become more accurate and aligned with your career goals.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`border-b border-gray-200 transition-all ${
+                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                  }`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      {item.q}
+                    </span>
+                    <span className="text-[#ff4c00] shrink-0 ml-4">
+                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+                  {activeFaqIndex === i && (
+                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-0.3rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease;
+        }
+      `}} />
     </div>
   );
 }

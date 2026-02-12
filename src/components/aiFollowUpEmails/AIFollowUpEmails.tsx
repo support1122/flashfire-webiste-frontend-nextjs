@@ -1,9 +1,12 @@
 "use client";
 
-import { MailCheck, Clock, Sparkles, FileText } from "lucide-react";
+import { MailCheck, Clock, Sparkles, FileText, Mail } from "lucide-react";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 export default function AIFollowUpEmailsPage() {
   const ctaLabel = "Generate Follow-Up Emails";
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   const updateCtaUrl = (basePath: string, label: string) => {
     if (typeof window === "undefined") return;
@@ -221,7 +224,126 @@ export default function AIFollowUpEmailsPage() {
   </div>
 </section>
 
+        {/* EMAIL EXAMPLES SECTION */}
+        <section className="bg-white py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-extrabold">
+                Follow-Up Templates
+                <span className="block text-[#ff4c00]">For Every Stage</span>
+              </h2>
+              <p className="mt-4 text-slate-600 text-sm md:text-base">
+                Different situations need different approaches. Flashfire adapts.
+              </p>
+            </div>
+
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  stage: "Post-Application",
+                  timing: "5–7 days after applying",
+                  preview: "Following up on my application for [Role] at [Company]. I remain very interested...",
+                },
+                {
+                  stage: "Post-Interview",
+                  timing: "24–48 hours after interview",
+                  preview: "Thank you for the opportunity to discuss [Role]. I wanted to follow up on...",
+                },
+                {
+                  stage: "Offer Follow-Up",
+                  timing: "After receiving offer",
+                  preview: "Thank you for the offer! I&apos;m excited about the opportunity. I&apos;d like to discuss...",
+                },
+              ].map((item) => (
+                <div
+                  key={item.stage}
+                  className="bg-[#fffaf7] border border-[#ffd6c2] rounded-2xl p-6 hover:shadow-lg transition"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <Mail className="h-5 w-5 text-[#ff4c00]" />
+                    <h3 className="font-semibold">{item.stage}</h3>
+                  </div>
+                  <p className="text-xs text-[#ff4c00] font-semibold mb-3">{item.timing}</p>
+                  <p className="text-sm text-slate-600 italic">&quot;{item.preview}&quot;</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="bg-[#f9e8e0] py-24">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
+                Frequently Asked
+                <span className="block text-[#ff4c00]">Questions</span>
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              {[
+                {
+                  q: "When should I send a follow-up email?",
+                  a: "For applications: 5–7 business days after applying. For interviews: within 24–48 hours. Flashfire suggests optimal timing based on the stage and your application date.",
+                },
+                {
+                  q: "Will follow-ups make me look desperate?",
+                  a: "Not if done right. Flashfire crafts professional, confident emails that show genuine interest without being pushy. Timing and tone matter.",
+                },
+                {
+                  q: "Can I customize the generated emails?",
+                  a: "Absolutely. Use Flashfire&apos;s templates as a starting point, then personalize with specific details about your conversation or the role.",
+                },
+                {
+                  q: "What if I don&apos;t hear back after following up?",
+                  a: "One follow-up is usually enough. If there&apos;s no response after 7–10 days, it&apos;s likely the role has moved forward. Flashfire helps you move on strategically.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`border-b border-gray-200 transition-all ${
+                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                  }`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      {item.q}
+                    </span>
+                    <span className="text-[#ff4c00] shrink-0 ml-4">
+                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+                  {activeFaqIndex === i && (
+                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-0.3rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease;
+        }
+      `}} />
     </div>
   );
 }
