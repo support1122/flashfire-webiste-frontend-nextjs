@@ -28,6 +28,7 @@ export function slugToCategory(slug: string): string {
     "career-planning": "Career Planning",
     "finance-and-admissions": "Finance & Admissions",
     "international-students": "International Students",
+    "interview-preparation": "Interview Preparation",
   };
   
   // Check if slug exists in map
