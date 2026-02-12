@@ -5,7 +5,7 @@ import { FaPlus, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
 export default function AICareerAssessmentPage() {
-  const ctaLabel = "Start Career Assessment";
+  const ctaLabel = "Get Interview Call";
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   const updateCtaUrl = (basePath: string, label: string) => {

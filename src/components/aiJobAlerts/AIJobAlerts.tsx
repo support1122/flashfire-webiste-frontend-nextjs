@@ -22,7 +22,7 @@ export default function AIJobAlertsPage() {
       <main className="mt-0">
         {/* Hero */}
 
-        <section className="bg-orange-50 relative overflow-hidden">
+        <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-[70vh] flex items-center relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-14 items-center">
 
             {/* LEFT */}
