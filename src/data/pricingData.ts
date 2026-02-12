@@ -73,6 +73,7 @@ export const usPricingPlans: PricingPlan[] = [
       "Portfolio development",
       "Cover Letters",
       "Emailing Recruiters",
+      "1 Cover Letter (All Applications)",
     ],
     addOn: true,
     highlight: true,
@@ -145,6 +146,8 @@ export const canadaPricingPlans: PricingPlan[] = [
       "Portfolio development",
       "Cover letters",
       "Emailing Recruiters",
+      "1 Cover Letter (All Applications)",
+
     ],
     addOn: true,
     highlight: true,
