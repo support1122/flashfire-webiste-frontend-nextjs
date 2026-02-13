@@ -595,13 +595,17 @@ export default function HomePagePricingPlans() {
               <p className="text-xs sm:text-sm lg:text-base text-black leading-relaxed font-bold">
                 If you didn&rsquo;t land interviews, we&rsquo;ll send{" "}
                 <span className="text-[#ff4c00] italic font-bold">
-                  150-200 more applications,
+                  150–200 more applications,
                 </span>{" "}
                 <span className="text-[#ff4c00] italic font-bold">
                   free of charge.
                 </span>
                 <br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Because at Flashfire, you only pay for progress.
+                <br />
+                <span className="text-[10px] sm:text-xs font-normal not-italic">
+                  *Not applicable to the Prime Plan.
+                </span>
               </p>
             </div>
           </div>
