@@ -40,8 +40,6 @@ function useInViewOnce() {
 
   return ref;
 }
-const ctaButtonClass =
-  "inline-block rounded-lg bg-black px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#ff4c00] transition-all duration-300 hover:bg-[#222] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black";
 
 const differentiators = [
   "Designed for international students: visa-aware matching (OPT, CPT, STEM OPT, H-1B).",
@@ -401,119 +399,123 @@ export default function HowItWorks() {
       />
       <Navbar />
 
-      <main className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
-        <section className="rounded-3xl bg-white/70 p-6 shadow-sm ring-1 ring-orange-100 md:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-500">
-            How it works
-          </p>
-          <h1 className="mt-3 text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
-            AI Job Application Software That Helps You Apply for Jobs Automatically
-          </h1>
-          <p className="mt-4 text-lg text-gray-700 md:text-xl">
-            Flashfire is an AI job application tool that automates job searching, ATS-optimized resumes, and applications, helping students and job seekers apply for jobs automatically and get interview calls faster.
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => handleTalkToExpertClick("top_section")}
-              className="inline-block rounded-lg bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Get Started — Start Getting Interview Calls
-            </button>
-            <p className="text-sm text-gray-600">
-              No manual searching. No repetitive answers. Interviews faster.
+      <main className="mx-auto max-w-7xl px-4 py-12 lg:py-20">
+        <section className="rounded-3xl bg-gradient-to-br from-white via-white to-orange-50/30 p-8 shadow-lg ring-1 ring-orange-100/50 md:p-12 lg:p-16">
+          <div className="max-w-4xl">
+            <p className="inline-flex items-center gap-2 rounded-full bg-orange-100/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600 ring-1 ring-orange-200/50">
+              How it works
             </p>
+            <h1 className="mt-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl lg:text-6xl">
+              AI Job Application Software That Helps You Apply for Jobs Automatically
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-gray-700 md:text-xl lg:text-xl">
+              Flashfire is an AI job application tool that automates job searching, ATS-optimized resumes, and applications, helping students and job seekers apply for jobs automatically and get interview calls faster.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <button
+                onClick={() => handleTalkToExpertClick("top_section")}
+                className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-8 py-4 text-base font-semibold text-white shadow-[0_4px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 hover:shadow-[0_6px_0_#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4c00]"
+              >
+                Get Started — Start Getting Interview Calls
+              </button>
+              <p className="text-sm font-medium text-gray-600 md:text-base">
+                No manual searching. No repetitive answers. Interviews faster.
+              </p>
+            </div>
           </div>
         </section>
 
-            <section className="bg-white py-20 px-6 text-center font-['Space_Grotesk',sans-serif]">
-      {/* === Header === */}
-      <div className="w-[90%] mx-auto mb-16">
-        <h2 className="w-[65%] mx-auto mb-4 text-[2.8rem] font-bold text-[#111] leading-[1.3] max-[1024px]:w-[80%] max-[1024px]:text-[2.2rem] max-[768px]:w-full max-[768px]:text-[1.8rem] max-[480px]:text-[1.6rem]">
-          How Our AI Job Application Software Helps You Apply for Jobs Automatically
+        <section ref={stepsSectionRef} className="mt-16 bg-gradient-to-b from-white to-orange-50/20 py-24 px-6 lg:px-8">
+          {/* === Header === */}
+          <div className="max-w-4xl mx-auto mb-16 text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              How Our AI Job Application Software Helps You Apply for Jobs Automatically
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              We turn your endless job hunt into a smooth, automated path to interview calls.
+              <span className="text-[#ff4c00] font-semibold"> You set the goal, Flashfire takes care of the journey.</span>
+            </p>
+          </div>
           
-        
-       </h2>
-         <p className="w-[60%] mx-auto text-[1.15rem] text-[#444] leading-[1.6] max-[1024px]:w-[75%] max-[1024px]:text-[1rem] max-[768px]:w-[95%] max-[768px]:text-[1rem] max-[480px]:text-[0.9rem]">          We turn your endless job hunt into a smooth, automated path to
-           interview calls.
-           <span className="text-[#ff4c00] font-medium">
-             You set the goal, Flashfire takes care of the journey.
-           </span>
-         </p>
-       </div>
-       {/* === Steps Grid === */}
-       <div className="grid grid-cols-2 gap-6 justify-center items-stretch w-[85%] mx-auto max-[1024px]:w-[90%] max-[768px]:grid-cols-1 max-[768px]:w-[95%]">
-         {steps.map((step, index) => (
-           <div
-             key={index}
-             className="bg-[#faf1ed] border border-[#f1e1d8] rounded-[0.6rem] p-6 flex flex-col justify-between text-left transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_10px_rgba(0,0,0,0.05)]"
-           >
-             <div className="bg-white rounded-[0.3rem] p-5 pb-0">
-               <h3 className="text-[2.6rem] font-bold tracking-[0.08em] mb-2 max-[768px]:text-[2.2rem] bg-gradient-to-r from-[rgba(245,93,29,1)] to-[rgba(0,0,0,1)] text-transparent bg-clip-text">
-                 \\STEP {index + 1}
-               </h3>
-               <h4 className="text-[1.8rem] font-bold text-[#111] mb-3 max-[1024px]:text-[1.5rem] max-[768px]:text-[1.3rem]">
-                 {step.heading}
-               </h4>
-               <p className="text-[1.1rem] text-[#333] leading-[1.6] max-[768px]:text-[0.95rem]">
-                 {step.description}
-               </p>
-             </div>
-             <div className="flex justify-center items-center mt-6">
-               <Image
-                 src={step.image}
-                 alt={step.heading}
-                 width={200}
-                 height={200}
-                 className="max-w-full h-auto object-contain"
-               />
-             </div>
-           </div>
-         ))}
-       </div>
-     </section>
+          {/* === Steps Grid === */}
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="group relative bg-gradient-to-br from-white to-orange-50/40 border border-orange-100 rounded-2xl p-8 flex flex-col justify-between text-left transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-orange-100/50 hover:border-orange-200"
+              >
+                <div className="relative">
+                  <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] rounded-xl flex items-center justify-center shadow-lg">
+                    <span className="text-white text-2xl font-bold">{index + 1}</span>
+                  </div>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 pt-8 border border-orange-50">
+                    <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-[#ff4c00] mb-3">
+                      STEP {index + 1}
+                    </h3>
+                    <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                      {step.heading}
+                    </h4>
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center mt-8 p-4 bg-white/60 rounded-xl">
+                  <Image
+                    src={step.image}
+                    alt={step.heading}
+                    width={240}
+                    height={240}
+                    className="max-w-full h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
    
 
 
 
-        <section className="mt-14">
-          <div className="rounded-3xl bg-white/70 p-4 shadow-sm ring-1 ring-orange-100 md:p-6">
-            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-500">
+        <section className="mt-16">
+          <div className="rounded-3xl bg-gradient-to-br from-white via-white to-orange-50/30 p-6 shadow-lg ring-1 ring-orange-100/50 md:p-10 lg:p-12">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between mb-8">
+              <div className="max-w-2xl">
+                <p className="inline-flex items-center gap-2 rounded-full bg-orange-100/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600 ring-1 ring-orange-200/50">
                   Demo
                 </p>
-                <h3 className="mt-1 text-2xl font-semibold text-gray-900">
+                <h3 className="mt-4 text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                   Watch Flashfire handle AI Job applications end-to-end
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="mt-3 text-base text-gray-700 leading-relaxed">
                   See the actual workflow we use to source, tailor, and submit
                   high-conversion applications for students.
                 </p>
               </div>
               <button
                 onClick={() => handleTalkToExpertClick("demo_section")}
-                className={ctaButtonClass}
+                className="inline-flex items-center justify-center rounded-xl bg-black px-8 py-4 text-sm font-semibold text-white shadow-[0_4px_0_#ff4c00] transition-all duration-300 hover:bg-gray-900 hover:-translate-y-0.5 hover:shadow-[0_6px_0_#ff4c00] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black shrink-0"
               >
                 Talk to an expert
               </button>
             </div>
-            <div className="mt-4 overflow-hidden rounded-2xl ring-1 ring-gray-100">
+            <div className="overflow-hidden rounded-2xl ring-2 ring-gray-200/50 shadow-xl">
               <HomePageVideo />
             </div>
           </div>
         </section>
 
-        <section className="mt-14 rounded-3xl bg-gradient-to-br from-[#fff1ec] via-[#fff8f5] to-white p-6 ring-1 ring-orange-100 shadow-sm md:p-10">
-          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+        <section className="mt-16 rounded-3xl bg-gradient-to-br from-[#fff1ec] via-[#fff8f5] to-white p-8 ring-1 ring-orange-100/50 shadow-xl md:p-12 lg:p-16">
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between mb-10">
             <div className="max-w-2xl">
-              <p className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-orange-700 ring-1 ring-orange-100">
+              <p className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-orange-700 ring-1 ring-orange-200/50 shadow-sm">
                 Why Flashfire works better
               </p>
-              <h3 className="mt-3 text-2xl font-semibold leading-tight text-gray-900 md:text-3xl">
+              <h3 className="mt-5 text-3xl md:text-4xl font-bold leading-tight text-gray-900">
                 Purpose-built for students who need interview calls fast
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-gray-700 md:text-base">
+              <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-700">
                 We combine automation with human-quality control so every
                 application is targeted, visa-safe, and competitive.
               </p>
@@ -521,123 +523,88 @@ export default function HowItWorks() {
 
             <button
               onClick={() => handleTalkToExpertClick("why_flashfire_section")}
-              className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.12)] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 hover:shadow-[0_16px_30px_rgba(0,0,0,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(255,76,0,0.3)] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 hover:shadow-[0_16px_35px_rgba(255,76,0,0.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4c00] shrink-0"
             >
               Talk to an Expert
             </button>
           </div>
 
-          <div className="mt-7 grid gap-4 md:grid-cols-2">
-            {differentiators.map((item) => (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {differentiators.map((item, index) => (
               <div
-                key={item}
-                className="group relative overflow-hidden rounded-2xl bg-white/80 p-5 text-sm text-gray-800 shadow-[0_10px_25px_rgba(0,0,0,0.06)] ring-1 ring-orange-100 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)]"
+                key={index}
+                className="group relative overflow-hidden rounded-2xl bg-white/90 backdrop-blur-sm p-6 text-base text-gray-800 shadow-lg ring-1 ring-orange-100/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-orange-200"
               >
-                <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#ff4c00] via-[#ff7a45] to-transparent opacity-80" />
-                <div className="relative flex items-start gap-3">
-                  <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[#ff4c00] ring-1 ring-orange-100 transition-colors duration-300 group-hover:bg-orange-100">
-                    <FaCheck className="text-base" />
+                <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-[#ff4c00] via-[#ff7a45] to-[#ffa784]" />
+                <div className="relative flex items-start gap-4 pl-2">
+                  <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 text-[#ff4c00] ring-2 ring-orange-100 transition-all duration-300 group-hover:scale-110 group-hover:ring-orange-200">
+                    <FaCheck className="text-lg font-bold" />
                   </span>
-                  <p className="leading-relaxed">{item}</p>
+                  <p className="leading-relaxed font-medium">{item}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
-        <section className="relative py-24 mt-14 overflow-hidden bg-white rounded-3xl">
-  {/* Gradient Accent */}                                                         
-  <div className="absolute right-0 top-0 h-full w-[40%] bg-gradient-to-bl from-[#fcc194] via-[#ffa784] to-transparent hidden lg:block" />
+        <section className="relative py-24 mt-16 overflow-hidden bg-gradient-to-br from-white via-orange-50/20 to-white rounded-3xl shadow-xl ring-1 ring-orange-100/50">
+          {/* Gradient Accent */}
+          <div className="absolute right-0 top-0 h-full w-[45%] bg-gradient-to-bl from-[#fcc194]/30 via-[#ffa784]/20 to-transparent hidden lg:block" />
 
-  <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* LEFT: Content */}
+              <div>
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+                  Who Is This <span className="text-[#ff4c00]">AI Job Application</span><br />
+                  Software For?
+                </h2>
 
-      {/* LEFT: Content */}
-      <div>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
-          Who Is This <span className="text-[#ff4c00]">AI Job Application</span><br />
-          Software For?
-        </h2>
+                <p className="mt-6 text-lg md:text-xl text-gray-700 max-w-xl leading-relaxed">
+                  Flashfire is designed for students and job seekers who want to
+                  <span className="font-semibold text-gray-900"> apply at scale, save time,&nbsp;</span>
+                  and finally get <span className="font-semibold text-gray-900">real interview calls</span>
+                  &nbsp; instead of silence or auto-rejections.
+                </p>
 
-        <p className="mt-6 text-lg text-gray-600 max-w-xl">
-          Flashfire is designed for students and job seekers who want to
-          <span className="font-semibold text-gray-900"> apply at scale, save time,&nbsp;</span>
-          and finally get <span className="font-semibold text-gray-900">real interview calls</span>
-           &nbsp; instead of silence or auto-rejections.
-        </p>
+                <p className="mt-5 text-base md:text-lg text-gray-600 leading-relaxed">
+                  This isn't another "job board". It's an execution engine for people who want outcomes.
+                </p>
+              </div>
 
-        <p className="mt-4 text-gray-600">
-          This isn’t another “job board”. It’s an execution engine for people who want outcomes.
-        </p>
-      </div>
-
-      {/* RIGHT: Personas */}
-      <div className="space-y-6">
-
-        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
-          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-            <span className="text-[#ff4c00] font-bold">01</span>
+              {/* RIGHT: Personas */}
+              <div className="space-y-5">
+                {[
+                  { num: "01", title: "International Students", desc: "OPT, CPT, and STEM OPT candidates applying under strict visa timelines." },
+                  { num: "02", title: "U.S. & Canada Job Seekers", desc: "Candidates targeting U.S. & Canada-based roles across tech, business, and operations." },
+                  { num: "03", title: "Burnt-Out Applicants", desc: "People tired of filling the same forms with zero response." },
+                  { num: "04", title: "Results-Driven Users", desc: "Anyone looking for an AI job application tool that actually converts." },
+                ].map((persona, index) => (
+                  <div
+                    key={index}
+                    className="group flex items-start gap-5 p-6 rounded-2xl bg-white/90 backdrop-blur-sm shadow-md ring-1 ring-orange-100/50 hover:shadow-xl hover:ring-orange-200 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center ring-2 ring-orange-100 group-hover:ring-orange-300 transition-all duration-300 group-hover:scale-110 shrink-0">
+                      <span className="text-[#ff4c00] font-bold text-lg">{persona.num}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1.5">
+                        {persona.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                        {persona.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">
-              International Students
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              OPT, CPT, and STEM OPT candidates applying under strict visa timelines.
-            </p>
-          </div>
-        </div>
-
-        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
-          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-            <span className="text-[#ff4c00] font-bold">02</span>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">
-              U.S. & Canada Job Seekers
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              Candidates targeting U.S. & Canada-based roles across tech, business, and operations.
-            </p>
-          </div>
-        </div>
-
-        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
-          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-            <span className="text-[#ff4c00] font-bold">03</span>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">
-              Burnt-Out Applicants
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              People tired of filling the same forms with zero response.
-            </p>
-          </div>
-        </div>
-
-        <div className="group flex items-start gap-4 p-5 rounded-2xl bg-white shadow-sm hover:shadow-lg transition">
-          <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
-            <span className="text-[#ff4c00] font-bold">04</span>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900">
-              Results-Driven Users
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">
-              Anyone looking for an AI job application tool that actually converts.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 
 
-        <section className="mt-14 flex justify-center">
+        <section className="mt-16 flex justify-center">
           <div className="w-full max-w-5xl">
-            <div className={styles.header}>
+            <div className={`${styles.header} mb-12`}>
               <h2>Frequently Asked Questions About Applying for Jobs Automatically with AI</h2>
               <p>
                 Ask us anything—here are the essentials to get you started.
@@ -674,25 +641,27 @@ export default function HowItWorks() {
           </div>
         </section>
 
-        <section className="mt-14 rounded-3xl bg-black px-6 py-10 text-white md:px-10">
-          <h3 className="text-2xl font-semibold leading-snug md:text-3xl">
-            Turn your endless job hunt into a structured, automated path to
-            interview calls.
-          </h3>
-          <p className="mt-3 text-gray-200">
-            We source, tailor, and submit high-intent applications every day
-            while you focus on preparing for interviews.
-          </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => handleTalkToExpertClick("bottom_section")}
-              className="inline-block rounded-lg bg-[#ff4c00] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_3px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Get Started — Start Getting Interview Calls
-            </button>
-            <span className="text-sm text-gray-200">
-              It starts with a quick onboarding. We handle the rest.
-            </span>
+        <section className="mt-16 rounded-3xl bg-gradient-to-br from-gray-900 via-black to-gray-900 px-8 py-12 text-white md:px-12 lg:px-16 shadow-2xl ring-1 ring-gray-800">
+          <div className="max-w-4xl">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              Turn your endless job hunt into a structured, automated path to
+              interview calls.
+            </h3>
+            <p className="mt-5 text-lg md:text-xl text-gray-300 leading-relaxed">
+              We source, tailor, and submit high-intent applications every day
+              while you focus on preparing for interviews.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <button
+                onClick={() => handleTalkToExpertClick("bottom_section")}
+                className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-8 py-4 text-base font-semibold text-white shadow-[0_4px_0_#000] transition-all duration-300 hover:bg-[#e64400] hover:-translate-y-0.5 hover:shadow-[0_6px_0_#000] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4c00]"
+              >
+                Get Started — Start Getting Interview Calls
+              </button>
+              <span className="text-sm md:text-base text-gray-300 font-medium">
+                It starts with a quick onboarding. We handle the rest.
+              </span>
+            </div>
           </div>
         </section>
 
