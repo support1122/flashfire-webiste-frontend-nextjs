@@ -1,6 +1,6 @@
 "use client";
 
-import { Target, Sparkles, Users, CheckCircle, Sliders, UserCheck, TrendingUp } from "lucide-react";
+import { Target, Sparkles, Users, CheckCircle, Sliders, UserCheck, TrendingUp, FileText, Brain, Zap, Shield, Clock, BarChart3, Search, Filter, AlertCircle, ArrowRight, X } from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
@@ -24,315 +24,782 @@ export default function AIJobMatchingPlatformPage() {
 
       <main className="mt-0">
         {/* Hero */}
-        <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-[90vh] flex items-center">
-  <div className="max-w-6xl  mx-auto px-6 md:px-8 w-full">
-    <div className="grid md:grid-cols-2 gap-10 items-center">
+        <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-[90vh] flex items-center py-16 md:py-24">
+  <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full">
+    <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
 
       {/* LEFT CONTENT */}
-      <div>
+      <div className="space-y-6">
         {/* Heading */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-slate-900">
-          Jobs matched to  
-          <span className="block text-[#ff4c00]">
-            your real profile
-          </span>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">
+          AI Job Matching Platform for Personalized Job Recommendations
         </h1>
 
-        {/* Short description */}
-        <p className="mt-4 text-base md:text-lg text-slate-700 max-w-md">
-          Flashfire analyzes your skills, location, and salary goals to
-          prioritize roles where you actually fit — before you apply.
+        {/* Description */}
+        <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
+          Stop wasting hours scrolling through irrelevant job listings.
+        </p>
+        <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
+          Our AI job matching platform uses an advanced job matching algorithm powered by machine learning matching to instantly connect your resume with the most relevant opportunities.
         </p>
 
-        {/* Compact highlights */}
-        <div className="mt-6 space-y-3 text-sm md:text-base">
-          <div className="flex items-center gap-2">
-            <Target className="h-4 w-4 text-[#ff4c00]" />
-            <span>AI filters roles before applications</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-[#ff4c00]" />
-            <span>Recommendations improve over time</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-[#ff4c00]" />
-            <span>Focused on US &amp; Canadian jobs</span>
-          </div>
+        {/* Highlights */}
+        <div className="space-y-3 pt-2">
+          {[
+            "Get real-time personalized job recommendations",
+            "Eliminate mismatched applications",
+            "Discover better-fit roles faster",
+            "Improve interview success probability",
+          ].map((text) => (
+            <div key={text} className="flex items-center gap-3">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
+                <CheckCircle className="h-4 w-4 text-[#ff4c00]" />
+              </div>
+              <span className="text-base md:text-lg text-slate-700 font-medium">{text}</span>
+            </div>
+          ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-8">
+        <div className="pt-4">
           <button
             type="button"
-            onClick={() => updateCtaUrl("/ai-job-matching-platform", "Start AI Job Matching")}
-            className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-7 py-3 text-sm md:text-base font-semibold text-white shadow-[0_3px_0_#000] hover:bg-[#e24400] transition"
+            onClick={() => updateCtaUrl("/ai-job-matching-platform", "Start Matching Jobs Now")}
+            className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-10 py-4 text-base md:text-lg font-semibold text-white hover:bg-[#e24400] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#ff4c00]/25 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4c00]"
           >
-            Start AI Job Matching
+            Start Matching Jobs Now — Get Instant Results
           </button>
         </div>
       </div>
 
-      {/* RIGHT PREVIEW (AIJobAlert style) */}
+      {/* RIGHT PREVIEW */}
       <div className="relative">
-  <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-lg">
+        <div className="rounded-3xl border-2 border-slate-200/50 bg-white p-6 md:p-8 shadow-xl backdrop-blur-sm">
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-sm font-bold text-slate-900 uppercase tracking-wide">
+              AI Matching Analysis
+            </p>
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          </div>
 
-    <p className="text-sm font-semibold text-slate-800 mb-4">
-      AI Matching Analysis
-    </p>
+          {/* PROFILE SNAPSHOT */}
+          <div className="rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] p-5 mb-6 shadow-sm">
+            <p className="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide">
+              Your Profile
+            </p>
+            <ul className="text-sm text-slate-700 space-y-1.5">
+              <li className="flex items-center gap-2">
+                <span className="text-[#ff4c00]">•</span>
+                <span>Skills: React, JavaScript, UI</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-[#ff4c00]">•</span>
+                <span>Location: United States</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-[#ff4c00]">•</span>
+                <span>Salary: $70k–90k</span>
+              </li>
+            </ul>
+          </div>
 
-    {/* PROFILE SNAPSHOT */}
-    <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-4 mb-4">
-      <p className="text-xs font-semibold text-slate-700 mb-2">
-        Your Profile
-      </p>
-      <ul className="text-xs text-slate-600 space-y-1">
-        <li>• Skills: React, JavaScript, UI</li>
-        <li>• Location: United States</li>
-        <li>• Salary: $70k–90k</li>
-      </ul>
-    </div>
+          {/* MATCHING SIGNALS */}
+          <div className="space-y-3 mb-6">
+            {[
+              ["Skill Match", "High"],
+              ["Location Fit", "Yes"],
+              ["Salary Alignment", "Matched"],
+            ].map(([label, value]) => (
+              <div key={label} className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors">
+                <span className="text-sm font-medium text-slate-600">{label}</span>
+                <span className="px-3 py-1 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] font-bold text-sm">{value}</span>
+              </div>
+            ))}
+          </div>
 
-    {/* MATCHING SIGNALS */}
-    <div className="space-y-3 mb-4">
-      <div className="flex items-center justify-between text-xs">
-        <span className="text-slate-600">Skill Match</span>
-        <span className="font-semibold text-[#ff4c00]">High</span>
-      </div>
-      <div className="flex items-center justify-between text-xs">
-        <span className="text-slate-600">Location Fit</span>
-        <span className="font-semibold text-[#ff4c00]">Yes</span>
-      </div>
-      <div className="flex items-center justify-between text-xs">
-        <span className="text-slate-600">Salary Alignment</span>
-        <span className="font-semibold text-[#ff4c00]">Matched</span>
-      </div>
-    </div>
-
-    {/* PRIORITY OUTPUT */}
-    <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-4">
-      <p className="text-xs font-semibold text-slate-700 mb-1">
-        Priority Result
-      </p>
-      <p className="text-sm font-semibold">
-        Frontend Developer — High Fit
-      </p>
-      <span className="inline-block mt-2 text-xs font-semibold text-[#ff4c00]">
-        Recommended to apply
-      </span>
-    </div>
-
-  </div>
-
-  {/* subtle accent */}
-  <div className="absolute -top-6 -right-6 h-24 w-24 rounded-full bg-[#ffe7d7] blur-2xl -z-10" />
-</div>
-
-    </div>
-  </div>
-</section>
-
-        {/* How it works */}
-       {/* CAPABILITIES */}
-<section className="bg-white py-20">
-  <div className="max-w-6xl mx-auto px-4 md:px-6">
-
-    <h2 className="text-2xl md:text-3xl font-bold mb-12">
-      What Flashfire&apos;s <span className="text-[#ff4c00]">AI does for you</span>
-    </h2>
-
-    <div className="space-y-8">
-
-      <div className="flex gap-6 p-6 rounded-2xl bg-[#fffaf7] border border-slate-200">
-        <Target className="h-8 w-8 text-[#ff4c00] shrink-0" />
-        <div>
-          <h3 className="text-lg font-semibold mb-1">
-            Precision role targeting
-          </h3>
-          <p className="text-slate-700 text-sm md:text-base">
-            Your profile is matched against real job requirements so you don’t
-            waste time applying to roles that don’t fit.
-          </p>
+          {/* PRIORITY OUTPUT */}
+          <div className="rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] p-5">
+            <p className="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide">
+              Priority Result
+            </p>
+            <p className="text-base font-bold text-slate-900 mb-2">
+              Frontend Developer — High Fit
+            </p>
+            <span className="inline-block px-3 py-1 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-xs font-bold">
+              Recommended to apply
+            </span>
+          </div>
         </div>
-      </div>
-
-      <div className="flex gap-6 p-6 rounded-2xl bg-[#fffaf7] border border-slate-200">
-        <Sparkles className="h-8 w-8 text-[#ff4c00] shrink-0" />
-        <div>
-          <h3 className="text-lg font-semibold mb-1">
-            Personalized job recommendations
-          </h3>
-          <p className="text-slate-700 text-sm md:text-base">
-            The system learns from your skills, searches, and preferences to
-            continuously improve job suggestions.
-          </p>
-        </div>
-      </div>
-
-      <div className="flex gap-6 p-6 rounded-2xl bg-[#fffaf7] border border-slate-200">
-        <Users className="h-8 w-8 text-[#ff4c00] shrink-0" />
-        <div>
-          <h3 className="text-lg font-semibold mb-1">
-            Market-aware matching
-          </h3>
-          <p className="text-slate-700 text-sm md:text-base">
-            Flashfire focuses on active roles across US &amp; Canadian markets
-            where demand aligns with your experience level.
-          </p>
-        </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute -z-10 -top-4 -right-4 w-32 h-32 bg-[#ff4c00]/5 rounded-full blur-3xl"></div>
+        <div className="absolute -z-10 -bottom-4 -left-4 w-24 h-24 bg-orange-200/30 rounded-full blur-2xl"></div>
       </div>
 
     </div>
   </div>
 </section>
 
-<section className="bg-white py-20">
-  <div className="max-w-6xl mx-auto px-4 md:px-6">
-
-    {/* HEADING */}
-    <div className="max-w-3xl mb-14">
-      
-      <h2 className="text-3xl md:text-4xl font-extrabold leading-tight text-slate-900">
-        How Flashfire&apos;s AI job matching  
-        <span className="block text-[#ff4c00]">
-          guides your applications
-        </span>
-      </h2>
-
-      <p className="mt-4 text-slate-700 text-base md:text-lg">
-        A simple three-stage process that filters the market and
-        helps you focus only on roles that truly fit your profile.
-      </p>
-    </div>
-
-    {/* FLOW */}
-    <div className="relative grid md:grid-cols-[60px_1fr] gap-10">
-
-      {/* LEFT RAIL */}
-      <div className="hidden md:flex flex-col items-center">
-        <div className="h-full w-[2px] bg-[#ffd6c2]" />
-      </div>
-
-      {/* STEPS */}
-      <div className="space-y-12">
-
-        {/* STEP 1 */}
-        <div className="relative flex gap-6">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0">
-            <UserCheck size={22} />
-          </div>
-
-          <div>
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900">
-              We understand your profile
-            </h3>
-            <p className="mt-2 text-slate-700 text-sm md:text-base max-w-2xl">
-              Flashfire analyzes your skills, experience level, preferred
-              locations, and salary expectations to build a clear matching
-              profile.
-            </p>
-          </div>
-        </div>
-
-        {/* STEP 2 */}
-        <div className="relative flex gap-6">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0">
-            <Sliders size={22} />
-          </div>
-
-          <div>
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900">
-              Roles are scanned and filtered
-            </h3>
-            <p className="mt-2 text-slate-700 text-sm md:text-base max-w-2xl">
-              The AI scans job boards and company career pages, filtering
-              out roles that don’t align with your profile or goals.
-            </p>
-          </div>
-        </div>
-
-        {/* STEP 3 */}
-        <div className="relative flex gap-6">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0">
-            <CheckCircle size={22} />
-          </div>
-
-          <div>
-            <h3 className="text-lg md:text-xl font-semibold text-slate-900">
-              Best matches are prioritized
-            </h3>
-            <p className="mt-2 text-slate-700 text-sm md:text-base max-w-2xl">
-              High-fit opportunities are surfaced first, helping you apply
-              where your chances of success are strongest.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-        {/* BENEFITS COMPARISON SECTION */}
-        <section className="bg-[#fff7f2] py-24">
+        {/* Why Job Seekers Are Frustrated */}
+        <section className="bg-white py-20">
           <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-extrabold">
-                Why AI Matching
-                <span className="block text-[#ff4c00]">Beats Manual Searching</span>
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+                Why Job Seekers Are Frustrated with <span className="text-[#ff4c00]">Traditional Job Boards</span>
               </h2>
-              <p className="mt-4 text-slate-600 text-sm md:text-base">
-                Stop wasting hours on job boards. Let AI do the filtering.
+              <p className="text-lg text-slate-700 mb-8">
+                Most job platforms rely on manual keyword searches.
+              </p>
+              <p className="text-base text-slate-600">
+                This leads to:
               </p>
             </div>
 
-            <div className="mt-16 grid md:grid-cols-2 gap-10">
-              <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8">
-                <h3 className="font-semibold text-lg mb-6 text-slate-700">
-                  Manual Job Search
-                </h3>
-                <ul className="space-y-4 text-sm text-slate-600">
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500">✗</span>
-                    <span>Spend hours scrolling through irrelevant listings</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500">✗</span>
-                    <span>Apply to roles you&apos;re not qualified for</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500">✗</span>
-                    <span>Miss high-fit opportunities buried in search results</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-red-500">✗</span>
-                    <span>No feedback on why applications fail</span>
-                  </li>
-                </ul>
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
+              {[
+                "Hundreds of irrelevant listings",
+                "Endless filtering & sorting",
+                "Resume-job mismatches",
+                "Missed high-fit opportunities",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 p-4 bg-red-50 border border-red-100 rounded-lg">
+                  <X className="h-5 w-5 text-red-500 shrink-0" />
+                  <span className="text-slate-700 font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-orange-50 to-[#fff7f2] rounded-2xl p-6 border-2 border-[#ffd6c2] text-center">
+              <p className="text-base md:text-lg text-slate-700 font-medium">
+                In fact, many candidates spend <span className="font-bold text-[#ff4c00]">10+ hours per week</span> searching for jobs with low response rates.
+              </p>
+              <p className="mt-3 text-base md:text-lg text-slate-700">
+                Our <span className="font-semibold text-[#ff4c00]">AI powered job matching platform</span> eliminates this inefficiency using intelligent semantic matching.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Key Benefits at a Glance */}
+        <section className="bg-[#fff7f2] py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+                Key Benefits at a <span className="text-[#ff4c00]">Glance</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Reduce Job Search Time",
+                  desc: "Stop manually filtering irrelevant jobs.",
+                },
+                {
+                  title: "Receive Highly Relevant Matches",
+                  desc: "Powered by intelligent candidate-job matching",
+                },
+                {
+                  title: "Improve Resume-Job Alignment",
+                  desc: "Automatic resume-job alignment optimization.",
+                },
+                {
+                  title: "Eliminate Application Burnout",
+                  desc: "Apply only to high-fit roles.",
+                },
+                {
+                  title: "Increase Interview Probability",
+                  desc: "Better matching → Better outcomes.",
+                },
+                {
+                  title: "Discover Hidden Opportunities",
+                  desc: "AI detects keyword searches miss.",
+                },
+              ].map((benefit, index) => (
+                <div
+                  key={index}
+                  className="bg-white border-2 border-[#ffd6c2] rounded-xl p-6 hover:shadow-lg transition-all hover:-translate-y-1"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00]" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-slate-900 mb-2">{benefit.title}</h3>
+                      <p className="text-sm text-slate-600">{benefit.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How Our AI Job Matching Platform Works */}
+        <section className="bg-white py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+                How Our <span className="text-[#ff4c00]">AI Job Matching Platform</span> Works
+              </h2>
+              <p className="text-lg md:text-xl text-slate-700">
+                Finding the right job should feel effortless — and now it does.
+              </p>
+            </div>
+
+            {/* Steps */}
+            <div className="space-y-12">
+              {/* STEP 1 */}
+              <div className="relative flex gap-6">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0 shadow-lg">
+                  <span className="text-xl font-bold">1</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                    Upload Your Resume or Build Your Profile
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-700 mb-4">
+                    Simply upload your resume or create your career profile.
+                  </p>
+                  <ul className="space-y-2 text-slate-600">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>No lengthy forms</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>No manual data entry stress</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Works seamlessly with your resume builder output</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="bg-[#fffaf7] rounded-2xl border border-[#ffd6c2] p-8 shadow-md">
-                <h3 className="font-semibold text-lg mb-6 text-[#ff4c00]">
-                  Flashfire AI Matching
-                </h3>
-                <ul className="space-y-4 text-sm text-slate-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#ff4c00]">✓</span>
-                    <span>See only roles that match your profile</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#ff4c00]">✓</span>
-                    <span>Understand your fit score before applying</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#ff4c00]">✓</span>
-                    <span>Get prioritized recommendations that improve over time</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#ff4c00]">✓</span>
-                    <span>Learn which skills increase your match rate</span>
-                  </li>
-                </ul>
+              {/* STEP 2 */}
+              <div className="relative flex gap-6">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0 shadow-lg">
+                  <span className="text-xl font-bold">2</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                    AI Analyzes Your Skills & Experience
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-700 mb-4">
+                    Our AI job matching system evaluates:
+                  </p>
+                  <ul className="space-y-2 text-slate-600">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Technical skills</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Experience depth</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Career trajectory</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Role preferences</span>
+                    </li>
+                  </ul>
+                  <p className="mt-3 text-base text-slate-700 font-medium">
+                    Delivering deeper resume-job alignment.
+                  </p>
+                </div>
               </div>
+
+              {/* STEP 3 */}
+              <div className="relative flex gap-6">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0 shadow-lg">
+                  <span className="text-xl font-bold">3</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                    AI Scans Thousands of Job Descriptions
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-700 mb-4">
+                    The platform continuously processes listings using:
+                  </p>
+                  <ul className="space-y-2 text-slate-600">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Semantic matching</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Skills-based matching</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Context-aware recruitment</span>
+                    </li>
+                  </ul>
+                  <p className="mt-3 text-base text-slate-700 font-medium">
+                    Far beyond static keyword filters.
+                  </p>
+                </div>
+              </div>
+
+              {/* STEP 4 */}
+              <div className="relative flex gap-6">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0 shadow-lg">
+                  <span className="text-xl font-bold">4</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                    AI Matches Resume to Job Description
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-700 mb-4">
+                    Our engine performs intelligently: <span className="font-semibold text-[#ff4c00]">AI match resume to a job description</span>
+                  </p>
+                  <p className="text-base text-slate-700 mb-4">
+                    Unlike traditional tools, we leverage:
+                  </p>
+                  <ul className="space-y-2 text-slate-600 mb-4">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Semantic matching</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>AI talent matching</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Machine learning matching</span>
+                    </li>
+                  </ul>
+                  <div className="bg-gradient-to-r from-orange-50 to-[#fff7f2] rounded-lg p-4 border border-[#ffd6c2]">
+                    <p className="text-base text-slate-700 font-semibold">
+                      This is why users consider it the: <span className="text-[#ff4c00]">Best AI to match a resume to a job description</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* STEP 5 */}
+              <div className="relative flex gap-6">
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#ff4c00] text-white shrink-0 shadow-lg">
+                  <span className="text-xl font-bold">5</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+                    Get Instant Personalized Job Matches
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-700 mb-4">
+                    Receive real-time:
+                  </p>
+                  <ul className="space-y-2 text-slate-600">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>AI job recommendations</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>High-fit opportunities</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                      <span>Smart role prioritization</span>
+                    </li>
+                  </ul>
+                  <p className="mt-3 text-base text-slate-700 font-medium">
+                    Powered by predictive job recommendations.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Smart Opportunity Ranking */}
+            <div className="mt-16 bg-gradient-to-br from-[#fff7f2] to-white rounded-2xl p-8 border-2 border-[#ffd6c2]">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                Smart Opportunity Ranking
+              </h3>
+              <p className="text-lg text-slate-700">
+                Each role receives a <span className="font-semibold text-[#ff4c00]">candidate suitability score</span>
+              </p>
+              <p className="text-base text-slate-600 mt-2">
+                Helping you focus on jobs with the highest success probability.
+              </p>
+            </div>
+
+            {/* Continuous Learning */}
+            <div className="mt-8 bg-white rounded-2xl p-8 border-2 border-slate-200">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Continuous Learning for Higher Accuracy
+              </h3>
+              <p className="text-lg text-slate-700 mb-4">
+                Our AI job matching engine continuously improves.
+              </p>
+              <ul className="space-y-2">
+                {["Learns preferences", "Refines matching patterns", "Increases relevance"].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                    <span className="text-slate-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Why This AI Job Matching Platform Delivers Better Results */}
+        <section className="bg-[#fff7f2] py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+                Why This AI Job Matching Platform <span className="text-[#ff4c00]">Delivers Better Results</span>
+              </h2>
+              <p className="text-lg text-slate-700 mb-4">
+                Traditional job boards show listings.
+              </p>
+              <p className="text-lg text-slate-700 font-semibold">
+                We deliver intelligent alignment.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {[
+                "Understand real job fit — not just keywords",
+                "Prioritize roles based on compatibility",
+                "Reduce irrelevant applications",
+                "Improve decision confidence",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 p-4 bg-white rounded-xl border-2 border-[#ffd6c2]">
+                  <CheckCircle className="h-6 w-6 text-[#ff4c00] shrink-0" />
+                  <span className="text-slate-700 font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] rounded-2xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-6">Users typically experience:</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <div className="text-3xl font-bold mb-2">Faster</div>
+                  <div className="text-sm opacity-90">Job discovery</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold mb-2">Better</div>
+                  <div className="text-sm opacity-90">Candidate-job matching accuracy</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold mb-2">Stronger</div>
+                  <div className="text-sm opacity-90">Interview alignment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Key Features Section */}
+        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24 relative overflow-hidden">
+          {/* Background decorations */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ff4c00]/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl"></div>
+
+          <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            {/* Header */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+                Key Features of Our <span className="text-[#ff4c00]">AI-Powered Job Matching Platform</span>
+              </h2>
+            </div>
+
+            {/* Features Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Advanced AI Job Matching Engine",
+                  desc: "Powered by intelligent AI job matching models.",
+                  icon: <Brain className="h-8 w-8" />,
+                },
+                {
+                  title: "Deep Semantic Resume Analysis",
+                  desc: "Leverages semantic matching for contextual understanding.",
+                  bullets: [
+                    "Detects skill relationships",
+                    "Identifies role compatibility",
+                    "Eliminates keyword dependency",
+                  ],
+                  icon: <FileText className="h-8 w-8" />,
+                },
+                {
+                  title: "Skills & Experience-Based Matching",
+                  desc: "Combines:",
+                  bullets: [
+                    "Skills-based matching",
+                    "Experience depth evaluation",
+                    "Career trajectory logic",
+                  ],
+                  icon: <Target className="h-8 w-8" />,
+                },
+                {
+                  title: "Candidate-Job Compatibility Score",
+                  desc: "Each opportunity receives a:",
+                  highlight: "candidate suitability score",
+                  icon: <BarChart3 className="h-8 w-8" />,
+                },
+                {
+                  title: "Intelligent Resume-Job Alignment",
+                  desc: "Improves your resume-job alignment automatically.",
+                  icon: <Zap className="h-8 w-8" />,
+                },
+                {
+                  title: "Real-Time AI Job Recommendations",
+                  desc: "Dynamic AI job recommendations updates.",
+                  icon: <Sparkles className="h-8 w-8" />,
+                },
+                {
+                  title: "Smart Filters & Personalization",
+                  desc: "Refine matches by:",
+                  bullets: [
+                    "Industry",
+                    "Location",
+                    "Salary",
+                    "Career goals",
+                  ],
+                  icon: <Filter className="h-8 w-8" />,
+                },
+                {
+                  title: "Resume Optimization Insights",
+                  desc: "Improve matching strength instantly.",
+                  icon: <TrendingUp className="h-8 w-8" />,
+                },
+                {
+                  title: "High-Match Opportunity Alerts",
+                  desc: "Never miss relevant roles again.",
+                  icon: <AlertCircle className="h-8 w-8" />,
+                },
+              ].map((feature, index) => (
+                <div
+                  key={index}
+                  className="group relative bg-white border-2 border-[#ffd6c2] rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-[#ff4c00] transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
+                >
+                  {/* Orange accent bar */}
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#ff4c00] via-[#ff7a45] to-[#ff4c00] rounded-t-2xl"></div>
+
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white mb-5 shadow-md group-hover:scale-110 transition-transform flex-shrink-0">
+                    {feature.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
+                    {feature.title}
+                  </h3>
+
+                  {/* Content area - flex-grow to push footer down */}
+                  <div className="flex-grow flex flex-col">
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-slate-700 mb-3 leading-relaxed">
+                      {feature.desc}
+                    </p>
+
+                    {/* Highlight text */}
+                    {feature.highlight && (
+                      <div className="mt-2 mb-3 p-3 rounded-lg bg-gradient-to-r from-[#fff7f2] to-orange-50 border border-[#ffd6c2]">
+                        <p className="text-sm md:text-base font-semibold text-[#ff4c00]">
+                          {feature.highlight}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Bullets */}
+                    {feature.bullets && (
+                      <ul className="space-y-2.5 mt-2">
+                        {feature.bullets.map((bullet, i) => (
+                          <li key={i} className="flex items-start gap-2.5">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#ff4c00]/10 flex items-center justify-center mt-0.5">
+                              <span className="text-[#ff4c00] font-bold text-xs">●</span>
+                            </div>
+                            <span className="text-sm md:text-base text-slate-700 leading-relaxed flex-1">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+        {/* Why Job Seekers Choose Section */}
+        <section className="bg-[#fff7f2] py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+                Why Job Seekers Choose Our <span className="text-[#ff4c00]">AI Job Matcher</span>
+              </h2>
+              <p className="text-lg text-slate-700">
+                Job seekers want outcomes — not endless searching.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                "Save hours of manual filtering",
+                "Receive true personalized job recommendations",
+                "Reduce irrelevant applications",
+                "Improve interview chances",
+                "Discover hidden opportunities",
+                "Simple, beginner-friendly platform",
+                "Secure & confidential resume handling",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="bg-white border-2 border-[#ffd6c2] rounded-xl p-5 flex items-center gap-3 hover:shadow-lg transition"
+                >
+                  <CheckCircle className="h-6 w-6 text-[#ff4c00] shrink-0" />
+                  <span className="text-slate-700 font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table */}
+        <section className="bg-white py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+                AI Job Matching vs <span className="text-[#ff4c00]">Traditional Job Boards</span>
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-[#ffd6c2]">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] text-white">
+                    <tr>
+                      <th className="px-6 py-4 text-left font-bold">Feature</th>
+                      <th className="px-6 py-4 text-left font-bold">Traditional Job Boards</th>
+                      <th className="px-6 py-4 text-left font-bold">AI-Powered Job Matching Platform</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {[
+                      {
+                        feature: "Search Method",
+                        traditional: "Manual keyword search",
+                        ai: "Intelligent job matching algorithm",
+                      },
+                      {
+                        feature: "Listings",
+                        traditional: "Generic listings",
+                        ai: "Personalized job recommendations",
+                      },
+                      {
+                        feature: "Resume Alignment",
+                        traditional: "No resume alignment",
+                        ai: "AI match resume to a job description",
+                      },
+                      {
+                        feature: "Filtering",
+                        traditional: "Time-consuming filtering",
+                        ai: "Smart suitability ranking",
+                      },
+                      {
+                        feature: "Personalization",
+                        traditional: "Same results for everyone",
+                        ai: "Customized AI job recommendations",
+                      },
+                      {
+                        feature: "Relevance",
+                        traditional: "Limited relevance scoring",
+                        ai: "Context-aware AI-powered job matching",
+                      },
+                    ].map((row, i) => (
+                      <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-orange-50/30"}>
+                        <td className="px-6 py-4 font-semibold text-slate-900">{row.feature}</td>
+                        <td className="px-6 py-4 text-slate-600">{row.traditional}</td>
+                        <td className="px-6 py-4 text-[#ff4c00] font-semibold">{row.ai}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Who Can Use Section */}
+        <section className="bg-[#fff7f2] py-24">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+                Who Can Use This <span className="text-[#ff4c00]">AI Job Matching Platform?</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                "Fresh graduates",
+                "Entry-level professionals",
+                "Mid-career professionals",
+                "Career switchers",
+                "Tech specialists",
+                "Remote job seekers",
+                "Executives & leaders",
+                "International applicants",
+              ].map((persona) => (
+                <div
+                  key={persona}
+                  className="bg-white border-2 border-[#ffd6c2] rounded-xl p-6 text-center hover:shadow-lg transition hover:-translate-y-1"
+                >
+                  <CheckCircle className="h-6 w-6 text-[#ff4c00] mx-auto mb-3" />
+                  <p className="font-semibold text-slate-900">{persona}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
+          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">
+              Find the Right Job Faster with <span className="text-[#ff4c00]">AI-Powered Job Matching</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 mb-8">
+              Stop relying on outdated job search methods.
+            </p>
+            <p className="text-base md:text-lg text-gray-400 mb-8">
+              With our AI job matching platform, you can:
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
+              {[
+                "Access smarter AI job recommendations",
+                "Improve resume-job alignment",
+                "Prioritize high-fit opportunities",
+                "Reduce job search time dramatically",
+                "Apply with confidence",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+                  <span className="text-gray-200">{item}</span>
+                </div>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => updateCtaUrl("/ai-job-matching-platform", "Start Matching Jobs Now")}
+              className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-10 py-5 text-lg font-semibold text-white hover:bg-[#e24400] transition-all shadow-2xl hover:shadow-[#ff4c00]/50 hover:scale-105 mb-6"
+            >
+              Start Matching Jobs Now
+            </button>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+              <span>• Instant matches</span>
+              <span>• No complicated setup</span>
+              <span>• Secure & confidential</span>
             </div>
           </div>
         </section>
@@ -350,20 +817,36 @@ export default function AIJobMatchingPlatformPage() {
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               {[
                 {
-                  q: "How accurate is the matching algorithm?",
-                  a: "Flashfire&apos;s AI analyzes your skills semantically, compares them against real job requirements, and considers market demand. Match scores reflect actual fit, not just keyword overlap.",
+                  q: "What is AI job matching?",
+                  a: "AI job matching uses machine learning to intelligently connect candidates with relevant job opportunities.",
                 },
                 {
-                  q: "Will I see fewer jobs than on job boards?",
-                  a: "You&apos;ll see fewer total jobs, but they&apos;re all relevant. Quality over quantity — every recommendation is worth your time to review and potentially apply to.",
+                  q: "How does an AI job matching platform work?",
+                  a: "An AI job matching platform analyzes resumes and job descriptions to generate personalized matches.",
                 },
                 {
-                  q: "Can I adjust my matching preferences?",
-                  a: "Yes. Update your skills, location preferences, salary range, or experience level anytime. The system immediately recalculates matches based on your new profile.",
+                  q: "What is a job matching algorithm?",
+                  a: "A job matching algorithm evaluates compatibility between candidate profiles and job requirements.",
                 },
                 {
-                  q: "How does the system learn and improve?",
-                  a: "Flashfire tracks which roles you apply to, which ones lead to interviews, and your feedback. Over time, recommendations become more accurate and aligned with your career goals.",
+                  q: "Can AI match my resume accurately?",
+                  a: "Yes. Our engine uses semantic matching and machine learning matching.",
+                },
+                {
+                  q: "Is AI job matching better than traditional job boards?",
+                  a: "For relevance, efficiency, and alignment — absolutely.",
+                },
+                {
+                  q: "How accurate are personalized job recommendations?",
+                  a: "Accuracy improves continuously through machine learning matching.",
+                },
+                {
+                  q: "Is my resume data secure?",
+                  a: "Yes. Security and confidentiality are core priorities.",
+                },
+                {
+                  q: "Who should use an AI-powered job matching platform?",
+                  a: "Any job seeker who wants faster, smarter, high-relevance job discovery.",
                 },
               ].map((item, i) => (
                 <div
