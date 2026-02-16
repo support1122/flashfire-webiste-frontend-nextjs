@@ -1,74 +1,73 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 import { CheckCircle } from "lucide-react";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
-import { trackLead } from "@/lib/metaPixel";
+import * as fbq from "@/lib/metaPixel";
 
 export default function MeetingBookedPage() {
-  const conversionTracked = useRef(false);
+  const [hasTracked, setHasTracked] = useState(false);
 
-  // Trigger conversion tracking when URL changes to /meeting-booked
   useEffect(() => {
-    if (typeof window === "undefined" || conversionTracked.current) return;
-    conversionTracked.current = true;
+    // Track Facebook Pixel conversion event only once
+    if (!hasTracked && typeof window !== "undefined") {
+      try {
+        // Get user data from localStorage (set during booking)
+        const inviteeEmail =
+          typeof window !== "undefined"
+            ? localStorage.getItem("cal_invitee_email") || ""
+            : "";
+        const inviteeName =
+          typeof window !== "undefined"
+            ? localStorage.getItem("cal_invitee_name") || ""
+            : "";
 
-    const utmSource = localStorage.getItem("utm_source") || "direct";
-    const visitorId = localStorage.getItem("visitor_id") || null;
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.flashfirejobs.com";
+        // Get UTM parameters for better attribution
+        const utm_source =
+          typeof window !== "undefined"
+            ? localStorage.getItem("utm_source") || "direct"
+            : "direct";
+        const utm_medium =
+          typeof window !== "undefined"
+            ? localStorage.getItem("utm_medium") || "website"
+            : "website";
+        const utm_campaign =
+          typeof window !== "undefined"
+            ? localStorage.getItem("utm_campaign") || "organic"
+            : "organic";
 
-    // 1. Track Facebook Pixel Lead conversion (client-side)
-    trackLead({
-      content_name: "Meeting Booked",
-      content_category: "Consultation",
-      value: 0,
-      currency: "USD",
-    });
+        // Track Schedule event (standard Facebook event for meeting bookings)
+        fbq.event("Schedule", {
+          content_name: "Meeting Booked",
+          content_category: "Consultation",
+          value: 0,
+          currency: "USD",
+          // User data for better matching
+          ...(inviteeEmail && { em: inviteeEmail.toLowerCase() }),
+          ...(inviteeName && { fn: inviteeName.split(" ")[0] }),
+          ...(inviteeName && { ln: inviteeName.split(" ").slice(1).join(" ") }),
+          // UTM parameters for attribution
+          utm_source,
+          utm_medium,
+          utm_campaign,
+        });
 
-    // 2. Track conversion in our backend campaign system
-    fetch(`${API_BASE_URL}/api/campaigns/track/conversion`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        utmSource,
-        visitorId,
-        conversionType: "meeting_booked",
-        pageUrl: "/meeting-booked",
-        userAgent: navigator.userAgent,
-      }),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        // Conversion tracked in campaign system
-      })
-      .catch((err) => console.error("Campaign conversion track failed:", err));
+        console.log("✅ Facebook Pixel Schedule event tracked:", {
+          email: inviteeEmail,
+          name: inviteeName,
+          utm_source,
+          utm_medium,
+          utm_campaign,
+        });
 
-    // 3. Track via Facebook Conversions API (server-side)
-    // Get user data from localStorage if available
-    const userEmail = localStorage.getItem("cal_invitee_email") || null;
-    const userName = localStorage.getItem("cal_invitee_name") || null;
-    const firstName = userName?.split(' ')[0] || null;
-    const lastName = userName?.split(' ').slice(1).join(' ') || null;
-
-    fetch(`${API_BASE_URL}/api/facebook/track/meeting-booked`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: userEmail,
-        firstName: firstName,
-        lastName: lastName,
-        eventId: `meeting_booked_${Date.now()}_${visitorId || 'unknown'}`,
-        eventSourceUrl: window.location.href,
-      }),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        // Facebook Conversions API tracked
-      })
-      .catch((err) => console.error("Facebook Conversions API track failed:", err));
-  }, []);
+        setHasTracked(true);
+      } catch (error) {
+        console.error("❌ Failed to track Facebook Pixel event:", error);
+      }
+    }
+  }, [hasTracked]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
