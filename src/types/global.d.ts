@@ -6,5 +6,11 @@ interface Window {
       [key: string]: unknown;
     }
   ) => void;
+  fbq?: (
+    command: "init" | "track" | string,
+    eventName?: string,
+    params?: Record<string, any>
+  ) => void;
+  _fbq?: any;
 }
 
