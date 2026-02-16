@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { X, Calendar, CheckCircle } from "lucide-react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 
@@ -52,6 +53,7 @@ export default function CalendlyModal({
   onClose,
   user,
 }: CalendlyModalProps) {
+  const router = useRouter();
   const [profileInvitee, setProfileInvitee] = useState<{
     email?: string;
     name?: string;
@@ -168,13 +170,24 @@ export default function CalendlyModal({
           profileInvitee?.name ||
           (typeof window !== "undefined" ? localStorage.getItem("cal_invitee_name") : null) ||
           "";
-        const meetingUrl =
-          payload?.event?.uri ||
-          payload?.event?.location?.join_url ||
-          "";
         const eventStartTime =
           payload?.event?.start_time ||
           payload?.event?.start_time_pretty ||
+          "";
+
+        // Trigger event visible in console
+        const meetingBookedEvent = {
+          type: "MEETING_BOOKED",
+          payload: { inviteeName, inviteeEmail, eventStartTime },
+        };
+        console.log("📅 Meeting booked event:", meetingBookedEvent);
+
+        // Navigate to meeting-booked page
+        router.push("/meeting-booked");
+
+        const meetingUrl =
+          payload?.event?.uri ||
+          payload?.event?.location?.join_url ||
           "";
 
         const utm_source =
