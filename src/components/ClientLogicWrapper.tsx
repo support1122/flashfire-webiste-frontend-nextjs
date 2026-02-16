@@ -9,6 +9,7 @@ import SignupModal from "@/src/components/signupModal/SignupModal";
 import CalendlyModal from "@/src/components/calendlyModal/CalendlyModal";
 import { loadFormData } from "@/src/utils/LocalStorageUtils";
 import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
+import * as fbq from "@/lib/metaPixel";
 
 function ClientLogicWrapperContent({
     children,
@@ -58,6 +59,11 @@ function ClientLogicWrapperContent({
     useEffect(() => {
         pathnameRef.current = pathname;
     }, [pathname]);
+
+    // Track Meta Pixel PageView on route changes
+    useEffect(() => {
+        fbq.pageview();
+    }, [pathname, searchParams]);
 
     // Listen for button click events from anywhere in the app
     useEffect(() => {
