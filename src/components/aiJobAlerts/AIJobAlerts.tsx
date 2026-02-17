@@ -1,5 +1,5 @@
 "use client";
-import { Briefcase, Sparkles, ArrowRight, BellRing, BarChart3, Send, UserPlus, BrainCircuit, UserCircle, Layers, Cpu, SendHorizonal, ChevronRight, Target, User, Brain, Zap, CheckCircle, Clock, Filter, Mail, Smartphone, Bell, TrendingUp, AlertCircle, FileText, Search, Settings, Globe, Shield, X, Check } from "lucide-react";
+import { Briefcase, Sparkles, ArrowRight, BellRing, BarChart3, Send, UserPlus, BrainCircuit, UserCircle, Layers, Cpu, SendHorizonal, ChevronRight, Target, User, Brain, Zap, CheckCircle, Clock, Filter, Mail, Smartphone, Bell, TrendingUp, AlertCircle, FileText, Search, Settings, Globe, Shield, X, Check, Award } from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
@@ -207,17 +207,20 @@ export default function AIJobAlertsPage() {
               ].map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-white border-2 border-[#ffd6c2] rounded-2xl p-6 shadow-lg hover:shadow-xl hover:border-[#ff4c00] transition-all duration-300 hover:-translate-y-1"
+                  className="bg-gradient-to-br from-white to-orange-50/50 border-2 border-[#ffd6c2] rounded-3xl p-6 shadow-lg hover:shadow-2xl hover:border-[#ff4c00] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] relative overflow-hidden group"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white mb-4 shadow-md">
-                    {benefit.icon}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff4c00]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                      {benefit.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-base text-slate-700">
+                      {benefit.desc}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-base text-slate-700">
-                    {benefit.desc}
-                  </p>
                 </div>
               ))}
             </div>
@@ -236,112 +239,130 @@ export default function AIJobAlertsPage() {
               </p>
             </div>
 
-            <div className="space-y-8">
-              {[
-                {
-                  step: "1",
-                  title: "Create Your Career Profile",
-                  desc: "Enter your:",
-                  bullets: [
-                    "Skills",
-                    "Experience",
-                    "Preferred roles",
-                    "Location preferences",
-                  ],
-                  note: "This allows our system to generate personalized job recommendations.",
-                  icon: <User className="h-8 w-8" />,
-                },
-                {
-                  step: "2",
-                  title: "AI Analyzes Your Profile",
-                  desc: "Our engine uses intelligent AI job matching to understand:",
-                  bullets: [
-                    "Your expertise",
-                    "Career direction",
-                    "Role suitability",
-                  ],
-                  note: "Delivering smarter, higher-quality matches.",
-                  icon: <Brain className="h-8 w-8" />,
-                },
-                {
-                  step: "3",
-                  title: "Smart Matching Algorithm Filters Jobs",
-                  desc: "Unlike basic alerts, our platform applies:",
-                  bullets: [
-                    "Skills-based filtering",
-                    "Experience alignment",
-                    "Location relevance",
-                    "Context-aware matching",
-                    "Personalized job recommendations",
-                  ],
-                  note: "Ensuring precision targeting.",
-                  icon: <Filter className="h-8 w-8" />,
-                },
-                {
-                  step: "4",
-                  title: "Receive Instant Job Alerts",
-                  desc: "Jobs are delivered via:",
-                  bullets: [
-                    "App notifications",
-                    "Email alerts",
-                    "SMS alerts (optional)",
-                  ],
-                  note: "These instant job alerts arrive within seconds.",
-                  icon: <Bell className="h-8 w-8" />,
-                },
-                {
-                  step: "5",
-                  title: "Apply Immediately",
-                  desc: "Early applicants often gain a measurable advantage.",
-                  bullets: [
-                    "Apply before listings get crowded",
-                    "Increase interview probability",
-                    "Reduce missed opportunities",
-                  ],
-                  icon: <Send className="h-8 w-8" />,
-                },
-              ].map((item) => (
-                <div
-                  key={item.step}
-                  className="flex flex-col md:flex-row items-start gap-6 p-6 md:p-8 bg-gradient-to-r from-white to-[#fff7f2] rounded-2xl border-2 border-[#ffd6c2] hover:border-[#ff4c00] transition-all duration-300"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white shadow-lg">
-                      {item.icon}
+            <div className="relative">
+              {/* Connecting line for visual flow */}
+              <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#ff4c00]/20 via-[#ff4c00]/40 to-[#ff4c00]/20"></div>
+              
+              <div className="space-y-6">
+                {[
+                  {
+                    step: "1",
+                    title: "Create Your Career Profile",
+                    desc: "Enter your:",
+                    bullets: [
+                      "Skills",
+                      "Experience",
+                      "Preferred roles",
+                      "Location preferences",
+                    ],
+                    note: "This allows our system to generate personalized job recommendations.",
+                    icon: <User className="h-8 w-8" />,
+                  },
+                  {
+                    step: "2",
+                    title: "AI Analyzes Your Profile",
+                    desc: "Our engine uses intelligent AI job matching to understand:",
+                    bullets: [
+                      "Your expertise",
+                      "Career direction",
+                      "Role suitability",
+                    ],
+                    note: "Delivering smarter, higher-quality matches.",
+                    icon: <Brain className="h-8 w-8" />,
+                  },
+                  {
+                    step: "3",
+                    title: "Smart Matching Algorithm Filters Jobs",
+                    desc: "Unlike basic alerts, our platform applies:",
+                    bullets: [
+                      "Skills-based filtering",
+                      "Experience alignment",
+                      "Location relevance",
+                      "Context-aware matching",
+                      "Personalized job recommendations",
+                    ],
+                    note: "Ensuring precision targeting.",
+                    icon: <Filter className="h-8 w-8" />,
+                  },
+                  {
+                    step: "4",
+                    title: "Receive Instant Job Alerts",
+                    desc: "Jobs are delivered via:",
+                    bullets: [
+                      "App notifications",
+                      "Email alerts",
+                      "SMS alerts (optional)",
+                    ],
+                    note: "These instant job alerts arrive within seconds.",
+                    icon: <Bell className="h-8 w-8" />,
+                  },
+                  {
+                    step: "5",
+                    title: "Apply Immediately",
+                    desc: "Early applicants often gain a measurable advantage.",
+                    bullets: [
+                      "Apply before listings get crowded",
+                      "Increase interview probability",
+                      "Reduce missed opportunities",
+                    ],
+                    icon: <Send className="h-8 w-8" />,
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={item.step}
+                    className="relative flex items-start gap-6 lg:gap-8 group"
+                  >
+                    {/* Step number circle on left */}
+                    <div className="flex-shrink-0 relative z-10">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#ff4c00] via-[#ff7a45] to-[#ff4c00] flex items-center justify-center text-white shadow-2xl group-hover:scale-110  transition-all duration-300 border-4 border-white">
+                        <span className="text-2xl font-extrabold">{item.step}</span>
+                      </div>
+                      {/* <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#ff4c00] opacity-0 group-hover:opacity-100 animate-ping"></div> */}
                     </div>
-                    <div className="mt-4 text-center">
-                      <span className="inline-block bg-[#ff4c00] text-white text-sm font-bold px-4 py-1 rounded-full">
-                        STEP {item.step}
-                      </span>
+
+                    {/* Content card */}
+                    <div className="flex-grow bg-gradient-to-br from-white via-orange-50/50 to-[#fff7f2] rounded-3xl p-6 md:p-8 border-2 border-[#ffd6c2] shadow-lg hover:shadow-2xl hover:border-[#ff4c00] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#ff4c00]/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                            {item.icon}
+                          </div>
+                          <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">
+                            {item.title}
+                          </h3>
+                        </div>
+                        
+                        <p className="text-base md:text-lg text-slate-700 mb-4 font-medium">
+                          {item.desc}
+                        </p>
+                        
+                        {item.bullets && (
+                          <div className="grid md:grid-cols-2 gap-3 mb-4">
+                            {item.bullets.map((bullet, i) => (
+                              <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/60 border border-[#ffd6c2] hover:border-[#ff4c00] transition-colors">
+                                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center">
+                                  <CheckCircle className="h-4 w-4 text-white" />
+                                </div>
+                                <span className="text-base text-slate-700 font-medium">{bullet}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {item.note && (
+                          <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-[#ff4c00]/10 to-orange-50 border-l-4 border-[#ff4c00]">
+                            <p className="text-base font-semibold text-[#ff4c00]">
+                              {item.note}
+                            </p>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <div className="flex-grow">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-base text-slate-700 mb-3">
-                      {item.desc}
-                    </p>
-                    {item.bullets && (
-                      <ul className="space-y-2 mb-3">
-                        {item.bullets.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#ff4c00]/10 flex items-center justify-center mt-0.5">
-                              <span className="text-[#ff4c00] font-bold text-xs">●</span>
-                            </div>
-                            <span className="text-base text-slate-700">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {item.note && (
-                      <p className="text-base font-medium text-[#ff4c00] mt-3">
-                        {item.note}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -444,35 +465,55 @@ export default function AIJobAlertsPage() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] rounded-2xl p-8 md:p-10 text-white">
-              <h3 className="text-2xl font-bold mb-6">Users typically experience:</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  "Faster job discovery",
-                  "Better job relevance",
-                  "Reduced job search time",
-                  "Higher early-application success",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0" />
-                    <span className="text-base font-medium">{item}</span>
+            <div className="relative bg-gradient-to-br from-[#ff4c00] via-[#ff5a1a] to-[#ff7a45] rounded-3xl p-8 md:p-12 text-white overflow-hidden shadow-2xl">
+              {/* Animated background elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
+                    <TrendingUp className="h-6 w-6" />
                   </div>
-                ))}
+                  <h3 className="text-2xl md:text-3xl font-extrabold">Users typically experience:</h3>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {[
+                    "Faster job discovery",
+                    "Better job relevance",
+                    "Reduced job search time",
+                    "Higher early-application success",
+                  ].map((item, index) => (
+                    <div 
+                      key={item} 
+                      className="flex items-start gap-4 p-5 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                        <CheckCircle className="h-5 w-5" />
+                      </div>
+                      <span className="text-base md:text-lg font-semibold leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Key Features Section */}
-        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24 relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ff4c00]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl"></div>
-
-          <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+        <section className="bg-white py-24">
+          <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+              <div className="inline-block px-4 py-2 rounded-full bg-[#ff4c00]/10 border border-[#ff4c00]/20 mb-6">
+                <span className="text-sm font-semibold text-[#ff4c00] uppercase tracking-wide">Core Capabilities</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900">
                 Key Features of Our <span className="text-[#ff4c00]">AI-Powered Job Notification App</span>
               </h2>
+              <p className="text-lg text-slate-600">
+                Everything you need to stay ahead in your job search
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -480,22 +521,22 @@ export default function AIJobAlertsPage() {
                 {
                   title: "Real-Time AI Job Alerts",
                   desc: "Receive jobs the moment they go live.",
-                  icon: <Bell className="h-8 w-8" />,
+                  icon: <Bell className="h-7 w-7" />,
                 },
                 {
                   title: "Smart Job Matching Algorithm",
                   desc: "Precision-based filtering engine.",
-                  icon: <Target className="h-8 w-8" />,
+                  icon: <Target className="h-7 w-7" />,
                 },
                 {
                   title: "Instant Job Alerts Within Seconds",
                   desc: "Eliminate traditional delays.",
-                  icon: <Zap className="h-8 w-8" />,
+                  icon: <Zap className="h-7 w-7" />,
                 },
                 {
                   title: "Personalized Job Recommendations",
                   desc: "Driven by intelligent AI models.",
-                  icon: <Brain className="h-8 w-8" />,
+                  icon: <Brain className="h-7 w-7" />,
                 },
                 {
                   title: "Advanced Filtering Controls",
@@ -506,7 +547,7 @@ export default function AIJobAlertsPage() {
                     "Remote roles",
                     "Industry",
                   ],
-                  icon: <Filter className="h-8 w-8" />,
+                  icon: <Filter className="h-7 w-7" />,
                 },
                 {
                   title: "Multi-Channel Notification Support",
@@ -516,53 +557,60 @@ export default function AIJobAlertsPage() {
                     "Email alerts",
                     "SMS alerts",
                   ],
-                  icon: <Smartphone className="h-8 w-8" />,
+                  icon: <Smartphone className="h-7 w-7" />,
                 },
                 {
                   title: "Save Jobs & Track Applications",
                   desc: "Stay organized effortlessly.",
-                  icon: <FileText className="h-8 w-8" />,
+                  icon: <FileText className="h-7 w-7" />,
                 },
                 {
                   title: "One-Click Apply Integration",
                   desc: "Apply faster with minimal friction.",
-                  icon: <Send className="h-8 w-8" />,
+                  icon: <Send className="h-7 w-7" />,
                 },
                 {
                   title: "Dashboard to Manage Alerts",
                   desc: "Full control over preferences.",
-                  icon: <BarChart3 className="h-8 w-8" />,
+                  icon: <BarChart3 className="h-7 w-7" />,
                 },
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="group relative bg-white border-2 border-[#ffd6c2] rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-[#ff4c00] transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
+                  className="group relative bg-white border border-slate-200 rounded-xl p-6 hover:border-[#ff4c00] hover:shadow-xl transition-all duration-300 flex flex-col h-full"
                 >
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#ff4c00] via-[#ff7a45] to-[#ff4c00] rounded-t-2xl"></div>
+                  {/* Subtle top accent */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#ff4c00] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white mb-5 shadow-md group-hover:scale-110 transition-transform flex-shrink-0">
-                    {feature.icon}
+                  <div className="flex items-start gap-4 mb-4">
+                    {/* Icon container */}
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center group-hover:bg-[#ff4c00] transition-colors duration-300">
+                      <div className="text-[#ff4c00] group-hover:text-white transition-colors duration-300">
+                        {feature.icon}
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-slate-900 mb-2 leading-tight group-hover:text-[#ff4c00] transition-colors">
+                        {feature.title}
+                      </h3>
+                    </div>
                   </div>
-
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
-                    {feature.title}
-                  </h3>
 
                   <div className="flex-grow flex flex-col">
                     {feature.desc && (
-                      <p className="text-sm md:text-base text-slate-700 mb-3 leading-relaxed">
+                      <p className="text-sm text-slate-600 mb-3 leading-relaxed">
                         {feature.desc}
                       </p>
                     )}
 
                     {feature.bullets && (
-                      <ul className="space-y-2.5 mt-2">
+                      <ul className="space-y-2 mt-2">
                         {feature.bullets.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#ff4c00]/10 flex items-center justify-center mt-0.5">
-                              <span className="text-[#ff4c00] font-bold text-xs">●</span>
-                            </div>
-                            <span className="text-sm md:text-base text-slate-700 leading-relaxed flex-1">{bullet}</span>
+                          <li key={i} className="flex items-center gap-2.5">
+                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
+                            <span className="text-sm text-slate-700 leading-relaxed">{bullet}</span>
                           </li>
                         ))}
                       </ul>
@@ -572,64 +620,90 @@ export default function AIJobAlertsPage() {
               ))}
             </div>
 
-            <div className="mt-12 text-center">
-              <p className="text-lg font-semibold text-slate-700">
-                Optimized as one of the Most Efficient AI job search tools
-              </p>
+            <div className="mt-16 text-center">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#fff7f2] border border-[#ffd6c2]">
+                <TrendingUp className="h-5 w-5 text-[#ff4c00]" />
+                <p className="text-base font-semibold text-slate-700">
+                  Optimized as one of the Most Efficient AI job search tools
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Comparison Table */}
-        <section className="bg-white py-24">
+        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+              <div className="inline-block px-4 py-2 rounded-full bg-[#ff4c00]/10 border border-[#ff4c00]/20 mb-6">
+                <span className="text-sm font-semibold text-[#ff4c00] uppercase tracking-wide">Side-by-Side Comparison</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900">
                 AI Job Alerts vs <span className="text-[#ff4c00]">Traditional Job Alerts</span>
               </h2>
             </div>
 
-            <div className="bg-white border-2 border-[#ffd6c2] rounded-2xl overflow-hidden shadow-lg">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] text-white">
-                      <th className="px-6 py-4 text-left font-bold text-lg">Traditional Job Alerts</th>
-                      <th className="px-6 py-4 text-left font-bold text-lg">AI Job Alerts Platform</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ["Generic email blasts", "Personalized job recommendations"],
-                      ["Delayed notifications", "Instant job alerts"],
-                      ["Manual filtering required", "AI-powered job matching"],
-                      ["Limited customization", "Smart preference learning"],
-                      ["High irrelevant listings", "Precision-based targeting"],
-                      ["Static filters", "Adaptive AI matching"],
-                    ].map(([traditional, ai], index) => (
-                      <tr
-                        key={index}
-                        className={`border-b border-[#ffd6c2] ${index % 2 === 0 ? "bg-white" : "bg-[#fff7f2]"}`}
-                      >
-                        <td className="px-6 py-4 text-base text-slate-700">
-                          <div className="flex items-center gap-3">
-                            <X className="h-5 w-5 text-red-500 flex-shrink-0" />
-                            <span>{traditional}</span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 text-base text-slate-700">
-                          <div className="flex items-center gap-3">
-                            <CheckCircle className="h-5 w-5 text-[#ff4c00] flex-shrink-0" />
-                            <span className="font-medium">{ai}</span>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Traditional Job Alerts Column */}
+              <div className="bg-white border-2 border-red-100 rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-red-100">
+                  <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center">
+                    <X className="h-6 w-6 text-red-500" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">Traditional Job Alerts</h3>
+                </div>
+                <ul className="space-y-4">
+                  {[
+                    "Generic email blasts",
+                    "Delayed notifications",
+                    "Manual filtering required",
+                    "Limited customization",
+                    "High irrelevant listings",
+                    "Static filters",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3 p-3 rounded-lg bg-red-50/50 border border-red-100">
+                      <X className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-base text-slate-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="bg-[#fff7f2] border-t-2 border-[#ffd6c2] p-6">
-                <p className="text-lg font-bold text-slate-900 text-center">
+
+              {/* AI Job Alerts Column */}
+              <div className="bg-gradient-to-br from-white to-orange-50/30 border-2 border-[#ff4c00] rounded-2xl p-8 shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#ff4c00]/10 rounded-full blur-2xl"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#ff4c00]/20">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center shadow-lg">
+                      <CheckCircle className="h-6 w-6 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900">AI Job Alerts Platform</h3>
+                  </div>
+                  <ul className="space-y-4">
+                    {[
+                      "Personalized job recommendations",
+                      "Instant job alerts",
+                      "AI-powered job matching",
+                      "Smart preference learning",
+                      "Precision-based targeting",
+                      "Adaptive AI matching",
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-3 p-3 rounded-lg bg-white/60 backdrop-blur-sm border border-[#ff4c00]/20">
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="h-3 w-3 text-white" />
+                        </div>
+                        <span className="text-base text-slate-700 font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <div className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] text-white shadow-lg">
+                <Sparkles className="h-5 w-5" />
+                <p className="text-lg font-bold">
                   Modern job search requires intelligent automation.
                 </p>
               </div>
@@ -638,32 +712,39 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* Who Can Use This */}
-        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24">
+        <section className="bg-white py-24">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+              <div className="inline-block px-4 py-2 rounded-full bg-[#ff4c00]/10 border border-[#ff4c00]/20 mb-6">
+                <span className="text-sm font-semibold text-[#ff4c00] uppercase tracking-wide">For Everyone</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900">
                 Who Can Use This <span className="text-[#ff4c00]">Job Notification App?</span>
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                "Fresh graduates",
-                "Entry-level professionals",
-                "Mid-career professionals",
-                "Career switchers",
-                "Remote job seekers",
-                "Freelancers & contractors",
-                "Executives & senior professionals",
-                "International applicants",
-                "Tech & non-tech professionals",
+                { label: "Fresh graduates", icon: <User className="h-5 w-5" /> },
+                { label: "Entry-level professionals", icon: <Briefcase className="h-5 w-5" /> },
+                { label: "Mid-career professionals", icon: <TrendingUp className="h-5 w-5" /> },
+                { label: "Career switchers", icon: <Target className="h-5 w-5" /> },
+                { label: "Remote job seekers", icon: <Globe className="h-5 w-5" /> },
+                { label: "Freelancers & contractors", icon: <UserCircle className="h-5 w-5" /> },
+                { label: "Executives & senior professionals", icon: <Award className="h-5 w-5" /> },
+                { label: "International applicants", icon: <Globe className="h-5 w-5" /> },
+                { label: "Tech & non-tech professionals", icon: <Layers className="h-5 w-5" /> },
               ].map((item) => (
                 <div
-                  key={item}
-                  className="flex items-center gap-3 p-4 rounded-lg bg-white border-2 border-[#ffd6c2] hover:border-[#ff4c00] transition-colors"
+                  key={item.label}
+                  className="group flex items-center gap-4 p-5 rounded-xl bg-gradient-to-br from-white to-orange-50/30 border border-slate-200 hover:border-[#ff4c00] hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                 >
-                  <CheckCircle className="h-5 w-5 text-[#ff4c00] flex-shrink-0" />
-                  <span className="text-base text-slate-700 font-medium">{item}</span>
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center group-hover:bg-[#ff4c00] transition-colors">
+                    <div className="text-[#ff4c00] group-hover:text-white transition-colors">
+                      {item.icon}
+                    </div>
+                  </div>
+                  <span className="text-base text-slate-700 font-semibold">{item.label}</span>
                 </div>
               ))}
             </div>

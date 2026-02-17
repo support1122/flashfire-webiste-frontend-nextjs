@@ -28,8 +28,8 @@ export default function JobApplicationStatusTrackerPage() {
 
               {/* LEFT */}
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-600 font-semibold text-sm">
-                  <Sparkles size={16} />
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-600 font-semibold text-sm border border-orange-200">
+                  <ListChecks size={16} />
                   Job Application Status Tracker & Follow-Up Dashboard
                 </div>
 
@@ -73,19 +73,19 @@ export default function JobApplicationStatusTrackerPage() {
 
               {/* RIGHT – APPLICATION TRACKER PREVIEW */}
               <div className="relative">
-                <div className="rounded-3xl border-2 border-slate-200/50 bg-white p-6 md:p-8 shadow-xl backdrop-blur-sm">
-                  <div className="flex items-center justify-between mb-6">
-                    <p className="text-sm font-bold text-slate-900 uppercase tracking-wide">
+                <div className="rounded-3xl border-2 border-orange-200/50 bg-white p-6 md:p-8 shadow-xl backdrop-blur-sm">
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-orange-100">
+                    <p className="text-sm font-bold text-orange-900 uppercase tracking-wide">
                       Application Status Dashboard
                     </p>
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <div className="w-2 h-2 rounded-full bg-[#ff4c00] animate-pulse"></div>
                   </div>
 
                   <div className="space-y-4">
                     <div className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] shadow-sm">
                       <div className="flex items-center justify-between mb-2">
                         <p className="text-sm font-bold text-slate-800">Frontend Developer</p>
-                        <span className="text-xs px-2 py-1 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] font-semibold">Interviewing</span>
+                        <span className="text-xs px-2 py-1 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] font-semibold border border-[#ffd6c2]">Interviewing</span>
                       </div>
                       <p className="text-xs text-slate-600">Stripe • Remote</p>
                       <div className="text-xs text-slate-500 mt-2">Applied 3 days ago</div>
@@ -94,7 +94,7 @@ export default function JobApplicationStatusTrackerPage() {
                     <div className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] shadow-sm">
                       <div className="flex items-center justify-between mb-2">
                         <p className="text-sm font-bold text-slate-800">Software Engineer Intern</p>
-                        <span className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold">Applied</span>
+                        <span className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold border border-blue-200">Applied</span>
                       </div>
                       <p className="text-xs text-slate-600">Shopify • Canada</p>
                       <div className="text-xs text-slate-500 mt-2">Applied 1 week ago</div>
@@ -103,7 +103,7 @@ export default function JobApplicationStatusTrackerPage() {
                     <div className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] shadow-sm">
                       <div className="flex items-center justify-between mb-2">
                         <p className="text-sm font-bold text-slate-800">UI Engineer</p>
-                        <span className="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-600 font-semibold">Follow-up</span>
+                        <span className="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-600 font-semibold border border-yellow-200">Follow-up</span>
                       </div>
                       <p className="text-xs text-slate-600">Airbnb • United States</p>
                       <div className="text-xs text-slate-500 mt-2">Follow-up due tomorrow</div>
@@ -216,17 +216,20 @@ export default function JobApplicationStatusTrackerPage() {
               ].map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-white border-2 border-[#ffd6c2] rounded-2xl p-6 shadow-lg hover:shadow-xl hover:border-[#ff4c00] transition-all duration-300 hover:-translate-y-1"
+                  className="bg-white border-l-4 border-[#ff4c00] rounded-r-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#ff7a45] relative overflow-hidden group"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white mb-4 shadow-md">
-                    {benefit.icon}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-[#ff4c00]/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative">
+                    <div className="w-12 h-12 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center mb-4 group-hover:bg-[#ff4c00]/20 transition-colors">
+                      <div className="text-[#ff4c00]">{benefit.icon}</div>
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-base text-slate-700">
+                      {benefit.desc}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-base text-slate-700">
-                    {benefit.desc}
-                  </p>
                 </div>
               ))}
             </div>
@@ -245,7 +248,7 @@ export default function JobApplicationStatusTrackerPage() {
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
                   step: "1",
@@ -258,7 +261,7 @@ export default function JobApplicationStatusTrackerPage() {
                     "Source",
                   ],
                   note: "Create a structured job application tracker record instantly.",
-                  icon: <FileText className="h-8 w-8" />,
+                  icon: <FileText className="h-7 w-7" />,
                 },
                 {
                   step: "2",
@@ -271,7 +274,7 @@ export default function JobApplicationStatusTrackerPage() {
                     "Rejected",
                   ],
                   note: "Easily track your job application status with one-click updates.",
-                  icon: <ListChecks className="h-8 w-8" />,
+                  icon: <ListChecks className="h-7 w-7" />,
                 },
                 {
                   step: "3",
@@ -283,7 +286,7 @@ export default function JobApplicationStatusTrackerPage() {
                     "Interview preparation alerts",
                   ],
                   note: "Perfect for a job application follow-up tracker workflow.",
-                  icon: <CalendarClock className="h-8 w-8" />,
+                  icon: <CalendarClock className="h-7 w-7" />,
                 },
                 {
                   step: "4",
@@ -294,7 +297,7 @@ export default function JobApplicationStatusTrackerPage() {
                     "Prioritized opportunity tracking",
                     "Instant track application progress insights",
                   ],
-                  icon: <BarChart3 className="h-8 w-8" />,
+                  icon: <BarChart3 className="h-7 w-7" />,
                 },
                 {
                   step: "5",
@@ -305,46 +308,57 @@ export default function JobApplicationStatusTrackerPage() {
                     "Interview conversion tracking",
                     "Performance insights",
                   ],
-                  icon: <TrendingUp className="h-8 w-8" />,
+                  icon: <TrendingUp className="h-7 w-7" />,
                 },
               ].map((item) => (
                 <div
                   key={item.step}
-                  className="flex flex-col md:flex-row items-start gap-6 p-6 md:p-8 bg-gradient-to-r from-white to-[#fff7f2] rounded-2xl border-2 border-[#ffd6c2] hover:border-[#ff4c00] transition-all duration-300"
+                  className="bg-white rounded-xl border-t-4 border-[#ff4c00] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white shadow-lg">
-                      {item.icon}
-                    </div>
-                    <div className="mt-4 text-center">
-                      <span className="inline-block bg-[#ff4c00] text-white text-sm font-bold px-4 py-1 rounded-full">
-                        STEP {item.step}
-                      </span>
-                    </div>
+                  {/* Step badge */}
+                  <div className="absolute top-4 right-4">
+                    {/* <div className="w-10 h-10 rounded-lg bg-[#ff4c00] text-white flex items-center justify-center font-bold text-sm shadow-md">
+                      {item.step}
+                    </div> */}
                   </div>
-                  <div className="flex-grow">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
+
+                  <div className="p-6 pt-8">
+                    {/* Icon */}
+                    <div className="w-14 h-14 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center mb-4 border border-[#ff4c00]/20 group-hover:bg-[#ff4c00]/20 transition-colors">
+                      <div className="text-[#ff4c00]">{item.icon}</div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 pr-12">
                       {item.title}
                     </h3>
-                    <p className="text-base text-slate-700 mb-3">
+
+                    {/* Description */}
+                    <p className="text-sm text-slate-600 mb-4 leading-relaxed">
                       {item.desc}
                     </p>
+
+                    {/* Bullets */}
                     {item.bullets && (
-                      <ul className="space-y-2 mb-3">
+                      <ul className="space-y-2 mb-4">
                         {item.bullets.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#ff4c00]/10 flex items-center justify-center mt-0.5">
-                              <span className="text-[#ff4c00] font-bold text-xs">●</span>
+                          <li key={i} className="flex items-start gap-2">
+                            <div className="flex-shrink-0 w-4 h-4 rounded-sm bg-[#ff4c00]/10 flex items-center justify-center mt-0.5 border border-[#ff4c00]/20">
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
                             </div>
-                            <span className="text-base text-slate-700">{bullet}</span>
+                            <span className="text-sm text-slate-700 leading-relaxed">{bullet}</span>
                           </li>
                         ))}
                       </ul>
                     )}
+
+                    {/* Note */}
                     {item.note && (
-                      <p className="text-base font-medium text-[#ff4c00] mt-3">
-                        {item.note}
-                      </p>
+                      <div className="mt-4 pt-4 border-t border-slate-200">
+                        <p className="text-xs font-semibold text-[#ff4c00] leading-relaxed">
+                          {item.note}
+                        </p>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -428,18 +442,29 @@ export default function JobApplicationStatusTrackerPage() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] rounded-2xl p-8 md:p-10 text-white">
-              <h3 className="text-2xl font-bold mb-6">Users typically experience:</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white border-2 border-[#ff4c00] rounded-xl p-8 md:p-10 shadow-xl">
+              <div className="flex items-center gap-3 mb-8 pb-6 border-b-2 border-[#ff4c00]/20">
+                <div className="w-10 h-10 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20">
+                  <TrendingUp className="h-6 w-6 text-[#ff4c00]" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">Users typically experience:</h3>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-4">
                 {[
                   "Faster job search organization",
                   "Reduced follow-up mistakes",
                   "Improved recruiter response probability",
                   "Better interview preparation timing",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0" />
-                    <span className="text-base font-medium">{item}</span>
+                ].map((item, index) => (
+                  <div 
+                    key={item} 
+                    className="flex items-start gap-3 p-4 rounded-lg bg-[#fff7f2] border-l-4 border-[#ff4c00] hover:bg-orange-50 transition-colors group"
+                  >
+                    <div className="flex-shrink-0 w-6 h-6 rounded-md bg-[#ff4c00] flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-base font-semibold text-slate-800 leading-relaxed">{item}</span>
                   </div>
                 ))}
               </div>
@@ -459,22 +484,22 @@ export default function JobApplicationStatusTrackerPage() {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
                 {
                   title: "Centralized Application Status Dashboard",
                   desc: "Monitor every opportunity from one interface.",
-                  icon: <BarChart3 className="h-8 w-8" />,
+                  icon: <BarChart3 className="h-7 w-7" />,
                 },
                 {
                   title: "Real-Time Application Tracking",
                   desc: "Know exactly where each application stands.",
-                  icon: <Clock className="h-8 w-8" />,
+                  icon: <Clock className="h-7 w-7" />,
                 },
                 {
                   title: "Automated Follow-Up Reminders",
                   desc: "Eliminate missed recruiter interactions.",
-                  icon: <CalendarClock className="h-8 w-8" />,
+                  icon: <CalendarClock className="h-7 w-7" />,
                 },
                 {
                   title: "Smart Priority Tagging System",
@@ -484,17 +509,17 @@ export default function JobApplicationStatusTrackerPage() {
                     "Custom status labels",
                     "Intelligent workflow categorization",
                   ],
-                  icon: <Tag className="h-8 w-8" />,
+                  icon: <Tag className="h-7 w-7" />,
                 },
                 {
                   title: "Interview Tracking & Scheduling",
                   desc: "Never miss critical deadlines.",
-                  icon: <CalendarCheck className="h-8 w-8" />,
+                  icon: <CalendarCheck className="h-7 w-7" />,
                 },
                 {
                   title: "Structured Recruiter Notes",
                   desc: "Maintain clean communication records.",
-                  icon: <MessageSquare className="h-8 w-8" />,
+                  icon: <MessageSquare className="h-7 w-7" />,
                 },
                 {
                   title: "Application Analytics & Insights",
@@ -504,57 +529,61 @@ export default function JobApplicationStatusTrackerPage() {
                     "Progress tracking",
                     "Outcome evaluation",
                   ],
-                  icon: <TrendingUp className="h-8 w-8" />,
+                  icon: <TrendingUp className="h-7 w-7" />,
                 },
                 {
                   title: "Cloud-Based Access",
                   desc: "Desktop + Mobile. Anywhere, anytime.",
-                  icon: <Smartphone className="h-8 w-8" />,
+                  icon: <Smartphone className="h-7 w-7" />,
                 },
                 {
                   title: "One-Click Status Updates",
                   desc: "Fast, friction-free updates.",
-                  icon: <Zap className="h-8 w-8" />,
+                  icon: <Zap className="h-7 w-7" />,
                 },
                 {
                   title: "Secure Data Storage",
                   desc: "Your information remains private.",
-                  icon: <Shield className="h-8 w-8" />,
+                  icon: <Shield className="h-7 w-7" />,
                 },
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="group relative bg-white border-2 border-[#ffd6c2] rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-[#ff4c00] transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
+                  className="group relative bg-white border-l-4 border-[#ff4c00] rounded-r-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col h-full"
                 >
-                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#ff4c00] via-[#ff7a45] to-[#ff4c00] rounded-t-2xl"></div>
+                  {/* Subtle background accent */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#ff4c00]/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white mb-5 shadow-md group-hover:scale-110 transition-transform flex-shrink-0">
-                    {feature.icon}
-                  </div>
+                  <div className="relative z-10">
+                    {/* Icon with structured design */}
+                    <div className="w-12 h-12 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center mb-4 border border-[#ff4c00]/20 group-hover:bg-[#ff4c00]/20 transition-colors">
+                      <div className="text-[#ff4c00]">{feature.icon}</div>
+                    </div>
 
-                  <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
-                    {feature.title}
-                  </h3>
+                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
+                      {feature.title}
+                    </h3>
 
-                  <div className="flex-grow flex flex-col">
-                    {feature.desc && (
-                      <p className="text-sm md:text-base text-slate-700 mb-3 leading-relaxed">
-                        {feature.desc}
-                      </p>
-                    )}
+                    <div className="flex-grow flex flex-col">
+                      {feature.desc && (
+                        <p className="text-sm md:text-base text-slate-600 mb-3 leading-relaxed">
+                          {feature.desc}
+                        </p>
+                      )}
 
-                    {feature.bullets && (
-                      <ul className="space-y-2.5 mt-2">
-                        {feature.bullets.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-2.5">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#ff4c00]/10 flex items-center justify-center mt-0.5">
-                              <span className="text-[#ff4c00] font-bold text-xs">●</span>
-                            </div>
-                            <span className="text-sm md:text-base text-slate-700 leading-relaxed flex-1">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                      {feature.bullets && (
+                        <ul className="space-y-2 mt-2">
+                          {feature.bullets.map((bullet, i) => (
+                            <li key={i} className="flex items-start gap-2.5">
+                              <div className="flex-shrink-0 w-4 h-4 rounded-sm bg-[#ff4c00]/10 flex items-center justify-center mt-0.5 border border-[#ff4c00]/20">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
+                              </div>
+                              <span className="text-sm md:text-base text-slate-700 leading-relaxed flex-1">{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -600,21 +629,38 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Comparison Table */}
-        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24">
+        <section className="bg-white py-24">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900">
                 Job Application Status Tracker vs <span className="text-[#ff4c00]">Spreadsheets</span>
               </h2>
+              <p className="text-lg text-slate-600">
+                See the difference between traditional tracking and our smart dashboard
+              </p>
             </div>
 
-            <div className="bg-white border-2 border-[#ffd6c2] rounded-2xl overflow-hidden shadow-lg">
+            <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] text-white">
-                      <th className="px-6 py-4 text-left font-bold text-lg">Traditional Spreadsheet Tracking</th>
-                      <th className="px-6 py-4 text-left font-bold text-lg">Our Application Status Dashboard</th>
+                    <tr className="bg-slate-50 border-b-2 border-slate-200">
+                      <th className="px-6 py-5 text-left">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                            <X className="h-5 w-5 text-red-500" />
+                          </div>
+                          <span className="font-bold text-lg text-slate-900">Traditional Spreadsheet Tracking</span>
+                        </div>
+                      </th>
+                      <th className="px-6 py-5 text-left">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20">
+                            <CheckCircle className="h-5 w-5 text-[#ff4c00]" />
+                          </div>
+                          <span className="font-bold text-lg text-slate-900">Our Application Status Dashboard</span>
+                        </div>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -628,18 +674,22 @@ export default function JobApplicationStatusTrackerPage() {
                     ].map(([traditional, ours], index) => (
                       <tr
                         key={index}
-                        className={`border-b border-[#ffd6c2] ${index % 2 === 0 ? "bg-white" : "bg-[#fff7f2]"}`}
+                        className={`border-b border-slate-100 ${index % 2 === 0 ? "bg-white" : "bg-slate-50/50"}`}
                       >
-                        <td className="px-6 py-4 text-base text-slate-700">
+                        <td className="px-6 py-5 text-base text-slate-700">
                           <div className="flex items-center gap-3">
-                            <X className="h-5 w-5 text-red-500 flex-shrink-0" />
+                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-50 flex items-center justify-center border border-red-100">
+                              <X className="h-4 w-4 text-red-500" />
+                            </div>
                             <span>{traditional}</span>
                           </div>
                         </td>
-                        <td className="px-6 py-4 text-base text-slate-700">
+                        <td className="px-6 py-5 text-base text-slate-700">
                           <div className="flex items-center gap-3">
-                            <CheckCircle className="h-5 w-5 text-[#ff4c00] flex-shrink-0" />
-                            <span className="font-medium">{ours}</span>
+                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20">
+                              <CheckCircle className="h-4 w-4 text-[#ff4c00]" />
+                            </div>
+                            <span className="font-semibold">{ours}</span>
                           </div>
                         </td>
                       </tr>
@@ -647,22 +697,28 @@ export default function JobApplicationStatusTrackerPage() {
                   </tbody>
                 </table>
               </div>
-              <div className="bg-[#fff7f2] border-t-2 border-[#ffd6c2] p-6">
-                <p className="text-lg font-bold text-slate-900 text-center">
-                  Modern job search requires smarter systems.
-                </p>
+              <div className="bg-slate-50 border-t border-slate-200 px-6 py-6">
+                <div className="flex items-center justify-center gap-3">
+                  <TrendingUp className="h-5 w-5 text-[#ff4c00]" />
+                  <p className="text-lg font-bold text-slate-900">
+                    Modern job search requires smarter systems.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Who Can Use This */}
-        <section className="bg-white py-24">
+        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900">
                 Who Can Use This <span className="text-[#ff4c00]">Job Application Tracker?</span>
               </h2>
+              <p className="text-lg text-slate-600">
+                Designed for job seekers at every stage of their career
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -675,13 +731,15 @@ export default function JobApplicationStatusTrackerPage() {
                 "Freelancers managing applications",
                 "Executives applying confidentially",
                 "International applicants",
-              ].map((item) => (
+              ].map((item, index) => (
                 <div
                   key={item}
-                  className="flex items-center gap-3 p-4 rounded-lg bg-[#fff7f2] border-2 border-[#ffd6c2] hover:border-[#ff4c00] transition-colors"
+                  className="flex items-center gap-3 p-4 rounded-lg bg-white border-l-4 border-[#ff4c00] shadow-sm hover:shadow-md transition-all duration-300 group"
                 >
-                  <CheckCircle className="h-5 w-5 text-[#ff4c00] flex-shrink-0" />
-                  <span className="text-base text-slate-700 font-medium">{item}</span>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-md bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20 group-hover:bg-[#ff4c00] transition-colors">
+                    <CheckCircle className="h-4 w-4 text-[#ff4c00] group-hover:text-white transition-colors" />
+                  </div>
+                  <span className="text-sm md:text-base text-slate-700 font-semibold">{item}</span>
                 </div>
               ))}
             </div>
