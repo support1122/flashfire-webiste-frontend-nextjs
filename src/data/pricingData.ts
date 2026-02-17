@@ -71,7 +71,6 @@ export const usPricingPlans: PricingPlan[] = [
       "Everything in Professional",
       "Executive-level job targeting",
       "Portfolio development",
-      "Cover Letters",
       "Emailing Recruiters",
       "1 Cover Letter (All Applications)",
     ],
@@ -144,7 +143,6 @@ export const canadaPricingPlans: PricingPlan[] = [
       "1000+ tailored applications",
       "Executive-level job targeting",
       "Portfolio development",
-      "Cover letters",
       "Emailing Recruiters",
       "1 Cover Letter (All Applications)",
 
