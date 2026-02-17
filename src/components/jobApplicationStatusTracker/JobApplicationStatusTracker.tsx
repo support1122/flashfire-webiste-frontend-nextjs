@@ -15,7 +15,7 @@ const updateCtaUrl = (basePath: string, label: string) => {
 };
 
 export default function JobApplicationStatusTrackerPage() {
-  const ctaLabel = "Start Tracking Your Applications Now";
+  const ctaLabel = "Start Tracking";
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   return (
@@ -173,63 +173,51 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Key Benefits */}
-        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+        <section className="bg-white py-16">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Key Benefits <span className="text-[#ff4c00]">at a Glance</span>
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
                   title: "Track Every Application Without Confusion",
                   desc: "One centralized system replaces spreadsheets.",
-                  icon: <ListChecks className="h-8 w-8" />,
                 },
                 {
                   title: "Never Miss Critical Follow-Ups",
                   desc: "Automated reminders keep you proactive.",
-                  icon: <CalendarClock className="h-8 w-8" />,
                 },
                 {
                   title: "Take Control of Your Job Search",
                   desc: "Complete visibility across all opportunities.",
-                  icon: <Target className="h-8 w-8" />,
                 },
                 {
                   title: "Reduce Job Search Stress",
                   desc: "Know exactly where every application stands.",
-                  icon: <Zap className="h-8 w-8" />,
                 },
                 {
                   title: "Save Hours of Manual Tracking",
                   desc: "Automation handles updates & reminders.",
-                  icon: <Clock className="h-8 w-8" />,
                 },
                 {
                   title: "Stay Fully Organized",
                   desc: "Built for smarter job search organization.",
-                  icon: <BarChart3 className="h-8 w-8" />,
                 },
               ].map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-white border-l-4 border-[#ff4c00] rounded-r-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#ff7a45] relative overflow-hidden group"
+                  className="bg-white border-l-4 border-[#ff4c00] rounded-r-lg p-5 hover:border-[#ff7a45] transition-colors"
                 >
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-[#ff4c00]/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="relative">
-                    <div className="w-12 h-12 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center mb-4 group-hover:bg-[#ff4c00]/20 transition-colors">
-                      <div className="text-[#ff4c00]">{benefit.icon}</div>
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-base text-slate-700">
-                      {benefit.desc}
-                    </p>
-                  </div>
+                  <h3 className="text-base font-semibold text-slate-900 mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    {benefit.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -237,129 +225,59 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* How It Works Section */}
-        <section className="bg-white py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+        <section className="bg-[#fff7f2] py-16">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 How Our <span className="text-[#ff4c00]">Job Application Status Tracker Works</span>
               </h2>
-              <p className="text-lg text-slate-700">
+              <p className="text-sm text-slate-600">
                 Setting up your dashboard takes less than 2 minutes.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="space-y-4">
               {[
                 {
                   step: "1",
                   title: "Add Your Job Details",
-                  desc: "Enter essential information:",
-                  bullets: [
-                    "Company name",
-                    "Role",
-                    "Application date",
-                    "Source",
-                  ],
-                  note: "Create a structured job application tracker record instantly.",
-                  icon: <FileText className="h-7 w-7" />,
+                  desc: "Enter company name, role, application date, and source to create a structured tracker record.",
                 },
                 {
                   step: "2",
                   title: "Update Your Application Stage",
-                  desc: "Track statuses like:",
-                  bullets: [
-                    "Applied",
-                    "Interview Scheduled",
-                    "Offer Received",
-                    "Rejected",
-                  ],
-                  note: "Easily track your job application status with one-click updates.",
-                  icon: <ListChecks className="h-7 w-7" />,
+                  desc: "Track statuses like Applied, Interview Scheduled, Offer Received, or Rejected with one-click updates.",
                 },
                 {
                   step: "3",
                   title: "Automate Your Follow-Ups",
-                  desc: "Never forget recruiter communication again.",
-                  bullets: [
-                    "Smart follow-up reminders",
-                    "Recruiter interaction tracking",
-                    "Interview preparation alerts",
-                  ],
-                  note: "Perfect for a job application follow-up tracker workflow.",
-                  icon: <CalendarClock className="h-7 w-7" />,
+                  desc: "Never forget recruiter communication with smart follow-up reminders and interaction tracking.",
                 },
                 {
                   step: "4",
                   title: "Track Progress Visually",
-                  desc: "Your application status dashboard provides:",
-                  bullets: [
-                    "Clear application stage visibility",
-                    "Prioritized opportunity tracking",
-                    "Instant track application progress insights",
-                  ],
-                  icon: <BarChart3 className="h-7 w-7" />,
+                  desc: "Get clear application stage visibility, prioritized opportunity tracking, and instant progress insights.",
                 },
                 {
                   step: "5",
                   title: "Analyze Outcomes & Optimize",
-                  desc: "Make smarter decisions using:",
-                  bullets: [
-                    "Application metrics",
-                    "Interview conversion tracking",
-                    "Performance insights",
-                  ],
-                  icon: <TrendingUp className="h-7 w-7" />,
+                  desc: "Make smarter decisions using application metrics, interview conversion tracking, and performance insights.",
                 },
               ].map((item) => (
                 <div
                   key={item.step}
-                  className="bg-white rounded-xl border-t-4 border-[#ff4c00] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group"
+                  className="flex items-start gap-4 bg-white border-l-4 border-[#ff4c00] rounded-r-lg p-5"
                 >
-                  {/* Step badge */}
-                  <div className="absolute top-4 right-4">
-                    {/* <div className="w-10 h-10 rounded-lg bg-[#ff4c00] text-white flex items-center justify-center font-bold text-sm shadow-md">
-                      {item.step}
-                    </div> */}
+                  <div className="flex-shrink-0 w-8 h-8 rounded-md bg-[#ff4c00] text-white flex items-center justify-center text-sm font-bold">
+                    {item.step}
                   </div>
-
-                  <div className="p-6 pt-8">
-                    {/* Icon */}
-                    <div className="w-14 h-14 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center mb-4 border border-[#ff4c00]/20 group-hover:bg-[#ff4c00]/20 transition-colors">
-                      <div className="text-[#ff4c00]">{item.icon}</div>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 pr-12">
+                  <div className="flex-grow">
+                    <h3 className="text-base font-semibold text-slate-900 mb-1">
                       {item.title}
                     </h3>
-
-                    {/* Description */}
-                    <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                    <p className="text-sm text-slate-600">
                       {item.desc}
                     </p>
-
-                    {/* Bullets */}
-                    {item.bullets && (
-                      <ul className="space-y-2 mb-4">
-                        {item.bullets.map((bullet, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <div className="flex-shrink-0 w-4 h-4 rounded-sm bg-[#ff4c00]/10 flex items-center justify-center mt-0.5 border border-[#ff4c00]/20">
-                              <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
-                            </div>
-                            <span className="text-sm text-slate-700 leading-relaxed">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {/* Note */}
-                    {item.note && (
-                      <div className="mt-4 pt-4 border-t border-slate-200">
-                        <p className="text-xs font-semibold text-[#ff4c00] leading-relaxed">
-                          {item.note}
-                        </p>
-                      </div>
-                    )}
                   </div>
                 </div>
               ))}
@@ -368,47 +286,42 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Real-Time Status Updates & Other Features */}
-        <section className="bg-[#fff7f2] py-16">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white border-2 border-[#ff4c00] rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                  <Clock className="h-6 w-6 text-[#ff4c00]" />
+        <section className="bg-white py-12">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="bg-white border border-slate-200 rounded-lg p-5">
+                <h3 className="text-base font-semibold text-slate-900 mb-3">
                   Real-Time Status Updates
                 </h3>
-                <p className="text-base text-slate-700 mb-4">Stay informed with:</p>
                 <ul className="space-y-2">
                   {["Real-time status updates", "Live dashboard refresh", "Instant tracking visibility"].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-[#ff4c00] flex-shrink-0" />
-                      <span className="text-sm text-slate-700">{item}</span>
+                    <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1 h-1 rounded-full bg-[#ff4c00]"></div>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-[#ff4c00] rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                  <Database className="h-6 w-6 text-[#ff4c00]" />
+              <div className="bg-white border border-slate-200 rounded-lg p-5">
+                <h3 className="text-base font-semibold text-slate-900 mb-3">
                   Centralized Job Search Management
                 </h3>
-                <p className="text-base text-slate-700 mb-4">Manage everything from one centralized job board:</p>
                 <ul className="space-y-2">
                   {["No scattered records", "No lost notes", "No tracking confusion"].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-[#ff4c00] flex-shrink-0" />
-                      <span className="text-sm text-slate-700">{item}</span>
+                    <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
+                      <div className="w-1 h-1 rounded-full bg-[#ff4c00]"></div>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-white border-2 border-[#ff4c00] rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                  <Globe className="h-6 w-6 text-[#ff4c00]" />
+              <div className="bg-white border border-slate-200 rounded-lg p-5">
+                <h3 className="text-base font-semibold text-slate-900 mb-3">
                   Integrated Job Listing Tracking
                 </h3>
-                <p className="text-base text-slate-700">
+                <p className="text-sm text-slate-600">
                   Track applications across multiple platforms using integrated job listing tracking.
                 </p>
               </div>
@@ -416,18 +329,18 @@ export default function JobApplicationStatusTrackerPage() {
           </div>
         </section>
         {/* Why This Job Application Tracker Delivers Better Results */}
-        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+        <section className="bg-white py-16">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Why This <span className="text-[#ff4c00]">Job Application Tracker Delivers Better Results</span>
               </h2>
-              <p className="text-lg text-slate-700">
+              <p className="text-sm text-slate-600">
                 Spreadsheets track data. We deliver clarity & control.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
               {[
                 "Understand your entire job search instantly",
                 "Prevent missed follow-ups",
@@ -435,36 +348,25 @@ export default function JobApplicationStatusTrackerPage() {
                 "Reduce mental overload",
                 "Prioritize high-impact applications",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3 p-4 rounded-lg bg-white border-2 border-[#ffd6c2] hover:border-[#ff4c00] transition-colors">
-                  <CheckCircle className="h-6 w-6 text-[#ff4c00] flex-shrink-0" />
-                  <span className="text-base text-slate-700 font-medium">{item}</span>
+                <div key={item} className="flex items-center gap-3 p-4 rounded-lg bg-white border border-slate-200">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
+                  <span className="text-sm text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
 
-            <div className="bg-white border-2 border-[#ff4c00] rounded-xl p-8 md:p-10 shadow-xl">
-              <div className="flex items-center gap-3 mb-8 pb-6 border-b-2 border-[#ff4c00]/20">
-                <div className="w-10 h-10 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20">
-                  <TrendingUp className="h-6 w-6 text-[#ff4c00]" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">Users typically experience:</h3>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-[#fff7f2] border border-[#ff4c00] rounded-lg p-6">
+              <h3 className="text-lg font-bold text-slate-900 mb-4">Users typically experience:</h3>
+              <div className="grid md:grid-cols-2 gap-3">
                 {[
                   "Faster job search organization",
                   "Reduced follow-up mistakes",
                   "Improved recruiter response probability",
                   "Better interview preparation timing",
-                ].map((item, index) => (
-                  <div 
-                    key={item} 
-                    className="flex items-start gap-3 p-4 rounded-lg bg-[#fff7f2] border-l-4 border-[#ff4c00] hover:bg-orange-50 transition-colors group"
-                  >
-                    <div className="flex-shrink-0 w-6 h-6 rounded-md bg-[#ff4c00] flex items-center justify-center mt-0.5 group-hover:scale-110 transition-transform">
-                      <CheckCircle className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-base font-semibold text-slate-800 leading-relaxed">{item}</span>
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
+                    <span className="text-sm text-slate-700 font-medium">{item}</span>
                   </div>
                 ))}
               </div>
@@ -473,118 +375,67 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Key Features Section */}
-        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24 relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#ff4c00]/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl"></div>
-
-          <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+        <section className="bg-[#fff7f2] py-16">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Key Features Designed for <span className="text-[#ff4c00]">Job Search Control</span>
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
                   title: "Centralized Application Status Dashboard",
                   desc: "Monitor every opportunity from one interface.",
-                  icon: <BarChart3 className="h-7 w-7" />,
                 },
                 {
                   title: "Real-Time Application Tracking",
                   desc: "Know exactly where each application stands.",
-                  icon: <Clock className="h-7 w-7" />,
                 },
                 {
                   title: "Automated Follow-Up Reminders",
                   desc: "Eliminate missed recruiter interactions.",
-                  icon: <CalendarClock className="h-7 w-7" />,
                 },
                 {
                   title: "Smart Priority Tagging System",
-                  desc: "Organize using:",
-                  bullets: [
-                    "Priority tagging",
-                    "Custom status labels",
-                    "Intelligent workflow categorization",
-                  ],
-                  icon: <Tag className="h-7 w-7" />,
+                  desc: "Organize using priority tagging, custom status labels, and intelligent workflow categorization.",
                 },
                 {
                   title: "Interview Tracking & Scheduling",
                   desc: "Never miss critical deadlines.",
-                  icon: <CalendarCheck className="h-7 w-7" />,
                 },
                 {
                   title: "Structured Recruiter Notes",
                   desc: "Maintain clean communication records.",
-                  icon: <MessageSquare className="h-7 w-7" />,
                 },
                 {
                   title: "Application Analytics & Insights",
-                  desc: "Measure performance using:",
-                  bullets: [
-                    "Application metrics",
-                    "Progress tracking",
-                    "Outcome evaluation",
-                  ],
-                  icon: <TrendingUp className="h-7 w-7" />,
+                  desc: "Measure performance using application metrics, progress tracking, and outcome evaluation.",
                 },
                 {
                   title: "Cloud-Based Access",
                   desc: "Desktop + Mobile. Anywhere, anytime.",
-                  icon: <Smartphone className="h-7 w-7" />,
                 },
                 {
                   title: "One-Click Status Updates",
                   desc: "Fast, friction-free updates.",
-                  icon: <Zap className="h-7 w-7" />,
                 },
                 {
                   title: "Secure Data Storage",
                   desc: "Your information remains private.",
-                  icon: <Shield className="h-7 w-7" />,
                 },
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="group relative bg-white border-l-4 border-[#ff4c00] rounded-r-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col h-full"
+                  className="bg-white border-l-4 border-[#ff4c00] rounded-r-lg p-4"
                 >
-                  {/* Subtle background accent */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#ff4c00]/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-
-                  <div className="relative z-10">
-                    {/* Icon with structured design */}
-                    <div className="w-12 h-12 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center mb-4 border border-[#ff4c00]/20 group-hover:bg-[#ff4c00]/20 transition-colors">
-                      <div className="text-[#ff4c00]">{feature.icon}</div>
-                    </div>
-
-                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
-                      {feature.title}
-                    </h3>
-
-                    <div className="flex-grow flex flex-col">
-                      {feature.desc && (
-                        <p className="text-sm md:text-base text-slate-600 mb-3 leading-relaxed">
-                          {feature.desc}
-                        </p>
-                      )}
-
-                      {feature.bullets && (
-                        <ul className="space-y-2 mt-2">
-                          {feature.bullets.map((bullet, i) => (
-                            <li key={i} className="flex items-start gap-2.5">
-                              <div className="flex-shrink-0 w-4 h-4 rounded-sm bg-[#ff4c00]/10 flex items-center justify-center mt-0.5 border border-[#ff4c00]/20">
-                                <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
-                              </div>
-                              <span className="text-sm md:text-base text-slate-700 leading-relaxed flex-1">{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
+                  <h3 className="text-base font-semibold text-slate-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-slate-600">
+                    {feature.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -592,18 +443,18 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Why Job Seekers Choose */}
-        <section className="bg-white py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+        <section className="bg-[#fff7f2] py-16">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Why Job Seekers Choose Our <span className="text-[#ff4c00]">Application Status Dashboard</span>
               </h2>
-              <p className="text-lg text-slate-700">
+              <p className="text-sm text-slate-600">
                 Job seekers want clarity, efficiency, and control.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
                 "Stay fully organized",
                 "Prevent missed follow-ups",
@@ -618,10 +469,10 @@ export default function JobApplicationStatusTrackerPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-3 p-4 rounded-lg bg-[#fff7f2] border-2 border-[#ffd6c2] hover:border-[#ff4c00] transition-colors"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-white border border-slate-200"
                 >
-                  <CheckCircle className="h-5 w-5 text-[#ff4c00] flex-shrink-0" />
-                  <span className="text-base text-slate-700 font-medium">{item}</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
+                  <span className="text-sm text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -629,38 +480,21 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Comparison Table */}
-        <section className="bg-white py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900">
+        <section className="bg-[#fff7f2] py-16">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Job Application Status Tracker vs <span className="text-[#ff4c00]">Spreadsheets</span>
               </h2>
-              <p className="text-lg text-slate-600">
-                See the difference between traditional tracking and our smart dashboard
-              </p>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-lg">
+            <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="bg-slate-50 border-b-2 border-slate-200">
-                      <th className="px-6 py-5 text-left">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
-                            <X className="h-5 w-5 text-red-500" />
-                          </div>
-                          <span className="font-bold text-lg text-slate-900">Traditional Spreadsheet Tracking</span>
-                        </div>
-                      </th>
-                      <th className="px-6 py-5 text-left">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20">
-                            <CheckCircle className="h-5 w-5 text-[#ff4c00]" />
-                          </div>
-                          <span className="font-bold text-lg text-slate-900">Our Application Status Dashboard</span>
-                        </div>
-                      </th>
+                    <tr className="bg-slate-50 border-b border-slate-200">
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Traditional Spreadsheet Tracking</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Our Application Status Dashboard</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -676,20 +510,16 @@ export default function JobApplicationStatusTrackerPage() {
                         key={index}
                         className={`border-b border-slate-100 ${index % 2 === 0 ? "bg-white" : "bg-slate-50/50"}`}
                       >
-                        <td className="px-6 py-5 text-base text-slate-700">
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-50 flex items-center justify-center border border-red-100">
-                              <X className="h-4 w-4 text-red-500" />
-                            </div>
+                        <td className="px-4 py-3 text-sm text-slate-700">
+                          <div className="flex items-center gap-2">
+                            <X className="h-4 w-4 text-red-500 flex-shrink-0" />
                             <span>{traditional}</span>
                           </div>
                         </td>
-                        <td className="px-6 py-5 text-base text-slate-700">
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20">
-                              <CheckCircle className="h-4 w-4 text-[#ff4c00]" />
-                            </div>
-                            <span className="font-semibold">{ours}</span>
+                        <td className="px-4 py-3 text-sm text-slate-700">
+                          <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
+                            <span className="font-medium">{ours}</span>
                           </div>
                         </td>
                       </tr>
@@ -697,31 +527,28 @@ export default function JobApplicationStatusTrackerPage() {
                   </tbody>
                 </table>
               </div>
-              <div className="bg-slate-50 border-t border-slate-200 px-6 py-6">
-                <div className="flex items-center justify-center gap-3">
-                  <TrendingUp className="h-5 w-5 text-[#ff4c00]" />
-                  <p className="text-lg font-bold text-slate-900">
-                    Modern job search requires smarter systems.
-                  </p>
-                </div>
+              <div className="bg-slate-50 border-t border-slate-200 px-4 py-4">
+                <p className="text-sm font-semibold text-slate-900 text-center">
+                  Modern job search requires smarter systems.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Who Can Use This */}
-        <section className="bg-gradient-to-b from-white via-[#fff7f2] to-white py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-slate-900">
+        <section className="bg-white py-16">
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Who Can Use This <span className="text-[#ff4c00]">Job Application Tracker?</span>
               </h2>
-              <p className="text-lg text-slate-600">
+              <p className="text-sm text-slate-600">
                 Designed for job seekers at every stage of their career
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
               {[
                 "Fresh graduates",
                 "Entry-level professionals",
@@ -731,15 +558,13 @@ export default function JobApplicationStatusTrackerPage() {
                 "Freelancers managing applications",
                 "Executives applying confidentially",
                 "International applicants",
-              ].map((item, index) => (
+              ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-3 p-4 rounded-lg bg-white border-l-4 border-[#ff4c00] shadow-sm hover:shadow-md transition-all duration-300 group"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-white border-l-4 border-[#ff4c00]"
                 >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-md bg-[#ff4c00]/10 flex items-center justify-center border border-[#ff4c00]/20 group-hover:bg-[#ff4c00] transition-colors">
-                    <CheckCircle className="h-4 w-4 text-[#ff4c00] group-hover:text-white transition-colors" />
-                  </div>
-                  <span className="text-sm md:text-base text-slate-700 font-semibold">{item}</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
+                  <span className="text-sm text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -747,54 +572,25 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6">
-              Track Your Job Application Status Smarter
+        <section className="bg-gradient-to-br from-[#ff4c00] via-[#ff5a1a] to-[#ff7a45] py-20">
+          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+              Ready to Track Your Applications?
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Stop relying on outdated tracking methods.
+            <p className="text-base text-white/90 mb-8 max-w-xl mx-auto">
+              Stop relying on spreadsheets. Take full control of your job search.
             </p>
-            <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-              With our job application status tracker, you can:
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 max-w-4xl mx-auto">
-              {[
-                "Monitor all applications effortlessly",
-                "Never miss follow-ups",
-                "Stay fully organized",
-                "Reduce job search stress",
-                "Make smarter decisions",
-                "Take full control of your career search",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 justify-center">
-                  <CheckCircle className="h-5 w-5 text-white flex-shrink-0" />
-                  <span className="text-base text-white font-medium">{item}</span>
-                </div>
-              ))}
-            </div>
             <button
               type="button"
               onClick={() => updateCtaUrl("/job-application-status-tracker", ctaLabel)}
-              className="inline-flex items-center justify-center rounded-xl bg-white text-[#ff4c00] px-10 py-4 text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 mb-6"
+              className="inline-flex items-center justify-center rounded-lg bg-white text-[#ff4c00] px-10 py-4 text-base font-semibold hover:bg-gray-50 transition-colors shadow-lg mb-6"
             >
               {ctaLabel}
-              <ArrowRight size={20} className="ml-2" />
+              <ArrowRight size={18} className="ml-2" />
             </button>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-white/90">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5" />
-                <span>Instant setup</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5" />
-                <span>No complex learning curve</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5" />
-                <span>Secure & private</span>
-              </div>
-            </div>
+            <p className="text-sm text-white/80">
+              Instant setup • No credit card required • Free to start
+            </p>
           </div>
         </section>
 
