@@ -82,7 +82,8 @@ export const trackSchedule = (options: {
   } = options;
 
   // Track as conversion event
-  conversion('schedule_meeting', {
+  // Conversion Label: 06-oCNjI9_obEOLL8J1C (from Google Ads)
+  conversion('06-oCNjI9_obEOLL8J1C', {
     value,
     currency,
     transaction_id: transactionId,
