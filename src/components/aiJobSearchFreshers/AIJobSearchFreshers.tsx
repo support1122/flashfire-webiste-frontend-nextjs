@@ -1,22 +1,23 @@
 "use client";
 
-import { GraduationCap, Search, Target, Sparkles, Award } from "lucide-react";
+import { GraduationCap, Search, Target, Sparkles, Award, ArrowRight, CheckCircle2, Users, FileText, Bell, Zap } from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
+const updateCtaUrl = (basePath: string, label: string) => {
+  if (typeof window === "undefined") return;
+  const slug = label.trim().replace(/\s+/g, "-");
+  const isCanada = window.location.pathname.startsWith("/en-ca");
+  const normalizedBase = isCanada ? `/en-ca${basePath}` : basePath;
+  const newUrl = `${normalizedBase}/${slug}`;
+  window.history.pushState({}, "", newUrl);
+  window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
+};
+
 export default function AIJobSearchFreshersPage() {
-  const ctaLabel = "Start Fresher Job Search";
+  const ctaLabel = "Get Started";
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
-  const updateCtaUrl = (basePath: string, label: string) => {
-    if (typeof window === "undefined") return;
-    const slug = label.trim().replace(/\s+/g, "-");
-    const isCanada = window.location.pathname.startsWith("/en-ca");
-    const normalizedBase = isCanada ? `/en-ca${basePath}` : basePath;
-    const newUrl = `${normalizedBase}/${slug}`;
-    window.history.pushState({}, "", newUrl);
-    window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
-  };
 
   return (
     <div className="bg-[#fff7f2] text-slate-900 min-h-screen">
@@ -89,199 +90,578 @@ export default function AIJobSearchFreshersPage() {
             </div>
           </div>
         </section>
-        {/* WHY FRESHERS STRUGGLE */}
-<section className="bg-white py-24">
-  <div className="max-w-6xl mx-auto px-4 md:px-6">
-
-    <div className="text-center max-w-2xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-extrabold">
-        Starting Your Career
-        <span className="block text-[#ff4c00]">Is Harder Than It Should Be</span>
-      </h2>
-      <p className="mt-4 text-slate-600 text-sm md:text-base">
-        Most graduates don’t lack talent — they lack direction.
-      </p>
-    </div>
-
-    <div className="mt-16 grid md:grid-cols-2 gap-10">
-
-      {/* Problems */}
-      <div className="rounded-2xl bg-[#fff4ec] border border-[#ffd6c2] p-8">
-        <h3 className="font-semibold text-lg mb-6 text-[#ff4c00]">
-          What Freshers Face
-        </h3>
-        <ul className="space-y-4 text-sm text-slate-700">
-          <li>• Applying to 100+ jobs with no response</li>
-          <li>• Unsure which roles truly match your skills</li>
-          <li>• Feeling underqualified because of “experience required”</li>
-          <li>• No clear roadmap after graduation</li>
-        </ul>
-      </div>
-
-      {/* Solutions */}
-      <div className="rounded-2xl bg-[#fffaf7] border border-[#ffd6c2] p-8 shadow-sm">
-        <h3 className="font-semibold text-lg mb-6 text-slate-900">
-          How Flashfire Helps
-        </h3>
-        <ul className="space-y-4 text-sm text-slate-700">
-          <li>✓ Identify roles aligned with your real strengths</li>
-          <li>✓ Suggest internships and entry-level roles you can actually get</li>
-          <li>✓ Map your coursework to industry requirements</li>
-          <li>✓ Provide a clear next-step action plan</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-{/* HOW FLASHFIRE GUIDES YOU */}
-<section className="bg-[#fff7f2] py-24">
-  <div className="max-w-6xl mx-auto px-4 md:px-6">
-
-    <div className="text-center max-w-2xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-extrabold">
-        From Graduate
-        <span className="block text-[#ff4c00]">To Job-Ready Candidate</span>
-      </h2>
-      <p className="mt-4 text-slate-600 text-sm md:text-base">
-        Structured guidance instead of random applications.
-      </p>
-    </div>
-
-    <div className="mt-16 grid md:grid-cols-4 gap-6">
-
-      {/* Step 1 */}
-      <div className="rounded-2xl bg-white border border-[#ffd6c2] p-6 hover:shadow-lg transition">
-        <div className="text-xs font-bold text-[#ff4c00] mb-3">
-          STEP 1
-        </div>
-        <h3 className="font-semibold">
-          Skill Evaluation
-        </h3>
-        <p className="mt-2 text-sm text-slate-600">
-          Analyze your projects, tools, and coursework.
-        </p>
-      </div>
-
-      {/* Step 2 */}
-      <div className="rounded-2xl bg-white border border-[#ffd6c2] p-6 hover:shadow-lg transition">
-        <div className="text-xs font-bold text-[#ff4c00] mb-3">
-          STEP 2
-        </div>
-        <h3 className="font-semibold">
-          Role Matching
-        </h3>
-        <p className="mt-2 text-sm text-slate-600">
-          Recommend realistic entry-level roles.
-        </p>
-      </div>
-
-      {/* Step 3 */}
-      <div className="rounded-2xl bg-white border border-[#ffd6c2] p-6 hover:shadow-lg transition">
-        <div className="text-xs font-bold text-[#ff4c00] mb-3">
-          STEP 3
-        </div>
-        <h3 className="font-semibold">
-          Resume Alignment
-        </h3>
-        <p className="mt-2 text-sm text-slate-600">
-          Highlight the right skills for each job.
-        </p>
-      </div>
-
-      {/* Step 4 */}
-      <div className="rounded-2xl bg-white border border-[#ffd6c2] p-6 hover:shadow-lg transition">
-        <div className="text-xs font-bold text-[#ff4c00] mb-3">
-          STEP 4
-        </div>
-        <h3 className="font-semibold">
-          Confident Applications
-        </h3>
-        <p className="mt-2 text-sm text-slate-600">
-          Apply strategically — not blindly.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-        {/* SUCCESS STORIES SECTION */}
-        <section className="bg-white py-24">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-extrabold">
-                How Freshers
-                <span className="block text-[#ff4c00]">Land Their First Jobs</span>
-              </h2>
-              <p className="mt-4 text-slate-600 text-sm md:text-base">
-                Real graduates. Real results. Real direction.
+        {/* TRUSTED BY */}
+        <section className="bg-white py-12 border-y border-slate-100">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 mb-4">
+                Trusted by Thousands of Fresh Graduates
+              </p>
+              <p className="text-lg text-slate-900 mb-5 font-semibold">
+                Join a growing community of early-career professionals using our:{" "}
+                <span className="text-[#ff4c00]">fresher job search platform</span>
               </p>
             </div>
 
-            <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-700">
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-[#ff4c00]" />
+                <span>Thousands of profiles created</span>
+              </div>
+              <span className="hidden md:inline text-slate-300">•</span>
+              <div className="flex items-center gap-2">
+                <Search className="h-4 w-4 text-[#ff4c00]" />
+                <span>Millions of listings analyzed</span>
+              </div>
+              <span className="hidden md:inline text-slate-300">•</span>
+              <div className="flex items-center gap-2">
+                <Zap className="h-4 w-4 text-[#ff4c00]" />
+                <span>Faster job discovery experience</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WHY TRADITIONAL PORTALS DON'T WORK */}
+        <section className="bg-[#fff7f2] py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Why Traditional Job Portals Don't Work Well for <span className="text-[#ff4c00]">Freshers</span>
+              </h2>
+              <p className="text-base text-slate-700">
+                Most job boards are built for experienced candidates.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-3 mb-6">
+              {[
+                "Irrelevant job listings",
+                "Confusing filters",
+                "Experience-heavy roles",
+                "Endless manual searching",
+                "Low response rates",
+                "Application burnout",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
+                >
+                  <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-white rounded-lg border border-[#ff4c00]/20 p-5 text-sm text-slate-700">
+              <p className="mb-2">
+                <span className="font-semibold">Tired of applying to 100+ jobs with no replies?</span>
+              </p>
+              <p className="mb-2">
+                <span className="font-semibold">Frustrated seeing "2–5 years experience required"?</span>
+              </p>
+              <p className="mb-3">
+                Finding relevant jobs for fresh graduates becomes slow, stressful, and unpredictable.
+              </p>
+              <p className="text-sm font-semibold text-[#ff4c00]">
+                Our intelligent platform eliminates this friction.
+              </p>
+              <button
+                type="button"
+                onClick={() => updateCtaUrl("/ai-job-search-platform-for-freshers", "Create Profile")}
+                className="mt-3 text-xs font-semibold text-[#ff4c00] hover:underline"
+              >
+                Create Profile →
+              </button>
+            </div>
+          </div>
+        </section>
+        {/* KEY BENEFITS */}
+        <section className="bg-white py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Key Benefits at a <span className="text-[#ff4c00]">Glance</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 {
-                  name: "Computer Science Graduate",
-                  outcome: "Found Frontend Intern role in 3 weeks",
-                  quote: "Flashfire showed me which skills actually mattered and matched me to roles I could actually get.",
-                  icon: <Award className="h-6 w-6 text-[#ff4c00]" />,
+                  num: "1",
+                  title: "Find Relevant Jobs Faster",
+                  desc: "No more sorting through senior-level roles.",
                 },
                 {
-                  name: "Recent Engineering Grad",
-                  outcome: "Landed Junior Developer position",
-                  quote: "Instead of applying blindly, I focused on roles where my coursework and projects aligned.",
-                  icon: <Target className="h-6 w-6 text-[#ff4c00]" />,
+                  num: "2",
+                  title: "Get Personalized Job Matches",
+                  desc: "Powered by skills-based job recommendations.",
                 },
                 {
-                  name: "New Graduate",
-                  outcome: "Got Product Trainee offer",
-                  quote: "The platform helped me understand what entry-level really means and where I fit.",
-                  icon: <Sparkles className="h-6 w-6 text-[#ff4c00]" />,
+                  num: "3",
+                  title: "Eliminate Job Search Confusion",
+                  desc: "Clear, structured job discovery.",
+                },
+                {
+                  num: "4",
+                  title: "Apply Instantly",
+                  desc: "One-click applications.",
+                },
+                {
+                  num: "5",
+                  title: "Increase Interview Probability",
+                  desc: "Better matching → Better outcomes.",
+                },
+                {
+                  num: "6",
+                  title: "Discover Internships & Graduate Roles",
+                  desc: "Ideal for internships and jobs for freshers.",
+                },
+                {
+                  num: "7",
+                  title: "Access Curated Listings",
+                  desc: "From best job sites for freshers.",
+                },
+                {
+                  num: "8",
+                  title: "Receive Intelligent Career Guidance",
+                  desc: "Career guidance for freshers.",
                 },
               ].map((item) => (
                 <div
-                  key={item.name}
-                  className="bg-[#fffaf7] border border-[#ffd6c2] rounded-2xl p-6 hover:shadow-lg transition"
+                  key={item.num}
+                  className="rounded-lg border border-slate-200 bg-[#fffaf7] p-4"
                 >
-                  <div className="mb-4">{item.icon}</div>
-                  <p className="text-xs font-semibold text-[#ff4c00] mb-2">{item.outcome}</p>
-                  <p className="text-sm text-slate-700 italic mb-3">&quot;{item.quote}&quot;</p>
-                  <p className="text-xs text-slate-600">— {item.name}</p>
+                  <div className="text-xl font-bold text-[#ff4c00] mb-2">{item.num}</div>
+                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* FAQ SECTION */}
-        <section className="bg-[#f9e8e0] py-24">
+        {/* HOW IT WORKS */}
+        <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
-                Common Questions
-                <span className="block text-[#ff4c00]">From Freshers</span>
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                How Our <span className="text-[#ff4c00]">AI Job Search Platform Works</span>
+              </h2>
+              <p className="text-base text-slate-700">
+                Finding your first job becomes simple, guided, and efficient.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  step: "1",
+                  title: "Create Your Career Profile",
+                  desc: "Add your:",
+                  bullets: [
+                    "Education details",
+                    "Skills & certifications",
+                    "Internship or project experience",
+                    "Preferred roles & locations",
+                  ],
+                  note: "Designed specifically for fresh graduates.",
+                },
+                {
+                  step: "2",
+                  title: "AI Analyzes Your Resume",
+                  desc: "Our engine extracts:",
+                  bullets: [
+                    "Skills",
+                    "Strengths",
+                    "Career alignment signals",
+                  ],
+                  note: "Automatically identifying relevant fresh graduate jobs.",
+                },
+                {
+                  step: "3",
+                  title: "Smart Job Matching Algorithm",
+                  desc: "Receive instant:",
+                  bullets: [
+                    "personalized job recommendations",
+                    "Relevant jobs for fresh graduates",
+                    "Filtered remote job listings for freshers",
+                  ],
+                  note: "No manual keyword searching.",
+                  cta: "Start Matching",
+                },
+                {
+                  step: "4",
+                  title: "Optimized Job Applications",
+                  desc: "Apply faster using:",
+                  bullets: [
+                    "One-click apply",
+                    "Auto-filled applications",
+                    "AI-generated cover letters",
+                    "Structured application workflow",
+                  ],
+                },
+                {
+                  step: "5",
+                  title: "Apply Faster & Track Progress",
+                  desc: "",
+                  bullets: [
+                    "Application status tracking",
+                    "Interview updates",
+                    "Smart job alerts for fresh graduates",
+                  ],
+                },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  className="rounded-lg border border-slate-200 bg-white p-5"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex h-9 w-9 items-center justify-center rounded-full bg-[#ff4c00] text-sm font-bold text-white">
+                      {item.step}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold mb-2 text-slate-900">
+                        {item.title}
+                      </h3>
+                      {item.desc && <p className="text-sm text-slate-700 mb-3">{item.desc}</p>}
+                      {item.bullets && (
+                        <div className="grid md:grid-cols-2 gap-2 mb-3">
+                          {item.bullets.map((bullet) => (
+                            <div key={bullet} className="flex items-center gap-2">
+                              <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]"></div>
+                              <span className="text-sm text-slate-700">{bullet}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {item.note && (
+                        <p className="text-sm font-medium text-[#ff4c00]">
+                          {item.note}
+                        </p>
+                      )}
+                      {item.cta && (
+                        <button
+                          type="button"
+                          onClick={() => updateCtaUrl("/ai-job-search-platform-for-freshers", item.cta)}
+                          className="mt-2 text-sm font-semibold text-[#ff4c00] hover:underline"
+                        >
+                          {item.cta} →
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* REAL-TIME JOB DISCOVERY */}
+        <section className="bg-white py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Real-Time <span className="text-[#ff4c00]">Job Discovery</span> Engine
+              </h2>
+              <p className="text-sm text-slate-700">
+                Continuously updated listings from leading:
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-[#fffaf7] rounded-lg border border-slate-200 p-4 text-center">
+                <p className="text-sm font-medium text-slate-700">online job search platforms</p>
+              </div>
+              <div className="bg-[#fffaf7] rounded-lg border border-slate-200 p-4 text-center">
+                <p className="text-sm font-medium text-slate-700">job portals for fresh graduates</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WHY THIS DELIVERS BETTER RESULTS */}
+        <section className="bg-[#fff7f2] py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center">
+                Why This <span className="text-[#ff4c00]">Fresher Job Search Platform</span> Delivers Better Results
+              </h2>
+              <p className="text-base text-slate-700 mb-6 text-center">
+                Traditional portals show listings. We deliver precision & direction.
+              </p>
+              <div className="grid md:grid-cols-2 gap-3 mb-6">
+                {[
+                  "Get matched only with relevant entry-level jobs",
+                  "Avoid experience-heavy mismatches",
+                  "Reduce wasted applications",
+                  "Improve interview probability",
+                  "Gain clarity & confidence",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-2.5 p-3 bg-white rounded-lg border border-slate-200">
+                    <CheckCircle2 className="h-4 w-4 text-[#ff4c00] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-700">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-white rounded-lg border border-slate-200 p-5 text-sm text-slate-700">
+                <p className="font-semibold mb-2 text-slate-900">Users typically experience:</p>
+                <ul className="space-y-1">
+                  <li>• Faster job discovery</li>
+                  <li>• Better job relevance</li>
+                  <li>• Reduced application fatigue</li>
+                  <li>• Improved recruiter response probability</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* KEY FEATURES */}
+        <section className="bg-white py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold">
+                Key Features Designed for <span className="text-[#ff4c00]">Early-Career Success</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                {
+                  title: "AI-Powered Job Recommendations",
+                  desc: "Relevance-driven matching engine.",
+                },
+                {
+                  title: "Entry-Level Job Filtering System",
+                  desc: "Built exclusively for entry-level jobs and fresh graduate jobs.",
+                },
+                {
+                  title: "Resume-Based Job Matching",
+                  desc: "No guesswork. No manual sorting.",
+                },
+                {
+                  title: "Smart Skill-Gap Analysis",
+                  desc: "Know what skills help you land interviews faster.",
+                },
+                {
+                  title: "Job Alerts for Fresh Graduates",
+                  desc: "Never miss relevant opportunities.",
+                },
+                {
+                  title: "One-Click Application Process",
+                  desc: "Eliminate repetitive form filling.",
+                },
+                {
+                  title: "Built-In Resume & Cover Letter Builder",
+                  desc: "Everything in one ecosystem.",
+                },
+                {
+                  title: "Interview Preparation Resources",
+                  desc: "Boost confidence before interviews.",
+                },
+                {
+                  title: "Cloud-Based Profile Storage",
+                  desc: "Access anytime, anywhere.",
+                },
+                {
+                  title: "Fast Job Discovery Experience",
+                  desc: "",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-lg border border-slate-200 bg-[#fffaf7] p-4"
+                >
+                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  {item.desc && <p className="text-sm text-slate-600">{item.desc}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* COMPARISON TABLE */}
+        <section className="bg-[#fff7f2] py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold">
+                <span className="text-[#ff4c00]">AI Job Search Platform</span> vs Traditional Job Portals
+              </h2>
+            </div>
+
+            <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+              <table className="min-w-full text-sm">
+                <thead>
+                  <tr className="bg-[#fff7f2] text-left">
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Feature</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">AI Job Search for Freshers</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Traditional Job Portals</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {
+                      feature: "Job Recommendations",
+                      ai: "Personalized with AI",
+                      traditional: "Generic listings",
+                    },
+                    {
+                      feature: "Skill Matching",
+                      ai: "Resume-based matching",
+                      traditional: "Manual filtering",
+                    },
+                    {
+                      feature: "Application Speed",
+                      ai: "One-click apply",
+                      traditional: "Manual form filling",
+                    },
+                    {
+                      feature: "Entry-Level Focus",
+                      ai: "Designed for freshers",
+                      traditional: "Mixed experience levels",
+                    },
+                    {
+                      feature: "Alerts",
+                      ai: "Smart job alerts",
+                      traditional: "Basic notifications",
+                    },
+                    {
+                      feature: "Optimization",
+                      ai: "AI-based profile suggestions",
+                      traditional: "No optimization",
+                    },
+                  ].map((row) => (
+                    <tr key={row.feature} className="border-t border-slate-100">
+                      <td className="px-4 py-3 font-medium text-slate-700 text-sm">
+                        {row.feature}
+                      </td>
+                      <td className="px-4 py-3 text-slate-700 text-sm">{row.ai}</td>
+                      <td className="px-4 py-3 text-slate-600 text-sm">{row.traditional}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-5 text-center text-sm text-slate-600">
+              Modern career discovery requires smarter systems.
+            </p>
+          </div>
+        </section>
+
+        {/* WHO CAN USE THIS */}
+        <section className="bg-white py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold">
+                Who Can Use This <span className="text-[#ff4c00]">AI Job Search Platform</span>?
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                "Fresh graduates",
+                "College students about to graduate",
+                "Entry-level professionals",
+                "Career starters with internships only",
+                "Career switchers",
+                "Remote job seekers",
+                "International applicants",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-lg border border-slate-200 bg-[#fffaf7] px-4 py-2.5 text-center text-sm text-slate-700"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="bg-[#fff7f2] py-16">
+          <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
+              Find <span className="text-[#ff4c00]">Entry-Level Jobs</span> Faster with AI
+            </h2>
+            <p className="text-base text-slate-700 mb-4">
+              Don't let your first opportunity take months of guessing.
+            </p>
+            <p className="text-base text-slate-700 mb-6">
+              With our AI job search for freshers, you can:
+            </p>
+            <div className="mb-6 flex flex-wrap justify-center gap-3 text-sm text-slate-700">
+              <span>Discover relevant entry-level jobs</span>
+              <span>•</span>
+              <span>Access smarter jobs for fresh graduates</span>
+              <span>•</span>
+              <span>Apply faster & easier</span>
+              <span>•</span>
+              <span>Reduce job search stress</span>
+              <span>•</span>
+              <span>Gain career clarity</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => updateCtaUrl("/ai-job-search-platform-for-freshers", ctaLabel)}
+              className="inline-flex items-center rounded-lg bg-[#ff4c00] px-8 py-3 text-base font-semibold text-white hover:bg-[#e24400] transition-colors shadow-lg mb-5"
+            >
+              {ctaLabel}
+              <ArrowRight size={18} className="ml-2" />
+            </button>
+            <div className="flex flex-wrap justify-center gap-3 text-sm text-slate-600">
+              <span>Instant setup</span>
+              <span>•</span>
+              <span>No experience required</span>
+              <span>•</span>
+              <span>Secure & private</span>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="bg-[#f9e8e0] py-16">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">
+                FAQs
               </h2>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               {[
                 {
-                  q: "I have no work experience. Can Flashfire still help?",
-                  a: "Absolutely. Flashfire evaluates your coursework, projects, internships, and skills — not just paid work. Many entry-level roles value academic projects and relevant coursework.",
+                  q: "What is an AI job search for freshers?",
+                  a: "An AI job search for freshers uses intelligent algorithms to match fresh graduates with relevant entry-level roles.",
                 },
                 {
-                  q: "How do I know which roles are realistic for me?",
-                  a: "Flashfire matches your actual skills and experience level to roles that are actively hiring freshers. You&apos;ll see match scores that indicate how well you fit each role.",
+                  q: "How does the fresher job search platform work?",
+                  a: "Our fresher job search platform analyzes your profile, resume, and preferences to deliver targeted job matches.",
                 },
                 {
-                  q: "What if I&apos;m not sure what career path to follow?",
-                  a: "Start by entering your skills and interests. Flashfire will suggest multiple career paths that align with your background, helping you explore options before committing.",
+                  q: "Is this platform suitable for fresh graduates with no experience?",
+                  a: "Yes. Designed specifically for early-career candidates.",
                 },
                 {
-                  q: "Can I use this for internship searches too?",
-                  a: "Yes. Flashfire includes internships, co-ops, and entry-level roles. The platform helps you find opportunities that match your current skill level, whether that&apos;s an internship or a full-time role.",
+                  q: "How accurate are AI job recommendations?",
+                  a: "Accuracy improves continuously using skills-based matching.",
+                },
+                {
+                  q: "Can I find jobs from multiple job portals?",
+                  a: "Yes. We scan leading job portals for fresh graduates.",
+                },
+                {
+                  q: "Does the platform support internships?",
+                  a: "Yes. Ideal for internships and jobs for freshers.",
+                },
+                {
+                  q: "Can I receive job alerts?",
+                  a: "Yes. Smart job alerts for fresh graduates are included.",
+                },
+                {
+                  q: "Is my data secure?",
+                  a: "Yes. Privacy and security are core priorities.",
                 },
               ].map((item, i) => (
                 <div
