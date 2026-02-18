@@ -231,6 +231,27 @@ export default function RootLayout({
             });
           `}
         </Script>
+        {/* Google Ads Conversion Tracking - Load with afterInteractive strategy */}
+        {process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-ads" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag() {
+                  dataLayer.push(arguments);
+                }
+                gtag("js", new Date());
+                gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}", {
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        )}
         {/* Freshworks CRM Tracking Code - Load on user interaction */}
         <Script
           id="freshworks-crm"
