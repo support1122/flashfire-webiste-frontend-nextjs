@@ -9,6 +9,7 @@ import SignupModal from "@/src/components/signupModal/SignupModal";
 import CalendlyModal from "@/src/components/calendlyModal/CalendlyModal";
 import { loadFormData } from "@/src/utils/LocalStorageUtils";
 import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
+import MeetingBookedModal from "@/src/components/meetingBooked/MeetingBookedModal";
 import * as fbq from "@/lib/metaPixel";
 
 function ClientLogicWrapperContent({
@@ -26,8 +27,7 @@ function ClientLogicWrapperContent({
     const [showSignupModal, setShowSignupModal] = useState(false);
     const [showCalendlyModal, setShowCalendlyModal] = useState(false);
     const [showStrategyCallCard, setShowStrategyCallCard] = useState(false);
-    
-    
+    const [showMeetingBookedModal, setShowMeetingBookedModal] = useState(false);
 
     useEffect(() => {
         if (typeof document === "undefined") return;
@@ -246,6 +246,7 @@ function ClientLogicWrapperContent({
         const isBookNow = pathname === '/book-now';
         const isSignup = pathname === '/signup' || pathname.includes('/signup');
         const isBookDemo = pathname === '/book-free-demo' || pathname.includes('/book-free-demo');
+        const isMeetingBooked = pathname === '/meeting-booked' || pathname === '/en-ca/meeting-booked';
 
         // Create a unique identifier for this route visit (includes query params)
         const currentRouteKey = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
@@ -287,6 +288,13 @@ function ClientLogicWrapperContent({
                 }
             }
             return;
+        }
+
+        // Show meeting-booked modal on its dedicated route
+        if (isMeetingBooked) {
+            setShowMeetingBookedModal(true);
+        } else {
+            setShowMeetingBookedModal(false);
         }
 
         // Logic for restricted actions (Signup / Booking)
@@ -466,6 +474,9 @@ function ClientLogicWrapperContent({
                         <StrategyCallCard onClose={() => setShowStrategyCallCard(false)} />
                     </div>
                 </div>
+            )}
+            {showMeetingBookedModal && (
+                <MeetingBookedModal onClose={() => setShowMeetingBookedModal(false)} />
             )}
         </>
     );

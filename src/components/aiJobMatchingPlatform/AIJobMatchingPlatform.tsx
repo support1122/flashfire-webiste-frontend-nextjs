@@ -518,7 +518,7 @@ export default function AIJobMatchingPlatformPage() {
                 {
                   title: "Advanced AI Job Matching Engine",
                   desc: "Powered by intelligent AI job matching models.",
-                  icon: <Brain className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "Deep Semantic Resume Analysis",
@@ -528,7 +528,7 @@ export default function AIJobMatchingPlatformPage() {
                     "Identifies role compatibility",
                     "Eliminates keyword dependency",
                   ],
-                  icon: <FileText className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "Skills & Experience-Based Matching",
@@ -538,23 +538,23 @@ export default function AIJobMatchingPlatformPage() {
                     "Experience depth evaluation",
                     "Career trajectory logic",
                   ],
-                  icon: <Target className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "Candidate-Job Compatibility Score",
                   desc: "Each opportunity receives a:",
                   highlight: "candidate suitability score",
-                  icon: <BarChart3 className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "Intelligent Resume-Job Alignment",
                   desc: "Improves your resume-job alignment automatically.",
-                  icon: <Zap className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "Real-Time AI Job Recommendations",
                   desc: "Dynamic AI job recommendations updates.",
-                  icon: <Sparkles className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "Smart Filters & Personalization",
@@ -565,17 +565,17 @@ export default function AIJobMatchingPlatformPage() {
                     "Salary",
                     "Career goals",
                   ],
-                  icon: <Filter className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "Resume Optimization Insights",
                   desc: "Improve matching strength instantly.",
-                  icon: <TrendingUp className="h-8 w-8" />,
+                  
                 },
                 {
                   title: "High-Match Opportunity Alerts",
                   desc: "Never miss relevant roles again.",
-                  icon: <AlertCircle className="h-8 w-8" />,
+                  
                 },
               ].map((feature, index) => (
                 <div
@@ -585,10 +585,7 @@ export default function AIJobMatchingPlatformPage() {
                   {/* Orange accent bar */}
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#ff4c00] via-[#ff7a45] to-[#ff4c00] rounded-t-2xl"></div>
 
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center text-white mb-5 shadow-md group-hover:scale-110 transition-transform flex-shrink-0">
-                    {feature.icon}
-                  </div>
+                 
 
                   {/* Title */}
                   <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 leading-tight">
@@ -764,15 +761,15 @@ export default function AIJobMatchingPlatformPage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
+        <section className="bg-gradient-to-br from-[#fff7f2] via-[#fff7f2] to-white py-20 text-white">
           <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">
+            <h2 className="text-3xl md:text-4xl text-slate-900 lg:text-5xl font-extrabold mb-6">
               Find the Right Job Faster with <span className="text-[#ff4c00]">AI-Powered Job Matching</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-300 mb-8">
+            <p className="text-lg md:text-xl text-slate-700 mb-8">
               Stop relying on outdated job search methods.
             </p>
-            <p className="text-base md:text-lg text-gray-400 mb-8">
+            <p className="text-base md:text-lg text-slate-700 mb-8">
               With our AI job matching platform, you can:
             </p>
             <div className="grid md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
@@ -785,7 +782,7 @@ export default function AIJobMatchingPlatformPage() {
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
-                  <span className="text-gray-200">{item}</span>
+                  <span className="text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -796,7 +793,7 @@ export default function AIJobMatchingPlatformPage() {
             >
               Start Matching Jobs Now
             </button>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-700">
               <span>• Instant matches</span>
               <span>• No complicated setup</span>
               <span>• Secure & confidential</span>

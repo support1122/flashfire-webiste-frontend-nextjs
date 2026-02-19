@@ -35,7 +35,7 @@ export default function JobApplicationStatusTrackerPage() {
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">
                   Track every job application in one smart dashboard — and never miss a follow-up again.
-                </h1>
+        </h1>
 
                 <div className="space-y-4">
                   <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
@@ -53,11 +53,11 @@ export default function JobApplicationStatusTrackerPage() {
                     <div key={text} className="flex items-center gap-3">
                       <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
                         <CheckCircle className="h-4 w-4 text-[#ff4c00]" />
-                      </div>
+          </div>
                       <span className="text-base md:text-lg text-slate-700 font-medium">{text}</span>
-                    </div>
+          </div>
                   ))}
-                </div>
+        </div>
 
                 <div className="pt-4">
                   <button
@@ -68,11 +68,11 @@ export default function JobApplicationStatusTrackerPage() {
                     {ctaLabel}
                     <ArrowRight size={18} className="ml-2" />
                   </button>
-                </div>
-              </div>
+        </div>
+      </div>
 
-              {/* RIGHT – APPLICATION TRACKER PREVIEW */}
-              <div className="relative">
+      {/* RIGHT – APPLICATION TRACKER PREVIEW */}
+      <div className="relative">
                 <div className="rounded-3xl border-2 border-orange-200/50 bg-white p-6 md:p-8 shadow-xl backdrop-blur-sm">
                   <div className="flex items-center justify-between mb-6 pb-4 border-b border-orange-100">
                     <p className="text-sm font-bold text-orange-900 uppercase tracking-wide">
@@ -95,10 +95,10 @@ export default function JobApplicationStatusTrackerPage() {
                       <div className="flex items-center justify-between mb-2">
                         <p className="text-sm font-bold text-slate-800">Software Engineer Intern</p>
                         <span className="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold border border-blue-200">Applied</span>
-                      </div>
+              </div>
                       <p className="text-xs text-slate-600">Shopify • Canada</p>
                       <div className="text-xs text-slate-500 mt-2">Applied 1 week ago</div>
-                    </div>
+            </div>
 
                     <div className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] shadow-sm">
                       <div className="flex items-center justify-between mb-2">
@@ -107,12 +107,12 @@ export default function JobApplicationStatusTrackerPage() {
                       </div>
                       <p className="text-xs text-slate-600">Airbnb • United States</p>
                       <div className="text-xs text-slate-500 mt-2">Follow-up due tomorrow</div>
-                    </div>
-                  </div>
-                </div>
               </div>
-
             </div>
+              </div>
+            </div>
+
+          </div>
           </div>
         </section>
 
@@ -141,7 +141,7 @@ export default function JobApplicationStatusTrackerPage() {
                     <span className="text-base text-slate-700">{item}</span>
                   </div>
                 ))}
-              </div>
+        </div>
 
               <p className="text-lg text-slate-700 mb-6 font-medium">
                 Manual tracking often leads to:
@@ -158,7 +158,7 @@ export default function JobApplicationStatusTrackerPage() {
                     <span className="text-base text-slate-700 font-medium">{item}</span>
                   </div>
                 ))}
-              </div>
+      </div>
 
               <div className="bg-gradient-to-r from-orange-50 to-[#fff7f2] border-l-4 border-[#ff4c00] p-6 rounded-xl mb-6">
                 <p className="text-lg font-semibold text-slate-900 mb-3">
@@ -168,18 +168,18 @@ export default function JobApplicationStatusTrackerPage() {
                   Our intelligent job application tracker eliminates this stress instantly.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
+    </div>
+  </div>
+</section>
 
         {/* Key Benefits */}
         <section className="bg-white py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
+  <div className="max-w-6xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Key Benefits <span className="text-[#ff4c00]">at a Glance</span>
-              </h2>
-            </div>
+      </h2>
+    </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
@@ -214,47 +214,47 @@ export default function JobApplicationStatusTrackerPage() {
                 >
                   <h3 className="text-base font-semibold text-slate-900 mb-2">
                     {benefit.title}
-                  </h3>
+          </h3>
                   <p className="text-sm text-slate-600">
                     {benefit.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* How It Works Section */}
         <section className="bg-[#fff7f2] py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
+  <div className="max-w-6xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 How Our <span className="text-[#ff4c00]">Job Application Status Tracker Works</span>
-              </h2>
+      </h2>
               <p className="text-sm text-slate-600">
                 Setting up your dashboard takes less than 2 minutes.
               </p>
-            </div>
+    </div>
 
             <div className="space-y-4">
-              {[
-                {
-                  step: "1",
+        {[
+          {
+            step: "1",
                   title: "Add Your Job Details",
                   desc: "Enter company name, role, application date, and source to create a structured tracker record.",
-                },
-                {
-                  step: "2",
+          },
+          {
+            step: "2",
                   title: "Update Your Application Stage",
                   desc: "Track statuses like Applied, Interview Scheduled, Offer Received, or Rejected with one-click updates.",
-                },
-                {
-                  step: "3",
+          },
+          {
+            step: "3",
                   title: "Automate Your Follow-Ups",
                   desc: "Never forget recruiter communication with smart follow-up reminders and interaction tracking.",
-                },
-                {
-                  step: "4",
+          },
+          {
+            step: "4",
                   title: "Track Progress Visually",
                   desc: "Get clear application stage visibility, prioritized opportunity tracking, and instant progress insights.",
                 },
@@ -262,25 +262,25 @@ export default function JobApplicationStatusTrackerPage() {
                   step: "5",
                   title: "Analyze Outcomes & Optimize",
                   desc: "Make smarter decisions using application metrics, interview conversion tracking, and performance insights.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.step}
+          },
+        ].map((item) => (
+          <div
+            key={item.step}
                   className="flex items-start gap-4 bg-white border-l-4 border-[#ff4c00] rounded-r-lg p-5"
-                >
+          >
                   <div className="flex-shrink-0 w-8 h-8 rounded-md bg-[#ff4c00] text-white flex items-center justify-center text-sm font-bold">
-                    {item.step}
-                  </div>
+              {item.step}
+            </div>
                   <div className="flex-grow">
                     <h3 className="text-base font-semibold text-slate-900 mb-1">
-                      {item.title}
-                    </h3>
+                {item.title}
+              </h3>
                     <p className="text-sm text-slate-600">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
             </div>
           </div>
         </section>
@@ -324,21 +324,21 @@ export default function JobApplicationStatusTrackerPage() {
                 <p className="text-sm text-slate-600">
                   Track applications across multiple platforms using integrated job listing tracking.
                 </p>
-              </div>
-            </div>
-          </div>
-        </section>
+      </div>
+    </div>
+  </div>
+</section>
         {/* Why This Job Application Tracker Delivers Better Results */}
         <section className="bg-white py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
+  <div className="max-w-6xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Why This <span className="text-[#ff4c00]">Job Application Tracker Delivers Better Results</span>
-              </h2>
+      </h2>
               <p className="text-sm text-slate-600">
                 Spreadsheets track data. We deliver clarity & control.
-              </p>
-            </div>
+      </p>
+    </div>
 
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               {[
@@ -353,7 +353,7 @@ export default function JobApplicationStatusTrackerPage() {
                   <span className="text-sm text-slate-700">{item}</span>
                 </div>
               ))}
-            </div>
+      </div>
 
             <div className="bg-[#fff7f2] border border-[#ff4c00] rounded-lg p-6">
               <h3 className="text-lg font-bold text-slate-900 mb-4">Users typically experience:</h3>
@@ -451,8 +451,8 @@ export default function JobApplicationStatusTrackerPage() {
               </h2>
               <p className="text-sm text-slate-600">
                 Job seekers want clarity, efficiency, and control.
-              </p>
-            </div>
+            </p>
+          </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
               {[
@@ -476,7 +476,7 @@ export default function JobApplicationStatusTrackerPage() {
                 </div>
               ))}
             </div>
-          </div>
+            </div>
         </section>
 
         {/* Comparison Table */}
@@ -486,7 +486,7 @@ export default function JobApplicationStatusTrackerPage() {
               <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
                 Job Application Status Tracker vs <span className="text-[#ff4c00]">Spreadsheets</span>
               </h2>
-            </div>
+          </div>
 
             <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
               <div className="overflow-x-auto">
@@ -526,12 +526,12 @@ export default function JobApplicationStatusTrackerPage() {
                     ))}
                   </tbody>
                 </table>
-              </div>
+            </div>
               <div className="bg-slate-50 border-t border-slate-200 px-4 py-4">
                 <p className="text-sm font-semibold text-slate-900 text-center">
                   Modern job search requires smarter systems.
-                </p>
-              </div>
+            </p>
+          </div>
             </div>
           </div>
         </section>
@@ -545,8 +545,8 @@ export default function JobApplicationStatusTrackerPage() {
               </h2>
               <p className="text-sm text-slate-600">
                 Designed for job seekers at every stage of their career
-              </p>
-            </div>
+            </p>
+          </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
               {[
@@ -567,8 +567,8 @@ export default function JobApplicationStatusTrackerPage() {
                   <span className="text-sm text-slate-700">{item}</span>
                 </div>
               ))}
-            </div>
-          </div>
+        </div>
+      </div>
         </section>
 
         {/* Final CTA */}
@@ -591,7 +591,7 @@ export default function JobApplicationStatusTrackerPage() {
             <p className="text-sm text-white/80">
               Instant setup • No credit card required • Free to start
             </p>
-          </div>
+        </div>
         </section>
 
         {/* FAQ SECTION */}
@@ -601,7 +601,7 @@ export default function JobApplicationStatusTrackerPage() {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
                 FAQs
               </h2>
-            </div>
+      </div>
 
             <div className="bg-white rounded-lg shadow-sm overflow-hidden">
               {[
@@ -662,9 +662,9 @@ export default function JobApplicationStatusTrackerPage() {
                   )}
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
+    </div>
+  </div>
+</section>
 
       </main>
       <style dangerouslySetInnerHTML={{__html: `

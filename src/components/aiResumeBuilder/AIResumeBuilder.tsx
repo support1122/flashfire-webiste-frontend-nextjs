@@ -488,7 +488,7 @@ export default function AIResumeBuilderPage() {
             <div className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] rounded-2xl p-8 text-white text-center">
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
-                  <div className="text-4xl font-bold mb-2">50,000+</div>
+                  <div className="text-4xl font-bold mb-2">500+</div>
                   <div className="text-sm opacity-90">Job seekers trust us</div>
                 </div>
                 <div>
@@ -610,15 +610,15 @@ export default function AIResumeBuilderPage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="bg-gradient-to-br from-gray-900 to-black py-20 text-white">
+        <section className="bg-gradient-to-br from-[#fff7f2] via-[#fff7f2] to-white py-20 text-white">
           <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">
+            <h2 className="text-3xl md:text-4xl text-slate-900 lg:text-5xl font-extrabold mb-6">
               Build Your Resume Smarter with <span className="text-[#ff4c00]">AI</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-300 mb-8">
+            <p className="text-lg md:text-xl text-slate-700 mb-8">
               Stop struggling with formatting, rewriting, and keyword guessing.
             </p>
-            <p className="text-base md:text-lg text-gray-400 mb-8">
+            <p className="text-base md:text-lg text-slate-700 mb-8">
               With our AI resume builder, you can:
             </p>
             <div className="grid md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
@@ -630,7 +630,7 @@ export default function AIResumeBuilderPage() {
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
-                  <span className="text-gray-200">{item}</span>
+                    <span className="text-slate-700">{item}</span>
                 </div>
               ))}
             </div>
@@ -691,7 +691,7 @@ export default function AIResumeBuilderPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-gray-200 transition-all ${
+                  className={`border-b border-slate-200 transition-all ${
                     activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
                   }`}
                 >
