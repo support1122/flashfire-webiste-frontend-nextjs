@@ -6,6 +6,7 @@ import { CheckCircle } from "lucide-react";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import * as fbq from "@/lib/metaPixel";
+import * as gads from "@/lib/googleAds";
 
 export default function MeetingBookedPage() {
   const [hasTracked, setHasTracked] = useState(false);
@@ -54,7 +55,26 @@ export default function MeetingBookedPage() {
           utm_campaign,
         });
 
-        console.log("✅ Facebook Pixel Schedule event tracked:", {
+        // Track Google Ads conversion event (Schedule meeting)
+        const firstName = inviteeName ? inviteeName.split(" ")[0] : undefined;
+        const lastName = inviteeName ? inviteeName.split(" ").slice(1).join(" ") : undefined;
+        
+        gads.trackSchedule({
+          value: 0,
+          currency: "USD",
+          email: inviteeEmail || undefined,
+          firstName,
+          lastName,
+          transactionId: `meeting_${Date.now()}`,
+          // UTM parameters for attribution
+          utm_source,
+          utm_medium,
+          utm_campaign,
+        });
+
+        console.log("✅ Conversion events tracked:", {
+          platform: "Meta Pixel & Google Ads",
+          event: "Schedule",
           email: inviteeEmail,
           name: inviteeName,
           utm_source,
