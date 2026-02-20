@@ -51,8 +51,8 @@ export default function MeetingBookedModal({ onClose }: Props) {
   return (
     <>
       {/* Main Popup Overlay */}
-      <div className="fixed inset-0 z-[9985] bg-black/60 flex items-center justify-center px-3 py-6 md:px-4 md:py-8">
-        <div className="relative w-full max-w-[400px] rounded-2xl bg-white px-5 py-6 md:px-6 md:py-7 shadow-2xl border border-orange-100 text-center">
+      <div className="fixed inset-0 z-[9985] bg-black/60 flex items-center justify-center px-3 py-4 md:px-4 md:py-6">
+        <div className="relative w-full max-w-[320px] rounded-2xl bg-white px-3 py-4 md:px-4 md:py-5 shadow-2xl border border-orange-100 text-center">
           {/* Close Button */}
           {onClose && (
             <button
@@ -63,46 +63,46 @@ export default function MeetingBookedModal({ onClose }: Props) {
             </button>
           )}
 
-          <h1 className="text-xl md:text-3xl font-extrabold text-slate-900 mb-2">
+          <h1 className="text-lg md:text-2xl font-extrabold text-slate-900 mb-2">
             <span className="text-[#ff4c00]">Thank you</span>{" "}
             <span>for scheduling a call!</span>
           </h1>
 
-          <p className="text-xs md:text-base text-slate-700 mb-3">
+          <p className="text-[11px] md:text-sm text-slate-700 mb-2">
             🎉 You&apos;re one step closer to your next career move with
             Flashfire. 🎉
           </p>
 
-          <div className="mb-4 md:mb-5">
-            <div className="w-full max-w-md mx-auto rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+          <div className="mb-3 md:mb-4">
+            <div className="w-full max-w-md mx-auto rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
               <Image
                 src="/images/meme.jpeg"
                 alt="See you there"
                 width={512}
                 height={256}
-                className="w-full h-40 md:h-52 object-cover"
+                className="w-full h-32 md:h-40 object-cover"
               />
             </div>
           </div>
 
-          <p className="text-xs md:text-base text-slate-700 text-center mb-5 md:mb-6">
+          <p className="text-[11px] md:text-sm text-slate-700 text-center mb-4 md:mb-5">
             To make our conversation more productive, we recommend watching our
             short Flashfire demo video before the call.
           </p>
 
-          <div className="flex justify-center mb-5 md:mb-6">
+          <div className="flex justify-center mb-2 md:mb-3">
             <button
               type="button"
               onClick={() => setIsVideoOpen(true)}
-              className="inline-flex items-center justify-center rounded-lg bg-[#ff4c00] px-6 py-3 text-sm md:text-base font-semibold text-white hover:bg-[#e24400] transition-colors shadow-sm"
+              className="inline-flex items-center justify-center rounded-lg bg-[#ff4c00] px-4 py-2 text-xs md:text-sm font-semibold text-white hover:bg-[#e24400] transition-colors shadow-sm"
             >
               <PlayCircle className="w-5 h-5 mr-2" />
               Watch Demo Video (2 min)
             </button>
           </div>
 
-          <div className="flex flex-col items-center gap-3 border-t border-slate-100 pt-3 md:pt-4">
-            <div className="flex -space-x-2">
+          <div className="flex flex-col items-center gap-2 border-t border-slate-100 pt-1 md:pt-2">
+            <div className="flex -space-x-1.5">
               {[
                 "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
                 "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
@@ -110,7 +110,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
               ].map((src, i) => (
                 <div
                   key={src}
-                  className="relative h-8 w-8 rounded-full overflow-hidden border-2 border-white bg-[#fff7f2]"
+                  className="relative h-7 w-7 rounded-full overflow-hidden border-2 border-white bg-[#fff7f2]"
                   aria-hidden="true"
                 >
                   <Image
@@ -132,8 +132,8 @@ export default function MeetingBookedModal({ onClose }: Props) {
 
             <Link
               href="/"
-              className="mt-3 inline-flex items-center justify-center text-xs md:text-sm font-semibold text-[#ff4c00] hover:underline"
-            >
+                className="mt-1 inline-flex items-center justify-center text-xs md:text-sm font-semibold text-[#ff4c00] hover:underline"
+              >
               Back to Home
             </Link>
           </div>
