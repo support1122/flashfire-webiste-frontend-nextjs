@@ -127,7 +127,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
 
             <p className="text-[11px] md:text-sm text-slate-600 flex items-center gap-1 text-center">
               <Users className="w-4 h-4" />
-              Students who used Flashfire to get clarity and interviews.
+              Trusted by 560+ Users
             </p>
 
             <Link
