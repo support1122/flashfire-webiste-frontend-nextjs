@@ -8,19 +8,17 @@
  * Format: AW-XXXXXXXXX (e.g., AW-1234567890)
  */
 
-// Google Ads Conversion ID - Set this in your environment variables
-// Format: AW-XXXXXXXXX
-// Next.js automatically replaces NEXT_PUBLIC_* env vars at build time
-export const GOOGLE_ADS_CONVERSION_ID = 
-  (typeof window !== 'undefined' 
-    ? (window as any).__NEXT_DATA__?.env?.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID 
-    : '') || '';
+// Google Ads Conversion ID - Set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID in .env
+// Format: AW-XXXXXXXXX (e.g. AW-17779402210)
+// Next.js inlines this at build time in the client bundle
+export const GOOGLE_ADS_CONVERSION_ID =
+  (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID) || '';
 
 /**
  * Track a page view event
  */
 export const pageview = () => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && GOOGLE_ADS_CONVERSION_ID) {
     window.gtag('event', 'page_view', {
       send_to: GOOGLE_ADS_CONVERSION_ID,
     });
@@ -34,7 +32,7 @@ export const pageview = () => {
  * @param options - Event parameters (value, currency, transaction_id, etc.)
  */
 export const event = (eventName: string, options: Record<string, any> = {}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && GOOGLE_ADS_CONVERSION_ID) {
     window.gtag('event', eventName, {
       send_to: GOOGLE_ADS_CONVERSION_ID,
       ...options,
@@ -50,9 +48,10 @@ export const event = (eventName: string, options: Record<string, any> = {}) => {
  * @param options - Additional event parameters
  */
 export const conversion = (conversionLabel: string, options: Record<string, any> = {}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
+  if (typeof window !== 'undefined' && window.gtag && GOOGLE_ADS_CONVERSION_ID) {
+    const sendTo = `${GOOGLE_ADS_CONVERSION_ID}/${conversionLabel}`;
     window.gtag('event', 'conversion', {
-      send_to: `${GOOGLE_ADS_CONVERSION_ID}/${conversionLabel}`,
+      send_to: sendTo,
       ...options,
     });
   }
