@@ -76,7 +76,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
           <div className="mb-3 md:mb-4">
             <div className="w-full max-w-md mx-auto rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
               <Image
-                src="/images/meme.jpeg"
+                src="/images/meme.jpg"
                 alt="See you there"
                 width={512}
                 height={256}
