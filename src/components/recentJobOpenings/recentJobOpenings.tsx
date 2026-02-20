@@ -200,21 +200,21 @@ export default function RecentJobOpenings() {
 
                 <div className="relative max-w-7xl mx-auto px-4 md:px-8">
 
-                    {/* HEADER */}
+    {/* HEADER */}
                     <div className="max-w-3xl mb-12 md:mb-16 lg:mb-20">
                         <span className="text-xs md:text-sm font-semibold tracking-wide text-[#ff4c00]">
                             TARGET USERS
-                        </span>
+      </span>
 
                         <h2 className="mt-3 md:mt-4 text-2xl md:text-4xl lg:text-5xl font-bold text-slate-900">
                             Built for serious job seekers
-                        </h2>
+      </h2>
 
                         <p className="mt-3 md:mt-5 text-base md:text-lg text-slate-700">
                             FlashFire is designed for people who care about speed,
                             accuracy, and real hiring results.
-                        </p>
-                    </div>
+      </p>
+    </div>
 
                     {/* CONTENT */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
@@ -248,30 +248,30 @@ export default function RecentJobOpenings() {
                                 <div className="pointer-events-none absolute inset-0 rounded-xl md:rounded-2xl bg-gradient-to-br from-[#ff4c00]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                                 <div className="relative flex gap-4 md:gap-6 items-start">
-                                    {/* ICON */}
+            {/* ICON */}
                                     <div className="relative flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-xl md:rounded-2xl bg-gradient-to-br from-[#ff6b2b] to-[#ff4c00]/30 shadow-lg shadow-[#ff4c00]/30 transition-transform duration-300 group-hover:-translate-y-1 flex-shrink-0">
                                         <Icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
 
                                         {/* soft icon glow */}
                                         <div className="absolute inset-0 rounded-xl md:rounded-2xl bg-[#ff4c00]/40 blur-xl opacity-40 -z-10" />
-                                    </div>
+            </div>
 
                                     {/* TEXT */}
                                     <div className="transition-transform duration-300 group-hover:translate-x-0.5 min-w-0">
                                         <h3 className="text-lg md:text-xl font-semibold text-slate-900">
                                             {title}
-                                        </h3>
+            </h3>
                                         <p className="mt-2 text-sm md:text-base text-slate-700 leading-relaxed">
                                             {desc}
-                                        </p>
+            </p>
                                     </div>
-                                </div>
-                            </div>
-                        ))}
+          </div>
+        </div>
+      ))}
 
-                    </div>
-                </div>
-            </section>
+    </div>
+  </div>
+</section>
 
 
 
@@ -453,22 +453,22 @@ export default function RecentJobOpenings() {
             <section className="py-12 md:py-20 lg:py-28 bg-[#fff6f1]">
                 <div className="max-w-4xl mx-auto text-center px-4 md:px-6">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900">
-                        Ready to stop applying manually?
-                    </h2>
+      Ready to stop applying manually?
+    </h2>
 
                     <p className="mt-4 md:mt-6 text-base md:text-lg text-slate-700">
-                        Let FlashFire handle job applications while you focus
-                        on preparing for interviews.
-                    </p>
+      Let FlashFire handle job applications while you focus
+      on preparing for interviews.
+    </p>
 
-                    <button
-                        {...getButtonProps()}
-                        onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom", "/recent-job-openings/Start-with-Flashfire")}
+    <button
+      {...getButtonProps()}
+      onClick={() => handleCTAClick("Start with FlashFire", "recent_jobs_bottom", "/recent-job-openings/Start-with-Flashfire")}
                         className="mt-8 md:mt-10 px-6 md:px-8 py-4 md:py-6 bg-[#ff4c00] text-white rounded-xl md:rounded-2xl font-semibold hover:bg-[#e64500] text-sm md:text-base">
-                        Start with FlashFire
-                    </button>
-                </div>
-            </section>
+      Start with FlashFire
+    </button>
+  </div>
+</section>
 
             {/* FAQ Section */}
             <section className="bg-white py-12 md:py-20 lg:py-28">

@@ -1,0 +1,698 @@
+"use client";
+
+import { MailCheck, Clock, Sparkles, FileText, Mail, Users } from "lucide-react";
+import { FaPlus, FaTimes } from "react-icons/fa";
+import { useState } from "react";
+
+export default function AIFollowUpEmailsPage() {
+  const ctaLabel = "Generate Email";
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+
+  const updateCtaUrl = (basePath: string, label: string) => {
+    if (typeof window === "undefined") return;
+    const slug = label.trim().replace(/\s+/g, "-");
+    const isCanada = window.location.pathname.startsWith("/en-ca");
+    const normalizedBase = isCanada ? `/en-ca${basePath}` : basePath;
+    const newUrl = `${normalizedBase}/${slug}`;
+    window.history.pushState({}, "", newUrl);
+    window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
+  };
+
+  return (
+    <div className="bg-[#fff7f2] text-slate-900 min-h-screen">
+      <main className="mt-0">
+        {/* HERO */}
+        <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-[70vh] flex items-center">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              {/* LEFT */}
+              <div className="max-w-xl">
+                <span className="inline-flex items-center rounded-full bg-[#ffe7d7] px-4 py-1 text-xs md:text-sm font-semibold text-[#ff4c00]">
+                  AI Follow-Up Email Generator
+                </span>
+                <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+                  AI Follow-Up Email Generator for Job
+                  <span className="block text-[#ff4c00]">
+                    Applications &amp; Interviews
+                  </span>
+                </h1>
+                <p className="mt-4 text-sm md:text-base text-slate-700">
+                  Don&apos;t let a recruiter&apos;s silence cost you opportunities. Instantly create
+                  powerful follow-up emails after job applications and interviews in under 60 seconds.
+                </p>
+
+                <div className="mt-6 space-y-2 text-sm md:text-base">
+                  <div className="flex items-center gap-2">
+                    <MailCheck className="h-4 w-4 text-[#ff4c00]" />
+                    <span>Write like a top candidate</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-[#ff4c00]" />
+                    <span>Eliminate tone &amp; wording mistakes</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-[#ff4c00]" />
+                    <span>Improve recruiter response probability</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FileText className="h-4 w-4 text-[#ff4c00]" />
+                    <span>Save hours of writing effort</span>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <button
+                    type="button"
+                    onClick={() => updateCtaUrl("/ai-follow-up-email-generator", ctaLabel)}
+                    className="inline-flex items-center rounded-lg bg-[#ff4c00] px-6 py-3 text-sm font-semibold text-white hover:bg-[#e24400] transition"
+                  >
+                    {ctaLabel}
+                  </button>
+                </div>
+              </div>
+
+              {/* RIGHT */}
+              <div className="relative">
+                <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-md">
+                  <p className="text-xs font-semibold text-slate-800 mb-3">
+                    Follow‑up preview
+                  </p>
+                  <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-5 space-y-3 text-xs text-slate-700">
+                    <p className="font-semibold">Subject: Quick follow‑up on my application</p>
+                    <p>
+                      Hi [Recruiter Name], I hope you&apos;re doing well. I&apos;m writing to follow up
+                      on my application for the{" "}
+                      <span className="font-semibold">Frontend Engineer</span> role we discussed last week.
+                    </p>
+                    <p>
+                      I remain very excited about the opportunity to contribute to your team and would
+                      be happy to share any additional details or examples of my work that could help
+                      with your decision.
+                    </p>
+                    <p>
+                      If the role is already in later stages, I&apos;d still appreciate any feedback you can
+                      share so I can improve my profile for similar positions in the future.
+                    </p>
+                    <p className="text-slate-500">— Generated by Flashfire</p>
+                  </div>
+                </div>
+                <div className="absolute -top-6 -right-6 h-24 w-24 rounded-full bg-[#ffe7d7] blur-2xl -z-10" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WHY FOLLOW-UPS ARE HARD */}
+        <section className="bg-white py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Why Job Seekers Struggle with Follow-Up Emails
+              </h2>
+              <p className="text-base text-slate-700">
+                Writing follow-ups often feels uncomfortable and uncertain.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-3 mb-8">
+              {[
+                "What should I say?",
+                "Will I sound desperate?",
+                "Is my tone professional enough?",
+                "What subject line works best?",
+                "When is the right follow-up timing?",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-[#fffaf7] px-4 py-3 text-sm text-slate-700"
+                >
+                  <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="rounded-lg border border-slate-200 bg-white p-5 text-sm text-slate-700">
+                <p className="font-semibold mb-3 text-slate-900">Poorly written emails often lead to:</p>
+                <ul className="space-y-1.5">
+                  <li className="flex items-center gap-2">
+                    <div className="h-1 w-1 rounded-full bg-slate-400"></div>
+                    <span>No responses</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1 w-1 rounded-full bg-slate-400"></div>
+                    <span>Weak impressions</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1 w-1 rounded-full bg-slate-400"></div>
+                    <span>Missed opportunities</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="h-1 w-1 rounded-full bg-slate-400"></div>
+                    <span>Damaged credibility</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="rounded-lg border border-[#ff4c00]/20 bg-[#fff7f2] p-5 text-sm text-slate-700">
+                <p className="mb-2">
+                  Silence from recruiters doesn&apos;t always mean rejection.
+                </p>
+                <p className="mb-3">
+                  Often, a simple professional follow-up can revive your job application status.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => updateCtaUrl("/ai-follow-up-email-generator", "Create Your Follow-Up Email Instantly")}
+                  className="text-xs font-semibold text-[#ff4c00] hover:underline"
+                >
+                  Create Your Follow-Up Email Instantly →
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* KEY BENEFITS */}
+        <section className="bg-[#fff7f2] py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Key Benefits at a Glance
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              {[
+                {
+                  title: "Write Perfect Emails Instantly",
+                  desc: "No more second-guessing your words.",
+                },
+                {
+                  title: "Increase Recruiter Response Rates",
+                  desc: "Clear, confident messaging that stands out.",
+                },
+                {
+                  title: "Send Error-Free Emails Every Time",
+                  desc: "Eliminate grammar & tone mistakes automatically.",
+                },
+                {
+                  title: "Optimize Subject Lines Automatically",
+                  desc: "Smart subject line examples included.",
+                },
+                {
+                  title: "Eliminate Follow-Up Anxiety",
+                  desc: "AI handles tone, clarity & structure.",
+                },
+                {
+                  title: "Save Time After Every Application",
+                  desc: "Emails generated in under 60 seconds.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-lg border border-slate-200 bg-white p-4 text-sm"
+                >
+                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  <p className="text-slate-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="max-w-3xl mx-auto text-center text-sm text-slate-600 bg-white rounded-lg border border-slate-200 p-4">
+              <p>
+                Protect your professional image with every email — always maintain a polite and concise message.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* TRUSTED BY */}
+        <section className="bg-white py-12 border-y border-slate-100">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 mb-4">
+                Trusted by Growing Numbers of Job Seekers
+              </p>
+              <p className="text-lg text-slate-900 mb-5 font-semibold">
+                Thousands of candidates already use our{" "}
+                <span className="text-[#ff4c00]">
+                  AI follow-up email generator
+                </span>
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-700">
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-[#ff4c00]" />
+                <span>Used by job seekers across industries</span>
+              </div>
+              <span className="hidden md:inline text-slate-300">•</span>
+              <div className="flex items-center gap-2">
+                <FileText className="h-4 w-4 text-[#ff4c00]" />
+                <span>Designed for real hiring workflows</span>
+              </div>
+              <span className="hidden md:inline text-slate-300">•</span>
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-[#ff4c00]" />
+                <span>Built for professional recruiter communication</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* HOW IT WORKS */}
+        <section className="bg-[#fff7f2] py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                How Our AI Follow-Up Email Generator Works
+              </h2>
+              <p className="text-base text-slate-700">
+                Creating a powerful job application follow-up email has never been easier.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  step: "1",
+                  title: "Enter Basic Details",
+                  desc: "Provide essential context:",
+                  bullets: [
+                    "Job title",
+                    "Company name",
+                    "Application date",
+                    "Recruiter name (optional)",
+                    "Interview stage (if applicable)",
+                  ],
+                  note: "This helps personalize your follow-up email after a job application.",
+                  icon: <FileText className="h-5 w-5 text-[#ff4c00]" />,
+                },
+                {
+                  step: "2",
+                  title: "AI Analyzes Email Context",
+                  desc: "Our engine evaluates:",
+                  bullets: [
+                    "Hiring stage",
+                    "Company communication tone",
+                    "Desired messaging style",
+                    "Follow-up timing relevance",
+                    "Missing recruiter details",
+                  ],
+                  note: "Ensuring precision in every message.",
+                  icon: <Sparkles className="h-5 w-5 text-[#ff4c00]" />,
+                },
+                {
+                  step: "3",
+                  title: "Smart Email Generation",
+                  desc: "The AI instantly creates:",
+                  bullets: [
+                    "Polished follow-up emails after job applications",
+                    "Multiple recruiter follow-up email variations",
+                    "High-impact interview follow-up email drafts",
+                  ],
+                  note: "All use proven follow-up email template logic.",
+                  icon: <MailCheck className="h-5 w-5 text-[#ff4c00]" />,
+                },
+                {
+                  step: "4",
+                  title: "Personalization & Customization",
+                  desc: "Refine your message easily:",
+                  bullets: [
+                    "Adjust tone (formal/confident/polite)",
+                    "Modify length",
+                    "Add achievements",
+                    "Insert a stronger call to action",
+                    "Attach supporting materials",
+                  ],
+                  icon: <Mail className="h-5 w-5 text-[#ff4c00]" />,
+                },
+                {
+                  step: "5",
+                  title: "Copy, Send, or Automate",
+                  desc: "Finalize and send:",
+                  bullets: [
+                    "One-click copy",
+                    "Email-ready formatting",
+                    "Supports automated follow-up emails",
+                  ],
+                  note: "Generate your email in 60 seconds.",
+                  icon: <Clock className="h-5 w-5 text-[#ff4c00]" />,
+                },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  className="rounded-lg border border-slate-200 bg-white p-5"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 flex h-9 w-9 items-center justify-center rounded-full bg-[#ff4c00] text-sm font-bold text-white">
+                      {item.step}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold mb-2 text-slate-900">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-slate-700 mb-3">{item.desc}</p>
+                      {item.bullets && (
+                        <div className="grid md:grid-cols-2 gap-2 mb-3">
+                          {item.bullets.map((bullet) => (
+                            <div key={bullet} className="flex items-center gap-2">
+                              <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]"></div>
+                              <span className="text-sm text-slate-700">{bullet}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {item.note && (
+                        <p className="text-sm font-medium text-[#ff4c00]">
+                          {item.note}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* BUILT-IN INTELLIGENCE */}
+        <section className="bg-white py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="max-w-3xl mx-auto text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Built-In Email Intelligence
+              </h2>
+              <p className="text-sm text-slate-700">
+                Every email is backed by smart logic designed for recruiter communication.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                {
+                  title: "Smart Template Selection",
+                  desc: "Automatic follow-up email template selection based on stage and context.",
+                },
+                {
+                  title: "Optimized Subject Lines",
+                  desc: "Subject line examples designed for opens and replies.",
+                },
+                {
+                  title: "Job-Stage Specific Messaging",
+                  desc: "Messaging tailored for post-application, recruiter, and interview follow-ups.",
+                },
+                {
+                  title: "Recruiter Communication Optimization",
+                  desc: "Lines crafted to respect time, show interest, and stay concise.",
+                },
+                {
+                  title: "Interview Follow-Up Focus",
+                  desc: "Precision interview follow-up email generation for stronger impressions.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="rounded-lg border border-slate-200 bg-[#fffaf7] p-4">
+                  <h3 className="text-sm font-semibold mb-2 text-slate-900">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* KEY FEATURES */}
+        <section className="bg-[#fff7f2] py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold">
+                Key Features Designed for Maximum Response
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                {
+                  title: "AI-Powered Follow-Up Email Templates",
+                  desc: "Professionally structured emails generated instantly.",
+                },
+                {
+                  title: "Smart Subject Line Optimization",
+                  desc: "High-engagement wording that gets opened.",
+                },
+                {
+                  title: "Job-Stage Specific Emails",
+                  desc: "Generate emails for applications, recruiters, hiring managers, and interviews.",
+                },
+                {
+                  title: "Automated Follow-Up Scheduling",
+                  desc: "Supports intelligent automated follow-up emails.",
+                },
+                {
+                  title: "Tone & Professionalism Control",
+                  desc: "Always maintain a professional, confident follow-up voice.",
+                },
+                {
+                  title: "Grammar & Clarity Checks",
+                  desc: "Error-free emails without manual proofreading.",
+                },
+                {
+                  title: "Multiple Variations",
+                  desc: "Test different versions to see what works best.",
+                },
+                {
+                  title: "Under 60 Seconds",
+                  desc: "Generate complete emails in less than a minute.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-lg border border-slate-200 bg-white p-4"
+                >
+                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* COMPARISON TABLE */}
+        <section className="bg-white py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold">
+                AI Follow-Up Email Generator vs Writing Manually
+              </h2>
+            </div>
+
+            <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+              <table className="min-w-full text-sm">
+                <thead>
+                  <tr className="bg-[#fff7f2] text-left">
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Feature</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">AI Follow-Up Email Generator</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Manual Writing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {
+                      feature: "Time Required",
+                      ai: "Under 1 minute",
+                      manual: "15–30 minutes",
+                    },
+                    {
+                      feature: "Personalization",
+                      ai: "AI-optimized",
+                      manual: "Depends on skill",
+                    },
+                    {
+                      feature: "Subject Line",
+                      ai: "Optimized automatically",
+                      manual: "Trial & error",
+                    },
+                    {
+                      feature: "Tone",
+                      ai: "Professionally balanced",
+                      manual: "May sound unsure",
+                    },
+                    {
+                      feature: "Job-Specific Customization",
+                      ai: "Dynamic",
+                      manual: "Generic",
+                    },
+                    {
+                      feature: "Automation",
+                      ai: "Supports automated follow-up emails",
+                      manual: "Not available",
+                    },
+                    {
+                      feature: "Error-Free",
+                      ai: "Built-in checks",
+                      manual: "Manual proofreading",
+                    },
+                  ].map((row) => (
+                    <tr key={row.feature} className="border-t border-slate-100">
+                      <td className="px-4 py-3 font-medium text-slate-700 text-sm">
+                        {row.feature}
+                      </td>
+                      <td className="px-4 py-3 text-slate-700 text-sm">{row.ai}</td>
+                      <td className="px-4 py-3 text-slate-600 text-sm">{row.manual}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-5 text-center text-sm text-slate-600">
+              Modern job search requires smarter communication tools.
+            </p>
+          </div>
+        </section>
+
+        {/* WHO CAN USE THIS */}
+        <section className="bg-[#fff7f2] py-14">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold">
+                Who Can Use This AI Follow-Up Email Generator?
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                "Fresh graduates",
+                "Entry-level professionals",
+                "Mid-career professionals",
+                "Career switchers",
+                "Freelancers & remote job seekers",
+                "Professionals applying to multiple roles",
+                "Candidates checking job application status",
+                "Anyone sending a recruiter follow-up email",
+                "Interview candidates crafting an interview follow-up email",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-center text-sm text-slate-700"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FINAL CTA */}
+        <section className="bg-[#fff7f2] py-16">
+          <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
+              Write Smarter Follow-Up Emails with AI
+            </h2>
+            <p className="text-base text-slate-700 mb-4">
+              Don&apos;t let your application get buried. Don&apos;t let recruiters forget your profile.
+            </p>
+            <p className="text-base text-slate-700 mb-6">
+              With our AI follow-up email generator, you can:
+            </p>
+            <div className="mb-6 flex flex-wrap justify-center gap-3 text-sm text-slate-700">
+              <span>Create professional emails instantly</span>
+              <span>•</span>
+              <span>Improve response probability</span>
+              <span>•</span>
+              <span>Save hours of writing</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => updateCtaUrl("/ai-follow-up-email-generator", ctaLabel)}
+              className="inline-flex items-center rounded-lg bg-[#ff4c00] px-8 py-3 text-base font-semibold text-white hover:bg-[#e24400] transition-colors shadow-lg mb-5"
+            >
+              {ctaLabel}
+            </button>
+            <div className="flex flex-wrap justify-center gap-3 text-sm text-slate-600">
+              <span>Instant generation</span>
+              <span>•</span>
+              <span>No writing skills required</span>
+              <span>•</span>
+              <span>Secure &amp; private</span>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="bg-[#f9e8e0] py-16">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">
+                Frequently Asked
+                <span className="block text-[#ff4c00]">Questions</span>
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              {[
+                {
+                  q: "When should I send a follow-up email?",
+                  a: "For applications: 5–7 business days after applying. For interviews: within 24–48 hours. Flashfire suggests optimal timing based on the stage and your application date.",
+                },
+                {
+                  q: "Will follow-ups make me look desperate?",
+                  a: "Not if done right. Flashfire crafts professional, confident emails that show genuine interest without being pushy. Timing and tone matter.",
+                },
+                {
+                  q: "Can I customize the generated emails?",
+                  a: "Absolutely. Use Flashfire&apos;s templates as a starting point, then personalize with specific details about your conversation or the role.",
+                },
+                {
+                  q: "What if I don&apos;t hear back after following up?",
+                  a: "One follow-up is usually enough. If there&apos;s no response after 7–10 days, it&apos;s likely the role has moved forward. Flashfire helps you move on strategically.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`border-b border-gray-200 transition-all ${
+                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                  }`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      {item.q}
+                    </span>
+                    <span className="text-[#ff4c00] shrink-0 ml-4">
+                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+                  {activeFaqIndex === i && (
+                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <style dangerouslySetInnerHTML={{__html: `
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-0.3rem);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease;
+        }
+      `}} />
+    </div>
+  );
+}
+
