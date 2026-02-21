@@ -26,19 +26,19 @@ export default function AIJobSearchFreshersPage() {
           <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div className="max-w-xl">
-                <span className="inline-flex items-center rounded-full bg-[#ffe7d7] px-4 py-1 text-xs md:text-sm font-semibold text-[#ff4c00]">
+                <span className="inline-flex items-center rounded-full bg-[#ffe7d7] px-4 py-1 text-sm font-semibold text-[#ff4c00]">
                   AI Job Search Platform for Freshers
                 </span>
-                <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+                <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
                   Your first job
                   <span className="block text-[#ff4c00]">shouldn&apos;t be a guessing game</span>
                 </h1>
-                <p className="mt-4 text-sm md:text-base text-slate-700">
+                <p className="mt-4 text-lg md:text-xl text-slate-700">
                   Flashfire helps fresh graduates find roles that match their skills,
                   coursework, and interests—without needing years of experience.
                 </p>
 
-                <div className="mt-6 space-y-2 text-sm md:text-base">
+                <div className="mt-6 space-y-2 text-base md:text-lg">
                   <div className="flex items-center gap-2">
                     <GraduationCap className="h-4 w-4 text-[#ff4c00]" />
                     <span>Built for students and recent graduates</span>
@@ -57,7 +57,7 @@ export default function AIJobSearchFreshersPage() {
                   <button
                     type="button"
                     onClick={() => updateCtaUrl("/ai-job-search-platform-for-freshers", ctaLabel)}
-                    className="inline-flex items-center rounded-lg bg-[#ff4c00] px-6 py-3 text-sm font-semibold text-white hover:bg-[#e24400] transition"
+                    className="inline-flex items-center rounded-lg bg-[#ff4c00] px-6 py-3 text-base md:text-lg font-semibold text-white hover:bg-[#e24400] transition"
                   >
                     {ctaLabel}
                   </button>
@@ -66,10 +66,10 @@ export default function AIJobSearchFreshersPage() {
 
               <div className="relative">
                 <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-md">
-                  <p className="text-xs font-semibold text-slate-800 mb-3">
+                  <p className="text-sm font-semibold text-slate-800 mb-3">
                     Example fresher profile match
                   </p>
-                  <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-5 space-y-3 text-xs text-slate-700">
+                  <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-5 space-y-3 text-sm text-slate-700">
                     <p className="font-semibold flex items-center gap-2">
                       <GraduationCap className="h-4 w-4 text-[#ff4c00]" />
                       B.Tech CS • 0–1 years
@@ -94,7 +94,7 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-white py-12 border-y border-slate-100">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 mb-4">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-600 mb-4">
                 Trusted by Thousands of Fresh Graduates
               </p>
               <p className="text-lg text-slate-900 mb-5 font-semibold">
@@ -103,7 +103,7 @@ export default function AIJobSearchFreshersPage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-700">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-base text-slate-700">
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-[#ff4c00]" />
                 <span>Thousands of profiles created</span>
@@ -126,10 +126,10 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Why Traditional Job Portals Don't Work Well for <span className="text-[#ff4c00]">Freshers</span>
               </h2>
-              <p className="text-base text-slate-700">
+              <p className="text-lg text-slate-700">
                 Most job boards are built for experienced candidates.
               </p>
             </div>
@@ -145,7 +145,7 @@ export default function AIJobSearchFreshersPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
+                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-base text-slate-700"
                 >
                   <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]" />
                   <span>{item}</span>
@@ -153,7 +153,7 @@ export default function AIJobSearchFreshersPage() {
               ))}
             </div>
 
-            <div className="bg-white rounded-lg border border-[#ff4c00]/20 p-5 text-sm text-slate-700">
+            <div className="bg-white rounded-lg border border-[#ff4c00]/20 p-5 text-base text-slate-700">
               <p className="mb-2">
                 <span className="font-semibold">Tired of applying to 100+ jobs with no replies?</span>
               </p>
@@ -169,7 +169,7 @@ export default function AIJobSearchFreshersPage() {
               <button
                 type="button"
                 onClick={() => updateCtaUrl("/ai-job-search-platform-for-freshers", "Create Profile")}
-                className="mt-3 text-xs font-semibold text-[#ff4c00] hover:underline"
+                className="mt-3 text-sm font-semibold text-[#ff4c00] hover:underline"
               >
                 Create Profile →
               </button>
@@ -180,7 +180,7 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Key Benefits at a <span className="text-[#ff4c00]">Glance</span>
               </h2>
             </div>
@@ -233,8 +233,8 @@ export default function AIJobSearchFreshersPage() {
                   className="rounded-lg border border-slate-200 bg-[#fffaf7] p-4"
                 >
                   <div className="text-xl font-bold text-[#ff4c00] mb-2">{item.num}</div>
-                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
-                  <p className="text-sm text-slate-600">{item.desc}</p>
+                  <h3 className="text-base font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  <p className="text-base text-slate-600">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -245,10 +245,10 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 How Our <span className="text-[#ff4c00]">AI Job Search Platform Works</span>
               </h2>
-              <p className="text-base text-slate-700">
+              <p className="text-lg text-slate-700">
                 Finding your first job becomes simple, guided, and efficient.
               </p>
             </div>
@@ -321,22 +321,22 @@ export default function AIJobSearchFreshersPage() {
                       {item.step}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold mb-2 text-slate-900">
+                      <h3 className="text-xl font-bold mb-2 text-slate-900">
                         {item.title}
                       </h3>
-                      {item.desc && <p className="text-sm text-slate-700 mb-3">{item.desc}</p>}
+                      {item.desc && <p className="text-base text-slate-700 mb-3">{item.desc}</p>}
                       {item.bullets && (
                         <div className="grid md:grid-cols-2 gap-2 mb-3">
                           {item.bullets.map((bullet) => (
                             <div key={bullet} className="flex items-center gap-2">
                               <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]"></div>
-                              <span className="text-sm text-slate-700">{bullet}</span>
+                              <span className="text-base text-slate-700">{bullet}</span>
                             </div>
                           ))}
                         </div>
                       )}
                       {item.note && (
-                        <p className="text-sm font-medium text-[#ff4c00]">
+                        <p className="text-base font-medium text-[#ff4c00]">
                           {item.note}
                         </p>
                       )}
@@ -344,7 +344,7 @@ export default function AIJobSearchFreshersPage() {
                         <button
                           type="button"
                           onClick={() => updateCtaUrl("/ai-job-search-platform-for-freshers", item.cta)}
-                          className="mt-2 text-sm font-semibold text-[#ff4c00] hover:underline"
+                          className="mt-2 text-base font-semibold text-[#ff4c00] hover:underline"
                         >
                           {item.cta} →
                         </button>
@@ -361,19 +361,19 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Real-Time <span className="text-[#ff4c00]">Job Discovery</span> Engine
               </h2>
-              <p className="text-sm text-slate-700">
+              <p className="text-base text-slate-700">
                 Continuously updated listings from leading:
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-[#fffaf7] rounded-lg border border-slate-200 p-4 text-center">
-                <p className="text-sm font-medium text-slate-700">online job search platforms</p>
+                <p className="text-base font-medium text-slate-700">online job search platforms</p>
               </div>
               <div className="bg-[#fffaf7] rounded-lg border border-slate-200 p-4 text-center">
-                <p className="text-sm font-medium text-slate-700">job portals for fresh graduates</p>
+                <p className="text-base font-medium text-slate-700">job portals for fresh graduates</p>
               </div>
             </div>
           </div>
@@ -383,7 +383,7 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
                 Why This <span className="text-[#ff4c00]">Fresher Job Search Platform</span> Delivers Better Results
               </h2>
               <p className="text-base text-slate-700 mb-6 text-center">
@@ -399,11 +399,11 @@ export default function AIJobSearchFreshersPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2.5 p-3 bg-white rounded-lg border border-slate-200">
                     <CheckCircle2 className="h-4 w-4 text-[#ff4c00] flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-700">{item}</span>
+                    <span className="text-base text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
-              <div className="bg-white rounded-lg border border-slate-200 p-5 text-sm text-slate-700">
+              <div className="bg-white rounded-lg border border-slate-200 p-5 text-base text-slate-700">
                 <p className="font-semibold mb-2 text-slate-900">Users typically experience:</p>
                 <ul className="space-y-1">
                   <li>• Faster job discovery</li>
@@ -420,7 +420,7 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 Key Features Designed for <span className="text-[#ff4c00]">Early-Career Success</span>
               </h2>
             </div>
@@ -472,8 +472,8 @@ export default function AIJobSearchFreshersPage() {
                   key={item.title}
                   className="rounded-lg border border-slate-200 bg-[#fffaf7] p-4"
                 >
-                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
-                  {item.desc && <p className="text-sm text-slate-600">{item.desc}</p>}
+                  <h3 className="text-base font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  {item.desc && <p className="text-base text-slate-600">{item.desc}</p>}
                 </div>
               ))}
             </div>
@@ -484,18 +484,18 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 <span className="text-[#ff4c00]">AI Job Search Platform</span> vs Traditional Job Portals
               </h2>
             </div>
 
             <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
-              <table className="min-w-full text-sm">
+              <table className="min-w-full text-base">
                 <thead>
                   <tr className="bg-[#fff7f2] text-left">
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Feature</th>
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">AI Job Search for Freshers</th>
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Traditional Job Portals</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">Feature</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">AI Job Search for Freshers</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">Traditional Job Portals</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -532,18 +532,18 @@ export default function AIJobSearchFreshersPage() {
                     },
                   ].map((row) => (
                     <tr key={row.feature} className="border-t border-slate-100">
-                      <td className="px-4 py-3 font-medium text-slate-700 text-sm">
+                      <td className="px-4 py-3 font-medium text-slate-700 text-base">
                         {row.feature}
                       </td>
-                      <td className="px-4 py-3 text-slate-700 text-sm">{row.ai}</td>
-                      <td className="px-4 py-3 text-slate-600 text-sm">{row.traditional}</td>
+                      <td className="px-4 py-3 text-slate-700 text-base">{row.ai}</td>
+                      <td className="px-4 py-3 text-slate-600 text-base">{row.traditional}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <p className="mt-5 text-center text-sm text-slate-600">
+            <p className="mt-5 text-center text-base text-slate-600">
               Modern career discovery requires smarter systems.
             </p>
           </div>
@@ -553,7 +553,7 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 Who Can Use This <span className="text-[#ff4c00]">AI Job Search Platform</span>?
               </h2>
             </div>
@@ -570,7 +570,7 @@ export default function AIJobSearchFreshersPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-lg border border-slate-200 bg-[#fffaf7] px-4 py-2.5 text-center text-sm text-slate-700"
+                  className="rounded-lg border border-slate-200 bg-[#fffaf7] px-4 py-2.5 text-center text-base text-slate-700"
                 >
                   {item}
                 </div>
@@ -582,7 +582,7 @@ export default function AIJobSearchFreshersPage() {
         {/* FINAL CTA */}
         <section className="bg-[#fff7f2] py-16">
           <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-slate-900">
               Find <span className="text-[#ff4c00]">Entry-Level Jobs</span> Faster with AI
             </h2>
             <p className="text-base text-slate-700 mb-4">
@@ -591,7 +591,7 @@ export default function AIJobSearchFreshersPage() {
             <p className="text-base text-slate-700 mb-6">
               With our AI job search for freshers, you can:
             </p>
-            <div className="mb-6 flex flex-wrap justify-center gap-3 text-sm text-slate-700">
+            <div className="mb-6 flex flex-wrap justify-center gap-3 text-base text-slate-700">
               <span>Discover relevant entry-level jobs</span>
               <span>•</span>
               <span>Access smarter jobs for fresh graduates</span>
@@ -610,7 +610,7 @@ export default function AIJobSearchFreshersPage() {
               {ctaLabel}
               <ArrowRight size={18} className="ml-2" />
             </button>
-            <div className="flex flex-wrap justify-center gap-3 text-sm text-slate-600">
+            <div className="flex flex-wrap justify-center gap-3 text-base text-slate-600">
               <span>Instant setup</span>
               <span>•</span>
               <span>No experience required</span>
@@ -624,7 +624,7 @@ export default function AIJobSearchFreshersPage() {
         <section className="bg-[#f9e8e0] py-16">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
                 FAQs
               </h2>
             </div>
@@ -674,7 +674,7 @@ export default function AIJobSearchFreshersPage() {
                     className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className={`font-semibold text-lg md:text-xl ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
                       {item.q}
                     </span>
                     <span className="text-[#ff4c00] shrink-0 ml-4">
@@ -682,7 +682,7 @@ export default function AIJobSearchFreshersPage() {
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                    <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
                       <p>{item.a}</p>
                     </div>
                   )}

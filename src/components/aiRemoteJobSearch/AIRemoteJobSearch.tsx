@@ -26,19 +26,19 @@ export default function AIRemoteJobSearchPage() {
           <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div className="max-w-xl">
-                <span className="inline-flex items-center rounded-full bg-[#ffe7d7] px-4 py-1 text-xs md:text-sm font-semibold text-[#ff4c00]">
+                <span className="inline-flex items-center rounded-full bg-[#ffe7d7] px-4 py-1 text-sm font-semibold text-[#ff4c00]">
                   AI Remote Job Search Platform
                 </span>
-                <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+                <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
                   Find remote roles
                   <span className="block text-[#ff4c00]">that match your time zone and skills</span>
                 </h1>
-                <p className="mt-4 text-sm md:text-base text-slate-700">
+                <p className="mt-4 text-lg md:text-xl text-slate-700">
                   Flashfire surfaces high‑quality remote opportunities across global markets,
                   filtered by your location, experience level, and salary expectations.
                 </p>
 
-                <div className="mt-6 space-y-2 text-sm md:text-base">
+                <div className="mt-6 space-y-2 text-base md:text-lg">
                   <div className="flex items-center gap-2">
                     <Globe2 className="h-4 w-4 text-[#ff4c00]" />
                     <span>Remote roles across US, Canada, and global markets</span>
@@ -57,7 +57,7 @@ export default function AIRemoteJobSearchPage() {
                   <button
                     type="button"
                     onClick={() => updateCtaUrl("/ai-remote-job-search-platform", ctaLabel)}
-                    className="inline-flex items-center rounded-lg bg-[#ff4c00] px-6 py-3 text-sm font-semibold text-white hover:bg-[#e24400] transition"
+                    className="inline-flex items-center rounded-lg bg-[#ff4c00] px-6 py-3 text-base md:text-lg font-semibold text-white hover:bg-[#e24400] transition"
                   >
                     {ctaLabel}
                   </button>
@@ -66,16 +66,16 @@ export default function AIRemoteJobSearchPage() {
 
               <div className="relative">
                 <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-md">
-                  <p className="text-xs font-semibold text-slate-800 mb-3">
+                  <p className="text-sm font-semibold text-slate-800 mb-3">
                     Remote job highlights
                   </p>
-                  <div className="space-y-4 text-xs text-slate-700">
+                  <div className="space-y-4 text-sm text-slate-700">
                     <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-4 flex justify-between items-center">
                       <div>
                         <p className="font-semibold">Senior Frontend Engineer</p>
-                        <p className="text-[11px] text-slate-600">US‑based • Fully Remote • EST overlap</p>
+                        <p className="text-xs text-slate-600">US‑based • Fully Remote • EST overlap</p>
                       </div>
-                      <span className="inline-flex items-center gap-1 text-[11px] text-[#ff4c00]">
+                      <span className="inline-flex items-center gap-1 text-xs text-[#ff4c00]">
                         <MapPin className="h-3 w-3" />
                         High Match
                       </span>
@@ -83,14 +83,14 @@ export default function AIRemoteJobSearchPage() {
                     <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-4 flex justify-between items-center">
                       <div>
                         <p className="font-semibold">Product Designer</p>
-                        <p className="text-[11px] text-slate-600">Canada • Remote Friendly • PST overlap</p>
+                        <p className="text-xs text-slate-600">Canada • Remote Friendly • PST overlap</p>
                       </div>
-                      <span className="inline-flex items-center gap-1 text-[11px] text-[#ff4c00]">
+                      <span className="inline-flex items-center gap-1 text-xs text-[#ff4c00]">
                         <MapPin className="h-3 w-3" />
                         Time‑zone Fit
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-600">
+                    <p className="text-sm text-slate-600">
                       These are examples of how Flashfire prioritizes remote roles that not only match
                       your skills, but also work with your schedule and region.
                     </p>
@@ -105,7 +105,7 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-white py-12 border-y border-slate-100">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 mb-4">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-600 mb-4">
                 Trusted by Remote Professionals Worldwide
               </p>
               <p className="text-lg text-slate-900 mb-5 font-semibold">
@@ -114,7 +114,7 @@ export default function AIRemoteJobSearchPage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-700">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-base text-slate-700">
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-[#ff4c00]" />
                 <span>Used by professionals across multiple industries</span>
@@ -137,10 +137,10 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Why Remote Job Searching Feels <span className="text-[#ff4c00]">Frustrating</span>
               </h2>
-              <p className="text-base text-slate-700">
+              <p className="text-lg text-slate-700">
                 Searching manually across multiple online job search platforms is exhausting.
               </p>
             </div>
@@ -156,7 +156,7 @@ export default function AIRemoteJobSearchPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700"
+                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-base text-slate-700"
                 >
                   <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]" />
                   <span>{item}</span>
@@ -164,7 +164,7 @@ export default function AIRemoteJobSearchPage() {
               ))}
             </div>
 
-            <div className="bg-white rounded-lg border border-[#ff4c00]/20 p-5 text-sm text-slate-700">
+            <div className="bg-white rounded-lg border border-[#ff4c00]/20 p-5 text-base text-slate-700">
               <p className="mb-2">
                 <span className="font-semibold">Tired of applying and getting ghosted?</span>
               </p>
@@ -185,10 +185,10 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 How Our <span className="text-[#ff4c00]">AI Remote Job Finder Works</span>
               </h2>
-              <p className="text-base text-slate-700">
+              <p className="text-lg text-slate-700">
                 Finding the right remote role should feel simple — and now it is.
               </p>
             </div>
@@ -268,22 +268,22 @@ export default function AIRemoteJobSearchPage() {
                       {item.step}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold mb-2 text-slate-900">
+                      <h3 className="text-xl font-bold mb-2 text-slate-900">
                         {item.title}
                       </h3>
-                      {item.desc && <p className="text-sm text-slate-700 mb-3">{item.desc}</p>}
+                      {item.desc && <p className="text-base text-slate-700 mb-3">{item.desc}</p>}
                       {item.bullets && (
                         <div className="grid md:grid-cols-2 gap-2 mb-3">
                           {item.bullets.map((bullet) => (
                             <div key={bullet} className="flex items-center gap-2">
                               <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]"></div>
-                              <span className="text-sm text-slate-700">{bullet}</span>
+                              <span className="text-base text-slate-700">{bullet}</span>
                             </div>
                           ))}
                         </div>
                       )}
                       {item.note && (
-                        <p className="text-sm font-medium text-[#ff4c00]">
+                        <p className="text-base font-medium text-[#ff4c00]">
                           {item.note}
                         </p>
                       )}
@@ -299,7 +299,7 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
                 Why This <span className="text-[#ff4c00]">AI Remote Job Finder</span> Delivers Better Results
               </h2>
               <p className="text-base text-slate-700 mb-6 text-center">
@@ -315,11 +315,11 @@ export default function AIRemoteJobSearchPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2.5 p-3 bg-white rounded-lg border border-slate-200">
                     <CheckCircle2 className="h-4 w-4 text-[#ff4c00] flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-700">{item}</span>
+                    <span className="text-base text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
-              <div className="bg-white rounded-lg border border-slate-200 p-5 text-sm text-slate-700">
+              <div className="bg-white rounded-lg border border-slate-200 p-5 text-base text-slate-700">
                 <p className="font-semibold mb-2 text-slate-900">Users typically experience:</p>
                 <ul className="space-y-1">
                   <li>• Faster job discovery</li>
@@ -336,7 +336,7 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Key Benefits at a <span className="text-[#ff4c00]">Glance</span>
               </h2>
             </div>
@@ -379,8 +379,8 @@ export default function AIRemoteJobSearchPage() {
                   className="rounded-lg border border-slate-200 bg-[#fffaf7] p-4"
                 >
                   <div className="text-xl font-bold text-[#ff4c00] mb-2">{item.num}</div>
-                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
-                  {item.desc && <p className="text-sm text-slate-600">{item.desc}</p>}
+                  <h3 className="text-base font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  {item.desc && <p className="text-base text-slate-600">{item.desc}</p>}
                 </div>
               ))}
             </div>
@@ -391,7 +391,7 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 Key Features Designed for <span className="text-[#ff4c00]">Remote Job Efficiency</span>
               </h2>
             </div>
@@ -447,8 +447,8 @@ export default function AIRemoteJobSearchPage() {
                   key={item.title}
                   className="rounded-lg border border-slate-200 bg-white p-4"
                 >
-                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
-                  {item.desc && <p className="text-sm text-slate-600">{item.desc}</p>}
+                  <h3 className="text-base font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  {item.desc && <p className="text-base text-slate-600">{item.desc}</p>}
                 </div>
               ))}
             </div>
@@ -459,18 +459,18 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 <span className="text-[#ff4c00]">AI Remote Job Finder</span> vs Traditional Job Boards
               </h2>
             </div>
 
             <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
-              <table className="min-w-full text-sm">
+              <table className="min-w-full text-base">
                 <thead>
                   <tr className="bg-[#fff7f2] text-left">
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Feature</th>
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">AI Remote Job Finder</th>
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Traditional Job Boards</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">Feature</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">AI Remote Job Finder</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">Traditional Job Boards</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -507,7 +507,7 @@ export default function AIRemoteJobSearchPage() {
                     },
                   ].map((row) => (
                     <tr key={row.feature} className="border-t border-slate-100">
-                      <td className="px-4 py-3 font-medium text-slate-700 text-sm">
+                      <td className="px-4 py-3 font-medium text-slate-700 text-base">
                         {row.feature}
                       </td>
                       <td className="px-4 py-3 text-slate-700 text-sm">{row.ai}</td>
@@ -518,7 +518,7 @@ export default function AIRemoteJobSearchPage() {
               </table>
             </div>
 
-            <p className="mt-5 text-center text-sm text-slate-600">
+            <p className="mt-5 text-center text-base text-slate-600">
               Modern remote job search requires intelligent systems.
             </p>
           </div>
@@ -528,7 +528,7 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 Who Can Use This <span className="text-[#ff4c00]">AI Remote Job Finder</span>?
               </h2>
             </div>
@@ -547,7 +547,7 @@ export default function AIRemoteJobSearchPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-center text-sm text-slate-700"
+                  className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-center text-base text-slate-700"
                 >
                   {item}
                 </div>
@@ -568,7 +568,7 @@ export default function AIRemoteJobSearchPage() {
             <p className="text-base text-slate-700 mb-6">
               With our AI remote job finder, you can:
             </p>
-            <div className="mb-6 flex flex-wrap justify-center gap-3 text-sm text-slate-700">
+            <div className="mb-6 flex flex-wrap justify-center gap-3 text-base text-slate-700">
               <span>Simplify your remote job search</span>
               <span>•</span>
               <span>Get precision remote job matching</span>
@@ -587,7 +587,7 @@ export default function AIRemoteJobSearchPage() {
               {ctaLabel}
               <ArrowRight size={18} className="ml-2" />
             </button>
-            <div className="flex flex-wrap justify-center gap-3 text-sm text-slate-600">
+            <div className="flex flex-wrap justify-center gap-3 text-base text-slate-600">
               <span>Instant setup</span>
               <span>•</span>
               <span>No complex learning curve</span>
@@ -601,7 +601,7 @@ export default function AIRemoteJobSearchPage() {
         <section className="bg-[#f9e8e0] py-16">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
                 FAQs
               </h2>
             </div>
@@ -643,7 +643,7 @@ export default function AIRemoteJobSearchPage() {
                     className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className={`font-semibold text-lg md:text-xl ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
                       {item.q}
                     </span>
                     <span className="text-[#ff4c00] shrink-0 ml-4">
@@ -651,7 +651,7 @@ export default function AIRemoteJobSearchPage() {
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                    <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
                       <p>{item.a}</p>
                     </div>
                   )}
