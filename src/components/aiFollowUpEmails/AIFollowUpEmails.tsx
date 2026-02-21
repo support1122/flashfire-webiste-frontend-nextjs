@@ -27,21 +27,21 @@ export default function AIFollowUpEmailsPage() {
             <div className="grid md:grid-cols-2 gap-10 items-center">
               {/* LEFT */}
               <div className="max-w-xl">
-                <span className="inline-flex items-center rounded-full bg-[#ffe7d7] px-4 py-1 text-xs md:text-sm font-semibold text-[#ff4c00]">
+                <span className="inline-flex items-center rounded-full bg-[#ffe7d7] px-4 py-1 text-sm font-semibold text-[#ff4c00]">
                   AI Follow-Up Email Generator
                 </span>
-                <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+                <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
                   AI Follow-Up Email Generator for Job
                   <span className="block text-[#ff4c00]">
                     Applications &amp; Interviews
                   </span>
                 </h1>
-                <p className="mt-4 text-sm md:text-base text-slate-700">
+                <p className="mt-4 text-lg md:text-xl text-slate-700">
                   Don&apos;t let a recruiter&apos;s silence cost you opportunities. Instantly create
                   powerful follow-up emails after job applications and interviews in under 60 seconds.
                 </p>
 
-                <div className="mt-6 space-y-2 text-sm md:text-base">
+                <div className="mt-6 space-y-2 text-base md:text-lg">
                   <div className="flex items-center gap-2">
                     <MailCheck className="h-4 w-4 text-[#ff4c00]" />
                     <span>Write like a top candidate</span>
@@ -64,7 +64,7 @@ export default function AIFollowUpEmailsPage() {
                   <button
                     type="button"
                     onClick={() => updateCtaUrl("/ai-follow-up-email-generator", ctaLabel)}
-                    className="inline-flex items-center rounded-lg bg-[#ff4c00] px-6 py-3 text-sm font-semibold text-white hover:bg-[#e24400] transition"
+                    className="inline-flex items-center rounded-lg bg-[#ff4c00] px-6 py-3 text-base md:text-lg font-semibold text-white hover:bg-[#e24400] transition"
                   >
                     {ctaLabel}
                   </button>
@@ -74,10 +74,10 @@ export default function AIFollowUpEmailsPage() {
               {/* RIGHT */}
               <div className="relative">
                 <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-md">
-                  <p className="text-xs font-semibold text-slate-800 mb-3">
+                  <p className="text-sm font-semibold text-slate-800 mb-3">
                     Follow‑up preview
                   </p>
-                  <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-5 space-y-3 text-xs text-slate-700">
+                  <div className="rounded-xl bg-[#fff7f2] border border-[#ffd6c2] p-5 space-y-3 text-sm text-slate-700">
                     <p className="font-semibold">Subject: Quick follow‑up on my application</p>
                     <p>
                       Hi [Recruiter Name], I hope you&apos;re doing well. I&apos;m writing to follow up
@@ -106,10 +106,10 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Why Job Seekers Struggle with Follow-Up Emails
               </h2>
-              <p className="text-base text-slate-700">
+              <p className="text-lg text-slate-700">
                 Writing follow-ups often feels uncomfortable and uncertain.
               </p>
             </div>
@@ -124,7 +124,7 @@ export default function AIFollowUpEmailsPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-[#fffaf7] px-4 py-3 text-sm text-slate-700"
+                  className="flex items-start gap-2 rounded-lg border border-slate-200 bg-[#fffaf7] px-4 py-3 text-base text-slate-700"
                 >
                   <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]" />
                   <span>{item}</span>
@@ -133,7 +133,7 @@ export default function AIFollowUpEmailsPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="rounded-lg border border-slate-200 bg-white p-5 text-sm text-slate-700">
+              <div className="rounded-lg border border-slate-200 bg-white p-5 text-base text-slate-700">
                 <p className="font-semibold mb-3 text-slate-900">Poorly written emails often lead to:</p>
                 <ul className="space-y-1.5">
                   <li className="flex items-center gap-2">
@@ -154,7 +154,7 @@ export default function AIFollowUpEmailsPage() {
                   </li>
                 </ul>
               </div>
-              <div className="rounded-lg border border-[#ff4c00]/20 bg-[#fff7f2] p-5 text-sm text-slate-700">
+              <div className="rounded-lg border border-[#ff4c00]/20 bg-[#fff7f2] p-5 text-base text-slate-700">
                 <p className="mb-2">
                   Silence from recruiters doesn&apos;t always mean rejection.
                 </p>
@@ -164,7 +164,7 @@ export default function AIFollowUpEmailsPage() {
                 <button
                   type="button"
                   onClick={() => updateCtaUrl("/ai-follow-up-email-generator", "Create Your Follow-Up Email Instantly")}
-                  className="text-xs font-semibold text-[#ff4c00] hover:underline"
+                  className="text-sm font-semibold text-[#ff4c00] hover:underline"
                 >
                   Create Your Follow-Up Email Instantly →
                 </button>
@@ -177,7 +177,7 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Key Benefits at a Glance
               </h2>
             </div>
@@ -211,15 +211,15 @@ export default function AIFollowUpEmailsPage() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-lg border border-slate-200 bg-white p-4 text-sm"
+                  className="rounded-lg border border-slate-200 bg-white p-4 text-base"
                 >
-                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  <h3 className="text-base font-semibold mb-1.5 text-slate-900">{item.title}</h3>
                   <p className="text-slate-600">{item.desc}</p>
                 </div>
               ))}
             </div>
 
-            <div className="max-w-3xl mx-auto text-center text-sm text-slate-600 bg-white rounded-lg border border-slate-200 p-4">
+            <div className="max-w-3xl mx-auto text-center text-base text-slate-600 bg-white rounded-lg border border-slate-200 p-4">
               <p>
                 Protect your professional image with every email — always maintain a polite and concise message.
               </p>
@@ -231,7 +231,7 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-white py-12 border-y border-slate-100">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-600 mb-4">
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-600 mb-4">
                 Trusted by Growing Numbers of Job Seekers
               </p>
               <p className="text-lg text-slate-900 mb-5 font-semibold">
@@ -242,7 +242,7 @@ export default function AIFollowUpEmailsPage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-700">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-base text-slate-700">
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-[#ff4c00]" />
                 <span>Used by job seekers across industries</span>
@@ -265,10 +265,10 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 How Our AI Follow-Up Email Generator Works
               </h2>
-              <p className="text-base text-slate-700">
+              <p className="text-lg text-slate-700">
                 Creating a powerful job application follow-up email has never been easier.
               </p>
             </div>
@@ -350,22 +350,22 @@ export default function AIFollowUpEmailsPage() {
                       {item.step}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold mb-2 text-slate-900">
+                      <h3 className="text-xl font-bold mb-2 text-slate-900">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-slate-700 mb-3">{item.desc}</p>
+                      <p className="text-base text-slate-700 mb-3">{item.desc}</p>
                       {item.bullets && (
                         <div className="grid md:grid-cols-2 gap-2 mb-3">
                           {item.bullets.map((bullet) => (
                             <div key={bullet} className="flex items-center gap-2">
                               <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#ff4c00]"></div>
-                              <span className="text-sm text-slate-700">{bullet}</span>
+                              <span className="text-base text-slate-700">{bullet}</span>
                             </div>
                           ))}
                         </div>
                       )}
                       {item.note && (
-                        <p className="text-sm font-medium text-[#ff4c00]">
+                        <p className="text-base font-medium text-[#ff4c00]">
                           {item.note}
                         </p>
                       )}
@@ -381,10 +381,10 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Built-In Email Intelligence
               </h2>
-              <p className="text-sm text-slate-700">
+              <p className="text-base text-slate-700">
                 Every email is backed by smart logic designed for recruiter communication.
               </p>
             </div>
@@ -413,8 +413,8 @@ export default function AIFollowUpEmailsPage() {
                 },
               ].map((item) => (
                 <div key={item.title} className="rounded-lg border border-slate-200 bg-[#fffaf7] p-4">
-                  <h3 className="text-sm font-semibold mb-2 text-slate-900">{item.title}</h3>
-                  <p className="text-sm text-slate-600">{item.desc}</p>
+                  <h3 className="text-base font-semibold mb-2 text-slate-900">{item.title}</h3>
+                  <p className="text-base text-slate-600">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -425,7 +425,7 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 Key Features Designed for Maximum Response
               </h2>
             </div>
@@ -469,8 +469,8 @@ export default function AIFollowUpEmailsPage() {
                   key={item.title}
                   className="rounded-lg border border-slate-200 bg-white p-4"
                 >
-                  <h3 className="text-sm font-semibold mb-1.5 text-slate-900">{item.title}</h3>
-                  <p className="text-sm text-slate-600">{item.desc}</p>
+                  <h3 className="text-base font-semibold mb-1.5 text-slate-900">{item.title}</h3>
+                  <p className="text-base text-slate-600">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -481,18 +481,18 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-white py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 AI Follow-Up Email Generator vs Writing Manually
               </h2>
             </div>
 
             <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
-              <table className="min-w-full text-sm">
+              <table className="min-w-full text-base">
                 <thead>
                   <tr className="bg-[#fff7f2] text-left">
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Feature</th>
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">AI Follow-Up Email Generator</th>
-                    <th className="px-4 py-3 font-semibold text-slate-900 text-sm">Manual Writing</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">Feature</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">AI Follow-Up Email Generator</th>
+                    <th className="px-4 py-3 font-semibold text-slate-900 text-base">Manual Writing</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -534,18 +534,18 @@ export default function AIFollowUpEmailsPage() {
                     },
                   ].map((row) => (
                     <tr key={row.feature} className="border-t border-slate-100">
-                      <td className="px-4 py-3 font-medium text-slate-700 text-sm">
+                      <td className="px-4 py-3 font-medium text-slate-700 text-base">
                         {row.feature}
                       </td>
-                      <td className="px-4 py-3 text-slate-700 text-sm">{row.ai}</td>
-                      <td className="px-4 py-3 text-slate-600 text-sm">{row.manual}</td>
+                      <td className="px-4 py-3 text-slate-700 text-base">{row.ai}</td>
+                      <td className="px-4 py-3 text-slate-600 text-base">{row.manual}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <p className="mt-5 text-center text-sm text-slate-600">
+            <p className="mt-5 text-center text-base text-slate-600">
               Modern job search requires smarter communication tools.
             </p>
           </div>
@@ -555,7 +555,7 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-[#fff7f2] py-14">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold">
+              <h2 className="text-3xl md:text-4xl font-bold">
                 Who Can Use This AI Follow-Up Email Generator?
               </h2>
             </div>
@@ -574,7 +574,7 @@ export default function AIFollowUpEmailsPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-center text-sm text-slate-700"
+                  className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-center text-base text-slate-700"
                 >
                   {item}
                 </div>
@@ -586,7 +586,7 @@ export default function AIFollowUpEmailsPage() {
         {/* FINAL CTA */}
         <section className="bg-[#fff7f2] py-16">
           <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-slate-900">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-slate-900">
               Write Smarter Follow-Up Emails with AI
             </h2>
             <p className="text-base text-slate-700 mb-4">
@@ -595,7 +595,7 @@ export default function AIFollowUpEmailsPage() {
             <p className="text-base text-slate-700 mb-6">
               With our AI follow-up email generator, you can:
             </p>
-            <div className="mb-6 flex flex-wrap justify-center gap-3 text-sm text-slate-700">
+            <div className="mb-6 flex flex-wrap justify-center gap-3 text-base text-slate-700">
               <span>Create professional emails instantly</span>
               <span>•</span>
               <span>Improve response probability</span>
@@ -609,7 +609,7 @@ export default function AIFollowUpEmailsPage() {
             >
               {ctaLabel}
             </button>
-            <div className="flex flex-wrap justify-center gap-3 text-sm text-slate-600">
+            <div className="flex flex-wrap justify-center gap-3 text-base text-slate-600">
               <span>Instant generation</span>
               <span>•</span>
               <span>No writing skills required</span>
@@ -623,7 +623,7 @@ export default function AIFollowUpEmailsPage() {
         <section className="bg-[#f9e8e0] py-16">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
                 Frequently Asked
                 <span className="block text-[#ff4c00]">Questions</span>
               </h2>
@@ -658,7 +658,7 @@ export default function AIFollowUpEmailsPage() {
                     className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className={`font-semibold text-lg md:text-xl ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
                       {item.q}
                     </span>
                     <span className="text-[#ff4c00] shrink-0 ml-4">
@@ -666,7 +666,7 @@ export default function AIFollowUpEmailsPage() {
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                    <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
                       <p>{item.a}</p>
                     </div>
                   )}

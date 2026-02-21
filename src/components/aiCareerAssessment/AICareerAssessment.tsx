@@ -25,7 +25,7 @@ export default function AICareerAssessmentPage() {
         <section className="bg-gradient-to-b from-[#fff7f2] via-[#fff7f2] to-white py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
                 AI Career Assessment Test for Skill Gap & Career Path
               </h1>
               <p className="text-lg md:text-xl text-slate-700 mb-4 leading-relaxed">
@@ -65,13 +65,13 @@ export default function AICareerAssessmentPage() {
         <section className="py-12 bg-white border-y border-slate-100">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center">
-              <p className="text-sm font-semibold text-slate-600 mb-4 uppercase tracking-wide">
+              <p className="text-base font-semibold text-slate-600 mb-4 uppercase tracking-wide">
                 Trusted by Growing Numbers of Professionals
               </p>
               <p className="text-lg md:text-xl text-slate-900 mb-6 font-semibold">
                 Join thousands using our intelligent: <span className="text-[#ff4c00]">AI career assessment</span>
               </p>
-              <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-700">
+              <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-base text-slate-700">
                 <div className="flex items-center gap-2">
                   <Users className="h-4 w-4 text-[#ff4c00]" />
                   <span>Used by professionals across industries</span>
@@ -95,7 +95,7 @@ export default function AICareerAssessmentPage() {
         <section className="py-14 bg-[#fff7f2]">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
                 Why Career Decisions Often Feel Overwhelming
               </h2>
               <p className="text-base text-slate-700 mb-5 text-center">
@@ -111,15 +111,15 @@ export default function AICareerAssessmentPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2 p-3 bg-white rounded-lg border border-slate-200">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00] mt-1.5 flex-shrink-0"></div>
-                    <span className="text-sm text-slate-700">{item}</span>
+                    <span className="text-base text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
               <div className="bg-white rounded-lg p-5 border border-[#ff4c00]/20">
-                <p className="text-sm text-slate-700 mb-2">
+                <p className="text-base text-slate-700 mb-2">
                   <span className="font-semibold">Tired of guessing your next move?</span>
                 </p>
-                <p className="text-sm text-slate-700 mb-2">
+                <p className="text-base text-slate-700 mb-2">
                   <span className="font-semibold">Unsure if your skills match the job market?</span>
                 </p>
                 <p className="text-sm text-slate-700 mb-3">
@@ -137,7 +137,7 @@ export default function AICareerAssessmentPage() {
         <section className="py-14 bg-white">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 How Our <span className="text-[#ff4c00]">AI Career Assessment Test Works</span>
               </h2>
               <p className="text-base text-slate-700">
@@ -221,26 +221,26 @@ export default function AICareerAssessmentPage() {
                       {item.step}
                     </div>
                     <div className="flex-grow">
-                      <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                      <p className="text-sm text-slate-700 mb-3">{item.desc}</p>
+                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                      <p className="text-base text-slate-700 mb-3">{item.desc}</p>
                       {item.bullets && (
                         <div className="grid md:grid-cols-2 gap-2 mb-3">
                           {item.bullets.map((bullet, i) => (
                             <div key={i} className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00] flex-shrink-0"></div>
-                              <span className="text-sm text-slate-700">{bullet}</span>
+                              <span className="text-base text-slate-700">{bullet}</span>
                             </div>
                           ))}
                         </div>
                       )}
                       {item.note && (
-                        <p className="text-sm font-medium text-[#ff4c00] mt-2">{item.note}</p>
+                        <p className="text-base font-medium text-[#ff4c00] mt-2">{item.note}</p>
                       )}
                       {item.cta && (
                         <button
                           type="button"
                           onClick={() => updateCtaUrl("/ai-career-assessment-skill-gap-analysis", item.cta)}
-                          className="mt-2 text-sm font-semibold text-[#ff4c00] hover:underline"
+                          className="mt-2 text-base font-semibold text-[#ff4c00] hover:underline"
                         >
                           {item.cta} →
                         </button>
@@ -256,7 +256,7 @@ export default function AICareerAssessmentPage() {
         {/* Before vs After */}
         <section className="py-14 bg-[#fff7f2]">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
               Before vs After Using AI Career Assessment
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
@@ -276,12 +276,12 @@ export default function AICareerAssessmentPage() {
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-lg border border-slate-200 p-5">
                   <div className="mb-3">
-                    <p className="text-xs font-semibold text-slate-500 mb-1.5">Before:</p>
-                    <p className="text-sm text-slate-700">{item.before}</p>
+                    <p className="text-sm font-semibold text-slate-500 mb-1.5">Before:</p>
+                    <p className="text-base text-slate-700">{item.before}</p>
                   </div>
                   <div className="pt-3 border-t border-slate-200">
-                    <p className="text-xs font-semibold text-[#ff4c00] mb-1.5">After:</p>
-                    <p className="text-sm font-semibold text-slate-900">{item.after}</p>
+                    <p className="text-sm font-semibold text-[#ff4c00] mb-1.5">After:</p>
+                    <p className="text-base font-semibold text-slate-900">{item.after}</p>
                   </div>
                 </div>
               ))}
@@ -293,7 +293,7 @@ export default function AICareerAssessmentPage() {
         <section className="py-14 bg-white">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
                 Why This AI Career Assessment Delivers Better Results
               </h2>
               <p className="text-base text-slate-700 mb-6 text-center">
@@ -311,7 +311,7 @@ export default function AICareerAssessmentPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2.5 p-3 bg-[#fff7f2] rounded-lg border border-slate-200">
                     <CheckCircle2 className="h-4 w-4 text-[#ff4c00] flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-700">{item}</span>
+                    <span className="text-base text-slate-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -322,7 +322,7 @@ export default function AICareerAssessmentPage() {
         {/* Key Benefits */}
         <section className="py-14 bg-[#fff7f2]">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
               Key Benefits at a Glance
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
@@ -355,7 +355,7 @@ export default function AICareerAssessmentPage() {
                 <div key={i} className="bg-white rounded-lg border border-slate-200 p-4">
                   <div className="text-xl font-bold text-[#ff4c00] mb-2">{i + 1}</div>
                   <h3 className="text-base font-semibold mb-1.5">{item.title}</h3>
-                  {item.desc && <p className="text-sm text-slate-600">{item.desc}</p>}
+                  {item.desc && <p className="text-base text-slate-600">{item.desc}</p>}
                 </div>
               ))}
             </div>
@@ -365,7 +365,7 @@ export default function AICareerAssessmentPage() {
         {/* Key Features */}
         <section className="py-14 bg-white">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
               Key Features of Our AI Career Assessment Tool
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -381,7 +381,7 @@ export default function AICareerAssessmentPage() {
                 "Results in Under 10 Minutes",
               ].map((feature, i) => (
                 <div key={i} className="bg-[#fff7f2] rounded-lg border border-slate-200 p-3">
-                  <p className="text-sm font-medium text-slate-700">{feature}</p>
+                  <p className="text-base font-medium text-slate-700">{feature}</p>
                 </div>
               ))}
             </div>
@@ -391,7 +391,7 @@ export default function AICareerAssessmentPage() {
         {/* Comparison Table */}
         <section className="py-14 bg-[#fff7f2]">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
               AI Career Assessment vs Traditional Career Tests
             </h2>
             <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
@@ -399,9 +399,9 @@ export default function AICareerAssessmentPage() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-slate-200 bg-[#fff7f2]">
-                      <th className="text-left p-3 font-semibold text-slate-900 text-sm">Feature</th>
-                      <th className="text-left p-3 font-semibold text-slate-900 text-sm">AI Career Assessment</th>
-                      <th className="text-left p-3 font-semibold text-slate-900 text-sm">Traditional Career Tests</th>
+                      <th className="text-left p-3 font-semibold text-slate-900 text-base">Feature</th>
+                      <th className="text-left p-3 font-semibold text-slate-900 text-base">AI Career Assessment</th>
+                      <th className="text-left p-3 font-semibold text-slate-900 text-base">Traditional Career Tests</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -438,16 +438,16 @@ export default function AICareerAssessmentPage() {
                       },
                     ].map((row, i) => (
                       <tr key={i} className="border-b border-slate-100">
-                        <td className="p-3 font-medium text-slate-700 text-sm">{row.feature}</td>
-                        <td className="p-3 text-slate-700 text-sm">{row.ai}</td>
-                        <td className="p-3 text-slate-600 text-sm">{row.traditional}</td>
+                        <td className="p-3 font-medium text-slate-700 text-base">{row.feature}</td>
+                        <td className="p-3 text-slate-700 text-base">{row.ai}</td>
+                        <td className="p-3 text-slate-600 text-base">{row.traditional}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
             </div>
-            <p className="text-center text-sm text-slate-600 mt-5">
+            <p className="text-center text-base text-slate-600 mt-5">
               Modern decision-making requires smarter systems.
             </p>
           </div>
@@ -456,7 +456,7 @@ export default function AICareerAssessmentPage() {
         {/* Who Can Use This */}
         <section className="py-14 bg-white">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
               Who Can Use This Career Assessment Test?
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -470,11 +470,11 @@ export default function AICareerAssessmentPage() {
                 "International job seekers",
               ].map((item, i) => (
                 <div key={i} className="bg-[#fff7f2] rounded-lg border border-slate-200 p-3 text-center">
-                  <p className="text-sm text-slate-700">{item}</p>
+                  <p className="text-base text-slate-700">{item}</p>
                 </div>
               ))}
             </div>
-            <p className="text-center text-sm text-slate-600 mt-5">
+            <p className="text-center text-base text-slate-600 mt-5">
               Ideal for anyone seeking structured: <span className="font-semibold text-[#ff4c00]">career evaluation test</span>
             </p>
           </div>
@@ -489,7 +489,7 @@ export default function AICareerAssessmentPage() {
             <p className="text-base text-slate-700 mb-6 max-w-2xl mx-auto">
               Stop guessing your future. Identify your strengths. Fix your skill gaps. Move forward with confidence.
             </p>
-            <div className="flex flex-wrap justify-center gap-3 mb-6 text-sm text-slate-700">
+            <div className="flex flex-wrap justify-center gap-3 mb-6 text-base text-slate-700">
               <span>Gain instant career clarity</span>
               <span>•</span>
               <span>Detect missing skills</span>
@@ -506,7 +506,7 @@ export default function AICareerAssessmentPage() {
               {ctaLabel}
               <ArrowRight size={18} className="ml-2" />
             </button>
-            <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-base text-slate-600">
               <span>Instant results</span>
               <span>•</span>
               <span>No complex setup</span>
@@ -520,7 +520,7 @@ export default function AICareerAssessmentPage() {
         <section className="py-20 bg-[#f9e8e0]">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
                 FAQs
               </h2>
             </div>
@@ -562,7 +562,7 @@ export default function AICareerAssessmentPage() {
                     className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className={`font-semibold text-lg md:text-xl ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
                       {item.q}
                     </span>
                     <span className="text-[#ff4c00] shrink-0 ml-4">
@@ -570,7 +570,7 @@ export default function AICareerAssessmentPage() {
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
+                    <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
                       <p>{item.a}</p>
                     </div>
                   )}
