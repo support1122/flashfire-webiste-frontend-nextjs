@@ -108,7 +108,7 @@ export default function AIRemoteJobSearchPage() {
           </div>
         </section>
         {/* TRUSTED BY */}
-        <section className="bg-slate-50/60 py-8 md:py-10 border-b border-slate-100">
+        <section className="bg-white py-8 md:py-10 border-b border-slate-100">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-3 md:gap-8 text-center md:text-left">
               <p className="text-base text-slate-700">
