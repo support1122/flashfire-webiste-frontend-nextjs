@@ -644,7 +644,7 @@ export default function AIFollowUpEmailsPage() {
                   a: "Absolutely. Use Flashfire&apos;s templates as a starting point, then personalize with specific details about your conversation or the role.",
                 },
                 {
-                  q: "What if I don&apos;t hear back after following up?",
+                  q: "What if I don't hear back after following up?",
                   a: "One follow-up is usually enough. If there&apos;s no response after 7–10 days, it&apos;s likely the role has moved forward. Flashfire helps you move on strategically.",
                 },
               ].map((item, i) => (
