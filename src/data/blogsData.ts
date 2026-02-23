@@ -4994,7 +4994,7 @@ export const blogPosts = [
     
     <p style='margin-bottom:12px; line-height:1.7;'>And just like we once needed balance to survive 12th grade, we now need structure to navigate the complexity of global hiring.</p>
     
-    <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire Jobs</a> automates job applications across 1,200+ U.S. roles, optimizes resumes for every posting, and gives you dashboards to track interviews and recruiter responses. It's not about skipping effort — it's about channelling it efficiently.</p>
+    <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire Jobs</a> automates job applications across 1200 U.S. roles, optimizes resumes for every posting, and gives you dashboards to track interviews and recruiter responses. It's not about skipping effort — it's about channelling it efficiently.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>In many ways, it's the grown-up version of the habits I built in 12th grade: plan, focus, reflect, and act with purpose.</p>
 
@@ -5140,7 +5140,7 @@ export const blogPosts = [
           <tr>
             <td style="padding:8px; border:1px solid #d1d5db;">3</td>
             <td style="padding:8px; border:1px solid #d1d5db;">Job Automation</td>
-            <td style="padding:8px; border:1px solid #d1d5db;">1,200+ tailored applications begin running across U.S. companies.</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">1200 tailored applications begin running across U.S. companies.</td>
           </tr>
           <tr>
             <td style="padding:8px; border:1px solid #d1d5db;">4</td>
@@ -5384,7 +5384,7 @@ export const blogPosts = [
     
     <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> ensures that the system itself remembers your name.</p>
     
-    <p style='margin-bottom:12px; line-height:1.7;'>By automating 1,200+ targeted job applications per month, it keeps your résumé circulating among decision-makers, much like a referral would. Over time, your digital footprint compounds — your profile starts appearing in recruiter dashboards across industries. That's visibility, redefined.</p>
+    <p style='margin-bottom:12px; line-height:1.7;'>By automating 1200 targeted job applications per month, it keeps your résumé circulating among decision-makers, much like a referral would. Over time, your digital footprint compounds — your profile starts appearing in recruiter dashboards across industries. That's visibility, redefined.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>And for international students who often juggle academics, visa rules, and limited time, that consistency is priceless.</p>
 
@@ -5442,7 +5442,7 @@ export const blogPosts = [
           <tr>
             <td style="padding:8px; border:1px solid #d1d5db;">Scale</td>
             <td style="padding:8px; border:1px solid #d1d5db;">Limited to one connection</td>
-            <td style="padding:8px; border:1px solid #d1d5db;">Scales across 1,200+ U.S. job openings monthly</td>
+            <td style="padding:8px; border:1px solid #d1d5db;">Scales across 1200 U.S. job openings monthly</td>
           </tr>
           <tr>
             <td style="padding:8px; border:1px solid #d1d5db;">Outcome</td>
@@ -5912,7 +5912,7 @@ export const blogPosts = [
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Flashfire Helps You Turn Degrees into Job Offers</h2>
     <p style='margin-bottom:12px; line-height:1.7;'>Most universities prepare you for graduation — but <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> prepares you for hiring.</p>
     
-    <p style='margin-bottom:12px; line-height:1.7;'>Our AI-powered job engine applies to 1,200+ verified U.S. roles on your behalf, optimizes your resume for ATS systems, and identifies visa-friendly employers so you can focus on interviews, not applications.</p>
+    <p style='margin-bottom:12px; line-height:1.7;'>Our AI-powered job engine applies to 1200 verified U.S. roles on your behalf, optimizes your resume for ATS systems, and identifies visa-friendly employers so you can focus on interviews, not applications.</p>
     
     <p style='margin-bottom:12px; line-height:1.7;'>Whether you're graduating from Northeastern or Purdue, <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> helps you reach recruiters faster, track responses, and convert your U.S. education into a real job offer.</p>
   `,
@@ -6438,7 +6438,7 @@ export const blogPosts = [
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li><strong>ATS Optimization:</strong> Upload your resume and a job link—<a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> automatically rewrites and reformats it for maximum match rate.</li>
       <li><strong>Smart Keyword Mapping:</strong> The system compares your resume against each posting, highlighting missing skills and phrases instantly.</li>
-      <li><strong>Automatic Applications:</strong> <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> applies to 1,200+ verified U.S. jobs for you, using your optimized resume version for each one.</li>
+      <li><strong>Automatic Applications:</strong> <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a> applies to 1200 verified U.S. jobs for you, using your optimized resume version for each one.</li>
       <li><strong>Performance Tracking:</strong> A personal dashboard shows where your applications are viewed, shortlisted, or rejected—turning your job search into a measurable process.</li>
     </ul>
     
@@ -7078,7 +7078,7 @@ export const blogPosts = [
     <p>Biomedical/Bioinformatics grow steadily when paired with computation. Non‑STEM paths have shorter OPT and weaker job-to-degree mapping — success improves when repositioned to data-driven roles. University networks and co-ops materially boost sponsor exposure.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">12–14. Positioning and The H-1B Success Equation</h2>
-    <p>Success = Academic alignment + Employer behavior + Application strategy. Flashfire scales the third: 1,200+ sponsor-verified applications per user with tailored resumes and real-time tracking.</p>
+    <p>Success = Academic alignment + Employer behavior + Application strategy. Flashfire scales the third: 1200 sponsor-verified applications per user with tailored resumes and real-time tracking.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Conclusion</h2>
     <p>Choose degrees with STEM designation, technical depth, and broad job mapping. Apply to sponsor-ready firms at scale with ATS-optimized materials.</p>
@@ -7133,7 +7133,7 @@ export const blogPosts = [
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Immigration Realities</h2>
     <p><strong>Canada</strong>: PGWP + Express Entry enable PR in 2–3 years. <strong>U.S.</strong>: OPT/STEM OPT + H‑1B introduce uncertainty — but targeted applications close the gap.</p>
-    <p>Flashfire focuses on U.S. employers open to sponsorship, submitting 1,200+ sponsor-verified applications per user to secure offers within OPT windows.</p>
+    <p>Flashfire focuses on U.S. employers open to sponsorship, submitting 1200 sponsor-verified applications per user to secure offers within OPT windows.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Ecosystems and Industry Clusters</h2>
     <p>Canada’s strengths: AI research, clean energy, fintech. The U.S.: global leader in AI/ML, cloud, cybersecurity, healthtech, and product-led growth — ecosystem density compounds learning and mobility.</p>
@@ -7646,7 +7646,7 @@ export const blogPosts = [
 
     <p>Flashfire applies AI-driven optimization to every job — adjusting keywords, structure, and metrics automatically. This ensures every submission is ATS-compliant and role-specific, while you stay focused on interview prep.</p>
 
-    <p>That's how users routinely apply to 1,200+ jobs in a month, with 95% securing interview calls within weeks.</p>
+    <p>That's how users routinely apply to 1200 jobs in a month, with 95% securing interview calls within weeks.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. Real Success Story: Arjun's Journey</h2>
 
@@ -7899,7 +7899,7 @@ export const blogPosts = [
 
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Apply at Scale (But Intelligently)</h3>
 
-    <p>Manually applying to 500 roles is unsustainable. <strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a></strong> automates applications to 1,200+ U.S. jobs tailored to your background — ensuring each submission aligns with your desired compensation range and skill match.</p>
+    <p>Manually applying to 500 roles is unsustainable. <strong><a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">Flashfire</a></strong> automates applications to 1200 U.S. jobs tailored to your background — ensuring each submission aligns with your desired compensation range and skill match.</p>
 
     <p>This increases your interview conversion rate dramatically compared to random mass applying on job boards.</p>
 
@@ -8019,7 +8019,7 @@ export const blogPosts = [
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">United States</h3>
     <p>The U.S. job market is the largest and most skill-hungry globally. BLS projects strong growth (20–30%) in AI, data, cybersecurity, software, healthtech, and clean energy by 2030. Thousands of employers sponsor H‑1B talent annually.</p>
     <blockquote style="margin:14px 0; padding:12px 14px; border-left:4px solid #f97316; background:#FFF7ED; border-radius:8px; color:#1f2937;">
-      Flashfire’s targeted approach (1,200+ aligned applications per user) drives interview calls within 2–3 weeks on average.
+      Flashfire’s targeted approach (1200 aligned applications per user) drives interview calls within 2–3 weeks on average.
     </blockquote>
     <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">United Kingdom</h3>
     <p>A globally integrated, service-led economy with strengths in finance, consulting, design, and emerging tech. The 2‑year Graduate Route offers flexibility but doesn’t directly lead to settlement and cannot be extended.</p>
@@ -8056,7 +8056,7 @@ export const blogPosts = [
     <p><strong>Verdict:</strong> U.S. accelerates growth; U.K. optimizes balance. Choose based on priorities.</p>
 
     <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8) The Flashfire Edge: Precision and Acceleration</h2>
-    <p>Across both countries, timing and targeting determine outcomes. <strong>Flashfire</strong> applies AI to match degrees with sponsor‑ready roles, verify employers, and automate 1,200+ high‑fit applications per month — with full tracking and recruiter analytics.</p>
+    <p>Across both countries, timing and targeting determine outcomes. <strong>Flashfire</strong> applies AI to match degrees with sponsor‑ready roles, verify employers, and automate 1200 high‑fit applications per month — with full tracking and recruiter analytics.</p>
     <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
       <li>Filters by degree relevance and visa category</li>
       <li>Checks employer sponsorship history</li>
@@ -8292,7 +8292,7 @@ Best regards,
       <li>Data, clarity, and tone matter more than “toughness.”</li>
       <li>Your first salary sets the baseline for years of raises and bonuses.</li>
     </ul>
-    <p>If you want support not only landing offers but also <em>maximizing</em> them, explore how <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color:#f97316; text-decoration: underline;">Flashfire</a> applies to 1,200+ verified U.S. roles every month and helps candidates navigate compensation with confidence.</p>
+    <p>If you want support not only landing offers but also <em>maximizing</em> them, explore how <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color:#f97316; text-decoration: underline;">Flashfire</a> applies to 1200 verified U.S. roles every month and helps candidates navigate compensation with confidence.</p>
   `,
   },
   {
@@ -21974,6 +21974,69 @@ Use AI as your assistant, not your replacement. For more information, visit <a h
 
         <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. Is a software engineering resume different from a developer resume?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>A.</strong> Yes — engineers typically emphasize systems, scalability, and architecture.</p>
+      `
+  },
+  {
+    id: 99,
+    slug: "software-engineer-career-outlook",
+    title: "Software Engineer Career Outlook & Job Growth 2026",
+    excerpt: "Explore the software engineer career outlook, job growth trends, salary insights, and future demand for software engineering careers in 2026.",
+    date: "Feb 23, 2026",
+    lastUpdated: "Feb 23, 2026",
+    readTime: "15 min",
+    category: "Career Advice",
+    tags: ["Career Advice", "Software Engineering", "Job Market", "Career Growth", "Industry Trends"],
+    author: {
+      name: "Debashri",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
+    image: "https://res.cloudinary.com/drcka8x04/image/upload/v1771869782/software-engineer-career-outlook_d0n6xb.jpg",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <h1 class="text-3xl font-bold text-gray-900 mt-6 mb-4">Software Engineer Career Outlook: Job Growth & Future Trends</h1>
+        <p style='margin-bottom:12px; line-height:1.7;'>[Content to be provided]</p>
+      `
+  },
+  {
+    id: 100,
+    slug: "software-engineer-resume-writing-guide",
+    title: "Software Engineer Resume Examples & Writing Guide",
+    excerpt: "Explore software engineer resume examples, including mid-level samples. Learn how to write a strong resume for software engineering roles.",
+    date: "Feb 23, 2026",
+    lastUpdated: "Feb 23, 2026",
+    readTime: "16 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing", "ATS Optimization", "Job Search", "Software Engineering", "Career Tips"],
+    author: {
+      name: "Debashri",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
+    image: "https://res.cloudinary.com/drcka8x04/image/upload/v1771869895/software-engineer-resume-examples_m5r768.jpg",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <h1 class="text-3xl font-bold text-gray-900 mt-6 mb-4">Software Engineer Resume: Examples, Templates & Tips</h1>
+        <p style='margin-bottom:12px; line-height:1.7;'>[Content to be provided]</p>
+      `
+  },
+  {
+    id: 101,
+    slug: "is-software-engineering-a-good-career",
+    title: "Is Software Engineering a Good Career in 2026?",
+    excerpt: "Is software engineering a good career? Explore salary, job demand, growth opportunities, and whether software development is a good job choice.",
+    date: "Feb 23, 2026",
+    lastUpdated: "Feb 23, 2026",
+    readTime: "14 min",
+    category: "Career Advice",
+    tags: ["Career Advice", "Software Engineering", "Career Planning", "Job Market", "Salary Insights"],
+    author: {
+      name: "Debashri",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
+    image: "https://res.cloudinary.com/drcka8x04/image/upload/v1771870042/is-software-engineering-a-good-career_1_arwa9n.jpg",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <h1 class="text-3xl font-bold text-gray-900 mt-6 mb-4">Is Software Engineering a Good Career? Salary, Demand & Future Scope</h1>
+        <p style='margin-bottom:12px; line-height:1.7;'>[Content to be provided]</p>
       `
   }
 ];
