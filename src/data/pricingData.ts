@@ -63,7 +63,7 @@ export const usPricingPlans: PricingPlan[] = [
   {
     title: "EXECUTIVE",
     tag: "MOST POPULAR",
-    subTitle: "1200+ Applications",
+    subTitle: "1200 Applications",
     description: "For early professionals & executives",
     price: "$599",
     oldPrice: "$699",
@@ -134,7 +134,7 @@ export const canadaPricingPlans: PricingPlan[] = [
   {
     title: "EXECUTIVE",
     tag: "MOST POPULAR",
-    subTitle: "1200+ Applications",
+    subTitle: "1200 Applications",
     description: "For early professionals & executives",
     price: "CA$799",
     oldPrice: "CA$949",
