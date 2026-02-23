@@ -22,74 +22,121 @@ export default function AICareerAssessmentPage() {
     <div className="bg-white text-slate-900 min-h-screen">
       <main className="mt-0">
         {/* Hero */}
-        <section className="bg-gradient-to-b from-[#fff7f2] via-[#fff7f2] to-white py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-                AI Career Assessment Test for Skill Gap & Career Path
-              </h1>
-              <p className="text-lg md:text-xl text-slate-700 mb-4 leading-relaxed">
-                Stop second-guessing your career decisions. Discover your ideal career path, strengths, and missing skills in under 10 minutes.
-              </p>
-              <p className="text-base text-slate-600 mb-10 max-w-2xl mx-auto">
-                Our career assessment test, powered by advanced AI career assessment, analyzes your skills, experience, personality, and market demand to deliver a personalized career roadmap instantly.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10 max-w-2xl mx-auto">
-                {[
-                  "Get accurate career recommendations",
-                  "Identify your professional strengths",
-                  "Detect critical skill gaps",
-                  "Make smarter career decisions",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-sm text-slate-700">
-                    <CheckCircle2 className="h-4 w-4 text-[#ff4c00] flex-shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
+        {/* Premium Hero Section */}
+<section className="relative bg-gradient-to-br from-[#fff7f2] via-white to-[#fff3ec] py-24 overflow-hidden">
 
-              <button
-                type="button"
-                onClick={() => updateCtaUrl("/ai-career-assessment-skill-gap-analysis", ctaLabel)}
-                className="inline-flex items-center rounded-lg bg-[#ff4c00] text-white px-8 py-3.5 text-base font-semibold hover:bg-[#e24400] transition-colors shadow-lg hover:shadow-xl"
-              >
-                {ctaLabel}
-                <ArrowRight size={18} className="ml-2" />
-              </button>
-            </div>
-          </div>
-        </section>
+{/* Soft background glow */}
+<div className="absolute -top-32 -left-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+<div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+
+<div className="relative max-w-5xl mx-auto px-6 text-center">
+
+  {/* Badge */}
+  <div className="inline-block mb-6 px-4 py-2 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-semibold">
+    AI-Powered Career Intelligence
+  </div>
+
+  {/* Heading */}
+  <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 mb-6">
+    AI Career Assessment Test <br className="hidden md:block" />
+    for Skill Gap & Career Path
+  </h1>
+
+  {/* Subheading */}
+  <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-6 leading-relaxed">
+    Stop second-guessing your career decisions. Discover your ideal career path,
+    strengths, and missing skills in under 10 minutes.
+  </p>
+
+  <p className="text-base text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed">
+    Our career assessment test, powered by advanced AI career assessment,
+    analyzes your skills, experience, personality, and market demand to
+    deliver a personalized career roadmap instantly.
+  </p>
+
+  {/* Feature Cards Instead of Plain Bullets */}
+  <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
+    {[
+      "Get accurate career recommendations",
+      "Identify your professional strengths",
+      "Detect critical skill gaps",
+      "Make smarter career decisions",
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="flex items-center gap-3 bg-white border border-slate-100 shadow-sm rounded-xl px-4 py-3 text-slate-700"
+      >
+        <div className="w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
+          <span className="text-[#ff4c00] text-sm font-bold">✓</span>
+        </div>
+        <span className="text-sm md:text-base">{item}</span>
+      </div>
+    ))}
+  </div>
+
+  {/* CTA */}
+  <button
+    type="button"
+    onClick={() =>
+      updateCtaUrl("/ai-career-assessment-skill-gap-analysis", "Start Assessment")
+    }
+    className="inline-flex items-center justify-center bg-[#ff4c00] text-white px-10 py-4 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+  >
+    Start Assessment →
+  </button>
+
+  {/* Trust Line */}
+  <div className="mt-8 text-sm text-slate-500">
+    Instant Results • No Complex Setup • Secure & Confidential
+  </div>
+
+</div>
+</section>
 
         {/* Trusted By */}
-        <section className="py-12 bg-white border-y border-slate-100">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center">
-              <p className="text-base font-semibold text-slate-600 mb-4 uppercase tracking-wide">
-                Trusted by Growing Numbers of Professionals
-              </p>
-              <p className="text-lg md:text-xl text-slate-900 mb-6 font-semibold">
-                Join thousands using our intelligent: <span className="text-[#ff4c00]">AI career assessment</span>
-              </p>
-              <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-base text-slate-700">
-                <div className="flex items-center gap-2">
-                  <Users className="h-4 w-4 text-[#ff4c00]" />
-                  <span>Used by professionals across industries</span>
-                </div>
-                <span className="hidden md:inline text-slate-300">•</span>
-                <div className="flex items-center gap-2">
-                  <BarChart3 className="h-4 w-4 text-[#ff4c00]" />
-                  <span>Designed using real hiring data</span>
-                </div>
-                <span className="hidden md:inline text-slate-300">•</span>
-                <div className="flex items-center gap-2">
-                  <Target className="h-4 w-4 text-[#ff4c00]" />
-                  <span>Built for modern career decision-making</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Trusted By Section - Improved */}
+<section className="relative py-20 bg-gradient-to-b from-white to-[#fff7f2]">
+  <div className="max-w-5xl mx-auto px-6 text-center">
+
+    {/* Small Top Label */}
+    <p className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
+      Trusted by Growing Numbers of Professionals
+    </p>
+
+    {/* Main Heading */}
+    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-12">
+      Join thousands using our intelligent:{" "}
+      <span className="text-[#ff4c00]">AI career assessment</span>
+    </h2>
+
+    {/* Feature Cards Instead of Floating Text */}
+    <div className="grid md:grid-cols-3 gap-6">
+
+      <div className="bg-white border border-slate-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+        <Users className="h-6 w-6 text-[#ff4c00] mb-4 mx-auto" />
+        <p className="text-slate-700 font-medium">
+          Used by professionals across industries
+        </p>
+      </div>
+
+      <div className="bg-white border border-slate-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+        <BarChart3 className="h-6 w-6 text-[#ff4c00] mb-4 mx-auto" />
+        <p className="text-slate-700 font-medium">
+          Designed using real hiring data
+        </p>
+      </div>
+
+      <div className="bg-white border border-slate-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+        <Target className="h-6 w-6 text-[#ff4c00] mb-4 mx-auto" />
+        <p className="text-slate-700 font-medium">
+          Built for modern career decision-making
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
         {/* Why Career Decisions Feel Overwhelming */}
         <section className="py-14 bg-[#fff7f2]">
@@ -481,40 +528,65 @@ export default function AICareerAssessmentPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-[#fff7f2] py-16">
-          <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
-              Discover Your Ideal Career Path with AI
-            </h2>
-            <p className="text-base text-slate-700 mb-6 max-w-2xl mx-auto">
-              Stop guessing your future. Identify your strengths. Fix your skill gaps. Move forward with confidence.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 mb-6 text-base text-slate-700">
-              <span>Gain instant career clarity</span>
-              <span>•</span>
-              <span>Detect missing skills</span>
-              <span>•</span>
-              <span>Build smarter career strategies</span>
-              <span>•</span>
-              <span>Make confident decisions</span>
-            </div>
-            <button
-              type="button"
-              onClick={() => updateCtaUrl("/ai-career-assessment-skill-gap-analysis", ctaLabel)}
-              className="inline-flex items-center justify-center rounded-lg bg-[#ff4c00] text-white px-8 py-3 text-base font-semibold hover:bg-[#e24400] transition-colors shadow-lg mb-5"
-            >
-              {ctaLabel}
-              <ArrowRight size={18} className="ml-2" />
-            </button>
-            <div className="flex flex-wrap items-center justify-center gap-3 text-base text-slate-600">
-              <span>Instant results</span>
-              <span>•</span>
-              <span>No complex setup</span>
-              <span>•</span>
-              <span>Secure & confidential</span>
-            </div>
-          </div>
-        </section>
+        {/* Premium Final CTA Section */}
+<section className="relative py-28 bg-gradient-to-br from-[#fff7f2] via-white to-[#fff3ec] overflow-hidden">
+
+{/* Soft Background Glow */}
+<div className="absolute -top-32 -left-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+<div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+
+<div className="relative max-w-4xl mx-auto px-6">
+
+  {/* Glass Card Container */}
+  <div className="bg-white/80 backdrop-blur-md border border-slate-100 shadow-2xl rounded-3xl px-8 md:px-16 py-16 text-center">
+
+    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+      Discover Your Ideal Career Path with AI
+    </h2>
+
+    <p className="text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+      Stop guessing your future. Identify your strengths. Fix your skill gaps.
+      Move forward with confidence.
+    </p>
+
+    {/* Improved Benefit Layout */}
+    <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
+      {[
+        "Gain instant career clarity",
+        "Detect missing skills",
+        "Build smarter career strategies",
+        "Make confident decisions",
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="bg-[#fff7f2] border border-slate-100 rounded-xl py-3 px-4 text-slate-700 font-medium shadow-sm"
+        >
+          {item}
+        </div>
+      ))}
+    </div>
+
+    {/* Stronger CTA */}
+    <button
+      type="button"
+      onClick={() =>
+        updateCtaUrl("/ai-career-assessment-skill-gap-analysis", "Start Assessment")
+      }
+      className="inline-flex items-center justify-center bg-[#ff4c00] text-white px-12 py-4 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300"
+    >
+      Start Assessment →
+    </button>
+
+    {/* Trust Line */}
+    <div className="mt-8 text-sm text-slate-500 flex flex-wrap justify-center gap-6">
+      <span>Instant results</span>
+      <span>No complex setup</span>
+      <span>Secure & confidential</span>
+    </div>
+
+  </div>
+</div>
+</section>
 
         {/* FAQ */}
         <section className="py-20 bg-[#f9e8e0]">
