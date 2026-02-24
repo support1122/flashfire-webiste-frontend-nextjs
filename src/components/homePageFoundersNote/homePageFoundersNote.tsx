@@ -18,7 +18,7 @@ export default function HomePageFoundersNote() {
       className="relative bg-[#fdf7f4] min-h-screen pl-56  pt-24  font-['Space_Grotesk',sans-serif] overflow-hidden max-[768px]:py-12 max-[768px]:px-4 max-[768px]:pl-4"
     >
       {/* Background Mascot */}
-      <div className="absolute bottom-0 right-0 opacity-20 pointer-events-none max-[768px]:hidden">
+      <div className="absolute bottom-0 right-0 opacity-20 pointer-events-none max-[768px]:bottom-[-20px] max-[768px]:right-[-10px] max-[480px]:bottom-[-10px] max-[480px]:right-[-80px]">
         <Image
           src="/images/character2.png"
           alt="Flashfire mascot"
