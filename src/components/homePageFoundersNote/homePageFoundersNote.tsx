@@ -18,7 +18,7 @@ export default function HomePageFoundersNote() {
       className="relative bg-[#fdf7f4] min-h-screen pl-56  pt-24  font-['Space_Grotesk',sans-serif] overflow-hidden max-[768px]:py-12 max-[768px]:px-4 max-[768px]:pl-4"
     >
       {/* Background Mascot */}
-      <div className="absolute bottom-0 right-0 opacity-20 pointer-events-none">
+      <div className="absolute bottom-0 right-0 opacity-20 pointer-events-none max-[768px]:hidden">
         <Image
           src="/images/character2.png"
           alt="Flashfire mascot"
@@ -88,7 +88,7 @@ export default function HomePageFoundersNote() {
             {/* CARD */}
             <div className="relative bg-white p-[4px] z-10">
               {/* IMAGE WRAPPER */}
-              <div className="relative w-[260px] h-[300px]  overflow-visible ">
+              <div className="relative w-[260px] h-[300px] overflow-visible max-[768px]:w-[220px] max-[768px]:h-[260px]">
                 <Image
                   src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Adit.jpg"
                   alt="Adit Jain"
@@ -133,7 +133,7 @@ export default function HomePageFoundersNote() {
           {/* CTA */}
           <a
             onClick={handleWhatsAppClick}
-            className="text-[#ff4c00] font-semibold text-lg hover:underline mt-[250px] -ml-[170px]"
+            className="text-[#ff4c00] font-semibold text-lg hover:underline mt-[250px] -ml-[170px] max-[800px]:mt-4 max-[800px]:ml-0 max-[800px]:text-base"
           >
             LET&apos;S TALK →
           </a>
