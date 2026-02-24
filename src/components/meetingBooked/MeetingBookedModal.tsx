@@ -52,7 +52,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
     <>
       {/* Main Popup Overlay */}
       <div className="fixed inset-0 z-[9985] bg-black/60 flex items-center justify-center px-3 py-4 md:px-4 md:py-6">
-        <div className="relative w-full max-w-[320px] rounded-2xl bg-white px-3 py-4 md:px-4 md:py-5 shadow-2xl border border-orange-100 text-center">
+        <div className="relative w-full max-w-[360px] md:max-w-[420px] rounded-2xl bg-white px-4 py-5 md:px-6 md:py-6 shadow-2xl border border-orange-100 text-center">
           {/* Close Button */}
           {onClose && (
             <button
@@ -68,19 +68,19 @@ export default function MeetingBookedModal({ onClose }: Props) {
             <span>for scheduling a call!</span>
           </h1>
 
-          <p className="text-[11px] md:text-sm text-slate-700 mb-2">
+          <p className="text-[11px] md:text-sm text-slate-700 mb-3 md:mb-3.5">
             🎉 You&apos;re one step closer to your next career move with
             Flashfire. 🎉
           </p>
 
-          <div className="mb-3 md:mb-4">
+          <div className="mb-4 md:mb-5">
             <div className="w-full max-w-md mx-auto rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
               <Image
                 src="/images/meme.jpg"
                 alt="See you there"
                 width={512}
                 height={256}
-                className="w-full h-32 md:h-40 object-cover"
+                className="w-full h-36 md:h-44 object-cover"
               />
             </div>
           </div>

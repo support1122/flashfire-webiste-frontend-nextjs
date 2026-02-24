@@ -568,6 +568,21 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.navMobileButtonsSticky {
+  /* Sticky bottom bar for mobile CTA */
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 0.85rem 1.5rem calc(0.85rem + env(safe-area-inset-bottom));
+  background: #ffffff;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 70;
+}
+
 .navMobileSecondary,
 .navMobilePrimary {
   text-align: center;
@@ -784,12 +799,18 @@
     display: block;
   }
 
+  .navMobileButtonsSticky {
+    display: block;
+  }
+
   .navMobileLinks {
     text-align: left;
   }
 
   .navMobileMenu {
     padding: 1.5rem 1.25rem;
+    /* Leave room for sticky CTA bar at the bottom */
+    padding-bottom: 6rem;
   }
 
   .navMobileLink {
@@ -877,6 +898,8 @@
 @media (max-width: 600px) {
   .navMobileMenu {
     padding: 1.25rem 1rem;
+    /* Leave room for sticky CTA bar at the bottom on very small screens */
+    padding-bottom: 6rem;
   }
 
   .navMobileLink {

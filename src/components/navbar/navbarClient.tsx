@@ -2179,6 +2179,70 @@ export default function NavbarClient({ links, ctas }: Props) {
           )}
         </nav>
 
+        {/* Mobile Bottom Book a Demo CTA */}
+        {!isMenuOpen &&
+          ctas.primary &&
+          (ctas.primary.href === "/book-a-demo" ||
+            ctas.primary.href === "/en-ca/book-a-demo") && (
+            <div className={styles.navMobileButtonsSticky}>
+              <Link
+                href={getHref(ctas.primary.href)}
+                className={styles.navMobilePrimary}
+                {...getButtonProps()}
+                onClick={() => {
+                  const utmSource =
+                    typeof window !== "undefined"
+                      ? localStorage.getItem("utm_source") || "WEBSITE"
+                      : "WEBSITE";
+                  const utmMedium =
+                    typeof window !== "undefined"
+                      ? localStorage.getItem("utm_medium") ||
+                        "Navigation_Navbar_Button"
+                      : "Navigation_Navbar_Button";
+                  const utmCampaign =
+                    typeof window !== "undefined"
+                      ? localStorage.getItem("utm_campaign") || "Website"
+                      : "Website";
+                  GTagUTM({
+                    eventName: "whatsapp_support_click",
+                    label: "Navbar_Book_A_Demo_Button_Mobile_Bottom_Bar",
+                    utmParams: {
+                      utm_source: utmSource,
+                      utm_medium: utmMedium,
+                      utm_campaign: utmCampaign,
+                    },
+                  });
+                  trackButtonClick("Book a Demo", "navigation", "cta", {
+                    button_location: "navbar_mobile_bottom_bar",
+                    navigation_type: "primary_cta",
+                    page: "book-a-demo",
+                  });
+                  trackSignupIntent("book_a_demo_mobile_bottom_bar", {
+                    signup_source: "navbar_mobile_bottom_bar",
+                    funnel_stage: "signup_intent",
+                    target_url: "/book-a-demo",
+                  });
+                  if (typeof window !== "undefined") {
+                    const currentPath = safePathname || window.location.pathname;
+                    sessionStorage.setItem(
+                      "previousPageBeforeBookADemo",
+                      currentPath
+                    );
+                    const currentScrollY =
+                      window.scrollY || window.pageYOffset || 0;
+                    sessionStorage.setItem(
+                      "preserveScrollPosition",
+                      currentScrollY.toString()
+                    );
+                    window.dispatchEvent(new CustomEvent("showCalendlyModal"));
+                  }
+                }}
+              >
+                {ctas.primary.label}
+              </Link>
+            </div>
+          )}
+
         {/* Slots Remaining Banner - Below Navbar */}
         {/* {!isImageTestimonialsPage && !isBlogsPage && (
           <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
