@@ -66,6 +66,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "DevOps Engineer Job Responsibilities & Job Profile"
     : post.slug === "best-paying-jobs-in-the-us"
     ? "Best Paying Jobs in the US: Top 10 High-Salary Careers"
+    : post.slug === "how-to-get-a-job-in-digital-marketing"
+    ? "How to Get a Job in Digital Marketing (2026 Guide)"
+    : post.slug === "software-engineer-duties-roles-responsibilities"
+    ? "Software Engineer Duties & Responsibilities Guide"
+    : post.slug === "cloud-engineer-duties-job-description"
+    ? "Cloud Engineer Duties & Job Description Guide"
     : `${post.title} | Flashfire Blog`;
   
   return {
