@@ -611,7 +611,7 @@ export default function HomePagePricingPlans() {
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center gap-0 flex-shrink-0">
+          <div className="flex items-center gap-0 flex-shrink-0 hidden sm:flex">
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-black leading-tight">
                 Flashfire
