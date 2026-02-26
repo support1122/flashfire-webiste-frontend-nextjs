@@ -101,7 +101,7 @@ export default function HomePageHappyUsers() {
       smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg"
     },
   ];
-  
+
   // Show a subset on the homepage (24 images)
   const reviewImages = ALL_REVIEW_IMAGES.slice(0, 24);
 
@@ -125,7 +125,7 @@ export default function HomePageHappyUsers() {
       videos.forEach((video, index) => {
         const profileImageUrl = optimizeCloudinaryUrl(video.profileImage, 800);
         const smallProfileImageUrl = optimizeCloudinaryUrl(video.smallProfileImage, 100);
-        
+
         // Only preload if not already cached
         if (!preloadedImageCache.current.has(profileImageUrl)) {
           preloadedImageCache.current.add(profileImageUrl);
@@ -180,7 +180,7 @@ export default function HomePageHappyUsers() {
         }
       });
     };
-    
+
     preloadImages();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array - only run once on mount
@@ -193,16 +193,16 @@ export default function HomePageHappyUsers() {
           if (entry.isIntersecting) {
             const index = parseInt(entry.target.getAttribute('data-index') || '0');
             const isProfileImage = entry.target.hasAttribute('data-profile');
-            
+
             if (isProfileImage) {
               const videoIndex = Math.floor(index / 2);
               const isSmallImage = index % 2 === 1;
-              
+
               if (!loadedProfileImages.has(index)) {
                 const video = videos[videoIndex];
                 const imageUrl = isSmallImage ? video.smallProfileImage : video.profileImage;
                 const optimizedUrl = optimizeCloudinaryUrl(imageUrl, isSmallImage ? 100 : 800);
-                
+
                 // Check if already cached
                 if (preloadedImageCache.current.has(optimizedUrl)) {
                   setLoadedProfileImages(prev => new Set(prev).add(index));
@@ -224,7 +224,7 @@ export default function HomePageHappyUsers() {
             } else if (!loadedImages.has(index) && index >= 8) {
               // Handle review images
               const optimizedUrl = optimizeCloudinaryUrl(reviewImages[index], 800);
-              
+
               // Check if already cached
               if (preloadedImageCache.current.has(optimizedUrl)) {
                 setLoadedImages(prev => new Set(prev).add(index));
@@ -237,7 +237,7 @@ export default function HomePageHappyUsers() {
                 };
               }
             }
-            
+
             if (!isProfileImage) {
               observer.unobserve(entry.target);
             }
@@ -276,15 +276,18 @@ export default function HomePageHappyUsers() {
       {/* === Top Orange Section === */}
       <div className="bg-[#f55d1d] text-white text-center py-20 px-8 pb-40 relative pt-[90px] max-[768px]:pt-[70px]">
         <h2
-          className="mb-4 max-[600px]:text-[2rem]"
+          className="
+                mb-4 
+                text-[76.26px] 
+                max-[600px]:text-[40px] 
+                max-[400px]:text-[30px]
+                text-center
+                font-bold
+              "
           style={{
             fontFamily: "Space Grotesk, sans-serif",
-            fontWeight: 700,
-            fontStyle: "normal",
-            fontSize: "76.26px",
             lineHeight: "110%",
-            letterSpacing: "-2.29px", // -3% of 76.26px
-            textAlign: "center",
+            letterSpacing: "-2.29px",
           }}
         >
           500+ Happy User's Love
@@ -310,7 +313,7 @@ export default function HomePageHappyUsers() {
         >
           {reviewImages.map((imageSrc, i) => {
             const isEager = i < 8; // First 8 images load eagerly
-            
+
             return (
               <div
                 key={i}
@@ -377,7 +380,7 @@ export default function HomePageHappyUsers() {
                 {/* Thumbnail Image Overlay - Show when video is not playing */}
                 {playingIndex !== index && (
                   <>
-                    <div 
+                    <div
                       ref={(el) => {
                         profileImageRefs.current[index * 2] = el;
                       }}
@@ -410,7 +413,7 @@ export default function HomePageHappyUsers() {
                 <div className="absolute bottom-2 left-2 right-2 h-[5.5rem] bg-black border border-[#ff4c00] text-white text-left py-3 px-4 flex items-center z-20">
                   <div className="flex items-center gap-3 w-full h-full">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
-                      <div 
+                      <div
                         ref={(el) => {
                           profileImageRefs.current[index * 2 + 1] = el;
                         }}
@@ -445,11 +448,10 @@ export default function HomePageHappyUsers() {
                           ? "noopener noreferrer"
                           : undefined
                       }
-                      className={`flex-shrink-0 w-6 h-6 bg-white rounded flex items-center justify-center transition-colors ${
-                        video.linkedinUrl !== "#"
+                      className={`flex-shrink-0 w-6 h-6 bg-white rounded flex items-center justify-center transition-colors ${video.linkedinUrl !== "#"
                           ? "hover:bg-[#ff4c00] cursor-pointer"
                           : "cursor-default opacity-50"
-                      }`}
+                        }`}
                       aria-label="LinkedIn Profile"
                       onClick={(e) => {
                         if (video.linkedinUrl === "#") {

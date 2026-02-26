@@ -47,11 +47,11 @@ export default function HomePagePricingPlans() {
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
               // Dynamically calculate navbar height
-              const stickyNavbar = document.querySelector('.sticky.top-0') || 
-                                  document.querySelector('nav') ||
-                                  document.querySelector('[class*="nav"]');
+              const stickyNavbar = document.querySelector('.sticky.top-0') ||
+                document.querySelector('nav') ||
+                document.querySelector('[class*="nav"]');
               const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
-              
+
               const elementTop = boosterSectionRef.current?.getBoundingClientRect().top;
               if (elementTop !== undefined) {
                 // Add navbar height + extra padding (30px) to ensure content is fully visible
@@ -67,7 +67,7 @@ export default function HomePagePricingPlans() {
           });
         }
       };
-      
+
       // Increased delay to ensure DOM is fully updated and layout recalculated
       setTimeout(scrollToBooster, 300);
     }
@@ -82,11 +82,11 @@ export default function HomePagePricingPlans() {
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
               // Dynamically calculate navbar height
-              const stickyNavbar = document.querySelector('.sticky.top-0') || 
-                                  document.querySelector('nav') ||
-                                  document.querySelector('[class*="nav"]');
+              const stickyNavbar = document.querySelector('.sticky.top-0') ||
+                document.querySelector('nav') ||
+                document.querySelector('[class*="nav"]');
               const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
-              
+
               const elementTop = upgradeSectionRef.current?.getBoundingClientRect().top;
               if (elementTop !== undefined) {
                 // Add navbar height + extra padding (30px) to ensure content is fully visible
@@ -102,7 +102,7 @@ export default function HomePagePricingPlans() {
           });
         }
       };
-      
+
       // Increased delay to ensure DOM is fully updated and layout recalculated
       setTimeout(scrollToUpgrade, 300);
     }
@@ -111,14 +111,14 @@ export default function HomePagePricingPlans() {
   // Get upgrade options for the selected plan
   const upgradeOptions = useMemo(() => {
     if (!selectedPlanForUpgrade) return [];
-    
+
     const planHierarchy = ["PRIME", "IGNITE", "PROFESSIONAL", "EXECUTIVE"];
     const currentPlanIndex = planHierarchy.indexOf(selectedPlanForUpgrade);
-    
+
     if (currentPlanIndex === -1 || currentPlanIndex === planHierarchy.length - 1) {
       return [];
     }
-    
+
     return pricingPlans
       .filter(plan => {
         const planIndex = planHierarchy.indexOf(plan.title);
@@ -134,7 +134,7 @@ export default function HomePagePricingPlans() {
         );
         const upgradePrice = upgradePriceConfig?.price || 0;
         const upgradePaymentUrl = upgradePriceConfig?.paymentUrl;
-        
+
         return {
           ...plan,
           upgradePrice: upgradePrice,
@@ -176,7 +176,7 @@ export default function HomePagePricingPlans() {
     const hasBooster = plan.addOn;
     const planHierarchy = ["PRIME", "IGNITE", "PROFESSIONAL", "EXECUTIVE"];
     const currentPlanIndex = planHierarchy.indexOf(planTitle);
-    const hasUpgrade = currentPlanIndex !== -1 && currentPlanIndex < planHierarchy.length - 1 && 
+    const hasUpgrade = currentPlanIndex !== -1 && currentPlanIndex < planHierarchy.length - 1 &&
       pricingPlans.some(p => {
         const pIndex = planHierarchy.indexOf(p.title);
         if (planTitle === "PRIME" && p.title === "IGNITE") return false;
@@ -212,7 +212,7 @@ export default function HomePagePricingPlans() {
   // Get booster options for the selected plan
   const boosterOptions = useMemo(() => {
     if (!selectedPlanForBooster) return [];
-    
+
     const country = isCanadaContext ? "CA" : "US";
     const planBoosterOptions: Record<string, Record<string, Array<{
       applications: number;
@@ -265,7 +265,7 @@ export default function HomePagePricingPlans() {
         ],
       },
     };
-    
+
     return planBoosterOptions[country]?.[selectedPlanForBooster] || [];
   }, [selectedPlanForBooster, isCanadaContext]);
 
@@ -287,7 +287,7 @@ export default function HomePagePricingPlans() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8 items-stretch max-w-7xl mx-auto">
         {pricingPlans.map((plan, index) => (
-            <PricingCard
+          <PricingCard
             key={index}
             title={plan.title}
             tag={plan.tag}
@@ -311,270 +311,268 @@ export default function HomePagePricingPlans() {
       </div>
 
       {/* === Options Sections - Below Cards === */}
-      {((selectedPlanForBooster !== null && selectedBoosterPlanIndex !== null && boosterOptions.length > 0) || 
+      {((selectedPlanForBooster !== null && selectedBoosterPlanIndex !== null && boosterOptions.length > 0) ||
         (selectedPlanForUpgrade !== null && selectedPlanIndex !== null && upgradeOptions.length > 0)) && (
-        <div className="mb-16 sm:mb-20 lg:mb-24 mt-4 sm:mt-6 px-2 sm:px-0">
-          {(() => {
-            const boosterPlanIndex = selectedBoosterPlanIndex;
-            const upgradePlanIndex = selectedPlanIndex;
-            const hasBoth = boosterPlanIndex !== null && upgradePlanIndex !== null && 
-                            selectedPlanForBooster !== null && selectedPlanForUpgrade !== null;
-            
-            // When both are visible, display them full width side by side
-            if (hasBoth) {
+          <div className="mb-16 sm:mb-20 lg:mb-24 mt-4 sm:mt-6 px-2 sm:px-0">
+            {(() => {
+              const boosterPlanIndex = selectedBoosterPlanIndex;
+              const upgradePlanIndex = selectedPlanIndex;
+              const hasBoth = boosterPlanIndex !== null && upgradePlanIndex !== null &&
+                selectedPlanForBooster !== null && selectedPlanForUpgrade !== null;
+
+              // When both are visible, display them full width side by side
+              if (hasBoth) {
+                return (
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    {/* Booster Add-On section */}
+                    <div ref={boosterSectionRef} className="flex-1 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
+                      <div className="relative mb-3 sm:mb-4">
+                        <div className="text-center">
+                          <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
+                            Booster Add-On
+                          </h5>
+                          <p className="text-xs sm:text-[0.75rem] text-[#666]">
+                            Add more applications to boost your reach
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            setSelectedPlanForBooster(null);
+                            setSelectedBoosterPlanIndex(null);
+                            setSelectedBoosterIndex(null);
+                          }}
+                          className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
+                        >
+                          ✕
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                        {boosterOptions.map((option, index) => (
+                          <button
+                            key={index}
+                            onClick={() => {
+                              setSelectedBoosterIndex(index);
+                              if (option.paymentUrl) {
+                                window.open(option.paymentUrl, "_blank");
+                              }
+                            }}
+                            className={`w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 ${selectedBoosterIndex === index
+                                ? "bg-[#ff4c00] border-[#ff4c00] text-white"
+                                : "bg-[#f8f7f6] border-[#f3dfd5] text-black hover:bg-[#f3dfd5]"
+                              }`}
+                          >
+                            <div className="flex justify-between items-center gap-2">
+                              <div className="flex-1 min-w-0">
+                                <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
+                                  {option.label}
+                                </div>
+                              </div>
+                              <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
+                                {currencySymbol}{option.price}
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Upgrade Plan section */}
+                    <div ref={upgradeSectionRef} className="flex-1 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
+                      <div className="relative mb-3 sm:mb-4">
+                        <div className="text-center">
+                          <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
+                            Upgrade Plan
+                          </h5>
+                          <p className="text-xs sm:text-[0.75rem] text-[#666]">
+                            Upgrade to a higher tier for more applications and features
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            setSelectedPlanForUpgrade(null);
+                            setSelectedPlanIndex(null);
+                          }}
+                          className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
+                        >
+                          ✕
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                        {upgradeOptions.map((upgradePlan) => (
+                          <button
+                            key={upgradePlan.title}
+                            onClick={() => {
+                              const paymentUrl = (upgradePlan as any).upgradePaymentUrl || upgradePlan.paymentLink;
+                              if (paymentUrl) {
+                                window.open(paymentUrl, "_blank");
+                              }
+                            }}
+                            className="w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 bg-white border-[#ff4c00] text-black hover:bg-[#fff4e6]"
+                          >
+                            <div className="flex justify-between items-center gap-2">
+                              <div className="flex-1 min-w-0">
+                                <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
+                                  {upgradePlan.title}
+                                </div>
+                                <div className="text-[0.65rem] sm:text-[0.7rem] opacity-90">
+                                  {upgradePlan.subTitle}
+                                </div>
+                              </div>
+                              <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
+                                {currencySymbol}{(upgradePlan as any).upgradePrice || 0}
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              // When only one is visible, center it in the middle
+              const planIndex = boosterPlanIndex !== null ? boosterPlanIndex : (upgradePlanIndex !== null ? upgradePlanIndex : 0);
+
+              if (planIndex === null) return null;
+
+              // Calculate empty columns to center the section (2 columns wide in a 4-column grid)
+              const totalColumns = 4;
+              const sectionWidth = 2;
+              const emptyColumnsBefore = Math.floor((totalColumns - sectionWidth) / 2);
+              const emptyColumnsAfter = totalColumns - sectionWidth - emptyColumnsBefore;
+
               return (
-                <div className="flex flex-col sm:flex-row gap-4">
-                  {/* Booster Add-On section */}
-                  <div ref={boosterSectionRef} className="flex-1 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
-                    <div className="relative mb-3 sm:mb-4">
-                      <div className="text-center">
-                        <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
-                          Booster Add-On
-                        </h5>
-                        <p className="text-xs sm:text-[0.75rem] text-[#666]">
-                          Add more applications to boost your reach
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => {
-                          setSelectedPlanForBooster(null);
-                          setSelectedBoosterPlanIndex(null);
-                          setSelectedBoosterIndex(null);
-                        }}
-                        className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
-                      >
-                        ✕
-                      </button>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
+                  {/* Empty columns before the section (to center it) */}
+                  {Array.from({ length: emptyColumnsBefore }).map((_, i) => (
+                    <div key={`empty-before-${i}`} />
+                  ))}
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
-                      {boosterOptions.map((option, index) => (
+                  {/* Booster Add-On section (when only booster is visible) */}
+                  {selectedPlanForBooster !== null && boosterPlanIndex !== null && boosterOptions.length > 0 && (
+                    <div ref={boosterSectionRef} className="col-span-1 sm:col-span-2 lg:col-span-2 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
+                      <div className="relative mb-3 sm:mb-4">
+                        <div className="text-center">
+                          <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
+                            Booster Add-On
+                          </h5>
+                          <p className="text-xs sm:text-[0.75rem] text-[#666]">
+                            Add more applications to boost your reach
+                          </p>
+                        </div>
                         <button
-                          key={index}
                           onClick={() => {
-                            setSelectedBoosterIndex(index);
-                            if (option.paymentUrl) {
-                              window.open(option.paymentUrl, "_blank");
-                            }
+                            setSelectedPlanForBooster(null);
+                            setSelectedBoosterPlanIndex(null);
+                            setSelectedBoosterIndex(null);
                           }}
-                          className={`w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 ${
-                            selectedBoosterIndex === index
-                              ? "bg-[#ff4c00] border-[#ff4c00] text-white"
-                              : "bg-[#f8f7f6] border-[#f3dfd5] text-black hover:bg-[#f3dfd5]"
-                          }`}
+                          className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
                         >
-                          <div className="flex justify-between items-center gap-2">
-                            <div className="flex-1 min-w-0">
-                              <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
-                                {option.label}
-                              </div>
-                            </div>
-                            <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
-                              {currencySymbol}{option.price}
-                            </div>
-                          </div>
+                          ✕
                         </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Upgrade Plan section */}
-                  <div ref={upgradeSectionRef} className="flex-1 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
-                    <div className="relative mb-3 sm:mb-4">
-                      <div className="text-center">
-                        <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
-                          Upgrade Plan
-                        </h5>
-                        <p className="text-xs sm:text-[0.75rem] text-[#666]">
-                          Upgrade to a higher tier for more applications and features
-                        </p>
                       </div>
-                      <button
-                        onClick={() => {
-                          setSelectedPlanForUpgrade(null);
-                          setSelectedPlanIndex(null);
-                        }}
-                        className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
-                      >
-                        ✕
-                      </button>
-                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
-                      {upgradeOptions.map((upgradePlan) => (
-                        <button
-                          key={upgradePlan.title}
-                          onClick={() => {
-                            const paymentUrl = (upgradePlan as any).upgradePaymentUrl || upgradePlan.paymentLink;
-                            if (paymentUrl) {
-                              window.open(paymentUrl, "_blank");
-                            }
-                          }}
-                          className="w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 bg-white border-[#ff4c00] text-black hover:bg-[#fff4e6]"
-                        >
-                          <div className="flex justify-between items-center gap-2">
-                            <div className="flex-1 min-w-0">
-                              <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
-                                {upgradePlan.title}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                        {boosterOptions.map((option, index) => (
+                          <button
+                            key={index}
+                            onClick={() => {
+                              setSelectedBoosterIndex(index);
+                              if (option.paymentUrl) {
+                                window.open(option.paymentUrl, "_blank");
+                              }
+                            }}
+                            className={`w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 ${selectedBoosterIndex === index
+                                ? "bg-[#ff4c00] border-[#ff4c00] text-white"
+                                : "bg-[#f8f7f6] border-[#f3dfd5] text-black hover:bg-[#f3dfd5]"
+                              }`}
+                          >
+                            <div className="flex justify-between items-center gap-2">
+                              <div className="flex-1 min-w-0">
+                                <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
+                                  {option.label}
+                                </div>
                               </div>
-                              <div className="text-[0.65rem] sm:text-[0.7rem] opacity-90">
-                                {upgradePlan.subTitle}
+                              <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
+                                {currencySymbol}{option.price}
                               </div>
                             </div>
-                            <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
-                              {currencySymbol}{(upgradePlan as any).upgradePrice || 0}
-                            </div>
-                          </div>
-                        </button>
-                      ))}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
+
+                  {/* Upgrade Plan section (when only upgrade is visible) */}
+                  {selectedPlanForUpgrade !== null && upgradePlanIndex !== null && upgradeOptions.length > 0 && (
+                    <div ref={upgradeSectionRef} className="col-span-1 sm:col-span-2 lg:col-span-2 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
+                      <div className="relative mb-3 sm:mb-4">
+                        <div className="text-center">
+                          <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
+                            Upgrade Plan
+                          </h5>
+                          <p className="text-xs sm:text-[0.75rem] text-[#666]">
+                            Upgrade to a higher tier for more applications and features
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => {
+                            setSelectedPlanForUpgrade(null);
+                            setSelectedPlanIndex(null);
+                          }}
+                          className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
+                        >
+                          ✕
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                        {upgradeOptions.map((upgradePlan) => (
+                          <button
+                            key={upgradePlan.title}
+                            onClick={() => {
+                              const paymentUrl = (upgradePlan as any).upgradePaymentUrl || upgradePlan.paymentLink;
+                              if (paymentUrl) {
+                                window.open(paymentUrl, "_blank");
+                              }
+                            }}
+                            className="w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 bg-white border-[#ff4c00] text-black hover:bg-[#fff4e6]"
+                          >
+                            <div className="flex justify-between items-center gap-2">
+                              <div className="flex-1 min-w-0">
+                                <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
+                                  {upgradePlan.title}
+                                </div>
+                                <div className="text-[0.65rem] sm:text-[0.7rem] opacity-90">
+                                  {upgradePlan.subTitle}
+                                </div>
+                              </div>
+                              <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
+                                {currencySymbol}{(upgradePlan as any).upgradePrice || 0}
+                              </div>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Empty columns after the section (to center it) */}
+                  {Array.from({ length: emptyColumnsAfter }).map((_, i) => (
+                    <div key={`empty-after-${i}`} />
+                  ))}
                 </div>
               );
-            }
-            
-            // When only one is visible, center it in the middle
-            const planIndex = boosterPlanIndex !== null ? boosterPlanIndex : (upgradePlanIndex !== null ? upgradePlanIndex : 0);
-            
-            if (planIndex === null) return null;
-            
-            // Calculate empty columns to center the section (2 columns wide in a 4-column grid)
-            const totalColumns = 4;
-            const sectionWidth = 2;
-            const emptyColumnsBefore = Math.floor((totalColumns - sectionWidth) / 2);
-            const emptyColumnsAfter = totalColumns - sectionWidth - emptyColumnsBefore;
-            
-            return (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-                {/* Empty columns before the section (to center it) */}
-                {Array.from({ length: emptyColumnsBefore }).map((_, i) => (
-                  <div key={`empty-before-${i}`} />
-                ))}
-                
-                {/* Booster Add-On section (when only booster is visible) */}
-                {selectedPlanForBooster !== null && boosterPlanIndex !== null && boosterOptions.length > 0 && (
-                  <div ref={boosterSectionRef} className="col-span-1 sm:col-span-2 lg:col-span-2 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
-                    <div className="relative mb-3 sm:mb-4">
-                      <div className="text-center">
-                        <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
-                          Booster Add-On
-                        </h5>
-                        <p className="text-xs sm:text-[0.75rem] text-[#666]">
-                          Add more applications to boost your reach
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => {
-                          setSelectedPlanForBooster(null);
-                          setSelectedBoosterPlanIndex(null);
-                          setSelectedBoosterIndex(null);
-                        }}
-                        className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
-                      >
-                        ✕
-                      </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
-                      {boosterOptions.map((option, index) => (
-                        <button
-                          key={index}
-                          onClick={() => {
-                            setSelectedBoosterIndex(index);
-                            if (option.paymentUrl) {
-                              window.open(option.paymentUrl, "_blank");
-                            }
-                          }}
-                          className={`w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 ${
-                            selectedBoosterIndex === index
-                              ? "bg-[#ff4c00] border-[#ff4c00] text-white"
-                              : "bg-[#f8f7f6] border-[#f3dfd5] text-black hover:bg-[#f3dfd5]"
-                          }`}
-                        >
-                          <div className="flex justify-between items-center gap-2">
-                            <div className="flex-1 min-w-0">
-                              <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
-                                {option.label}
-                              </div>
-                            </div>
-                            <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
-                              {currencySymbol}{option.price}
-                            </div>
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Upgrade Plan section (when only upgrade is visible) */}
-                {selectedPlanForUpgrade !== null && upgradePlanIndex !== null && upgradeOptions.length > 0 && (
-                  <div ref={upgradeSectionRef} className="col-span-1 sm:col-span-2 lg:col-span-2 bg-white border-2 border-[#ff4c00] rounded-[0.4rem] p-3 sm:p-4">
-                    <div className="relative mb-3 sm:mb-4">
-                      <div className="text-center">
-                        <h5 className="text-base sm:text-[1.1rem] font-bold mb-1 text-black">
-                          Upgrade Plan
-                        </h5>
-                        <p className="text-xs sm:text-[0.75rem] text-[#666]">
-                          Upgrade to a higher tier for more applications and features
-                        </p>
-                      </div>
-                      <button
-                        onClick={() => {
-                          setSelectedPlanForUpgrade(null);
-                          setSelectedPlanIndex(null);
-                        }}
-                        className="absolute top-0 right-0 text-[#ff4c00] font-semibold text-xs hover:underline"
-                      >
-                        ✕
-                      </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
-                      {upgradeOptions.map((upgradePlan) => (
-                        <button
-                          key={upgradePlan.title}
-                          onClick={() => {
-                            const paymentUrl = (upgradePlan as any).upgradePaymentUrl || upgradePlan.paymentLink;
-                            if (paymentUrl) {
-                              window.open(paymentUrl, "_blank");
-                            }
-                          }}
-                          className="w-full text-left p-1.5 sm:p-2 rounded border-2 transition-all duration-200 bg-white border-[#ff4c00] text-black hover:bg-[#fff4e6]"
-                        >
-                          <div className="flex justify-between items-center gap-2">
-                            <div className="flex-1 min-w-0">
-                              <div className="font-semibold text-[0.7rem] sm:text-xs mb-0.5">
-                                {upgradePlan.title}
-                              </div>
-                              <div className="text-[0.65rem] sm:text-[0.7rem] opacity-90">
-                                {upgradePlan.subTitle}
-                              </div>
-                            </div>
-                            <div className="font-bold text-[0.7rem] sm:text-xs flex-shrink-0">
-                              {currencySymbol}{(upgradePlan as any).upgradePrice || 0}
-                            </div>
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Empty columns after the section (to center it) */}
-                {Array.from({ length: emptyColumnsAfter }).map((_, i) => (
-                  <div key={`empty-after-${i}`} />
-                ))}
-              </div>
-            );
-          })()}
-        </div>
-      )}
+            })()}
+          </div>
+        )}
 
       {/* === Risk-Free Section === */}
       <div className="bg-[rgba(251,240,235,1)] w-full border border-[#ff4c00] mt-12 sm:mt-16 mb-6 sm:mb-8 px-2 sm:px-4">
 
-      <div className="bg-white mt-2.5 mb-2.5 flex flex-col sm:flex-row justify-between items-center p-4 sm:p-6 lg:p-8">
+        <div className="bg-white mt-2.5 mb-2.5 flex flex-col sm:flex-row justify-between items-center  max-sm:text-left p-4 sm:p-6 lg:p-8">
           {/* Left Section */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 flex-1 w-full sm:w-auto">
             {/* Pixel Art Mascot - on the left */}
@@ -611,7 +609,7 @@ export default function HomePagePricingPlans() {
           </div>
 
           {/* Right Section */}
-          <div className="flex items-center gap-0 flex-shrink-0">
+          <div className="flex items-center gap-0 flex-shrink-0 hidden sm:block max-sm:order-first max-sm:mb-4">
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-black leading-tight">
                 Flashfire
@@ -621,8 +619,8 @@ export default function HomePagePricingPlans() {
               </span>
             </div>
 
-            {/* Orange Checkmark in Starburst Icon - on the right */}
-            <div className="flex-shrink-0 relative w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 -ml-4 sm:-ml-6">
+           
+            <div className="flex-shrink-0 relative hidden sm:block w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 -ml-4 sm:-ml-6 max-sm:h-16 ">
               <FlashfireLogo
                 width={128}
                 height={128}
