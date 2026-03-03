@@ -73,8 +73,8 @@ export default function HomePagePTNote() {
               </p>
               <p className="text-[0.8rem] text-[#aaa]">CTO </p>
             </div>
-            <p className="text-[1.8rem] text-white mx-4">|</p>
-            <div>
+            {/* <p className="text-[1.8rem] text-white mx-4">|</p> */}
+            {/* <div>
               <FlashfireLogo
                 variant="white"
                 width={20}
@@ -82,7 +82,7 @@ export default function HomePagePTNote() {
                 className="w-5 h-5"
               />
             </div>
-            <div className="text-white font-semibold ml-2">Flashfire</div>
+            <div className="text-white font-semibold ml-2">Flashfire</div> */}
           </div>
 
           <div className="absolute bottom-0 right-6 overflow-hidden max-[1024px]:static max-[1024px]:mt-6 max-[1024px]:mx-auto max-[1024px]:w-fit">

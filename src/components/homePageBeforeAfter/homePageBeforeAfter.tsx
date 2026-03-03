@@ -33,82 +33,75 @@ export default function BeforeAfterComparison() {
 
   return (
     <section
-      className="relative bg-white py-20 overflow-hidden"
+      className="py-28 bg-[#f5f5f4]"
       style={{ fontFamily: "var(--font-space-grotesk)" }}
     >
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] max-md:opacity-70" />
+      <div className="max-w-6xl mx-auto px-6">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14 space-y-5 sm:space-y-6 max-w-4xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Why Flashfire Is a Smarter AI Job Search Platform
-          </h1>
+        <div className="text-center mb-20 max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            Why Flashfire Is a Smarter AI Job Matching Platform
+          </h2>
 
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed px-2 sm:px-0">
-            Experience how FLASHFIRE's advanced AI automation platforms reconstruct your job search by effectively targeting the right jobs and converting applications into real interview opportunities.
+          <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+            We don’t just apply, we <span className="font-semibold">make you get noticed</span>. 
+            Flashfire combines <span className="text-[#ff4c00] font-medium">AI precision</span> 
+            with <span className="text-[#ff4c00] font-medium">human insight</span> 
+            to get you interviews that actually convert.
           </p>
         </div>
 
-        {/* ======================= */}
-        {/* TABLE - DESKTOP & MOBILE */}
-        {/* ======================= */}
-        <div className="w-full overflow-x-auto px-4 sm:px-0">
-          <div className="max-w-6xl mx-auto bg-white rounded-xl md:rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="py-2 md:py-5 px-2 md:px-6 text-left text-[10px] sm:text-xs md:text-sm font-medium text-gray-600 w-[50%] sm:w-auto" />
-                  <th className="py-2 md:py-5 px-1.5 md:px-6 text-center text-[9px] sm:text-xs md:text-lg font-semibold text-[#ff4c00] border-l border-gray-200 whitespace-nowrap">
-                    <span className="hidden sm:inline">Before FLASHFIRE</span>
-                    <span className="sm:hidden">Before</span>
-                  </th>
-                  <th className="py-2 md:py-5 px-1.5 md:px-6 text-center text-[9px] sm:text-xs md:text-lg font-semibold text-green-600 border-l border-gray-200 whitespace-nowrap">
-                    <span className="hidden sm:inline">After FLASHFIRE</span>
-                    <span className="sm:hidden">After</span>
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {comparisonItems.map((item, index) => (
-                  <tr
-                    key={index}
-                    className="border-t border-gray-200"
-                  >
-                    {/* Feature */}
-                    <td className="py-2 md:py-5 px-2 md:px-6">
-                      <div className="text-[11px] sm:text-sm md:text-base font-semibold text-gray-900 leading-tight">
-                        {item.title}
-                      </div>
-                      <div className="mt-0.5 sm:mt-1 text-[9px] sm:text-xs md:text-sm text-gray-500 leading-snug">
-                        {item.caption}
-                      </div>
-                    </td>
-
-                    {/* Before */}
-                    <td className="py-2 md:py-5 px-1.5 md:px-6 text-center border-l border-gray-200">
-                      <FaTimes className="text-[#ff4c00] text-sm sm:text-lg md:text-xl mx-auto" />
-                    </td>
-
-                    {/* After */}
-                    <td className="py-2 md:py-5 px-1.5 md:px-6 text-center border-l border-gray-200">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 mx-auto rounded-full bg-green-600 flex items-center justify-center">
-                        <FaCheck className="text-white text-[8px] sm:text-xs md:text-sm" />
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
+        {/* Header Row */}
+        <div className="grid grid-cols-3 pb-6 border-b border-gray-300 text-sm font-semibold text-gray-600">
+          <div></div>
+          <div className="text-center text-[#ff4c00]">
+            Before Flashfire
           </div>
-          <div className="mt-6 md:mt-12 text-center max-w-3xl mx-auto px-4">
-            <p className="text-xs sm:text-sm md:text-base sm:text-lg font-semibold text-gray-900">
-              Stop applying blindly. Start getting interviews strategically.
-            </p>
+          <div className="text-center text-gray-900">
+            After Flashfire
           </div>
+        </div>
+
+        {/* Comparison Rows */}
+        <div className="divide-y divide-gray-300">
+
+          {comparisonItems.map((item, index) => (
+            <div
+              key={index}
+              className="grid grid-cols-3 py-10 items-center"
+            >
+              {/* Feature */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                  {item.caption}
+                </p>
+              </div>
+
+              {/* Before */}
+              <div className="flex justify-center">
+                <FaTimes className="text-[#ff4c00] text-lg" />
+              </div>
+
+              {/* After */}
+              <div className="flex justify-center">
+                <div className="w-8 h-8 rounded-full border border-gray-900 flex items-center justify-center">
+                  <FaCheck className="text-gray-900 text-sm" />
+                </div>
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+        {/* Bottom Statement */}
+        <div className="text-center mt-24">
+          <p className="text-xl font-semibold text-gray-900">
+            Stop applying blindly. Start getting interviews strategically.
+          </p>
         </div>
 
       </div>
