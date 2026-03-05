@@ -1,9 +1,6 @@
-"use client";
-
 import { FaRegClock } from "react-icons/fa";
 import { BsCalendarEvent } from "react-icons/bs";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import CachedBlogImage from "./CachedBlogImage";
 
 type Blog = {
@@ -25,22 +22,12 @@ type Blog = {
 };
 
 export default function BlogCard({ blog, priority = false }: { blog: Blog; priority?: boolean }) {
-  const router = useRouter();
-
   // Ensure slug exists before rendering link
   if (!blog.slug) {
     return null;
   }
 
   const authorSlug = blog.author?.name ? blog.author.name.replace(/\s+/g, "-").toLowerCase() : "";
-
-  const handleAuthorClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (authorSlug) {
-      router.push(`/author/${authorSlug}`);
-    }
-  };
 
   return (
     <section className="border border-gray-200 rounded-[0.1rem] p-[0.3rem] bg-white transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.08)]">
@@ -74,12 +61,13 @@ export default function BlogCard({ blog, priority = false }: { blog: Blog; prior
             {blog.author?.name ? (
               <>
                 By{" "}
-                <span
-                  onClick={handleAuthorClick}
-                  className="font-semibold text-[#111] hover:text-[#f97316] transition-colors cursor-pointer"
+                <Link
+                  href={authorSlug ? `/author/${authorSlug}` : "#"}
+                  onClick={(e) => e.stopPropagation()}
+                  className="font-semibold text-[#111] hover:text-[#f97316] transition-colors"
                 >
                   {blog.author.name}
-                </span>
+                </Link>
               </>
             ) : (
               <>By <span className="font-semibold text-[#111]">Flashfire Team</span></>

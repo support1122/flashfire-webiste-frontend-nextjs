@@ -13,7 +13,6 @@ import Navbar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import Link from "next/link";
 import { FaLinkedinIn, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
-import { blogPosts } from "@/src/data/blogsData";
 import { categoryToSlug, tagToSlug } from "@/src/utils/blogCategoryUtils";
 
 type BlogPost = {
@@ -36,25 +35,37 @@ type BlogPost = {
   };
 };
 
+type BlogPostMeta = {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+  categoryColor: string;
+  lastUpdated?: string;
+  tags?: string[];
+  author?: { name: string; bio?: string; image?: string; };
+};
+
 type TableOfContentsItem = {
   title: string;
   anchor: string;
   level: number;
 };
 
-export default function BlogsPage({ post }: { post: BlogPost }) {
+type BlogsPageProps = {
+  post: BlogPost;
+  allCategories: string[];
+  relatedArticles: BlogPostMeta[];
+  recentPosts: BlogPostMeta[];
+  mostViewedPosts: BlogPostMeta[];
+};
+
+export default function BlogsPage({ post, allCategories, relatedArticles, recentPosts, mostViewedPosts }: BlogsPageProps) {
   const [activeSection, setActiveSection] = useState<string>("");
-  const allCategories = useMemo(
-    () =>
-      Array.from(
-        new Set(
-          blogPosts
-            .map((p) => p.category)
-            .filter((c): c is string => Boolean(c))
-        )
-      ),
-    []
-  );
   // Tags for this post - show default tags on every blog for UI consistency
   // But filtering will only match blogs that actually have that tag in their data
   const defaultDisplayTags = [
@@ -239,41 +250,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     };
   }, [post]);
 
-  // Get related articles (same category preferred; allow more than 3 to enable scroll)
-  const relatedArticles = useMemo(() => {
-    const sameCategory = blogPosts.filter(
-      (p) => p.category === post.category && p.id !== post.id
-    );
-
-    // If none in same category, fall back to first 3 from other categories
-    if (sameCategory.length === 0) {
-      return blogPosts.filter((p) => p.id !== post.id).slice(0, 3);
-    }
-
-    // Allow more than 3 to enable scrolling when needed
-    return sameCategory;
-  }, [post.category, post.id]);
-
-  // Get recent posts (exclude current)
-  const recentPosts = useMemo(() => {
-    return blogPosts
-      .filter((p) => p.id !== post.id)
-      .slice(0, 5);
-  }, [post.id]);
-
-  // Get most viewed posts (exclude current and recent posts)
-  const mostViewedPosts = useMemo(() => {
-    const excludeIds = new Set([post.id, ...recentPosts.map(p => p.id)]);
-    return blogPosts
-      .filter((p) => !excludeIds.has(p.id))
-      .sort((a, b) => {
-        // Sort by date descending (newer first) as a proxy for "most viewed"
-        const dateA = new Date(a.date).getTime();
-        const dateB = new Date(b.date).getTime();
-        return dateB - dateA;
-      })
-      .slice(0, 5);
-  }, [post.id, recentPosts]);
+  // relatedArticles, recentPosts, mostViewedPosts are now received as props from server component
 
   // Social sharing functions
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";

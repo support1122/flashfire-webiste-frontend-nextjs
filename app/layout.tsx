@@ -163,13 +163,12 @@ export default function RootLayout({
           href="https://assets.calendly.com"
           crossOrigin="anonymous"
         />
-        {/* DNS prefetch and preconnect for Cloudinary (blog images) */}
+        {/* DNS prefetch and preconnect for image CDNs */}
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        <link
-          rel="preconnect"
-          href="https://res.cloudinary.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" />
+        <link rel="preconnect" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
       </head>
       <body
         suppressHydrationWarning

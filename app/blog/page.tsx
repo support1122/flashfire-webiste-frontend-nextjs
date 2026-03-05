@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
 import BlogsClient from "@/src/components/blogs/blogsClient";
-import BlogImagePreloader from "@/src/components/BlogImagePreloader";
+
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 import { blogPosts } from "@/src/data/blogsData";
@@ -49,7 +49,7 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <BlogImagePreloader imageUrls={blogPostsMeta.map(p => p.image).filter(Boolean)} />
+
       <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
         <BlogsClient posts={blogPostsMeta} />
       </Suspense>
