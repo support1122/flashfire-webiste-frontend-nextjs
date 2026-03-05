@@ -11,6 +11,7 @@ import { loadFormData } from "@/src/utils/LocalStorageUtils";
 import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
 import MeetingBookedModal from "@/src/components/meetingBooked/MeetingBookedModal";
 import * as fbq from "@/lib/metaPixel";
+import * as linkedin from "@/lib/linkedinInsightTag";
 
 function GlobalModalsContent() {
     const pathname = usePathname();
@@ -59,6 +60,11 @@ function GlobalModalsContent() {
     // Track Meta Pixel PageView on route changes
     useEffect(() => {
         fbq.pageview();
+    }, [pathname, searchParams]);
+
+    // Track LinkedIn Insight Tag PageView on route changes
+    useEffect(() => {
+        linkedin.pageview();
     }, [pathname, searchParams]);
 
     // Listen for button click events from anywhere in the app

@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { PlayCircle, Users, X } from "lucide-react";
 import * as fbq from "@/lib/metaPixel";
+import * as linkedin from "@/lib/linkedinInsightTag";
+import { LINKEDIN_CONVERSION_IDS } from "@/lib/linkedinConversions";
 import videoStyles from "@/src/components/homePageVideo/homePageVideo.module.css";
 
 type Props = {
@@ -40,6 +42,26 @@ export default function MeetingBookedModal({ onClose }: Props) {
           utm_medium,
           utm_campaign,
         });
+
+        // Track LinkedIn Schedule event (only if conversion ID is configured)
+        if (LINKEDIN_CONVERSION_IDS.SCHEDULE) {
+          try {
+            linkedin.trackSchedule(LINKEDIN_CONVERSION_IDS.SCHEDULE, {
+              value: 0,
+              currency: "USD",
+              ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
+              ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
+              ...(inviteeName && {
+                lastName: inviteeName.split(" ").slice(1).join(" "),
+              }),
+              utm_source,
+              utm_medium,
+              utm_campaign,
+            });
+          } catch (linkedinError) {
+            console.error("Failed to track LinkedIn event:", linkedinError);
+          }
+        }
 
         setHasTracked(true);
       } catch (error) {
