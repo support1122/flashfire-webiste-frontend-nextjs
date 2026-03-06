@@ -202,7 +202,7 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1.75rem;
   width: 100%;
   min-width: 280px;
 }
@@ -249,8 +249,8 @@
   background: transparent;
   color: #111827;
   font-size: 0.95rem;
-  padding: 0.4rem 0.75rem;
-  width: 220px;
+  padding: 0.4rem 0.8rem;
+  width: 235px;
   cursor: default;
   font-family: inherit;
   font-weight: 500;

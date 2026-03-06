@@ -196,6 +196,8 @@ export default function HomePageDemoCTA() {
                       window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
                     }
 
+                    // Don't use router.replace - it causes scroll to top
+                    // Just change URL with pushState and show modal, page stays in place
 
                     return;
                   }
