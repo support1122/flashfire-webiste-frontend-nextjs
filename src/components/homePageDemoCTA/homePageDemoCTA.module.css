@@ -1,92 +1,228 @@
-/* === DEMO SECTION === */
+/* === MODERN DEMO SECTION === */
 .demoSectionOuter {
-
-  padding: 0.4rem;
-  width: 90%;
-  margin: 2rem auto 6rem;
-  border-radius: 0.3rem;
+  padding: 0;
+  width: 92%;
+  max-width: 1200px;
+  margin: 4rem auto 8rem;
+  border-radius: 1.5rem;
   font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  position: relative;
 }
 
 .demoSection {
-  background-color: #f55e1d;
+  background: linear-gradient(135deg, #f55e1d 0%, #e54d1a 50%, #f55e1d 100%);
   color: #fff;
-  text-align: center;
-  border-radius: 0.2rem;
-  padding: 3rem 2rem;
-  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
+  border-radius: 1.5rem;
+  padding: 0;
+  box-shadow: 
+    0 25px 50px -12px rgba(245, 94, 29, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Decorative background elements */
+.demoSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.demoSection::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Content Container */
+.contentContainer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  padding: 4rem 5rem;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+}
+
+/* Left Content */
+.leftContent {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .demoSubheading {
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.demoSubheading::before {
+  content: '';
+  width: 2rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .demoHeading {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02rem;
+  margin: 0;
+  letter-spacing: -0.03rem;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .fireIcon {
   display: inline-flex;
-  vertical-align: middle;
-  margin: 0 -0.5rem;
   align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 .demoText {
-  color: #fff;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 38rem;
-  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0;
 }
 
 .demoText em {
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+/* CTA Area */
+.ctaArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .demoButton {
   background-color: #fff;
   color: #111;
-  border: 0.1rem solid #111;
-  border-radius: 0.4rem;
-  padding: 0.8rem 1.6rem;
-  font-size: 1rem;
-  font-weight: 600;
+  border: 0.15rem solid #111;
+  border-radius: 0.6rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0.2rem 0 #000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0.3rem 0 #000;
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.demoButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(245, 94, 29, 0.1), transparent);
+  transition: left 0.5s;
 }
 
 .demoButton:hover {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.4rem 0 #000;
+  transform: translateY(-0.15rem);
+  box-shadow: 0 0.5rem 0 #000;
+}
+
+.demoButton:hover::before {
+  left: 100%;
+}
+
+.demoButton:active {
+  transform: translateY(0);
+  box-shadow: 0 0.15rem 0 #000;
 }
 
 .demoNote {
-  font-size: 0.9rem;
-  color: #fff;
-  opacity: 0.9;
-  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.demoEmailContainer {
+.demoNote::before {
+  content: '⚡';
+  font-size: 1rem;
+}
+
+/* Right Side - Email Card */
+.rightContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  margin: 1rem auto 0;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
-.demoEmailLabel {
-  color: #fff;
-  font-size: 0.95rem;
+.emailCard {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  min-width: 280px;
+}
+
+.emailHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.emailIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.9;
 }
 
 .emailCopyWrapper {
@@ -94,18 +230,17 @@
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 0.5rem;
-  padding: 0.4rem;
-  gap: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s ease;
-  width: fit-content;
-  max-width: 100%;
+  border: 2px solid #000000;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .emailCopyWrapper:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 .emailInput {
@@ -113,35 +248,33 @@
   outline: none;
   background: transparent;
   color: #111827;
-  font-size: 0.9rem;
-  padding: 0.2rem 0 0.2rem 0.6rem;
-  width: 235px;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.75rem;
+  width: 220px;
   cursor: default;
   font-family: inherit;
-  overflow: visible;
-  text-overflow: clip;
-  white-space: nowrap;
-  box-sizing: border-box;
+  font-weight: 500;
+  letter-spacing: 0.02rem;
 }
 
 .copyButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  width: 32px;
-  height: 32px;
+  background-color: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 0.5rem;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+  transition: all 0.2s ease;
   flex-shrink: 0;
 }
 
 .copyButton:hover {
-  background-color: #f9fafb;
+  background-color: #f3f4f6;
   border-color: #d1d5db;
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .copyButton:active {
@@ -154,16 +287,16 @@
 
 .copiedTooltip {
   position: absolute;
-  top: -45px;
+  top: -50px;
   right: 0;
-  background-color: #3b82f6;
+  background-color: #10b981;
   color: #ffffff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   animation: fadeInOut 2s ease-in-out;
   z-index: 10;
 }
@@ -172,12 +305,12 @@
   content: '';
   position: absolute;
   bottom: -6px;
-  right: 12px;
+  right: 14px;
   width: 0;
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid #3b82f6;
+  border-top: 6px solid #10b981;
 }
 
 @keyframes fadeInOut {
@@ -191,54 +324,170 @@
   }
 }
 
+/* Decorative dots pattern */
+.dotsPattern {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.3) 2px, transparent 2px);
+  background-size: 12px 12px;
+  opacity: 0.6;
+}
+
 /* === TABLET === */
 @media (max-width: 1024px) {
   .demoSectionOuter {
-    width: 85%;
+    width: 90%;
+    margin: 3rem auto 6rem;
+  }
+
+  .contentContainer {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .leftContent {
+    text-align: center;
+    align-items: center;
+  }
+
+  .demoHeading {
+    font-size: 2.75rem;
+    justify-content: center;
+  }
+
+  .demoSubheading {
+    justify-content: center;
+  }
+
+  .demoSubheading::before {
+    display: none;
+  }
+
+  .rightContent {
+    align-items: center;
+    width: 100%;
+  }
+
+  .emailCard {
+    max-width: 400px;
+  }
+
+  .ctaArea {
+    align-items: center;
   }
 }
 
 /* === MOBILE === */
 @media (max-width: 768px) {
   .demoSectionOuter {
-    width: 100%;
-    margin: 1.5rem auto 3.5rem;
+    width: 95%;
+    margin: 2rem auto 4rem;
+    border-radius: 1rem;
   }
 
   .demoSection {
-    padding: 1.8rem 1.4rem;
+    border-radius: 1rem;
+  }
+
+  .contentContainer {
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
   }
 
   .demoHeading {
-    font-size: 1.9rem;
-    line-height: 1.25;
+    font-size: 2rem;
+    line-height: 1.2;
+    gap: 0.5rem;
+  }
+
+  .fireIcon img {
+    width: 48px !important;
+    height: 48px !important;
   }
 
   .demoSubheading {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
   }
 
   .demoText {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .demoButton {
+    font-size: 1rem;
+    padding: 0.9rem 1.75rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .emailCard {
+    min-width: unset;
+    width: 100%;
+    max-width: 100%;
+    padding: 1.25rem;
+  }
+
+  .emailInput {
+    width: calc(100% - 50px);
+    font-size: 0.9rem;
+  }
+
+  .dotsPattern {
+    display: none;
+  }
+}
+
+/* === SMALL PHONES === */
+@media (max-width: 480px) {
+  .demoSectionOuter {
+    width: 100%;
+    margin: 1.5rem auto 3rem;
+    border-radius: 0;
+  }
+
+  .demoSection {
+    border-radius: 0;
+  }
+
+  .contentContainer {
+    padding: 2rem 1.25rem;
+  }
+
+  .demoHeading {
+    font-size: 1.75rem;
+  }
+
+  .demoText {
+    font-size: 1rem;
   }
 
   .demoButton {
     font-size: 0.95rem;
-    padding: 0.9rem 1.4rem;
+    padding: 0.85rem 1.5rem;
   }
 
   .demoNote {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
-  .demoEmailLabel {
-    font-size: 0.85rem;
+  .emailCard {
+    padding: 1rem;
+  }
+
+  .emailHeader {
+    font-size: 0.8rem;
   }
 
   .emailInput {
-    font-size: 0.8rem;
-    width: 200px;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
   }
 
   .copyButton {
@@ -246,65 +495,9 @@
     height: 32px;
   }
 
-  .copyIcon {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-/* === SMALL PHONES === */
-@media (max-width: 480px) {
-  .demoHeading {
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
-
-  .demoText {
-    font-size: 0.84rem;
-  }
-
-  .demoButton {
-    font-size: 0.88rem;
-    width: 100%;
-    max-width: 20rem;
-  }
-
-  .demoNote {
-    font-size: 0.78rem;
-  }
-
-  .fireIcon {
-    margin: 0 -0.3rem;
-  }
-
-  .demoEmailLabel {
-    font-size: 0.78rem;
-  }
-
-  .emailInput {
-    font-size: 0.75rem;
-    width: 180px;
-    padding: 0.15rem 0.4rem;
-  }
-
-  .emailCopyWrapper {
-    padding: 0.4rem;
-    gap: 0;
-  }
-
-  .copyButton {
-    width: 28px;
-    height: 28px;
-  }
-
-  .copyIcon {
-    width: 14px;
-    height: 14px;
-  }
-
   .copiedTooltip {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.6rem;
-    top: -40px;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.75rem;
+    top: -45px;
   }
 }
