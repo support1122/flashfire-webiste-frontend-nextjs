@@ -67,7 +67,7 @@ export default function HomePageDemoCTA() {
               Book a Demo
               <span className={styles.fireIcon}>
                 <Image
-                  src="/images/character.png"
+                  src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/character.png"
                   alt="Flashfire mascot"
                   width={80}
                   height={80}
