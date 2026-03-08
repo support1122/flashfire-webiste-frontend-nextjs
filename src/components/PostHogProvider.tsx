@@ -59,6 +59,55 @@ function PostHogPageView({ children }: { children: React.ReactNode }) {
         utm_content: utmContent || "none",
         utm_term: utmTerm || "none",
       });
+
+      // ALSO track to MongoDB for Metabase (real-time tracking)
+      // Get or create session ID
+      let sessionId = typeof window !== "undefined" ? sessionStorage.getItem("session_id") : null;
+      if (!sessionId && typeof window !== "undefined") {
+        sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        sessionStorage.setItem("session_id", sessionId);
+      }
+
+      // Get visitor ID (try to get from PostHog or create new)
+      let visitorId = typeof window !== "undefined" 
+        ? localStorage.getItem("visitor_id") || posthog?.get_distinct_id?.() || null
+        : null;
+      
+      if (!visitorId && typeof window !== "undefined") {
+        visitorId = `visitor_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        localStorage.setItem("visitor_id", visitorId);
+      }
+
+      // Track to MongoDB (non-blocking) via backend API
+      if (typeof window !== "undefined") {
+        const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.flashfirejobs.com";
+        fetch(`${API_BASE_URL}/api/track/page-visit`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            visitorId: visitorId,
+            pageUrl: url,
+            referrer: document.referrer || null,
+            utmSource: utmSource || null,
+            utmMedium: utmMedium || null,
+            utmCampaign: utmCampaign || null,
+            utmContent: utmContent || null,
+            utmTerm: utmTerm || null,
+            sessionId: sessionId,
+            metadata: {
+              pathname: pathname,
+              searchParams: searchParams?.toString() || null,
+              countryCode: countryCode,
+              isCanada: isCanada,
+            },
+          }),
+        }).catch((error) => {
+          // Silently fail - don't break the app if tracking fails
+          console.error("MongoDB tracking error:", error);
+        });
+      }
     }
   }, [pathname, searchParams, posthog]);
 
