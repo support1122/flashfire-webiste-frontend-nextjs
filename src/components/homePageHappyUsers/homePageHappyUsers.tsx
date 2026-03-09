@@ -67,6 +67,13 @@ export const ALL_REVIEW_IMAGES = [
   "/images/happy-users-sc/image6.jpg",
   "/images/happy-users-sc/image2.jpg",
   "/images/happy-users-sc/image10.jpg",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8109%20-%20Edited.png",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8110%20-%20Edited.png",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8111%20-%20Edited.png",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8112%20-%20Edited.png",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8113%20-%20Edited.png",
+  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8114%20-%20Edited.png"
+
 ];
 
 
