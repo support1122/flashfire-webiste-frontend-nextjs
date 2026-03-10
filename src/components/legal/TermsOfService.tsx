@@ -50,12 +50,11 @@ export default function TermsOfService() {
               1. About Flashfire
             </h2>
             <p className="text-gray-700 mb-6">
-              Flashfire is an AI-powered job application automation platform
-              built to help international students and professionals find and
-              apply to jobs in the United States. Flashfire provides resume
-              optimization, job targeting, LinkedIn enhancement, and mass
-              application services designed to reduce the time and complexity of
-              job hunting.
+              Flashfire is an AI-powered platform built to help international
+              students and professionals optimize their LinkedIn profiles for job
+              opportunities in the United States. Effective February 12th,
+              Flashfire focuses exclusively on LinkedIn profile optimization and
+              enhancement services.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -138,6 +137,14 @@ export default function TermsOfService() {
               maximize your visibility and effectiveness, but we do not control
               third-party recruiter actions.
             </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Service Scope - LinkedIn Optimization Only:
+              </h3>
+              <p className="text-gray-700">
+                Effective February 12th, Flashfire will exclusively provide LinkedIn optimization services. We will focus solely on LinkedIn profile enhancement and optimization. Other services previously offered may no longer be available.
+              </p>
+            </div>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               7. User Responsibilities
@@ -298,4 +305,4 @@ export default function TermsOfService() {
       </div>
     </div>
   );
-}
+}  
