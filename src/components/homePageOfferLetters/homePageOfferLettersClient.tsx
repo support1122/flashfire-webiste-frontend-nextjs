@@ -30,6 +30,14 @@ const offerLetters: OfferLetterData[] = [
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/uhitha.jpeg",
   },
   {
+    name: "Vaishali Jain",
+    company: "Lila Sciences",
+    linkedinUrl: "https://www.linkedin.com/in/vaishali-jain-187665263/",
+    imagePath: "/images/vaishali_jain_offer.png",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/vaishalli_jain.png",
+  },
+  {
     name: "Anjali",
     company: "Skyworks Solutions, Inc.",
     linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
@@ -109,6 +117,7 @@ const offerLetters: OfferLetterData[] = [
     profileImagePath:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
   },
+  
 ];
 
 
