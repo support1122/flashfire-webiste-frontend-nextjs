@@ -107,9 +107,7 @@ export default function AIJobAlertsPage() {
                     {ctaLabel}
                     <ArrowRight size={18} className="ml-2" />
                   </button>
-                  <button className="inline-flex items-center justify-center rounded-xl bg-white border-2 border-slate-200 px-8 py-3.5 text-base font-semibold text-slate-700 hover:border-[#ff4c00]/30 hover:text-[#ff4c00] transition-all duration-300">
-                    Watch Demo
-                  </button>
+                  
                 </div>
               </div>
 
