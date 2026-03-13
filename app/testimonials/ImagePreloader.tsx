@@ -1,32 +1,25 @@
-"use client";
-
-import { useEffect } from "react";
 import { ALL_REVIEW_IMAGES } from "@/src/components/homePageHappyUsers/homePageHappyUsers";
 
+/**
+ * Server component — preloads only the first 4 visible testimonial images.
+ * More than that competes for bandwidth and actually slows loading.
+ * The rest load lazily via native browser lazy loading.
+ */
 export default function ImagePreloader() {
-  useEffect(() => {
-    const criticalImages = ALL_REVIEW_IMAGES.slice(0, 12);
-    criticalImages.forEach((imageSrc) => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = imageSrc;
-      link.setAttribute('fetchpriority', 'high');
-      document.head.appendChild(link);
-    });
+  const criticalImages = ALL_REVIEW_IMAGES.slice(0, 4);
 
-    const remainingImages = ALL_REVIEW_IMAGES.slice(12);
-    remainingImages.forEach((imageSrc, index) => {
-      setTimeout(() => {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.as = 'image';
-        link.href = imageSrc;
-        document.head.appendChild(link);
-      }, index * 50); // 50ms delay between each prefetch
-    });
-  }, []);
-
-  return null; // This component doesn't render anything
+  return (
+    <>
+      {criticalImages.map((src, i) => (
+        <link
+          key={i}
+          rel="preload"
+          as="image"
+          href={src}
+          // @ts-expect-error fetchpriority is valid HTML but not yet in React types
+          fetchpriority="high"
+        />
+      ))}
+    </>
+  );
 }
-

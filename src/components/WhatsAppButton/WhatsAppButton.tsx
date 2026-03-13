@@ -1,58 +1,44 @@
 "use client";
 
+import { memo, useCallback } from "react";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackExternalLink } from "@/src/utils/PostHogTracking";
 import { WHATSAPP_SUPPORT_URL } from "@/src/utils/whatsapp";
 
-const WhatsAppButton = () => {
-  const handleWhatsAppClick = () => {
+const WhatsAppButton = memo(function WhatsAppButton() {
+  const handleClick = useCallback(() => {
     window.open(WHATSAPP_SUPPORT_URL, "_blank");
-  };
+
+    const utmSource = localStorage.getItem("utm_source") || "WEBSITE";
+    const utmMedium = localStorage.getItem("utm_medium") || "Website_WhatsApp_Button_section";
+    const utmCampaign = localStorage.getItem("utm_campaign") || "Website";
+
+    GTagUTM({
+      eventName: "WhatsApp_Support_Click",
+      label: "Whatsapp_Support_Button",
+      utmParams: {
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: utmCampaign,
+      },
+    });
+
+    trackButtonClick("WhatsApp Support", "floating_button", "icon", {
+      button_location: "floating_whatsapp",
+      button_type: "support_contact",
+    });
+    trackExternalLink(WHATSAPP_SUPPORT_URL, "WhatsApp Support", "floating_button", {
+      link_type: "whatsapp_support",
+      contact_method: "whatsapp",
+    });
+  }, []);
 
   return (
     <button
-      onClick={() => {
-        handleWhatsAppClick();
-
-        // Get UTM parameters from localStorage
-        const utmSource =
-          typeof window !== "undefined"
-            ? localStorage.getItem("utm_source") || "WEBSITE"
-            : "WEBSITE";
-        const utmMedium =
-          typeof window !== "undefined"
-            ? localStorage.getItem("utm_medium") || "Website_WhatsApp_Button_section"
-            : "Website_WhatsApp_Button_section";
-        const utmCampaign =
-          typeof window !== "undefined"
-            ? localStorage.getItem("utm_campaign") || "Website"
-            : "Website";
-
-        // Track with both GTag and PostHog
-        GTagUTM({
-          eventName: "WhatsApp_Support_Click",
-          label: "Whatsapp_Support_Button",
-          utmParams: {
-            utm_source: utmSource,
-            utm_medium: utmMedium,
-            utm_campaign: utmCampaign,
-          },
-        });
-
-        // PostHog tracking
-        trackButtonClick("WhatsApp Support", "floating_button", "icon", {
-          button_location: "floating_whatsapp",
-          button_type: "support_contact",
-        });
-        trackExternalLink(WHATSAPP_SUPPORT_URL, "WhatsApp Support", "floating_button", {
-          link_type: "whatsapp_support",
-          contact_method: "whatsapp",
-        });
-      }}
-      className="fixed z-[60] bottom-4 sm:bottom-6 right-4 sm:right-6 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+      onClick={handleClick}
+      className="fixed z-[60] bottom-4 sm:bottom-6 right-4 sm:right-6 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 group"
       aria-label="Chat on WhatsApp"
     >
-      {/* WhatsApp SVG Icon */}
       <svg
         className="w-5 h-5 sm:w-6 sm:h-6"
         viewBox="0 0 24 24"
@@ -67,7 +53,6 @@ const WhatsAppButton = () => {
       </div>
     </button>
   );
-};
+});
 
 export default WhatsAppButton;
-

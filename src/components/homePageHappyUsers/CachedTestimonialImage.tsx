@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { memo, useMemo } from "react";
 
 interface CachedTestimonialImageProps {
   src: string;
@@ -11,7 +12,22 @@ interface CachedTestimonialImageProps {
   onClick?: () => void;
 }
 
-export default function CachedTestimonialImage({
+// Stable style objects — never recreated between renders
+const STYLE_CLICKABLE = {
+  width: '100%' as const,
+  height: 'auto' as const,
+  objectFit: 'contain' as const,
+  cursor: 'pointer' as const,
+} as const;
+
+const STYLE_DEFAULT = {
+  width: '100%' as const,
+  height: 'auto' as const,
+  objectFit: 'contain' as const,
+  cursor: 'default' as const,
+} as const;
+
+function CachedTestimonialImage({
   src,
   alt,
   width,
@@ -21,6 +37,10 @@ export default function CachedTestimonialImage({
   sizes,
   onClick,
 }: CachedTestimonialImageProps) {
+  // Local WebP files are already pre-compressed — skip Next.js re-processing
+  const isLocalWebp = src.startsWith("/") && src.endsWith(".webp");
+  const style = onClick ? STYLE_CLICKABLE : STYLE_DEFAULT;
+
   return (
     <Image
       src={src}
@@ -30,15 +50,14 @@ export default function CachedTestimonialImage({
       className={className}
       priority={priority}
       loading={priority ? "eager" : "lazy"}
-      quality={80}
+      quality={isLocalWebp ? undefined : 75}
       sizes={sizes}
       onClick={onClick}
-      style={{
-        width: '100%',
-        height: 'auto',
-        objectFit: 'contain',
-        cursor: onClick ? 'pointer' : 'default',
-      }}
+      unoptimized={isLocalWebp}
+      style={style}
     />
   );
 }
+
+// React.memo — only re-render when props actually change
+export default memo(CachedTestimonialImage);

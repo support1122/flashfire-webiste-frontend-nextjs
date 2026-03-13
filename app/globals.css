@@ -71,3 +71,8 @@ section {
   contain-intrinsic-size: auto 500px;
 }
 
+/* Isolate paint per masonry card — prevents full-page repaint on hover/load */
+.contain-paint {
+  contain: layout style paint;
+}
+
