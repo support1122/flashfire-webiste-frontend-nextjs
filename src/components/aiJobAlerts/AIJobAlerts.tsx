@@ -1,39 +1,34 @@
 "use client";
-import { 
+import {
   Sparkles, ArrowRight, CheckCircle, X, Check, Zap, Target, Clock, Filter, BellRing, Mail, Award
 } from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-// Custom hook for scroll-triggered animations
-const useScrollAnimation = (options = {}) => {
-  const ref = useRef(null);
+export function useInView(options = {}) {
+  const ref = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.unobserve(entry.target);
-      }
-    }, {
-      threshold: 0.1,
-      ...options
-    });
+    const element = ref.current;
+    if (!element) return;
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1, ...options }
+    );
+
+    observer.observe(element);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      observer.disconnect();
     };
-  }, []);
+  }, [options]);
 
-  return [ref, isVisible];
-};
+  return { ref, isVisible };
+}
 
 const updateCtaUrl = (basePath: string, label: string) => {
   if (typeof window === "undefined") return;
@@ -50,13 +45,13 @@ export default function AIJobAlertsPage() {
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   // Scroll animation refs
-  const [problemRef, problemVisible] = useScrollAnimation();
-  const [benefitsRef, benefitsVisible] = useScrollAnimation();
-  const [howItWorksRef, howItWorksVisible] = useScrollAnimation();
-  const [featuresRef, featuresVisible] = useScrollAnimation();
-  const [comparisonRef, comparisonVisible] = useScrollAnimation();
-  const [whoCanUseRef, whoCanUseVisible] = useScrollAnimation();
-  const [faqRef, faqVisible] = useScrollAnimation();
+  const problem = useInView();
+  const benefits = useInView();
+  const howItWorks = useInView();
+  const features = useInView();
+  const comparison = useInView();
+  const whoCanUse = useInView();
+  const faq = useInView();
 
   return (
     <div className="bg-[#fff7f2] text-slate-900 min-h-screen font-sans">
@@ -65,7 +60,7 @@ export default function AIJobAlertsPage() {
         <section className="min-h-[90vh] flex items-center bg-gradient-to-br from-[#fff0e6] via-[#fff7f2] to-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-16">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              
+
               {/* LEFT - Compact Content */}
               <div className="space-y-6 max-w-xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#ff4c00]/20 text-[#ff4c00] font-semibold text-sm">
@@ -107,7 +102,7 @@ export default function AIJobAlertsPage() {
                     {ctaLabel}
                     <ArrowRight size={18} className="ml-2" />
                   </button>
-                  
+
                 </div>
               </div>
 
@@ -135,8 +130,8 @@ export default function AIJobAlertsPage() {
                       { role: "Software Intern — Remote", score: "89%", time: "5m ago" },
                       { role: "Product Manager — AI Team", score: "96%", time: "12m ago" },
                     ].map((job, idx) => (
-                      <div 
-                        key={idx} 
+                      <div
+                        key={idx}
                         className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-white border border-[#ffd6c2]"
                       >
                         <div className="flex items-center justify-between mb-1">
@@ -172,9 +167,9 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* Problem Section - Scroll Triggered */}
-        <section ref={problemRef} className="bg-white py-20">
+        <section ref={problem.ref} className="bg-white py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${problemVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${problem.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
                 Why Job Seekers Struggle with <span className="text-[#ff4c00]">Traditional Job Alerts</span>
               </h2>
@@ -184,7 +179,7 @@ export default function AIJobAlertsPage() {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 items-start max-w-5xl mx-auto">
-              <div className={`space-y-4 transition-all duration-700 delay-100 ${problemVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className={`space-y-4 transition-all duration-700 delay-100 ${problem.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <p className="text-lg text-slate-700 font-medium">This leads to:</p>
                 <div className="grid gap-3">
                   {[
@@ -202,7 +197,7 @@ export default function AIJobAlertsPage() {
                 </div>
               </div>
 
-              <div className={`space-y-4 transition-all duration-700 delay-200 ${problemVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className={`space-y-4 transition-all duration-700 delay-200 ${problem.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <div className="bg-gradient-to-br from-orange-50 to-[#fff7f2] border-l-4 border-[#ff4c00] p-6 rounded-xl">
                   <p className="text-lg font-semibold text-slate-900 mb-2">
                     Tired of refreshing LinkedIn every hour?
@@ -227,9 +222,9 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* Benefits Section - Scroll Triggered */}
-        <section ref={benefitsRef} className="bg-[#fff7f2] py-20">
+        <section ref={benefits.ref} className="bg-[#fff7f2] py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${benefitsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${benefits.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
                 Key Benefits <span className="text-[#ff4c00]">at a Glance</span>
               </h2>
@@ -246,7 +241,7 @@ export default function AIJobAlertsPage() {
               ].map((benefit, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-xl p-6 border border-slate-200 hover:border-[#ff4c00]/30 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 ${benefitsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  className={`bg-white rounded-xl p-6 border border-slate-200 hover:border-[#ff4c00]/30 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 ${benefits.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <h3 className="text-lg font-bold text-slate-900 mb-2 hover:text-[#ff4c00] transition-colors">
@@ -262,9 +257,9 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* How It Works - Scroll Triggered */}
-        <section ref={howItWorksRef} className="bg-white py-20">
+        <section ref={howItWorks.ref} className="bg-white py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${howItWorksVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${howItWorks.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 How Our <span className="text-[#ff4c00]">AI Job Alerts System Works</span>
               </h2>
@@ -281,9 +276,9 @@ export default function AIJobAlertsPage() {
                 { step: "4", title: "Receive Instant Job Alerts", desc: "Jobs are delivered via app notifications, email alerts, and SMS alerts (optional) within seconds." },
                 { step: "5", title: "Apply Immediately", desc: "Apply before listings get crowded, increase interview probability, and reduce missed opportunities." },
               ].map((item, idx) => (
-                <div 
-                  key={item.step} 
-                  className={`flex items-start gap-4 bg-white border border-slate-200 rounded-xl p-5 hover:border-[#ff4c00]/30 transition-all duration-500 ${howItWorksVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+                <div
+                  key={item.step}
+                  className={`flex items-start gap-4 bg-white border border-slate-200 rounded-xl p-5 hover:border-[#ff4c00]/30 transition-all duration-500 ${howItWorks.isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
                   style={{ transitionDelay: `${idx * 150}ms` }}
                 >
                   <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#ff4c00] text-white flex items-center justify-center text-sm font-bold">
@@ -304,9 +299,9 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* Features Section - Scroll Triggered */}
-        <section ref={featuresRef} className="bg-[#fff7f2] py-20">
+        <section ref={features.ref} className="bg-[#fff7f2] py-20">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${features.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 Key Features of Our <span className="text-[#ff4c00]">AI-Powered Job Notification App</span>
               </h2>
@@ -315,7 +310,7 @@ export default function AIJobAlertsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 "Real-Time AI Job Alerts",
-                "Smart Job Matching Algorithm", 
+                "Smart Job Matching Algorithm",
                 "Instant Job Alerts Within Seconds",
                 "Personalized Job Recommendations",
                 "Advanced Filtering Controls",
@@ -326,7 +321,7 @@ export default function AIJobAlertsPage() {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className={`bg-white border border-slate-200 rounded-lg p-5 hover:border-[#ff4c00]/30 hover:shadow-md transition-all duration-500 ${featuresVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+                  className={`bg-white border border-slate-200 rounded-lg p-5 hover:border-[#ff4c00]/30 hover:shadow-md transition-all duration-500 ${features.isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   <h3 className="text-base font-bold text-slate-900 mb-1 hover:text-[#ff4c00] transition-colors">
@@ -339,15 +334,15 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* Comparison Table - Scroll Triggered */}
-        <section ref={comparisonRef} className="bg-white py-20">
+        <section ref={comparison.ref} className="bg-white py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${comparisonVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${comparison.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 AI Job Alerts vs <span className="text-[#ff4c00]">Traditional Job Alerts</span>
               </h2>
             </div>
 
-            <div className={`grid md:grid-cols-2 gap-6 transition-all duration-700 delay-200 ${comparisonVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`grid md:grid-cols-2 gap-6 transition-all duration-700 delay-200 ${comparison.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               {/* Traditional */}
               <div className="bg-white rounded-2xl p-6 border-2 border-red-100">
                 <h3 className="text-lg font-bold text-slate-900 mb-4 pb-3 border-b border-red-100">
@@ -423,9 +418,9 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* Who Can Use - Scroll Triggered */}
-        <section ref={whoCanUseRef} className="bg-white py-20">
+        <section ref={whoCanUse.ref} className="bg-white py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${whoCanUseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${whoCanUse.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 Who Can Use This <span className="text-[#ff4c00]">Job Notification App?</span>
               </h2>
@@ -445,7 +440,7 @@ export default function AIJobAlertsPage() {
               ].map((item, idx) => (
                 <div
                   key={item}
-                  className={`flex items-center gap-2 p-3 rounded-lg bg-white border border-slate-200 hover:border-[#ff4c00]/30 transition-all duration-500 ${whoCanUseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                  className={`flex items-center gap-2 p-3 rounded-lg bg-white border border-slate-200 hover:border-[#ff4c00]/30 transition-all duration-500 ${whoCanUse.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                   style={{ transitionDelay: `${idx * 50}ms` }}
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
@@ -457,15 +452,15 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* FAQ Section - Scroll Triggered */}
-        <section ref={faqRef} className="bg-[#f9e8e0] py-20">
+        <section ref={faq.ref} className="bg-[#f9e8e0] py-20">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`text-center mb-10 transition-all duration-700 ${faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`text-center mb-10 transition-all duration-700 ${faq.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
                 Frequently Asked Questions
               </h2>
             </div>
 
-            <div className={`bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-700 delay-200 ${faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className={`bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-700 delay-200 ${faq.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               {[
                 { q: "What are AI job alerts?", a: "AI job alerts use intelligent algorithms to notify you about relevant job openings instantly." },
                 { q: "How does a job notification app work?", a: "A job notification app analyzes your skills and preferences to deliver targeted alerts." },
@@ -526,7 +521,8 @@ export default function AIJobAlertsPage() {
         </section>
       </main>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes fadeIn {
           from {
             opacity: 0;
