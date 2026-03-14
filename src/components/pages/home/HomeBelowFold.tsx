@@ -1,89 +1,48 @@
-"use client";
-
 import dynamic from "next/dynamic";
 import LazySection from "@/src/components/LazySection";
 
-// Below-the-fold: ssr: false = zero JS shipped until user scrolls near them
-// Combined with LazySection, components only mount when near the viewport
-const HomePageSteps = dynamic(() => import("@/src/components/homePageSteps/homePageSteps"), { ssr: false });
-const HomePageJobMatchingSection = dynamic(() => import("@/src/components/homePageJobMatchingSection/homePageJobMatchingSection"), { ssr: false });
-const HomePageCareerCTA = dynamic(() => import("@/src/components/homePageCareerCTA/homePageCareerCTA"), { ssr: false });
-const HomePageBeforeAfter = dynamic(() => import("../../homePageBeforeAfter/homePageBeforeAfter"), { ssr: false });
-const HomePageResultStats = dynamic(() => import("@/src/components/homePageResultStats/homePageResultStats"), { ssr: false });
-const HomePageOfferLetters = dynamic(() => import("@/src/components/homePageOfferLetters/homePageOfferLetters"), { ssr: false });
-const HomePageMilestones = dynamic(() => import("@/src/components/homePageMilestones/homePageMilestones"), { ssr: false });
-const HomePageVideo = dynamic(() => import("@/src/components/homePageVideo/homePageVideo"), { ssr: false });
-const HomePageWhyChooseFF = dynamic(() => import("@/src/components/homePageWhyChooseFF/homePageWhyChooseFF"), { ssr: false });
-const HomePageHappyUsers = dynamic(() => import("@/src/components/homePageHappyUsers/homePageHappyUsers"), { ssr: false });
-const HomePageFoundersNote = dynamic(() => import("@/src/components/homePageFoundersNote/homePageFoundersNote"), { ssr: false });
-const HomePagePTNote = dynamic(() => import("@/src/components/homePagePTNote/homePagePTNote"), { ssr: false });
-const HomePageFAQ = dynamic(() => import("@/src/components/homePageFAQ/homePageFAQ"), { ssr: false });
-const YouTubeVideo = dynamic(() => import("../../youtubeVideo/youtubeVideo"), { ssr: false });
-const HomePageDemoCTA = dynamic(() => import("@/src/components/homePageDemoCTA/homePageDemoCTA"), { ssr: false });
+// SSR-enabled dynamic imports: full HTML is server-rendered for instant visibility.
+// JS chunks are code-split and hydrate progressively — no blank gaps on fast scroll.
+// Only the video section uses LazySection since it loads a heavy 18MB video asset.
+const HomePageSteps = dynamic(() => import("@/src/components/homePageSteps/homePageSteps"));
+const HomePageJobMatchingSection = dynamic(() => import("@/src/components/homePageJobMatchingSection/homePageJobMatchingSection"));
+const HomePageCareerCTA = dynamic(() => import("@/src/components/homePageCareerCTA/homePageCareerCTA"));
+const HomePageBeforeAfter = dynamic(() => import("../../homePageBeforeAfter/homePageBeforeAfter"));
+const HomePageResultStats = dynamic(() => import("@/src/components/homePageResultStats/homePageResultStats"));
+const HomePageOfferLetters = dynamic(() => import("@/src/components/homePageOfferLetters/homePageOfferLetters"));
+const HomePageMilestones = dynamic(() => import("@/src/components/homePageMilestones/homePageMilestones"));
+const HomePageVideo = dynamic(() => import("@/src/components/homePageVideo/homePageVideo"));
+const HomePageWhyChooseFF = dynamic(() => import("@/src/components/homePageWhyChooseFF/homePageWhyChooseFF"));
+const HomePageHappyUsers = dynamic(() => import("@/src/components/homePageHappyUsers/homePageHappyUsers"));
+const HomePageFoundersNote = dynamic(() => import("@/src/components/homePageFoundersNote/homePageFoundersNote"));
+const HomePagePTNote = dynamic(() => import("@/src/components/homePagePTNote/homePagePTNote"));
+const HomePageFAQ = dynamic(() => import("@/src/components/homePageFAQ/homePageFAQ"));
+const YouTubeVideo = dynamic(() => import("../../youtubeVideo/youtubeVideo"));
+const HomePageDemoCTA = dynamic(() => import("@/src/components/homePageDemoCTA/homePageDemoCTA"));
 
 export default function HomeBelowFold() {
   return (
     <>
-      {/* Each LazySection defers mounting until near viewport — massive JS savings */}
-      <LazySection minHeight="400px">
-        <HomePageSteps />
-      </LazySection>
+      <HomePageSteps />
+      <HomePageJobMatchingSection />
+      <HomePageCareerCTA />
+      <HomePageBeforeAfter />
+      <HomePageResultStats />
+      <HomePageOfferLetters />
+      <HomePageMilestones />
 
-      <LazySection minHeight="300px">
-        <HomePageJobMatchingSection />
-      </LazySection>
-
-      <LazySection minHeight="200px">
-        <HomePageCareerCTA />
-      </LazySection>
-
-      <LazySection minHeight="400px">
-        <HomePageBeforeAfter />
-      </LazySection>
-
-      <LazySection minHeight="300px">
-        <HomePageResultStats />
-      </LazySection>
-
-      <LazySection minHeight="300px">
-        <HomePageOfferLetters />
-      </LazySection>
-
-      <LazySection minHeight="200px">
-        <HomePageMilestones />
-      </LazySection>
-
-      <LazySection minHeight="400px">
+      {/* Video is heavy (18MB) — lazy-load with generous preload margin */}
+      <LazySection minHeight="400px" rootMargin="600px">
         <HomePageVideo />
       </LazySection>
 
-      <LazySection minHeight="300px">
-        <HomePageWhyChooseFF />
-      </LazySection>
-
-      <LazySection minHeight="400px">
-        <HomePageHappyUsers />
-      </LazySection>
-
-      <LazySection minHeight="300px">
-        <HomePageFoundersNote />
-      </LazySection>
-
-      <LazySection minHeight="200px">
-        <HomePagePTNote />
-      </LazySection>
-
-      <LazySection minHeight="400px">
-        <HomePageFAQ />
-      </LazySection>
-
-      <LazySection minHeight="400px">
-        <YouTubeVideo />
-      </LazySection>
-
-      <LazySection minHeight="200px">
-        <HomePageDemoCTA />
-      </LazySection>
+      <HomePageWhyChooseFF />
+      <HomePageHappyUsers />
+      <HomePageFoundersNote />
+      <HomePagePTNote />
+      <HomePageFAQ />
+      <YouTubeVideo />
+      <HomePageDemoCTA />
     </>
   );
 }

@@ -11,6 +11,7 @@ export default function HomePageVideo() {
           muted
           loop
           playsInline
+          preload="none"
         >
           <source src="/videos/ii.mp4" type="video/mp4" />
           Your browser does not support the video tag.
