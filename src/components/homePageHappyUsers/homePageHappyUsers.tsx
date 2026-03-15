@@ -67,13 +67,6 @@ export const ALL_REVIEW_IMAGES = [
   "/images/happy-users-sc/image6.jpg",
   "/images/happy-users-sc/image2.jpg",
   "/images/happy-users-sc/image10.jpg",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8109%20-%20Edited.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8110%20-%20Edited.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8111%20-%20Edited.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8112%20-%20Edited.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8113%20-%20Edited.png",
-  "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/IMG_8114%20-%20Edited.png"
-
 ];
 
 
@@ -297,7 +290,7 @@ export default function HomePageHappyUsers() {
             letterSpacing: "-2.29px",
           }}
         >
-          500+ Happy User's Love
+          500+ Happy User{'\''}s Love
         </h2>
         <p
           className="mb-12 max-[600px]:text-[1.125rem]"
@@ -420,24 +413,18 @@ export default function HomePageHappyUsers() {
                 <div className="absolute bottom-2 left-2 right-2 h-[5.5rem] bg-black border border-[#ff4c00] text-white text-left py-3 px-4 flex items-center z-20">
                   <div className="flex items-center gap-3 w-full h-full">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
-                      <div
-                        ref={(el) => {
-                          profileImageRefs.current[index * 2 + 1] = el;
+                      <Image
+                        src={video.smallProfileImage}
+                        alt={video.name}
+                        width={40}
+                        height={40}
+                        className="w-full h-full object-cover rounded-full"
+                        unoptimized
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
                         }}
-                        data-index={index * 2 + 1}
-                        data-profile="true"
-                        className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50"
-                      >
-                        <CachedTestimonialImage
-                          src={video.smallProfileImage}
-                          alt={video.name}
-                          width={40}
-                          height={40}
-                          className="w-full h-full object-cover rounded-full"
-                          priority
-                          sizes="40px"
-                        />
-                      </div>
+                      />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">
                       <p className="text-xl font-semibold m-0 text-white leading-tight truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
