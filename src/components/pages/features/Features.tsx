@@ -738,8 +738,8 @@ function Features() {
                   HELPING 560+ JOB SEEKERS
                 </p>
                 <blockquote className="text-[1.6rem] font-bold italic text-[#eee] mb-4 leading-tight max-[1024px]:text-[1.2rem] max-[768px]:text-[1rem]">
-                  "I've seen brilliant people lose hope. Flashfire exists so they
-                  don't have to."
+                  &quot;I&apos;ve seen brilliant people lose hope. Flashfire exists so they
+                  don&apos;t have to.&quot;
                 </blockquote>
                 <div className="flex justify-start items-center gap-4 text-left max-[1024px]:justify-center max-[1024px]:text-center">
                   <div>
