@@ -62,7 +62,7 @@ export default function HomePagePTNote() {
               <br />
               write is to help someone
               <br />
-              hear back  finally.
+              hear back finally.
             </blockquote>
           </div>
 
