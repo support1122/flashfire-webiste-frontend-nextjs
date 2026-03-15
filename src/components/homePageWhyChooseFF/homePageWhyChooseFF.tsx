@@ -191,7 +191,7 @@ export default function HomePageWhyChooseFF() {
               </p>
 
               <blockquote className="text-[1.6rem] font-bold italic text-white mb-5 leading-tight max-[768px]:text-[1.1rem]">
-                &quot;I&apos;ve seen brilliant people lose hope. Flashfire exists so they don&apos;t have to.&quot;
+                "I've seen brilliant people lose hope. Flashfire exists so they don't have to.";
               </blockquote>
 
               <div className="flex items-center gap-4 max-[768px]:justify-center">
