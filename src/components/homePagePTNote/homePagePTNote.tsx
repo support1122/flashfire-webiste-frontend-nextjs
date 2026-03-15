@@ -58,11 +58,11 @@ export default function HomePagePTNote() {
             </p>
 
             <blockquote className="text-2xl md:text-3xl italic leading-tight font-semibold text-white mb-6">
-              &quot;Every line of code we
+              Every line of code we
               <br />
               write is to help someone
               <br />
-              hear back - finally.&quot;
+              hear back  finally.
             </blockquote>
           </div>
 
