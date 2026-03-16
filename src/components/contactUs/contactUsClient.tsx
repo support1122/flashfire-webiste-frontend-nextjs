@@ -7,11 +7,34 @@ import { FaEnvelope, FaPhone, FaBuilding, FaUser, FaLinkedinIn, FaInstagram, FaY
 import { Copy, Check } from "lucide-react";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
+import { FaPlus, FaTimes } from "react-icons/fa";
 
+
+type FAQ = {
+  q: string;
+  a: string;
+};
 export default function ContactUsClient() {
   const router = useRouter();
   const pathname = usePathname();
   const [copied, setCopied] = useState(false);
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+
+
+  const faqs: FAQ[] = [
+    {
+      q: "How do I contact Flashfire customer support?",
+      a: "You can contact Flashfire customer support by emailing support@flashfirejobs.com or using the contact form on this page.",
+    },
+    {
+      q: "What are Flashfire's contact details?",
+      a: "Flashfire contact details include our official email support channel and sales demo request options available on this page.",
+    },
+    {
+      q: "Does Flashfire offer email support?",
+      a: "Yes. Flashfire email support is available for product questions, technical issues, and general enquiries.",
+    },
+  ];
 
   const handleScheduleDemo = () => {
     try {
@@ -149,7 +172,7 @@ export default function ContactUsClient() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  mb-16">
           {/* Left Panel: Contact Information */}
           <div className="flex flex-col mt-16 ">
-            <h1 className="text-6xl md:text-7xl font-bold mb-4">
+            <h1 className="text-6xl md:text-7xl font-bold mb-4"  style={{ textShadow: '2px 4px 0px rgb(253, 105, 26)' }}>
               Flashfire Contact – Customer Support, Sales & Enquiries
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed">
@@ -266,44 +289,64 @@ export default function ContactUsClient() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 md:py-28 bg-white">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-lg text-slate-600">
-                Get answers about contacting Flashfire.
-              </p>
-            </div>
+        <section className="bg-[#fff7f2] py-16">
+      <div className="max-w-4xl mx-auto px-4 md:px-6">
 
-            <div className="space-y-6">
-              {[
-                {
-                  question: "How do I contact Flashfire customer support?",
-                  answer: "You can contact Flashfire customer support by emailing support@flashfirejobs.com or using the contact form on this page."
-                },
-                {
-                  question: "What are Flashfire's contact details?",
-                  answer: "Flashfire contact details include our official email support channel and sales demo request options available on this page."
-                },
-                {
-                  question: "Does Flashfire offer email support?",
-                  answer: "Yes. Flashfire email support is available for product questions, technical issues, and general enquiries."
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+            Frequently Asked
+            <span className="block text-[#ff4c00]">Questions</span>
+          </h2>
+
+          <p className="text-lg text-slate-600">
+            Get answers about contacting Flashfire.
+          </p>
+        </div>
+
+        {/* FAQ Container */}
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          {faqs.map((item, i) => (
+            <div
+              key={i}
+              className={`border-b border-gray-200 transition-all ${
+                activeFaqIndex === i
+                  ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]"
+                  : ""
+              }`}
+            >
+              <button
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                onClick={() =>
+                  setActiveFaqIndex(activeFaqIndex === i ? null : i)
                 }
-              ].map((faq, index) => (
-                <div key={index} className="bg-[rgba(251,240,235,1)] rounded-xl p-6 border border-[#ff4c00]/30">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-slate-700 leading-relaxed">
-                    {faq.answer}
-                  </p>
+              >
+                <span
+                  className={`font-semibold text-lg md:text-xl ${
+                    activeFaqIndex === i
+                      ? "text-[#ff4c00]"
+                      : "text-slate-900"
+                  }`}
+                >
+                  {item.q}
+                </span>
+
+                <span className="text-[#ff4c00] shrink-0 ml-4">
+                  {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                </span>
+              </button>
+
+              {activeFaqIndex === i && (
+                <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
+                  <p>{item.a}</p>
                 </div>
-              ))}
+              )}
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
+
+      </div>
+    </section>
 
       </div>
 

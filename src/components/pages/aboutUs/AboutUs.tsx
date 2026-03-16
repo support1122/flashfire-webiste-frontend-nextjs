@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import { FaPlus, FaTimes } from "react-icons/fa";
 
 export default function AboutUs() {
   const router = useRouter();
   const pathname = usePathname();
   const hasScrolledRef = useRef(false);
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       // Bypass will be handled by the event listener
@@ -73,21 +75,11 @@ export default function AboutUs() {
           {/* Supporting Text with Mascot */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 sm:mb-12 px-2">
             <div className="text-center md:text-left">
-              <p className="text-base sm:text-lg text-gray-900 mb-2">
+              <p className="text-center sm:text-lg text-gray-900 mb-2">
                 Flashfire is an AI job search platform built for job seekers who want to automate job applications, improve ATS visibility, and land more interviews without manual effort.
               </p>
             </div>
-            <div className="flex-shrink-0">
-              <Image
-                src="/images/flashfire-logo.png"
-                alt="Flashfire Mascot"
-                width={80}
-                height={80}
-                className="object-contain w-16 h-16 sm:w-20 sm:h-20"
-                priority
-                unoptimized
-              />
-            </div>
+            
           </div>
 
           {/* Call-to-Action Button */}
@@ -655,43 +647,77 @@ export default function AboutUs() {
 
       {/* === FAQ SECTION === */}
       <section className="bg-[#f9e8e0] py-12 sm:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden z-10">
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F55D1D] mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-gray-700">
-              Get answers about our AI job application service.
-            </p>
-          </div>
+      <div className="max-w-4xl mx-auto relative z-10">
 
-          <div className="space-y-6">
-            {[
-              {
-                question: "What is an AI job application service?",
-                answer: "An AI job application service uses artificial intelligence to automate job applications, optimize resumes for ATS systems, and help job seekers apply to relevant roles faster and more effectively."
-              },
-              {
-                question: "How does job application automation work?",
-                answer: "Job application automation uses AI to identify relevant roles, tailor resumes, and submit applications at scale, saving time while improving interview response rates."
-              },
-              {
-                question: "Is Flashfire an AI job search platform for US jobs?",
-                answer: "Yes. Flashfire is an AI job search platform focused on automating job applications for the US and Canadian job markets with ATS-optimized workflows."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="bg-white border-2 border-black rounded-xl p-6" style={{ boxShadow: "0 4px 0 rgba(245,93,29,1)" }}>
-                <h3 className="text-xl font-bold text-[#F55D1D] mb-2">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F55D1D] mb-4">
+            Frequently Asked Questions
+          </h2>
+
+          <p className="text-lg text-gray-700">
+            Get answers about our AI job application service.
+          </p>
+        </div>
+
+        {/* FAQ */}
+        <div className="">
+          {[
+            {
+              question: "What is an AI job application service?",
+              answer:
+                "An AI job application service uses artificial intelligence to automate job applications, optimize resumes for ATS systems, and help job seekers apply to relevant roles faster and more effectively.",
+            },
+            {
+              question: "How does job application automation work?",
+              answer:
+                "Job application automation uses AI to identify relevant roles, tailor resumes, and submit applications at scale, saving time while improving interview response rates.",
+            },
+            {
+              question: "Is Flashfire an AI job search platform for US jobs?",
+              answer:
+                "Yes. Flashfire is an AI job search platform focused on automating job applications for the US and Canadian job markets with ATS-optimized workflows.",
+            },
+          ].map((faq, index) => (
+            <div
+              key={index}
+              className="bg-white border-b border-gray-200 rounded-xl p-6 transition"
+              // style={{ boxShadow: "0 4px 0 rgba(245,93,29,1)" }}
+            >
+              {/* Question */}
+              <button
+                onClick={() =>
+                  setActiveFaqIndex(activeFaqIndex === index ? null : index)
+                }
+                className="w-full flex items-center justify-between text-left"
+              >
+                <h3
+                  className={`text-xl font-bold ${
+                    activeFaqIndex === index
+                      ? "text-[#F55D1D]"
+                      : "text-[#F55D1D]"
+                  }`}
+                >
                   {faq.question}
                 </h3>
-                <p className="text-gray-800 leading-relaxed">
+
+                <span className="text-[#F55D1D] ml-4">
+                  {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
+                </span>
+              </button>
+
+              {/* Answer */}
+              {activeFaqIndex === index && (
+                <div className="mt-4 text-gray-800 leading-relaxed animate-fadeIn">
                   {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-      </section>
+
+      </div>
+    </section>
 
       {/* === DEMO CTA SECTION === */}
       <HomePageDemoCTA />
