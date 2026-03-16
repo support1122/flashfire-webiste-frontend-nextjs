@@ -10,6 +10,7 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import { FaPlus, FaTimes } from "react-icons/fa";
 
 
+
 type FAQ = {
   q: string;
   a: string;
@@ -172,7 +173,7 @@ export default function ContactUsClient() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  mb-16">
           {/* Left Panel: Contact Information */}
           <div className="flex flex-col mt-16 ">
-            <h1 className="text-6xl md:text-7xl font-bold mb-4"  style={{ textShadow: '2px 4px 0px rgb(253, 105, 26)' }}>
+            <h1 className="text-6xl md:text-7xl font-bold mb-4">
               Flashfire Contact – Customer Support, Sales & Enquiries
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed">
