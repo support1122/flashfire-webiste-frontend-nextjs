@@ -9,11 +9,17 @@ import { ArrowRight } from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
+import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
+import { GTagUTM } from "@/src/utils/GTagUTM";
+import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 export default function LinkedInOptimizationPage() {
   const router = useRouter();
   const pathname = usePathname();
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+  const { getButtonProps } = useGeoBypass({
+    onBypass: () => {},
+  });
 
   const linkedinOptimizationFAQs = [
     {
