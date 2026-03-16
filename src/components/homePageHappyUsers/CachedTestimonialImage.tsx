@@ -48,6 +48,7 @@ export default function CachedTestimonialImage({
   const [isMounted, setIsMounted] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const [placeholder, setPlaceholder] = useState<string | null>(null);
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -233,16 +234,53 @@ export default function CachedTestimonialImage({
           }}
           loading={priority ? "eager" : "lazy"}
           onClick={onClick}
-          onLoad={() => setIsLoading(false)}
+          onLoad={() => {
+            setIsLoading(false);
+            setHasError(false);
+          }}
           onError={() => {
             setIsLoading(false);
             setIsCached(false);
+            setHasError(true);
           }}
         />
       </div>
     );
   }
 
+  // Check if it's an external URL (not starting with /)
+  const isExternalUrl = !src.startsWith('/');
+  
+  // If there's an error and it's an external URL, use regular img tag as fallback
+  if (hasError && isExternalUrl) {
+    return (
+      <div ref={imgRef} className={className} style={{ position: 'relative', width: '100%', height: '100%' }}>
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className={className}
+          onClick={onClick}
+          style={{
+            width: '100%',
+            height: 'auto',
+            objectFit: 'contain',
+            cursor: onClick ? 'pointer' : 'default',
+          }}
+          onLoad={() => {
+            setIsLoading(false);
+            setHasError(false);
+          }}
+          onError={() => {
+            setIsLoading(false);
+            setHasError(true);
+          }}
+        />
+      </div>
+    );
+  }
+  
   // Otherwise use Next.js Image for optimization
   return (
     <div ref={imgRef} className={className} style={{ position: 'relative', width: '100%', height: '100%' }}>
@@ -256,6 +294,7 @@ export default function CachedTestimonialImage({
         loading={priority ? "eager" : "lazy"}
         quality={85}
         sizes={sizes}
+        unoptimized={isExternalUrl}
         onClick={onClick}
         style={{
           width: '100%',
@@ -265,8 +304,14 @@ export default function CachedTestimonialImage({
           transition: 'opacity 0.3s ease-in-out',
           cursor: onClick ? 'pointer' : 'default',
         }}
-        onLoad={() => setIsLoading(false)}
-        onError={() => setIsLoading(false)}
+        onLoad={() => {
+          setIsLoading(false);
+          setHasError(false);
+        }}
+        onError={() => {
+          setIsLoading(false);
+          setHasError(true);
+        }}
       />
     </div>
   );
