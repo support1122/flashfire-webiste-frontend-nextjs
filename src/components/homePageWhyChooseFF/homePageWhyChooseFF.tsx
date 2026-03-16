@@ -187,11 +187,11 @@ export default function HomePageWhyChooseFF() {
             {/* Text Content */}
             <div className="z-10 w-[65%] text-left max-[768px]:w-full max-[768px]:text-center">
               <p className="text-[#fffaf8] text-[0.75rem] font-semibold mb-3 tracking-wider">
-                HELPING 100+ JOB SEEKERS
+                HELPING 560+ JOB SEEKERS
               </p>
 
               <blockquote className="text-[1.6rem] font-bold italic text-white mb-5 leading-tight max-[768px]:text-[1.1rem]">
-                "I've seen brilliant people lose hope. Flashfire exists so they don't have to."
+                I've seen brilliant people lose hope. Flashfire exists so they don't have to.
               </blockquote>
 
               <div className="flex items-center gap-4 max-[768px]:justify-center">
