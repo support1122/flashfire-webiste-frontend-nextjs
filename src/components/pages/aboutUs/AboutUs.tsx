@@ -39,9 +39,9 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <div className="bg-[#f9e8e0] min-h-screen font-['Space_Grotesk',sans-serif] relative overflow-hidden">
+    <div className="bg-[#fdf7f4] min-h-screen font-['Space_Grotesk',sans-serif] relative overflow-hidden">
       {/* === HERO SECTION === */}
-      <section className="bg-[#f9e8e0] pt-20 pb-24 px-4 sm:px-6 lg:px-8 relative">
+      <section className="bg-[#fdf7f4] pt-20 pb-24 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-5xl mx-auto">
           {/* Achievement Badges */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">
@@ -180,7 +180,7 @@ export default function AboutUs() {
       </section>
 
       {/* === OUR FOUNDERS SECTION === */}
-      <section className="bg-[#F55D1D] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="bg-[#f55d1d] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -243,7 +243,7 @@ export default function AboutUs() {
       </section>
 
       {/* === THE STORY SECTION === */}
-      <section className="bg-[#f9e8e0] py-20 px-4 sm:px-6 lg:px-8 relative">
+      <section className="bg-[#fdf7f4] py-20 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 items-center">
             {/* Left Side - Text */}
@@ -293,7 +293,7 @@ export default function AboutUs() {
       </section>
 
       {/* === OUR MISSION & VISION SECTION === */}
-      <section className="bg-[#f9e8e0] py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#fdf7f4] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white rounded-3xl border border-black/10 overflow-hidden shadow-xl">
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black/10">
@@ -329,7 +329,7 @@ export default function AboutUs() {
       </section>
 
       {/* === HOW FLASHFIRE WORKS FOR YOU SECTION === */}
-      <section className="bg-[#f9e8e0] py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#fdf7f4] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F55D1D] mb-6 tracking-tight">
@@ -368,7 +368,7 @@ export default function AboutUs() {
       </section>
 
       {/* === WHO IS THIS FOR SECTION === */}
-      <section className="bg-[#f9e8e0] py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#fdf7f4] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F55D1D] mb-6 tracking-tight uppercase">
@@ -425,7 +425,7 @@ export default function AboutUs() {
       </section>
 
       {/* === THE FLASHFIRE STORY TIMELINE SECTION === */}
-      <section className="bg-[#f9e8e0] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="bg-[#fdf7f4] py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-16">
@@ -497,7 +497,7 @@ export default function AboutUs() {
       </section>
 
       {/* === FAQ SECTION === */}
-      <section className="bg-[#f9e8e0] py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-[#fdf7f4] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F55D1D] mb-4 tracking-tight">
