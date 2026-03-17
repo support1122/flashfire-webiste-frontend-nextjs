@@ -40,159 +40,143 @@ export default function AboutUs() {
 
   return (
     <div className="bg-[#fdf7f4] min-h-screen font-['Space_Grotesk',sans-serif] relative overflow-hidden">
-      {/* === HERO SECTION === */}
-      <section className="bg-[#fdf7f4] pt-24 pb-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="bg-[#fdf7f4] py-24 px-4 sm:px-6 lg:px-8">
+  <div className="max-w-4xl mx-auto text-center">
 
-  {/* Subtle gradient glow */}
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#F55D1D]/10 blur-[120px] rounded-full pointer-events-none" />
-
-  <div className="max-w-5xl mx-auto relative z-10">
-
-    {/* Achievement Badges */}
-    <div className="flex flex-wrap justify-center gap-4 mb-12">
+    {/* Badges */}
+    <div className="flex flex-wrap justify-center gap-3 mb-8">
       {["LAND INTERVIEW IN 1 WEEK", "50 USERS LANDED JOB"].map((badge, idx) => (
-        <div 
+        <div
           key={idx}
-          className="px-5 py-2 rounded-full bg-white shadow-sm border border-[#F55D1D]/20 hover:shadow-md transition"
+          className="px-4 py-1.5 border border-black text-[11px] font-semibold tracking-wide text-[#F55D1D]"
         >
-          <p className="text-[#F55D1D] font-semibold text-xs tracking-widest uppercase">
-            {badge}
-          </p>
+          {badge}
         </div>
       ))}
     </div>
 
-    {/* Main Headline */}
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8 leading-[1.1] tracking-tight">
-      <span className="bg-gradient-to-r from-[#F55D1D] to-orange-400 bg-clip-text text-transparent">
+    {/* Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-black mb-6">
+      <span className="text-[#F55D1D]">
         AI Job Application Service
       </span>{" "}
       That Automates Job Search & Lands Interviews Faster
     </h1>
 
-    {/* Supporting Text */}
-    <div className="max-w-3xl mx-auto mb-14">
-      <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed font-medium">
-        Flashfire is an AI job search platform built for job seekers who want to automate job applications, improve ATS visibility, and land more interviews without manual effort.
-      </p>
-    </div>
+    {/* Subtext */}
+    <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+      Flashfire is an AI job search platform built for job seekers who want to automate job applications, improve ATS visibility, and land more interviews without manual effort.
+    </p>
 
     {/* CTA */}
-    <div className="flex justify-center">
-      <button
-        {...getButtonProps()}
-        className="group relative px-10 py-4 font-bold text-lg rounded-xl 
-        bg-[#F55D1D] text-white border border-[#F55D1D] 
-        hover:bg-[#F55D1D] hover:text-black hover:border-[#F55D1D]
-        transition-all duration-300 
-        shadow-md hover:shadow-xl 
-        hover:-translate-y-1 active:translate-y-[2px]"
-        
-        onClick={() => {
-          const utmSource = typeof window !== "undefined"
-            ? localStorage.getItem("utm_source") || "WEBSITE"
-            : "WEBSITE";
-          const utmMedium = typeof window !== "undefined"
-            ? localStorage.getItem("utm_medium") || "About_Us_Page"
-            : "About_Us_Page";
-
-          try {
-            GTagUTM({
-              eventName: "sign_up_click",
-              label: "About_Us_Get_Me_Interview_Button",
-              utmParams: {
-                utm_source: utmSource,
-                utm_medium: utmMedium,
-                utm_campaign: typeof window !== "undefined"
-                  ? localStorage.getItem("utm_campaign") || "Website"
-                  : "Website",
-              },
-            });
-          } catch (gtagError) {
-            console.warn('GTagUTM error:', gtagError);
-          }
-
-          try {
-            trackButtonClick("Get Me Interview", "about_us_cta", "cta", {
-              button_location: "about_us_hero_section",
-              section: "about_us_hero"
-            });
-            trackSignupIntent("about_us_cta", {
-              signup_source: "about_us_hero_button",
-              funnel_stage: "signup_intent"
-            });
-          } catch (trackError) {
-            console.warn('Tracking error:', trackError);
-          }
-
-          const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-          const normalizedPath = currentPath.split('?')[0];
-          const isAboutUsPage = normalizedPath === '/about-us' || normalizedPath === '/en-ca/about-us';
-          const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
-            normalizedPath === '/en-ca/get-me-interview';
-
-          if (isAlreadyOnGetMeInterview) {
-            const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-            if (typeof window !== 'undefined') {
-              window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
-            }
-            requestAnimationFrame(() => {
-              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-              requestAnimationFrame(() => {
-                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                setTimeout(() => {
-                  window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                }, 50);
-              });
-            });
-            return;
-          }
-
-          if (isAboutUsPage) {
-            if (typeof window !== 'undefined') {
-              sessionStorage.setItem('previousPageBeforeGetMeInterview', normalizedPath);
-            }
-            const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-            if (typeof window !== 'undefined') {
-              sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-            }
-            const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
-            if (typeof window !== 'undefined') {
-              window.history.pushState({}, '', targetPath);
-            }
-            if (typeof window !== 'undefined') {
-              window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
-            }
-            router.replace(targetPath);
-            requestAnimationFrame(() => {
-              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-              requestAnimationFrame(() => {
-                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                setTimeout(() => {
-                  window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                }, 50);
-              });
-            });
-            return;
-          }
-
+    <button
+      {...getButtonProps()}
+      className="px-8 py-3.5 bg-[#F55D1D] text-white font-semibold text-base rounded-lg
+      border border-[#F55D1D] 
+      hover:bg-transparent hover:text-[#F55D1D] 
+      transition-all duration-200"
+      
+      onClick={() => {
+        const utmSource = typeof window !== "undefined"
+          ? localStorage.getItem("utm_source") || "WEBSITE"
+          : "WEBSITE";
+        const utmMedium = typeof window !== "undefined"
+          ? localStorage.getItem("utm_medium") || "About_Us_Page"
+          : "About_Us_Page";
+      
+        try {
+          GTagUTM({
+            eventName: "sign_up_click",
+            label: "About_Us_Get_Me_Interview_Button",
+            utmParams: {
+              utm_source: utmSource,
+              utm_medium: utmMedium,
+              utm_campaign: typeof window !== "undefined"
+                ? localStorage.getItem("utm_campaign") || "Website"
+                : "Website",
+            },
+          });
+        } catch (gtagError) {
+          console.warn('GTagUTM error:', gtagError);
+        }
+      
+        try {
+          trackButtonClick("Get Me Interview", "about_us_cta", "cta", {
+            button_location: "about_us_hero_section",
+            section: "about_us_hero"
+          });
+          trackSignupIntent("about_us_cta", {
+            signup_source: "about_us_hero_button",
+            funnel_stage: "signup_intent"
+          });
+        } catch (trackError) {
+          console.warn('Tracking error:', trackError);
+        }
+      
+        const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+        const normalizedPath = currentPath.split('?')[0];
+        const isAboutUsPage = normalizedPath === '/about-us' || normalizedPath === '/en-ca/about-us';
+        const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
+          normalizedPath === '/en-ca/get-me-interview';
+      
+        if (isAlreadyOnGetMeInterview) {
+          const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
           if (typeof window !== 'undefined') {
             window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
           }
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+            requestAnimationFrame(() => {
+              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+              setTimeout(() => {
+                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+              }, 50);
+            });
+          });
+          return;
+        }
+      
+        if (isAboutUsPage) {
           if (typeof window !== 'undefined') {
-            const currentScrollY = window.scrollY;
+            sessionStorage.setItem('previousPageBeforeGetMeInterview', normalizedPath);
+          }
+          const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+          if (typeof window !== 'undefined') {
             sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
           }
-          const targetPath = '/get-me-interview';
-          router.push(targetPath);
-        }}
-      >
-        <span className="relative z-10">Get Me Interview</span>
-
-        {/* subtle hover glow */}
-        <span className="absolute inset-0 rounded-xl bg-[#F55D1D]/10 opacity-0 group-hover:opacity-100 transition" />
-      </button>
-    </div>
+          const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
+          if (typeof window !== 'undefined') {
+            window.history.pushState({}, '', targetPath);
+          }
+          if (typeof window !== 'undefined') {
+            window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
+          }
+          router.replace(targetPath);
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+            requestAnimationFrame(() => {
+              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+              setTimeout(() => {
+                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
+              }, 50);
+            });
+          });
+          return;
+        }
+      
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
+        }
+        if (typeof window !== 'undefined') {
+          const currentScrollY = window.scrollY;
+          sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+        }
+        const targetPath = '/get-me-interview';
+        router.push(targetPath);
+      }}
+    >
+      Get Me Interview
+    </button>
 
   </div>
 </section>
@@ -206,7 +190,7 @@ export default function AboutUs() {
             backgroundSize: '40px 40px'
           }} />
         </div>
-        
+
         <div className="max-w-5xl mx-auto relative z-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 text-white tracking-tight">
             Our Founders
@@ -237,7 +221,7 @@ export default function AboutUs() {
 
             {/* Adit Jain Card */}
             <div className="group bg-white rounded-2xl p-6 border-2 border-black/10 hover:border-black/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ">
-              <div className="mb-6 overflow-hidden rounded-xl pt-8 bg-[#f9e8e0]">
+              <div className="mb-6 overflow-hidden rounded-xl pt-13 bg-[#f9e8e0]">
                 <Image
                   src="/images/adit-jain-2.png"
                   alt="Adit Jain"
@@ -367,8 +351,8 @@ export default function AboutUs() {
               "Precision Targeting",
               "Dashboard & Analytics"
             ].map((feature, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="group bg-white rounded-2xl p-6 border border-black/5 hover:border-[#F55D1D]/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <div className="flex items-center gap-4">
@@ -416,7 +400,7 @@ export default function AboutUs() {
                 desc: "If your resume never seems to pass automated systems, Flashfire uses AI-driven optimization to improve keyword alignment and visibility."
               }
             ].map((card, idx) => (
-              <div 
+              <div
                 key={idx}
                 className="bg-white rounded-2xl p-8 border border-black/5 hover:border-[#F55D1D]/20 transition-all duration-300 hover:shadow-xl group"
               >
@@ -433,7 +417,7 @@ export default function AboutUs() {
           {/* Bottom Emphasis Line */}
           <div className="mt-16 max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-3 bg-[#F55D1D]/10 rounded-full px-8 py-4">
-              <div className="w-2 h-2 bg-[#F55D1D] rounded-full" />
+              {/* <div className="w-2 h-2 bg-[#F55D1D] rounded-full" /> */}
               <p className="text-lg font-bold text-gray-900">
                 If you're qualified, motivated, and serious about landing interviews — Flashfire is built for you.
               </p>
@@ -477,7 +461,7 @@ export default function AboutUs() {
           <div className="relative">
             {/* Vertical line for desktop */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-[#F55D1D]/20" />
-            
+
             <div className="space-y-8">
               {[
                 { date: "April 2024", label: "Founded", desc: "Flashfire was officially founded with a mission to simplify the job application process and remove inefficiencies from large-scale job searching.", side: "left" },
@@ -501,10 +485,10 @@ export default function AboutUs() {
                       </p>
                     </div>
                   </div>
-                  
+
                   {/* Center dot */}
                   <div className="hidden md:flex w-4 h-4 bg-[#F55D1D] rounded-full border-4 border-[#f9e8e0] z-10 shadow-lg flex-shrink-0" />
-                  
+
                   {/* Spacer for opposite side */}
                   <div className="flex-1 hidden md:block" />
                 </div>
@@ -556,8 +540,8 @@ export default function AboutUs() {
                     <FaPlus className="w-4 h-4" />
                   </span>
                 </button>
-                
-                <div 
+
+                <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${activeFaqIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                   <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
@@ -574,4 +558,8 @@ export default function AboutUs() {
       <HomePageDemoCTA />
     </div>
   );
-}
+}    
+
+
+
+
