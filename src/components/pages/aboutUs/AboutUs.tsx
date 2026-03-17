@@ -214,7 +214,7 @@ export default function AboutUs() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Pranjal Tripathi</h3>
                 <p className="text-[#F55D1D] font-semibold text-sm mb-4 uppercase tracking-wider">CTO, Flashfire</p>
                 <p className="text-lg font-medium text-gray-600 italic leading-relaxed">
-                  "Every line of code we write is to help someone hear back finally;"
+                  "Every line of code we write is to help someone hear back finally"
                 </p>
               </div>
             </div>

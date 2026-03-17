@@ -4,33 +4,39 @@ import { usePathname, useRouter } from "next/navigation";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import { Target, Rocket, Handshake, Trophy, ArrowRight } from "lucide-react";
+import { Target, Rocket, Handshake, Trophy, ArrowRight, Check } from "lucide-react";
 
 const steps = [
   {
     id: 1,
-    title: "STEP 1: You Share Your Goals & Location",
+    title: "Share Your Goals & Location",
     description: "We learn your job preferences, skills, and where you want to work.",
     icon: Target,
   },
   {
     id: 2,
-    title: "STEP 2: We Scan Jobs Matching Your Criteria",
+    title: "We Scan Matching Jobs",
     description: "Flashfire filters roles near you that match your skills, visa status, salary expectations, and more.",
     icon: Rocket,
   },
   {
     id: 3,
-    title: "STEP 3: Our Team Applies for You",
-    description: "A dedicated team of 4-5 trained professionals applies manually to each role - so your resume lands where it matters.",
+    title: "Our Team Applies for You",
+    description: "A dedicated team of 4-5 trained professionals applies manually to each role.",
     icon: Handshake,
   },
   {
     id: 4,
-    title: "STEP 4: You Get Updates",
+    title: "You Get Updates",
     description: "You see where applications are sent and how they perform - without doing it yourself.",
     icon: Trophy,
   },
+];
+
+const benefits = [
+  "Flashfire scans job listings near your location",
+  "Our team applies to matched roles for you", 
+  "You get updates without lifting a finger"
 ];
 
 export default function JobSearch() {
@@ -161,95 +167,131 @@ export default function JobSearch() {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#fff0e6]">
-      {/* Hero Section */}
-      <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto w-full">
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-6 leading-tight text-center">
-            Find Jobs Faster With<br />
-            <span className="text-[#ff4c00]">Human-Powered</span> Automation.
-          </h1>
+    <div className="min-h-screen w-full bg-[#fff0e6]">
+      
 
-          {/* Sub-heading */}
-          <p className="text-lg sm:text-xl md:text-2xl font-medium text-black/80 mb-10 leading-relaxed max-w-3xl mx-auto text-center">
-            Flashfire applies to relevant jobs on your behalf so you don&apos;t have
-            to search manually.
-          </p>
+      {/* Hero Section - Two Column Layout */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Column - Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#ff4c00]/10 rounded-full mb-6">
+                <span className="w-2 h-2 bg-[#ff4c00] rounded-full"></span>
+                <span className="text-sm font-medium text-[#ff4c00]">Now available in your city</span>
+              </div>
 
-          {/* Key Benefits */}
-          <div className="max-w-2xl mx-auto mb-10">
-            <div className="bg-white rounded-xl p-6 sm:p-8 border border-[#ff4c00]/20">
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <span className="text-[#ff4c00] font-bold text-lg mt-0.5">▪</span>
-                  <span className="text-base sm:text-lg font-semibold text-black">
-                    Flashfire scans job listings near your location
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#ff4c00] font-bold text-lg mt-0.5">▪</span>
-                  <span className="text-base sm:text-lg font-semibold text-black">
-                    Our team applies to matched roles for you
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#ff4c00] font-bold text-lg mt-0.5">▪</span>
-                  <span className="text-base sm:text-lg font-semibold text-black">
-                    You get updates without lifting a finger
-                  </span>
-                </li>
-              </ul>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-[1.1] mb-6">
+                Find Jobs Faster With{" "}
+                <span className="text-[#ff4c00]">Human-Powered</span>{" "}
+                Automation
+              </h1>
+
+              <p className="text-lg text-black/70 mb-8 leading-relaxed max-w-lg">
+                Flashfire applies to relevant jobs on your behalf so you don&apos;t have to search manually.
+              </p>
+
+              <div className="space-y-3 mb-8">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-[#ff4c00] rounded flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                    </div>
+                    <span className="text-black font-medium">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                {...getButtonProps()}
+                onClick={handleGetStarted}
+                className="bg-[#ff4c00] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#e64400] transition-colors inline-flex items-center gap-2"
+              >
+                Get Started With Flashfire
+                <ArrowRight className="w-5 h-5" />
+              </button>
             </div>
-          </div>
 
-          {/* CTA Button */}
-          <div className="flex justify-center">
-            <button
-              {...getButtonProps()}
-              onClick={handleGetStarted}
-              className="bg-[#ff4c00] text-white px-8 py-4 font-bold text-lg rounded-lg hover:bg-[#e64400] transition-colors inline-flex items-center gap-2"
-            >
-              Get me interview
-              <ArrowRight className="w-5 h-5" />
-            </button>
+            {/* Right Column - Visual */}
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-xl border border-[#ff4c00]/10 p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <span className="text-xs text-gray-400">Flashfire Dashboard</span>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="bg-[#fff0e6] rounded-lg p-4 border-l-4 border-[#ff4c00]">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-black">Software Engineer</span>
+                      <span className="text-xs text-[#ff4c00] font-medium">Applied</span>
+                    </div>
+                    <span className="text-sm text-black/60">Google • Mountain View, CA</span>
+                  </div>
+
+                  <div className="bg-[#fff0e6] rounded-lg p-4 border-l-4 border-[#ff4c00]">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-black">Product Manager</span>
+                      <span className="text-xs text-[#ff4c00] font-medium">Applied</span>
+                    </div>
+                    <span className="text-sm text-black/60">Meta • Menlo Park, CA</span>
+                  </div>
+
+                  <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-gray-300">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-black">Data Scientist</span>
+                      <span className="text-xs text-gray-500 font-medium">Scanning...</span>
+                    </div>
+                    <span className="text-sm text-black/60">Netflix • Los Gatos, CA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Middle Section - Behind the Scenes */}
-      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 sm:p-12 md:p-16">
-            {/* Section Header */}
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#ff4c00] mb-3">
-                Behind the Scenes of Your Job Search
-              </h2>
-              <div className="w-16 h-1 bg-[#ff4c00] mx-auto" />
-            </div>
+      {/* How It Works - Timeline Layout */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">
+              How It Works
+            </h2>
+            <p className="text-black/60">Your job search, automated in four simple steps</p>
+          </div>
 
-            {/* Steps Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {steps.map((step) => {
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[#ff4c00]/20 hidden sm:block"></div>
+
+            <div className="space-y-8">
+              {steps.map((step, index) => {
                 const IconComponent = step.icon;
                 return (
-                  <div
-                    key={step.id}
-                    className="bg-[#ff4c00] rounded-xl p-6 sm:p-8 text-white border border-[#ff4c00]"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <div key={step.id} className="relative flex gap-6 sm:gap-8">
+                    {/* Timeline Dot */}
+                    <div className="hidden sm:flex flex-col items-center">
+                      <div className="w-12 h-12 bg-[#ff4c00] rounded-xl flex items-center justify-center z-10">
                         <IconComponent className="w-6 h-6 text-white" strokeWidth={2} />
                       </div>
-                      <div>
-                        <h3 className="text-lg sm:text-xl font-bold mb-2">
-                          {step.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-white/90 leading-relaxed">
-                          {step.description}
-                        </p>
+                    </div>
+
+                    {/* Content Card */}
+                    <div className="flex-1 bg-[#fff0e6] rounded-xl p-6">
+                      <div className="flex items-center gap-3 mb-3 sm:hidden">
+                        <div className="w-10 h-10 bg-[#ff4c00] rounded-lg flex items-center justify-center">
+                          <IconComponent className="w-5 h-5 text-white" strokeWidth={2} />
+                        </div>
+                        <span className="text-sm font-bold text-[#ff4c00]">STEP {step.id}</span>
                       </div>
+                      <span className="hidden sm:inline-block text-xs font-bold text-[#ff4c00] mb-2">STEP {step.id}</span>
+                      <h3 className="text-lg font-bold text-black mb-2">{step.title}</h3>
+                      <p className="text-black/70 leading-relaxed">{step.description}</p>
                     </div>
                   </div>
                 );
@@ -259,26 +301,34 @@ export default function JobSearch() {
         </div>
       </section>
 
-      {/* Bottom CTA Section */}
-      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto w-full text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#ff4c00] mb-3 leading-tight">
+      {/* CTA Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
             Ready to Let Flashfire Search & Apply for You?
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-black/70 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-black/60 mb-8">
             Set the goal. Flashfire runs the system.
           </p>
 
-          <button
-            {...getButtonProps()}
-            onClick={handleGetStarted}
-            className="bg-white border-2 border-[#ff4c00] text-[#ff4c00] px-8 py-4 font-bold text-lg rounded-lg hover:bg-[#fff0e6] transition-colors inline-flex items-center gap-2"
-          >
-            Get Started With Flashfire
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              {...getButtonProps()}
+              onClick={handleGetStarted}
+              className="bg-[#ff4c00] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#e64400] transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Get Started With Flashfire
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          <p className="mt-6 text-sm text-black/50">
+            No credit card required • Setup takes 2 minutes
+          </p>
         </div>
       </section>
+
+     
     </div>
   );
 }
