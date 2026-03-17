@@ -167,7 +167,7 @@ export default function JobSearch() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#fff0e6]">
+    <div className="min-h-screen w-full bg-[#fdf7f4]">
       
 
       {/* Hero Section - Two Column Layout */}
@@ -176,10 +176,7 @@ export default function JobSearch() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Column - Content */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#ff4c00]/10 rounded-full mb-6">
-                <span className="w-2 h-2 bg-[#ff4c00] rounded-full"></span>
-                <span className="text-sm font-medium text-[#ff4c00]">Now available in your city</span>
-              </div>
+             
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-[1.1] mb-6">
                 Find Jobs Faster With{" "}
