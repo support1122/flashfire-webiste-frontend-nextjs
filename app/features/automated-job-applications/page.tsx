@@ -267,7 +267,7 @@ export default function JobApplicationAutomationPage() {
                       className="text-center"
                     >
                       <div className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b] mb-2">
-                        {count}{stat.suffix}
+                        {count}
                       </div>
                       <div className="text-sm text-[#6b7280] font-medium uppercase tracking-wider">
                         {stat.label}
