@@ -118,135 +118,124 @@ export default function JobApplicationAutomationPage() {
     <Navbar />
     <main className="min-h-screen bg-[#fff6f4] text-[#0f172a] font-['Space_Grotesk',sans-serif]">
       
-      <div className="mx-auto max-w-7xl px-6 pt-6 lg:px-8 w-full">
-            <div className="grid lg:grid-cols-2 gap-12  items-center">
-              {/* Left Content */}
-              <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative z-10"
-              >
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#ff4c00]/20 mb-6 shadow-sm"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff4c00] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff4c00]"></span>
-                  </span>
-                  <span className="text-sm font-medium text-[#ff4c00]">AI-Powered Job Automation</span>
-                </motion.div>
+    <section className="min-h-[95vh] bg-[#fff6f4] flex items-center">
+  <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+    
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#0b0b0b] leading-[1.1] tracking-tight">
-                  Job Application{" "}
-                  <span className="relative inline-block">
-                    <span className="relative z-10">Automation</span>
-                    <svg className="absolute -bottom-2 left-0 w-full h-3 text-[#ff4c00]/30" viewBox="0 0 200 9" fill="none">
-                      <path d="M2.00025 6.99997C25.7501 2.74999 83.6094 -3.00001 198.002 6.99997" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
-                    </svg>
-                  </span>
-                  <br />
-                  <span className="text-[#ff4c00]">That Delivers</span>
-                </h1>
+      {/* LEFT CONTENT */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col justify-center max-w-xl"
+      >
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ff4c00]/20 mb-6 w-fit">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff4c00] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff4c00]"></span>
+          </span>
+          <span className="text-sm font-medium text-[#ff4c00]">
+            AI-Powered Job Automation
+          </span>
+        </div>
 
-                <motion.p 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="mt-8 text-xl text-[#6b7280] max-w-xl leading-relaxed"
-                >
-                  Flashfire is an AI-powered job application automation tool that helps you automate job applications, optimize resumes for ATS, and apply to roles instantly.
-                </motion.p>
+        {/* Heading */}
+        <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-[#0b0b0b] leading-tight tracking-tight">
+          Job Application Automation That Helps You Apply Faster & Get Interviews
+        </h1>
 
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="mt-10 flex flex-wrap gap-4"
-                >
-                  <motion.button
-                    {...getButtonProps()}
-                    onClick={handleGetMeInterview}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group relative bg-[#0b0b0b] text-white px-8 py-4 rounded-xl font-bold text-lg overflow-hidden shadow-2xl shadow-black/20"
-                  >
-                    <span className="relative z-10 flex items-center gap-2">
-                      Get Me Interview
-                      <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#ff4c00] to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.button>
-                  
-                  
-                </motion.div>
+        {/* Description */}
+        <p className="mt-6 text-lg text-[#6b7280] leading-relaxed">
+          Flashfire is an AI-powered job application automation tool that helps you automate job applications, optimize resumes for ATS, and apply to roles instantly. So you stay ahead in competitive job markets.
+        </p>
 
-               
-              </motion.div>
-
-              {/* Right Content - Floating Cards */}
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="relative hidden  lg:block"
-              >
-                <div className="relative w-full h-[600px]">
-                  <motion.div 
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-30 right-0 w-80 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100"
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-red-400" />
-                        <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                        <div className="w-3 h-3 rounded-full bg-green-400" />
-                      </div>
-                      <span className="text-xs text-gray-400">Live Applications</span>
-                    </div>
-                    <div className="space-y-3">
-                      {['Software Engineer @ Google', 'Product Manager @ Meta', 'Data Scientist @ Netflix'].map((job, i) => (
-                        <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff4c00] to-orange-400 flex items-center justify-center text-white text-xs font-bold">
-                            {job.split('@')[1]?.trim()[0] || 'C'}
-                          </div>
-                          <div className="flex-1">
-                            <p className="text-sm font-semibold text-gray-800">{job}</p>
-                            <p className="text-xs text-green-600 flex items-center gap-1">
-                              <FaCheck className="w-3 h-3" /> Applied 2m ago
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  
-
-                  <motion.div 
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="absolute top-98 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#ff4c00] text-white px-6 py-3 rounded-full shadow-xl font-bold text-sm"
-                  >
-                     First to Apply = First Interview
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        {/* Button */}
+        <div className="mt-8">
+          <button
+            {...getButtonProps()}
+            onClick={handleGetMeInterview}
+            className="group bg-[#0b0b0b] text-white px-8 py-4 font-bold text-lg hover:bg-[#ff4c00] transition-all duration-300 rounded-lg inline-flex items-center gap-2"
           >
-            
+            Get Me Interview
+            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+
+        {/* Bottom Points */}
+        <div className="mt-10 grid sm:grid-cols-3 gap-4 w-full">
+          {["First to apply wins", "ATS filters reject 75%", "Speed beats volume"].map((item) => (
+            <div
+              key={item}
+              className="bg-white border border-[#ffd7c4] rounded-lg px-4 py-3 text-sm font-semibold text-[#0b0b0b] shadow-sm"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* RIGHT CONTENT */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative hidden lg:block"
+      >
+        <div className="relative w-full h-[500px] lg:h-[600px]">
+
+          {/* Floating Card */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            className="absolute top-[30px] right-0 w-80 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+              </div>
+              <span className="text-xs text-gray-400">Live Applications</span>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                "Software Engineer @ Google",
+                "Product Manager @ Meta",
+                "Data Scientist @ Netflix",
+              ].map((job, i) => (
+                <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff4c00] to-orange-400 flex items-center justify-center text-white text-xs font-bold">
+                    {job.split("@")[1]?.trim()[0]}
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-gray-800">{job}</p>
+                    <p className="text-xs text-green-600 flex items-center gap-1">
+                      <FaCheck className="w-3 h-3" /> Applied 2m ago
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
+
+          {/* Center Badge */}
+          <motion.div
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute top-[380px] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ff4c00] text-white px-6 py-3 rounded-full shadow-xl font-bold text-sm"
+          >
+            ⚡ First to Apply = First Interview
+          </motion.div>
+
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
        
 
         {/* Stats Section */}

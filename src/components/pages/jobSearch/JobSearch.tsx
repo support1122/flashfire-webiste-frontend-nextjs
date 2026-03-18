@@ -253,7 +253,7 @@ export default function JobSearch() {
       </section>
 
       {/* How It Works - Timeline Layout */}
-      <section className="py-20 sm:py-24 bg-[#fff7f2]">
+      <section className="  bg-[#fff7f2]">
   <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
     {/* Heading */}
