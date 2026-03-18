@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import Link from "next/link";
+
 import { usePathname } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { Play, X, ArrowLeft, ChevronRight, ChevronLeft } from "lucide-react";
@@ -44,11 +44,13 @@ export default function ReelGallery() {
         },
     });
 
-    const handleBookDemoClick = () => {
+    const handleBookDemoClick = (e) => {
+        if (e) e.preventDefault();
         if (typeof window === "undefined") return;
         sessionStorage.setItem("previousPageBeforeBookADemo", safePathname);
         const scrollY = window.scrollY || window.pageYOffset || 0;
         sessionStorage.setItem("preserveScrollPosition", scrollY.toString());
+        window.history.pushState({}, '', "/book-a-demo");
         window.dispatchEvent(new CustomEvent("showCalendlyModal"));
     };
 
@@ -284,14 +286,13 @@ export default function ReelGallery() {
                                                 className="w-full aspect-[9/16] max-h-[20rem] object-cover"
                                             />
                                             
-                                                <Link
-                                                    href="/book-a-demo"
+                                                <button
                                                     {...getButtonProps()}
                                                     onClick={handleBookDemoClick}
                                                     className="mt-2 block w-full py-2.5 px-4 text-center text-sm font-semibold text-white bg-[#ff4c00] hover:bg-[#ff5a0f] transition-colors cursor-pointer"
                                                 >
                                                     Book a Demo
-                                                </Link>
+                                                </button>
                                         </div>
                                     ))}
                             </div>
@@ -321,14 +322,13 @@ export default function ReelGallery() {
                                         </button>
                                     ))}
                                 </div>
-                                <Link
-                                    href="/book-a-demo"
+                                <button
                                     {...getButtonProps()}
                                     onClick={handleBookDemoClick}
                                     className="block w-full py-2.5 px-4 text-center text-sm font-semibold text-white bg-[#ff4c00] hover:bg-[#ff5a0f] transition-colors cursor-pointer"
                                 >
                                     Book a Demo
-                                </Link>
+                                </button>
                             </>
                         )}
                             </div>

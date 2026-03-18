@@ -126,6 +126,26 @@ function GlobalModalsContent() {
         };
     }, [geoLoading, isFromIndia, geoBypassActive]);
 
+    // Close Calendly modal on browser back (popstate) after pushState navigation
+    useEffect(() => {
+        const handlePopState = () => {
+            const currentPath = window.location.pathname;
+            // If user pressed back and URL is no longer a modal route, close modals
+            if (
+                currentPath !== '/book-a-demo' &&
+                currentPath !== '/en-ca/book-a-demo' &&
+                currentPath !== '/book-now' &&
+                currentPath !== '/en-ca/book-now'
+            ) {
+                setShowCalendlyModal(false);
+                setShowSignupModal(false);
+                setShowGeoBlockModal(false);
+            }
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
+
     // Detect User Country (Client-side fallback logic)
     useEffect(() => {
         const detectCountry = () => {

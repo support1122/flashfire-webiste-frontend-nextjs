@@ -1532,11 +1532,11 @@ export default function NavbarClient({ links, ctas }: Props) {
             {/* Right Section: CTAs (Desktop) */}
             <div className={styles.navRight}>
               {ctas.primary && (ctas.primary.href === "/book-a-demo" || ctas.primary.href === "/en-ca/book-a-demo") ? (
-                <Link
-                  href={getHref(ctas.primary.href)}
+                <button
                   className={styles.navPrimaryButton}
                   {...getButtonProps()}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     trackButtonClick(ctas.primary.label, "navigation", "cta", {
                       button_location: "navbar",
                       navigation_type: "primary_cta",
@@ -1547,17 +1547,18 @@ export default function NavbarClient({ links, ctas }: Props) {
                       target_url: "/book-a-demo",
                     });
                     if (typeof window !== "undefined") {
-                      // Save current page and scroll position before navigating
                       const currentPath = safePathname || window.location.pathname;
                       sessionStorage.setItem('previousPageBeforeBookADemo', currentPath);
                       const currentScrollY = window.scrollY || window.pageYOffset || 0;
                       sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+                      // Change URL without triggering navigation to avoid white flash
+                      window.history.pushState({}, '', getHref(ctas.primary.href));
                       window.dispatchEvent(new CustomEvent("showCalendlyModal"));
                     }
                   }}
                 >
                   {ctas.primary.label}
-                </Link>
+                </button>
               ) : null}
             </div>
 
@@ -2035,11 +2036,11 @@ export default function NavbarClient({ links, ctas }: Props) {
                     {ctas.primary.label}
                   </a>
                 ) : ctas.primary && (ctas.primary.href === "/book-a-demo" || ctas.primary.href === "/en-ca/book-a-demo") ? (
-                  <Link
-                    href={getHref(ctas.primary.href)}
+                  <button
                     className={styles.navMobilePrimary}
                     {...getButtonProps()}
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       setIsMenuOpen(false);
                       const utmSource = typeof window !== "undefined"
                         ? localStorage.getItem("utm_source") || "WEBSITE"
@@ -2070,17 +2071,17 @@ export default function NavbarClient({ links, ctas }: Props) {
                         target_url: "/book-a-demo"
                       });
                       if (typeof window !== "undefined") {
-                        // Save current page and scroll position before navigating
                         const currentPath = safePathname || window.location.pathname;
                         sessionStorage.setItem('previousPageBeforeBookADemo', currentPath);
                         const currentScrollY = window.scrollY || window.pageYOffset || 0;
                         sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+                        window.history.pushState({}, '', getHref(ctas.primary.href));
                         window.dispatchEvent(new CustomEvent("showCalendlyModal"));
                       }
                     }}
                   >
                     {ctas.primary?.label}
-                  </Link>
+                  </button>
                 ) : ctas.primary ? (
                   <Link
                     href={ctas.primary.href}
@@ -2111,11 +2112,11 @@ export default function NavbarClient({ links, ctas }: Props) {
           (ctas.primary.href === "/book-a-demo" ||
             ctas.primary.href === "/en-ca/book-a-demo") && (
             <div className={styles.navMobileButtonsSticky}>
-              <Link
-                href={getHref(ctas.primary.href)}
+              <button
                 className={styles.navMobilePrimary}
                 {...getButtonProps()}
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   const utmSource =
                     typeof window !== "undefined"
                       ? localStorage.getItem("utm_source") || "WEBSITE"
@@ -2160,12 +2161,13 @@ export default function NavbarClient({ links, ctas }: Props) {
                       "preserveScrollPosition",
                       currentScrollY.toString()
                     );
+                    window.history.pushState({}, '', getHref(ctas.primary.href));
                     window.dispatchEvent(new CustomEvent("showCalendlyModal"));
                   }
                 }}
               >
                 {ctas.primary.label}
-              </Link>
+              </button>
             </div>
           )}
 
