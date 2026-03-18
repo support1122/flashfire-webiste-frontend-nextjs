@@ -253,50 +253,65 @@ export default function JobSearch() {
       </section>
 
       {/* How It Works - Timeline Layout */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">
-              How It Works
-            </h2>
-            <p className="text-black/60">Your job search, automated in four simple steps</p>
-          </div>
+      <section className="py-20 sm:py-24 bg-[#fff7f2]">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[#ff4c00]/20 hidden sm:block"></div>
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+        How It Works
+      </h2>
+      <p className="text-black/60 text-lg">
+        Your job search, automated in four simple steps
+      </p>
+    </div>
 
-            <div className="space-y-8">
-              {steps.map((step, index) => {
-                const IconComponent = step.icon;
-                return (
-                  <div key={step.id} className="relative flex gap-6 sm:gap-8">
-                    {/* Timeline Dot */}
-                    <div className="hidden sm:flex flex-col items-center">
-                      <div className="w-12 h-12 bg-[#ff4c00] rounded-xl flex items-center justify-center z-10">
-                        <IconComponent className="w-6 h-6 text-white" strokeWidth={2} />
-                      </div>
-                    </div>
+    {/* Grid */}
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step, index) => {
+        const IconComponent = step.icon;
 
-                    {/* Content Card */}
-                    <div className="flex-1 bg-[#fff0e6] rounded-xl p-6">
-                      <div className="flex items-center gap-3 mb-3 sm:hidden">
-                        <div className="w-10 h-10 bg-[#ff4c00] rounded-lg flex items-center justify-center">
-                          <IconComponent className="w-5 h-5 text-white" strokeWidth={2} />
-                        </div>
-                        <span className="text-sm font-bold text-[#ff4c00]">STEP {step.id}</span>
-                      </div>
-                      <span className="hidden sm:inline-block text-xs font-bold text-[#ff4c00] mb-2">STEP {step.id}</span>
-                      <h3 className="text-lg font-bold text-black mb-2">{step.title}</h3>
-                      <p className="text-black/70 leading-relaxed">{step.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
+        return (
+          <div
+            key={step.id}
+            className="relative group bg-white rounded-2xl p-6 shadow-sm border border-[#ff4c00]/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+          >
+            
+            {/* Background Number */}
+            <span className="absolute top-4 right-4 text-6xl font-bold text-[#ff4c00]/10 group-hover:text-[#ff4c00]/20 transition">
+              {step.id}
+            </span>
+
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/0 via-[#ff4c00]/5 to-[#ff4c00]/10 opacity-0 group-hover:opacity-100 transition"></div>
+
+            {/* Icon */}
+            <div className="w-12 h-12 bg-[#ff4c00] rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition">
+              <IconComponent className="w-6 h-6 text-white" strokeWidth={2} />
             </div>
+
+            {/* Content */}
+            <h3 className="text-lg font-bold text-black mb-2 relative z-10">
+              {step.title}
+            </h3>
+
+            <p className="text-black/70 text-sm leading-relaxed relative z-10">
+              {step.description}
+            </p>
           </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+
+    {/* Bottom Flow Line (visual connection) */}
+    <div className="hidden lg:flex justify-between items-center mt-12 px-10">
+      {[1, 2, 3].map((_, i) => (
+        <div key={i} className="flex-1 h-[2px] bg-gradient-to-r from-[#ff4c00]/30 to-transparent"></div>
+      ))}
+    </div>
+
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
