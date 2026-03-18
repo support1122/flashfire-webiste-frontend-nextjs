@@ -126,20 +126,31 @@ function GlobalModalsContent() {
         };
     }, [geoLoading, isFromIndia, geoBypassActive]);
 
-    // Close Calendly modal on browser back (popstate) after pushState navigation
+    // Close modals on browser back (popstate) after pushState navigation
     useEffect(() => {
+        const modalRoutes = new Set([
+            '/book-a-demo', '/en-ca/book-a-demo',
+            '/book-now', '/en-ca/book-now',
+            '/Get-Started', '/en-ca/Get-Started',
+            '/get-me-interview', '/en-ca/get-me-interview',
+            '/start-ai-powered-job-search', '/en-ca/start-ai-powered-job-search',
+            '/start-applying-with-ai', '/en-ca/start-applying-with-ai',
+            '/schedule-a-free-career-call', '/en-ca/schedule-a-free-career-call',
+            '/schedule-a-demo-with-flashfire', '/en-ca/schedule-a-demo-with-flashfire',
+            '/book-my-demo-call', '/en-ca/book-my-demo-call',
+            '/book-free-demo', '/en-ca/book-free-demo',
+            '/see-flashfire-in-action', '/en-ca/see-flashfire-in-action',
+            '/talk-to-an-expert', '/en-ca/talk-to-an-expert',
+            '/signup', '/en-ca/signup',
+        ]);
         const handlePopState = () => {
             const currentPath = window.location.pathname;
             // If user pressed back and URL is no longer a modal route, close modals
-            if (
-                currentPath !== '/book-a-demo' &&
-                currentPath !== '/en-ca/book-a-demo' &&
-                currentPath !== '/book-now' &&
-                currentPath !== '/en-ca/book-now'
-            ) {
+            if (!modalRoutes.has(currentPath)) {
                 setShowCalendlyModal(false);
                 setShowSignupModal(false);
                 setShowGeoBlockModal(false);
+                setShowStrategyCallCard(false);
             }
         };
         window.addEventListener('popstate', handlePopState);

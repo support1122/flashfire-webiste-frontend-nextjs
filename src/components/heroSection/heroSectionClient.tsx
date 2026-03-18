@@ -169,7 +169,8 @@ export default function HeroSectionClient({ data }: Props) {
               target_url: "/Get-Started"
             });
             sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-            router.push('/Get-Started');
+            // Change URL without navigation to avoid white flash
+            window.history.pushState({}, '', '/Get-Started');
             window.dispatchEvent(new CustomEvent("showCalendlyModal"));
           }
         }}

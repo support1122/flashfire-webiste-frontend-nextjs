@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useState, useCallback, memo } from "react";
 import { Copy, Check, Mail } from "lucide-react";
@@ -10,7 +10,6 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 function HomePageDemoCTA() {
-  const router = useRouter();
   const pathname = usePathname();
   const [emailCopied, setEmailCopied] = useState(false);
   const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
@@ -206,15 +205,13 @@ function HomePageDemoCTA() {
                     return;
                   }
 
-                  // Navigate to /schedule-a-free-career-call for other pages
+                  // Change URL without navigation to avoid white flash
                   const targetPath = '/schedule-a-free-career-call';
 
-                  // Save current scroll position to sessionStorage before navigation
                   if (typeof window !== 'undefined') {
                     sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
+                    window.history.pushState({}, '', targetPath);
                   }
-
-                  router.push(targetPath);
                 }}
               >
                 Schedule a Free Career Call 
