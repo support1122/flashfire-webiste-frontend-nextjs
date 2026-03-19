@@ -124,10 +124,8 @@ export default function JobApplicationAutomationPage() {
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
       {/* LEFT CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
+      <div
+       
         className="flex flex-col justify-center max-w-xl"
       >
         {/* Badge */}
@@ -174,21 +172,18 @@ export default function JobApplicationAutomationPage() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
 
       {/* RIGHT CONTENT */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+      <div
+        
         className="relative hidden lg:block"
       >
         <div className="relative w-full h-[500px] lg:h-[600px]">
 
           {/* Floating Card */}
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
+          <div
+           
             className="absolute top-[30px] right-0 w-80 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100"
           >
             <div className="flex items-center justify-between mb-4">
@@ -219,19 +214,18 @@ export default function JobApplicationAutomationPage() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Center Badge */}
-          <motion.div
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
+          <div
+           
             className="absolute top-[380px] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ff4c00] text-white px-6 py-3 rounded-full shadow-xl font-bold text-sm"
           >
             ⚡ First to Apply = First Interview
-          </motion.div>
+          </div>
 
         </div>
-      </motion.div>
+      </div>
 
     </div>
   </div>
@@ -247,12 +241,9 @@ export default function JobApplicationAutomationPage() {
                 const StatCard = () => {
                   const count = stat.value;
                   return (
-                    <motion.div 
+                    <div 
                      
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
+                      
                       className="text-center"
                     >
                       <div className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b] mb-2">
@@ -261,7 +252,7 @@ export default function JobApplicationAutomationPage() {
                       <div className="text-sm text-[#6b7280] font-medium uppercase tracking-wider">
                         {stat.label}
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 };
                 return <StatCard key={index} />;
@@ -273,19 +264,19 @@ export default function JobApplicationAutomationPage() {
       {/* Features Section */}
       <section id="how-it-works" className="py-28 bg-[#fff6f4]">
         <div className="mx-auto max-w-7xl px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div  className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ffd7c4]">How It Works</span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b] mb-4">Flashfire AI Job Application Automation Platform</h2>
             <p className="text-lg text-[#6b7280] max-w-2xl mx-auto">While others manually apply and wait, Flashfire's automated job application system works 24/7</p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((feature, index) => (
-              <motion.div key={feature.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-white border border-[#ffd7c4] rounded-2xl p-8 hover:shadow-lg hover:border-[#ff4c00]/30 transition-all duration-300">
+              <div key={feature.title}  className="bg-white border border-[#ffd7c4] rounded-2xl p-8 hover:shadow-lg hover:border-[#ff4c00]/30 transition-all duration-300">
                 <div className="w-12 h-12 rounded-xl bg-[#fff6f4] flex items-center justify-center text-[#ff4c00] mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-[#0b0b0b] mb-2">{feature.title}</h3>
                 <p className="text-[#6b7280] leading-relaxed">{feature.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -294,10 +285,10 @@ export default function JobApplicationAutomationPage() {
       {/* Comparison Section */}
       <section className="py-28 bg-white">
         <div className="mx-auto max-w-6xl px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+          <div  className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b] mb-4">Manual Job Search vs Flashfire Automated Job Application System</h2>
             <p className="text-lg text-[#6b7280]">See the difference Flashfire makes in your job search journey</p>
-          </motion.div>
+          </div>
 
           <div className="w-full overflow-x-auto">
             <div className="max-w-6xl mx-auto bg-white rounded-2xl border border-[#ffd7c4] overflow-hidden shadow-sm">
@@ -330,19 +321,19 @@ export default function JobApplicationAutomationPage() {
       {/* Target Audience */}
       <section className="py-24 bg-[#fff6f4]">
         <div className="mx-auto max-w-6xl px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+          <div  className="text-center mb-14">
             <span className="inline-block mb-4 px-4 py-1 text-xs font-semibold tracking-widest text-[#ff4c00] bg-white rounded-full border border-[#ffd7c4]">BUILT FOR MODERN JOB SEEKERS</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b]">Who Is This Job Application Automation Tool For?</h2>
             <p className="mt-4 text-lg text-[#6b7280] max-w-2xl mx-auto">Flashfire's job application automation system is built for job seekers who want to apply faster, beat ATS filters, and increase interview chances</p>
-          </motion.div>
+          </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {audienceGroups.map((group, index) => (
-              <motion.div key={group.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-white border border-[#ffd7c4] rounded-2xl p-6 hover:border-[#ff4c00]/30 hover:shadow-md transition-all duration-300">
+              <div key={group.title}  className="bg-white border border-[#ffd7c4] rounded-2xl p-6 hover:border-[#ff4c00]/30 hover:shadow-md transition-all duration-300">
                 <div className="w-10 h-10 mb-4 rounded-full bg-[#fff6f4] text-[#ff4c00] flex items-center justify-center">{group.icon}</div>
                 <h4 className="text-lg font-bold text-[#0b0b0b] mb-2">{group.title}</h4>
                 <p className="text-[#6b7280] text-sm leading-relaxed">{group.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -351,29 +342,29 @@ export default function JobApplicationAutomationPage() {
       {/* Problem/Solution Section - Light Theme */}
       <section className="py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-20">
+          <div  className="text-center mb-20">
             <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff6f4] text-[#ff4c00] text-sm font-semibold mb-4">THE PROBLEM WITH MODERN JOB SEARCH</span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b]">Why job hunting breaks down<br /><span className="text-[#ff4c00]">and how AI fixes it</span></h2>
-          </motion.div>
+          </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <div >
               <h3 className="text-xl font-bold text-[#6b7280] mb-8 flex items-center gap-3"><FaExclamationTriangle className="text-[#ff4c00]" />Why Manual Job Applications Fail</h3>
               <div className="space-y-4">
                 {["Hundreds of candidates apply within hours of posting", "ATS filters reject most resumes before humans see them", "Manual applications can't scale consistently", "There's no feedback loop to improve results"].map((item, i) => (
                   <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#fff6f4] border border-[#ffd7c4]"><span className="mt-1 h-2 w-2 rounded-full bg-[#ff4c00] flex-shrink-0" /><p className="text-[#6b7280]">{item}</p></div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <div >
               <h3 className="text-xl font-bold text-[#ff4c00] mb-8 flex items-center gap-3"><FaCheck className="text-[#ff4c00]" />How AI changes the game</h3>
               <div className="space-y-4">
                 {["Automates job applications instantly when roles go live", "Uses AI to optimize automated job applications for ATS and recruiter keywords", "Scales applications without fatigue or burnout", "Learns from outcomes and continuously improves"].map((item, i) => (
                   <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#fff6f4] border border-[#ff4c00]/30"><span className="mt-1 h-2 w-2 rounded-full bg-[#ff4c00] flex-shrink-0" /><p className="text-[#0b0b0b] font-medium">{item}</p></div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -387,17 +378,17 @@ export default function JobApplicationAutomationPage() {
 
         <div className={faqStyles.faqContainer}>
           {jobAutomationFAQs.map((faq, index) => (
-            <motion.div key={index} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} className={`${faqStyles.faqItem} ${activeFaqIndex === index ? faqStyles.active : ""}`}>
+            <div key={index}  className={`${faqStyles.faqItem} ${activeFaqIndex === index ? faqStyles.active : ""}`}>
               <button className={faqStyles.faqQuestion} onClick={() => handleFaqToggle(index)}>
                 <span>{faq.question}</span>
                 <span className={faqStyles.icon}>{activeFaqIndex === index ? <FaTimes /> : <FaPlus />}</span>
               </button>
               {activeFaqIndex === index && (
-                <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className={faqStyles.faqAnswer}>
+                <div  className={faqStyles.faqAnswer}>
                   <p>{faq.answer}</p>
-                </motion.div>
+                </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -405,12 +396,12 @@ export default function JobApplicationAutomationPage() {
       {/* CTA Section */}
       {/* <section className="py-24 bg-[#fff6f4]">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-3xl p-12 md:p-16 border border-[#ffd7c4] shadow-lg">
+          <div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-3xl p-12 md:p-16 border border-[#ffd7c4] shadow-lg">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b] mb-4">Ready to Automate Your Job Search?</h2>
             <p className="text-lg text-[#6b7280] mb-8 max-w-2xl mx-auto">Join thousands of job seekers who have transformed their search with Flashfire's AI-powered automation.</p>
             <button {...getButtonProps()} onClick={handleGetMeInterview} className="bg-[#ff4c00] text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-[#e04400] transition-colors shadow-lg shadow-[#ff4c00]/20">Get Started Today →</button>
             <p className="mt-6 text-sm text-[#6b7280]">No credit card required • Setup in 5 minutes</p>
-          </motion.div>
+          </div>
         </div>
       </section> */}
 

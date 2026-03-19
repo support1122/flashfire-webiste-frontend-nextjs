@@ -103,10 +103,10 @@ export default function PrecisionTargetingPage() {
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ffd6c4] mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ffd6c4] mb-8">
             <Sparkles className="w-4 h-4 text-[#ff4c00]" />
             <span className="text-sm font-semibold text-[#ff4c00] tracking-wide uppercase">Precision Targeting</span>
-          </motion.div>
+          </div>
 
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#0b1220] mb-6">
             Apply to Jobs That <br /><span className="text-[#ff4c00]\">Actually Match</span> Your Profile
@@ -116,22 +116,22 @@ export default function PrecisionTargetingPage() {
             Stop wasting applications on low-fit roles. FlashFire's AI targets jobs where your skills, experience, and ATS score give you the highest chance of interviews.
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }} className="flex flex-wrap justify-center gap-3 mb-12">
+          <div  className="flex flex-wrap justify-center gap-3 mb-12">
             {valuePills.map((item) => (
               <span key={item} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ffd6c4] text-[#0b1220] text-sm font-medium">
                 <CheckCircle className="w-4 h-4 text-[#ff4c00]" />{item}
               </span>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="flex flex-col sm:flex-row justify-center gap-4">
+          <div  className="flex flex-col sm:flex-row justify-center gap-4">
             <button {...getButtonProps()} onClick={handleGetMeInterview} className="group bg-[#ff4c00] text-white px-8 py-4 font-bold text-lg hover:bg-[#e04400] transition-all rounded-xl inline-flex items-center justify-center gap-2 shadow-lg shadow-[#ff4c00]/20">
               Get Me Interview<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button onClick={handleHowItWorks} className="border-2 border-[#0b1220] text-[#0b1220] bg-transparent hover:bg-[#0b1220] hover:text-white px-8 py-4 font-semibold text-lg transition-all rounded-xl inline-flex items-center justify-center gap-2">
               How It Works
             </button>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -140,18 +140,18 @@ export default function PrecisionTargetingPage() {
       {/* Who Is This For Section */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div  className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ffd6c4]">Built For You</span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b1220]">Who Is Precision Targeting <span className="text-[#ff4c00]\">For?</span></h2>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {targetAudience.map((item, index) => (
-              <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-white rounded-2xl p-8 border border-[#ffd6c4] hover:border-[#ff4c00]/30 hover:shadow-lg transition-all duration-300">
+              <div key={item.title}  className="bg-white rounded-2xl p-8 border border-[#ffd6c4] hover:border-[#ff4c00]/30 hover:shadow-lg transition-all duration-300">
                 <div className="w-12 h-12 rounded-xl bg-[#fff7f2] flex items-center justify-center text-[#ff4c00] mb-4">{item.icon}</div>
                 <h3 className="text-xl font-bold text-[#0b1220] mb-3">{item.title}</h3>
                 <p className="text-[#5b6475] leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -160,13 +160,13 @@ export default function PrecisionTargetingPage() {
       {/* Comparison Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div  className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b1220] mb-4">Precision AI Job Targeting vs <span className="text-[#ff4c00]\">Mass Applying</span></h2>
             <p className="text-lg text-[#5b6475] max-w-2xl mx-auto">See why targeted applications outperform spray-and-pray approaches</p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-[#fff7f2] rounded-2xl p-8 border border-[#ffd6c4]">
+            <div  className="bg-[#fff7f2] rounded-2xl p-8 border border-[#ffd6c4]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center"><XCircle className="w-5 h-5 text-red-500" /></div>
                 <h3 className="text-xl font-bold text-red-600">Mass Applying</h3>
@@ -176,9 +176,9 @@ export default function PrecisionTargetingPage() {
                   <li key={i} className="flex items-center gap-3 text-[#5b6475]"><XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />{item}</li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white rounded-2xl p-8 border-2 border-[#ff4c00]/20 shadow-lg">
+            <div  className="bg-white rounded-2xl p-8 border-2 border-[#ff4c00]/20 shadow-lg">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-[#fff7f2] flex items-center justify-center"><CheckCircle2 className="w-5 h-5 text-[#ff4c00]" /></div>
                 <h3 className="text-xl font-bold text-[#ff4c00]">Precision Targeting</h3>
@@ -188,7 +188,7 @@ export default function PrecisionTargetingPage() {
                   <li key={i} className="flex items-center gap-3 text-[#0b1220] font-medium"><CheckCircle2 className="w-5 h-5 text-[#ff4c00] flex-shrink-0" />{item}</li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -196,15 +196,15 @@ export default function PrecisionTargetingPage() {
       {/* How It Works Section */}
       <section id="how-it-works" className="py-24 bg-[#fff7f2]">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div  className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ffd6c4]">How It Works</span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b1220] mb-4">Precision targeting, <span className="text-[#ff4c00]\">done right</span></h2>
             <p className="text-lg text-[#5b6475] max-w-2xl mx-auto">We don't apply everywhere. We apply where you actually have a chance.</p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {howItWorksSteps.map((item, index) => (
-              <motion.div key={item.step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-white rounded-2xl p-8 border border-[#ffd6c4] hover:border-[#ff4c00]/30 hover:shadow-lg transition-all duration-300">
+              <div key={item.step}  className="bg-white rounded-2xl p-8 border border-[#ffd6c4] hover:border-[#ff4c00]/30 hover:shadow-lg transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-[#ff4c00] text-white font-bold flex items-center justify-center flex-shrink-0">{item.step}</div>
                   <div>
@@ -212,7 +212,7 @@ export default function PrecisionTargetingPage() {
                     <p className="text-[#5b6475] leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -221,17 +221,17 @@ export default function PrecisionTargetingPage() {
       {/* Results Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <div  className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b1220] mb-4">Real Results from <span className="text-[#ff4c00]\">Precision Targeting</span></h2>
             <p className="text-lg text-[#5b6475] max-w-3xl mx-auto">Our AI-driven targeting strategy focuses your effort where it matters most</p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="bg-[#fff7f2] rounded-2xl p-8 text-center border border-[#ffd6c4] hover:border-[#ff4c00]/30 transition-all duration-300">
+              <div key={stat.label}  className="bg-[#fff7f2] rounded-2xl p-8 text-center border border-[#ffd6c4] hover:border-[#ff4c00]/30 transition-all duration-300">
                 <p className="text-4xl md:text-5xl font-extrabold text-[#ff4c00] mb-2">{stat.value}</p>
                 <p className="text-sm text-[#5b6475] font-medium">{stat.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function PrecisionTargetingPage() {
       {/* CTA Section */}
       <section className="py-24 bg-[#fff7f2]">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-3xl p-12 md:p-16 border border-[#ffd6c4] shadow-xl">
+          <div  className="bg-white rounded-3xl p-12 md:p-16 border border-[#ffd6c4] shadow-xl">
             <div className="w-16 h-16 rounded-full bg-[#fff7f2] flex items-center justify-center text-[#ff4c00] mx-auto mb-6"><Zap className="w-8 h-8" /></div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b1220] mb-4">Ready to Target Smarter?</h2>
             <p className="text-lg text-[#5b6475] mb-8 max-w-2xl mx-auto">Join thousands of job seekers who stopped mass applying and started getting interviews.</p>
@@ -248,7 +248,7 @@ export default function PrecisionTargetingPage() {
               Get Me Interview<ArrowRight className="w-5 h-5" />
             </button>
             <p className="mt-6 text-sm text-[#5b6475]">No credit card required • Setup in 5 minutes</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
