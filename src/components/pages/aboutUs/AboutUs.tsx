@@ -283,7 +283,7 @@ export default function AboutUs() {
                 <h3 className="text-lg sm:text-xl font-bold text-[#F55D1D] mb-1 text-center">Pranjal Tripathi</h3>
                 <p className="text-gray-600 mb-3 text-xs sm:text-sm text-center">CTO, Flashfire</p>
                 <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 italic leading-relaxed text-center">
-                  Every line of code we write is to help someone hear back finally;
+                  &quot;Every line of code we write is to help someone hear back - finally.&quot;
                 </p>
               </div>
             </div>
@@ -305,7 +305,7 @@ export default function AboutUs() {
                 <h3 className="text-lg sm:text-xl font-bold text-[#F55D1D] mb-1 text-center">Adit Jain</h3>
                 <p className="text-gray-600 mb-3 text-xs sm:text-sm text-center">Partner, Flashfire</p>
                 <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-700 italic leading-relaxed text-center">
-                  I've seen brilliant people lose hope. Flashfire exists so they don't have to.
+                  &quot;I&apos;ve seen brilliant people lose hope. Flashfire exists so they don&apos;t have to.&quot;
                 </p>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 interface CachedTestimonialImageProps {
   src: string;

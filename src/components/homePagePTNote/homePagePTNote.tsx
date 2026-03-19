@@ -54,15 +54,15 @@ export default function HomePagePTNote() {
         <div className="relative bg-black text-white w-[60%] p-8 flex flex-col justify-between overflow-hidden max-[1024px]:w-full max-[1024px]:pr-8">
           <div className="pr-[240px] max-[1024px]:pr-0">
             <p className="text-[0.9rem] font-semibold text-[#94959a] mb-6">
-              HELPING 560+ JOB SEEKERS
+              HELPING 100+ JOB SEEKERS
             </p>
 
             <blockquote className="text-2xl md:text-3xl italic leading-tight font-semibold text-white mb-6">
-              Every line of code we
+              &quot;Every line of code we
               <br />
               write is to help someone
               <br />
-              hear back finally.
+              hear back - finally.&quot;
             </blockquote>
           </div>
 
