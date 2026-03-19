@@ -252,7 +252,7 @@ export default function HomePageHappyUsers() {
             letterSpacing: "-2.29px",
           }}
         >
-          500+ Happy User&apos;s Love
+          500+ Happy User{'\''}s Love
         </h2>
         <p
           className="mb-12 max-[600px]:text-[1.125rem]"
