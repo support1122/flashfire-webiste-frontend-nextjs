@@ -138,7 +138,7 @@ export default function PrecisionTargetingPage() {
      
 
       {/* Who Is This For Section */}
-      <section className="py-24 bg-[#ffe5d6]">
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div  className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ffd6c4]">Built For You</span>
