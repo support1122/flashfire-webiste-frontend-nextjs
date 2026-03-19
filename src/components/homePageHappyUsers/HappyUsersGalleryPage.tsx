@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useCallback, memo } from "react";
+import { useState, useEffect, useCallback, useRef, memo } from "react";
 import { ALL_REVIEW_IMAGES } from "./homePageHappyUsers";
 import CachedTestimonialImage from "./CachedTestimonialImage";
 import HomePageMilestones from "@/src/components/homePageMilestones/homePageMilestones";
 import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
+
+// Load first batch immediately, rest progressively on scroll
+const INITIAL_BATCH = 12;
+const BATCH_SIZE = 12;
 
 const videos = [
   {
@@ -179,27 +183,52 @@ const VideoCard = memo(function VideoCard({
 });
 
 // ──────────────────────────────────────────────
-// Memoized image grid — completely isolated from modal/video state
+// Progressive image grid — loads images in batches as user scrolls
 // ──────────────────────────────────────────────
-const ImageGrid = memo(function ImageGrid({
+function ImageGrid({
   onClickImage,
 }: {
   onClickImage: (i: number) => void;
 }) {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_BATCH);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel || visibleCount >= ALL_REVIEW_IMAGES.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) =>
+            Math.min(prev + BATCH_SIZE, ALL_REVIEW_IMAGES.length)
+          );
+        }
+      },
+      { rootMargin: "400px" } // Start loading 400px before user reaches bottom
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [visibleCount]);
+
   return (
     <div className="columns-4 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1">
-      {ALL_REVIEW_IMAGES.map((src, i) => (
+      {ALL_REVIEW_IMAGES.slice(0, visibleCount).map((src, i) => (
         <GalleryImageCard
           key={i}
           src={src}
           index={i}
-          priority={i < 8}
+          priority={i < 4}
           onClickImage={onClickImage}
         />
       ))}
+      {/* Sentinel triggers loading next batch */}
+      {visibleCount < ALL_REVIEW_IMAGES.length && (
+        <div ref={sentinelRef} className="w-full h-1" />
+      )}
     </div>
   );
-});
+}
 
 // ──────────────────────────────────────────────
 // Memoized video section — only re-renders when playingIndex changes

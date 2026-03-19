@@ -45,6 +45,9 @@ function GlobalModalsContent() {
     const [geoBypassActive, setGeoBypassActive] = useState(false);
     const [showBypassSuccessModal, setShowBypassSuccessModal] = useState(false);
 
+    // Track if modal was opened via pushState (CTA button click) so we can restore URL on close
+    const openedViaPushStateRef = useRef(false);
+
     // Track which route visit we're on and if modals have been dismissed
     const lastRouteWithModalRef = useRef<string | null>(null);
     const modalDismissedForRouteRef = useRef<string | null>(null);
@@ -101,6 +104,7 @@ function GlobalModalsContent() {
         const handleCalendlyModal = () => {
             setForceShowCalendlyModal(true);
             modalDismissedForRouteRef.current = null;
+            openedViaPushStateRef.current = true;
         };
 
         const handleStrategyCallCard = () => {
@@ -108,6 +112,7 @@ function GlobalModalsContent() {
             // The useEffect will handle geo-blocking logic
             setForceShowCalendlyModal(true);
             setShowStrategyCallCard(false);
+            openedViaPushStateRef.current = true;
         };
 
         // Listen for custom events
@@ -147,6 +152,8 @@ function GlobalModalsContent() {
             const currentPath = window.location.pathname;
             // If user pressed back and URL is no longer a modal route, close modals
             if (!modalRoutes.has(currentPath)) {
+                // Reset pushState flag since browser back already restored the URL
+                openedViaPushStateRef.current = false;
                 setShowCalendlyModal(false);
                 setShowSignupModal(false);
                 setShowGeoBlockModal(false);
@@ -402,6 +409,13 @@ function GlobalModalsContent() {
         modalDismissedForRouteRef.current = currentRouteKey;
         setShowGeoBlockModal(false);
 
+        // If modal was opened via pushState (CTA click), undo the URL change
+        if (openedViaPushStateRef.current) {
+            openedViaPushStateRef.current = false;
+            window.history.back();
+            return;
+        }
+
         if ((pathname === '/get-me-interview' || pathname === '/schedule-a-free-career-call' || pathname === '/book-my-demo-call') && searchParams.toString()) {
             router.replace(pathname);
         }
@@ -411,6 +425,13 @@ function GlobalModalsContent() {
         const currentRouteKey = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
         modalDismissedForRouteRef.current = currentRouteKey;
         setShowCalendlyModal(false);
+
+        // If modal was opened via pushState (CTA click), undo the URL change
+        if (openedViaPushStateRef.current) {
+            openedViaPushStateRef.current = false;
+            window.history.back();
+            return;
+        }
 
         if (typeof window !== "undefined" && (pathname === '/book-now' || pathname === '/en-ca/book-now')) {
             const previousPage = sessionStorage.getItem('previousPageBeforeBookNow');
