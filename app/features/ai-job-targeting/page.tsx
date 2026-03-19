@@ -108,13 +108,13 @@ export default function PrecisionTargetingPage() {
             <span className="text-sm font-semibold text-[#ff4c00] tracking-wide uppercase">Precision Targeting</span>
           </div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#0b1220] mb-6">
+          <h1  className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#0b1220] mb-6">
             Apply to Jobs That <br /><span className="text-[#ff4c00]\">Actually Match</span> Your Profile
-          </motion.h1>
+          </h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-lg md:text-xl text-[#5b6475] max-w-3xl mx-auto leading-relaxed mb-10">
+          <p  className="text-lg md:text-xl text-[#5b6475] max-w-3xl mx-auto leading-relaxed mb-10">
             Stop wasting applications on low-fit roles. FlashFire's AI targets jobs where your skills, experience, and ATS score give you the highest chance of interviews.
-          </motion.p>
+          </p>
 
           <div  className="flex flex-wrap justify-center gap-3 mb-12">
             {valuePills.map((item) => (
@@ -138,7 +138,7 @@ export default function PrecisionTargetingPage() {
      
 
       {/* Who Is This For Section */}
-      <section className="py-24">
+      <section className="py-24 bg-[#ffe5d6]">
         <div className="max-w-6xl mx-auto px-6">
           <div  className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-white text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ffd6c4]">Built For You</span>
