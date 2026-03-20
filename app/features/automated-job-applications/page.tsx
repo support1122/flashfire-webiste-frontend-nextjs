@@ -17,10 +17,10 @@ export default function JobApplicationAutomationPage() {
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   useEffect(() => { setIsMounted(true); }, []);
-  
+
   const router = useRouter();
   const pathname = usePathname();
-  const { getButtonProps } = useGeoBypass({ onBypass: () => {} });
+  const { getButtonProps } = useGeoBypass({ onBypass: () => { } });
 
   const stats = [
     { value: "1,200+", label: "Applications Automated" },
@@ -115,122 +115,122 @@ export default function JobApplicationAutomationPage() {
 
   return (
     <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
-    <Navbar />
-    <main className="min-h-screen bg-[#fff6f4] text-[#0f172a] font-['Space_Grotesk',sans-serif]">
-      
-    <section className="min-h-[95vh] bg-[#fff6f4] flex items-center">
-  <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
-    
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <Navbar />
+      <main className="min-h-screen bg-[#fff6f4] text-[#0f172a] font-['Space_Grotesk',sans-serif]">
 
-      {/* LEFT CONTENT */}
-      <div
-       
-        className="flex flex-col justify-center max-w-xl"
-      >
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ff4c00]/20 mb-6 w-fit">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff4c00] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff4c00]"></span>
-          </span>
-          <span className="text-sm font-medium text-[#ff4c00]">
-            AI-Powered Job Automation
-          </span>
-        </div>
+        <section className="min-h-[95vh] bg-[#fff6f4] flex items-center">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
 
-        {/* Heading */}
-        <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-[#0b0b0b] leading-tight tracking-tight">
-          Job Application Automation That Helps You Apply Faster & Get Interviews
-        </h1>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-        {/* Description */}
-        <p className="mt-6 text-lg text-[#6b7280] leading-relaxed">
-          Flashfire is an AI-powered job application automation tool that helps you automate job applications, optimize resumes for ATS, and apply to roles instantly. So you stay ahead in competitive job markets.
-        </p>
+              {/* LEFT CONTENT */}
+              <div
 
-        {/* Button */}
-        <div className="mt-8">
-          <button
-            {...getButtonProps()}
-            onClick={handleGetMeInterview}
-            className="group bg-[#0b0b0b] text-white px-8 py-4 font-bold text-lg hover:bg-[#ff4c00] transition-all duration-300 rounded-lg inline-flex items-center gap-2"
-          >
-            Get Me Interview
-            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </button>
-        </div>
-
-        {/* Bottom Points */}
-        <div className="mt-10 grid sm:grid-cols-3 gap-4 w-full">
-          {["First to apply wins", "ATS filters reject 75%", "Speed beats volume"].map((item) => (
-            <div
-              key={item}
-              className="bg-white border border-[#ffd7c4] rounded-lg px-4 py-3 text-sm font-semibold text-[#0b0b0b] shadow-sm"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* RIGHT CONTENT */}
-      <div
-        
-        className="relative hidden lg:block"
-      >
-        <div className="relative w-full h-[500px] lg:h-[600px]">
-
-          {/* Floating Card */}
-          <div
-           
-            className="absolute top-[30px] right-0 w-80 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
-              </div>
-              <span className="text-xs text-gray-400">Live Applications</span>
-            </div>
-
-            <div className="space-y-3">
-              {[
-                "Software Engineer @ Google",
-                "Product Manager @ Meta",
-                "Data Scientist @ Netflix",
-              ].map((job, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff4c00] to-orange-400 flex items-center justify-center text-white text-xs font-bold">
-                    {job.split("@")[1]?.trim()[0]}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-gray-800">{job}</p>
-                    <p className="text-xs text-green-600 flex items-center gap-1">
-                      <FaCheck className="w-3 h-3" /> Applied 2m ago
-                    </p>
-                  </div>
+                className="flex flex-col justify-center max-w-xl"
+              >
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#ff4c00]/20 mb-6 w-fit">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff4c00] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff4c00]"></span>
+                  </span>
+                  <span className="text-sm font-medium text-[#ff4c00]">
+                    AI-Powered Job Automation
+                  </span>
                 </div>
-              ))}
+
+                {/* Heading */}
+                <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-[#0b0b0b] leading-tight tracking-tight">
+                  Job Application Automation That Helps You Apply Faster & Get Interviews
+                </h1>
+
+                {/* Description */}
+                <p className="mt-6 text-lg text-[#6b7280] leading-relaxed">
+                  Flashfire is an AI-powered job application automation tool that helps you automate job applications, optimize resumes for ATS, and apply to roles instantly. So you stay ahead in competitive job markets.
+                </p>
+
+                {/* Button */}
+                <div className="mt-8">
+                  <button
+                    {...getButtonProps()}
+                    onClick={handleGetMeInterview}
+                    className="group bg-[#0b0b0b] text-white px-8 py-4 font-bold text-lg hover:bg-[#ff4c00] transition-all duration-300 rounded-lg inline-flex items-center gap-2"
+                  >
+                    Get Me Interview
+                    <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+
+                {/* Bottom Points */}
+                <div className="mt-10 grid sm:grid-cols-3 gap-4 w-full">
+                  {["First to apply wins", "ATS filters reject 75%", "Speed beats volume"].map((item) => (
+                    <div
+                      key={item}
+                      className="bg-white border border-[#ffd7c4] rounded-lg px-4 py-3 text-sm font-semibold text-[#0b0b0b] shadow-sm"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT CONTENT */}
+              <div
+
+                className="relative hidden lg:block"
+              >
+                <div className="relative w-full h-[500px] lg:h-[600px]">
+
+                  {/* Floating Card */}
+                  <div
+
+                    className="absolute top-[30px] right-0 w-80 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex gap-2">
+                        <div className="w-3 h-3 rounded-full bg-red-400" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                        <div className="w-3 h-3 rounded-full bg-green-400" />
+                      </div>
+                      <span className="text-xs text-gray-400">Live Applications</span>
+                    </div>
+
+                    <div className="space-y-3">
+                      {[
+                        "Software Engineer @ Google",
+                        "Product Manager @ Meta",
+                        "Data Scientist @ Netflix",
+                      ].map((job, i) => (
+                        <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#ff4c00] to-orange-400 flex items-center justify-center text-white text-xs font-bold">
+                            {job.split("@")[1]?.trim()[0]}
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-sm font-semibold text-gray-800">{job}</p>
+                            <p className="text-xs text-green-600 flex items-center gap-1">
+                              <FaCheck className="w-3 h-3" /> Applied 2m ago
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Center Badge */}
+                  <div
+
+                    className="absolute top-[380px] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ff4c00] text-white px-6 py-3 rounded-full shadow-xl font-bold text-sm"
+                  >
+                    ⚡ First to Apply = First Interview
+                  </div>
+
+                </div>
+              </div>
+
             </div>
           </div>
+        </section>
 
-          {/* Center Badge */}
-          <div
-           
-            className="absolute top-[380px] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ff4c00] text-white px-6 py-3 rounded-full shadow-xl font-bold text-sm"
-          >
-            ⚡ First to Apply = First Interview
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-       
 
         {/* Stats Section */}
         <section className="py-20 bg-white relative overflow-hidden">
@@ -241,9 +241,9 @@ export default function JobApplicationAutomationPage() {
                 const StatCard = () => {
                   const count = stat.value;
                   return (
-                    <div 
-                     
-                      
+                    <div
+
+
                       className="text-center"
                     >
                       <div className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b] mb-2">
@@ -260,141 +260,187 @@ export default function JobApplicationAutomationPage() {
             </div>
           </div>
         </section>
-     
-      {/* Features Section */}
-      <section id="how-it-works" className="py-28 bg-[#fff6f4]">
-        <div className="mx-auto max-w-7xl px-6">
-          <div  className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-white text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ffd7c4]">How It Works</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b] mb-4">Flashfire AI Job Application Automation Platform</h2>
-            <p className="text-lg text-[#6b7280] max-w-2xl mx-auto">While others manually apply and wait, Flashfire's automated job application system works 24/7</p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <div key={feature.title}  className="bg-white border border-[#ffd7c4] rounded-2xl p-8 hover:shadow-lg hover:border-[#ff4c00]/30 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-[#fff6f4] flex items-center justify-center text-[#ff4c00] mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-[#0b0b0b] mb-2">{feature.title}</h3>
-                <p className="text-[#6b7280] leading-relaxed">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Section */}
-      <section className="py-28 bg-white">
-        <div className="mx-auto max-w-6xl px-6">
-          <div  className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b] mb-4">Manual Job Search vs Flashfire Automated Job Application System</h2>
-            <p className="text-lg text-[#6b7280]">See the difference Flashfire makes in your job search journey</p>
-          </div>
-
-          <div className="w-full overflow-x-auto">
-            <div className="max-w-6xl mx-auto bg-white rounded-2xl border border-[#ffd7c4] overflow-hidden shadow-sm">
-              <table className="w-full border-collapse text-left">
-                <thead>
-                  <tr className="bg-[#fff6f4]">
-                    <th className="py-4 px-6 text-left text-sm font-semibold text-[#6b7280]" />
-                    <th className="py-4 px-6 text-center text-sm font-bold text-[#ff4c00] border-l border-[#ffd7c4]">Before FLASHFIRE</th>
-                    <th className="py-4 px-6 text-center text-sm font-bold text-green-600 border-l border-[#ffd7c4]">After FLASHFIRE</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#ffd7c4]">
-                  {comparisonData.map((item, index) => (
-                    <motion.tr key={index} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.05 }} className="hover:bg-[#fff6f4]/50 transition-colors">
-                      <td className="py-5 px-6">
-                        <div className="text-sm font-bold text-[#0b0b0b]">{item.title}</div>
-                        <div className="mt-1 text-xs text-[#6b7280]">{item.caption}</div>
-                      </td>
-                      <td className="py-5 px-6 text-center border-l border-[#ffd7c4]"><FaTimes className="w-5 h-5 text-[#ff4c00] mx-auto" /></td>
-                      <td className="py-5 px-6 text-center border-l border-[#ffd7c4] bg-[#fff6f4]/30"><div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mx-auto"><FaCheck className="w-3 h-3 text-white" /></div></td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Target Audience */}
-      <section className="py-24 bg-[#fff6f4]">
-        <div className="mx-auto max-w-6xl px-6">
-          <div  className="text-center mb-14">
-            <span className="inline-block mb-4 px-4 py-1 text-xs font-semibold tracking-widest text-[#ff4c00] bg-white rounded-full border border-[#ffd7c4]">BUILT FOR MODERN JOB SEEKERS</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b]">Who Is This Job Application Automation Tool For?</h2>
-            <p className="mt-4 text-lg text-[#6b7280] max-w-2xl mx-auto">Flashfire's job application automation system is built for job seekers who want to apply faster, beat ATS filters, and increase interview chances</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {audienceGroups.map((group, index) => (
-              <div key={group.title}  className="bg-white border border-[#ffd7c4] rounded-2xl p-6 hover:border-[#ff4c00]/30 hover:shadow-md transition-all duration-300">
-                <div className="w-10 h-10 mb-4 rounded-full bg-[#fff6f4] text-[#ff4c00] flex items-center justify-center">{group.icon}</div>
-                <h4 className="text-lg font-bold text-[#0b0b0b] mb-2">{group.title}</h4>
-                <p className="text-[#6b7280] text-sm leading-relaxed">{group.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Problem/Solution Section - Light Theme */}
-      <section className="py-32 bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div  className="text-center mb-20">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff6f4] text-[#ff4c00] text-sm font-semibold mb-4">THE PROBLEM WITH MODERN JOB SEARCH</span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b]">Why job hunting breaks down<br /><span className="text-[#ff4c00]">and how AI fixes it</span></h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div >
-              <h3 className="text-xl font-bold text-[#6b7280] mb-8 flex items-center gap-3"><FaExclamationTriangle className="text-[#ff4c00]" />Why Manual Job Applications Fail</h3>
-              <div className="space-y-4">
-                {["Hundreds of candidates apply within hours of posting", "ATS filters reject most resumes before humans see them", "Manual applications can't scale consistently", "There's no feedback loop to improve results"].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#fff6f4] border border-[#ffd7c4]"><span className="mt-1 h-2 w-2 rounded-full bg-[#ff4c00] flex-shrink-0" /><p className="text-[#6b7280]">{item}</p></div>
-                ))}
-              </div>
+        {/* Features Section */}
+        <section id="how-it-works" className="py-28 bg-[#fff6f4]">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-white text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ffd7c4]">How It Works</span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b] mb-4">Flashfire AI Job Application Automation Platform</h2>
+              <p className="text-lg text-[#6b7280] max-w-2xl mx-auto">While others manually apply and wait, Flashfire's automated job application system works 24/7</p>
             </div>
 
-            <div >
-              <h3 className="text-xl font-bold text-[#ff4c00] mb-8 flex items-center gap-3"><FaCheck className="text-[#ff4c00]" />How AI changes the game</h3>
-              <div className="space-y-4">
-                {["Automates job applications instantly when roles go live", "Uses AI to optimize automated job applications for ATS and recruiter keywords", "Scales applications without fatigue or burnout", "Learns from outcomes and continuously improves"].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#fff6f4] border border-[#ff4c00]/30"><span className="mt-1 h-2 w-2 rounded-full bg-[#ff4c00] flex-shrink-0" /><p className="text-[#0b0b0b] font-medium">{item}</p></div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section - Original UI with animations */}
-      <section id="faq" className={faqStyles.faqSection}>
-        <div id="faq-header" className={faqStyles.header}>
-          <h2>Job Application Automation FAQs</h2>
-          <p>We get it, job application automation can sound complex. Here's everything explained, plain and simple.</p>
-        </div>
-
-        <div className={faqStyles.faqContainer}>
-          {jobAutomationFAQs.map((faq, index) => (
-            <div key={index}  className={`${faqStyles.faqItem} ${activeFaqIndex === index ? faqStyles.active : ""}`}>
-              <button className={faqStyles.faqQuestion} onClick={() => handleFaqToggle(index)}>
-                <span>{faq.question}</span>
-                <span className={faqStyles.icon}>{activeFaqIndex === index ? <FaTimes /> : <FaPlus />}</span>
-              </button>
-              {activeFaqIndex === index && (
-                <div  className={faqStyles.faqAnswer}>
-                  <p>{faq.answer}</p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {features.map((feature, index) => (
+                <div key={feature.title} className="bg-white border border-[#ffd7c4] rounded-2xl p-8 hover:shadow-lg hover:border-[#ff4c00]/30 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#fff6f4] flex items-center justify-center text-[#ff4c00] mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-bold text-[#0b0b0b] mb-2">{feature.title}</h3>
+                  <p className="text-[#6b7280] leading-relaxed">{feature.desc}</p>
                 </div>
-              )}
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* CTA Section */}
-      {/* <section className="py-24 bg-[#fff6f4]">
+        {/* Comparison Section */}
+        <section className="py-28 bg-white">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b] mb-4">
+                Manual Job Search vs Flashfire Automated Job Application System
+              </h2>
+              <p className="text-lg text-[#6b7280]">
+                See the difference Flashfire makes in your job search journey
+              </p>
+            </div>
+
+
+            <div className="w-full">
+  <div className="bg-white rounded-2xl border border-[#ffd7c4] overflow-hidden shadow-sm">
+
+    <table className="w-full border-collapse text-left">
+      
+      {/* Header */}
+      <thead>
+        <tr className="bg-[#fff6f4]">
+          
+          <th className="py-2 px-2 md:py-4 md:px-6 text-[10px] sm:text-xs md:text-sm font-semibold text-[#6b7280]">
+            Feature
+          </th>
+
+          <th className="py-2 px-2 md:py-4 md:px-6 text-center text-[10px] sm:text-xs md:text-sm font-bold text-[#ff4c00] border-l border-[#ffd7c4]">
+            Before
+          </th>
+
+          <th className="py-2 px-2 md:py-4 md:px-6 text-center text-[10px] sm:text-xs md:text-sm font-bold text-green-600 border-l border-[#ffd7c4]">
+            After
+          </th>
+
+        </tr>
+      </thead>
+
+      {/* Body */}
+      <tbody className="divide-y divide-[#ffd7c4]">
+        {comparisonData.map((item, index) => (
+          <motion.tr
+            key={index}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.05 }}
+            className="hover:bg-[#fff6f4]/50 transition-colors"
+          >
+
+            {/* Feature */}
+            <td className="py-2 px-2 md:py-5 md:px-6 align-top">
+              <div className="font-semibold text-[#0b0b0b] text-[11px] sm:text-xs md:text-sm leading-tight line-clamp-2">
+                {item.title}
+              </div>
+              <div className="text-[9px] sm:text-[10px] md:text-xs text-[#6b7280] leading-tight line-clamp-2">
+                {item.caption}
+              </div>
+            </td>
+
+            {/* Before */}
+            <td className="py-2 px-2 md:py-5 md:px-6 text-center border-l border-[#ffd7c4]">
+              <FaTimes className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#ff4c00] mx-auto" />
+            </td>
+
+            {/* After */}
+            <td className="py-2 px-2 md:py-5 md:px-6 text-center border-l border-[#ffd7c4] bg-[#fff6f4]/30">
+              <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-green-500 flex items-center justify-center mx-auto">
+                <FaCheck className="w-2 h-2 sm:w-3 sm:h-3 text-white" />
+              </div>
+            </td>
+
+          </motion.tr>
+        ))}
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+          </div>
+        </section>
+
+        {/* Target Audience */}
+        <section className="py-24 bg-[#fff6f4]">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="text-center mb-14">
+              <span className="inline-block mb-4 px-4 py-1 text-xs font-semibold tracking-widest text-[#ff4c00] bg-white rounded-full border border-[#ffd7c4]">BUILT FOR MODERN JOB SEEKERS</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b]">Who Is This Job Application Automation Tool For?</h2>
+              <p className="mt-4 text-lg text-[#6b7280] max-w-2xl mx-auto">Flashfire's job application automation system is built for job seekers who want to apply faster, beat ATS filters, and increase interview chances</p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {audienceGroups.map((group, index) => (
+                <div key={group.title} className="bg-white border border-[#ffd7c4] rounded-2xl p-6 hover:border-[#ff4c00]/30 hover:shadow-md transition-all duration-300">
+                  <div className="w-10 h-10 mb-4 rounded-full bg-[#fff6f4] text-[#ff4c00] flex items-center justify-center">{group.icon}</div>
+                  <h4 className="text-lg font-bold text-[#0b0b0b] mb-2">{group.title}</h4>
+                  <p className="text-[#6b7280] text-sm leading-relaxed">{group.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Problem/Solution Section - Light Theme */}
+        <section className="py-32 bg-white">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="text-center mb-20">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff6f4] text-[#ff4c00] text-sm font-semibold mb-4">THE PROBLEM WITH MODERN JOB SEARCH</span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b0b0b]">Why job hunting breaks down<br /><span className="text-[#ff4c00]">and how AI fixes it</span></h2>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div >
+                <h3 className="text-xl font-bold text-[#6b7280] mb-8 flex items-center gap-3"><FaExclamationTriangle className="text-[#ff4c00]" />Why Manual Job Applications Fail</h3>
+                <div className="space-y-4">
+                  {["Hundreds of candidates apply within hours of posting", "ATS filters reject most resumes before humans see them", "Manual applications can't scale consistently", "There's no feedback loop to improve results"].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#fff6f4] border border-[#ffd7c4]"><span className="mt-1 h-2 w-2 rounded-full bg-[#ff4c00] flex-shrink-0" /><p className="text-[#6b7280]">{item}</p></div>
+                  ))}
+                </div>
+              </div>
+
+              <div >
+                <h3 className="text-xl font-bold text-[#ff4c00] mb-8 flex items-center gap-3"><FaCheck className="text-[#ff4c00]" />How AI changes the game</h3>
+                <div className="space-y-4">
+                  {["Automates job applications instantly when roles go live", "Uses AI to optimize automated job applications for ATS and recruiter keywords", "Scales applications without fatigue or burnout", "Learns from outcomes and continuously improves"].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-[#fff6f4] border border-[#ff4c00]/30"><span className="mt-1 h-2 w-2 rounded-full bg-[#ff4c00] flex-shrink-0" /><p className="text-[#0b0b0b] font-medium">{item}</p></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section - Original UI with animations */}
+        <section id="faq" className={faqStyles.faqSection}>
+          <div id="faq-header" className={faqStyles.header}>
+            <h2>Job Application Automation FAQs</h2>
+            <p>We get it, job application automation can sound complex. Here's everything explained, plain and simple.</p>
+          </div>
+
+          <div className={faqStyles.faqContainer}>
+            {jobAutomationFAQs.map((faq, index) => (
+              <div key={index} className={`${faqStyles.faqItem} ${activeFaqIndex === index ? faqStyles.active : ""}`}>
+                <button className={faqStyles.faqQuestion} onClick={() => handleFaqToggle(index)}>
+                  <span>{faq.question}</span>
+                  <span className={faqStyles.icon}>{activeFaqIndex === index ? <FaTimes /> : <FaPlus />}</span>
+                </button>
+                {activeFaqIndex === index && (
+                  <div className={faqStyles.faqAnswer}>
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        {/* <section className="py-24 bg-[#fff6f4]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white rounded-3xl p-12 md:p-16 border border-[#ffd7c4] shadow-lg">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0b0b0b] mb-4">Ready to Automate Your Job Search?</h2>
@@ -405,6 +451,6 @@ export default function JobApplicationAutomationPage() {
         </div>
       </section> */}
 
-    </main><Footer /></>
+      </main><Footer /></>
   );
 }
