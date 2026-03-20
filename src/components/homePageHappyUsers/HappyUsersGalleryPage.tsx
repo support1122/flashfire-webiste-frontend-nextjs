@@ -277,14 +277,17 @@ export default function HappyUsersGalleryPage() {
                 <div className="absolute bottom-2 left-2 right-2 h-[5.5rem] bg-black border border-[#ff4c00] text-white text-left py-3 px-4 flex items-center z-20">
                   <div className="flex items-center gap-3 w-full h-full">
                     <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
-                      <CachedTestimonialImage
+                      <Image
                         src={(video as any).smallProfileImage || video.profileImage}
                         alt={video.name}
                         width={40}
                         height={40}
                         className="w-full h-full object-cover rounded-full"
-                        priority
-                        sizes="40px"
+                        unoptimized
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
                       />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-center">
