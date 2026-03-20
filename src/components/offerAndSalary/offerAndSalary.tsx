@@ -74,7 +74,7 @@ export default function SalaryNegotiationUI() {
         <div className="bg-[rgba(251,240,235,1)] text-slate-900 pt-[120px] md:pt-[100px] overflow-x-hidden">
 
             {/* ====== HERO SECTION ====== */}
-            <section className="relative py-10 md:py-28 bg-[rgba(251,240,235,1)]">
+            <section className="relative pt-10 pb-20 md:pt-16 md:pb-24 bg-[rgba(251,240,235,1)]">
                 {/* Subtle background pattern */}
                 <div className="absolute inset-0 opacity-30">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
@@ -108,7 +108,7 @@ export default function SalaryNegotiationUI() {
                             Analyze My Offer
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
-                       
+                      
                     </div>
                 </div>
             </section>
