@@ -61,7 +61,7 @@ export const blogPosts = [
           <li>To write a solid resume with no job experience, replace work experience with internships, tasks, volunteering, or applicable coursework.</li>
         </ul>
 
-        <h3 class="text-xl font-semibold texhttps://res.cloudinary.com/drit9nkha/image/upload/v1752811844/image_1_exsbfq.webpt-gray-800 mt-6 mb-2">4. Educational Information</h3>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Educational Information</h3>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
           <li>Please provide your degree, the name of the university, its location, your graduation year, and any key achievements.</li>
         </ul>

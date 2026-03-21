@@ -731,7 +731,6 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
-import { ClockIcon } from "lucide-react";
 
 // Isolated timer component — re-renders every second WITHOUT causing parent to re-render
 const PricingTimer = memo(function PricingTimer({ onNavigate }: { onNavigate: () => void }) {
@@ -826,6 +825,13 @@ export default function NavbarClient({ links, ctas }: Props) {
       setIsFeatureOpen(false);
     }, 400); // slightly longer delay so users can move into the dropdown
   };
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  const [slotsRemaining, setSlotsRemaining] = useState(5);
   const pathname = usePathname();
   // Ensure pathname is always a string to prevent hydration mismatches
   const safePathname = pathname || (typeof window !== 'undefined' ? window.location.pathname : '') || '';
@@ -978,11 +984,67 @@ export default function NavbarClient({ links, ctas }: Props) {
   useEffect(() => {
     setMounted(true);
   }, []);
-  // timer for 10days 
-
 
   const handleNavigateToPricing = useCallback(() => router.push(getHref('/pricing')), [router, getHref]);
 
+  // Countdown timer - Runs from 1st of month to end of month (30th or 31st)
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window === "undefined") return;
+
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth();
+
+      // Get the first day of the current month
+      const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+
+      // Get the last day of the current month (day 0 of next month gives us the last day of current month)
+      const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+      lastDayOfMonth.setHours(23, 59, 59, 999); // Set to end of day
+
+      // Calculate slot count based on current date
+      const currentDay = now.getDate();
+      let slots = 5;
+      if (currentDay >= 1 && currentDay <= 10) {
+        slots = 5;
+      } else if (currentDay >= 11 && currentDay <= 20) {
+        slots = 4;
+      } else {
+        slots = 3;
+      }
+      setSlotsRemaining(slots);
+
+      const current = now.getTime();
+      const endDate = lastDayOfMonth.getTime();
+      const difference = endDate - current;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor(
+          (difference % (1000 * 60 * 60)) / (1000 * 60),
+        );
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setSlotsRemaining(0);
+      }
+    };
+
+    // Calculate immediately
+    calculateTimeLeft();
+
+    // Update every second
+    const interval = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const openCalendly = (e?: React.MouseEvent<HTMLButtonElement>) => {
     // Prevent any default scroll behavior
@@ -1138,7 +1200,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   return (
     <>
 
-      {/* Sticky Container for Navbar and Banner */}
+      {/* Sticky Container for Navbar */}
       <div className="sticky top-0 left-0 right-0 z-50">
         {/* for pricing offer - upper Navbar */}
         {!isBlogsPage && (
