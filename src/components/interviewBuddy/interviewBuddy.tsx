@@ -25,7 +25,7 @@ export default function InterviewBuddy() {
             window.history.pushState({}, "", normalized);
           };
     return (
-        <div className="w-full bg-white  pt-[120px] md:pt-[100px]">
+        <div className="w-full bg-white  ">
 
             {/* ================= HERO SECTION ================= */}
             <section className="relative overflow-hidden">
