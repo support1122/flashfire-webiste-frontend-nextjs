@@ -425,7 +425,7 @@ export default function CareerAdvisor() {
 
       {/* Trust Line */}
       <p className="mt-6 text-sm text-gray-600">
-        Trusted by 5,000+ job seekers
+        Trusted by 560+ job seekers
       </p>
     </div>
   </div>
