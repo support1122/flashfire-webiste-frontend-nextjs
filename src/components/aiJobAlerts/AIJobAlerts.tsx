@@ -1,7 +1,34 @@
 "use client";
-import { Briefcase, Sparkles, ArrowRight, BellRing, BarChart3, Send, UserPlus, BrainCircuit, UserCircle, Layers, Cpu, SendHorizonal, ChevronRight, Target, User, Brain, Zap, CheckCircle, Clock, Filter, Mail, Smartphone, Bell, TrendingUp, AlertCircle, FileText, Search, Settings, Globe, Shield, X, Check, Award } from "lucide-react";
+import {
+  Sparkles, ArrowRight, CheckCircle, X, Check, Zap, Target, Clock, Filter, BellRing, Mail, Award
+} from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+export function useInView(options = {}) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1, ...options }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [options]);
+
+  return { ref, isVisible };
+}
 
 const updateCtaUrl = (basePath: string, label: string) => {
   if (typeof window === "undefined") return;
@@ -17,196 +44,210 @@ export default function AIJobAlertsPage() {
   const ctaLabel = "Get Started";
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
+  // Scroll animation refs
+  const problem = useInView();
+  const benefits = useInView();
+  const howItWorks = useInView();
+  const features = useInView();
+  const comparison = useInView();
+  const whoCanUse = useInView();
+  const faq = useInView();
+
   return (
-    <div className="bg-[#fff7f2] text-slate-900 min-h-screen">
+    <div className="bg-[#fff7f2] text-slate-900 min-h-screen font-sans">
       <main className="mt-0">
-        {/* Hero */}
-        <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-[90vh] flex items-center relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full py-16 md:py-24">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Compact Hero - Fits in 90% viewport */}
+        <section className="min-h-[90vh] flex items-center bg-gradient-to-br from-[#fff0e6] via-[#fff7f2] to-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-16">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-            {/* LEFT */}
-              <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-600 font-semibold text-sm">
-                <Sparkles size={16} />
+              {/* LEFT - Compact Content */}
+              <div className="space-y-6 max-w-xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#ff4c00]/20 text-[#ff4c00] font-semibold text-sm">
+                  <Sparkles size={14} />
                   AI Job Alerts & Smart Job Notification App
-              </div>
-
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">
-                  Stop refreshing job boards and missing opportunities.
-              </h1>
-
-                <div className="space-y-4">
-                  <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
-                    With our AI job alerts, you receive instant job alerts the moment relevant roles are posted — allowing you to apply before most candidates even see the listing.
-                  </p>
                 </div>
 
-                <div className="space-y-3 pt-2">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-slate-900 tracking-tight">
+                  Stop refreshing job boards and{" "}
+                  <span className="text-[#ff4c00]">missing opportunities</span>
+                </h1>
+
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  With our AI job alerts, you receive instant job alerts the moment relevant roles are posted — allowing you to apply before most candidates even see the listing.
+                </p>
+
+                <div className="grid grid-cols-2 gap-3">
                   {[
                     "Discover jobs faster",
                     "Apply earlier than competitors",
                     "Eliminate irrelevant alerts",
                     "Reduce job search stress",
                   ].map((text) => (
-                    <div key={text} className="flex items-center gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
-                        <CheckCircle className="h-4 w-4 text-[#ff4c00]" />
+                    <div key={text} className="flex items-center gap-2">
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
+                        <CheckCircle className="h-3 w-3 text-[#ff4c00]" />
                       </div>
-                      <span className="text-base md:text-lg text-slate-700 font-medium">{text}</span>
+                      <span className="text-sm text-slate-700 font-medium">{text}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-4">
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <button
                     type="button"
                     onClick={() => updateCtaUrl("/ai-job-alerts", ctaLabel)}
-                    className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-10 py-4 text-base md:text-lg font-semibold text-white hover:bg-[#e24400] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#ff4c00]/25 hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-8 py-3.5 text-base font-semibold text-white hover:bg-[#e04400] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#ff4c00]/25 hover:-translate-y-0.5"
                   >
                     {ctaLabel}
                     <ArrowRight size={18} className="ml-2" />
-              </button>
-                </div>
-            </div>
+                  </button>
 
-            {/* RIGHT – UNIQUE VISUAL */}
-            <div className="relative">
-                <div className="rounded-3xl border-2 border-slate-200/50 bg-white p-6 md:p-8 shadow-xl backdrop-blur-sm">
-                  <div className="flex items-center justify-between mb-6">
-                    <p className="text-sm font-bold text-slate-900 uppercase tracking-wide">
-                      Live Job Alerts
-                    </p>
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                 </div>
+              </div>
 
-                  <div className="space-y-4">
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] shadow-sm">
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="text-sm font-bold text-slate-800">Frontend Engineer — React</p>
-                        <span className="text-xs text-green-600 font-semibold">NEW</span>
+              {/* RIGHT - Compact Visual */}
+              <div className="relative lg:pl-8">
+                <div className="relative rounded-2xl border border-slate-200/60 bg-white p-6 shadow-xl">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center">
+                        <BellRing className="w-4 h-4 text-[#ff4c00]" />
                       </div>
-                    <div className="text-sm text-orange-600 font-semibold">
-                      Match Score: 94%
+                      <div>
+                        <p className="text-xs font-bold text-slate-900 uppercase tracking-wide">Live Job Alerts</p>
+                      </div>
                     </div>
-                      <div className="text-xs text-slate-600 mt-2">Posted 2 minutes ago</div>
+                    <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                      Live
+                    </div>
                   </div>
 
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] shadow-sm">
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="text-sm font-bold text-slate-800">Software Intern — Remote</p>
-                        <span className="text-xs text-green-600 font-semibold">NEW</span>
+                  <div className="space-y-3">
+                    {[
+                      { role: "Frontend Engineer — React", score: "94%", time: "2m ago" },
+                      { role: "Software Intern — Remote", score: "89%", time: "5m ago" },
+                      { role: "Product Manager — AI Team", score: "96%", time: "12m ago" },
+                    ].map((job, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl bg-gradient-to-br from-[#fff7f2] to-white border border-[#ffd6c2]"
+                      >
+                        <div className="flex items-center justify-between mb-1">
+                          <p className="text-sm font-bold text-slate-800">{job.role}</p>
+                          <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">NEW</span>
+                        </div>
+                        <div className="flex items-center justify-between mt-2">
+                          <span className="text-sm font-bold text-[#ff4c00]">Match: {job.score}</span>
+                          <span className="text-xs text-slate-500">{job.time}</span>
+                        </div>
                       </div>
-                    <div className="text-sm text-orange-600 font-semibold">
-                      Match Score: 89%
+                    ))}
+                  </div>
+
+                  <div className="mt-4 pt-4 border-t border-slate-100 flex justify-between text-center">
+                    <div>
+                      <p className="text-xl font-bold text-slate-900">2.4k</p>
+                      <p className="text-xs text-slate-500">Jobs Today</p>
                     </div>
-                      <div className="text-xs text-slate-600 mt-2">Posted 5 minutes ago</div>
+                    <div>
+                      <p className="text-xl font-bold text-[#ff4c00]">98%</p>
+                      <p className="text-xs text-slate-500">Match Rate</p>
+                    </div>
+                    <div>
+                      <p className="text-xl font-bold text-slate-900">&lt;3s</p>
+                      <p className="text-xs text-slate-500">Alert Speed</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            </div>
           </div>
         </section>
 
-
-        {/* Why Job Seekers Struggle */}
-        <section className="bg-white py-24">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
+        {/* Problem Section - Scroll Triggered */}
+        <section ref={problem.ref} className="bg-white py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${problem.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
                 Why Job Seekers Struggle with <span className="text-[#ff4c00]">Traditional Job Alerts</span>
-            </h2>
-              <p className="text-lg text-slate-700 mt-4">
+              </h2>
+              <p className="text-lg text-slate-600 mt-4">
                 Most job alert systems are slow, generic, and overloaded with irrelevant listings.
-                </p>
-              </div>
-
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-slate-700 mb-6">
-                This leads to:
               </p>
-              <div className="grid md:grid-cols-2 gap-4 mb-8">
-                {[
-                  "Delayed notifications",
-                  "Spam job emails",
-                  "Missed high-fit roles",
-                  "Endless filtering",
-                  "Application burnout",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 p-4 rounded-lg bg-[#fff7f2] border border-[#ffd6c2]">
-                    <X className="h-5 w-5 text-red-500 flex-shrink-0" />
-                    <span className="text-base text-slate-700 font-medium">{item}</span>
-                  </div>
-                ))}
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8 items-start max-w-5xl mx-auto">
+              <div className={`space-y-4 transition-all duration-700 delay-100 ${problem.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <p className="text-lg text-slate-700 font-medium">This leads to:</p>
+                <div className="grid gap-3">
+                  {[
+                    "Delayed notifications",
+                    "Spam job emails",
+                    "Missed high-fit roles",
+                    "Endless filtering",
+                    "Application burnout",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3 p-3 rounded-lg bg-red-50/50 border border-red-100">
+                      <X className="h-5 w-5 text-red-500 flex-shrink-0" />
+                      <span className="text-slate-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <div className="bg-gradient-to-r from-orange-50 to-[#fff7f2] border-l-4 border-[#ff4c00] p-6 rounded-xl mb-6">
-                <p className="text-lg font-semibold text-slate-900 mb-3">
-                  Tired of refreshing LinkedIn every hour?
-                </p>
-                <p className="text-base text-slate-700 mb-3">
-                  Frustrated to see &quot;500+ applicants&quot; have already applied?
-                </p>
-                <p className="text-base text-slate-700">
-                  By the time traditional alerts arrive, the opportunity may already be saturated.
-                </p>
-              </div>
+              <div className={`space-y-4 transition-all duration-700 delay-200 ${problem.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="bg-gradient-to-br from-orange-50 to-[#fff7f2] border-l-4 border-[#ff4c00] p-6 rounded-xl">
+                  <p className="text-lg font-semibold text-slate-900 mb-2">
+                    Tired of refreshing LinkedIn every hour?
+                  </p>
+                  <p className="text-slate-700 mb-2">
+                    Frustrated to see "500+ applicants" have already applied?
+                  </p>
+                  <p className="text-slate-600 text-sm">
+                    By the time traditional alerts arrive, the opportunity may already be saturated.
+                  </p>
+                </div>
 
-              <div className="bg-white border-2 border-[#ff4c00] rounded-xl p-6">
-                <p className="text-lg font-bold text-slate-900">
-                  Our AI job alerts platform solves this using real-time job updates and intelligent filtering.
-                </p>
+                <div className="bg-slate-900 rounded-xl p-6 text-white">
+                  <p className="font-bold mb-1">The Solution</p>
+                  <p className="text-slate-300 text-sm">
+                    Our AI job alerts platform solves this using real-time job updates and intelligent filtering.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Key Benefits */}
-        <section className="bg-white py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
+        {/* Benefits Section - Scroll Triggered */}
+        <section ref={benefits.ref} className="bg-[#fff7f2] py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${benefits.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
                 Key Benefits <span className="text-[#ff4c00]">at a Glance</span>
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                {
-                  title: "Apply Before the Crowd",
-                  desc: "Receive opportunities within seconds.",
-                },
-                {
-                  title: "Never Miss Relevant Jobs",
-                  desc: "Precision-based matching engine.",
-                },
-                {
-                  title: "Eliminate Irrelevant Listings",
-                  desc: "AI-driven filtering logic.",
-                },
-                {
-                  title: "Reduce Weekly Job Search Time",
-                  desc: "Automation replaces manual browsing.",
-                },
-                {
-                  title: "Avoid Application Fatigue",
-                  desc: "Apply only to high-fit roles.",
-                },
-                {
-                  title: "Smarter Career Discovery",
-                  desc: "Powered by AI-powered career alerts.",
-                },
+                { title: "Apply Before the Crowd", desc: "Receive opportunities within seconds." },
+                { title: "Never Miss Relevant Jobs", desc: "Precision-based matching engine." },
+                { title: "Eliminate Irrelevant Listings", desc: "AI-driven filtering logic." },
+                { title: "Reduce Weekly Job Search Time", desc: "Automation replaces manual browsing." },
+                { title: "Avoid Application Fatigue", desc: "Apply only to high-fit roles." },
+                { title: "Smarter Career Discovery", desc: "Powered by AI-powered career alerts." },
               ].map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-slate-200 rounded-lg p-5 hover:border-[#ff4c00] transition-colors"
+                  className={`bg-white rounded-xl p-6 border border-slate-200 hover:border-[#ff4c00]/30 hover:shadow-lg transition-all duration-500 hover:-translate-y-1 ${benefits.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <h3 className="text-base font-semibold text-slate-900 mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 hover:text-[#ff4c00] transition-colors">
                     {benefit.title}
-                </h3>
-                  <p className="text-sm text-slate-600">
+                  </h3>
+                  <p className="text-slate-600 text-sm">
                     {benefit.desc}
                   </p>
                 </div>
@@ -215,55 +256,36 @@ export default function AIJobAlertsPage() {
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="bg-[#fff7f2] py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
+        {/* How It Works - Scroll Triggered */}
+        <section ref={howItWorks.ref} className="bg-white py-20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${howItWorks.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 How Our <span className="text-[#ff4c00]">AI Job Alerts System Works</span>
               </h2>
-              <p className="text-sm text-slate-600">
+              <p className="text-slate-600">
                 Setting up your alerts takes less than 2 minutes.
-                </p>
-              </div>
+              </p>
+            </div>
 
             <div className="space-y-4">
               {[
-                {
-                  step: "1",
-                  title: "Create Your Career Profile",
-                  desc: "Enter your skills, experience, preferred roles, and location preferences.",
-                },
-                {
-                  step: "2",
-                  title: "AI Analyzes Your Profile",
-                  desc: "Our engine uses intelligent AI job matching to understand your expertise, career direction, and role suitability.",
-                },
-                {
-                  step: "3",
-                  title: "Smart Matching Algorithm Filters Jobs",
-                  desc: "Applies skills-based filtering, experience alignment, location relevance, and context-aware matching.",
-                },
-                {
-                  step: "4",
-                  title: "Receive Instant Job Alerts",
-                  desc: "Jobs are delivered via app notifications, email alerts, and SMS alerts (optional) within seconds.",
-                },
-                {
-                  step: "5",
-                  title: "Apply Immediately",
-                  desc: "Apply before listings get crowded, increase interview probability, and reduce missed opportunities.",
-                },
-              ].map((item) => (
+                { step: "1", title: "Create Your Career Profile", desc: "Enter your skills, experience, preferred roles, and location preferences." },
+                { step: "2", title: "AI Analyzes Your Profile", desc: "Our engine uses intelligent AI job matching to understand your expertise, career direction, and role suitability." },
+                { step: "3", title: "Smart Matching Algorithm Filters Jobs", desc: "Applies skills-based filtering, experience alignment, location relevance, and context-aware matching." },
+                { step: "4", title: "Receive Instant Job Alerts", desc: "Jobs are delivered via app notifications, email alerts, and SMS alerts (optional) within seconds." },
+                { step: "5", title: "Apply Immediately", desc: "Apply before listings get crowded, increase interview probability, and reduce missed opportunities." },
+              ].map((item, idx) => (
                 <div
                   key={item.step}
-                  className="flex items-start gap-4 bg-white border border-slate-200 rounded-lg p-5"
+                  className={`flex items-start gap-4 bg-white border border-slate-200 rounded-xl p-5 hover:border-[#ff4c00]/30 transition-all duration-500 ${howItWorks.isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+                  style={{ transitionDelay: `${idx * 150}ms` }}
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-md bg-[#ff4c00] text-white flex items-center justify-center text-sm font-bold">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#ff4c00] text-white flex items-center justify-center text-sm font-bold">
                     {item.step}
                   </div>
-                  <div className="flex-grow">
-                    <h3 className="text-base font-semibold text-slate-900 mb-1">
+                  <div>
+                    <h3 className="text-base font-bold text-slate-900 mb-1">
                       {item.title}
                     </h3>
                     <p className="text-sm text-slate-600">
@@ -276,201 +298,57 @@ export default function AIJobAlertsPage() {
           </div>
         </section>
 
-        {/* Continuous Real-Time Job Tracking */}
-        <section className="bg-white py-12">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="bg-[#fff7f2] border border-[#ff4c00] rounded-lg p-6">
-              <h3 className="text-lg font-bold text-slate-900 mb-4">
-                Continuous Real-Time Job Tracking
-              </h3>
-              <p className="text-sm text-slate-600 mb-4">
-                Our platform scans listings using:
-              </p>
-              <div className="grid md:grid-cols-3 gap-3">
-                {[
-                  "Real-time job updates",
-                  "Automated job alerts",
-                  "Cross-platform monitoring",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-slate-700">
-                    <div className="w-1 h-1 rounded-full bg-[#ff4c00]"></div>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Flexible Notification Controls & Continuous AI Learning */}
-        <section className="bg-[#fff7f2] py-12">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-white border border-slate-200 rounded-lg p-5">
-                <h3 className="text-base font-semibold text-slate-900 mb-3">
-                  Flexible Notification Controls
-                </h3>
-                <p className="text-sm text-slate-600 mb-3">Choose your preference:</p>
-                <ul className="space-y-2">
-                  {[
-                    "Daily job notifications",
-                    "Real-time alerts",
-                    "Hybrid mode",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
-                      <div className="w-1 h-1 rounded-full bg-[#ff4c00]"></div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-5">
-                <h3 className="text-base font-semibold text-slate-900 mb-3">
-                  Continuous AI Learning
-                </h3>
-                <ul className="space-y-2">
-                  {[
-                    "Learns preferences",
-                    "Refines recommendations",
-                    "Improves relevance",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-slate-600">
-                      <div className="w-1 h-1 rounded-full bg-[#ff4c00]"></div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Our AI Job Alerts Deliver Better Results */}
-        <section className="bg-white py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
-                Why Our <span className="text-[#ff4c00]">AI Job Alerts Deliver Better Results</span>
-              </h2>
-              <p className="text-sm text-slate-600">
-                Traditional alerts send listings. We deliver a timely competitive advantage.
-      </p>
-    </div>
-
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              {[
-                "Understand real job relevance",
-                "Prioritize speed & accuracy",
-                "Eliminate manual filtering",
-                "Reduce wasted applications",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 p-4 rounded-lg bg-white border border-slate-200">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
-                  <span className="text-sm text-slate-700">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-[#ff4c00] rounded-lg p-6 text-white">
-              <h3 className="text-lg font-bold mb-4">Users typically experience:</h3>
-              <div className="grid md:grid-cols-2 gap-3">
-                {[
-                  "Faster job discovery",
-                  "Better job relevance",
-                  "Reduced job search time",
-                  "Higher early-application success",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
-                    <span className="text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Key Features Section */}
-        <section className="bg-[#fff7f2] py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
+        {/* Features Section - Scroll Triggered */}
+        <section ref={features.ref} className="bg-[#fff7f2] py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${features.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 Key Features of Our <span className="text-[#ff4c00]">AI-Powered Job Notification App</span>
               </h2>
-        </div>
+            </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                {
-                  title: "Real-Time AI Job Alerts",
-                  desc: "Receive jobs the moment they go live.",
-                },
-                {
-                  title: "Smart Job Matching Algorithm",
-                  desc: "Precision-based filtering engine.",
-                },
-                {
-                  title: "Instant Job Alerts Within Seconds",
-                  desc: "Eliminate traditional delays.",
-                },
-                {
-                  title: "Personalized Job Recommendations",
-                  desc: "Driven by intelligent AI models.",
-                },
-                {
-                  title: "Advanced Filtering Controls",
-                  desc: "Refine alerts by location, salary, remote roles, and industry.",
-                },
-                {
-                  title: "Multi-Channel Notification Support",
-                  desc: "Push notifications, email alerts, and SMS alerts.",
-                },
-                {
-                  title: "Save Jobs & Track Applications",
-                  desc: "Stay organized effortlessly.",
-                },
-                {
-                  title: "One-Click Apply Integration",
-                  desc: "Apply faster with minimal friction.",
-                },
-                {
-                  title: "Dashboard to Manage Alerts",
-                  desc: "Full control over preferences.",
-                },
+                "Real-Time AI Job Alerts",
+                "Smart Job Matching Algorithm",
+                "Instant Job Alerts Within Seconds",
+                "Personalized Job Recommendations",
+                "Advanced Filtering Controls",
+                "Multi-Channel Notification Support",
+                "Save Jobs & Track Applications",
+                "One-Click Apply Integration",
+                "Dashboard to Manage Alerts",
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-white border border-slate-200 rounded-lg p-4 hover:border-[#ff4c00] transition-colors"
+                  className={`bg-white border border-slate-200 rounded-lg p-5 hover:border-[#ff4c00]/30 hover:shadow-md transition-all duration-500 ${features.isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+                  style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <h3 className="text-base font-semibold text-slate-900 mb-2">
-                    {feature.title}
-          </h3>
-                  <p className="text-sm text-slate-600">
-                    {feature.desc}
-          </p>
-        </div>
+                  <h3 className="text-base font-bold text-slate-900 mb-1 hover:text-[#ff4c00] transition-colors">
+                    {feature}
+                  </h3>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Comparison Table */}
-        <section className="bg-white py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
+        {/* Comparison Table - Scroll Triggered */}
+        <section ref={comparison.ref} className="bg-white py-20">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${comparison.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 AI Job Alerts vs <span className="text-[#ff4c00]">Traditional Job Alerts</span>
               </h2>
-      </div>
+            </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {/* Traditional Job Alerts Column */}
-              <div className="bg-white border border-red-200 rounded-lg p-5">
-                <h3 className="text-lg font-semibold text-slate-900 mb-4 pb-3 border-b border-red-100">
+            <div className={`grid md:grid-cols-2 gap-6 transition-all duration-700 delay-200 ${comparison.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              {/* Traditional */}
+              <div className="bg-white rounded-2xl p-6 border-2 border-red-100">
+                <h3 className="text-lg font-bold text-slate-900 mb-4 pb-3 border-b border-red-100">
                   Traditional Job Alerts
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {[
                     "Generic email blasts",
                     "Delayed notifications",
@@ -479,20 +357,23 @@ export default function AIJobAlertsPage() {
                     "High irrelevant listings",
                     "Static filters",
                   ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-slate-600">
-                      <X className="h-4 w-4 text-red-500 flex-shrink-0 mt-0.5" />
+                    <li key={index} className="flex items-center gap-2 text-sm text-slate-600">
+                      <X className="h-4 w-4 text-red-500 flex-shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* AI Job Alerts Column */}
-              <div className="bg-white border-2 border-[#ff4c00] rounded-lg p-5">
-                <h3 className="text-lg font-semibold text-slate-900 mb-4 pb-3 border-b border-[#ff4c00]/20">
+              {/* AI Job Alerts */}
+              <div className="bg-slate-900 rounded-2xl p-6 border-2 border-[#ff4c00] relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[#ff4c00] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                  RECOMMENDED
+                </div>
+                <h3 className="text-lg font-bold text-white mb-4 pb-3 border-b border-white/20">
                   AI Job Alerts Platform
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {[
                     "Personalized job recommendations",
                     "Instant job alerts",
@@ -501,33 +382,51 @@ export default function AIJobAlertsPage() {
                     "Precision-based targeting",
                     "Adaptive AI matching",
                   ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-slate-700">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00] mt-1.5"></div>
-                      <span className="font-medium">{item}</span>
+                    <li key={index} className="flex items-center gap-2 text-sm text-white/90">
+                      <Check className="h-4 w-4 text-[#ff4c00] flex-shrink-0" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-        </div>
-
-            <div className="mt-8 text-center">
-              <p className="text-base font-semibold text-slate-900">
-                Modern job search requires intelligent automation.
-          </p>
-        </div>
-      </div>
+            </div>
+          </div>
         </section>
 
-        {/* Who Can Use This */}
-        <section className="bg-white py-16">
-          <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">
+        {/* Stats Section - Simple */}
+        <section className="bg-[#ff4c00] py-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+              <div>
+                <p className="text-3xl md:text-4xl font-extrabold mb-1">50k+</p>
+                <p className="text-white/80 text-sm">Active Users</p>
+              </div>
+              <div>
+                <p className="text-3xl md:text-4xl font-extrabold mb-1">1M+</p>
+                <p className="text-white/80 text-sm">Jobs Matched</p>
+              </div>
+              <div>
+                <p className="text-3xl md:text-4xl font-extrabold mb-1">94%</p>
+                <p className="text-white/80 text-sm">Success Rate</p>
+              </div>
+              <div>
+                <p className="text-3xl md:text-4xl font-extrabold mb-1">&lt;3s</p>
+                <p className="text-white/80 text-sm">Avg. Alert Time</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Who Can Use - Scroll Triggered */}
+        <section ref={whoCanUse.ref} className="bg-white py-20">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`text-center max-w-2xl mx-auto mb-12 transition-all duration-700 ${whoCanUse.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
                 Who Can Use This <span className="text-[#ff4c00]">Job Notification App?</span>
               </h2>
-        </div>
+            </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid md:grid-cols-3 gap-3">
               {[
                 "Fresh graduates",
                 "Entry-level professionals",
@@ -538,10 +437,11 @@ export default function AIJobAlertsPage() {
                 "Executives & senior professionals",
                 "International applicants",
                 "Tech & non-tech professionals",
-              ].map((item) => (
+              ].map((item, idx) => (
                 <div
                   key={item}
-                  className="flex items-center gap-2 p-3 rounded-lg bg-white border border-slate-200"
+                  className={`flex items-center gap-2 p-3 rounded-lg bg-white border border-slate-200 hover:border-[#ff4c00]/30 transition-all duration-500 ${whoCanUse.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                  style={{ transitionDelay: `${idx * 50}ms` }}
                 >
                   <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00]"></div>
                   <span className="text-sm text-slate-700">{item}</span>
@@ -551,103 +451,78 @@ export default function AIJobAlertsPage() {
           </div>
         </section>
 
+        {/* FAQ Section - Scroll Triggered */}
+        <section ref={faq.ref} className="bg-[#f9e8e0] py-20">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className={`text-center mb-10 transition-all duration-700 ${faq.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+                Frequently Asked Questions
+              </h2>
+            </div>
+
+            <div className={`bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-700 delay-200 ${faq.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              {[
+                { q: "What are AI job alerts?", a: "AI job alerts use intelligent algorithms to notify you about relevant job openings instantly." },
+                { q: "How does a job notification app work?", a: "A job notification app analyzes your skills and preferences to deliver targeted alerts." },
+                { q: "Are instant job alerts truly real-time?", a: "Yes. Our instant job alerts trigger immediately after job postings go live." },
+                { q: "How accurate are AI job recommendations?", a: "Accuracy improves continuously using AI job matching." },
+                { q: "Can I customize my alerts?", a: "Absolutely. Filter by location, salary, remote jobs, and more." },
+                { q: "Is this AI job alerts app free to use?", a: "Yes. Flexible access options available." },
+                { q: "How quickly will I receive notifications?", a: "Real-time alerts and daily job notifications are available." },
+                { q: "Is my data secure?", a: "Yes. Privacy and security are core priorities." },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className={`border-b border-slate-100 last:border-b-0 transition-colors ${activeFaqIndex === i ? "bg-[#fff7f3]" : "hover:bg-slate-50"}`}
+                >
+                  <button
+                    className="w-full flex items-center justify-between p-5 text-left"
+                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
+                  >
+                    <span className={`font-semibold text-base pr-4 ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      {item.q}
+                    </span>
+                    <span className="text-[#ff4c00] shrink-0">
+                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
+                    </span>
+                  </button>
+                  {activeFaqIndex === i && (
+                    <div className="px-5 pb-5 text-slate-600 text-sm animate-fadeIn">
+                      <p>{item.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Final CTA */}
-        <section className="bg-gradient-to-br from-[#ff4c00] via-[#ff5a1a] to-[#ff7a45] py-20">
-          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+        <section className="bg-gradient-to-br from-[#ff4c00] via-[#ff5a1a] to-[#ff7a45] py-16">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
               Ready to Get Instant Job Alerts?
             </h2>
-            <p className="text-base text-white/90 mb-8 max-w-xl mx-auto">
+            <p className="text-lg text-white/90 mb-8">
               Stop missing opportunities. Start applying before the crowd.
             </p>
             <button
               type="button"
               onClick={() => updateCtaUrl("/ai-job-alerts", ctaLabel)}
-              className="inline-flex items-center justify-center rounded-lg bg-white text-[#ff4c00] px-10 py-4 text-base font-semibold hover:bg-gray-50 transition-colors shadow-lg mb-6"
+              className="inline-flex items-center justify-center rounded-xl bg-white text-[#ff4c00] px-10 py-4 text-base font-bold hover:bg-gray-50 transition-all duration-300 shadow-lg mb-4"
             >
               {ctaLabel}
               <ArrowRight size={18} className="ml-2" />
             </button>
             <p className="text-sm text-white/80">
               Instant setup • No credit card required • Free to start
-          </p>
-        </div>
+            </p>
+          </div>
         </section>
-
-        {/* FAQ SECTION */}
-        <section className="bg-[#f9e8e0] py-24">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
-                FAQs
-              </h2>
-      </div>
-
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-              {[
-                {
-                  q: "What are AI job alerts?",
-                  a: "AI job alerts use intelligent algorithms to notify you about relevant job openings instantly.",
-                },
-                {
-                  q: "How does a job notification app work?",
-                  a: "A job notification app analyzes your skills and preferences to deliver targeted alerts.",
-                },
-                {
-                  q: "Are instant job alerts truly real-time?",
-                  a: "Yes. Our instant job alerts trigger immediately after job postings go live.",
-                },
-                {
-                  q: "How accurate are AI job recommendations?",
-                  a: "Accuracy improves continuously using AI job matching.",
-                },
-                {
-                  q: "Can I customize my alerts?",
-                  a: "Absolutely. Filter by location, salary, remote jobs, and more.",
-                },
-                {
-                  q: "Is this AI job alerts app free to use?",
-                  a: "Yes. Flexible access options available.",
-                },
-                {
-                  q: "How quickly will I receive notifications?",
-                  a: "Real-time alerts and daily job notifications are available.",
-                },
-                {
-                  q: "Is my data secure?",
-                  a: "Yes. Privacy and security are core priorities.",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className={`border-b border-gray-200 transition-all ${
-                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
-                  }`}
-                >
-                  <button
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
-                    onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
-                  >
-                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
-                      {item.q}
-                    </span>
-                    <span className="text-[#ff4c00] shrink-0 ml-4">
-                      {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
-                    </span>
-                  </button>
-                  {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600 animate-fadeIn">
-                      <p>{item.a}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
-    </div>
-  </div>
-</section>
-
       </main>
-      <style dangerouslySetInnerHTML={{__html: `
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -665,4 +540,3 @@ export default function AIJobAlertsPage() {
     </div>
   );
 }
-
