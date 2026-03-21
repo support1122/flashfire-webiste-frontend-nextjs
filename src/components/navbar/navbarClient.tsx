@@ -732,6 +732,7 @@ import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
 import { ClockIcon } from "lucide-react";
+import { useCalendlyPrefetch } from "@/src/hooks/useCalendlyPrefetch";
 
 // Isolated timer component — re-renders every second WITHOUT causing parent to re-render
 const PricingTimer = memo(function PricingTimer({ onNavigate }: { onNavigate: () => void }) {
@@ -811,6 +812,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFeatureOpen, setIsFeatureOpen] = useState(false);
+  const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const featureCloseTimer = useRef<NodeJS.Timeout | null>(null);
   const cancelFeatureClose = () => {
@@ -825,6 +827,21 @@ export default function NavbarClient({ links, ctas }: Props) {
     featureCloseTimer.current = setTimeout(() => {
       setIsFeatureOpen(false);
     }, 400); // slightly longer delay so users can move into the dropdown
+  };
+
+  const toolsCloseTimer = useRef<NodeJS.Timeout | null>(null);
+  const cancelToolsClose = () => {
+    if (toolsCloseTimer.current) {
+      clearTimeout(toolsCloseTimer.current);
+      toolsCloseTimer.current = null;
+    }
+  };
+
+  const scheduleToolsClose = () => {
+    cancelToolsClose();
+    toolsCloseTimer.current = setTimeout(() => {
+      setIsToolsOpen(false);
+    }, 400);
   };
   const pathname = usePathname();
   // Ensure pathname is always a string to prevent hydration mismatches
@@ -882,6 +899,18 @@ export default function NavbarClient({ links, ctas }: Props) {
     routes.forEach((r) => router.prefetch(getHref(r)));
   }, [router, getHref]);
 
+  // Prefetch tools routes on hover
+  const toolsPrefetched = useRef(false);
+  const prefetchToolsRoutes = useCallback(() => {
+    if (toolsPrefetched.current) return;
+    toolsPrefetched.current = true;
+    const routes = [
+      "/tools/ats-score-checker",
+      "/tools/resume-job-match",
+    ];
+    routes.forEach((r) => router.prefetch(getHref(r)));
+  }, [router, getHref]);
+
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
@@ -889,6 +918,7 @@ export default function NavbarClient({ links, ctas }: Props) {
       }
     },
   });
+  const { onPointerEnter: onCtaPrefetch } = useCalendlyPrefetch();
 
   // Handle section clicks - jump to section start AND update URL
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, skipNavigation = false) => {
@@ -1196,6 +1226,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                 const isExternal = isExternalHref(link.href) || link.target === "_blank";
 
                 const isFeaturesLink = link.name.toLowerCase() === "features";
+                const isToolsLink = link.name.toLowerCase() === "tools";
 
                 return (
                   <li
@@ -1205,12 +1236,20 @@ export default function NavbarClient({ links, ctas }: Props) {
                       if (isFeaturesLink) {
                         cancelFeatureClose();
                         setIsFeatureOpen(true);
+                        setIsToolsOpen(false);
                         prefetchFeatureRoutes();
+                      } else if (isToolsLink) {
+                        cancelToolsClose();
+                        setIsToolsOpen(true);
+                        setIsFeatureOpen(false);
+                        prefetchToolsRoutes();
                       }
                     }}
                     onMouseLeave={() => {
                       if (isFeaturesLink) {
                         scheduleFeatureClose();
+                      } else if (isToolsLink) {
+                        scheduleToolsClose();
                       }
                     }}
                   >
@@ -1430,6 +1469,79 @@ export default function NavbarClient({ links, ctas }: Props) {
                           </div>
                         )}
                       </>
+                    ) : isToolsLink ? (
+                      <>
+                        <button
+                          type="button"
+                          className={`${styles.navLinkText} ${styles.featureToggle}`}
+                          onClick={() => setIsToolsOpen((prev) => !prev)}
+                          suppressHydrationWarning
+                        >
+                          {link.name}
+                          <span
+                            className={`${styles.caret} ${isToolsOpen ? styles.caretOpen : ""}`}
+                          >
+                            ▾
+                          </span>
+                        </button>
+
+                        {isToolsOpen && (
+                          <div
+                            className={styles.featureDropdown}
+                            onMouseEnter={cancelToolsClose}
+                            onMouseLeave={scheduleToolsClose}
+                          >
+                            <div className={styles.featureDropdownGrid}>
+                              <Link
+                                href={getHref("/tools/ats-score-checker")}
+                                className={styles.featureDropdownItem}
+                                onClick={() => setIsToolsOpen(false)}
+                                prefetch={true}
+                              >
+                                <div className={styles.featureIcon}>
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M9 15L11 17L15 13" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                  </svg>
+                                </div>
+                                <div className={styles.featureTexts}>
+                                  <span className={styles.featureTitle}>ATS Score Checker</span>
+                                  <span className={styles.featureSub}>Check resume ATS score</span>
+                                </div>
+                              </Link>
+
+                              <Link
+                                href={getHref("/tools/resume-job-match")}
+                                className={styles.featureDropdownItem}
+                                onClick={() => setIsToolsOpen(false)}
+                                prefetch={true}
+                              >
+                                <div className={styles.featureIcon}>
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <circle cx="12" cy="12" r="6" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    <circle cx="12" cy="12" r="2" fill="#ff4c00" />
+                                  </svg>
+                                </div>
+                                <div className={styles.featureTexts}>
+                                  <span className={styles.featureTitle}>Resume Job Match</span>
+                                  <span className={styles.featureSub}>Match resume to job</span>
+                                </div>
+                              </Link>
+                            </div>
+
+                            <Link
+                              href={getHref(link.href)}
+                              className={styles.featureDropdownFooter}
+                              onClick={() => setIsToolsOpen(false)}
+                              prefetch={true}
+                            >
+                              All Tools →
+                            </Link>
+                          </div>
+                        )}
+                      </>
                     ) : isSectionLink ? (
                       <a
                         href={`#${link.href.replace('/', '')}`}
@@ -1535,6 +1647,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                 <button
                   className={styles.navPrimaryButton}
                   {...getButtonProps()}
+                  onMouseEnter={onCtaPrefetch}
+                  onFocus={onCtaPrefetch}
                   onClick={(e) => {
                     e.preventDefault();
                     trackButtonClick(ctas.primary.label, "navigation", "cta", {
@@ -1587,6 +1701,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                   const isOnSectionPage = safePathname === getHref(link.href) || safePathname === link.href || safePathname === prefix + link.href;
                   const isExternal = isExternalHref(link.href) || link.target === "_blank";
                   const isFeaturesLink = link.name.toLowerCase() === "features";
+                  const isToolsLink = link.name.toLowerCase() === "tools";
 
                   return (
                     <li key={link.href}>
@@ -1900,6 +2015,105 @@ export default function NavbarClient({ links, ctas }: Props) {
                             </div>
                           )}
                         </>
+                      ) : isToolsLink ? (
+                        <>
+                          <button
+                            type="button"
+                            className={`${styles.navMobileLink} ${styles.featureToggleMobile}`}
+                            onClick={() => setIsToolsOpen((prev) => !prev)}
+                            suppressHydrationWarning
+                          >
+                            {link.name}
+                            <span
+                              className={`${styles.caret} ${isToolsOpen ? styles.caretOpen : ""}`}
+                            >
+                              ▾
+                            </span>
+                          </button>
+
+                          {isToolsOpen && (
+                            <div className={styles.featureDropdownMobile}>
+                              <div className={styles.featureDropdownGridMobile}>
+                                <a
+                                  href={getHref("/tools/ats-score-checker")}
+                                  className={styles.featureDropdownItemMobile}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsMenuOpen(false);
+                                    setIsToolsOpen(false);
+                                    router.push(getHref("/tools/ats-score-checker"));
+                                    trackButtonClick("ATS Score Checker", "navigation", "link", {
+                                      button_location: "navbar_mobile_tools",
+                                      navigation_type: "internal_link",
+                                      destination: "/tools/ats-score-checker"
+                                    });
+                                  }}
+                                >
+                                  <div className={styles.featureIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                      <path d="M14 2V8H20" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                      <path d="M9 15L11 17L15 13" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                  </div>
+                                  <div className={styles.featureTexts}>
+                                    <span className={styles.featureTitle}>ATS Score Checker</span>
+                                    <span className={styles.featureSub}>Check resume ATS score</span>
+                                  </div>
+                                </a>
+
+                                <a
+                                  href={getHref("/tools/resume-job-match")}
+                                  className={styles.featureDropdownItemMobile}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsMenuOpen(false);
+                                    setIsToolsOpen(false);
+                                    router.push(getHref("/tools/resume-job-match"));
+                                    trackButtonClick("Resume Job Match", "navigation", "link", {
+                                      button_location: "navbar_mobile_tools",
+                                      navigation_type: "internal_link",
+                                      destination: "/tools/resume-job-match"
+                                    });
+                                  }}
+                                >
+                                  <div className={styles.featureIcon}>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <circle cx="12" cy="12" r="10" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                      <circle cx="12" cy="12" r="6" stroke="#ff4c00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                      <circle cx="12" cy="12" r="2" fill="#ff4c00" />
+                                    </svg>
+                                  </div>
+                                  <div className={styles.featureTexts}>
+                                    <span className={styles.featureTitle}>Resume Job Match</span>
+                                    <span className={styles.featureSub}>Match resume to job</span>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <button
+                                type="button"
+                                className={styles.featureDropdownFooterMobile}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  setIsMenuOpen(false);
+                                  setIsToolsOpen(false);
+                                  trackButtonClick("All Tools", "navigation", "link", {
+                                    button_location: "navbar_mobile_tools",
+                                    navigation_type: "internal_link",
+                                    destination: link.href
+                                  });
+                                  setTimeout(() => {
+                                    router.push(getHref(link.href));
+                                  }, 100);
+                                }}
+                              >
+                                All Tools →
+                              </button>
+                            </div>
+                          )}
+                        </>
                       ) : isSectionLink ? (
                         <a
                           href={`#${link.href.replace('/', '')}`}
@@ -2039,6 +2253,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                   <button
                     className={styles.navMobilePrimary}
                     {...getButtonProps()}
+                    onMouseEnter={onCtaPrefetch}
+                    onFocus={onCtaPrefetch}
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMenuOpen(false);
@@ -2115,6 +2331,8 @@ export default function NavbarClient({ links, ctas }: Props) {
               <button
                 className={styles.navMobilePrimary}
                 {...getButtonProps()}
+                onMouseEnter={onCtaPrefetch}
+                onFocus={onCtaPrefetch}
                 onClick={(e) => {
                   e.preventDefault();
                   const utmSource =

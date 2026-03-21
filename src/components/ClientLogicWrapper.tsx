@@ -24,6 +24,20 @@ function GlobalModalsContent() {
     const [isFromIndia, setIsFromIndia] = useState(false);
     const [geoLoading, setGeoLoading] = useState(true);
 
+    // Preload CalendlyModal JS chunk during idle time
+    useEffect(() => {
+        const preload = () => {
+            import("@/src/components/calendlyModal/CalendlyModal").catch(() => {});
+        };
+        if ("requestIdleCallback" in window) {
+            const id = (window as any).requestIdleCallback(preload, { timeout: 4000 });
+            return () => (window as any).cancelIdleCallback(id);
+        } else {
+            const t = setTimeout(preload, 4000);
+            return () => clearTimeout(t);
+        }
+    }, []);
+
     const [showSignupModal, setShowSignupModal] = useState(false);
     const [showCalendlyModal, setShowCalendlyModal] = useState(false);
     const [showStrategyCallCard, setShowStrategyCallCard] = useState(false);

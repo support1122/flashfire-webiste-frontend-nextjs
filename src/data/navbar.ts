@@ -3,6 +3,7 @@ import type { NavLink, NavbarCTA } from "../types/navbarData";
 export const navbarLinks: NavLink[] = [
   { name: "Home", href: "/" },
   { name: "Features", href: "/features" },
+  { name: "Tools", href: "/tools" },
   { name: "How It Works", href: "/how-flashfire-ai-job-automation-platform-works" },
   { name: "Testimonials", href: "/testimonials" },
   { name: "Pricing", href: "/pricing" },

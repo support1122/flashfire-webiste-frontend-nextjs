@@ -50,7 +50,7 @@
 /* === Center: Links (Desktop) === */
 .navLinks {
   display: flex;
-  gap: 1.8rem;
+  gap: 1.4rem;
   list-style: none;
   align-items: center;
   justify-content: center;

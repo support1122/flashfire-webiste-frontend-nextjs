@@ -129,17 +129,13 @@ export default function RootLayout({
             document.head.appendChild(link);
           `}
         </Script>
-        {/* Calendly CSS - Load asynchronously to avoid blocking render */}
-        <Script id="load-calendly-css" strategy="lazyOnload">
+        {/* Calendly CSS - Load after hydration for fast modal open */}
+        <Script id="load-calendly-css" strategy="afterInteractive">
           {`
-            if (typeof window !== 'undefined') {
-              const link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = 'https://assets.calendly.com/assets/external/widget.css';
-              link.media = 'print';
-              link.onload = function() { this.media = 'all'; };
-              document.head.appendChild(link);
-            }
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://assets.calendly.com/assets/external/widget.css';
+            document.head.appendChild(link);
           `}
         </Script>
         {/* DNS prefetch and preconnect for Calendly */}
@@ -267,10 +263,10 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Calendly Script - Load only when needed */}
+        {/* Calendly Script - Load after hydration for fast modal open */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </body>
     </html>

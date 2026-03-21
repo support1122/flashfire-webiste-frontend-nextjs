@@ -8,6 +8,7 @@ import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
 import { useRouter } from "next/navigation";
+import { useCalendlyPrefetch } from "@/src/hooks/useCalendlyPrefetch";
 const UNIVERSITY_LOGOS: Record<string, string> = {
   "Harvard University": "https://logo.clearbit.com/harvard.edu",
   "Stanford University": "https://logo.clearbit.com/stanford.edu",
@@ -39,6 +40,7 @@ export default function HeroSectionClient({ data }: Props) {
       }
     },
   });
+  const { onPointerEnter: onCtaPrefetch } = useCalendlyPrefetch();
   return (
     <section className="bg-[#f8ebe5] text-center p-8 pb-16 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
       {/* === Top Badges === */}
@@ -72,6 +74,8 @@ export default function HeroSectionClient({ data }: Props) {
       {/* === CTA Button === */}
       <button
         {...getButtonProps()}
+        onMouseEnter={onCtaPrefetch}
+        onFocus={onCtaPrefetch}
         // onClick={() => {
         //   const utmSource = typeof window !== "undefined"
         //     ? localStorage.getItem("utm_source") || "WEBSITE"
