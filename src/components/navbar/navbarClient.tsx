@@ -731,6 +731,7 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
+import { Clock } from "lucide-react";
 
 // Isolated timer component — re-renders every second WITHOUT causing parent to re-render
 const PricingTimer = memo(function PricingTimer({ onNavigate }: { onNavigate: () => void }) {
@@ -771,7 +772,7 @@ const PricingTimer = memo(function PricingTimer({ onNavigate }: { onNavigate: ()
   return (
     <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
       <div className="flex items-center gap-2 ">
-        <ClockIcon className="w-4 h-4 text-[#ff4c00]" />
+        <Clock className="w-4 h-4 text-[#ff4c00]" aria-hidden />
         <span className=" font-medium text-[1rem] text-black tracking-[0.02em] max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
           Limited-Time Special Offer
         </span>
