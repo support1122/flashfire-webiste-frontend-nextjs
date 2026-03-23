@@ -114,7 +114,7 @@ export default function InterviewBuddy() {
                                 ))}
                             </div>
 
-                            <p className="text-base text-black font-medium max-[768px]:text-sm max-[480px]:text-xs max-[480px]:text-center max-[480px]:px-2">Loved by 1000+ users</p>
+                            <p className="text-base text-black font-medium max-[768px]:text-sm max-[480px]:text-xs max-[480px]:text-center max-[480px]:px-2">Loved by 560+ users</p>
                         </div>
                     </div>
                 </div>

@@ -683,51 +683,69 @@ export default function AICopilot() {
       </section>
        {/* CTA SECTION */}
        <section className="w-full bg-white py-28">
-        <div className="max-w-[1200px] mx-auto px-6">
+  <div className="max-w-[1200px] mx-auto px-6">
+    
+    <div
+      className="
+        relative
+        rounded-[48px]
+        bg-[#f9e8e0]
+        px-8 md:px-16
+        py-16 md:py-24
+        text-center
+        shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+        overflow-hidden
+      "
+    >
+      {/* subtle background glow */}
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
 
-          <div className="
-          relative
-          rounded-[48px]
-          bg-[#f9e8e0]
-          px-10
-          py-20
-          text-center
-          shadow-sm
-        ">
-            {/* Headline */}
-            <h2 className="text-[2.6rem] md:text-[3rem] font-extrabold text-black">
-              Ready to Automate Your Job Applications?
-            </h2>
+      {/* Headline */}
+      <h2 className="text-[2.2rem] md:text-[3rem] font-extrabold text-black leading-tight max-w-3xl mx-auto">
+        Ready to Automate Your Job Applications?
+      </h2>
 
-            {/* CTA Button */}
-            <div className="mt-10 flex justify-center">
-              <button
-                type="button"
-                onClick={() => handleStartApplyingClick("cta")}
-                className="
-                inline-flex
-                items-center
-                gap-3
-                bg-[#ff4c00]
-                text-white
-                px-10
-                py-4
-                rounded-full
-                text-lg
-                font-semibold
-                shadow-[0_3px_0_black]
-                hover:scale-105
-                transition
-              "
-              >
-                Start Applying with AI
-                <ArrowRight size={20} />
-              </button>
-            </div>
-          </div>
+      {/* small supporting line (UX boost, SEO safe) */}
+      <p className="mt-4 text-gray-600 text-base md:text-lg max-w-xl mx-auto">
+        Let AI handle repetitive tasks while you focus on what truly matters.
+      </p>
 
-        </div>
-      </section>
+      {/* CTA Button */}
+      <div className="mt-10 flex justify-center">
+        <button
+          type="button"
+          onClick={() => handleStartApplyingClick("cta")}
+          className="
+            group
+            inline-flex
+            items-center
+            gap-3
+            bg-[#ff4c00]
+            text-white
+            px-10
+            py-4
+            rounded-full
+            text-lg
+            font-semibold
+            shadow-[0_4px_0_black]
+            hover:shadow-[0_6px_0_black]
+            hover:-translate-y-[2px]
+            active:translate-y-[2px]
+            active:shadow-[0_2px_0_black]
+            transition-all duration-200
+          "
+        >
+          Start Applying with AI
+          <span className="group-hover:translate-x-1 transition">
+            <ArrowRight size={20} />
+          </span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
 
     </>
   );
