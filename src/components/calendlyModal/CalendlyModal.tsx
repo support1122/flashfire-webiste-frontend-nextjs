@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { X, Calendar, CheckCircle } from "lucide-react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
+import { warmCalendly } from "@/src/utils/calendlyWarmup";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -58,68 +59,39 @@ export default function CalendlyModal({
     email?: string;
     name?: string;
   } | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasLoadedOnce, setHasLoadedOnce] = useState(false);
+  const [isCalendlyReady, setIsCalendlyReady] = useState(false);
 
-  // Handle loading state when modal opens
   useEffect(() => {
-    if (isVisible) {
+    warmCalendly();
+  }, []);
 
-      // Always show loader briefly to cover Calendly's own loader
-      setIsLoading(true);
+  useEffect(() => {
+    if (typeof document === "undefined") return;
 
-      // Determine loading duration based on whether it's been loaded before
-      const loadingDuration = hasLoadedOnce ? 800 : 3000; // 0.8s for subsequent opens, 3s for first
+    const checkReady = () => {
+      const iframe = document.querySelector<HTMLIFrameElement>(
+        'iframe[src*="calendly.com"]'
+      );
+      if (!iframe) return false;
+      setIsCalendlyReady(true);
+      return true;
+    };
 
-      let checkCount = 0;
-      const maxChecks = loadingDuration / 100; // Adjust checks based on duration
+    if (checkReady()) return;
 
-      const checkCalendlyLoaded = setInterval(() => {
-        if (typeof window === "undefined") return;
-        
-        checkCount++;
-        const calendlyIframe = document.querySelector('iframe[src*="calendly.com"]');
+    const observer = new MutationObserver(() => {
+      if (checkReady()) {
+        observer.disconnect();
+      }
+    });
 
-        // For subsequent loads, hide faster
-        if (hasLoadedOnce && calendlyIframe && checkCount >= 5) {
-          setIsLoading(false);
-          clearInterval(checkCalendlyLoaded);
-        }
-        // For first load, wait for full load
-        else if (!hasLoadedOnce && calendlyIframe) {
-          try {
-            const iframeLoaded = calendlyIframe.getAttribute("data-loaded");
-            if (iframeLoaded || checkCount >= maxChecks) {
-              setIsLoading(false);
-              setHasLoadedOnce(true);
-              clearInterval(checkCalendlyLoaded);
-            }
-          } catch {
-            // Cross-origin restriction, just wait for the timeout
-          }
-        }
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
 
-        // Stop checking after max attempts
-        if (checkCount >= maxChecks) {
-          clearInterval(checkCalendlyLoaded);
-        }
-      }, 100);
-
-      // Fallback timer based on whether loaded before
-      const fallbackTimer = setTimeout(() => {
-        setIsLoading(false);
-        if (!hasLoadedOnce) {
-          setHasLoadedOnce(true);
-        }
-        clearInterval(checkCalendlyLoaded);
-      }, loadingDuration);
-
-      return () => {
-        clearInterval(checkCalendlyLoaded);
-        clearTimeout(fallbackTimer);
-      };
-    }
-  }, [isVisible, hasLoadedOnce, user]);
+    return () => observer.disconnect();
+  }, []);
 
   // Restore invitee profile info on mount
   useEffect(() => {
@@ -275,8 +247,6 @@ export default function CalendlyModal({
     },
   } as CalendlyEventListenerOptions);
 
-  if (!isVisible) return null;
-
   const calendlyUrl = `https://calendly.com/feedback-flashfire/30min?utm_source=${
     typeof window !== "undefined"
       ? localStorage.getItem("utm_source") || "webpage_visit"
@@ -301,13 +271,14 @@ export default function CalendlyModal({
 
   return (
     <div
-      className="fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center w-full"
+      className="fixed inset-0 bg-black/60 z-[9999] items-center justify-center w-full"
       style={{ display: isVisible ? "flex" : "none" }}
+      aria-hidden={!isVisible}
       onClick={onClose}
     >
       <div 
         className="relative bg-white/80 backdrop-blur-sm
- max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col lg:flex-row"
+max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col lg:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -318,7 +289,7 @@ export default function CalendlyModal({
           <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
-        {/* Mobile Layout */}
+        {/* Mobile Header */}
         <div className="block lg:hidden h-full w-full">
           {/* Header */}
           <div className="bg-gradient-to-br from-orange-500 to-red-600 p-4 text-white">
@@ -335,49 +306,12 @@ export default function CalendlyModal({
             </div>
           </div>
 
-          {/* Calendar - Full Height */}
-          <div
-            className="bg-white relative"
-            style={{ height: "calc(100vh - 100px)" }}
-          >
-            {isLoading && (
-              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm
- flex items-center justify-center z-50">
-                <div className="text-center px-6">
-                  <div className="w-16 h-16 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-gray-600 text-sm">Loading calendar...</p>
-                </div>
-              </div>
-            )}
-            <InlineWidget
-              url={calendlyUrl}
-              prefill={{
-                name: user?.fullName || "",
-                email: user?.email || "",
-                customAnswers: {
-                  a3: (user?.countryCode || "") + (user?.phone || ""), // phone is the 3rd question
-                },
-              }}
-              styles={{
-                height: "100%",
-                width: "100%",
-                minHeight: "400px",
-              }}
-              pageSettings={{
-                backgroundColor: "ffffff",
-                hideEventTypeDetails: false,
-                hideLandingPageDetails: false,
-                primaryColor: "f97316",
-                textColor: "374151",
-              }}
-            />
-          </div>
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:flex w-full h-[90vh]">
+        <div className="flex w-full h-[90vh]">
           {/* Orange Section (Info) */}
-          <div className="w-2/5 bg-gradient-to-br from-orange-500 to-red-600 p-8 text-white overflow-y-hidden rounded-l-xl">
+          <div className="hidden lg:block w-2/5 bg-gradient-to-br from-orange-500 to-red-600 p-8 text-white overflow-y-hidden rounded-l-xl">
             <div className="mb-6">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="p-3 bg-white/20 rounded-xl">
@@ -459,20 +393,9 @@ export default function CalendlyModal({
           </div>
 
           {/* Calendar Section */}
-          <div className="w-3/5 bg-white overflow-hidden rounded-r-xl relative">
-            {isLoading && (
-              <div className="absolute inset-0 bg-white/80 backdrop-blur-sm
- flex items-center justify-center z-50">
-                <div className="text-center px-8">
-                  <div className="w-20 h-20 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-                  <p className="text-gray-700 text-lg font-medium">
-                    Finding best slots for you...
-                  </p>
-                  <p className="text-gray-500 text-sm mt-2">
-                    This will only take a moment
-                  </p>
-                </div>
-              </div>
+          <div className="w-full lg:w-3/5 bg-white overflow-hidden lg:rounded-r-xl relative">
+            {!isCalendlyReady && isVisible && (
+              <div className="absolute inset-0 bg-white z-10" />
             )}
             <InlineWidget
               url={calendlyUrl}
@@ -486,7 +409,7 @@ export default function CalendlyModal({
               styles={{
                 height: "100%",
                 width: "100%",
-                minHeight: "100%",
+                minHeight: "calc(100vh - 100px)",
               }}
               pageSettings={{
                 backgroundColor: "ffffff",
