@@ -140,19 +140,6 @@ export default function RootLayout({
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"
           rel="stylesheet"
         />
-        {/* Calendly CSS - Load asynchronously to avoid blocking render */}
-        <Script id="load-calendly-css" strategy="lazyOnload">
-          {`
-            if (typeof window !== 'undefined') {
-              const link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = 'https://assets.calendly.com/assets/external/widget.css';
-              link.media = 'print';
-              link.onload = function() { this.media = 'all'; };
-              document.head.appendChild(link);
-            }
-          `}
-        </Script>
         {/* DNS prefetch and preconnect for Calendly */}
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
@@ -165,6 +152,20 @@ export default function RootLayout({
           rel="preconnect"
           href="https://assets.calendly.com"
           crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://assets.calendly.com/assets/external/widget.css"
+          as="style"
+        />
+        <link
+          rel="stylesheet"
+          href="https://assets.calendly.com/assets/external/widget.css"
+        />
+        <link
+          rel="preload"
+          href="https://assets.calendly.com/assets/external/widget.js"
+          as="script"
         />
         {/* DNS prefetch and preconnect for Cloudinary (blog images) */}
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
@@ -302,10 +303,10 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Calendly Script - Load only when needed */}
+        {/* Calendly Script - Load early for instant booking modal */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </body>
     </html>
