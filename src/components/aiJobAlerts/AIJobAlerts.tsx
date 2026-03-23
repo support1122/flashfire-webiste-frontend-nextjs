@@ -498,45 +498,75 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-gradient-to-br from-[#ff4c00] via-[#ff5a1a] to-[#ff7a45] py-16">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Ready to Get Instant Job Alerts?
-            </h2>
-            <p className="text-lg text-white/90 mb-8">
-              Stop missing opportunities. Start applying before the crowd.
-            </p>
-            <button
-              type="button"
-              onClick={() => updateCtaUrl("/ai-job-alerts", ctaLabel)}
-              className="inline-flex items-center justify-center rounded-xl bg-white text-[#ff4c00] px-10 py-4 text-base font-bold hover:bg-gray-50 transition-all duration-300 shadow-lg mb-4"
-            >
-              {ctaLabel}
-              <ArrowRight size={18} className="ml-2" />
-            </button>
-            <p className="text-sm text-white/80">
-              Instant setup • No credit card required • Free to start
-            </p>
-          </div>
-        </section>
+        <section className="bg-white py-24">
+  <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div className="
+      relative
+      bg-[#fff3ec]
+      rounded-[99px]
+      px-16 md:px-16
+      py-16 md:py-20
+      text-center
+      shadow-[0_10px_40px_rgba(255,76,0,0.15)]
+      overflow-hidden
+    ">
+      
+      {/* soft glow */}
+      <div className="absolute -top-10 -left-10 w-60 h-60 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+
+      {/* Headline */}
+      <h2 className="text-2xl md:text-3xl font-extrabold text-black leading-tight max-w-2xl mx-auto">
+        Ready to Get Instant Job Alerts?
+      </h2>
+
+      {/* Subtext */}
+      <p className="mt-4 text-gray-600 max-w-lg mx-auto">
+        Stop missing opportunities. Start applying before the crowd.
+      </p>
+
+      {/* CTA */}
+      <div className="mt-8">
+        <button
+          type="button"
+          onClick={() => updateCtaUrl("/ai-job-alerts", ctaLabel)}
+          className="
+            group
+            inline-flex
+            items-center
+            justify-center
+            rounded-full
+            bg-[#ff4c00]
+            text-white
+            px-10
+            py-4
+            text-base
+            font-semibold
+            shadow-[0_6px_20px_rgba(255,76,0,0.3)]
+            hover:-translate-y-[2px]
+            active:translate-y-[2px]
+            transition-all duration-200
+          "
+        >
+          {ctaLabel}
+          <span className="ml-2 group-hover:translate-x-1 transition">
+            <ArrowRight size={18} />
+          </span>
+        </button>
+      </div>
+
+      {/* Trust line */}
+      <p className="mt-5 text-sm text-gray-500">
+        Instant setup • No credit card required • Free to start
+      </p>
+    </div>
+
+  </div>
+</section>
       </main>
 
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-0.3rem);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease;
-        }
-      `}} />
+      
     </div>
   );
 }
