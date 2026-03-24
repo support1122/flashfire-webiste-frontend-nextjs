@@ -731,7 +731,6 @@ import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { smoothScrollToElement, smoothScrollTo } from "@/src/utils/smoothScroll";
-import { ClockIcon } from "lucide-react";
 
 
 type Props = {
@@ -764,13 +763,6 @@ export default function NavbarClient({ links, ctas }: Props) {
     minutes: 0,
     seconds: 0,
   });
-  const [pricingTimeLeft, setPricingTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
   const [slotsRemaining, setSlotsRemaining] = useState(5);
   const pathname = usePathname();
   // Ensure pathname is always a string to prevent hydration mismatches
@@ -906,55 +898,6 @@ export default function NavbarClient({ links, ctas }: Props) {
   useEffect(() => {
     setMounted(true);
   }, []);
-  // timer for 10days 
-
-
-  // ✅ Upper Pricing Offer Timer — 1 Day Persistent (does NOT reset)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const STORAGE_KEY = "pricingOfferEndTime";
-
-    // Get saved end time or create new one
-    let savedEndTime = localStorage.getItem(STORAGE_KEY);
-    let targetTime: number;
-
-    if (savedEndTime) {
-      targetTime = parseInt(savedEndTime, 10);
-    } else {
-      // Create new end time = now + 1 day (24 hours)
-      targetTime = Date.now() + 24 * 60 * 60 * 1000;
-      localStorage.setItem(STORAGE_KEY, targetTime.toString());
-    }
-
-    const calculatePricingTimer = () => {
-      const now = Date.now();
-      const diff = targetTime - now;
-
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor(
-          (diff % (1000 * 60 * 60)) / (1000 * 60)
-        );
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        setPricingTimeLeft({ days, hours, minutes, seconds });
-      } else {
-        // Timer expired
-        setPricingTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        localStorage.removeItem(STORAGE_KEY); // Optional: reset for next visit
-      }
-    };
-
-    calculatePricingTimer();
-    const interval = setInterval(calculatePricingTimer, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   // Countdown timer - Runs from 1st of month to end of month (30th or 31st)
   useEffect(() => {
     // Only run on client side
@@ -1168,59 +1111,8 @@ export default function NavbarClient({ links, ctas }: Props) {
   return (
     <>
 
-      {/* Sticky Container for Navbar and Banner */}
+      {/* Sticky Container for Navbar */}
       <div className="sticky top-0 left-0 right-0 z-50">
-        {/* for pricing offer - upper Navbar */}
-        {!isBlogsPage && (
-          <div className="w-full bg-[#f5f5f0] border-b border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
-            <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
-              {/* Text part - hidden on mobile */}
-              <div className="flex items-center gap-2 ">
-                <ClockIcon className="w-4 h-4 text-[#ff4c00]" />
-                <span className=" font-medium text-[1rem] text-black tracking-[0.02em] max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
-                  Limited-Time Special Offer
-                </span>
-
-              </div>
-              {/* Mobile text part - visible only on mobile */}
-              {/* <div className="hidden max-[600px]:flex items-center justify-center  w-full">
-                     <ClockIcon className="w-4 h-4 text-[#ff4c00]" />
-                <span className="font-medium text-[0.7rem] text-black tracking-[0.02em]  whitespace-nowrap">
-                Limited-Time Special Offer
-                </span>
-                
-              </div> */}
-              <div className="flex gap-1 items-center max-[600px]:gap-0.5">
-                {/* <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-                    {String(pricingTimeLeft.days).padStart(2, "0")}d
-                  </div>
-                  */}
-                <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-                  {String(pricingTimeLeft.hours).padStart(2, "0")}hr
-                </div>
-
-                <div className="font-extrabold text-[1rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-                  {String(pricingTimeLeft.minutes).padStart(2, "0")}m
-                </div>
-
-
-
-                <div className="font-extrabold text-[0.9rem] text-[#ff4c00] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-                  {String(pricingTimeLeft.seconds).padStart(2, "0")}s
-                </div>
-                <div className="text-black font-medium text-[1rem] leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-                  Lock In Your Savings Today!
-                </div>
-                <button
-                  onClick={() => router.push(getHref('/pricing'))}
-                  className="rounded-[0.7rem] bg-[#ff4c00]   text-white font-semibold py-1 px-2 border-b-4 border-b-black hover:bg-white hover:text-black hover:border-b-[#ff4c00] transition-all shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-sm sm:text-base ml-3 max-[500px]:ml-2 cursor-pointer"
-                >
-                  ➤
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
         <nav
           className={styles.navContainer}
           style={{

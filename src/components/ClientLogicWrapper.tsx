@@ -12,6 +12,7 @@ import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
 import MeetingBookedModal from "@/src/components/meetingBooked/MeetingBookedModal";
 import * as fbq from "@/lib/metaPixel";
 import * as linkedin from "@/lib/linkedinInsightTag";
+import { warmCalendly } from "@/src/utils/calendlyWarmup";
 
 function ClientLogicWrapperContent({
     children,
@@ -55,6 +56,11 @@ function ClientLogicWrapperContent({
     useEffect(() => {
         captureUTMParams();
     }, [searchParams]);
+
+    // Warm Calendly once so first booking click opens instantly.
+    useEffect(() => {
+        warmCalendly();
+    }, []);
 
     // Update pathname ref when pathname changes
     useEffect(() => {
