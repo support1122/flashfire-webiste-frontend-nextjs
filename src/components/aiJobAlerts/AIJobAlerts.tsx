@@ -182,8 +182,8 @@ export default function AIJobAlertsPage() {
               </div>
 
               {/* Solution Cards */}
-              <div className="space-y-4">
-                <div className="bg-gradient-to-br from-[#fff7f2] to-[#ffede6] border-l-4 border-[#ff4c00] p-6 rounded-2xl shadow-sm">
+              <div className="space-y-6">
+                <div className="bg-gradient-to-br from-[#fff7f2] to-[#ffede6] border-l-4 border-[#ff4c00] mt-13  p-6 rounded-2xl shadow-sm">
                   <p className="text-lg font-bold text-slate-900 mb-3">
                     Tired of refreshing LinkedIn every hour?
                   </p>
