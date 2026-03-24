@@ -523,6 +523,8 @@ export default function AIJobMatchingPlatformPage() {
                 "Discover hidden opportunities",
                 "Simple, beginner-friendly platform",
                 "Secure & confidential resume handling",
+                "Match jobs based on skills and experience",
+                "Find relevant jobs faster with AI",
               ].map((item) => (
                 <div
                   key={item}
@@ -664,6 +666,7 @@ export default function AIJobMatchingPlatformPage() {
                 "Prioritize high-fit opportunities",
                 "Reduce job search time dramatically",
                 "Apply with confidence",
+                "Get personalized job matches based on your skills",
               ].map((item) => (
                 <div
                   key={item}

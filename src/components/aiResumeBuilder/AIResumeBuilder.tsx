@@ -240,6 +240,7 @@ export default function AIResumeBuilderPage() {
                 "Increase recruiter visibility",
                 "Reduce resume rejection risk",
                 "Apply with confidence",
+                "Optimize for ATS & recruiters",
               ].map((outcome) => (
                 <div
                   key={outcome}
@@ -298,6 +299,16 @@ export default function AIResumeBuilderPage() {
                   num: "7",
                   title: "Boost Resume Confidence",
                   desc: "Know that your resume is competitive before applying.",
+                },
+                {
+                  num: "8",
+                  title: "Match Jobs Faster with AI",
+                  desc: "Instantly align your resume with job descriptions for better results.",
+                },
+                {
+                  num: "9",
+                  title: "Increase Job Offer Chances",
+                  desc: "Stronger resumes lead to better interview and hiring outcomes.",
                 },
               ].map((benefit) => (
                 <div
@@ -376,6 +387,7 @@ export default function AIResumeBuilderPage() {
                   title: "Designed for modern hiring systems",
                   icon: <Award className="h-8 w-8 text-[#ff4c00]" />,
                 },
+                
               ].map((item) => (
                 <div
                   key={item.title}
@@ -495,6 +507,7 @@ export default function AIResumeBuilderPage() {
                 "Freelancers & remote job seekers",
                 "Executives & senior professionals",
                 "International applicants",
+                "Job seekers returning after a career break",
               ].map((persona) => (
                 <div
                   key={persona}
