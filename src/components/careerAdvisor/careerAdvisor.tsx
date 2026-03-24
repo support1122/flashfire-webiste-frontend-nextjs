@@ -71,8 +71,8 @@ export default function CareerAdvisor() {
     const normalized = path.startsWith("/en-ca")
       ? path
       : isCanada
-      ? `/en-ca${path}`
-      : path;
+        ? `/en-ca${path}`
+        : path;
     window.history.pushState({}, "", normalized);
   };
 
@@ -117,10 +117,10 @@ export default function CareerAdvisor() {
   };
 
   return (
-    <div className="bg-[#fff7f3] text-[#1a1a1a] pt-[120px] md:pt-[100px]">
-      
+    <div className="bg-[#fff7f3] text-[#1a1a1a] ">
+
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-6 pt-16 pb-16 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <span className="inline-block bg-[#ff4c00]/10 text-[#ff4c00] px-4 py-1 rounded-full text-sm font-semibold mb-4">
             AI-Powered Career Guidance
@@ -136,14 +136,14 @@ export default function CareerAdvisor() {
 
           <div className="mt-8 flex gap-4">
             <button
-            {...getButtonProps()}
-            onClick={handleGetCareerAdvice}
-            className="bg-[#ff4c00] text-white px-6 py-3 shadow-[0_3px_0_black] rounded-xl font-semibold flex items-center gap-2 hover:opacity-90">
+              {...getButtonProps()}
+              onClick={handleGetCareerAdvice}
+              className="bg-[#ff4c00] text-white px-6 py-3 shadow-[0_3px_0_black] rounded-xl font-semibold flex items-center gap-2 hover:opacity-90">
               Get Career Advice
               <ArrowRight size={18} />
             </button>
 
-            
+
           </div>
         </div>
 
@@ -166,50 +166,50 @@ export default function CareerAdvisor() {
         </div>
       </section>
       <section className="bg-white py-20">
-  <div className="max-w-[1200px] mx-auto px-6">
-    <h2 className="text-3xl md:text-4xl font-extrabold text-center">
-      Career decisions made simple
-    </h2>
+        <div className="max-w-[1200px] mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center">
+            Career decisions made simple
+          </h2>
 
-    <p className="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
-      No vague advice or generic suggestions. FlashFire's AI career advisor delivers data-backed career guidance and career planning insights tailored to your profile and job market demand.
-    </p>
+          <p className="mt-4 text-center text-gray-600 max-w-2xl mx-auto">
+            No vague advice or generic suggestions. FlashFire's AI career advisor delivers data-backed career guidance and career planning insights tailored to your profile and job market demand.
+          </p>
 
-    <div className="mt-14 grid md:grid-cols-3 gap-8">
-      {[
-        {
-          title: "Role clarity",
-          desc: "Understand which roles fit your background today and which ones you should prepare for next.",
-        },
-        {
-          title: "Skill direction",
-          desc: "Know exactly which skills are missing and which ones actually matter in the market.",
-        },
-        {
-          title: "Focused action plan",
-          desc: "Get a step-by-step plan instead of generic career advice.",
-        },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="border border-gray-200 rounded-2xl p-8 hover:border-[#ff4c00] transition"
-        >
-          <h3 className="font-bold text-xl">{item.title}</h3>
-          <p className="mt-3 text-gray-600">{item.desc}</p>
+          <div className="mt-14 grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Role clarity",
+                desc: "Understand which roles fit your background today and which ones you should prepare for next.",
+              },
+              {
+                title: "Skill direction",
+                desc: "Know exactly which skills are missing and which ones actually matter in the market.",
+              },
+              {
+                title: "Focused action plan",
+                desc: "Get a step-by-step plan instead of generic career advice.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="border border-gray-200 rounded-2xl p-8 hover:border-[#ff4c00] transition"
+              >
+                <h3 className="font-bold text-xl">{item.title}</h3>
+                <p className="mt-3 text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
-     {/* SECTION 1 */}
-     <section className="bg-[#fff7f3] py-20">
+      {/* SECTION 1 */}
+      <section className="bg-[#fff7f3] py-20">
         <div className="max-w-[1280px] mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
 
           {/* LEFT TEXT */}
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a1a]">
-            A Career Development Platform Powered by AI
+              A Career Development Platform Powered by AI
             </h2>
 
             <ul className="mt-8 space-y-5 text-gray-700">
@@ -261,7 +261,7 @@ export default function CareerAdvisor() {
           {/* RIGHT TEXT */}
           <div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#1a1a1a]">
-            Who Is This For?
+              Who Is This For?
             </h2>
 
             <ul className="mt-8 space-y-5 text-gray-700">
@@ -284,62 +284,62 @@ export default function CareerAdvisor() {
         </div>
       </section>
       {/* WHO IS THIS FOR – STRONG EDITORIAL LAYOUT */}
-<section className="bg-[#fff7f3] py-32">
-  <div className="max-w-[1280px] mx-auto px-6">
+      <section className="bg-[#fff7f3] py-32">
+        <div className="max-w-[1280px] mx-auto px-6">
 
-    <div className="grid lg:grid-cols-[420px_1fr] gap-20 items-start">
+          <div className="grid lg:grid-cols-[420px_1fr] gap-20 items-start">
 
-      {/* LEFT – STICKY INTRO */}
-      <div className="lg:sticky lg:top-32">
-        <span className="inline-block bg-[#ff4c00]/10 text-[#ff4c00] px-4 py-1 rounded-full text-sm font-semibold mb-5">
-          Built for real career decisions
-        </span>
+            {/* LEFT – STICKY INTRO */}
+            <div className="lg:sticky lg:top-32">
+              <span className="inline-block bg-[#ff4c00]/10 text-[#ff4c00] px-4 py-1 rounded-full text-sm font-semibold mb-5">
+                Built for real career decisions
+              </span>
 
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] leading-tight">
-          Who Is This AI Career Guidance Platform For?
-        </h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a1a] leading-tight">
+                Who Is This AI Career Guidance Platform For?
+              </h2>
 
-        <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-          FlashFire’s AI Career Advisor is designed for people who want clarity,
-          direction, and momentum — not generic advice.
-          <br /><br />
-          Wherever you are in your journey, it adapts to help you move forward
-          with confidence.
-        </p>
-      </div>
-
-      {/* RIGHT – STEPPED AUDIENCE BLOCKS */}
-      <div className="space-y-12">
-        {audiences.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <div
-              key={index}
-              className={`relative bg-white rounded-3xl border border-[#ff4c00]/20 p-8 md:p-10 
-                shadow-sm transition hover:border-[#ff4c00]
-                ${index % 2 === 0 ? "ml-0 md:ml-12" : "ml-0 md:ml-32"}`}
-            >
-              {/* Icon Badge */}
-              <div className="absolute -top-6 left-8 h-12 w-12 rounded-2xl 
-                              bg-[#ff4c00] flex items-center justify-center shadow-md">
-                <Icon className="h-6 w-6 text-white" />
-              </div>
-
-              <h3 className="mt-6 text-xl font-bold text-[#1a1a1a]">
-                {item.title}
-              </h3>
-
-              <p className="mt-3 text-gray-700 leading-relaxed max-w-xl">
-                {item.description}
+              <p className="mt-6 text-lg text-gray-700 leading-relaxed">
+                FlashFire’s AI Career Advisor is designed for people who want clarity,
+                direction, and momentum — not generic advice.
+                <br /><br />
+                Wherever you are in your journey, it adapts to help you move forward
+                with confidence.
               </p>
             </div>
-          );
-        })}
-      </div>
 
-    </div>
-  </div>
-</section>
+            {/* RIGHT – STEPPED AUDIENCE BLOCKS */}
+            <div className="space-y-12">
+              {audiences.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={index}
+                    className={`relative bg-white rounded-3xl border border-[#ff4c00]/20 p-8 md:p-10 
+                shadow-sm transition hover:border-[#ff4c00]
+                ${index % 2 === 0 ? "ml-0 md:ml-12" : "ml-0 md:ml-32"}`}
+                  >
+                    {/* Icon Badge */}
+                    <div className="absolute -top-6 left-8 h-12 w-12 rounded-2xl 
+                              bg-[#ff4c00] flex items-center justify-center shadow-md">
+                      <Icon className="h-6 w-6 text-white" />
+                    </div>
+
+                    <h3 className="mt-6 text-xl font-bold text-[#1a1a1a]">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-3 text-gray-700 leading-relaxed max-w-xl">
+                      {item.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+          </div>
+        </div>
+      </section>
 
 
       {/* FAQ Section */}
@@ -357,7 +357,7 @@ export default function CareerAdvisor() {
               <div
                 key={faq.q}
                 className={`${styles.faqItem} ${activeFaq === index ? styles.active : ""
-                }`}
+                  }`}
               >
                 <button
                   className={styles.faqQuestion}
@@ -382,28 +382,55 @@ export default function CareerAdvisor() {
         </div>
       </section>
 
-      <section className="py-32 bg-[#fff1ea] text-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl text-black font-extrabold mb-6">
-                Ready to stop manually applying to <span className="text-[#ff4c00]">Get job calls?</span>
-              </h2>
-              <p className="text-lg text-gray-900 max-w-3xl mx-auto mb-10">
-                Join thousands of job seekers who use FlashFire to create compelling 
-                cover letters that increase their interview chances.
-              </p>
-              <button
-                {...getButtonProps()}
-                onClick={handleGetCareerAdvice}
-                
-                className="bg-[#ff4c00] hover:bg-[#e24400] shadow-[0_3px_0_black] text-white px-8 py-4 font-bold text-lg rounded-lg transition-colors inline-flex items-center justify-center gap-2"
-              >
-                Get Career Advice →
-              </button>
-            </div>
+      <section className="relative pt-16 pb-10 bg-[#fff1ea] overflow-hidden">
+        {/* Background Glow Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-[#ff4c00]/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+
+            {/* Heading */}
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight mb-6">
+              Ready to stop manually applying to{" "}
+              <span className="text-[#ff4c00] relative inline-block">
+                Get job calls?
+                <span className="absolute left-0 bottom-0 w-full h-2 bg-[#ff4c00]/20 -z-10 rounded"></span>
+              </span>
+            </h2>
+
+            {/* Subtext */}
+            <p className="text-lg text-gray-800 max-w-2xl mx-auto mb-10 leading-relaxed">
+              Join thousands of job seekers who use FlashFire to create compelling
+              cover letters that increase their interview chances.
+            </p>
+
+            {/* CTA Button */}
+            <button
+              {...getButtonProps()}
+              onClick={handleGetCareerAdvice}
+              className="group relative bg-[#ff4c00] hover:bg-[#e24400] 
+        text-white px-10 py-4 font-semibold text-lg rounded-xl 
+        shadow-[0_6px_0_black] hover:shadow-[0_4px_0_black] 
+        active:translate-y-[2px] active:shadow-[0_2px_0_black]
+        transition-all duration-200 inline-flex items-center gap-2"
+            >
+              Get Career Advice
+              <span className="transition-transform duration-200 group-hover:translate-x-1">
+                →
+              </span>
+            </button>
+
+            {/* Trust Line */}
+            <p className="mt-6 text-sm text-gray-600">
+              Trusted by 560+ job seekers
+            </p>
           </div>
-        </section>
-      
+        </div>
+      </section>
+
 
     </div>
   );

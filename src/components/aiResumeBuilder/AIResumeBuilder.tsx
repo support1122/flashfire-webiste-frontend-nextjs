@@ -19,256 +19,158 @@ export default function AIResumeBuilderPage() {
 
   return (
     <div className="bg-[#fff7f2] text-slate-900 min-h-screen">
-      
+
 
       <main className="mt-0">
-       
-       {/* HERO */}
-       <section className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-[90vh] flex items-center py-16 md:py-24">
-  <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full">
-    <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      {/* LEFT */}
-      <div className="space-y-6">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">
-          AI Resume Builder for Job Seekers
+        {/* HERO */}
+        <section className="relative bg-gradient-to-br from-[#fff0e6] via-[#fff7f2] to-[#ffefe6] min-h-[95vh] flex items-center py-16 md:py-24 overflow-hidden">
+  {/* Background decorative elements */}
+  <div className="absolute top-20 left-10 w-72 h-72 bg-[#ff4c00]/5 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl"></div>
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#ff4c00]/5 to-transparent rounded-full blur-3xl"></div>
+  
+  <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full relative z-10">
+    <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+      {/* LEFT - Asymmetric typography */}
+      <div className="lg:col-span-7 space-y-8">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-[#ffd6c2] shadow-sm">
+          <Sparkles className="h-4 w-4 text-[#ff4c00]" />
+          <span className="text-sm font-semibold text-[#ff4c00]">AI-Powered Resume Builder</span>
+        </div>
+
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] text-slate-900 tracking-tight">
+          AI Resume Builder for <span className="text-[#ff4c00]">Job Seekers</span>
         </h1>
 
-        <div className="space-y-4">
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
+        <div className="space-y-4 max-w-xl">
+          <p className="text-xl text-slate-700 leading-relaxed font-medium">
             Stop wasting hours writing resumes that never get responses.
           </p>
-
-          <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
+          <p className="text-lg text-slate-600 leading-relaxed">
             With our AI resume builder, you can create a recruiter-ready, ATS-optimized resume in minutes — even if you have zero writing experience.
           </p>
         </div>
 
-        <div className="space-y-3 pt-2">
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            type="button"
+            onClick={() => updateCtaUrl("/ai-resume-builder", "It's Free to Start")}
+            className="inline-flex items-center justify-center rounded-2xl bg-[#ff4c00] px-8 py-4 text-lg font-bold text-white hover:bg-[#e24400] transition-colors shadow-xl hover:shadow-2xl"
+          >
+            It's Free to Start
+          </button>
+         
+        </div>
+
+        <div className="grid grid-cols-3 gap-4 pt-4">
           {[
             "Get noticed by recruiters faster",
             "Improve your ATS match score instantly",
             "Turn your experience into powerful achievements",
           ].map((text) => (
-            <div key={text} className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
-                <CheckCircle className="h-4 w-4 text-[#ff4c00]" />
+            <div key={text} className="flex items-start gap-3 p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-[#ffd6c2]/50">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center mt-0.5">
+                <CheckCircle className="h-3.5 w-3.5 text-[#ff4c00]" />
               </div>
-              <span className="text-base md:text-lg text-slate-700 font-medium">{text}</span>
+              <span className="text-sm text-slate-700 font-medium leading-snug">{text}</span>
             </div>
           ))}
         </div>
-
-        <div className="pt-4">
-          <button
-            type="button"
-            onClick={() => updateCtaUrl("/ai-resume-builder", "It's Free to Start")}
-            className="inline-flex items-center justify-center rounded-xl bg-[#ff4c00] px-10 py-4 text-base md:text-lg font-semibold text-white hover:bg-[#e24400] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#ff4c00]/25 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ff4c00]"
-          >
-            It's Free to Start
-          </button>
-        </div>
       </div>
 
-      {/* RIGHT */}
-      <div className="relative">
-        <div className="rounded-3xl border-2 border-slate-200/50 bg-white p-6 md:p-8 shadow-xl backdrop-blur-sm">
-          <div className="flex items-center justify-between mb-6">
-            <p className="text-sm font-bold text-slate-900 uppercase tracking-wide">
-              AI Resume Optimization
-            </p>
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-          </div>
-
-          <div className="rounded-xl bg-gradient-to-br from-[#fff7f2] to-orange-50 border-2 border-[#ffd6c2] p-5 mb-6 shadow-sm">
-            <p className="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide">Resume Summary</p>
-            <p className="text-sm text-slate-700 leading-relaxed">
-              Frontend Developer with experience in React, JavaScript,
-              and modern UI development.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {[
-              ["ATS Compatibility", "Optimized"],
-              ["Keyword Match", "Strong"],
-              ["Role Relevance", "High"],
-            ].map(([label, value]) => (
-              <div key={label} className="flex items-center justify-between p-3 rounded-lg bg-slate-50 hover:bg-slate-100 transition-colors">
-                <span className="text-sm font-medium text-slate-600">{label}</span>
-                <span className="px-3 py-1 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] font-bold text-sm">{value}</span>
+      {/* RIGHT - Glassmorphism floating card */}
+      <div className="lg:col-span-5 relative">
+        <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl p-6 md:p-8">
+          {/* Inner glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent rounded-3xl pointer-events-none"></div>
+          
+          <div className="relative">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a45] flex items-center justify-center shadow-lg">
+                  <FileText className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-900">AI Resume Optimization</p>
+                  <p className="text-xs text-slate-500">Real-time analysis</p>
+                </div>
               </div>
-            ))}
+              <div className="flex items-center gap-2 px-3 py-1 bg-green-100 rounded-full">
+                <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                <span className="text-xs font-semibold text-green-700">Live</span>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-gradient-to-br from-[#fff7f2] to-orange-50/80 border border-[#ffd6c2] p-5 mb-6 shadow-inner">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-2 h-2 rounded-full bg-[#ff4c00]"></div>
+                <p className="text-xs font-bold text-slate-800 uppercase tracking-wider">Resume Summary</p>
+              </div>
+              <p className="text-sm text-slate-700 leading-relaxed">
+                Frontend Developer with experience in React, JavaScript, and modern UI development.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              {[
+                ["ATS Compatibility", "Optimized", "95%"],
+                ["Keyword Match", "Strong", "88%"],
+                ["Role Relevance", "High", "92%"],
+              ].map(([label, value, score]) => (
+                <div key={label} className="flex items-center justify-between p-3 rounded-xl bg-white/80 border border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center">
+                      <CheckCircle className="h-4 w-4 text-[#ff4c00]" />
+                    </div>
+                    <span className="text-sm font-medium text-slate-600">{label}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-bold text-slate-400">{score}</span>
+                    <span className="px-3 py-1 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] font-bold text-sm">{value}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Progress bars */}
+            <div className="mt-6 pt-6 border-t border-slate-100">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-semibold text-slate-600">Overall Score</span>
+                <span className="text-lg font-bold text-[#ff4c00]">91%</span>
+              </div>
+              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full w-[91%] bg-gradient-to-r from-[#ff4c00] to-[#ff7a45] rounded-full"></div>
+              </div>
+            </div>
           </div>
         </div>
         
-        {/* Decorative elements */}
-        <div className="absolute -z-10 -top-4 -right-4 w-32 h-32 bg-[#ff4c00]/5 rounded-full blur-3xl"></div>
-        <div className="absolute -z-10 -bottom-4 -left-4 w-24 h-24 bg-orange-200/30 rounded-full blur-2xl"></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section className="bg-white py-20">
-  <div className="max-w-6xl mx-auto px-4 md:px-6">
-    <div className="text-center max-w-3xl mx-auto mb-12">
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
-        Why Job Seekers Switch to Our <span className="text-[#ff4c00]">AI Resume Builder</span>
-      </h2>
-      <p className="text-lg text-slate-700">
-        Tired of sending applications and hearing nothing back?
-      </p>
-    </div>
-
-    <div className="mb-12">
-      <h3 className="text-xl font-semibold text-slate-900 mb-6">Most resumes fail because they are:</h3>
-      <div className="grid md:grid-cols-2 gap-4 mb-8">
-        {[
-          "Poorly formatted",
-          "Missing critical keywords",
-          "Too generic",
-          "Weakly written",
-        ].map((item) => (
-          <div key={item} className="flex items-center gap-3 p-4 bg-red-50 border border-red-100 rounded-lg">
-            <span className="text-red-500 font-bold">×</span>
-            <span className="text-slate-700">{item}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div>
-      <h3 className="text-xl font-semibold text-slate-900 mb-6">Our resume builder with AI solves these problems automatically:</h3>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          {
-            title: "No guesswork",
-            desc: "AI analyzes job descriptions and optimizes your resume automatically.",
-          },
-          {
-            title: "No formatting stress",
-            desc: "Professional templates that are ATS-friendly and recruiter-ready.",
-          },
-          {
-            title: "No writing struggle",
-            desc: "AI writes powerful achievement-driven bullet points for you.",
-          },
-        ].map((item) => (
-          <div
-            key={item.title}
-            className="rounded-xl border border-[#ffd6c2] bg-[#fffaf7] p-6 hover:shadow-lg transition"
-          >
-            <h3 className="font-semibold mb-2 text-lg">{item.title}</h3>
-            <p className="text-sm text-slate-700">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section className="bg-[#fffaf7] py-24">
-  <div className="max-w-6xl mx-auto px-4 md:px-6">
-
-    {/* Heading */}
-    <div className="max-w-3xl mb-16 text-center mx-auto">
-      <h2 className="text-3xl md:text-4xl font-extrabold leading-tight text-slate-900 mb-4">
-        How Our <span className="text-[#ff4c00]">AI Resume Builder</span> Works
-      </h2>
-      <p className="text-lg text-slate-700">
-        Creating a job-winning resume has never been this simple.
-      </p>
-    </div>
-
-    {/* Steps Flow */}
-    <div className="relative">
-      {/* Connector line (desktop only) */}
-      <div className="hidden md:block absolute top-12 left-8 right-8 h-[2px] bg-gradient-to-r from-[#ff4c00] via-[#ff7a45] to-[#ff4c00]" />
-
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-4 relative">
-        {/* STEP 1 */}
-        <div className="relative bg-white border-2 border-[#ff4c00] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <div className="absolute -top-6 left-6 h-12 w-12 rounded-full bg-[#ff4c00] text-white flex items-center justify-center font-bold text-lg shadow-lg">
-            1
-          </div>
-          <div className="mt-6 space-y-3">
-            <h3 className="text-lg font-bold text-slate-900">Enter Your Basic Details</h3>
-            <p className="text-sm text-slate-700 mb-3">Add your:</p>
-            <ul className="text-sm text-slate-600 space-y-1.5">
-              <li>• Education</li>
-              <li>• Experience</li>
-              <li>• Skills</li>
-              <li>• Certifications</li>
-            </ul>
-            <p className="text-xs text-slate-500 italic mt-2">No complicated forms. No confusion.</p>
-          </div>
-        </div>
-
-        {/* STEP 2 */}
-        <div className="relative bg-[#fff7f2] border-2 border-[#ffd6c2] rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
-          <div className="absolute -top-6 left-6 h-12 w-12 rounded-full bg-[#ff4c00] text-white flex items-center justify-center font-bold text-lg shadow-lg">
-            2
-          </div>
-          <div className="mt-6 space-y-3">
-            <h3 className="text-lg font-bold text-slate-900">AI Analyzes Your Target Job</h3>
-            <p className="text-sm text-slate-700 mb-3">Our smart job description analysis engine scans the role you're applying for. It identifies:</p>
-            <ul className="text-sm text-slate-600 space-y-1.5">
-              <li>• Critical career skills/keywords</li>
-              <li>• Missing ATS signals</li>
-              <li>• Optimization opportunities</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* STEP 3 */}
-        <div className="relative bg-white border-2 border-[#ff4c00] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <div className="absolute -top-6 left-6 h-12 w-12 rounded-full bg-[#ff4c00] text-white flex items-center justify-center font-bold text-lg shadow-lg">
-            3
-          </div>
-          <div className="mt-6 space-y-3">
-            <h3 className="text-lg font-bold text-slate-900">AI Writes Your Resume Content</h3>
-            <p className="text-sm text-slate-700 mb-3">Struggling to write strong bullet points?</p>
-            <div className="bg-slate-50 p-3 rounded-lg text-xs space-y-2">
-              <p className="text-slate-500 line-through">"Responsible for managing projects."</p>
-              <p className="text-[#ff4c00] font-semibold">"Led cross-functional projects improving delivery efficiency by 35%."</p>
+        {/* Floating badges */}
+        <div className="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-xl border border-[#ffd6c2]">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center">
+              <CheckCircle className="h-4 w-4 text-green-600" />
             </div>
-            <p className="text-xs text-slate-500 italic mt-2">That's the power of an AI resume generator.</p>
+            <span className="text-xs font-bold text-slate-700">ATS Ready</span>
           </div>
         </div>
-
-        {/* STEP 4 */}
-        <div className="relative bg-[#fff7f2] border-2 border-[#ffd6c2] rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
-          <div className="absolute -top-6 left-6 h-12 w-12 rounded-full bg-[#ff4c00] text-white flex items-center justify-center font-bold text-lg shadow-lg">
-            4
-          </div>
-          <div className="mt-6 space-y-3">
-            <h3 className="text-lg font-bold text-slate-900">Instant ATS-Optimized Formatting</h3>
-            <p className="text-sm text-slate-700 mb-3">Your resume is automatically structured using professional resume templates. Every resume is built for:</p>
-            <ul className="text-sm text-slate-600 space-y-1.5">
-              <li>• ATS optimization (applicant tracking system)</li>
-              <li>• Clean recruiter readability</li>
-              <li>• Modern hiring standards</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* STEP 5 */}
-        <div className="relative bg-white border-2 border-[#ff4c00] rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <div className="absolute -top-6 left-6 h-12 w-12 rounded-full bg-[#ff4c00] text-white flex items-center justify-center font-bold text-lg shadow-lg">
-            5
-          </div>
-          <div className="mt-6 space-y-3">
-            <h3 className="text-lg font-bold text-slate-900">Download & Apply Immediately</h3>
-            <p className="text-sm text-slate-700">Export your polished ATS-friendly resume and start applying.</p>
-            <p className="text-xs text-slate-500 italic mt-2">No design fixes. No formatting headaches.</p>
+        
+        <div className="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-xl border border-[#ffd6c2]">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center">
+              <Sparkles className="h-4 w-4 text-[#ff4c00]" />
+            </div>
+            <span className="text-xs font-bold text-slate-700">AI Enhanced</span>
           </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </section>
+
 
         {/* Real-Time Resume Score Section */}
         <section className="bg-white py-20">
@@ -338,6 +240,7 @@ export default function AIResumeBuilderPage() {
                 "Increase recruiter visibility",
                 "Reduce resume rejection risk",
                 "Apply with confidence",
+                "Optimize for ATS & recruiters",
               ].map((outcome) => (
                 <div
                   key={outcome}
@@ -396,6 +299,16 @@ export default function AIResumeBuilderPage() {
                   num: "7",
                   title: "Boost Resume Confidence",
                   desc: "Know that your resume is competitive before applying.",
+                },
+                {
+                  num: "8",
+                  title: "Match Jobs Faster with AI",
+                  desc: "Instantly align your resume with job descriptions for better results.",
+                },
+                {
+                  num: "9",
+                  title: "Increase Job Offer Chances",
+                  desc: "Stronger resumes lead to better interview and hiring outcomes.",
                 },
               ].map((benefit) => (
                 <div
@@ -474,6 +387,7 @@ export default function AIResumeBuilderPage() {
                   title: "Designed for modern hiring systems",
                   icon: <Award className="h-8 w-8 text-[#ff4c00]" />,
                 },
+                
               ].map((item) => (
                 <div
                   key={item.title}
@@ -593,6 +507,7 @@ export default function AIResumeBuilderPage() {
                 "Freelancers & remote job seekers",
                 "Executives & senior professionals",
                 "International applicants",
+                "Job seekers returning after a career break",
               ].map((persona) => (
                 <div
                   key={persona}
@@ -610,39 +525,84 @@ export default function AIResumeBuilderPage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="bg-gradient-to-br from-[#fff7f2] via-[#fff7f2] to-white py-20 text-white">
-          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl text-slate-900 lg:text-5xl font-extrabold mb-6">
-              Build Your Resume Smarter with <span className="text-[#ff4c00]">AI</span>
-            </h2>
-            <p className="text-lg md:text-xl text-slate-700 mb-8">
-              Stop struggling with formatting, rewriting, and keyword guessing.
-            </p>
-            <p className="text-base md:text-lg text-slate-700 mb-8">
-              With our AI resume builder, you can:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
-              {[
-                "Create ATS-optimized resumes",
-                "Generate powerful achievements",
-                "Improve recruiter visibility",
-                "Apply faster & smarter",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
-                    <span className="text-slate-700">{item}</span>
-                </div>
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => updateCtaUrl("/ai-resume-builder", "Create Your Resume Now")}
-              className="inline-flex items-center rounded-xl bg-[#ff4c00] px-10 py-5 text-lg font-semibold text-white hover:bg-[#e24400] transition-all shadow-2xl hover:shadow-[#ff4c00]/50 hover:scale-105"
-            >
-              Create Your Resume Now
-            </button>
-          </div>
-        </section>
+        <section className="relative bg-gradient-to-br from-[#fff7f2] via-[#fff7f2] to-white py-24 overflow-hidden">
+  
+  {/* soft glow */}
+  <div className="absolute -top-20 -left-20 w-72 h-72 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+  <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+
+  <div className="max-w-4xl mx-auto px-4 md:px-6 text-center relative z-10">
+    
+    {/* Headline */}
+    <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 text-slate-900 leading-tight">
+      Build Your Resume Smarter with <span className="text-[#ff4c00]">AI</span>
+    </h2>
+
+    {/* Subtext */}
+    <p className="text-lg md:text-xl text-slate-700 mb-6 max-w-2xl mx-auto">
+      Stop struggling with formatting, rewriting, and keyword guessing.
+    </p>
+
+    <p className="text-base md:text-lg text-slate-700 mb-10">
+      With our AI resume builder, you can:
+    </p>
+
+    {/* Benefits */}
+    <div className="grid md:grid-cols-2 gap-4 mb-12 text-left max-w-2xl mx-auto">
+      {[
+        "Create ATS-optimized resumes",
+        "Generate powerful achievements",
+        "Improve recruiter visibility",
+        "Apply faster & smarter",
+      ].map((item) => (
+        <div
+          key={item}
+          className="flex items-center gap-3 bg-white/70 backdrop-blur-sm px-4 py-3 rounded-xl border border-[#ffd6c2] shadow-sm"
+        >
+          <CheckCircle className="h-5 w-5 text-[#ff4c00] shrink-0" />
+          <span className="text-slate-700 font-medium">{item}</span>
+        </div>
+      ))}
+    </div>
+
+    {/* CTA */}
+    <div className="flex flex-col items-center gap-4">
+      <button
+        type="button"
+        onClick={() => updateCtaUrl("/ai-resume-builder", "Create Your Resume Now")}
+        className="
+          group
+          inline-flex
+          items-center
+          justify-center
+          rounded-full
+          bg-[#ff4c00]
+          px-12
+          py-5
+          text-lg
+          font-semibold
+          text-white
+          shadow-[0_10px_30px_rgba(255,76,0,0.3)]
+          hover:-translate-y-[3px]
+          hover:shadow-[0_15px_40px_rgba(255,76,0,0.4)]
+          active:translate-y-[2px]
+          transition-all duration-200
+        "
+      >
+        Create Your Resume Now
+        <span className="ml-2 group-hover:translate-x-1 transition">
+          →
+        </span>
+      </button>
+
+      {/* trust line */}
+      <p className="text-sm text-slate-500">
+        Free to start • No credit card required
+      </p>
+    </div>
+
+  </div>
+</section>
 
         {/* FAQ SECTION */}
         <section className="bg-[#f9e8e0] py-24">
@@ -691,9 +651,8 @@ export default function AIResumeBuilderPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-slate-200 transition-all ${
-                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
-                  }`}
+                  className={`border-b border-slate-200 transition-all ${activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                    }`}
                 >
                   <button
                     className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
@@ -717,9 +676,10 @@ export default function AIResumeBuilderPage() {
           </div>
         </section>
 
-     
+
       </main>
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes fadeIn {
           from {
             opacity: 0;

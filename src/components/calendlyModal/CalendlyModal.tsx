@@ -299,7 +299,7 @@ max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-co
               </div>
               <div>
                 <h2 className="text-lg font-bold">
-                  Schedule Your Flashfire Consultation
+                  Schedule Your Flashfire Consultation 
                 </h2>
                 <p className="text-orange-100 text-sm">15 Minutes • Free</p>
               </div>
