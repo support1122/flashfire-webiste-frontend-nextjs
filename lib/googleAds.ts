@@ -80,16 +80,18 @@ export const trackSchedule = (options: {
     ...rest
   } = options;
 
-  // Track as conversion event
-  // Conversion Label: 06-oCNjI9_obEOLL8J1C (from Google Ads)
+  if (typeof window !== 'undefined' && window.gtag && (email || firstName || lastName)) {
+    window.gtag('set', 'user_data', {
+      ...(email && { email: email.toLowerCase() }),
+      ...(firstName && { first_name: firstName }),
+      ...(lastName && { last_name: lastName }),
+    });
+  }
+
   conversion('06-oCNjI9_obEOLL8J1C', {
     value,
     currency,
     transaction_id: transactionId,
-    // User data for enhanced conversions (optional but recommended)
-    ...(email && { email_address: email.toLowerCase() }),
-    ...(firstName && { first_name: firstName }),
-    ...(lastName && { last_name: lastName }),
     ...rest,
   });
 };
