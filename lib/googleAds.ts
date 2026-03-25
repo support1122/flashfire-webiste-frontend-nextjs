@@ -14,6 +14,11 @@
 export const GOOGLE_ADS_CONVERSION_ID =
   (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID) || '';
 
+/** GA4 property ID (same as `layout.tsx`); override with NEXT_PUBLIC_GA_MEASUREMENT_ID */
+export const GA4_MEASUREMENT_ID =
+  (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_GA_MEASUREMENT_ID) ||
+  'G-4P890VGD8D';
+
 /**
  * Track a page view event
  */
@@ -94,6 +99,22 @@ export const trackSchedule = (options: {
     transaction_id: transactionId,
     ...rest,
   });
+};
+
+/**
+ * One-shot Google tracking when a meeting is booked: GA4 custom event + Google Ads schedule conversion.
+ * In GA4: Admin → Events → mark `meeting_booked` as a conversion (after it appears once).
+ */
+export const trackMeetingBooked = (
+  options: Parameters<typeof trackSchedule>[0] = {}
+) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'meeting_booked', {
+      send_to: GA4_MEASUREMENT_ID,
+      page_path: '/meeting-booked',
+    });
+  }
+  trackSchedule(options);
 };
 
 /**
