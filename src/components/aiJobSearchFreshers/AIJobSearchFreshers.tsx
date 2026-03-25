@@ -502,9 +502,10 @@ export default function AIJobSearchFreshersPage() {
                   desc: "Discover the right roles based on your skills and goals.",
                 },
                 {
-                  title: "Personalized Career Path Insights",
-                  desc: "Discover the right roles based on your skills and goals.",
+                  title: "AI Resume Optimization for Job Matching",
+                  desc: "Improve resume relevance to match job requirements and increase interview chances.",
                 },
+                
               ].map((item) => (
                 <div
                   key={item.title}

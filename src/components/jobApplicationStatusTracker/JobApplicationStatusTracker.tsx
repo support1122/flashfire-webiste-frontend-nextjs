@@ -464,6 +464,7 @@ export default function JobApplicationStatusTrackerPage() {
                 "Eliminate tracking errors",
                 "Reduce mental overload",
                 "Prioritize high-impact applications",
+                "Stay organized throughout your job search",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-4 p-5 rounded-xl bg-white border border-slate-200 hover:border-[#ff4c00]/30 transition-colors">
                   <div className="w-8 h-8 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
@@ -722,61 +723,64 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="relative py-24 bg-gradient-to-br from-[#fff3ec] via-[#ffe9df] to-[#fff7f2] overflow-hidden">
+        <section className="bg-white ">
+          <section className="relative py-20  bg-gradient-to-br from-[#fcf7f4] via-[#fcf7f4] to-[#fff7f2]  overflow-hidden">
 
-          {/* Soft Glow Background */}
-          <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+            {/* Soft Glow Background */}
+            <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
 
-          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center relative z-10">
+            <div className="max-w-4xl mx-auto px-4 md:px-6 text-center relative z-10">
 
-            {/* Tag */}
-            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-sm border border-[#ffd6c2] text-[#ff4c00] font-semibold text-sm mb-6">
-              <Sparkles size={16} />
-              Get Started Today
+              {/* Tag */}
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white shadow-sm border border-[#ffd6c2] text-[#ff4c00] font-semibold text-sm mb-6">
+                <Sparkles size={16} />
+                Get Started Today
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">
+                Ready to Track Your Applications?
+              </h2>
+
+              {/* Subtext */}
+              <p className="text-lg text-slate-600 mb-10 max-w-xl mx-auto">
+                Stop relying on spreadsheets. Take full control of your job search.
+              </p>
+
+              {/* CTA */}
+              <button
+                type="button"
+                onClick={() => updateCtaUrl("/job-application-status-tracker", ctaLabel)}
+                className="
+                group
+                inline-flex items-center justify-center
+                rounded-full
+                bg-[#ff4c00]
+                text-white
+                px-12 py-4
+                text-base font-semibold
+                shadow-[0_10px_30px_rgba(255,76,0,0.35)]
+                hover:-translate-y-[2px]
+                hover:shadow-[0_15px_40px_rgba(255,76,0,0.45)]
+                transition-all duration-200
+                mb-6
+                "
+              >
+                {ctaLabel}
+                <span className="ml-2 group-hover:translate-x-1 transition">
+                  <ArrowRight size={18} />
+                </span>
+              </button>
+
+              {/* Trust line */}
+              <p className="text-sm text-slate-500">
+                Instant setup • No credit card required • Free to start
+              </p>
+
             </div>
+          </section>
 
-            {/* Heading */}
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">
-              Ready to Track Your Applications?
-            </h2>
-
-            {/* Subtext */}
-            <p className="text-lg text-slate-600 mb-10 max-w-xl mx-auto">
-              Stop relying on spreadsheets. Take full control of your job search.
-            </p>
-
-            {/* CTA */}
-            <button
-              type="button"
-              onClick={() => updateCtaUrl("/job-application-status-tracker", ctaLabel)}
-              className="
-        group
-        inline-flex items-center justify-center
-        rounded-full
-        bg-[#ff4c00]
-        text-white
-        px-12 py-4
-        text-base font-semibold
-        shadow-[0_10px_30px_rgba(255,76,0,0.35)]
-        hover:-translate-y-[2px]
-        hover:shadow-[0_15px_40px_rgba(255,76,0,0.45)]
-        transition-all duration-200
-        mb-6
-      "
-            >
-              {ctaLabel}
-              <span className="ml-2 group-hover:translate-x-1 transition">
-                <ArrowRight size={18} />
-              </span>
-            </button>
-
-            {/* Trust line */}
-            <p className="text-sm text-slate-500">
-              Instant setup • No credit card required • Free to start
-            </p>
-
-          </div>
         </section>
 
         {/* FAQ SECTION */}

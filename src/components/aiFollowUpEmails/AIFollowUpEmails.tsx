@@ -158,6 +158,7 @@ export default function AIFollowUpEmailsPage() {
                     "Is my tone professional enough?",
                     "What subject line works best?",
                     "When is the right follow-up timing?",
+                    "Will I get a response?",
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
                       <div className="h-2 w-2 rounded-full bg-[#ff4c00] flex-shrink-0"></div>
