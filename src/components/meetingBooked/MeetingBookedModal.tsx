@@ -65,7 +65,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
         }
 
         try {
-          googleAds.trackSchedule({
+          googleAds.trackMeetingBooked({
             value: 1.0,
             currency: "INR",
             ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
@@ -75,7 +75,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
             }),
           });
         } catch (googleAdsError) {
-          console.error("Failed to track Google Ads event:", googleAdsError);
+          console.error("Failed to track Google event:", googleAdsError);
         }
 
         setHasTracked(true);
