@@ -242,13 +242,11 @@ export default function RootLayout({
             <Script id="google-ads" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
-                function gtag() {
+                window.gtag = window.gtag || function() {
                   dataLayer.push(arguments);
-                }
-                gtag("js", new Date());
-                gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}", {
-                  page_path: window.location.pathname,
-                });
+                };
+                window.gtag("js", new Date());
+                window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");
               `}
             </Script>
           </>

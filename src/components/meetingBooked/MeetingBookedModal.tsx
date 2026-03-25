@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PlayCircle, Users, X } from "lucide-react";
 import * as fbq from "@/lib/metaPixel";
 import * as linkedin from "@/lib/linkedinInsightTag";
+import * as googleAds from "@/lib/googleAds";
 import { LINKEDIN_CONVERSION_IDS } from "@/lib/linkedinConversions";
 import videoStyles from "@/src/components/homePageVideo/homePageVideo.module.css";
 
@@ -61,6 +62,20 @@ export default function MeetingBookedModal({ onClose }: Props) {
           } catch (linkedinError) {
             console.error("Failed to track LinkedIn event:", linkedinError);
           }
+        }
+
+        try {
+          googleAds.trackSchedule({
+            value: 1.0,
+            currency: "INR",
+            ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
+            ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
+            ...(inviteeName && {
+              lastName: inviteeName.split(" ").slice(1).join(" "),
+            }),
+          });
+        } catch (googleAdsError) {
+          console.error("Failed to track Google Ads event:", googleAdsError);
         }
 
         setHasTracked(true);
