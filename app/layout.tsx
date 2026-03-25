@@ -215,42 +215,24 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-        {/* Google Analytics - Load with lower priority */}
+        {/* Google Analytics + Google Ads — single gtag.js, afterInteractive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
+            window.gtag = function() {
               dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-4P890VGD8D", {
+            };
+            window.gtag("js", new Date());
+            window.gtag("config", "G-4P890VGD8D", {
               page_path: window.location.pathname,
             });
+            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");` : ''}
           `}
         </Script>
-        {/* Google Ads Conversion Tracking - Load with afterInteractive strategy */}
-        {process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-ads" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = window.gtag || function() {
-                  dataLayer.push(arguments);
-                };
-                window.gtag("js", new Date());
-                window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");
-              `}
-            </Script>
-          </>
-        )}
         {/* LinkedIn Insight Tag - Load with afterInteractive strategy */}
         {process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID && (
           <>
