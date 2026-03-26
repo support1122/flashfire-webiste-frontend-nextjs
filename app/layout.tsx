@@ -117,6 +117,8 @@ export const viewport: Viewport = {
 import ClientLogicWrapper from "@/src/components/ClientLogicWrapper";
 import { FB_PIXEL_ID } from "@/lib/metaPixel";
 
+const GTM_CONTAINER_ID = "GTM-MCS5V3BF";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -125,6 +127,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Tag Manager — keep high in <head> per Google */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');`,
+          }}
+        />
         {/* Google AdSense site verification */}
         <meta name="google-adsense-account" content="ca-pub-7803903365456072" />
         {/* Font Preconnect for Google Fonts */}
@@ -179,6 +191,16 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
+        {/* Google Tag Manager (noscript) — immediately after opening <body> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <PHProvider>
           <ClientLogicWrapper>
             {children}
