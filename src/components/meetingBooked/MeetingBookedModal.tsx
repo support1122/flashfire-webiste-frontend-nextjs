@@ -14,76 +14,81 @@ type Props = {
   onClose?: () => void;
 };
 
+const MEETING_BOOKED_PENDING_KEY = "flashfire_meeting_booked_pending_track";
+
 export default function MeetingBookedModal({ onClose }: Props) {
-  const [hasTracked, setHasTracked] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   useEffect(() => {
-    if (!hasTracked && typeof window !== "undefined") {
-      try {
-        const inviteeEmail = localStorage.getItem("cal_invitee_email") || "";
-        const inviteeName = localStorage.getItem("cal_invitee_name") || "";
+    if (typeof window === "undefined") return;
+    // Only fire after a Calendly booking just navigated here (not refresh / direct URL).
+    // CalendlyModal sets this immediately before router.push to /meeting-booked.
+    if (sessionStorage.getItem(MEETING_BOOKED_PENDING_KEY) !== "1") {
+      return;
+    }
+    sessionStorage.removeItem(MEETING_BOOKED_PENDING_KEY);
 
-        const utm_source = localStorage.getItem("utm_source") || "direct";
-        const utm_medium = localStorage.getItem("utm_medium") || "website";
-        const utm_campaign =
-          localStorage.getItem("utm_campaign") || "organic";
+    try {
+      const inviteeEmail = localStorage.getItem("cal_invitee_email") || "";
+      const inviteeName = localStorage.getItem("cal_invitee_name") || "";
 
-        fbq.event("Schedule", {
-          content_name: "Meeting Booked",
-          content_category: "Consultation",
-          value: 0,
-          currency: "USD",
-          ...(inviteeEmail && { em: inviteeEmail.toLowerCase() }),
-          ...(inviteeName && { fn: inviteeName.split(" ")[0] }),
-          ...(inviteeName && {
-            ln: inviteeName.split(" ").slice(1).join(" "),
-          }),
-          utm_source,
-          utm_medium,
-          utm_campaign,
-        });
+      const utm_source = localStorage.getItem("utm_source") || "direct";
+      const utm_medium = localStorage.getItem("utm_medium") || "website";
+      const utm_campaign =
+        localStorage.getItem("utm_campaign") || "organic";
 
-        // Track LinkedIn Schedule event (only if conversion ID is configured)
-        if (LINKEDIN_CONVERSION_IDS.SCHEDULE) {
-          try {
-            linkedin.trackSchedule(LINKEDIN_CONVERSION_IDS.SCHEDULE, {
-              value: 0,
-              currency: "USD",
-              ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
-              ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
-              ...(inviteeName && {
-                lastName: inviteeName.split(" ").slice(1).join(" "),
-              }),
-              utm_source,
-              utm_medium,
-              utm_campaign,
-            });
-          } catch (linkedinError) {
-            console.error("Failed to track LinkedIn event:", linkedinError);
-          }
-        }
+      fbq.event("Schedule", {
+        content_name: "Meeting Booked",
+        content_category: "Consultation",
+        value: 0,
+        currency: "USD",
+        ...(inviteeEmail && { em: inviteeEmail.toLowerCase() }),
+        ...(inviteeName && { fn: inviteeName.split(" ")[0] }),
+        ...(inviteeName && {
+          ln: inviteeName.split(" ").slice(1).join(" "),
+        }),
+        utm_source,
+        utm_medium,
+        utm_campaign,
+      });
 
+      // Track LinkedIn Schedule event (only if conversion ID is configured)
+      if (LINKEDIN_CONVERSION_IDS.SCHEDULE) {
         try {
-          googleAds.trackMeetingBooked({
-            value: 1.0,
-            currency: "INR",
+          linkedin.trackSchedule(LINKEDIN_CONVERSION_IDS.SCHEDULE, {
+            value: 0,
+            currency: "USD",
             ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
             ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
             ...(inviteeName && {
               lastName: inviteeName.split(" ").slice(1).join(" "),
             }),
+            utm_source,
+            utm_medium,
+            utm_campaign,
           });
-        } catch (googleAdsError) {
-          console.error("Failed to track Google event:", googleAdsError);
+        } catch (linkedinError) {
+          console.error("Failed to track LinkedIn event:", linkedinError);
         }
-
-        setHasTracked(true);
-      } catch (error) {
-        console.error("Failed to track Facebook Pixel event:", error);
       }
+
+      try {
+        googleAds.trackMeetingBooked({
+          value: 1.0,
+          currency: "INR",
+          ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
+          ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
+          ...(inviteeName && {
+            lastName: inviteeName.split(" ").slice(1).join(" "),
+          }),
+        });
+      } catch (googleAdsError) {
+        console.error("Failed to track Google event:", googleAdsError);
+      }
+    } catch (error) {
+      console.error("Failed to track Facebook Pixel event:", error);
     }
-  }, [hasTracked]);
+  }, []);
 
   return (
     <>
