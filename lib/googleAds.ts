@@ -4,7 +4,7 @@
  * Similar to Meta Pixel tracking, this provides helper functions
  * to track Google Ads conversion events throughout the application.
  * 
- * Required: Set GOOGLE_ADS_CONVERSION_ID in your environment variables
+ * Required: Set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID in your environment variables
  * Format: AW-XXXXXXXXX (e.g., AW-1234567890)
  */
 
