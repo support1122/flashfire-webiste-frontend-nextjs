@@ -18,10 +18,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <section className="h-screen grid md:grid-cols-2 bg-[#fff6f4] font-['Space_Grotesk'] overflow-hidden">
+    <section className="min-h-screen flex flex-col-reverse md:grid md:grid-cols-2 bg-[#f8ebe5] font-['Space_Grotesk']">
 
-<div className="flex items-center justify-center p-6">
-
+<div className="flex items-center justify-center p-6 md:p-10">
   <div className="w-full max-w-xs bg-white border border-[#ffe1d6] rounded-2xl p-4 shadow-sm">
 
     {/* USER HEADER */}
@@ -88,9 +87,8 @@ export default function RegisterPage() {
   </div>
 </div>
   
-    {/* ================= RIGHT (CONVERSION UI 🔥) ================= */}
-    <div className="flex items-center justify-center px-8">
-  
+    {/* RIGHT (CONVERSION UI )  */}
+    <div className="flex items-center justify-center px-6 md:px-8 py-10 md:py-0">  
       <div className="w-full max-w-md">
   
         {/* Heading */}
@@ -152,10 +150,10 @@ export default function RegisterPage() {
                 funnel_stage: "signup_intent",
               });
           
-              // 👉 change URL WITHOUT scroll/navigation feel
+              // change URL WITHOUT scroll/navigation feel
               router.push("/register/Get-Started", { scroll: false });
           
-              // 👉 open modal
+             
               window.dispatchEvent(new CustomEvent("showCalendlyModal"));
             }
           }}
