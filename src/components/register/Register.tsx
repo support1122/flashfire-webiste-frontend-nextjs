@@ -155,51 +155,36 @@ export default function RegisterPage() {
       {/* RIGHT SECTION - CTA */}
       <div className="flex items-center justify-center px-6 md:px-12 py-8 md:py-0 relative z-10 order-1 md:order-2">
 
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-lg">
 
-          {/* LOGO */}
-          {/* <div className="mb-6 flex justify-start">
-            
-              <FlashfireLogo className="h-36 w-32 w-auto" />
-            
-          </div> */}
+        <h1 className="text-3xl md:text-[2.4rem] font-bold text-gray-900 text-center leading-[1.15] tracking-tight">
 
-          {/* HEADLINE */}
-          <div className="mb-2">
-            <span className="inline-block bg-[#ff4c00]/10 text-[#ff4c00] px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-3">
-              AI-POWERED JOB SEARCH
-            </span>
-          </div>
+{/* Line 1 */}
+<span className="block  text-center w-full m-0 p-0">
+  Land 15+ Interview Calls <span className="inline">with</span>
+</span>
 
-          <h1 className="text-4xl md:text-[2.75rem] font-bold text-gray-800 leading-[1.1] tracking-tight">
-            Land 15+ Interview Calls
-          </h1>
+{/* Line 2 - ALL IN ONE LINE */}
+<span className="block text-center w-full m-0 p-0 flex items-center justify-center flex-wrap gap-3 -mt-4 max-[768px]:flex-nowrap max-[768px]:gap-0 max-[768px]:-mt-1 max-[480px]:gap-0">
 
-          <p className="text-xl font-semibold text-[#ff4c00] mt-3 flex items-center gap-2">
-            <Zap className="w-5 h-5" />
-            with Flashfire AI Copilot
-          </p>
+  <span> Flashfire</span>
 
-          {/* SUBTEXT */}
-          <p className="text-gray-600 mt-5 text-base leading-relaxed">
-            We apply to <span className="font-bold text-[#ff4c00]">1200+ USA job applications</span> & track everything while you focus on winning the interview.
-          </p>
+  <span className="inline-flex items-center max-[768px]:origin-center max-[768px]:mx-[-0.05rem]">
+            <FlashfireLogo
+              width={0}
+              height={0}
+              className="inline-block align-middle h-[2.4em] w-auto leading-none flex-shrink-0 object-contain -mx-8 max-[768px]:h-11 max-[768px]:w-auto max-[768px]:mx-0"
+            />
+          </span>
 
-          {/* BENEFIT POINTS */}
-          <div className="mt-5 space-y-2.5">
-            {[
-              "Smart auto-apply to matched positions",
-              "Real-time application tracking dashboard",
-              "AI-optimized resume for each role"
-            ].map((benefit, idx) => (
-              <div key={idx} className="flex items-center gap-3 text-sm text-gray-600">
-                <div className="w-5 h-5 bg-[#ff4c00]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <CheckCircle className="w-3 h-3 text-[#ff4c00]" />
-                </div>
-                <span>{benefit}</span>
-              </div>
-            ))}
-          </div>
+  <span>AI Copilot</span>
+
+</span>
+
+</h1>
+<p className="text-gray-600 text-center mt-4 text-base leading-relaxed max-w-sm mx-auto">
+  We apply to <span className="font-semibold text-[#ff4c00]">1200+ USA job applications</span> & track everything while you focus on winning the interview.
+</p>
 
           {/* CTA BUTTON */}
           <button
