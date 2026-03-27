@@ -159,32 +159,32 @@ export default function RegisterPage() {
 
         <h1 className="text-3xl md:text-[2.4rem] font-bold text-gray-900 text-center leading-[1.15] tracking-tight">
 
-{/* Line 1 */}
-<span className="block  text-center w-full m-0 p-0">
-  Land 15+ Interview Calls <span className="inline">with</span>
-</span>
+           
+            <span className="block  text-center w-full m-0 p-0">
+            Land 15+ Interview Calls <span className="inline">with</span>
+            </span>
 
-{/* Line 2 - ALL IN ONE LINE */}
-<span className="block text-center w-full m-0 p-0 flex items-center justify-center flex-wrap gap-3 -mt-4 max-[768px]:flex-nowrap max-[768px]:gap-0 max-[768px]:-mt-1 max-[480px]:gap-0">
+            
+            <span className="block text-center w-full m-0 p-0 flex items-center justify-center flex-wrap gap-3 -mt-4 max-[768px]:flex-nowrap max-[768px]:gap-0 max-[768px]:-mt-1 max-[480px]:gap-0">
 
-  <span> Flashfire</span>
+            <span> Flashfire</span>
 
-  <span className="inline-flex items-center max-[768px]:origin-center max-[768px]:mx-[-0.05rem]">
-            <FlashfireLogo
-              width={0}
-              height={0}
-              className="inline-block align-middle h-[2.4em] w-auto leading-none flex-shrink-0 object-contain -mx-8 max-[768px]:h-11 max-[768px]:w-auto max-[768px]:mx-0"
-            />
-          </span>
+            <span className="inline-flex items-center max-[768px]:origin-center max-[768px]:mx-[-0.05rem]">
+                        <FlashfireLogo
+                        width={0}
+                        height={0}
+                        className="inline-block align-middle h-[2.4em] w-auto leading-none flex-shrink-0 object-contain -mx-8 max-[768px]:h-11 max-[768px]:w-auto max-[768px]:mx-0"
+                        />
+                    </span>
 
-  <span>AI Copilot</span>
+            <span>AI Copilot</span>
 
-</span>
+            </span>
 
-</h1>
-<p className="text-gray-600 text-center mt-4 text-base leading-relaxed max-w-sm mx-auto">
-  We apply to <span className="font-semibold text-[#ff4c00]">1200+ USA job applications</span> & track everything while you focus on winning the interview.
-</p>
+            </h1>
+            <p className="text-gray-600 text-center mt-4 text-base leading-relaxed max-w-sm mx-auto">
+            We apply to <span className="font-semibold text-[#ff4c00]">1200+ USA job applications</span> & track everything while you focus on winning the interview.
+            </p>
 
           {/* CTA BUTTON */}
           <button
