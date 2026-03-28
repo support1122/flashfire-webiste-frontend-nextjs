@@ -21,158 +21,214 @@ export default function AICareerAssessmentPage() {
   return (
     <div className="bg-white text-slate-900 min-h-screen">
       <main className="mt-0">
-        {/* Hero */}
-        {/* Premium Hero Section */}
-<section className="relative bg-gradient-to-br from-[#fff7f2] via-white to-[#fff3ec] py-24 overflow-hidden">
 
-{/* Soft background glow */}
-<div className="absolute -top-32 -left-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
-<div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+        {/* Hero Section - Premium Glassmorphism Design */}
+        <section className="relative bg-[#fff3ec] py-16 md:py-24 overflow-hidden">
+          {/* Subtle background pattern */}
+          {/* <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,_#ff4c00_0%,_transparent_50%)]"></div>
+            <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,_#ff4c00_0%,_transparent_50%)]"></div>
+          </div> */}
 
-<div className="relative max-w-5xl mx-auto px-6 text-center">
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-  {/* Badge */}
-  <div className="inline-block mb-6 px-4 py-2 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-semibold">
-    AI-Powered Career Intelligence
-  </div>
+              {/* Left Content */}
+              <div className="text-center lg:text-left">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#ff4c00]/20 text-[#ff4c00] text-sm font-semibold shadow-sm">
+                  <Brain className="w-4 h-4" />
+                  AI-Powered Career Intelligence
+                </div>
 
-  {/* Heading */}
-  <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900 mb-6">
-    AI Career Assessment Test <br className="hidden md:block" />
-    for Skill Gap & Career Path
-  </h1>
+                {/* Heading */}
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-slate-900 mb-6">
+                  AI Career Assessment Test{" "}
+                  <span className="text-[#ff4c00]">for Skill Gap & Career Path</span>
+                </h1>
 
-  {/* Subheading */}
-  <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-6 leading-relaxed">
-    Stop second-guessing your career decisions. Discover your ideal career path,
-    strengths, and missing skills in under 10 minutes.
-  </p>
+                {/* Subheading */}
+                <p className="text-base sm:text-lg text-slate-600 mb-4 leading-relaxed">
+                  Stop second-guessing your career decisions. Discover your ideal career path,
+                  strengths, and missing skills in under 10 minutes.
+                </p>
 
-  <p className="text-base text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-    Our career assessment test, powered by advanced AI career assessment,
-    analyzes your skills, experience, personality, and market demand to
-    deliver a personalized career roadmap instantly.
-  </p>
+                <p className="text-sm sm:text-base text-slate-500 mb-8 leading-relaxed">
+                  Our career assessment test, powered by advanced AI career assessment,
+                  analyzes your skills, experience, personality, and market demand to
+                  deliver a personalized career roadmap instantly.
+                </p>
 
-  {/* Feature Cards Instead of Plain Bullets */}
-  <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
-    {[
-      "Get accurate career recommendations",
-      "Identify your professional strengths",
-      "Detect critical skill gaps",
-      "Make smarter career decisions",
-    ].map((item, i) => (
-      <div
-        key={i}
-        className="flex items-center gap-3 bg-white border border-slate-100 shadow-sm rounded-xl px-4 py-3 text-slate-700"
-      >
-        <div className="w-6 h-6 rounded-full bg-[#ff4c00]/10 flex items-center justify-center">
-          <span className="text-[#ff4c00] text-sm font-bold">✓</span>
-        </div>
-        <span className="text-sm md:text-base">{item}</span>
-      </div>
-    ))}
-  </div>
+                {/* Feature Pills */}
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+                  {[
+                    "Get accurate career recommendations",
+                    "Identify your professional strengths",
+                    "Detect critical skill gaps",
+                    "Make smarter career decisions",
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-700 shadow-sm"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-[#ff4c00]" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
 
-  {/* CTA */}
-  <button
-    type="button"
-    onClick={() =>
-      updateCtaUrl("/ai-career-assessment-skill-gap-analysis", "Start Assessment")
-    }
-    className="inline-flex items-center justify-center bg-[#ff4c00] text-white px-10 py-4 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
-  >
-    Start Assessment →
-  </button>
+                {/* CTA */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    updateCtaUrl("/ai-career-assessment-skill-gap-analysis", "Start Assessment")
+                  }
+                  className="inline-flex items-center justify-center gap-2 bg-[#ff4c00] text-white px-8 py-4 rounded-xl text-base font-semibold shadow-lg hover:bg-[#e64400] transition-colors"
+                >
+                  Start Assessment
+                  <ArrowRight className="w-5 h-5" />
+                </button>
 
-  {/* Trust Line */}
-  <div className="mt-8 text-sm text-slate-500">
-    Instant Results • No Complex Setup • Secure & Confidential
-  </div>
+                {/* Trust Line */}
+                <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-xs text-slate-500">
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" /> Instant Results
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3" /> No Complex Setup
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Shield className="w-3 h-3" /> Secure & Confidential
+                  </span>
+                </div>
+              </div>
 
-</div>
-</section>
+              {/* Right Visual - Stats Card Grid */}
+              <div className="hidden lg:block">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-slate-100 shadow-lg">
+                    <div className="w-12 h-12 rounded-xl bg-[#ff4c00]/10 flex items-center justify-center mb-4">
+                      <Target className="w-6 h-6 text-[#ff4c00]" />
+                    </div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">10 min</div>
+                    <div className="text-sm text-slate-600">Quick Assessment</div>
+                  </div>
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-slate-100 shadow-lg mt-8">
+                    <div className="w-12 h-12 rounded-xl bg-[#ff4c00]/10 flex items-center justify-center mb-4">
+                      <BarChart3 className="w-6 h-6 text-[#ff4c00]" />
+                    </div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">AI</div>
+                    <div className="text-sm text-slate-600">Powered Analysis</div>
+                  </div>
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-slate-100 shadow-lg">
+                    <div className="w-12 h-12 rounded-xl bg-[#ff4c00]/10 flex items-center justify-center mb-4">
+                      <FileText className="w-6 h-6 text-[#ff4c00]" />
+                    </div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">PDF</div>
+                    <div className="text-sm text-slate-600">Detailed Report</div>
+                  </div>
+                  <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-slate-100 shadow-lg mt-8">
+                    <div className="w-12 h-12 rounded-xl bg-[#ff4c00]/10 flex items-center justify-center mb-4">
+                      <Award className="w-6 h-6 text-[#ff4c00]" />
+                    </div>
+                    <div className="text-3xl font-bold text-slate-900 mb-1">100%</div>
+                    <div className="text-sm text-slate-600">Personalized</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        {/* Trusted By */}
-      {/* Trusted By Section - Improved */}
-<section className="relative py-20 bg-gradient-to-b from-white to-[#fff7f2]">
-  <div className="max-w-5xl mx-auto px-6 text-center">
+        {/* Trusted By Section - Clean Professional */}
+        <section className="py-16 bg-white border-b border-slate-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-2">
+                Trusted by Growing Numbers of Professionals
+              </p>
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+                Join thousands using our intelligent:{" "}
+                <span className="text-[#ff4c00]">AI career assessment</span>
+              </h2>
+            </div>
 
-    {/* Small Top Label */}
-    <p className="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-4">
-      Trusted by Growing Numbers of Professionals
-    </p>
+            <div className="grid sm:grid-cols-3 gap-6">
+              <div className="bg-[#fff7f2] rounded-xl p-6 text-center border border-[#ff4c00]/10">
+                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <Users className="h-6 w-6 text-[#ff4c00]" />
+                </div>
+                <p className="text-slate-700 font-medium text-sm">
+                  Used by professionals across industries
+                </p>
+              </div>
 
-    {/* Main Heading */}
-    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-12">
-      Join thousands using our intelligent:{" "}
-      <span className="text-[#ff4c00]">AI career assessment</span>
-    </h2>
+              <div className="bg-[#fff7f2] rounded-xl p-6 text-center border border-[#ff4c00]/10">
+                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <BarChart3 className="h-6 w-6 text-[#ff4c00]" />
+                </div>
+                <p className="text-slate-700 font-medium text-sm">
+                  Designed using real hiring data
+                </p>
+              </div>
 
-    {/* Feature Cards Instead of Floating Text */}
-    <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-[#fff7f2] rounded-xl p-6 text-center border border-[#ff4c00]/10">
+                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <Target className="h-6 w-6 text-[#ff4c00]" />
+                </div>
+                <p className="text-slate-700 font-medium text-sm">
+                  Built for modern career decision-making
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <div className="bg-white border border-slate-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
-        <Users className="h-6 w-6 text-[#ff4c00] mb-4 mx-auto" />
-        <p className="text-slate-700 font-medium">
-          Used by professionals across industries
-        </p>
-      </div>
-
-      <div className="bg-white border border-slate-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
-        <BarChart3 className="h-6 w-6 text-[#ff4c00] mb-4 mx-auto" />
-        <p className="text-slate-700 font-medium">
-          Designed using real hiring data
-        </p>
-      </div>
-
-      <div className="bg-white border border-slate-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
-        <Target className="h-6 w-6 text-[#ff4c00] mb-4 mx-auto" />
-        <p className="text-slate-700 font-medium">
-          Built for modern career decision-making
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-        {/* Why Career Decisions Feel Overwhelming */}
-        <section className="py-14 bg-[#fff7f2]">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
+        {/* Why Career Decisions Feel Overwhelming - Bento Grid */}
+        <section className="py-16 bg-[#fff7f2]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-slate-900">
                 Why Career Decisions Often Feel Overwhelming
               </h2>
-              <p className="text-base text-slate-700 mb-5 text-center">
+              <p className="text-base text-slate-600">
                 Choosing the right career path isn't easy. Many professionals struggle with:
               </p>
-              <div className="grid md:grid-cols-2 gap-3 mb-6">
-                {[
-                  "Feeling stuck in the wrong role",
-                  "Uncertainty about skill development",
-                  "Fear of choosing the wrong career",
-                  "Confusion about market demand",
-                  "Wasting time on ineffective certifications",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2 p-3 bg-white rounded-lg border border-slate-200">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00] mt-1.5 flex-shrink-0"></div>
-                    <span className="text-base text-slate-700">{item}</span>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+              {[
+                "Feeling stuck in the wrong role",
+                "Uncertainty about skill development",
+                "Fear of choosing the wrong career",
+                "Confusion about market demand",
+                "Wasting time on ineffective certifications",
+              ].map((item, i) => (
+                <div key={i} className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[#ff4c00] font-bold text-sm">{i + 1}</span>
+                    </div>
+                    <span className="text-slate-700 font-medium text-sm pt-1">{item}</span>
                   </div>
-                ))}
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#ff4c00]/20 shadow-sm max-w-3xl mx-auto">
+              <div className="space-y-3 mb-4">
+                <p className="text-base text-slate-700">
+                  <span className="font-semibold text-[#ff4c00]">Tired of guessing your next move?</span>
+                </p>
+                <p className="text-base text-slate-700">
+                  <span className="font-semibold text-[#ff4c00]">Unsure if your skills match the job market?</span>
+                </p>
+                <p className="text-base text-slate-700">
+                  <span className="font-semibold text-[#ff4c00]">Afraid of investing in the wrong career path?</span>
+                </p>
               </div>
-              <div className="bg-white rounded-lg p-5 border border-[#ff4c00]/20">
-                <p className="text-base text-slate-700 mb-2">
-                  <span className="font-semibold">Tired of guessing your next move?</span>
-                </p>
-                <p className="text-base text-slate-700 mb-2">
-                  <span className="font-semibold">Unsure if your skills match the job market?</span>
-                </p>
-                <p className="text-sm text-slate-700 mb-3">
-                  <span className="font-semibold">Afraid of investing in the wrong career path?</span>
-                </p>
-                <p className="text-sm font-semibold text-[#ff4c00]">
+              <div className="pt-4 border-t border-slate-100">
+                <p className="text-base font-semibold text-[#ff4c00]">
                   Our intelligent career quiz eliminates this uncertainty.
                 </p>
               </div>
@@ -180,19 +236,19 @@ export default function AICareerAssessmentPage() {
           </div>
         </section>
 
-        {/* How It Works */}
-        <section className="py-14 bg-white">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold mb-3">
+        {/* How It Works - Vertical Timeline */}
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-slate-900">
                 How Our <span className="text-[#ff4c00]">AI Career Assessment Test Works</span>
               </h2>
-              <p className="text-base text-slate-700">
+              <p className="text-base text-slate-600">
                 Finding career clarity should feel simple — and now it is.
               </p>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
               {[
                 {
                   step: "1",
@@ -258,40 +314,50 @@ export default function AICareerAssessmentPage() {
                   ],
                   note: "Built for smarter career planning assessment.",
                 },
-              ].map((item) => (
-                <div
-                  key={item.step}
-                  className="bg-white rounded-lg border border-slate-200 p-5"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-9 h-9 rounded-full bg-[#ff4c00] text-white flex items-center justify-center font-bold text-sm">
-                      {item.step}
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-base text-slate-700 mb-3">{item.desc}</p>
-                      {item.bullets && (
-                        <div className="grid md:grid-cols-2 gap-2 mb-3">
-                          {item.bullets.map((bullet, i) => (
-                            <div key={i} className="flex items-center gap-2">
-                              <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00] flex-shrink-0"></div>
-                              <span className="text-base text-slate-700">{bullet}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {item.note && (
-                        <p className="text-base font-medium text-[#ff4c00] mt-2">{item.note}</p>
-                      )}
-                      {item.cta && (
-                        <button
-                          type="button"
-                          onClick={() => updateCtaUrl("/ai-career-assessment-skill-gap-analysis", item.cta)}
-                          className="mt-2 text-base font-semibold text-[#ff4c00] hover:underline"
-                        >
-                          {item.cta} →
-                        </button>
-                      )}
+              ].map((item, index) => (
+                <div key={item.step} className="relative">
+                  {/* Timeline connector */}
+                  {/* {index !== 5 && (
+                    <div className="absolute left-6 top-16 w-0.5 h-8 bg-[#ff4c00]/20"></div>
+                  )} */}
+
+                  <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#ff4c00] to-[#ff6b33] text-white flex items-center justify-center font-bold text-lg shadow-md">
+                        {item.step}
+                      </div>
+                      <div className="flex-grow min-w-0">
+                        <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">{item.title}</h3>
+                        <p className="text-sm sm:text-base text-slate-600 mb-4">{item.desc}</p>
+
+                        {item.bullets && (
+                          <div className="grid sm:grid-cols-2 gap-2 mb-4">
+                            {item.bullets.map((bullet, i) => (
+                              <div key={i} className="flex items-center gap-2">
+                                <div className="w-1.5 h-1.5 rounded-full bg-[#ff4c00] flex-shrink-0"></div>
+                                <span className="text-sm text-slate-700">{bullet}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {item.note && (
+                          <p className="text-sm font-semibold text-[#ff4c00] bg-[#fff7f2] inline-block px-3 py-1 rounded-lg">
+                            {item.note}
+                          </p>
+                        )}
+
+                        {item.cta && (
+                          <button
+                            type="button"
+                            onClick={() => updateCtaUrl("/ai-career-assessment-skill-gap-analysis", item.cta)}
+                            className="mt-3 text-sm font-semibold text-[#ff4c00] hover:text-[#e64400] flex items-center gap-1"
+                          >
+                            {item.cta}
+                            <ArrowRight className="w-4 h-4" />
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -300,13 +366,14 @@ export default function AICareerAssessmentPage() {
           </div>
         </section>
 
-        {/* Before vs After */}
-        <section className="py-14 bg-[#fff7f2]">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        {/* Before vs After - Comparison Cards */}
+        <section className="py-16 bg-[#fff7f2]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 text-center text-slate-900">
               Before vs After Using AI Career Assessment
             </h2>
-            <div className="grid md:grid-cols-3 gap-4">
+
+            <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
                   before: "Confused about career direction",
@@ -321,14 +388,17 @@ export default function AICareerAssessmentPage() {
                   after: "Data-backed career clarity",
                 },
               ].map((item, i) => (
-                <div key={i} className="bg-white rounded-lg border border-slate-200 p-5">
-                  <div className="mb-3">
-                    <p className="text-sm font-semibold text-slate-500 mb-1.5">Before:</p>
-                    <p className="text-base text-slate-700">{item.before}</p>
+                <div key={i} className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                  <div className="p-6 bg-slate-50 border-b border-slate-200">
+                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Before</p>
+                    <p className="text-slate-700 font-medium">{item.before}</p>
                   </div>
-                  <div className="pt-3 border-t border-slate-200">
-                    <p className="text-sm font-semibold text-[#ff4c00] mb-1.5">After:</p>
-                    <p className="text-base font-semibold text-slate-900">{item.after}</p>
+                  <div className="p-6 bg-white">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#ff4c00] mb-2">After</p>
+                    <p className="text-slate-900 font-semibold">{item.after}</p>
+                  </div>
+                  <div className="px-6 pb-6">
+                    <div className="w-full h-1 bg-gradient-to-r from-slate-200 to-[#ff4c00] rounded-full"></div>
                   </div>
                 </div>
               ))}
@@ -336,43 +406,47 @@ export default function AICareerAssessmentPage() {
           </div>
         </section>
 
-        {/* Why This Delivers Better Results */}
-        <section className="py-14 bg-white">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
+        {/* Why This Delivers Better Results - Feature Grid */}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-slate-900">
                 Why This AI Career Assessment Delivers Better Results
               </h2>
-              <p className="text-base text-slate-700 mb-6 text-center">
+              <p className="text-base text-slate-600">
                 Traditional tests give opinions. We deliver actionable intelligence.
               </p>
-              <div className="grid md:grid-cols-2 gap-3">
-                {[
-                  "Powered by real-time job market data",
-                  "Combines aptitude + skill-gap analysis",
-                  "Not just personality-based",
-                  "Designed for real hiring environments",
-                  "Understand true career compatibility",
-                  "Know exactly what to improve",
-                  "Make confident career decisions",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5 p-3 bg-[#fff7f2] rounded-lg border border-slate-200">
-                    <CheckCircle2 className="h-4 w-4 text-[#ff4c00] flex-shrink-0 mt-0.5" />
-                    <span className="text-base text-slate-700">{item}</span>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                "Powered by real-time job market data",
+                "Combines aptitude + skill-gap analysis",
+                "Not just personality-based",
+                "Designed for real hiring environments",
+                "Understand true career compatibility",
+                "Know exactly what to improve",
+                "Make confident career decisions",
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3 p-4 bg-[#fff7f2] rounded-xl border border-slate-100">
+                  <div className="w-8 h-8 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="h-4 w-4 text-[#ff4c00]" />
                   </div>
-                ))}
-              </div>
+                  <span className="text-sm sm:text-base text-slate-700 font-medium pt-1">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Key Benefits */}
-        <section className="py-14 bg-[#fff7f2]">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        {/* Key Benefits - Bento Grid */}
+        <section className="py-16 bg-[#fff7f2]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 text-center text-slate-900">
               Key Benefits at a Glance
             </h2>
-            <div className="grid md:grid-cols-3 gap-4">
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 {
                   title: "Eliminate Career Confusion",
@@ -399,23 +473,26 @@ export default function AICareerAssessmentPage() {
                   desc: "",
                 },
               ].map((item, i) => (
-                <div key={i} className="bg-white rounded-lg border border-slate-200 p-4">
-                  <div className="text-xl font-bold text-[#ff4c00] mb-2">{i + 1}</div>
-                  <h3 className="text-base font-semibold mb-1.5">{item.title}</h3>
-                  {item.desc && <p className="text-base text-slate-600">{item.desc}</p>}
+                <div key={i} className="bg-white rounded-xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#ff4c00] to-[#ff6b33] text-white flex items-center justify-center font-bold text-lg mb-3">
+                    {i + 1}
+                  </div>
+                  <h3 className="text-base font-bold mb-2 text-slate-900">{item.title}</h3>
+                  {item.desc && <p className="text-sm text-slate-600">{item.desc}</p>}
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Key Features */}
-        <section className="py-14 bg-white">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        {/* Key Features - Tag Cloud Style */}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 text-center text-slate-900">
               Key Features of Our AI Career Assessment Tool
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               {[
                 "AI-Powered Career Aptitude Test",
                 "Advanced Skill Gap Analysis Tool",
@@ -427,28 +504,34 @@ export default function AICareerAssessmentPage() {
                 "Beginner-Friendly Interface",
                 "Results in Under 10 Minutes",
               ].map((feature, i) => (
-                <div key={i} className="bg-[#fff7f2] rounded-lg border border-slate-200 p-3">
-                  <p className="text-base font-medium text-slate-700">{feature}</p>
+                <div key={i} className="bg-[#fff7f2] border border-[#ff4c00]/20 rounded-full px-5 py-2.5">
+                  <p className="text-sm font-medium text-slate-700">{feature}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Comparison Table */}
-        <section className="py-14 bg-[#fff7f2]">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        {/* Comparison Table - Modern Design */}
+        <section className="py-16 bg-[#fff7f2]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 text-center text-slate-900">
               AI Career Assessment vs Traditional Career Tests
             </h2>
-            <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
+
+            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
-                <table className="w-full">
+                <table className="w-full min-w-[600px]">
                   <thead>
-                    <tr className="border-b border-slate-200 bg-[#fff7f2]">
-                      <th className="text-left p-3 font-semibold text-slate-900 text-base">Feature</th>
-                      <th className="text-left p-3 font-semibold text-slate-900 text-base">AI Career Assessment</th>
-                      <th className="text-left p-3 font-semibold text-slate-900 text-base">Traditional Career Tests</th>
+                    <tr className="border-b border-slate-200 bg-gradient-to-r from-[#fff7f2] to-white">
+                      <th className="text-left p-4 font-bold text-slate-900 text-sm sm:text-base w-1/3">Feature</th>
+                      <th className="text-left p-4 font-bold text-[#ff4c00] text-sm sm:text-base w-1/3">
+                        <div className="flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4" />
+                          AI Career Assessment
+                        </div>
+                      </th>
+                      <th className="text-left p-4 font-bold text-slate-500 text-sm sm:text-base w-1/3">Traditional Career Tests</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -484,29 +567,36 @@ export default function AICareerAssessmentPage() {
                         traditional: "Longer evaluation",
                       },
                     ].map((row, i) => (
-                      <tr key={i} className="border-b border-slate-100">
-                        <td className="p-3 font-medium text-slate-700 text-base">{row.feature}</td>
-                        <td className="p-3 text-slate-700 text-base">{row.ai}</td>
-                        <td className="p-3 text-slate-600 text-base">{row.traditional}</td>
+                      <tr key={i} className="border-b border-slate-100 last:border-b-0">
+                        <td className="p-4 font-semibold text-slate-700 text-sm sm:text-base">{row.feature}</td>
+                        <td className="p-4 text-slate-700 text-sm sm:text-base">
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-[#ff4c00]"></div>
+                            {row.ai}
+                          </div>
+                        </td>
+                        <td className="p-4 text-slate-500 text-sm sm:text-base">{row.traditional}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
             </div>
-            <p className="text-center text-base text-slate-600 mt-5">
+
+            <p className="text-center text-sm sm:text-base text-slate-600 mt-6">
               Modern decision-making requires smarter systems.
             </p>
           </div>
         </section>
 
-        {/* Who Can Use This */}
-        <section className="py-14 bg-white">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+        {/* Who Can Use This - Profile Cards */}
+        <section className="py-16 bg-white">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 text-center text-slate-900">
               Who Can Use This Career Assessment Test?
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 "Fresh graduates",
                 "Entry-level professionals",
@@ -516,88 +606,101 @@ export default function AICareerAssessmentPage() {
                 "Professionals preparing for promotions",
                 "International job seekers",
               ].map((item, i) => (
-                <div key={i} className="bg-[#fff7f2] rounded-lg border border-slate-200 p-3 text-center">
-                  <p className="text-base text-slate-700">{item}</p>
+                <div key={i} className="bg-[#fff7f2] rounded-xl border border-[#ff4c00]/10 p-4 text-center hover:bg-[#ffefe8] transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
+                    <Users className="w-5 h-5 text-[#ff4c00]" />
+                  </div>
+                  <p className="text-sm font-medium text-slate-700">{item}</p>
                 </div>
               ))}
             </div>
-            <p className="text-center text-base text-slate-600 mt-5">
-              Ideal for anyone seeking structured: <span className="font-semibold text-[#ff4c00]">career evaluation test</span>
+
+            <p className="text-center text-sm sm:text-base text-slate-600 mt-8">
+              Ideal for anyone seeking structured:{" "}
+              <span className="font-semibold text-[#ff4c00]">career evaluation test</span>
             </p>
           </div>
         </section>
 
-        {/* Final CTA */}
-        {/* Premium Final CTA Section */}
-<section className="relative py-28 bg-gradient-to-br from-[#fff7f2] via-white to-[#fff3ec] overflow-hidden">
+        {/* Final CTA - Premium Glass Card */}
+        <section className="relative py-20 bg-gradient-to-br from-[#fff7f2] via-white to-[#fff3ec] overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#ff4c00] rounded-full blur-3xl"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#ff4c00] rounded-full blur-3xl"></div>
+          </div>
 
-{/* Soft Background Glow */}
-<div className="absolute -top-32 -left-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
-<div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white/90 backdrop-blur-sm border border-slate-100 shadow-2xl rounded-3xl p-8 sm:p-12 text-center">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff6b33] flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Target className="w-8 h-8 text-white" />
+              </div>
 
-<div className="relative max-w-4xl mx-auto px-6">
-
-  {/* Glass Card Container */}
-  <div className="bg-white/80 backdrop-blur-md border border-slate-100 shadow-2xl rounded-3xl px-8 md:px-16 py-16 text-center">
-
-    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-      Discover Your Ideal Career Path with AI
-    </h2>
-
-    <p className="text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-      Stop guessing your future. Identify your strengths. Fix your skill gaps.
-      Move forward with confidence.
-    </p>
-
-    {/* Improved Benefit Layout */}
-    <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
-      {[
-        "Gain instant career clarity",
-        "Detect missing skills",
-        "Build smarter career strategies",
-        "Make confident decisions",
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="bg-[#fff7f2] border border-slate-100 rounded-xl py-3 px-4 text-slate-700 font-medium shadow-sm"
-        >
-          {item}
-        </div>
-      ))}
-    </div>
-
-    {/* Stronger CTA */}
-    <button
-      type="button"
-      onClick={() =>
-        updateCtaUrl("/ai-career-assessment-skill-gap-analysis", "Start Assessment")
-      }
-      className="inline-flex items-center justify-center bg-[#ff4c00] text-white px-12 py-4 rounded-xl text-lg font-semibold shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300"
-    >
-      Start Assessment →
-    </button>
-
-    {/* Trust Line */}
-    <div className="mt-8 text-sm text-slate-500 flex flex-wrap justify-center gap-6">
-      <span>Instant results</span>
-      <span>No complex setup</span>
-      <span>Secure & confidential</span>
-    </div>
-
-  </div>
-</div>
-</section>
-
-        {/* FAQ */}
-        <section className="py-20 bg-[#f9e8e0]">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-                FAQs
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                Discover Your Ideal Career Path with AI
               </h2>
+
+              <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Stop guessing your future. Identify your strengths. Fix your skill gaps.
+                Move forward with confidence.
+              </p>
+
+              {/* Benefit Pills */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8 max-w-2xl mx-auto">
+                {[
+                  "Gain instant career clarity",
+                  "Detect missing skills",
+                  "Build smarter career strategies",
+                  "Make confident decisions",
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-[#fff7f2] border border-[#ff4c00]/10 rounded-full px-4 py-2 text-sm text-slate-700 font-medium"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <button
+                type="button"
+                onClick={() =>
+                  updateCtaUrl("/ai-career-assessment-skill-gap-analysis", "Start Assessment")
+                }
+                className="inline-flex items-center justify-center gap-2 bg-[#ff4c00] text-white px-10 py-4 rounded-xl text-base font-semibold shadow-lg hover:bg-[#e64400] transition-colors"
+              >
+                Start Assessment
+                <ArrowRight className="w-5 h-5" />
+              </button>
+
+              {/* Trust Badges */}
+              <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-slate-500">
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3 h-3" /> Instant results
+                </span>
+                <span className="flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" /> No complex setup
+                </span>
+                <span className="flex items-center gap-1">
+                  <Shield className="w-3 h-3" /> Secure & confidential
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ - Clean Accordion */}
+        <section className="py-16 bg-[#f9e8e0]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-base text-slate-600">Everything you need to know about our AI career assessment</p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-100">
               {[
                 {
                   q: "What is an AI career assessment test?",
@@ -626,23 +729,23 @@ export default function AICareerAssessmentPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-gray-200 transition-all ${
-                    activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                  className={`border-b border-slate-100 last:border-b-0 ${
+                    activeFaqIndex === i ? "bg-[#fff7f3]" : "bg-white"
                   }`}
                 >
                   <button
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-[#fff7f3] transition-colors"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-lg md:text-xl ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className={`font-semibold text-base sm:text-lg pr-4 ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
                       {item.q}
                     </span>
-                    <span className="text-[#ff4c00] shrink-0 ml-4">
+                    <span className={`text-[#ff4c00] shrink-0 transition-transform ${activeFaqIndex === i ? "rotate-45" : ""}`}>
                       {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 text-sm sm:text-base">
                       <p>{item.a}</p>
                     </div>
                   )}
@@ -653,21 +756,6 @@ export default function AICareerAssessmentPage() {
         </section>
 
       </main>
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-0.3rem);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease;
-        }
-      `}} />
     </div>
   );
 }
