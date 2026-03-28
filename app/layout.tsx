@@ -117,6 +117,8 @@ export const viewport: Viewport = {
 import ClientLogicWrapper from "@/src/components/ClientLogicWrapper";
 import { FB_PIXEL_ID } from "@/lib/metaPixel";
 
+const GTM_CONTAINER_ID = "GTM-MCS5V3BF";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -125,6 +127,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Tag Manager — keep high in <head> per Google */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');`,
+          }}
+        />
         {/* Google AdSense site verification */}
         <meta name="google-adsense-account" content="ca-pub-7803903365456072" />
         {/* Font Preconnect for Google Fonts */}
@@ -179,6 +191,16 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
+        {/* Google Tag Manager (noscript) — immediately after opening <body> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <PHProvider>
           <ClientLogicWrapper>
             {children}
@@ -215,42 +237,24 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-        {/* Google Analytics - Load with lower priority */}
+        {/* Google Analytics + Google Ads — single gtag.js, afterInteractive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
+            window.gtag = function() {
               dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-4P890VGD8D", {
+            };
+            window.gtag("js", new Date());
+            window.gtag("config", "G-4P890VGD8D", {
               page_path: window.location.pathname,
             });
+            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");` : ''}
           `}
         </Script>
-        {/* Google Ads Conversion Tracking - Load with afterInteractive strategy */}
-        {process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-ads" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = window.gtag || function() {
-                  dataLayer.push(arguments);
-                };
-                window.gtag("js", new Date());
-                window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");
-              `}
-            </Script>
-          </>
-        )}
         {/* LinkedIn Insight Tag - Load with afterInteractive strategy */}
         {process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID && (
           <>

@@ -154,6 +154,12 @@ export default function CalendlyModal({
         };
         console.log("📅 Meeting booked event:", meetingBookedEvent);
 
+        try {
+          if (typeof window !== "undefined") {
+            sessionStorage.setItem("flashfire_meeting_booked_pending_track", "1");
+          }
+        } catch {}
+
         // Navigate to meeting-booked page
         router.push("/meeting-booked");
 
