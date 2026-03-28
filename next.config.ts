@@ -114,6 +114,26 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // Proxy /register and all sub-routes to the register ads website
+        {
+          source: '/register',
+          destination: `${process.env.REGISTER_APP_URL || 'https://flashfire-register-ads-website.vercel.app'}/register`,
+        },
+        {
+          source: '/register/:path*',
+          destination: `${process.env.REGISTER_APP_URL || 'https://flashfire-register-ads-website.vercel.app'}/register/:path*`,
+        },
+        // Proxy /meeting-booked to the register app (it lives there)
+        {
+          source: '/meeting-booked',
+          destination: `${process.env.REGISTER_APP_URL || 'https://flashfire-register-ads-website.vercel.app'}/meeting-booked`,
+        },
+      ],
+    };
+  },
   async redirects() {
     return [
       {
