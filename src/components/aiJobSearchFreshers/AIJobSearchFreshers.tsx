@@ -691,6 +691,8 @@ export default function AIRemoteJobSearchPage() {
                     <span className={`text-[#ff4c00] shrink-0 transition-transform ${activeFaqIndex === i ? "rotate-45" : ""}`}>
                       {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                     </span>
+
+
                   </button>
                   {activeFaqIndex === i && (
                     <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 text-sm sm:text-base">
