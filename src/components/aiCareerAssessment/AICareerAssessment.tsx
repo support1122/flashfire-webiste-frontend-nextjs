@@ -564,67 +564,51 @@ export default function AICareerAssessmentPage() {
         {/* Comparison Table - Modern Design */}
         <section className="py-16 bg-[#fff7f2]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Heading */}
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 text-center text-slate-900">
               AI Career Assessment vs Traditional Career Tests
             </h2>
 
-            <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[600px]">
+            {/* ================= DESKTOP TABLE ================= */}
+            <div className="hidden md:block">
+              <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <table className="w-full">
                   <thead>
                     <tr className="border-b border-slate-200 bg-gradient-to-r from-[#fff7f2] to-white">
-                      <th className="text-left p-4 font-bold text-slate-900 text-sm sm:text-base w-1/3">Feature</th>
-                      <th className="text-left p-4 font-bold text-[#ff4c00] text-sm sm:text-base w-1/3">
+                      <th className="text-left p-5 font-bold text-slate-900">Feature</th>
+                      <th className="text-left p-5 font-bold text-[#ff4c00]">
                         <div className="flex items-center gap-2">
                           <CheckCircle2 className="w-4 h-4" />
                           AI Career Assessment
                         </div>
                       </th>
-                      <th className="text-left p-4 font-bold text-slate-500 text-sm sm:text-base w-1/3">Traditional Career Tests</th>
+                      <th className="text-left p-5 font-bold text-slate-500">
+                        Traditional Career Tests
+                      </th>
                     </tr>
                   </thead>
+
                   <tbody>
                     {[
-                      {
-                        feature: "Personalization",
-                        ai: "Dynamic AI-based",
-                        traditional: "Generic results",
-                      },
-                      {
-                        feature: "Skill Gap Analysis",
-                        ai: "Included",
-                        traditional: "Limited",
-                      },
-                      {
-                        feature: "Market Alignment",
-                        ai: "Real-time insights",
-                        traditional: "Static database",
-                      },
-                      {
-                        feature: "Career Suggestions",
-                        ai: "Multiple role matches",
-                        traditional: "Limited",
-                      },
-                      {
-                        feature: "Action Plan",
-                        ai: "Customized roadmap",
-                        traditional: "Basic output",
-                      },
-                      {
-                        feature: "Speed",
-                        ai: "Instant results",
-                        traditional: "Longer evaluation",
-                      },
+                      { feature: "Personalization", ai: "Dynamic AI-based", traditional: "Generic results" },
+                      { feature: "Skill Gap Analysis", ai: "Included", traditional: "Limited" },
+                      { feature: "Market Alignment", ai: "Real-time insights", traditional: "Static database" },
+                      { feature: "Career Suggestions", ai: "Multiple role matches", traditional: "Limited" },
+                      { feature: "Action Plan", ai: "Customized roadmap", traditional: "Basic output" },
+                      { feature: "Speed", ai: "Instant results", traditional: "Longer evaluation" },
                     ].map((row, i) => (
                       <tr key={i} className="border-b border-slate-100 last:border-b-0">
-                        <td className="p-4 font-semibold text-slate-700 text-sm sm:text-base">{row.feature}</td>
-                        <td className="p-4 text-slate-700 text-sm sm:text-base">
+                        <td className="p-5 font-semibold text-slate-700">{row.feature}</td>
+
+                        <td className="p-5 text-[#ff4c00] font-medium">
                           <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-[#ff4c00]"></div>
                             {row.ai}
                           </div>
                         </td>
-                        <td className="p-4 text-slate-500 text-sm sm:text-base">{row.traditional}</td>
+
+                        <td className="p-5 text-slate-500">{row.traditional}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -632,9 +616,53 @@ export default function AICareerAssessmentPage() {
               </div>
             </div>
 
+            {/* ================= MOBILE TABLE ================= */}
+            <div className="md:hidden space-y-4">
+              {[
+                { feature: "Personalization", ai: "Dynamic AI-based", traditional: "Generic results" },
+                { feature: "Skill Gap Analysis", ai: "Included", traditional: "Limited" },
+                { feature: "Market Alignment", ai: "Real-time insights", traditional: "Static database" },
+                { feature: "Career Suggestions", ai: "Multiple role matches", traditional: "Limited" },
+                { feature: "Action Plan", ai: "Customized roadmap", traditional: "Basic output" },
+                { feature: "Speed", ai: "Instant results", traditional: "Longer evaluation" },
+              ].map((row, i) => (
+                <div
+                  key={i}
+                  className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm"
+                >
+                  {/* Feature */}
+                  <p className="font-semibold text-slate-900 mb-3">
+                    {row.feature}
+                  </p>
+
+                  {/* AI */}
+                  <div className="flex justify-between items-start gap-3 mb-2">
+                    <span className="text-xs font-semibold text-[#ff4c00] bg-[#ff4c00]/10 px-2 py-1 rounded">
+                      AI
+                    </span>
+                    <p className="text-sm text-[#ff4c00] font-medium text-right">
+                      {row.ai}
+                    </p>
+                  </div>
+
+                  {/* Traditional */}
+                  <div className="flex justify-between items-start gap-3">
+                    <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-1 rounded">
+                      Traditional
+                    </span>
+                    <p className="text-sm text-slate-600 text-right">
+                      {row.traditional}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer */}
             <p className="text-center text-sm sm:text-base text-slate-600 mt-6">
               Modern decision-making requires smarter systems.
             </p>
+
           </div>
         </section>
 

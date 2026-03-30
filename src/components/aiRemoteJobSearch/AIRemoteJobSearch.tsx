@@ -1,11 +1,11 @@
 "use client";
 
-import { 
-  Globe2, 
-  Laptop, 
-  Wifi, 
-  MapPin, 
-  CheckCircle2, 
+import {
+  Globe2,
+  Laptop,
+  Wifi,
+  MapPin,
+  CheckCircle2,
   ArrowRight,
   Search,
   Filter,
@@ -58,7 +58,7 @@ export default function AIRemoteJobSearchPage() {
           {/* Organic decorative shapes - softer, more natural */}
           <div className="absolute top-10 right-20 w-96 h-96 bg-[#ff4c00]/[0.03] rounded-full blur-3xl" />
           <div className="absolute bottom-10 left-10 w-72 h-72 bg-[#ff4c00]/[0.02] rounded-full blur-3xl" />
-          
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
               {/* Left Content - 3 columns */}
@@ -70,12 +70,12 @@ export default function AIRemoteJobSearchPage() {
                     AI Remote Job Search Platform
                   </span>
                 </div>
-                
+
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-slate-900">
                   Find remote roles
                   <span className="block text-[#ff4c00] mt-3">that match your time zone and skills</span>
                 </h1>
-                
+
                 <p className="mt-6 text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl">
                   Flashfire surfaces high‑quality remote opportunities across global markets,
                   filtered by your location, experience level, and salary expectations.
@@ -92,7 +92,7 @@ export default function AIRemoteJobSearchPage() {
                       <span className="text-sm text-slate-500 mt-1">Remote roles across US, Canada, and global markets</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4 p-5 rounded-xl bg-white border border-slate-200/60 shadow-sm hover:shadow-md hover:border-[#ff4c00]/30 transition-all">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#ff4c00] shadow-md">
                       <Laptop className="h-5 w-5 text-white" />
@@ -102,7 +102,7 @@ export default function AIRemoteJobSearchPage() {
                       <span className="text-sm text-slate-500 mt-1">Tech, product, and business roles that support remote work</span>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4 p-5 rounded-xl bg-white border border-slate-200/60 shadow-sm hover:shadow-md hover:border-[#ff4c00]/30 transition-all">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#ff4c00] shadow-md">
                       <Wifi className="h-5 w-5 text-white" />
@@ -139,7 +139,7 @@ export default function AIRemoteJobSearchPage() {
                         Live
                       </span>
                     </div>
-                    
+
                     <div className="space-y-4">
                       <div className="rounded-xl bg-[#fff8f5] border border-[#ffe8e0] p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 hover:border-[#ff4c00]/40 transition-colors cursor-pointer">
                         <div>
@@ -151,7 +151,7 @@ export default function AIRemoteJobSearchPage() {
                           High Match
                         </span>
                       </div>
-                      
+
                       <div className="rounded-xl bg-[#fff8f5] border border-[#ffe8e0] p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 hover:border-[#ff4c00]/40 transition-colors cursor-pointer">
                         <div>
                           <p className="font-bold text-slate-900">Product Designer</p>
@@ -162,7 +162,7 @@ export default function AIRemoteJobSearchPage() {
                           Time‑zone Fit
                         </span>
                       </div>
-                      
+
                       <div className="rounded-xl bg-[#fff8f5] border border-[#ffe8e0] p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 hover:border-[#ff4c00]/40 transition-colors cursor-pointer">
                         <div>
                           <p className="font-bold text-slate-900">DevOps Engineer</p>
@@ -174,13 +174,13 @@ export default function AIRemoteJobSearchPage() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <p className="mt-5 text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-4">
                       These are examples of how Flashfire prioritizes remote roles that not only match
                       your skills, but also work with your schedule and region.
                     </p>
                   </div>
-                  
+
                   {/* Floating Badge - more organic */}
                   <div className="absolute -bottom-3 -left-3 bg-white rounded-xl p-3 shadow-lg border border-slate-100 z-20 hidden sm:block">
                     <div className="flex items-center gap-3">
@@ -204,7 +204,7 @@ export default function AIRemoteJobSearchPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-center">
               <div className="flex items-center gap-3">
-                
+
                 <span className="text-sm font-bold text-slate-900">Trusted by remote professionals worldwide</span>
               </div>
               <span className="hidden sm:inline text-slate-300">|</span>
@@ -304,7 +304,7 @@ export default function AIRemoteJobSearchPage() {
               <div className="relative">
                 {/* Timeline Line - softer */}
                 <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-slate-200" />
-                
+
                 {[
                   {
                     step: "1",
@@ -375,7 +375,7 @@ export default function AIRemoteJobSearchPage() {
                     <div className="absolute left-0 sm:left-4 top-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#ff4c00] flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-md border-4 border-white z-10">
                       {item.step}
                     </div>
-                    
+
                     {/* Content Card - warmer background */}
                     <div className="bg-[#faf8f6] rounded-2xl p-5 sm:p-6 border border-slate-200 hover:border-[#ff4c00]/30 transition-colors">
                       <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">
@@ -556,11 +556,10 @@ export default function AIRemoteJobSearchPage() {
               ].map((item, i) => (
                 <div
                   key={item.title}
-                  className={`group rounded-xl px-5 py-3 border transition-all cursor-default ${
-                    item.featured 
-                      ? 'bg-[#ff4c00] text-white border-[#ff4c00] shadow-md' 
+                  className={`group rounded-xl px-5 py-3 border transition-all cursor-default ${item.featured
+                      ? 'bg-[#ff4c00] text-white border-[#ff4c00] shadow-md'
                       : 'bg-white border-slate-200 hover:border-[#ff4c00]/40 hover:shadow-sm'
-                  }`}
+                    }`}
                 >
                   <p className={`font-semibold text-sm sm:text-base ${item.featured ? 'text-white' : 'text-slate-900'}`}>
                     {item.title}
@@ -579,6 +578,8 @@ export default function AIRemoteJobSearchPage() {
         {/* COMPARISON TABLE - Clean Cards */}
         <section className="bg-white py-16 sm:py-20 lg:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Header */}
             <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
               <span className="inline-block px-4 py-1.5 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ff4c00]/20">
                 Comparison
@@ -589,36 +590,88 @@ export default function AIRemoteJobSearchPage() {
             </div>
 
             <div className="max-w-4xl mx-auto">
-              <div className="bg-[#faf8f6] rounded-2xl p-2">
-                <div className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm">
-                  <div className="grid grid-cols-3 gap-px bg-slate-200">
-                    {/* Header */}
-                    <div className="bg-[#faf8f6] p-4 sm:p-6 font-bold text-slate-900 text-sm sm:text-base">Feature</div>
-                    <div className="bg-[#ff4c00] p-4 sm:p-6 font-bold text-white text-sm sm:text-base text-center">AI Remote Job Finder</div>
-                    <div className="bg-slate-100 p-4 sm:p-6 font-bold text-slate-700 text-sm sm:text-base text-center">Traditional Job Boards</div>
-                    
-                    {/* Rows */}
-                    {[
-                      { feature: "Job Matching", ai: "AI-based remote job matching", traditional: "Manual search" },
-                      { feature: "Personalization", ai: "Resume-based recommendations", traditional: "Generic listings" },
-                      { feature: "Global Access", ai: "Verified global remote jobs", traditional: "Limited filtering" },
-                      { feature: "Application Speed", ai: "One-click apply", traditional: "Manual forms" },
-                      { feature: "Alerts", ai: "Smart real-time alerts", traditional: "Basic notifications" },
-                      { feature: "Optimization", ai: "AI improvement insights", traditional: "Not available" },
-                    ].map((row, i) => (
-                      <div key={i} className="contents">
-                        <div className="bg-white p-4 sm:p-6 font-medium text-slate-900 text-sm sm:text-base border-b border-slate-100">{row.feature}</div>
-                        <div className="bg-[#fff8f5] p-4 sm:p-6 text-[#ff4c00] font-semibold text-sm sm:text-base text-center border-b border-[#ff4c00]/10">{row.ai}</div>
-                        <div className="bg-white p-4 sm:p-6 text-slate-500 text-sm sm:text-base text-center border-b border-slate-100">{row.traditional}</div>
-                      </div>
-                    ))}
+
+              {/* ================= DESKTOP TABLE ================= */}
+              <div className="hidden md:block">
+                <div className="bg-[#faf8f6] rounded-2xl p-2">
+                  <div className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                    <div className="grid grid-cols-3 gap-px bg-slate-200">
+
+                      {/* Header */}
+                      <div className="bg-[#faf8f6] p-4 sm:p-6 font-bold text-slate-900">Feature</div>
+                      <div className="bg-[#ff4c00] p-4 sm:p-6 font-bold text-white text-center">AI Remote Job Finder</div>
+                      <div className="bg-slate-100 p-4 sm:p-6 font-bold text-slate-700 text-center">Traditional</div>
+
+                      {[
+                        { feature: "Job Matching", ai: "AI-based remote job matching", traditional: "Manual search" },
+                        { feature: "Personalization", ai: "Resume-based recommendations", traditional: "Generic listings" },
+                        { feature: "Global Access", ai: "Verified global remote jobs", traditional: "Limited filtering" },
+                        { feature: "Application Speed", ai: "One-click apply", traditional: "Manual forms" },
+                        { feature: "Alerts", ai: "Smart real-time alerts", traditional: "Basic notifications" },
+                        { feature: "Optimization", ai: "AI improvement insights", traditional: "Not available" },
+                      ].map((row, i) => (
+                        <div key={i} className="contents">
+                          <div className="bg-white p-5 font-medium text-slate-900 border-b">{row.feature}</div>
+                          <div className="bg-[#fff8f5] p-5 text-[#ff4c00] font-semibold text-center border-b">
+                            {row.ai}
+                          </div>
+                          <div className="bg-white p-5 text-slate-500 text-center border-b">
+                            {row.traditional}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-              
+
+              {/* ================= MOBILE CARDS ================= */}
+              <div className="md:hidden space-y-4">
+                {[
+                  { feature: "Job Matching", ai: "AI-based remote job matching", traditional: "Manual search" },
+                  { feature: "Personalization", ai: "Resume-based recommendations", traditional: "Generic listings" },
+                  { feature: "Global Access", ai: "Verified global remote jobs", traditional: "Limited filtering" },
+                  { feature: "Application Speed", ai: "One-click apply", traditional: "Manual forms" },
+                  { feature: "Alerts", ai: "Smart real-time alerts", traditional: "Basic notifications" },
+                  { feature: "Optimization", ai: "AI improvement insights", traditional: "Not available" },
+                ].map((row, i) => (
+                  <div
+                    key={i}
+                    className="border border-slate-200 rounded-xl p-4 shadow-sm bg-white"
+                  >
+                    {/* Feature */}
+                    <p className="font-semibold text-slate-900 mb-3">
+                      {row.feature}
+                    </p>
+
+                    {/* AI */}
+                    <div className="flex justify-between items-start gap-3 mb-2">
+                      <span className="text-xs font-semibold text-[#ff4c00] bg-[#ff4c00]/10 px-2 py-1 rounded">
+                        AI
+                      </span>
+                      <p className="text-sm text-[#ff4c00] font-medium text-right">
+                        {row.ai}
+                      </p>
+                    </div>
+
+                    {/* Traditional */}
+                    <div className="flex justify-between items-start gap-3">
+                      <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-1 rounded">
+                        Traditional
+                      </span>
+                      <p className="text-sm text-slate-600 text-right">
+                        {row.traditional}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Footer */}
               <p className="mt-6 text-center text-sm sm:text-base text-slate-600">
                 Modern remote job search requires intelligent systems.
               </p>
+
             </div>
           </div>
         </section>
@@ -666,7 +719,7 @@ export default function AIRemoteJobSearchPage() {
               {/* Subtle decorative elements */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-              
+
               <div className="relative z-10">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
                   Find <span className="text-white/90">Global Remote Jobs</span> Smarter with AI
@@ -732,9 +785,8 @@ export default function AIRemoteJobSearchPage() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className={`border-b border-slate-100 last:border-b-0 ${
-                      activeFaqIndex === i ? "bg-[#fff8f5]" : "bg-white"
-                    }`}
+                    className={`border-b border-slate-100 last:border-b-0 ${activeFaqIndex === i ? "bg-[#fff8f5]" : "bg-white"
+                      }`}
                   >
                     <button
                       className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-[#fff8f5] transition-colors"
@@ -743,9 +795,8 @@ export default function AIRemoteJobSearchPage() {
                       <span className={`font-bold text-base sm:text-lg pr-4 ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
                         {item.q}
                       </span>
-                      <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                        activeFaqIndex === i ? "bg-[#ff4c00] text-white" : "bg-slate-100 text-slate-500"
-                      }`}>
+                      <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeFaqIndex === i ? "bg-[#ff4c00] text-white" : "bg-slate-100 text-slate-500"
+                        }`}>
                         {activeFaqIndex === i ? <X size={16} /> : <Plus size={16} />}
                       </span>
                     </button>
