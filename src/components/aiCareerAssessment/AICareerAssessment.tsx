@@ -203,6 +203,7 @@ export default function AICareerAssessmentPage() {
                 "Fear of choosing the wrong career",
                 "Confusion about market demand",
                 "Wasting time on ineffective certifications",
+                "Struggling to align your passion with a practical career",
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm">
                   <div className="flex items-start gap-3">
@@ -215,22 +216,68 @@ export default function AICareerAssessmentPage() {
               ))}
             </div>
 
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#ff4c00]/20 shadow-sm max-w-3xl mx-auto">
-              <div className="space-y-3 mb-4">
-                <p className="text-base text-slate-700">
-                  <span className="font-semibold text-[#ff4c00]">Tired of guessing your next move?</span>
-                </p>
-                <p className="text-base text-slate-700">
-                  <span className="font-semibold text-[#ff4c00]">Unsure if your skills match the job market?</span>
-                </p>
-                <p className="text-base text-slate-700">
-                  <span className="font-semibold text-[#ff4c00]">Afraid of investing in the wrong career path?</span>
-                </p>
-              </div>
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-base font-semibold text-[#ff4c00]">
-                  Our intelligent career quiz eliminates this uncertainty.
-                </p>
+            <div className="max-w-3xl mx-auto">
+              <div className="relative bg-white border border-[#ff4c00]/20 rounded-3xl p-6 sm:p-8 shadow-md overflow-hidden">
+
+                {/* Soft Glow Accent */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#ff4c00]/10 rounded-full blur-3xl"></div>
+
+                {/* Heading */}
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
+                  Feeling Stuck in Your Career Path?
+                </h2>
+
+                {/* Problem Points */}
+                <div className="space-y-4">
+
+                  {/* Item */}
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-bold">
+                      ?
+                    </div>
+                    <p className="text-slate-700 text-base">
+                      <span className="font-semibold text-[#ff4c00]">
+                        Tired of guessing your next move?
+                      </span>
+                    </p>
+                  </div>
+
+                  {/* Item */}
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-bold">
+                      ?
+                    </div>
+                    <p className="text-slate-700 text-base">
+                      <span className="font-semibold text-[#ff4c00]">
+                        Unsure if your skills match the job market?
+                      </span>
+                    </p>
+                  </div>
+
+                  {/* Item */}
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-bold">
+                      ?
+                    </div>
+                    <p className="text-slate-700 text-base">
+                      <span className="font-semibold text-[#ff4c00]">
+                        Afraid of investing in the wrong career path?
+                      </span>
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* Divider */}
+                <div className="my-6 border-t border-slate-100"></div>
+
+                {/* Solution Highlight */}
+                <div className="bg-[#ff4c00]/5 border border-[#ff4c00]/20 rounded-xl p-4 text-center">
+                  <p className="text-base sm:text-lg font-semibold text-[#ff4c00]">
+                    Our intelligent career quiz eliminates this uncertainty.
+                  </p>
+                </div>
+
               </div>
             </div>
           </div>
@@ -427,6 +474,8 @@ export default function AICareerAssessmentPage() {
                 "Understand true career compatibility",
                 "Know exactly what to improve",
                 "Make confident career decisions",
+                "Get personalized career paths tailored to your profile",
+                "Receive actionable next steps, not just insights",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 bg-[#fff7f2] rounded-xl border border-slate-100">
                   <div className="w-8 h-8 rounded-lg bg-[#ff4c00]/10 flex items-center justify-center flex-shrink-0">
@@ -605,6 +654,7 @@ export default function AICareerAssessmentPage() {
                 "Students choosing a specialization",
                 "Professionals preparing for promotions",
                 "International job seekers",
+                "Professionals returning after a career break",
               ].map((item, i) => (
                 <div key={i} className="bg-[#fff7f2] rounded-xl border border-[#ff4c00]/10 p-4 text-center hover:bg-[#ffefe8] transition-colors">
                   <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mx-auto mb-3 shadow-sm">
@@ -729,9 +779,8 @@ export default function AICareerAssessmentPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-slate-100 last:border-b-0 ${
-                    activeFaqIndex === i ? "bg-[#fff7f3]" : "bg-white"
-                  }`}
+                  className={`border-b border-slate-100 last:border-b-0 ${activeFaqIndex === i ? "bg-[#fff7f3]" : "bg-white"
+                    }`}
                 >
                   <button
                     className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-[#fff7f3] transition-colors"
