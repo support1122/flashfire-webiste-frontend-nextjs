@@ -248,7 +248,7 @@
   border-radius: 0.5rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 3px 0 #000;
   cursor: pointer;
 }

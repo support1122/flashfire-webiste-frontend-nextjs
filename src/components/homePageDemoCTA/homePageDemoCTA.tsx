@@ -1,16 +1,15 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback, memo } from "react";
 import { Copy, Check, Mail } from "lucide-react";
 import styles from "./homePageDemoCTA.module.css";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
-export default function HomePageDemoCTA() {
-  const router = useRouter();
+function HomePageDemoCTA() {
   const pathname = usePathname();
   const [emailCopied, setEmailCopied] = useState(false);
   const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
@@ -19,7 +18,7 @@ export default function HomePageDemoCTA() {
     },
   });
 
-  const handleCopyEmail = async () => {
+  const handleCopyEmail = useCallback(async () => {
     const email = "support@flashfirejobs.com";
 
     try {
@@ -49,7 +48,7 @@ export default function HomePageDemoCTA() {
       }
       document.body.removeChild(textArea);
     }
-  };
+  }, []);
 
   return (
     <section className={styles.demoSectionOuter}>
@@ -148,8 +147,6 @@ export default function HomePageDemoCTA() {
                   const isAlreadyOnScheduleACareerCall = currentPath === '/schedule-a-free-career-call' || currentPath === '/en-ca/schedule-a-free-career-call';
                   const isOnHomePage = currentPath === '/' || currentPath === '/en-ca' || currentPath === '';
 
-                  console.log('Button clicked - currentPath:', currentPath, 'isOnHomePage:', isOnHomePage);
-
                   // If on home page, just show modal without navigating
                   if (isOnHomePage) {
                     // Clear any old sessionStorage values to prevent showing wrong page
@@ -204,20 +201,17 @@ export default function HomePageDemoCTA() {
 
                   // If already on schedule-a-free-career-call route, just show modal
                   if (isAlreadyOnScheduleACareerCall) {
-                    console.log('Already on schedule-a-free-career-call route, showing modal only');
                     // Just trigger the modal, don't navigate
                     return;
                   }
 
-                  // Navigate to /schedule-a-free-career-call for other pages
+                  // Change URL without navigation to avoid white flash
                   const targetPath = '/schedule-a-free-career-call';
 
-                  // Save current scroll position to sessionStorage before navigation
                   if (typeof window !== 'undefined') {
                     sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
+                    window.history.pushState({}, '', targetPath);
                   }
-
-                  router.push(targetPath);
                 }}
               >
                 Schedule a Free Career Call 
@@ -268,3 +262,5 @@ export default function HomePageDemoCTA() {
     </section>
   );
 }
+
+export default memo(HomePageDemoCTA);

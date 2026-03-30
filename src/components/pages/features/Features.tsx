@@ -735,11 +735,11 @@ function Features() {
             <div className="flex-[1.3] bg-black p-8  flex flex-row justify-between items-start relative overflow-hidden max-[1024px]:w-full max-[1024px]:mt-6 max-[1024px]:text-center max-[768px]:flex-col max-[768px]:items-center max-[768px]:p-6">
               <div className="w-1/2 flex flex-col items-start justify-start text-left max-[1024px]:w-full max-[1024px]:items-center max-[1024px]:text-center">
                 <p className="text-[#fffaf8] text-[0.75rem] font-semibold mb-3">
-                  HELPING 560+ JOB SEEKERS
+                  HELPING 100+ JOB SEEKERS
                 </p>
                 <blockquote className="text-[1.6rem] font-bold italic text-[#eee] mb-4 leading-tight max-[1024px]:text-[1.2rem] max-[768px]:text-[1rem]">
-                  &quot;I&apos;ve seen brilliant people lose hope. Flashfire exists so they
-                  don&apos;t have to.&quot;
+                  "I've seen brilliant people lose hope. Flashfire exists so they
+                  don't have to."
                 </blockquote>
                 <div className="flex justify-start items-center gap-4 text-left max-[1024px]:justify-center max-[1024px]:text-center">
                   <div>

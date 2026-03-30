@@ -3,6 +3,9 @@ import { Suspense } from "react";
 import BlogsClient from "@/src/components/blogs/blogsClient";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
+import { blogPosts } from "@/src/data/blogsData";
+
+const blogPostsMeta = blogPosts.map(({ content, ...meta }) => meta) as import("@/src/components/blogs/blogsClient").BlogPostMeta[];
 
 interface LocaleBlogPageProps {
   params: Promise<{
@@ -59,7 +62,7 @@ export default async function LocaleBlogPage({ params }: LocaleBlogPageProps) {
     <>
       <Navbar />
       <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
-        <BlogsClient />
+        <BlogsClient posts={blogPostsMeta} />
       </Suspense>
       <Footer />
     </>

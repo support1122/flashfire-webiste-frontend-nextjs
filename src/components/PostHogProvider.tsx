@@ -5,8 +5,8 @@ import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { captureUTMParams } from "@/src/utils/captureUTMParams";
 
-// Inner component to handle pageview tracking
-function PostHogPageView({ children }: { children: React.ReactNode }) {
+// Standalone tracking component - renders nothing, only tracks pageviews
+function PostHogPageView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const posthog = usePostHog();
@@ -23,13 +23,13 @@ function PostHogPageView({ children }: { children: React.ReactNode }) {
       if (searchParams && searchParams.toString()) {
         url = url + `?${searchParams.toString()}`;
       }
-      
+
       // Get country context
       const isCanada = pathname.startsWith("/en-ca");
-      const countryCode = typeof window !== "undefined" 
+      const countryCode = typeof window !== "undefined"
         ? localStorage.getItem("ff_country_code_v1") || (isCanada ? "CA" : "US")
         : "US";
-      
+
       // Get UTM parameters
       const utmSource = typeof window !== "undefined"
         ? localStorage.getItem("utm_source") || new URLSearchParams(window.location.search).get("utm_source")
@@ -46,7 +46,7 @@ function PostHogPageView({ children }: { children: React.ReactNode }) {
       const utmTerm = typeof window !== "undefined"
         ? localStorage.getItem("utm_term") || new URLSearchParams(window.location.search).get("utm_term")
         : null;
-      
+
       // PostHog automatically tracks pageviews, but we ensure it captures route changes
       posthog.capture("$pageview", {
         $current_url: url,
@@ -78,40 +78,35 @@ function PostHogPageView({ children }: { children: React.ReactNode }) {
         localStorage.setItem("visitor_id", visitorId);
       }
 
-      // Track to MongoDB (non-blocking) via backend API
+      // Track to MongoDB (non-blocking) via backend API — deferred to idle time
       if (typeof window !== "undefined") {
-        const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.flashfirejobs.com";
-        fetch(`${API_BASE_URL}/api/track/page-visit`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            visitorId: visitorId,
-            pageUrl: url,
-            referrer: document.referrer || null,
-            utmSource: utmSource || null,
-            utmMedium: utmMedium || null,
-            utmCampaign: utmCampaign || null,
-            utmContent: utmContent || null,
-            utmTerm: utmTerm || null,
-            sessionId: sessionId,
-            metadata: {
-              pathname: pathname,
-              searchParams: searchParams?.toString() || null,
-              countryCode: countryCode,
-              isCanada: isCanada,
-            },
-          }),
-        }).catch((error) => {
-          // Silently fail - don't break the app if tracking fails
-          console.error("MongoDB tracking error:", error);
-        });
+        const doTrack = () => {
+          const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.flashfirejobs.com";
+          fetch(`${API_BASE_URL}/api/track/page-visit`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            keepalive: true, // survives page navigations
+            body: JSON.stringify({
+              visitorId, pageUrl: url,
+              referrer: document.referrer || null,
+              utmSource: utmSource || null, utmMedium: utmMedium || null,
+              utmCampaign: utmCampaign || null, utmContent: utmContent || null,
+              utmTerm: utmTerm || null, sessionId,
+              metadata: { pathname, searchParams: searchParams?.toString() || null, countryCode, isCanada },
+            }),
+          }).catch(() => {});
+        };
+        // Use requestIdleCallback to avoid blocking main thread during navigation
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(doTrack, { timeout: 3000 });
+        } else {
+          setTimeout(doTrack, 100);
+        }
       }
     }
   }, [pathname, searchParams, posthog]);
 
-  return <>{children}</>;
+  return null;
 }
 
 export function PHProvider({ children }: { children: React.ReactNode }) {
@@ -153,9 +148,10 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
       apiKey={process.env.NEXT_PUBLIC_POSTHOG_KEY}
       options={posthogOptions}
     >
-      <Suspense fallback={<>{children}</>}>
-        <PostHogPageView>{children}</PostHogPageView>
+      <Suspense fallback={null}>
+        <PostHogPageView />
       </Suspense>
+      {children}
     </PostHogProvider>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import ContactForm from "./contactForm";
 import { FaEnvelope, FaPhone, FaBuilding, FaUser, FaLinkedinIn, FaInstagram, FaYoutube, FaArrowRight } from "react-icons/fa";
 import { Copy, Check } from "lucide-react";
@@ -16,7 +16,6 @@ type FAQ = {
   a: string;
 };
 export default function ContactUsClient() {
-  const router = useRouter();
   const pathname = usePathname();
   const [copied, setCopied] = useState(false);
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
@@ -131,25 +130,24 @@ export default function ContactUsClient() {
           );
         }
 
+        // Change URL without navigation to avoid white flash
         const targetPath = normalizedPath.startsWith("/en-ca")
           ? "/en-ca/schedule-a-demo-with-flashfire"
           : "/schedule-a-demo-with-flashfire";
-        router.replace(targetPath);
+        window.history.pushState({}, '', targetPath);
         return;
       }
 
-      // Save current scroll position before navigation to preserve it
+      // Change URL without navigation to avoid white flash
       if (typeof window !== "undefined") {
         const currentScrollY = window.scrollY;
         sessionStorage.setItem(
           "preserveScrollPosition",
           currentScrollY.toString()
         );
+        const targetPath = "/schedule-a-demo-with-flashfire";
+        window.history.pushState({}, '', targetPath);
       }
-
-      // Navigate to get-me-interview
-      const targetPath = "/schedule-a-demo-with-flashfire";
-      router.push(targetPath);
     } catch (error) {
       console.warn("Error in Schedule Demo handler:", error);
     }

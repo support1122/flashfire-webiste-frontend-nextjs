@@ -6,8 +6,7 @@ import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
-import { useRouter } from "next/navigation";
+import { useCalendlyPrefetch } from "@/src/hooks/useCalendlyPrefetch";
 const UNIVERSITY_LOGOS: Record<string, string> = {
   "Harvard University": "https://logo.clearbit.com/harvard.edu",
   "Stanford University": "https://logo.clearbit.com/stanford.edu",
@@ -31,14 +30,14 @@ type Props = {
 };
 
 export default function HeroSectionClient({ data }: Props) {
-  const router = useRouter();
-  const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
+  const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
         window.dispatchEvent(new CustomEvent("showCalendlyModal"));
       }
     },
   });
+  const { onPointerEnter: onCtaPrefetch } = useCalendlyPrefetch();
   return (
     <section className="bg-[#f8ebe5] text-center p-8 pb-16 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
       {/* === Top Badges === */}
@@ -72,6 +71,8 @@ export default function HeroSectionClient({ data }: Props) {
       {/* === CTA Button === */}
       <button
         {...getButtonProps()}
+        onMouseEnter={onCtaPrefetch}
+        onFocus={onCtaPrefetch}
         // onClick={() => {
         //   const utmSource = typeof window !== "undefined"
         //     ? localStorage.getItem("utm_source") || "WEBSITE"
@@ -169,7 +170,8 @@ export default function HeroSectionClient({ data }: Props) {
               target_url: "/Get-Started"
             });
             sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-            router.push('/Get-Started');
+            // Change URL without navigation to avoid white flash
+            window.history.pushState({}, '', '/Get-Started');
             window.dispatchEvent(new CustomEvent("showCalendlyModal"));
           }
         }}
@@ -195,9 +197,10 @@ export default function HeroSectionClient({ data }: Props) {
                 src={url}
                 alt={`User ${i + 1}`}
                 fill
-                sizes="2.2rem"
+                sizes="36px"
                 className="object-cover"
-                unoptimized
+                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
               />
             </div>
           ))}
@@ -232,8 +235,8 @@ export default function HeroSectionClient({ data }: Props) {
                     alt={uni.name}
                     width={60}
                     height={40}
+                    sizes="(max-width: 480px) 40px, (max-width: 768px) 45px, 50px"
                     className="object-contain w-auto max-w-[50px] h-8 max-h-8 flex-shrink-0 max-[768px]:max-w-[45px] max-[768px]:h-7 max-[480px]:max-w-[40px] max-[480px]:h-6"
-                    unoptimized
                     loading="lazy"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;

@@ -2,24 +2,24 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { memo, useCallback, useMemo } from "react";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import { smoothScrollToElement } from "@/src/utils/smoothScroll";
 
-export default function Footer() {
+function Footer() {
   const pathname = usePathname();
   const router = useRouter();
 
   const isCanadaContext = pathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
 
-  const getHref = (href: string) => {
+  const getHref = useCallback((href: string) => {
     if (href.startsWith("http")) return href;
-    // Ensure no hash fragments are added to feature URLs
     const cleanHref = href.split('#')[0];
     return `${prefix}${cleanHref}`;
-  };
+  }, [prefix]);
 
-  const handleFAQClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleFAQClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const isHome =
       pathname === "/" || pathname === "/en-ca" || pathname === `${prefix}/`;
@@ -47,10 +47,10 @@ export default function Footer() {
         tryScroll();
       }, 300);
     }
-  };
+  }, [pathname, prefix, router, getHref]);
 
   const linkClass =
-    "text-white text-[0.9rem] underline underline-offset-4 hover:opacity-80 transition max-[480px]:text-[0.85rem]";
+    "text-white text-[0.9rem] underline underline-offset-4 hover:opacity-80 transition-opacity max-[480px]:text-[0.85rem]";
 
   return (
     <footer className="bg-[#f55d1d] text-white px-8 pt-12 pb-6 max-[768px]:px-6 max-[480px]:px-4">
@@ -209,21 +209,21 @@ export default function Footer() {
                 <Link
                   href="https://www.linkedin.com/company/flashfire-pvt-ltd/"
                   target="_blank"
-                  className="text-xl hover:scale-110 transition max-[480px]:text-lg"
+                  className="text-xl hover:scale-110 transition-transform max-[480px]:text-lg"
                 >
                   <FaLinkedinIn />
                 </Link>
                 <Link
                   href="https://www.instagram.com/flashfirejobs/"
                   target="_blank"
-                  className="text-xl hover:scale-110 transition max-[480px]:text-lg"
+                  className="text-xl hover:scale-110 transition-transform max-[480px]:text-lg"
                 >
                   <FaInstagram />
                 </Link>
                 <Link
                   href="https://www.youtube.com/@flashfireindia"
                   target="_blank"
-                  className="text-xl hover:scale-110 transition max-[480px]:text-lg"
+                  className="text-xl hover:scale-110 transition-transform max-[480px]:text-lg"
                 >
                   <FaYoutube />
                 </Link>
@@ -241,3 +241,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default memo(Footer);

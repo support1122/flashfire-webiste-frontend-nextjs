@@ -8,6 +8,9 @@ import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import { slugToCategory, getAllCategorySlugs } from "@/src/utils/blogCategoryUtils";
 
+// Strip content server-side: only metadata reaches client for category listings
+const blogPostsMeta = blogPosts.map(({ content, ...meta }) => meta) as import("@/src/components/blogs/blogsClient").BlogPostMeta[];
+
 export const dynamicParams = true;
 
 type Props = {
@@ -183,9 +186,45 @@ export default async function BlogSlugPage({ params }: Props) {
   // Check if it's a blog post
   const post = blogPosts.find((p) => p.slug === slug);
   if (post) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-expect-error
-  return <BlogsPage post={post} />;
+    // Compute sidebar data server-side to avoid sending 1.65MB blogPosts to client
+    const stripContent = (p: typeof blogPosts[number]) => {
+      const { content, ...meta } = p;
+      return meta;
+    };
+
+    const allCategories = Array.from(
+      new Set(blogPosts.map((p) => p.category).filter(Boolean))
+    );
+
+    const sameCategory = blogPosts.filter(
+      (p) => p.category === post.category && p.id !== post.id
+    );
+    const relatedArticles = (sameCategory.length > 0
+      ? sameCategory
+      : blogPosts.filter((p) => p.id !== post.id).slice(0, 3)
+    ).map(stripContent);
+
+    const recentPosts = blogPosts
+      .filter((p) => p.id !== post.id)
+      .slice(0, 5)
+      .map(stripContent);
+
+    const recentIds = new Set([post.id, ...recentPosts.map((p) => p.id)]);
+    const mostViewedPosts = blogPosts
+      .filter((p) => !recentIds.has(p.id))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 5)
+      .map(stripContent);
+
+    return (
+      <BlogsPage
+        post={post as any}
+        allCategories={allCategories}
+        relatedArticles={relatedArticles as any}
+        recentPosts={recentPosts as any}
+        mostViewedPosts={mostViewedPosts as any}
+      />
+    );
   }
 
   // Check if it's a category
@@ -196,7 +235,7 @@ export default async function BlogSlugPage({ params }: Props) {
       <>
         <Navbar />
         <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
-          <BlogsClient categorySlug={slug} />
+          <BlogsClient categorySlug={slug} posts={blogPostsMeta} />
         </Suspense>
         <Footer />
       </>

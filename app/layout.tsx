@@ -1,17 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Space_Grotesk, Inter } from "next/font/google";
 import Script from "next/script";
 import { PHProvider } from "@/src/components/PostHogProvider";
-import WhatsAppButton from "@/src/components/WhatsAppButton/WhatsAppButton";
-import BlogImagePreloader from "@/src/components/BlogImagePreloader";
-import TestimonialImagePreloader from "@/src/components/homePageHappyUsers/TestimonialImagePreloader";
+import LayoutExtras from "@/src/components/LayoutExtras";
+import RoutePrefetcher from "@/src/components/RoutePrefetcher";
 
+// Only load weights actually used in the site - fewer weights = faster font load
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   preload: true,
 });
@@ -19,22 +18,9 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  preload: true,
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-  preload: true,
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
+  preload: false, // Only used in navbar CSS - don't block initial render
 });
 
 export const metadata: Metadata = {
@@ -114,7 +100,6 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-import ClientLogicWrapper from "@/src/components/ClientLogicWrapper";
 import { FB_PIXEL_ID } from "@/lib/metaPixel";
 
 const GTM_CONTAINER_ID = "GTM-MCS5V3BF";
@@ -146,12 +131,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Satoshi Font - Preconnect and load with display=swap */}
+        {/* Satoshi Font - defer stylesheet injection so it never blocks first paint */}
+        <link rel="dns-prefetch" href="https://api.fontshare.com" />
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"
-          rel="stylesheet"
-        />
+        <Script id="load-satoshi-font" strategy="lazyOnload">
+          {`
+            if (!document.querySelector('link[href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"]')) {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap';
+              document.head.appendChild(link);
+            }
+          `}
+        </Script>
         {/* DNS prefetch and preconnect for Calendly */}
         <link rel="dns-prefetch" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
@@ -179,17 +171,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           href="https://assets.calendly.com/assets/external/widget.js"
           as="script"
         />
-        {/* DNS prefetch and preconnect for Cloudinary (blog images) */}
+        {/* DNS prefetch and preconnect for image CDNs */}
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        <link
-          rel="preconnect"
-          href="https://res.cloudinary.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" />
+        <link rel="preconnect" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
+        <link rel="dns-prefetch" href="https://logo.clearbit.com" />
+        <link rel="preconnect" href="https://logo.clearbit.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
       </head>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${inter.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) — immediately after opening <body> */}
         <noscript>
@@ -202,13 +197,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <PHProvider>
-          <ClientLogicWrapper>
-            {children}
-            <WhatsAppButton />
-          </ClientLogicWrapper>
+          {children}
         </PHProvider>
-        <BlogImagePreloader />
-        <TestimonialImagePreloader />
+        <LayoutExtras />
+        <RoutePrefetcher />
         {/* Meta Pixel - Load with afterInteractive strategy */}
         <Script
           id="meta-pixel"
@@ -237,12 +229,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             alt=""
           />
         </noscript>
-        {/* Google Analytics + Google Ads — single gtag.js, afterInteractive */}
+        {/* Single gtag.js load for both GA4 and Google Ads */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics-and-ads" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             window.gtag = function() {
@@ -252,13 +244,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             window.gtag("config", "G-4P890VGD8D", {
               page_path: window.location.pathname,
             });
-            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");` : ''}
+            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}", { page_path: window.location.pathname });` : ''}
           `}
         </Script>
-        {/* LinkedIn Insight Tag - Load with afterInteractive strategy */}
+        {/* LinkedIn Insight Tag - defer because it is not user-critical */}
         {process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID && (
           <>
-            <Script id="linkedin-insight-tag" strategy="afterInteractive">
+            <Script id="linkedin-insight-tag" strategy="lazyOnload">
               {`
                 _linkedin_partner_id = "${process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID}";
                 window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
@@ -305,7 +297,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-        {/* Calendly Script - Load early for instant booking modal */}
+        {/* Calendly Script - preload connection and hydrate early for fast modal open */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
           strategy="afterInteractive"
@@ -314,4 +306,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </html>
   );
 }
-

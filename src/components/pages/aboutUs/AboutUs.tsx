@@ -7,7 +7,7 @@ import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import { FaPlus, FaTimes } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 
 export default function AboutUs() {
   const router = useRouter();
@@ -214,7 +214,7 @@ export default function AboutUs() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Pranjal Tripathi</h3>
                 <p className="text-[#F55D1D] font-semibold text-sm mb-4 uppercase tracking-wider">CTO, Flashfire</p>
                 <p className="text-lg font-medium text-gray-600 italic leading-relaxed">
-                  "Every line of code we write is to help someone hear back finally"
+                  &quot;Every line of code we write is to help someone hear back finally.&quot;
                 </p>
               </div>
             </div>
@@ -236,7 +236,7 @@ export default function AboutUs() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Adit Jain</h3>
                 <p className="text-[#F55D1D] font-semibold text-sm mb-4 uppercase tracking-wider">Partner, Flashfire</p>
                 <p className="text-lg font-medium text-gray-600 italic leading-relaxed">
-                  "I've seen brilliant people lose hope. Flashfire exists so they don't have to."
+                  &quot;I&apos;ve seen brilliant people lose hope. Flashfire exists so they don&apos;t have to.&quot;
                 </p>
               </div>
             </div>
@@ -559,7 +559,6 @@ export default function AboutUs() {
     </div>
   );
 }    
-
 
 
 

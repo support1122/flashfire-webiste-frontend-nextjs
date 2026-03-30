@@ -5,10 +5,10 @@ import { useRouter, usePathname } from "next/navigation";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check, Copy } from "lucide-react";
 import { FaPlus, FaTimes } from "react-icons/fa";
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
-import HomePageDemoCTA from "@/src/components/homePageDemoCTA/homePageDemoCTA";
+import styles from "@/src/components/homePageDemoCTA/homePageDemoCTA.module.css";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
@@ -16,9 +16,12 @@ import { useGeoBypass } from "@/src/utils/useGeoBypass";
 export default function LinkedInOptimizationPage() {
   const router = useRouter();
   const pathname = usePathname();
+  const [emailCopied, setEmailCopied] = useState(false);
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
-    onBypass: () => {},
+    onBypass: () => {
+      // Bypass will be handled by the event listener
+    },
   });
 
   const linkedinOptimizationFAQs = [
@@ -56,6 +59,37 @@ export default function LinkedInOptimizationPage() {
     setActiveFaqIndex(activeFaqIndex === index ? null : index);
   };
 
+  const handleCopyEmail = async () => {
+    const email = "support@flashfirejobs.com";
+    
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      
+      // Reset the "Copied!" message after 2 seconds
+      setTimeout(() => {
+        setEmailCopied(false);
+      }, 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = email;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        setEmailCopied(true);
+        setTimeout(() => {
+          setEmailCopied(false);
+        }, 2000);
+      } catch (fallbackErr) {
+        console.error("Failed to copy email:", fallbackErr);
+      }
+      document.body.removeChild(textArea);
+    }
+  };
   const handleHowItWorks = () => {
     const section = document.getElementById("how-it-works")
     if (!section) return
@@ -637,8 +671,240 @@ export default function LinkedInOptimizationPage() {
         </div>
       </section>
 
-      {/* ================= FINAL CTA (same as homepage) ================= */}
-      <HomePageDemoCTA />
+      {/* ================= FINAL CTA ================= */}
+      <section className={styles.demoSectionOuter}>
+        <div className={styles.demoSection}>
+          <h5 className={styles.demoSubheading}>
+            GOT FURTHER QUESTIONS? LET&rsquo;S TALK!
+          </h5>
+
+          <h2 className={styles.demoHeading}>
+            BOOK A DEMO{" "}
+            <span className={styles.fireIcon}>
+              <Image
+                src="/images/character.png"
+                alt="Flashfire mascot"
+                width={96}
+                height={96}
+                className="w-20 h-20 max-[600px]:w-16 max-[600px]:h-16"
+              />
+            </span>{" "}
+            CALL
+          </h2>
+
+          <p className={styles.demoText}>
+            We get it, <em>finding the right job isn&apos;t easy.</em> Book a quick
+            chat with our founder and see how Flashfire can help you land
+            interviews faster.
+          </p>
+
+          <button 
+            {...getButtonProps()}
+            className={styles.demoButton}
+            onClick={(e) => {
+              try {
+                e.preventDefault();
+                e.stopPropagation();
+              } catch (err) {
+                // Ignore cross-origin errors on event methods
+              }
+              try {
+                const utmSource = typeof window !== "undefined" && window.localStorage
+                  ? localStorage.getItem("utm_source") || "WEBSITE"
+                  : "WEBSITE";
+                const utmMedium = typeof window !== "undefined" && window.localStorage
+                  ? localStorage.getItem("utm_medium") || "Demo_CTA_Section"
+                  : "Demo_CTA_Section";
+                
+                try {
+                  GTagUTM({
+                    eventName: "sign_up_click",
+                    label: "Demo_CTA_Button",
+                    utmParams: {
+                      utm_source: utmSource,
+                      utm_medium: utmMedium,
+                      utm_campaign: typeof window !== "undefined" && window.localStorage
+                        ? localStorage.getItem("utm_campaign") || "Website"
+                        : "Website",
+                    },
+                  });
+                } catch (gtagError) {
+                  console.warn('GTagUTM error:', gtagError);
+                }
+                
+                try {
+                  trackButtonClick("Book My Demo Call", "demo_cta", "cta", {
+                    button_location: "demo_cta_button",
+                    section: "demo_cta",
+                    target_url: "/book-my-demo-call"
+                  });
+                  trackSignupIntent("demo_cta", {
+                    signup_source: "demo_cta_button",
+                    funnel_stage: "signup_intent",
+                    target_url: "/book-my-demo-call"
+                  });
+                } catch (trackError) {
+                  console.warn('Tracking error:', trackError);
+                }
+              } catch (error) {
+                console.warn('Error in button click handler:', error);
+              }
+              
+              // Dispatch custom event to force show modal
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
+              }
+              
+              // Check current path
+              const currentPath = pathname;
+              const isImageTestimonialsPage = currentPath === '/testimonials' || currentPath === '/en-ca/testimonials' || currentPath === '/image-testimonials' || currentPath === '/en-ca/image-testimonials';
+              const isAboutUsPage = currentPath === '/about-us' || currentPath === '/en-ca/about-us';
+              const isLinkedInPage = currentPath === '/linkedin-profile-optimization-services' || 
+                currentPath === '/en-ca/linkedin-profile-optimization-services' ||
+                currentPath === '/features/linkedin-profile-optimization-services' ||
+                currentPath === '/en-ca/features/linkedin-profile-optimization-services' ||
+                currentPath === '/features/linkedin-profile-optimization' ||
+                currentPath === '/en-ca/features/linkedin-profile-optimization' ||
+                currentPath === '/features/linkedin-profile-optimization-tool' ||
+                currentPath === '/en-ca/features/linkedin-profile-optimization-tool';
+              const isAlreadyOnBookMyDemoCall = currentPath === '/book-my-demo-call' || currentPath === '/en-ca/book-my-demo-call';
+              const isOnHomePage = currentPath === '/' || currentPath === '/en-ca' || currentPath === '';
+              
+              // If on home page, just show modal without navigating
+              if (isOnHomePage) {
+                // Clear any old sessionStorage values to prevent showing wrong page
+                if (typeof window !== 'undefined') {
+                  sessionStorage.removeItem('previousPageBeforeBookMyDemoCall');
+                  sessionStorage.removeItem('preserveScrollPosition');
+                }
+                // Just trigger the modal, don't navigate - stay on home page
+                return;
+              }
+              
+              // If on image-testimonials page, change URL but keep page content visible
+              if (isImageTestimonialsPage) {
+                // Change URL to /book-my-demo-call without navigating (keep testimonials page visible)
+                const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
+                if (typeof window !== 'undefined') {
+                  window.history.pushState({}, '', targetPath);
+                }
+                // Just trigger the modal, don't navigate
+                return;
+              }
+              
+              // If on about-us page, change URL but keep page content visible
+              if (isAboutUsPage) {
+                // Save the previous page path to sessionStorage
+                if (typeof window !== 'undefined') {
+                  sessionStorage.setItem('previousPageBeforeBookMyDemoCall', currentPath);
+                }
+                
+                // Save current scroll position before modal opens
+                const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+                if (typeof window !== 'undefined') {
+                  sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+                }
+                
+                // Change URL to /book-my-demo-call using pushState only (don't use router to prevent scroll)
+                const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
+                if (typeof window !== 'undefined') {
+                  window.history.pushState({}, '', targetPath);
+                }
+                
+                // Dispatch custom event to force show modal FIRST
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
+                }
+                
+                // Don't use router.replace - it causes scroll to top
+                // Just change URL with pushState and show modal, page stays in place
+                
+                return;
+              }
+              
+              // If on LinkedIn page, change URL but keep page content visible
+              if (isLinkedInPage) {
+                // Save the previous page path to sessionStorage
+                if (typeof window !== 'undefined') {
+                  sessionStorage.setItem('previousPageBeforeBookMyDemoCall', currentPath);
+                }
+                
+                // Save current scroll position before modal opens
+                const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+                if (typeof window !== 'undefined') {
+                  sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
+                }
+                
+                // Change URL to /book-my-demo-call using pushState only (don't use router to prevent scroll)
+                const targetPath = currentPath.startsWith('/en-ca') ? '/en-ca/book-my-demo-call' : '/book-my-demo-call';
+                if (typeof window !== 'undefined') {
+                  window.history.pushState({}, '', targetPath);
+                }
+                
+                // Dispatch custom event to force show modal FIRST
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
+                }
+                
+                // Don't use router.replace - it causes scroll to top
+                // Just change URL with pushState and show modal, page stays in place
+                
+                return;
+              }
+              
+              // If already on book-my-demo-call route, just show modal
+              if (isAlreadyOnBookMyDemoCall) {
+                // Just trigger the modal, don't navigate
+                return;
+              }
+              
+              // Navigate to /book-my-demo-call for other pages
+              const targetPath = '/book-my-demo-call';
+              
+              // Save current scroll position to sessionStorage before navigation
+              if (typeof window !== 'undefined') {
+                sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
+              }
+              
+              router.push(targetPath);
+            }}
+          >
+            Book My Demo Call →
+          </button>
+
+          <p className={styles.demoNote}>
+            Limited slots available. Book your call now!
+          </p>
+
+          <div className={styles.demoEmailContainer}>
+            <span className={styles.demoEmailLabel}>Or email us at</span>
+            <div className={styles.emailCopyWrapper}>
+              <input
+                type="text"
+                readOnly
+                value="support@flashfirejobs.com"
+                className={styles.emailInput}
+              />
+              <button
+                onClick={handleCopyEmail}
+                className={styles.copyButton}
+                aria-label="Copy email to clipboard"
+              >
+                {emailCopied ? (
+                  <Check className={styles.copyIcon} size={16} />
+                ) : (
+                  <Copy className={styles.copyIcon} size={16} />
+                )}
+              </button>
+              {emailCopied && (
+                <div className={styles.copiedTooltip}>
+                  Copied
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

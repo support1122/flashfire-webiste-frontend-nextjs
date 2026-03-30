@@ -59,44 +59,63 @@ export default function CalendlyModal({
     email?: string;
     name?: string;
   } | null>(null);
-  const [isCalendlyReady, setIsCalendlyReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     warmCalendly();
   }, []);
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
+    if (!isVisible || typeof document === "undefined") return;
 
-    const checkReady = () => {
+    setIsLoading(true);
+
+    const markReady = () => setIsLoading(false);
+    const handleMessage = (event: MessageEvent) => {
+      if (typeof event.data !== "string") return;
+
+      try {
+        const data = JSON.parse(event.data);
+        if (data.event && data.event.indexOf("calendly") === 0) {
+          markReady();
+        }
+      } catch {
+        // ignore unrelated postMessage payloads
+      }
+    };
+
+    const observer = new MutationObserver(() => {
       const iframe = document.querySelector<HTMLIFrameElement>(
         'iframe[src*="calendly.com"]'
       );
-      if (!iframe) return false;
-      setIsCalendlyReady(true);
-      return true;
-    };
-
-    if (checkReady()) return;
-
-    const observer = new MutationObserver(() => {
-      if (checkReady()) {
-        observer.disconnect();
+      if (iframe) {
+        iframe.addEventListener("load", markReady, { once: true });
       }
     });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+    window.addEventListener("message", handleMessage);
+    observer.observe(document.body, { childList: true, subtree: true });
 
-    return () => observer.disconnect();
-  }, []);
+    const existingIframe = document.querySelector<HTMLIFrameElement>(
+      'iframe[src*="calendly.com"]'
+    );
+    if (existingIframe) {
+      existingIframe.addEventListener("load", markReady, { once: true });
+    }
+
+    const fallback = window.setTimeout(markReady, 2000);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
+  }, [isVisible]);
 
   // Restore invitee profile info on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
-    
+
     try {
       const savedName = localStorage.getItem("cal_invitee_name") || undefined;
       const savedEmail = localStorage.getItem("cal_invitee_email") || undefined;
@@ -124,7 +143,7 @@ export default function CalendlyModal({
           } catch {}
         }
       } catch (err) {
-        console.error("❌ Failed to capture Calendly profile submission", err);
+        console.error("Failed to capture Calendly profile submission", err);
       }
     },
     onEventScheduled: async (e: CalendlyEvent) => {
@@ -147,12 +166,11 @@ export default function CalendlyModal({
           payload?.event?.start_time_pretty ||
           "";
 
-        // Trigger event visible in console
         const meetingBookedEvent = {
           type: "MEETING_BOOKED",
           payload: { inviteeName, inviteeEmail, eventStartTime },
         };
-        console.log("📅 Meeting booked event:", meetingBookedEvent);
+        console.log("Meeting booked event:", meetingBookedEvent);
 
         try {
           if (typeof window !== "undefined") {
@@ -160,7 +178,6 @@ export default function CalendlyModal({
           }
         } catch {}
 
-        // Navigate to meeting-booked page
         router.push("/meeting-booked");
 
         const meetingUrl =
@@ -187,8 +204,6 @@ export default function CalendlyModal({
         const utm_term =
           typeof window !== "undefined" ? localStorage.getItem("utm_term") : null;
 
-        // 🆕 DIRECT BACKUP: Send booking data to your backend API
-        // This is a backup to Calendly webhook - if webhook fails, we still capture the booking
         try {
           const bookingData = {
             utmSource: utm_source,
@@ -211,10 +226,8 @@ export default function CalendlyModal({
                 ? localStorage.getItem("visitor_id")
                 : null,
             userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
-            source: "frontend_direct", // Mark this as coming from frontend
+            source: "frontend_direct",
           };
-
-          // Sending booking to backend
 
           if (!API_BASE_URL) {
             console.error("API_BASE_URL is not configured, skipping backend call");
@@ -234,21 +247,20 @@ export default function CalendlyModal({
 
           if (response.ok) {
             const result = await response.json();
-            // Booking saved to backend
           } else {
             console.warn(
-              "⚠️ Backend booking save failed, webhook will handle it:",
+              "Backend booking save failed, webhook will handle it:",
               await response.text()
             );
           }
         } catch (backendError) {
           console.warn(
-            "⚠️ Failed to send booking to backend directly (webhook will handle it):",
+            "Failed to send booking to backend directly (webhook will handle it):",
             backendError
           );
         }
       } catch (err) {
-        console.error("❌ Calendly scheduled event capture failed", err);
+        console.error("Calendly scheduled event capture failed", err);
       }
     },
   } as CalendlyEventListenerOptions);
@@ -275,14 +287,31 @@ export default function CalendlyModal({
       : ""
   }`;
 
+  const prefill = {
+    name: user?.fullName || "",
+    email: user?.email || "",
+    customAnswers: {
+      a3: (user?.countryCode || "") + (user?.phone || ""),
+    },
+  };
+
+  const pageSettings = {
+    backgroundColor: "ffffff",
+    hideEventTypeDetails: false,
+    hideLandingPageDetails: false,
+    primaryColor: "f97316",
+    textColor: "374151",
+  };
+
+  if (!isVisible) return null;
+
   return (
     <div
       className="fixed inset-0 bg-black/60 z-[9999] items-center justify-center w-full"
-      style={{ display: isVisible ? "flex" : "none" }}
       aria-hidden={!isVisible}
       onClick={onClose}
     >
-      <div 
+      <div
         className="relative bg-white/80 backdrop-blur-sm
 max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col lg:flex-row"
         onClick={(e) => e.stopPropagation()}
@@ -296,139 +325,129 @@ max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-co
         </button>
 
         {/* Mobile Header */}
-        <div className="block lg:hidden h-full w-full">
-          {/* Header */}
-          <div className="bg-gradient-to-br from-orange-500 to-red-600 p-4 text-white">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-white/20 rounded-lg">
-                <Calendar className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h2 className="text-lg font-bold">
-                  Schedule Your Flashfire Consultation 
-                </h2>
-                <p className="text-orange-100 text-sm">15 Minutes • Free</p>
-              </div>
+        <div className="block lg:hidden bg-gradient-to-br from-orange-500 to-red-600 p-4 text-white">
+          <div className="flex items-center space-x-3">
+            <div className="p-2 bg-white/20 rounded-lg">
+              <Calendar className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-lg font-bold">
+                Schedule Your Flashfire Consultation
+              </h2>
+              <p className="text-orange-100 text-sm">15 Minutes &bull; Free</p>
             </div>
           </div>
-
         </div>
 
-        {/* Desktop Layout */}
-        <div className="flex w-full h-[90vh]">
-          {/* Orange Section (Info) */}
-          <div className="hidden lg:block w-2/5 bg-gradient-to-br from-orange-500 to-red-600 p-8 text-white overflow-y-hidden rounded-l-xl">
-            <div className="mb-6">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="p-3 bg-white/20 rounded-xl">
-                  <Calendar className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold">
-                    Schedule Your Flashfire Consultation
-                  </h2>
-                  <p className="text-orange-100">15 Minutes • Free</p>
-                </div>
+        {/* Desktop Sidebar */}
+        <div className="hidden lg:block w-2/5 bg-gradient-to-br from-orange-500 to-red-600 p-8 text-white overflow-y-hidden rounded-l-xl">
+          <div className="mb-6">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="p-3 bg-white/20 rounded-xl">
+                <Calendar className="w-8 h-8 text-white" />
               </div>
-              <p className="text-orange-100 text-lg leading-relaxed">
-                Book your personalized consultation to learn how Flashfire can
-                automate your job search and land interviews faster.
-              </p>
+              <div>
+                <h2 className="text-2xl font-bold">
+                  Schedule Your Flashfire Consultation
+                </h2>
+                <p className="text-orange-100">15 Minutes &bull; Free</p>
+              </div>
             </div>
+            <p className="text-orange-100 text-lg leading-relaxed">
+              Book your personalized consultation to learn how Flashfire can
+              automate your job search and land interviews faster.
+            </p>
+          </div>
 
-            <div className="space-y-4 mb-6">
-              <h3 className="text-xl font-bold mb-4">What You&apos;ll Get:</h3>
+          <div className="space-y-4 mb-6">
+            <h3 className="text-xl font-bold mb-4">What You&apos;ll Get:</h3>
 
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold">Personalized Strategy</h4>
-                  <p className="text-orange-100 text-sm">
-                    Custom job search plan tailored to your goals
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold">Resume Review</h4>
-                  <p className="text-orange-100 text-sm">
-                    Expert feedback on your current resume
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold">AI Demo</h4>
-                  <p className="text-orange-100 text-sm">
-                    See our automation technology in action
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold">Q&A Session</h4>
-                  <p className="text-orange-100 text-sm">
-                    Get all your questions answered by experts
-                  </p>
-                </div>
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
+              <div>
+                <h4 className="font-semibold">Personalized Strategy</h4>
+                <p className="text-orange-100 text-sm">
+                  Custom job search plan tailored to your goals
+                </p>
               </div>
             </div>
 
-            <div className="pt-6 border-t border-white/20">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <div className="text-2xl font-bold">95%</div>
-                  <div className="text-orange-100 text-xs">Success Rate</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">100+</div>
-                  <div className="text-orange-100 text-xs">Jobs Landed</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">220+</div>
-                  <div className="text-orange-100 text-xs">Hours Saved</div>
-                </div>
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
+              <div>
+                <h4 className="font-semibold">Resume Review</h4>
+                <p className="text-orange-100 text-sm">
+                  Expert feedback on your current resume
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
+              <div>
+                <h4 className="font-semibold">AI Demo</h4>
+                <p className="text-orange-100 text-sm">
+                  See our automation technology in action
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-3">
+              <CheckCircle className="w-5 h-5 text-green-300 mt-0.5" />
+              <div>
+                <h4 className="font-semibold">Q&A Session</h4>
+                <p className="text-orange-100 text-sm">
+                  Get all your questions answered by experts
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Calendar Section */}
-          <div className="w-full lg:w-3/5 bg-white overflow-hidden lg:rounded-r-xl relative">
-            {!isCalendlyReady && isVisible && (
-              <div className="absolute inset-0 bg-white z-10" />
-            )}
-            <InlineWidget
-              url={calendlyUrl}
-              prefill={{
-                name: user?.fullName || "",
-                email: user?.email || "",
-                customAnswers: {
-                  a3: (user?.countryCode || "") + (user?.phone || ""), // phone is the 3rd question
-                },
-              }}
-              styles={{
-                height: "100%",
-                width: "100%",
-                minHeight: "calc(100vh - 100px)",
-              }}
-              pageSettings={{
-                backgroundColor: "ffffff",
-                hideEventTypeDetails: false,
-                hideLandingPageDetails: false,
-                primaryColor: "f97316",
-                textColor: "374151",
-              }}
-            />
+          <div className="pt-6 border-t border-white/20">
+            <div className="grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div className="text-2xl font-bold">95%</div>
+                <div className="text-orange-100 text-xs">Success Rate</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold">100+</div>
+                <div className="text-orange-100 text-xs">Jobs Landed</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold">220+</div>
+                <div className="text-orange-100 text-xs">Hours Saved</div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* Single Calendar Widget — shared by both mobile and desktop */}
+        <div className="flex-1 bg-white overflow-hidden lg:rounded-r-xl relative h-[calc(100vh-100px)] lg:h-[90vh]">
+          {isLoading && (
+            <div className="absolute inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-50">
+              <div className="text-center px-6">
+                <div className="w-16 h-16 lg:w-20 lg:h-20 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4 lg:mb-6"></div>
+                <p className="text-gray-600 lg:text-gray-700 text-sm lg:text-lg lg:font-medium">
+                  Finding best slots for you...
+                </p>
+                <p className="hidden lg:block text-gray-500 text-sm mt-2">
+                  This will only take a moment
+                </p>
+              </div>
+            </div>
+          )}
+          <InlineWidget
+            url={calendlyUrl}
+            prefill={prefill}
+            styles={{
+              height: "100%",
+              width: "100%",
+              minHeight: "400px",
+            }}
+            pageSettings={pageSettings}
+          />
         </div>
       </div>
     </div>
   );
 }
-

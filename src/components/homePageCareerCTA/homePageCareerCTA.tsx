@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import styles from "./homePageCareerCTA.module.css";
 import { FaBolt } from "react-icons/fa";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
@@ -10,7 +10,6 @@ import { useGeoBypass } from "@/src/utils/useGeoBypass";
 import { useEffect, useState } from "react";
 
 export default function HomePageCareerCTA() {
-  const router = useRouter();
   const pathname = usePathname();
   const [showStrategyCard, setShowStrategyCard] = useState(false);
   const { getButtonProps } = useGeoBypass({
@@ -127,26 +126,11 @@ export default function HomePageCareerCTA() {
                   return;
                 }
 
-                // Save current scroll position before navigation to preserve it
+                // Change URL without navigation to avoid white flash
                 if (typeof window !== 'undefined') {
                   const currentScrollY = window.scrollY;
                   sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-                  
-                  // Navigate to the target path
-                  router.push(targetPath);
-                  
-                  // Immediately restore scroll position to prevent scroll to top
-                  requestAnimationFrame(() => {
-                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                    requestAnimationFrame(() => {
-                      window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                      setTimeout(() => {
-                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                      }, 50);
-                    });
-                  });
-                } else {
-                  router.push(targetPath);
+                  window.history.pushState({}, '', targetPath);
                 }
               }}
             >

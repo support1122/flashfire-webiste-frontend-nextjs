@@ -13,6 +13,7 @@ export default function HomePageStatsCards() {
               width={80}
               height={80}
               className="object-contain"
+              loading="eager"
             />
           </div>
           <h3>

@@ -1,6 +1,3 @@
-"use client";
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Footer from "@/src/components/footer/footer";
 import HeroSection from "@/src/components/heroSection/heroSection";
 import HomePageCareerCTA from "@/src/components/homePageCareerCTA/homePageCareerCTA";
@@ -19,70 +16,59 @@ import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWh
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
+import HomeScrollToTop from "@/src/components/pages/home/HomeScrollToTop";
+import { heroSectionDataCA } from "@/src/data/herosection";
+import ContentVisibilitySection from "@/src/components/ContentVisibilitySection";
+import LazySection from "@/src/components/LazySection";
 
 export default function CanadaHome() {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    // Track Canada-specific page view
-    // Add PostHog tracking here if needed
-    
-    // Scroll to top when navigating to Canada home page
-    const isCanadaHomePage = pathname === "/en-ca";
-    
-    if (isCanadaHomePage) {
-      // Use requestAnimationFrame to ensure DOM is ready
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: 0, behavior: "instant" });
-        
-        // Also scroll after a short delay to catch any late scrolls from browser restoration
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "instant" });
-        }, 50);
-        
-        // One more check after layout
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: "instant" });
-          }, 100);
-        });
-      });
-    }
-  }, [pathname]);
-
   return (
     <>
-     <Navbar />
-      <HeroSection /> {/* using useState, so client */}
-      <HomePageCareerCTA />
-      <HomePageBeforeAfter />
-      <HomePageResultStats />
+      <HomeScrollToTop />
+      <Navbar />
+      <HeroSection data={heroSectionDataCA} />
+      <ContentVisibilitySection intrinsicSize="680px">
+        <HomePageCareerCTA />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="880px">
+        <HomePageBeforeAfter />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="780px">
+        <HomePageResultStats />
+      </ContentVisibilitySection>
       <HomePageStatsCards />
-      <HomePageOfferLetters />
-     
-      <HomePageMilestones /> 
-      <HomePageVideo />
-      <HomePageSteps />
-     
-     
-      <HomePageWhyChooseFF /> 
-      <HomePageHappyUsers />
-      <HomePageFoundersNote />
-
-      {/* using useState, so client */}
-     
-       {/* using useState, so client */}
-      {/* AJ section not so good */}
-      
-      <HomePagePTNote /> {/* PT section not so good */}
-     
-      <HomePageFAQ /> {/* using useState, so client */}
-      <HomePageDemoCTA />
-     
-     
+      <ContentVisibilitySection intrinsicSize="980px">
+        <HomePageOfferLetters />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="900px">
+        <HomePageMilestones />
+      </ContentVisibilitySection>
+      <LazySection minHeight="400px" rootMargin="600px">
+        <HomePageVideo />
+      </LazySection>
+      <ContentVisibilitySection intrinsicSize="760px">
+        <HomePageSteps />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="880px">
+        <HomePageWhyChooseFF />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="1800px">
+        <HomePageHappyUsers />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="760px">
+        <HomePageFoundersNote />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="740px">
+        <HomePagePTNote />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="900px">
+        <HomePageFAQ />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="680px">
+        <HomePageDemoCTA />
+      </ContentVisibilitySection>
       <Footer />
       <SalesPopUp />
     </>
   );
 }
-

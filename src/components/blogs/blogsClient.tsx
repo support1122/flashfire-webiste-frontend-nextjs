@@ -5,17 +5,11 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import styles from "./blogs.module.css";
 import BlogCard from "./blogCard";
-import { blogPosts } from "@/src/data/blogsData";
 import { FaSearch } from "react-icons/fa";
 import { categoryToSlug, slugToCategory, tagToSlug, slugToTag } from "@/src/utils/blogCategoryUtils";
 
-type BlogsClientProps = {
-  categorySlug?: string;
-  tagSlug?: string;
-};
-
-
-type BlogPostWithOptionalMeta = {
+// Metadata-only type (no content field) - keeps client bundle small
+export type BlogPostMeta = {
   id: number;
   slug: string;
   title: string;
@@ -25,13 +19,19 @@ type BlogPostWithOptionalMeta = {
   readTime: string;
   category: string;
   tags?: string[];
-  author: {
+  author?: {
     name: string;
-    bio: string;
+    bio?: string;
+    image?: string;
   };
   image: string;
   categoryColor: string;
-  content: string;
+};
+
+type BlogsClientProps = {
+  categorySlug?: string;
+  tagSlug?: string;
+  posts: BlogPostMeta[];
 };
 
 // Function to generate default tags based on category and content
@@ -71,48 +71,7 @@ function getDefaultTags(category: string, title: string, excerpt: string): strin
   return allTags.length > 0 ? allTags : ["Career Tips", "Job Search"]; // Fallback if no tags found
 }
 
-// Lazy computation of blogs with tags - only compute when needed
-let blogsWithTagsCache: BlogPostWithOptionalMeta[] | null = null;
-
-function getBlogsWithTags(): BlogPostWithOptionalMeta[] {
-  if (blogsWithTagsCache) {
-    return blogsWithTagsCache;
-  }
-  
-  // Compute only once and cache
-  const baseBlogs = blogPosts as unknown as BlogPostWithOptionalMeta[];
-
-  blogsWithTagsCache = baseBlogs.map((blog) => {
-    const existingTags = blog.tags && blog.tags.length > 0 ? blog.tags : [];
-    
-    // Always include the blog's category as a tag for filtering
-    const categoryTag = blog.category ? [blog.category] : [];
-    
-    // Merge existing tags with category tag
-    const mergedTags = [...new Set([...existingTags, ...categoryTag])];
-    
-    // If blog already had tags, return with category added
-    if (existingTags.length > 0) {
-      return {
-        ...blog,
-        tags: mergedTags,
-      };
-    }
-    
-    // If blog has no tags, generate relevant tags based on content
-    const defaultTags = getDefaultTags(blog.category, blog.title, blog.excerpt || "");
-    // Merge generated tags with category tag
-    const allTags = [...new Set([...defaultTags, ...categoryTag])];
-    return {
-      ...blog,
-      tags: allTags,
-    };
-  });
-  
-  return blogsWithTagsCache;
-}
-
-export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps = {}) {
+export default function BlogsClient({ categorySlug, tagSlug, posts }: BlogsClientProps) {
   const searchParams = useSearchParams();
   const tagParam = searchParams.get("tag");
   const categoryParam = searchParams.get("category");
@@ -142,8 +101,20 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
     }
   }, [categorySlug, categoryParam]);
 
-  // Lazy load blogs with tags
-  const blogsWithTags = useMemo(() => getBlogsWithTags(), []);
+  // Derive blogs with tags from posts prop (no content in bundle)
+  const blogsWithTags = useMemo(() => {
+    return posts.map((blog) => {
+      const existingTags = blog.tags && blog.tags.length > 0 ? blog.tags : [];
+      const categoryTag = blog.category ? [blog.category] : [];
+      const mergedTags = [...new Set([...existingTags, ...categoryTag])];
+      if (existingTags.length > 0) {
+        return { ...blog, tags: mergedTags };
+      }
+      const defaultTags = getDefaultTags(blog.category, blog.title, blog.excerpt || "");
+      const allTags = [...new Set([...defaultTags, ...categoryTag])];
+      return { ...blog, tags: allTags };
+    });
+  }, [posts]);
 
   // All unique categories for chip display
   const allCategories = useMemo(() => {
@@ -363,8 +334,8 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
 
       {filteredBlogs.length > 0 ? (
         <div className={styles.blogGrid}>
-          {filteredBlogs.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
+          {filteredBlogs.map((blog, index) => (
+            <BlogCard key={blog.id} blog={blog} priority={index < 3} />
           ))}
         </div>
       ) : (

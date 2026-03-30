@@ -7,6 +7,9 @@ import Footer from "@/src/components/footer/footer";
 import { slugToTag } from "@/src/utils/blogCategoryUtils";
 import { blogPosts } from "@/src/data/blogsData";
 
+// Strip content server-side: only metadata reaches client
+const blogPostsMeta = blogPosts.map(({ content, ...meta }) => meta) as import("@/src/components/blogs/blogsClient").BlogPostMeta[];
+
 export const dynamicParams = true;
 
 type Props = {
@@ -91,7 +94,7 @@ export default async function BlogTagPage({ params }: Props) {
     <>
       <Navbar />
       <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
-        <BlogsClient tagSlug={tagSlug} />
+        <BlogsClient tagSlug={tagSlug} posts={blogPostsMeta} />
       </Suspense>
       <Footer />
     </>

@@ -1,11 +1,9 @@
 "use client";
 import { Brain, Target, Sparkles, Rocket } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 export default function JobMatchingSection() {
-  const router = useRouter();
   const { isHolding, holdProgress, getButtonProps, stopHold } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
@@ -41,7 +39,8 @@ export default function JobMatchingSection() {
         funnel_stage: "signup_intent",
       });
       sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-      router.push("/start-ai-powered-job-search");
+      // Change URL without navigation to avoid white flash
+      window.history.pushState({}, '', '/start-ai-powered-job-search');
       window.dispatchEvent(new CustomEvent("showCalendlyModal"));
     } catch (error) {
       console.error("Error starting AI job search:", error);

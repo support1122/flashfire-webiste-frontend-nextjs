@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { blogPosts } from "@/src/data/blogsData";
 
-export default function BlogImagePreloader() {
+// Accept image URLs as prop from server component - avoids importing 1.65MB blogsData
+export default function BlogImagePreloader({ imageUrls }: { imageUrls: string[] }) {
   const hasStartedRef = useRef(false);
 
   useEffect(() => {
@@ -12,16 +12,7 @@ export default function BlogImagePreloader() {
     hasStartedRef.current = true;
 
     const preloadBlogImages = async () => {
-      // Extract all unique blog image URLs (post-level only).
-      // Author objects in blogsData currently don't include images, so we
-      // intentionally do not access author.image here to keep types safe.
-      const blogImageUrls = Array.from(
-        new Set(
-          blogPosts
-            .map((post) => post.image)
-            .filter(Boolean)
-        )
-      );
+      const blogImageUrls = Array.from(new Set(imageUrls.filter(Boolean)));
 
       if (blogImageUrls.length === 0) return;
 
@@ -94,7 +85,7 @@ export default function BlogImagePreloader() {
       // Already loaded or interactive
       preloadBlogImages();
     }
-  }, []);
+  }, [imageUrls]);
 
   return null; // This component doesn't render anything
 }

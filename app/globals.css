@@ -19,9 +19,8 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth removed from html - it makes Next.js page navigations
+   feel sluggish. Smooth scrolling is handled programmatically where needed. */
 
 body {
   background: var(--background);
@@ -55,7 +54,6 @@ img {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 500ms ease-out, transform 500ms ease-out;
-  will-change: transform, opacity;
 }
 
 .step-card.in-view {
@@ -67,5 +65,14 @@ img {
   overscroll-behavior: contain;
 }
 
-/* force rebuild after removing invalid classes */
+/* Hint browser to skip rendering off-screen sections until scrolled near */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+/* Isolate paint per masonry card — prevents full-page repaint on hover/load */
+.contain-paint {
+  contain: layout style paint;
+}
 
