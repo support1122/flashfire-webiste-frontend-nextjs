@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import HomePage from "@/src/components/pages/home/Home";
-import HomeImagePreloader from "./HomeImagePreloader";
 import TestimonialImagePreloader from "@/src/components/homePageHappyUsers/TestimonialImagePreloader";
 
 export const metadata: Metadata = {
@@ -143,7 +142,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <HomeImagePreloader />
       <TestimonialImagePreloader />
       <HomePage />
     </>

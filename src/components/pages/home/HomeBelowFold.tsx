@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import LazySection from "@/src/components/LazySection";
+import ContentVisibilitySection from "@/src/components/ContentVisibilitySection";
 
 // SSR-enabled dynamic imports: full HTML is server-rendered for instant visibility.
 // JS chunks are code-split and hydrate progressively — no blank gaps on fast scroll.
@@ -23,26 +24,54 @@ const HomePageDemoCTA = dynamic(() => import("@/src/components/homePageDemoCTA/h
 export default function HomeBelowFold() {
   return (
     <>
-      <HomePageSteps />
-      <HomePageJobMatchingSection />
-      <HomePageCareerCTA />
-      <HomePageBeforeAfter />
-      <HomePageResultStats />
-      <HomePageOfferLetters />
-      <HomePageMilestones />
+      <ContentVisibilitySection intrinsicSize="760px">
+        <HomePageSteps />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="900px">
+        <HomePageJobMatchingSection />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="680px">
+        <HomePageCareerCTA />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="880px">
+        <HomePageBeforeAfter />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="780px">
+        <HomePageResultStats />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="980px">
+        <HomePageOfferLetters />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="900px">
+        <HomePageMilestones />
+      </ContentVisibilitySection>
 
       {/* Video is heavy (18MB) — lazy-load with generous preload margin */}
       <LazySection minHeight="400px" rootMargin="600px">
         <HomePageVideo />
       </LazySection>
 
-      <HomePageWhyChooseFF />
-      <HomePageHappyUsers />
-      <HomePageFoundersNote />
-      <HomePagePTNote />
-      <HomePageFAQ />
-      <YouTubeVideo />
-      <HomePageDemoCTA />
+      <ContentVisibilitySection intrinsicSize="880px">
+        <HomePageWhyChooseFF />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="1800px">
+        <HomePageHappyUsers />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="760px">
+        <HomePageFoundersNote />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="740px">
+        <HomePagePTNote />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="900px">
+        <HomePageFAQ />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="720px">
+        <YouTubeVideo />
+      </ContentVisibilitySection>
+      <ContentVisibilitySection intrinsicSize="680px">
+        <HomePageDemoCTA />
+      </ContentVisibilitySection>
     </>
   );
 }

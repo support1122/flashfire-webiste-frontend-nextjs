@@ -6,8 +6,6 @@ import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import StrategyCallCard from "@/src/components/schedule-call/StrategyCallCard";
-import { useRouter } from "next/navigation";
 import { useCalendlyPrefetch } from "@/src/hooks/useCalendlyPrefetch";
 const UNIVERSITY_LOGOS: Record<string, string> = {
   "Harvard University": "https://logo.clearbit.com/harvard.edu",
@@ -32,8 +30,7 @@ type Props = {
 };
 
 export default function HeroSectionClient({ data }: Props) {
-  const router = useRouter();
-  const { isHolding, holdProgress, getButtonProps } = useGeoBypass({
+  const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
         window.dispatchEvent(new CustomEvent("showCalendlyModal"));
@@ -202,7 +199,8 @@ export default function HeroSectionClient({ data }: Props) {
                 fill
                 sizes="36px"
                 className="object-cover"
-                loading="eager"
+                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
               />
             </div>
           ))}
@@ -237,8 +235,8 @@ export default function HeroSectionClient({ data }: Props) {
                     alt={uni.name}
                     width={60}
                     height={40}
+                    sizes="(max-width: 480px) 40px, (max-width: 768px) 45px, 50px"
                     className="object-contain w-auto max-w-[50px] h-8 max-h-8 flex-shrink-0 max-[768px]:max-w-[45px] max-[768px]:h-7 max-[480px]:max-w-[40px] max-[480px]:h-6"
-                    unoptimized
                     loading="lazy"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;

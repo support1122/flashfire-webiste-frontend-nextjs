@@ -5,13 +5,14 @@ import HomePageStatsCards from "@/src/components/homePageStatsCards/homePageStat
 import Footer from "@/src/components/footer/footer";
 import HomeScrollToTop from "./HomeScrollToTop";
 import HomeBelowFold from "./HomeBelowFold";
+import { heroSectionData } from "@/src/data/herosection";
 
 export default function Home() {
   return (
     <>
       <HomeScrollToTop />
       <Navbar />
-      <HeroSection />
+      <HeroSection data={heroSectionData} />
       <HomePageStatsCards />
       <HomeBelowFold />
       <Footer />

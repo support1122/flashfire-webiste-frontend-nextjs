@@ -177,6 +177,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="dns-prefetch" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" />
         <link rel="preconnect" href="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.pexels.com" />
+        <link rel="dns-prefetch" href="https://logo.clearbit.com" />
+        <link rel="preconnect" href="https://logo.clearbit.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
       </head>
       <body
         suppressHydrationWarning

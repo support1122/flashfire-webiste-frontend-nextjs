@@ -119,7 +119,7 @@ const HomepageImageGrid = memo(function HomepageImageGrid() {
       className="columns-5 gap-4 max-w-[1100px] mx-auto max-[1200px]:columns-4 max-[900px]:columns-3 max-[600px]:columns-2 max-[400px]:columns-1"
     >
       {HOMEPAGE_IMAGES.map((src, i) => (
-        <ReviewImageCard key={i} src={src} index={i} priority={i < 6} />
+        <ReviewImageCard key={i} src={src} index={i} priority={i < 2} />
       ))}
     </div>
   );
@@ -174,7 +174,7 @@ const HomeVideoCard = memo(function HomeVideoCard({
                 height={1280}
                 className="w-full h-full object-cover rounded-none cursor-pointer"
                 onClick={handlePlay}
-                priority
+                priority={index === 0}
                 sizes="(max-width: 768px) 100vw, 320px"
               />
             </div>
@@ -196,7 +196,7 @@ const HomeVideoCard = memo(function HomeVideoCard({
                 width={40}
                 height={40}
                 className="w-full h-full object-cover rounded-full"
-                priority
+                priority={index === 0}
                 sizes="40px"
               />
             </div>
