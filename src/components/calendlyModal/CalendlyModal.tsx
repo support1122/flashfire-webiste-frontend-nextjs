@@ -1,8 +1,9 @@
 "use client";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { X, Calendar, CheckCircle } from "lucide-react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
+import { warmCalendly } from "@/src/utils/calendlyWarmup";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -59,46 +60,55 @@ export default function CalendlyModal({
     name?: string;
   } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const iframeObserverRef = useRef<MutationObserver | null>(null);
 
-  // Detect when Calendly iframe finishes loading via postMessage events
   useEffect(() => {
-    if (!isVisible) return;
+    warmCalendly();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || typeof document === "undefined") return;
 
     setIsLoading(true);
 
-    // Listen for Calendly's ready message (it posts when fully loaded)
+    const markReady = () => setIsLoading(false);
     const handleMessage = (event: MessageEvent) => {
-      if (typeof event.data === "string") {
-        try {
-          const data = JSON.parse(event.data);
-          if (data.event && data.event.indexOf("calendly") === 0) {
-            setIsLoading(false);
-          }
-        } catch {
-          // Not a JSON message, ignore
+      if (typeof event.data !== "string") return;
+
+      try {
+        const data = JSON.parse(event.data);
+        if (data.event && data.event.indexOf("calendly") === 0) {
+          markReady();
         }
+      } catch {
+        // ignore unrelated postMessage payloads
       }
     };
-    window.addEventListener("message", handleMessage);
 
-    // Also watch for iframe appearing in DOM as a secondary signal
     const observer = new MutationObserver(() => {
-      const iframe = document.querySelector('iframe[src*="calendly.com"]');
+      const iframe = document.querySelector<HTMLIFrameElement>(
+        'iframe[src*="calendly.com"]'
+      );
       if (iframe) {
-        iframe.addEventListener("load", () => setIsLoading(false), { once: true });
+        iframe.addEventListener("load", markReady, { once: true });
       }
     });
-    observer.observe(document.body, { childList: true, subtree: true });
-    iframeObserverRef.current = observer;
 
-    // Fallback: hide loader after 2s max (covers edge cases)
-    const fallback = setTimeout(() => setIsLoading(false), 2000);
+    window.addEventListener("message", handleMessage);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    const existingIframe = document.querySelector<HTMLIFrameElement>(
+      'iframe[src*="calendly.com"]'
+    );
+    if (existingIframe) {
+      existingIframe.addEventListener("load", markReady, { once: true });
+    }
+
+    const fallback = window.setTimeout(markReady, 2000);
 
     return () => {
       window.removeEventListener("message", handleMessage);
       observer.disconnect();
-      clearTimeout(fallback);
+      window.clearTimeout(fallback);
     };
   }, [isVisible]);
 
@@ -161,6 +171,12 @@ export default function CalendlyModal({
           payload: { inviteeName, inviteeEmail, eventStartTime },
         };
         console.log("Meeting booked event:", meetingBookedEvent);
+
+        try {
+          if (typeof window !== "undefined") {
+            sessionStorage.setItem("flashfire_meeting_booked_pending_track", "1");
+          }
+        } catch {}
 
         router.push("/meeting-booked");
 
@@ -249,8 +265,6 @@ export default function CalendlyModal({
     },
   } as CalendlyEventListenerOptions);
 
-  if (!isVisible) return null;
-
   const calendlyUrl = `https://calendly.com/feedback-flashfire/30min?utm_source=${
     typeof window !== "undefined"
       ? localStorage.getItem("utm_source") || "webpage_visit"
@@ -289,15 +303,17 @@ export default function CalendlyModal({
     textColor: "374151",
   };
 
+  if (!isVisible) return null;
+
   return (
     <div
-      className="fixed inset-0 bg-black/60 z-[9999] flex items-center justify-center w-full"
-      style={{ display: isVisible ? "flex" : "none" }}
+      className="fixed inset-0 bg-black/60 z-[9999] items-center justify-center w-full"
+      aria-hidden={!isVisible}
       onClick={onClose}
     >
       <div
         className="relative bg-white/80 backdrop-blur-sm
- max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col lg:flex-row"
+max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-col lg:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -308,7 +324,7 @@ export default function CalendlyModal({
           <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
-        {/* Mobile Header — only visible below lg */}
+        {/* Mobile Header */}
         <div className="block lg:hidden bg-gradient-to-br from-orange-500 to-red-600 p-4 text-white">
           <div className="flex items-center space-x-3">
             <div className="p-2 bg-white/20 rounded-lg">
@@ -323,7 +339,7 @@ export default function CalendlyModal({
           </div>
         </div>
 
-        {/* Desktop Sidebar — only visible at lg+ */}
+        {/* Desktop Sidebar */}
         <div className="hidden lg:block w-2/5 bg-gradient-to-br from-orange-500 to-red-600 p-8 text-white overflow-y-hidden rounded-l-xl">
           <div className="mb-6">
             <div className="flex items-center space-x-3 mb-4">

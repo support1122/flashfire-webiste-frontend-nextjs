@@ -102,6 +102,8 @@ export const viewport: Viewport = {
 
 import { FB_PIXEL_ID } from "@/lib/metaPixel";
 
+const GTM_CONTAINER_ID = "GTM-MCS5V3BF";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -110,6 +112,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Tag Manager — keep high in <head> per Google */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');`,
+          }}
+        />
         {/* Google AdSense site verification */}
         <meta name="google-adsense-account" content="ca-pub-7803903365456072" />
         {/* Font Preconnect for Google Fonts */}
@@ -119,23 +131,17 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Satoshi Font - Load async to avoid render-blocking */}
+        {/* Satoshi Font - defer stylesheet injection so it never blocks first paint */}
         <link rel="dns-prefetch" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <Script id="load-satoshi-font" strategy="lazyOnload">
           {`
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap';
-            document.head.appendChild(link);
-          `}
-        </Script>
-        {/* Calendly CSS - Load after hydration for fast modal open */}
-        <Script id="load-calendly-css" strategy="afterInteractive">
-          {`
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = 'https://assets.calendly.com/assets/external/widget.css';
-            document.head.appendChild(link);
+            if (!document.querySelector('link[href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"]')) {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap';
+              document.head.appendChild(link);
+            }
           `}
         </Script>
         {/* DNS prefetch and preconnect for Calendly */}
@@ -151,6 +157,20 @@ export default function RootLayout({
           href="https://assets.calendly.com"
           crossOrigin="anonymous"
         />
+        <link
+          rel="preload"
+          href="https://assets.calendly.com/assets/external/widget.css"
+          as="style"
+        />
+        <link
+          rel="stylesheet"
+          href="https://assets.calendly.com/assets/external/widget.css"
+        />
+        <link
+          rel="preload"
+          href="https://assets.calendly.com/assets/external/widget.js"
+          as="script"
+        />
         {/* DNS prefetch and preconnect for image CDNs */}
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
@@ -162,6 +182,16 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
+        {/* Google Tag Manager (noscript) — immediately after opening <body> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <PHProvider>
           {children}
         </PHProvider>
@@ -195,25 +225,25 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-        {/* Single gtag.js load — configures BOTH GA4 and Google Ads (was loaded twice before) */}
+        {/* Single gtag.js load for both GA4 and Google Ads */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Script id="google-analytics-and-ads" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag() {
+            window.gtag = function() {
               dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
-            gtag("config", "G-4P890VGD8D", {
+            };
+            window.gtag("js", new Date());
+            window.gtag("config", "G-4P890VGD8D", {
               page_path: window.location.pathname,
             });
-            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}", { page_path: window.location.pathname });` : ''}
+            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}", { page_path: window.location.pathname });` : ''}
           `}
         </Script>
-        {/* LinkedIn Insight Tag - Load with lazyOnload (was afterInteractive — not critical for FCP) */}
+        {/* LinkedIn Insight Tag - defer because it is not user-critical */}
         {process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID && (
           <>
             <Script id="linkedin-insight-tag" strategy="lazyOnload">
@@ -263,7 +293,7 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Calendly Script - Load after hydration for fast modal open */}
+        {/* Calendly Script - preload connection and hydrate early for fast modal open */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
           strategy="afterInteractive"

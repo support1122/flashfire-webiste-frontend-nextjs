@@ -7,6 +7,7 @@ import { loadFormData } from "@/src/utils/LocalStorageUtils";
 import dynamic from "next/dynamic";
 import * as fbq from "@/lib/metaPixel";
 import * as linkedin from "@/lib/linkedinInsightTag";
+import { warmCalendly } from "@/src/utils/calendlyWarmup";
 
 // Lazy-load all modal components — they're never visible on first paint
 const GeoBlockModal = dynamic(() => import("@/src/components/modals/GeoBlockModal"), { ssr: false });
@@ -68,6 +69,11 @@ function GlobalModalsContent() {
     useEffect(() => {
         captureUTMParams();
     }, [searchParams]);
+
+    // Warm Calendly once so first booking click opens instantly.
+    useEffect(() => {
+        warmCalendly();
+    }, []);
 
     // Update pathname ref when pathname changes
     useEffect(() => {

@@ -75,6 +75,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "Software Engineer Duties & Responsibilities Guide"
     : post.slug === "cloud-engineer-duties-job-description"
     ? "Cloud Engineer Duties & Job Description Guide"
+    : post.slug === "job-search-hacks"
+    ? "Job Search Hacks: Smart Tips to Get Hired Faster"
+    : post.slug === "job-search-tips"
+    ? "Job Search Tips: Proven Ways to Get Hired Faster"
+    : post.slug === "best-websites-for-job-search"
+    ? "Best Websites for Job Search: Top Sites to Get Hired"
     : `${post.title} | Flashfire Blog`;
   
   return {

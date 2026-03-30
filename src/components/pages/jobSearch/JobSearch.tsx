@@ -4,33 +4,39 @@ import { usePathname, useRouter } from "next/navigation";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import { Target, Rocket, Handshake, Trophy } from "lucide-react";
+import { Target, Rocket, Handshake, Trophy, ArrowRight, Check } from "lucide-react";
 
 const steps = [
   {
     id: 1,
-    title: "STEP 1: You Share Your Goals & Location",
+    title: "Share Your Goals & Location",
     description: "We learn your job preferences, skills, and where you want to work.",
     icon: Target,
   },
   {
     id: 2,
-    title: "STEP 2: We Scan Jobs Matching Your Criteria",
+    title: "We Scan Matching Jobs",
     description: "Flashfire filters roles near you that match your skills, visa status, salary expectations, and more.",
     icon: Rocket,
   },
   {
     id: 3,
-    title: "STEP 3: Our Team Applies for You",
-    description: "A dedicated team of 4-5 trained professionals applies manually to each role - so your resume lands where it matters.",
+    title: "Our Team Applies for You",
+    description: "A dedicated team of 4-5 trained professionals applies manually to each role.",
     icon: Handshake,
   },
   {
     id: 4,
-    title: "STEP 4: You Get Updates",
+    title: "You Get Updates",
     description: "You see where applications are sent and how they perform - without doing it yourself.",
     icon: Trophy,
   },
+];
+
+const benefits = [
+  "Flashfire scans job listings near your location",
+  "Our team applies to matched roles for you", 
+  "You get updates without lifting a finger"
 ];
 
 export default function JobSearch() {
@@ -161,102 +167,180 @@ export default function JobSearch() {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="bg-[#fff0e6] py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto w-full">
-          {/* Main Heading - centered */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-4 sm:mb-6 leading-tight text-center">
-            Find Jobs Faster With<br />
-            <span className="text-[#ff4c00] font-bold">Human-Powered</span> Automation.
-          </h1>
+    <div className="min-h-screen w-full bg-[#fdf7f4]">
+      
 
-          {/* Sub-heading */}
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-black mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto text-center px-0 sm:px-2">
-            Flashfire applies to relevant jobs on your behalf so you don't have
-            to search manually.
-          </p>
+      {/* Hero Section - Two Column Layout */}
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Column - Content */}
+            <div>
+             
 
-          {/* Key Benefits - centered container, left-aligned list for clean wrap */}
-          <div className="max-w-2xl mx-auto mb-8 sm:mb-10">
-            <ul className="flex flex-col items-center gap-3 sm:gap-4 text-center list-none pl-0">
-              <li className="flex items-center justify-center gap-3">
-                <span className="text-black font-bold text-lg shrink-0">▪</span>
-                <span className="text-base sm:text-lg font-bold text-black leading-snug">
-                  Flashfire scans job listings near your location
-                </span>
-              </li>
-              <li className="flex items-center justify-center mr-[28px] gap-3">
-                <span className="text-black font-bold text-lg shrink-0">▪</span>
-                <span className="text-base sm:text-lg font-bold text-black leading-snug">
-                  Our team applies to matched roles for you
-                </span>
-              </li>
-              <li className="flex items-center justify-center mr-[46px] gap-3">
-                <span className="text-black font-bold text-lg shrink-0">▪</span>
-                <span className="text-base sm:text-lg font-bold text-black leading-snug">
-                  You get updates without lifting a finger
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-[1.1] mb-6">
+                Find Jobs Faster With{" "}
+                <span className="text-[#ff4c00]">Human-Powered</span>{" "}
+                Automation
+              </h1>
 
-      {/* Middle Section - Behind the Scenes */}
-      <section className="bg-[#fff0e6] py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="bg-white rounded-2xl md:rounded-3xl shadow-lg p-6 sm:p-8 md:p-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#ff4c00] text-center mb-8 sm:mb-12 md:mb-16 px-0 sm:px-2">
-              Behind the Scenes of Your Job Search
-            </h2>
+              <p className="text-lg text-black/70 mb-8 leading-relaxed max-w-lg">
+                Flashfire applies to relevant jobs on your behalf so you don&apos;t have to search manually.
+              </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-              {steps.map((step) => {
-                const IconComponent = step.icon;
-                return (
-                  <div
-                    key={step.id}
-                    className="group bg-[#ff4c00] rounded-xl md:rounded-2xl p-5 sm:p-6 md:p-8 text-white shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-white/20 flex flex-col items-center text-center"
-                  >
-                    <div className="flex justify-center mb-4 sm:mb-6 shrink-0">
-                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 sm:p-4 md:p-5 group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-                        <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" strokeWidth={2.5} />
-                      </div>
+              <div className="space-y-3 mb-8">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="w-5 h-5 bg-[#ff4c00] rounded flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 text-white" strokeWidth={3} />
                     </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 leading-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm sm:text-base md:text-lg leading-relaxed text-white/95">
-                      {step.description}
-                    </p>
+                    <span className="text-black font-medium">{benefit}</span>
                   </div>
-                );
-              })}
+                ))}
+              </div>
+
+              <button
+                {...getButtonProps()}
+                onClick={handleGetStarted}
+                className="bg-[#ff4c00] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#e64400] transition-colors inline-flex items-center gap-2"
+              >
+                Get Started With Flashfire
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Right Column - Visual */}
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-xl border border-[#ff4c00]/10 p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <span className="text-xs text-gray-400">Flashfire Dashboard</span>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="bg-[#fff0e6] rounded-lg p-4 border-l-4 border-[#ff4c00]">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-black">Software Engineer</span>
+                      <span className="text-xs text-[#ff4c00] font-medium">Applied</span>
+                    </div>
+                    <span className="text-sm text-black/60">Google • Mountain View, CA</span>
+                  </div>
+
+                  <div className="bg-[#fff0e6] rounded-lg p-4 border-l-4 border-[#ff4c00]">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-black">Product Manager</span>
+                      <span className="text-xs text-[#ff4c00] font-medium">Applied</span>
+                    </div>
+                    <span className="text-sm text-black/60">Meta • Menlo Park, CA</span>
+                  </div>
+
+                  <div className="bg-gray-50 rounded-lg p-4 border-l-4 border-gray-300">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-black">Data Scientist</span>
+                      <span className="text-xs text-gray-500 font-medium">Scanning...</span>
+                    </div>
+                    <span className="text-sm text-black/60">Netflix • Los Gatos, CA</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA Section */}
-      <section className="bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto w-full text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#ff4c00] mb-3 sm:mb-4 px-0 sm:px-2 leading-tight">
+      {/* How It Works - Timeline Layout */}
+      <section className="  bg-[#fff7f2]">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+        How It Works
+      </h2>
+      <p className="text-black/60 text-lg">
+        Your job search, automated in four simple steps
+      </p>
+    </div>
+
+    {/* Grid */}
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((step, index) => {
+        const IconComponent = step.icon;
+
+        return (
+          <div
+            key={step.id}
+            className="relative group bg-white rounded-2xl p-6 shadow-sm border border-[#ff4c00]/10 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden"
+          >
+            
+            {/* Background Number */}
+            <span className="absolute top-4 right-4 text-6xl font-bold text-[#ff4c00]/10 group-hover:text-[#ff4c00]/20 transition">
+              {step.id}
+            </span>
+
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/0 via-[#ff4c00]/5 to-[#ff4c00]/10 opacity-0 group-hover:opacity-100 transition"></div>
+
+            {/* Icon */}
+            <div className="w-12 h-12 bg-[#ff4c00] rounded-xl flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition">
+              <IconComponent className="w-6 h-6 text-white" strokeWidth={2} />
+            </div>
+
+            {/* Content */}
+            <h3 className="text-lg font-bold text-black mb-2 relative z-10">
+              {step.title}
+            </h3>
+
+            <p className="text-black/70 text-sm leading-relaxed relative z-10">
+              {step.description}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+
+    {/* Bottom Flow Line (visual connection) */}
+    <div className="hidden lg:flex justify-between items-center mt-12 px-10">
+      {[1, 2, 3].map((_, i) => (
+        <div key={i} className="flex-1 h-[2px] bg-gradient-to-r from-[#ff4c00]/30 to-transparent"></div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+      {/* CTA Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
             Ready to Let Flashfire Search & Apply for You?
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-black mb-8 sm:mb-10 max-w-2xl mx-auto px-0 sm:px-2">
+          <p className="text-lg text-black/60 mb-8">
             Set the goal. Flashfire runs the system.
           </p>
-          <button
-            {...getButtonProps()}
-            onClick={handleGetStarted}
-            className="bg-white border-2 border-[#ff4c00] text-[#ff4c00] px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 font-bold text-base sm:text-lg md:text-xl rounded-xl hover:bg-[#fff0e6] transition-colors inline-flex items-center justify-center w-full sm:w-auto max-w-md mx-auto"
-          >
-            Get Started With Flashfire
-          </button>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              {...getButtonProps()}
+              onClick={handleGetStarted}
+              className="bg-[#ff4c00] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#e64400] transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Get Started With Flashfire
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          <p className="mt-6 text-sm text-black/50">
+            No credit card required • Setup takes 2 minutes
+          </p>
         </div>
       </section>
+
+     
     </div>
   );
 }
-

@@ -1008,11 +1008,10 @@ export default function NavbarClient({ links, ctas }: Props) {
   useEffect(() => {
     setMounted(true);
   }, []);
-  // timer for 10days 
-
-
-  const handleNavigateToPricing = useCallback(() => router.push(getHref('/pricing')), [router, getHref]);
-
+  const handleNavigateToPricing = useCallback(
+    () => router.push(getHref('/pricing')),
+    [router, getHref]
+  );
 
   const openCalendly = (e?: React.MouseEvent<HTMLButtonElement>) => {
     // Prevent any default scroll behavior
@@ -1168,7 +1167,7 @@ export default function NavbarClient({ links, ctas }: Props) {
   return (
     <>
 
-      {/* Sticky Container for Navbar and Banner */}
+      {/* Sticky Container for Navbar */}
       <div className="sticky top-0 left-0 right-0 z-50">
         {/* for pricing offer - upper Navbar */}
         {!isBlogsPage && (
@@ -2465,7 +2464,6 @@ export default function NavbarClient({ links, ctas }: Props) {
     </>
   );
 }
-
 
 
 
