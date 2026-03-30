@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PlayCircle, Users, X } from "lucide-react";
 import * as fbq from "@/lib/metaPixel";
 import * as linkedin from "@/lib/linkedinInsightTag";
+import * as googleAds from "@/lib/googleAds";
 import { LINKEDIN_CONVERSION_IDS } from "@/lib/linkedinConversions";
 import videoStyles from "@/src/components/homePageVideo/homePageVideo.module.css";
 
@@ -13,62 +14,81 @@ type Props = {
   onClose?: () => void;
 };
 
+const MEETING_BOOKED_PENDING_KEY = "flashfire_meeting_booked_pending_track";
+
 export default function MeetingBookedModal({ onClose }: Props) {
-  const [hasTracked, setHasTracked] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   useEffect(() => {
-    if (!hasTracked && typeof window !== "undefined") {
-      try {
-        const inviteeEmail = localStorage.getItem("cal_invitee_email") || "";
-        const inviteeName = localStorage.getItem("cal_invitee_name") || "";
-
-        const utm_source = localStorage.getItem("utm_source") || "direct";
-        const utm_medium = localStorage.getItem("utm_medium") || "website";
-        const utm_campaign =
-          localStorage.getItem("utm_campaign") || "organic";
-
-        fbq.event("Schedule", {
-          content_name: "Meeting Booked",
-          content_category: "Consultation",
-          value: 0,
-          currency: "USD",
-          ...(inviteeEmail && { em: inviteeEmail.toLowerCase() }),
-          ...(inviteeName && { fn: inviteeName.split(" ")[0] }),
-          ...(inviteeName && {
-            ln: inviteeName.split(" ").slice(1).join(" "),
-          }),
-          utm_source,
-          utm_medium,
-          utm_campaign,
-        });
-
-        // Track LinkedIn Schedule event (only if conversion ID is configured)
-        if (LINKEDIN_CONVERSION_IDS.SCHEDULE) {
-          try {
-            linkedin.trackSchedule(LINKEDIN_CONVERSION_IDS.SCHEDULE, {
-              value: 0,
-              currency: "USD",
-              ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
-              ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
-              ...(inviteeName && {
-                lastName: inviteeName.split(" ").slice(1).join(" "),
-              }),
-              utm_source,
-              utm_medium,
-              utm_campaign,
-            });
-          } catch (linkedinError) {
-            console.error("Failed to track LinkedIn event:", linkedinError);
-          }
-        }
-
-        setHasTracked(true);
-      } catch (error) {
-        console.error("Failed to track Facebook Pixel event:", error);
-      }
+    if (typeof window === "undefined") return;
+    // Only fire after a Calendly booking just navigated here (not refresh / direct URL).
+    // CalendlyModal sets this immediately before router.push to /meeting-booked.
+    if (sessionStorage.getItem(MEETING_BOOKED_PENDING_KEY) !== "1") {
+      return;
     }
-  }, [hasTracked]);
+    sessionStorage.removeItem(MEETING_BOOKED_PENDING_KEY);
+
+    try {
+      const inviteeEmail = localStorage.getItem("cal_invitee_email") || "";
+      const inviteeName = localStorage.getItem("cal_invitee_name") || "";
+
+      const utm_source = localStorage.getItem("utm_source") || "direct";
+      const utm_medium = localStorage.getItem("utm_medium") || "website";
+      const utm_campaign =
+        localStorage.getItem("utm_campaign") || "organic";
+
+      fbq.event("Schedule", {
+        content_name: "Meeting Booked",
+        content_category: "Consultation",
+        value: 0,
+        currency: "USD",
+        ...(inviteeEmail && { em: inviteeEmail.toLowerCase() }),
+        ...(inviteeName && { fn: inviteeName.split(" ")[0] }),
+        ...(inviteeName && {
+          ln: inviteeName.split(" ").slice(1).join(" "),
+        }),
+        utm_source,
+        utm_medium,
+        utm_campaign,
+      });
+
+      // Track LinkedIn Schedule event (only if conversion ID is configured)
+      if (LINKEDIN_CONVERSION_IDS.SCHEDULE) {
+        try {
+          linkedin.trackSchedule(LINKEDIN_CONVERSION_IDS.SCHEDULE, {
+            value: 0,
+            currency: "USD",
+            ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
+            ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
+            ...(inviteeName && {
+              lastName: inviteeName.split(" ").slice(1).join(" "),
+            }),
+            utm_source,
+            utm_medium,
+            utm_campaign,
+          });
+        } catch (linkedinError) {
+          console.error("Failed to track LinkedIn event:", linkedinError);
+        }
+      }
+
+      try {
+        googleAds.trackMeetingBooked({
+          value: 1.0,
+          currency: "INR",
+          ...(inviteeEmail && { email: inviteeEmail.toLowerCase() }),
+          ...(inviteeName && { firstName: inviteeName.split(" ")[0] }),
+          ...(inviteeName && {
+            lastName: inviteeName.split(" ").slice(1).join(" "),
+          }),
+        });
+      } catch (googleAdsError) {
+        console.error("Failed to track Google event:", googleAdsError);
+      }
+    } catch (error) {
+      console.error("Failed to track Facebook Pixel event:", error);
+    }
+  }, []);
 
   return (
     <>
