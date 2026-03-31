@@ -40,7 +40,7 @@ export default function HeroSectionClient({ data }: Props) {
     },
   });
   return (
-    <section className="bg-[#f8ebe5] text-center p-8 pb-16 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
+    <section className="bg-[#f8ebe5] text-center p-8 pb-16 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-23 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-27">
       {/* === Top Badges === */}
       <div className="flex justify-center gap-2 flex-wrap mb-6 mt-4 max-[768px]:mb-4 max-[768px]:mt-2 max-[480px]:gap-1.5 max-[480px]:mb-3">
         {data.badges.map((badge) => (
@@ -66,7 +66,7 @@ export default function HeroSectionClient({ data }: Props) {
         </span>
       </h1>
       {/* ================= MOBILE ================= */}
-      <h1 className="md:hidden text-[2rem] leading-[1.15] font-bold text-black text-center px-4 mb-3">
+      <h1 className="md:hidden text-[2rem] leading-[1.15] font-bold text-black text-center  px-4 mb-3">
 
         {/* Line 1 */}
         <span className="block">
@@ -244,7 +244,7 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* University logos below */}
-        <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-[90%] max-w-[90%] mx-auto mt-0 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
+        <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-[90%] max-w-[90%] mx-auto mt-0 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-[90%] max-[480px]:max-w-full">
           <div className="flex items-center justify-start gap-[0.05rem] flex-nowrap w-max pl-2 pr-2 max-[480px]:pl-1 max-[480px]:pr-1">
             {data.universities.map((uni, index) => {
               const logoSrc =
