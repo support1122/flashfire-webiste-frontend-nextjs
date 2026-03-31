@@ -4,25 +4,24 @@ import React from "react"
 import Link from "next/link"
 import Navbar from "@/src/components/navbar/navbar"
 import Footer from "@/src/components/footer/footer"
-import { FileText, Target, ArrowRight } from "lucide-react"
+import { ArrowRight, FileSearch, ScanSearch, Sparkles, Target } from "lucide-react"
 import { trackButtonClick } from "@/src/utils/PostHogTracking"
+import { Pill, SectionBadge, toolTheme } from "@/src/components/tools/toolTheme"
 
 const tools = [
   {
     title: "ATS Score Checker",
-    description:
-      "Upload your resume and get an instant ATS compatibility score with detailed feedback on 12 key criteria.",
+    description: "Production-grade ATS scoring across structure, formatting, readability, and content signals.",
     href: "/tools/ats-score-checker",
-    icon: FileText,
-    badge: "Free",
+    icon: ScanSearch,
+    stats: ["15 scoring checks", "Actionable priorities", "No signup"],
   },
   {
     title: "Resume Job Match",
-    description:
-      "See how well your resume matches a specific job description. Get keyword gaps, skills analysis, and recommendations.",
+    description: "Match your resume against a role with keyword, skills, requirement, and positioning analysis.",
     href: "/tools/resume-job-match",
     icon: Target,
-    badge: "Free",
+    stats: ["Role presets", "Skills gaps", "Match recommendations"],
   },
 ]
 
@@ -33,144 +32,256 @@ export default function ToolsPage() {
       <main
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
-          background: "linear-gradient(135deg, #fff7f2 0%, #fff0e6 50%, #ffffff 100%)",
+          background: toolTheme.bg,
           minHeight: "100vh",
         }}
       >
-        {/* Hero */}
-        <section style={{ padding: "120px 20px 60px", textAlign: "center" }}>
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              borderRadius: "9999px",
-              padding: "4px 14px",
-              fontSize: "13px",
-              fontWeight: 600,
-              background: "#ff4c00",
-              color: "#fff",
-              marginBottom: "20px",
-            }}
-          >
-            Free Tools
-          </span>
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3.2rem)",
-              fontWeight: 800,
-              color: "#0f172a",
-              marginBottom: "16px",
-              lineHeight: 1.15,
-            }}
-          >
-            Free Resume Tools
-          </h1>
-          <p
-            style={{
-              fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
-              color: "#4b5563",
-              maxWidth: "600px",
-              margin: "0 auto",
-              lineHeight: 1.6,
-            }}
-          >
-            Powerful, free tools to help you optimize your resume and land more interviews. No signup required.
-          </p>
-        </section>
-
-        {/* Tool Cards */}
-        <section
-          style={{
-            maxWidth: "900px",
-            margin: "0 auto",
-            padding: "0 20px 100px",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "28px",
-          }}
-        >
-          {tools.map((tool) => (
-            <Link
-              key={tool.href}
-              href={tool.href}
-              style={{ textDecoration: "none" }}
-              onClick={() => {
-                trackButtonClick(tool.title, "tools_landing", "link", {
-                  button_location: "tools_page",
-                  destination: tool.href,
-                })
+        <section style={{ padding: "120px 20px 72px" }}>
+          <div style={{ maxWidth: "1160px", margin: "0 auto" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "minmax(0, 1.15fr) minmax(320px, 0.85fr)",
+                gap: "28px",
+                alignItems: "end",
               }}
             >
+              <div>
+                <SectionBadge>Free Resume Tools</SectionBadge>
+                <h1
+                  style={{
+                    fontSize: "clamp(2.4rem, 6vw, 4.8rem)",
+                    lineHeight: 1.02,
+                    fontWeight: 800,
+                    color: toolTheme.slate,
+                    margin: "20px 0 18px",
+                    maxWidth: "760px",
+                  }}
+                >
+                  Sharper tools for resume quality, ATS readiness, and role matching.
+                </h1>
+                <p
+                  style={{
+                    maxWidth: "640px",
+                    fontSize: "1.06rem",
+                    lineHeight: 1.7,
+                    color: toolTheme.body,
+                    margin: 0,
+                  }}
+                >
+                  The tooling keeps the same Flashfire visual language, but the experience is cleaner, faster to scan, and more useful once a user lands on the result.
+                </p>
+              </div>
+
               <div
                 style={{
-                  background: "white",
-                  borderRadius: "16px",
-                  border: "1px solid #ffd7c4",
-                  padding: "32px 28px",
-                  boxShadow: "0 10px 30px rgba(255,76,0,0.08)",
-                  transition: "all 0.2s ease",
-                  cursor: "pointer",
-                  height: "100%",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-4px)"
-                  e.currentTarget.style.boxShadow = "0 16px 40px rgba(255,76,0,0.12)"
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)"
-                  e.currentTarget.style.boxShadow = "0 10px 30px rgba(255,76,0,0.08)"
+                  background: "rgba(255,255,255,0.88)",
+                  backdropFilter: "blur(14px)",
+                  border: `1px solid ${toolTheme.border}`,
+                  borderRadius: "28px",
+                  padding: "24px",
+                  boxShadow: "0 30px 70px rgba(255,76,0,0.08)",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
                   <div
                     style={{
-                      width: "48px",
-                      height: "48px",
-                      borderRadius: "12px",
-                      background: "#fff2ea",
+                      width: "42px",
+                      height: "42px",
+                      borderRadius: "14px",
+                      background: "#ffe9dc",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                     }}
                   >
-                    <tool.icon size={24} color="#ff4c00" />
+                    <Sparkles size={20} color={toolTheme.primary} />
                   </div>
-                  <span
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: 700,
-                      color: "#ff4c00",
-                      background: "#fff2ea",
-                      borderRadius: "9999px",
-                      padding: "2px 10px",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.5px",
-                    }}
-                  >
-                    {tool.badge}
-                  </span>
+                  <div>
+                    <div style={{ fontWeight: 700, color: toolTheme.slate }}>Built for real resume iteration</div>
+                    <div style={{ fontSize: "0.9rem", color: toolTheme.muted }}>Clear signals, fewer dead-end states</div>
+                  </div>
                 </div>
-                <h2 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#0f172a", marginBottom: "10px" }}>
-                  {tool.title}
-                </h2>
-                <p style={{ fontSize: "0.95rem", color: "#4b5563", lineHeight: 1.6, marginBottom: "16px" }}>
-                  {tool.description}
-                </p>
-                <span
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "18px" }}>
+                  <Pill>Cleaner result hierarchy</Pill>
+                  <Pill tone="soft">Production-grade scoring</Pill>
+                  <Pill tone="warning">Keyword + skills datasets</Pill>
+                </div>
+
+                <div
                   style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "6px",
-                    color: "#ff4c00",
-                    fontWeight: 600,
-                    fontSize: "0.9rem",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                    gap: "12px",
                   }}
                 >
-                  Try Now <ArrowRight size={16} />
-                </span>
+                  {[
+                    { label: "ATS signals", value: "15" },
+                    { label: "Match dimensions", value: "7" },
+                    { label: "Preset roles", value: "3" },
+                    { label: "Output style", value: "Actionable" },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      style={{
+                        padding: "14px",
+                        borderRadius: "18px",
+                        background: toolTheme.cream,
+                        border: `1px solid ${toolTheme.border}`,
+                      }}
+                    >
+                      <div style={{ fontSize: "1.35rem", fontWeight: 800, color: toolTheme.slate }}>{item.value}</div>
+                      <div style={{ fontSize: "0.84rem", color: toolTheme.muted }}>{item.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </Link>
-          ))}
+            </div>
+          </div>
+        </section>
+
+        <section style={{ padding: "0 20px 96px" }}>
+          <div
+            style={{
+              maxWidth: "1160px",
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "24px",
+            }}
+          >
+            {tools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                style={{ textDecoration: "none" }}
+                onClick={() => {
+                  trackButtonClick(tool.title, "tools_landing", "link", {
+                    button_location: "tools_page",
+                    destination: tool.href,
+                  })
+                }}
+              >
+                <div
+                  style={{
+                    height: "100%",
+                    padding: "28px",
+                    borderRadius: "28px",
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, #fff8f3 100%)",
+                    border: `1px solid ${toolTheme.border}`,
+                    boxShadow: "0 22px 60px rgba(255,76,0,0.07)",
+                    transition: "transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
+                  }}
+                  onMouseEnter={(event) => {
+                    event.currentTarget.style.transform = "translateY(-4px)"
+                    event.currentTarget.style.boxShadow = "0 30px 80px rgba(255,76,0,0.12)"
+                    event.currentTarget.style.borderColor = toolTheme.borderStrong
+                  }}
+                  onMouseLeave={(event) => {
+                    event.currentTarget.style.transform = "translateY(0)"
+                    event.currentTarget.style.boxShadow = "0 22px 60px rgba(255,76,0,0.07)"
+                    event.currentTarget.style.borderColor = toolTheme.border
+                  }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "12px", marginBottom: "18px" }}>
+                    <div
+                      style={{
+                        width: "54px",
+                        height: "54px",
+                        borderRadius: "18px",
+                        background: "#ffe9dc",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <tool.icon size={26} color={toolTheme.primary} />
+                    </div>
+                    <Pill>Free</Pill>
+                  </div>
+
+                  <h2 style={{ fontSize: "1.55rem", lineHeight: 1.15, fontWeight: 800, color: toolTheme.slate, margin: "0 0 10px" }}>
+                    {tool.title}
+                  </h2>
+                  <p style={{ fontSize: "0.98rem", lineHeight: 1.65, color: toolTheme.body, margin: "0 0 18px" }}>
+                    {tool.description}
+                  </p>
+
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "26px" }}>
+                    {tool.stats.map((item) => (
+                      <Pill key={item} tone="soft">
+                        {item}
+                      </Pill>
+                    ))}
+                  </div>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      color: toolTheme.primaryDark,
+                      fontWeight: 700,
+                    }}
+                  >
+                    <span>Open tool</span>
+                    <ArrowRight size={18} />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section style={{ padding: "0 20px 96px" }}>
+          <div
+            style={{
+              maxWidth: "1160px",
+              margin: "0 auto",
+              borderRadius: "32px",
+              background: "linear-gradient(135deg, #fff1e6 0%, #ffffff 100%)",
+              border: `1px solid ${toolTheme.border}`,
+              padding: "28px",
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 1fr) minmax(280px, 0.8fr)",
+              gap: "20px",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <SectionBadge>Why this feels better</SectionBadge>
+              <h3 style={{ fontSize: "2rem", fontWeight: 800, color: toolTheme.slate, margin: "18px 0 10px" }}>
+                The UX now emphasizes decision-making, not just scores.
+              </h3>
+              <p style={{ margin: 0, maxWidth: "620px", color: toolTheme.body, lineHeight: 1.7 }}>
+                Users can see what is working, what is blocking them, and what to fix first without reading every line of feedback.
+              </p>
+            </div>
+            <div style={{ display: "grid", gap: "12px" }}>
+              {[
+                { icon: FileSearch, text: "More structured result panels" },
+                { icon: ScanSearch, text: "Stronger ATS signal reporting" },
+                { icon: Target, text: "Richer match data and presets" },
+              ].map((item) => (
+                <div
+                  key={item.text}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    padding: "14px 16px",
+                    borderRadius: "18px",
+                    background: "rgba(255,255,255,0.82)",
+                    border: `1px solid ${toolTheme.border}`,
+                  }}
+                >
+                  <item.icon size={18} color={toolTheme.primary} />
+                  <span style={{ fontWeight: 600, color: toolTheme.slate }}>{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       </main>
       <Footer />

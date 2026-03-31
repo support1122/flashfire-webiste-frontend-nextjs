@@ -1,4 +1,4 @@
-// Resume Match Analysis Engine — 7 dimensions totaling 100 points
+import { ACTION_VERBS, ROLE_FAMILY_KEYWORDS, SKILL_SIGNALS } from "@/src/utils/resumeSignalData"
 
 export interface MatchDimension {
   name: string
@@ -8,549 +8,447 @@ export interface MatchDimension {
   feedback: string
 }
 
+export interface MatchKeywordSignal {
+  term: string
+  importance: "high" | "medium"
+  matched: boolean
+  source: "skill" | "requirement" | "phrase"
+}
+
+export interface ResumeMatchInsights {
+  jobTitle: string
+  seniority: string
+  workMode: string
+  roleFamily: string
+  detectedRequirements: string[]
+}
+
 export interface ResumeMatchResult {
   matchScore: number
   breakdown: MatchDimension[]
   missingKeywords: string[]
+  matchedKeywords: string[]
+  missingSkills: string[]
+  matchedSkills: string[]
+  keywordSignals: MatchKeywordSignal[]
   recommendations: string[]
+  insights: ResumeMatchInsights
 }
 
 const STOP_WORDS = new Set([
   "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
   "of", "with", "by", "from", "is", "was", "are", "were", "be", "been",
   "being", "have", "has", "had", "do", "does", "did", "will", "would",
-  "could", "should", "may", "might", "shall", "can", "need", "must",
-  "that", "this", "these", "those", "i", "me", "my", "we", "our", "you",
-  "your", "he", "him", "his", "she", "her", "it", "its", "they", "them",
-  "their", "what", "which", "who", "whom", "how", "when", "where", "why",
-  "not", "no", "nor", "as", "if", "then", "than", "too", "very", "just",
-  "about", "above", "after", "again", "all", "also", "am", "any", "because",
-  "before", "between", "both", "each", "few", "get", "got", "here", "into",
-  "more", "most", "new", "now", "only", "other", "out", "over", "own",
-  "same", "so", "some", "such", "there", "through", "under", "up", "us",
-  "able", "across", "already", "among", "another", "around", "back",
-  "become", "best", "better", "big", "come", "day", "different", "down",
-  "end", "even", "every", "first", "give", "good", "great", "high",
-  "include", "including", "keep", "know", "large", "last", "left", "life",
-  "like", "line", "long", "look", "make", "many", "much", "next", "number",
-  "off", "often", "old", "one", "part", "place", "point", "right", "see",
-  "set", "show", "side", "small", "start", "still", "take", "thing",
-  "think", "three", "time", "turn", "two", "use", "used", "using", "want",
-  "way", "well", "work", "working", "world", "year", "years",
+  "could", "should", "may", "might", "shall", "can", "must", "that",
+  "this", "these", "those", "you", "your", "our", "their", "they", "them",
+  "what", "which", "who", "how", "when", "where", "why", "not", "as", "if",
+  "then", "than", "too", "very", "about", "after", "again", "also", "any",
+  "before", "between", "both", "each", "few", "into", "more", "most", "only",
+  "other", "over", "same", "some", "such", "through", "under", "using",
+  "work", "working", "experience", "required", "preferred", "candidate",
+  "candidates", "team", "role", "job", "position", "plus",
 ])
 
-const COMMON_SKILLS = [
-  // Programming Languages
-  "javascript", "typescript", "python", "java", "c++", "c#", "ruby", "go",
-  "rust", "swift", "kotlin", "php", "sql", "scala", "perl", "matlab",
-  "r programming", "objective-c", "dart", "lua", "haskell", "elixir",
-  // Databases
-  "nosql", "mongodb", "postgresql", "mysql", "redis", "elasticsearch",
-  "dynamodb", "cassandra", "sqlite", "mariadb", "neo4j", "firebase",
-  // DevOps & Cloud
-  "docker", "kubernetes", "aws", "azure", "gcp", "terraform", "ansible",
-  "jenkins", "git", "ci/cd", "github", "gitlab", "bitbucket", "heroku",
-  "vercel", "netlify", "cloudflare", "nginx", "apache",
-  // Frontend
-  "react", "angular", "vue", "next.js", "node.js", "express", "svelte",
-  "html", "css", "sass", "tailwind", "bootstrap", "webpack", "vite",
-  "jquery", "redux", "graphql", "rest", "api",
-  // Backend & Frameworks
-  "django", "flask", "spring", "rails", ".net", "laravel", "fastapi",
-  "microservices", "serverless",
-  // Data Science & ML
-  "machine learning", "deep learning", "natural language processing",
-  "nlp", "computer vision", "tensorflow", "pytorch", "pandas", "numpy",
-  "scikit-learn", "spark", "hadoop", "keras", "opencv", "spacy",
-  "statistical modeling", "predictive analytics", "predictive modeling",
-  "hypothesis testing", "regression", "classification", "clustering",
-  "neural networks", "random forest", "xgboost", "lightgbm",
-  "feature engineering", "model deployment", "mlops",
-  "data mining", "data wrangling", "data cleaning", "data engineering",
-  "big data", "etl", "data pipeline", "data warehousing",
-  "causal inference", "time series", "bayesian",
-  // Data Visualization & BI
-  "tableau", "power bi", "excel", "matplotlib", "seaborn", "ggplot2",
-  "d3.js", "looker", "qlik", "arcgis", "plotly",
-  // Project & Product Management
-  "agile", "scrum", "kanban", "jira", "confluence", "trello", "asana",
-  "monday.com", "notion", "project management", "product management",
-  "stakeholder management",
-  // Design
-  "figma", "sketch", "photoshop", "illustrator", "adobe xd", "canva",
-  "invision", "zeplin",
-  // System Administration
-  "linux", "bash", "powershell", "windows server", "active directory",
-  // CRM & Marketing
-  "salesforce", "hubspot", "sap", "oracle", "marketo", "mailchimp",
-  "google analytics", "adobe analytics", "google ads", "facebook ads",
-  "a/b testing", "seo", "sem", "content marketing",
-  // Business & Soft Skills
-  "leadership", "communication", "problem solving", "teamwork",
-  "analytical", "strategic planning", "data analysis", "financial modeling",
-  "marketing", "ux", "ui", "business development", "account management",
-  "customer success", "technical writing", "copywriting", "content strategy",
-  "cross-functional", "presentation", "negotiation", "mentoring",
-  "business analytics", "roi analysis", "budget management",
-  // Security & Networking
-  "cybersecurity", "penetration testing", "network security", "encryption",
-  "oauth", "jwt", "ssl", "firewall", "vpn",
-  // Testing & QA
-  "unit testing", "integration testing", "selenium", "cypress", "jest",
-  "mocha", "pytest", "test automation", "qa",
-  // Mobile
-  "react native", "flutter", "ios", "android", "mobile development",
-  // Other Technical
-  "jupyter", "jupyter notebook", "r studio", "rstudio", "visual studio",
-  "vs code", "intellij", "pycharm", "postman", "swagger",
-  "xml", "json", "yaml", "csv", "parquet",
-  "blockchain", "web3", "solidity",
-  "chatgpt", "llm", "large language model", "generative ai", "prompt engineering",
-  "automation", "scripting", "web scraping", "beautiful soup", "selenium",
-]
+function normalizeText(text: string) {
+  return text.toLowerCase().replace(/[^\w\s+.#/-]/g, " ")
+}
 
-const ACTION_VERBS = [
-  "achieved", "administered", "analyzed", "built", "collaborated", "created",
-  "delivered", "designed", "developed", "directed", "drove", "enabled",
-  "engineered", "established", "executed", "expanded", "facilitated",
-  "generated", "guided", "implemented", "improved", "increased", "initiated",
-  "launched", "led", "managed", "mentored", "negotiated", "optimized",
-  "orchestrated", "organized", "pioneered", "planned", "produced",
-  "reduced", "researched", "resolved", "spearheaded", "streamlined",
-  "supervised", "trained", "transformed",
-]
+function unique<T>(items: T[]) {
+  return Array.from(new Set(items))
+}
 
-function extractKeywords(text: string): Map<string, number> {
-  const words = text.toLowerCase().split(/[\s,;:.!?()\[\]{}"'\/\\]+/)
-  const freq = new Map<string, number>()
+function extractUnigramsAndBigrams(text: string) {
+  const normalized = normalizeText(text)
+  const words = normalized.split(/\s+/).filter((word) => word.length > 2 && !STOP_WORDS.has(word))
+  const frequencies = new Map<string, number>()
 
   for (const word of words) {
-    const clean = word.replace(/[^a-z0-9+#.-]/g, "")
-    if (clean.length > 2 && !STOP_WORDS.has(clean)) {
-      freq.set(clean, (freq.get(clean) || 0) + 1)
-    }
+    frequencies.set(word, (frequencies.get(word) || 0) + 1)
   }
 
-  // Also extract 2-word phrases
+  for (let index = 0; index < words.length - 1; index += 1) {
+    const phrase = `${words[index]} ${words[index + 1]}`
+    frequencies.set(phrase, (frequencies.get(phrase) || 0) + 1)
+  }
+
+  return frequencies
+}
+
+function hasTerm(text: string, term: string) {
+  const normalizedText = ` ${normalizeText(text)} `
+  const normalizedTerm = normalizeText(term).trim()
+  return normalizedText.includes(` ${normalizedTerm} `)
+}
+
+function extractJobTitle(jobDescription: string) {
+  const lines = jobDescription.split("\n").map((line) => line.trim()).filter(Boolean)
+  const firstMeaningfulLine = lines.find((line) => line.length > 4) || ""
+  const explicitMatch = jobDescription.match(/(?:job title|position|role)\s*[:\-]\s*([^\n]+)/i)
+  if (explicitMatch?.[1]) {
+    return explicitMatch[1].trim()
+  }
+  return firstMeaningfulLine.length <= 80 ? firstMeaningfulLine : "Target role"
+}
+
+function detectSeniority(text: string) {
   const lower = text.toLowerCase()
-  const twoWordPhrases = lower.match(/[a-z]+\s+[a-z]+/g) || []
-  for (const phrase of twoWordPhrases) {
-    const words = phrase.split(/\s+/)
-    if (words.every((w) => w.length > 2 && !STOP_WORDS.has(w))) {
-      freq.set(phrase, (freq.get(phrase) || 0) + 1)
-    }
-  }
-
-  return freq
+  if (/\b(principal|staff|head|director|lead)\b/.test(lower)) return "Lead+"
+  if (/\b(senior|sr\.)\b/.test(lower)) return "Senior"
+  if (/\b(junior|jr\.|entry level|associate|intern)\b/.test(lower)) return "Entry to Mid"
+  return "Mid-level"
 }
 
-function checkKeywordMatch(resumeText: string, jdText: string): { dimension: MatchDimension; missingKeywords: string[] } {
-  const maxScore = 25
-  const jdKeywords = extractKeywords(jdText)
-  const resumeLower = resumeText.toLowerCase()
-
-  // Get top JD keywords by frequency (most important ones)
-  const sortedJdKeywords = Array.from(jdKeywords.entries())
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 30)
-
-  let matched = 0
-  const missing: string[] = []
-
-  for (const [keyword] of sortedJdKeywords) {
-    if (resumeLower.includes(keyword)) {
-      matched++
-    } else {
-      missing.push(keyword)
-    }
-  }
-
-  const total = sortedJdKeywords.length
-  const ratio = total > 0 ? matched / total : 0
-  const score = Math.round(ratio * maxScore)
-  const status = ratio >= 0.6 ? "pass" : ratio >= 0.35 ? "warning" : "fail"
-
-  return {
-    dimension: {
-      name: "Keyword Match",
-      score,
-      maxScore,
-      status,
-      feedback: `${matched} of ${total} key terms from the job description found in your resume (${Math.round(ratio * 100)}% match).`,
-    },
-    missingKeywords: missing.slice(0, 15),
-  }
+function detectWorkMode(text: string) {
+  const lower = text.toLowerCase()
+  if (/\bhybrid\b/.test(lower)) return "Hybrid"
+  if (/\bremote\b/.test(lower)) return "Remote"
+  if (/\bon[-\s]?site\b/.test(lower)) return "On-site"
+  return "Not specified"
 }
 
-function checkSkillsGap(resumeText: string, jdText: string): { dimension: MatchDimension; matchedSkills: string[]; missingSkills: string[] } {
-  const maxScore = 20
-  const jdLower = jdText.toLowerCase()
-  const resumeLower = resumeText.toLowerCase()
+function detectRoleFamily(text: string) {
+  const lower = text.toLowerCase()
+  const ranked = (Object.entries(ROLE_FAMILY_KEYWORDS) as [string, string[]][])
+    .map(([family, keywords]) => ({
+      family,
+      score: keywords.filter((keyword) => lower.includes(keyword)).length,
+    }))
+    .sort((a, b) => b.score - a.score)
 
-  const jdSkills: string[] = []
-  for (const skill of COMMON_SKILLS) {
-    if (jdLower.includes(skill.toLowerCase())) {
-      jdSkills.push(skill)
-    }
-  }
+  return ranked[0]?.score ? ranked[0].family : "General"
+}
 
+function extractRequirements(text: string) {
+  const requirementMatches = text.match(/\b\d+\+?\s+years?\b|\b(?:bachelor|master|phd|mba)\b|\b(?:sql|python|react|aws|tableau|power bi|product management|figma|seo|salesforce)\b/gi) || []
+  return unique(requirementMatches.map((item) => item.trim())).slice(0, 6)
+}
+
+function buildSkillCoverage(resumeText: string, jdText: string) {
   const matchedSkills: string[] = []
   const missingSkills: string[] = []
+  const jdRelevantSkills = SKILL_SIGNALS.filter((signal) => signal.aliases.some((alias) => hasTerm(jdText, alias)))
 
-  for (const skill of jdSkills) {
-    if (resumeLower.includes(skill.toLowerCase())) {
-      matchedSkills.push(skill)
-    } else {
-      missingSkills.push(skill)
-    }
+  for (const signal of jdRelevantSkills) {
+    const matched = signal.aliases.some((alias) => hasTerm(resumeText, alias))
+    if (matched) matchedSkills.push(signal.canonical)
+    else missingSkills.push(signal.canonical)
   }
 
-  const total = jdSkills.length
-  const ratio = total > 0 ? matchedSkills.length / total : 1
-  const score = Math.round(ratio * maxScore)
-  const status = ratio >= 0.7 ? "pass" : ratio >= 0.4 ? "warning" : "fail"
-
   return {
-    dimension: {
-      name: "Skills Gap",
-      score,
-      maxScore,
-      status,
-      feedback: total === 0
-        ? "No standard skills detected in the job description."
-        : `${matchedSkills.length} of ${total} required skills found in your resume.`,
-    },
-    matchedSkills,
-    missingSkills,
+    matchedSkills: unique<string>(matchedSkills),
+    missingSkills: unique<string>(missingSkills),
+    relevantSkills: unique<string>(jdRelevantSkills.map((signal) => signal.canonical)),
   }
 }
 
-function checkExperienceLevel(resumeText: string, jdText: string): MatchDimension {
+function buildKeywordSignals(resumeText: string, jdText: string, missingSkills: string[], matchedSkills: string[]) {
+  const frequencies = extractUnigramsAndBigrams(jdText)
+  const rankedTerms = Array.from(frequencies.entries())
+    .filter(([term, count]) => count >= 2 || term.split(" ").length > 1)
+    .filter(([term]) => term.length >= 4)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 24)
+
+  const signals: MatchKeywordSignal[] = []
+  const seen = new Set<string>()
+
+  for (const [term, count] of rankedTerms) {
+    if (STOP_WORDS.has(term)) continue
+    if (seen.has(term)) continue
+    seen.add(term)
+    signals.push({
+      term,
+      importance: count >= 3 ? "high" : "medium",
+      matched: hasTerm(resumeText, term),
+      source: term.split(" ").length > 1 ? "phrase" : "requirement",
+    })
+  }
+
+  for (const skill of unique([...matchedSkills, ...missingSkills])) {
+    if (seen.has(skill)) continue
+    seen.add(skill)
+    signals.push({
+      term: skill,
+      importance: "high",
+      matched: matchedSkills.includes(skill),
+      source: "skill",
+    })
+  }
+
+  return signals.slice(0, 24)
+}
+
+function scoreKeywordAlignment(signals: MatchKeywordSignal[]): MatchDimension {
+  const maxScore = 25
+  const totalWeight = signals.reduce((sum, signal) => sum + (signal.importance === "high" ? 2 : 1), 0)
+  const matchedWeight = signals.reduce((sum, signal) => {
+    if (!signal.matched) return sum
+    return sum + (signal.importance === "high" ? 2 : 1)
+  }, 0)
+  const ratio = totalWeight === 0 ? 1 : matchedWeight / totalWeight
+  const score = Math.round(ratio * maxScore)
+
+  return {
+    name: "Keyword Alignment",
+    score,
+    maxScore,
+    status: ratio >= 0.7 ? "pass" : ratio >= 0.45 ? "warning" : "fail",
+    feedback: `${Math.round(ratio * 100)}% of the high-signal requirements and phrases from the job description appear in the resume.`,
+  }
+}
+
+function scoreSkillsCoverage(matchedSkills: string[], missingSkills: string[], relevantSkills: string[]): MatchDimension {
+  const maxScore = 20
+  const ratio = relevantSkills.length === 0 ? 1 : matchedSkills.length / relevantSkills.length
+  const score = Math.round(ratio * maxScore)
+
+  return {
+    name: "Skills Coverage",
+    score,
+    maxScore,
+    status: ratio >= 0.7 ? "pass" : ratio >= 0.4 ? "warning" : "fail",
+    feedback: relevantSkills.length === 0
+      ? "No standard skill signals were detected in the job description."
+      : `${matchedSkills.length} of ${relevantSkills.length} relevant skills were found in the resume.`,
+  }
+}
+
+function extractYears(text: string) {
+  const matches = text.match(/(\d+)\+?\s+years?/gi) || []
+  return matches.map((match) => Number.parseInt(match, 10)).filter((value) => Number.isFinite(value))
+}
+
+function scoreExperienceAlignment(resumeText: string, jdText: string): MatchDimension {
   const maxScore = 15
+  const requiredYears = Math.max(0, ...extractYears(jdText))
+  const declaredYears = Math.max(0, ...extractYears(resumeText))
+  const rangeMatches = resumeText.match(/\b(19|20)\d{2}\s*[-–—]\s*((19|20)\d{2}|present|current)\b/gi) || []
 
-  const extractYears = (text: string): number[] => {
-    const years: number[] = []
-    const patterns = [
-      /(\d+)\+?\s*years?\s*(?:of)?\s*experience/gi,
-      /(\d+)\+?\s*years?\s*(?:of)?\s*(?:professional|relevant|industry)/gi,
-    ]
-    for (const pattern of patterns) {
-      let match
-      while ((match = pattern.exec(text)) !== null) {
-        years.push(parseInt(match[1]))
-      }
-    }
-    return years
-  }
-
-  const jdYears = extractYears(jdText)
-  const resumeYears = extractYears(resumeText)
-
-  // Also estimate from date ranges in resume
-  const dateRanges = resumeText.match(/\b(20\d{2}|19\d{2})\s*[-–—]\s*(?:(20\d{2}|19\d{2})|present|current)\b/gi) || []
-  let estimatedExperience = 0
-  for (const range of dateRanges) {
+  let estimatedYears = declaredYears
+  for (const range of rangeMatches) {
     const years = range.match(/\d{4}/g)
-    if (years && years.length >= 2) {
-      estimatedExperience += parseInt(years[1]) - parseInt(years[0])
-    } else if (years && /present|current/i.test(range)) {
-      estimatedExperience += new Date().getFullYear() - parseInt(years[0])
-    }
+    if (!years?.[0]) continue
+    const start = Number.parseInt(years[0], 10)
+    const end = years[1] ? Number.parseInt(years[1], 10) : new Date().getFullYear()
+    estimatedYears = Math.max(estimatedYears, Math.max(0, end - start))
   }
-
-  const requiredYears = jdYears.length > 0 ? Math.max(...jdYears) : 0
-  const candidateYears = resumeYears.length > 0 ? Math.max(...resumeYears) : estimatedExperience
-
-  let score: number
-  let status: "pass" | "warning" | "fail"
-  let feedback: string
 
   if (requiredYears === 0) {
-    score = 12
-    status = "pass"
-    feedback = "No specific experience requirement detected in job description."
-  } else if (candidateYears >= requiredYears) {
-    score = 15
-    status = "pass"
-    feedback = `Your experience (~${candidateYears} years) meets or exceeds the ${requiredYears}+ year requirement.`
-  } else if (candidateYears >= requiredYears * 0.7) {
-    score = 10
-    status = "warning"
-    feedback = `Your experience (~${candidateYears} years) is close to the ${requiredYears}+ year requirement.`
-  } else {
-    score = 5
-    status = "fail"
-    feedback = `Your experience (~${candidateYears} years) is below the ${requiredYears}+ year requirement.`
-  }
-
-  return { name: "Experience Level", score, maxScore, status, feedback }
-}
-
-function checkEducationMatch(resumeText: string, jdText: string): MatchDimension {
-  const maxScore = 10
-  const jdLower = jdText.toLowerCase()
-  const resumeLower = resumeText.toLowerCase()
-
-  const degreeHierarchy = [
-    { level: 4, patterns: ["phd", "doctorate", "doctoral"] },
-    { level: 3, patterns: ["master", "m.s.", "m.a.", "mba", "m.tech", "m.e."] },
-    { level: 2, patterns: ["bachelor", "b.s.", "b.a.", "b.tech", "b.e.", "undergraduate"] },
-    { level: 1, patterns: ["associate", "diploma", "certificate"] },
-  ]
-
-  let jdLevel = 0
-  let resumeLevel = 0
-
-  for (const { level, patterns } of degreeHierarchy) {
-    for (const p of patterns) {
-      if (jdLower.includes(p) && level > jdLevel) jdLevel = level
-      if (resumeLower.includes(p) && level > resumeLevel) resumeLevel = level
-    }
-  }
-
-  let score: number
-  let status: "pass" | "warning" | "fail"
-
-  if (jdLevel === 0) {
-    score = 8
-    status = "pass"
-    return { name: "Education Match", score, maxScore, status, feedback: "No specific education requirement detected in job description." }
-  }
-
-  if (resumeLevel >= jdLevel) {
-    score = 10
-    status = "pass"
-  } else if (resumeLevel >= jdLevel - 1) {
-    score = 6
-    status = "warning"
-  } else {
-    score = 2
-    status = "fail"
-  }
-
-  return {
-    name: "Education Match",
-    score,
-    maxScore,
-    status,
-    feedback: resumeLevel >= jdLevel
-      ? "Your education level meets the job requirements."
-      : "Your education level may not fully match the requirements. Consider highlighting relevant certifications or coursework.",
-  }
-}
-
-function checkTitleAlignment(resumeText: string, jdText: string): MatchDimension {
-  const maxScore = 10
-  const jdLower = jdText.toLowerCase()
-  const resumeLower = resumeText.toLowerCase()
-
-  // Extract potential job titles from JD (usually in first few lines)
-  const jdFirstLines = jdLower.split("\n").slice(0, 5).join(" ")
-  const titlePatterns = [
-    /(?:job\s+title|position|role)[:\s]*([\w\s]+)/i,
-    /^([\w\s]+(?:engineer|developer|manager|analyst|designer|architect|lead|director|specialist|coordinator|consultant|administrator))/im,
-  ]
-
-  let jdTitle = ""
-  for (const pattern of titlePatterns) {
-    const match = jdFirstLines.match(pattern)
-    if (match) {
-      jdTitle = match[1].trim()
-      break
-    }
-  }
-
-  if (!jdTitle) {
-    // Try to extract from common title words in JD
-    const titleWords = ["engineer", "developer", "manager", "analyst", "designer",
-      "architect", "lead", "director", "specialist", "coordinator", "consultant",
-      "senior", "junior", "staff", "principal", "associate", "intern"]
-    const jdWords = jdLower.split(/\s+/)
-    const foundTitleWords = titleWords.filter((w) => jdWords.includes(w))
-    if (foundTitleWords.length > 0) {
-      jdTitle = foundTitleWords.join(" ")
-    }
-  }
-
-  if (!jdTitle) {
     return {
-      name: "Title Alignment",
-      score: 7,
+      name: "Experience Fit",
+      score: 12,
       maxScore,
       status: "pass",
-      feedback: "Could not detect a specific job title in the description.",
+      feedback: "No explicit years-of-experience threshold was detected.",
     }
   }
 
-  const titleWords = jdTitle.split(/\s+/).filter((w) => w.length > 3)
-  const matchedWords = titleWords.filter((w) => resumeLower.includes(w))
-  const ratio = titleWords.length > 0 ? matchedWords.length / titleWords.length : 0
-
-  let score: number
-  if (ratio >= 0.5) score = 10
-  else if (ratio >= 0.25) score = 6
-  else score = 2
-
-  const status = score >= 7 ? "pass" : score >= 5 ? "warning" : "fail"
-
-  return {
-    name: "Title Alignment",
-    score,
-    maxScore,
-    status,
-    feedback: ratio >= 0.5
-      ? "Your resume contains relevant job title keywords from the description."
-      : "Consider incorporating the target job title or similar titles in your resume summary or experience sections.",
-  }
-}
-
-function checkActionVerbStrength(resumeText: string, jdText: string): MatchDimension {
-  const maxScore = 10
-  const resumeLower = resumeText.toLowerCase()
-  const jdLower = jdText.toLowerCase()
-
-  // Find action verbs in JD
-  const jdVerbs = ACTION_VERBS.filter((v) => jdLower.includes(v))
-  const resumeVerbs = ACTION_VERBS.filter((v) => resumeLower.includes(v))
-
-  // Check overlap
-  const jdVerbSet = new Set(jdVerbs)
-  const matchedVerbs = resumeVerbs.filter((v) => jdVerbSet.has(v))
-
-  const totalResumeVerbs = resumeVerbs.length
-  let score: number
-
-  if (totalResumeVerbs >= 8 && matchedVerbs.length >= 3) score = 10
-  else if (totalResumeVerbs >= 5) score = 7
-  else if (totalResumeVerbs >= 2) score = 4
-  else score = 1
-
-  const status = score >= 7 ? "pass" : score >= 4 ? "warning" : "fail"
-
-  return {
-    name: "Action Verb Strength",
-    score,
-    maxScore,
-    status,
-    feedback: totalResumeVerbs >= 5
-      ? `${totalResumeVerbs} strong action verbs found, ${matchedVerbs.length} matching the job description.`
-      : `Only ${totalResumeVerbs} action verb(s) found. Use more impactful verbs that match the job description.`,
-  }
-}
-
-function checkIndustryTerminology(resumeText: string, jdText: string): MatchDimension {
-  const maxScore = 10
-  const jdKeywords = extractKeywords(jdText)
-  const resumeLower = resumeText.toLowerCase()
-
-  // Focus on multi-frequency JD terms (repeated = important)
-  const importantTerms = Array.from(jdKeywords.entries())
-    .filter(([, count]) => count >= 2)
-    .map(([term]) => term)
-    .slice(0, 20)
-
-  if (importantTerms.length === 0) {
+  if (estimatedYears >= requiredYears) {
     return {
-      name: "Industry Terminology",
-      score: 7,
+      name: "Experience Fit",
+      score: 15,
       maxScore,
       status: "pass",
-      feedback: "No heavily repeated industry terms detected in the job description.",
+      feedback: `The resume appears to meet the ${requiredYears}+ year experience expectation.`,
     }
   }
 
-  const matched = importantTerms.filter((term) => resumeLower.includes(term))
-  const ratio = matched.length / importantTerms.length
+  if (estimatedYears >= requiredYears * 0.7) {
+    return {
+      name: "Experience Fit",
+      score: 10,
+      maxScore,
+      status: "warning",
+      feedback: `Experience appears close to the ${requiredYears}+ year requirement but may need stronger framing.`,
+    }
+  }
 
+  return {
+    name: "Experience Fit",
+    score: 5,
+    maxScore,
+    status: "fail",
+    feedback: `Experience appears below the ${requiredYears}+ year requirement stated in the job description.`,
+  }
+}
+
+function scoreEducationAlignment(resumeText: string, jdText: string): MatchDimension {
+  const maxScore = 10
+  const lowerResume = resumeText.toLowerCase()
+  const lowerJd = jdText.toLowerCase()
+  const degreeOrder = ["associate", "bachelor", "master", "phd"]
+
+  const jdRequirement = degreeOrder.findIndex((degree) => lowerJd.includes(degree))
+  const resumeDegree = degreeOrder.findIndex((degree) => lowerResume.includes(degree))
+
+  if (jdRequirement === -1) {
+    return {
+      name: "Education Fit",
+      score: 8,
+      maxScore,
+      status: "pass",
+      feedback: "No specific degree requirement was detected in the job description.",
+    }
+  }
+
+  if (resumeDegree >= jdRequirement) {
+    return {
+      name: "Education Fit",
+      score: 10,
+      maxScore,
+      status: "pass",
+      feedback: "Education level appears to meet the stated requirement.",
+    }
+  }
+
+  if (resumeDegree === jdRequirement - 1) {
+    return {
+      name: "Education Fit",
+      score: 6,
+      maxScore,
+      status: "warning",
+      feedback: "Education level is close but may need support from certifications or equivalent experience.",
+    }
+  }
+
+  return {
+    name: "Education Fit",
+    score: 2,
+    maxScore,
+    status: "fail",
+    feedback: "Education requirements appear underrepresented in the resume.",
+  }
+}
+
+function scoreTitleAndRoleAlignment(resumeText: string, insights: ResumeMatchInsights): MatchDimension {
+  const maxScore = 10
+  const tokens = insights.jobTitle.toLowerCase().split(/\s+/).filter((token) => token.length > 3)
+  const matchedTokens = tokens.filter((token) => hasTerm(resumeText, token))
+  const roleFamilyMatched = insights.roleFamily !== "General" && hasTerm(resumeText, insights.roleFamily.toLowerCase().split("&")[0].trim())
+  const ratio = tokens.length === 0 ? 0.5 : matchedTokens.length / tokens.length
+
+  let score = 2
+  if (ratio >= 0.7 || roleFamilyMatched) score = 10
+  else if (ratio >= 0.4) score = 7
+  else if (ratio >= 0.2) score = 5
+
+  return {
+    name: "Role Alignment",
+    score,
+    maxScore,
+    status: score >= 8 ? "pass" : score >= 5 ? "warning" : "fail",
+    feedback: score >= 8
+      ? "Resume language aligns well with the target role and title."
+      : "Add the target title, adjacent titles, or clearer role framing in the summary and experience sections.",
+  }
+}
+
+function scoreImpactAndVerbStrength(resumeText: string): MatchDimension {
+  const maxScore = 10
+  const lower = resumeText.toLowerCase()
+  const verbCount = ACTION_VERBS.filter((verb) => lower.includes(verb)).length
+  const metricsCount = (resumeText.match(/\d+\s*%|\$[\d,]+(?:\.\d+)?|\b\d+\+?\s+(?:users?|customers?|projects?|revenue|arr|team members?|stakeholders?)\b/gi) || []).length
+
+  let score = 2
+  if (verbCount >= 10 && metricsCount >= 6) score = 10
+  else if (verbCount >= 7 && metricsCount >= 4) score = 8
+  else if (verbCount >= 4 && metricsCount >= 2) score = 6
+  else if (verbCount >= 3 || metricsCount >= 1) score = 4
+
+  return {
+    name: "Impact Evidence",
+    score,
+    maxScore,
+    status: score >= 8 ? "pass" : score >= 5 ? "warning" : "fail",
+    feedback: `${verbCount} strong action verbs and ${metricsCount} measurable outcomes were detected in the resume.`,
+  }
+}
+
+function scoreRequirementsCoverage(signals: MatchKeywordSignal[]): MatchDimension {
+  const maxScore = 10
+  const highSignals = signals.filter((signal) => signal.importance === "high")
+  const matchedHighSignals = highSignals.filter((signal) => signal.matched)
+  const ratio = highSignals.length === 0 ? 1 : matchedHighSignals.length / highSignals.length
   const score = Math.round(ratio * maxScore)
-  const status = ratio >= 0.5 ? "pass" : ratio >= 0.3 ? "warning" : "fail"
 
   return {
-    name: "Industry Terminology",
+    name: "Critical Requirements",
     score,
     maxScore,
-    status,
-    feedback: `${matched.length} of ${importantTerms.length} key industry terms from the job description appear in your resume.`,
+    status: ratio >= 0.7 ? "pass" : ratio >= 0.45 ? "warning" : "fail",
+    feedback: `${matchedHighSignals.length} of ${highSignals.length || 0} high-priority requirements are covered.`,
   }
 }
 
 function generateRecommendations(
-  keywordResult: { missingKeywords: string[] },
-  skillsResult: { missingSkills: string[] },
+  insights: ResumeMatchInsights,
+  missingSkills: string[],
+  missingKeywords: string[],
   breakdown: MatchDimension[],
-  matchScore: number,
-): string[] {
-  const recs: string[] = []
+) {
+  const recommendations: string[] = []
 
-  // Skills gap recommendations
-  if (skillsResult.missingSkills.length > 0) {
-    const top = skillsResult.missingSkills.slice(0, 5).join(", ")
-    recs.push(`Add these missing skills to your resume: ${top}`)
+  if (missingSkills.length > 0) {
+    recommendations.push(`Add or strengthen these missing skills where accurate: ${missingSkills.slice(0, 5).join(", ")}.`)
   }
 
-  // Missing keywords
-  if (keywordResult.missingKeywords.length > 0) {
-    const top = keywordResult.missingKeywords.slice(0, 5).join(", ")
-    recs.push(`Incorporate these job description keywords naturally into your experience: ${top}`)
+  if (missingKeywords.length > 0) {
+    recommendations.push(`Mirror the job description language more directly with terms such as ${missingKeywords.slice(0, 5).join(", ")}.`)
   }
 
-  // Dimension-specific recommendations
-  for (const dim of breakdown) {
-    if (dim.status === "fail") {
-      switch (dim.name) {
-        case "Experience Level":
-          recs.push("Highlight all relevant experience including projects, freelance work, and volunteer roles to bridge the experience gap.")
-          break
-        case "Education Match":
-          recs.push("Consider adding relevant certifications, online courses, or bootcamp completions to strengthen your education section.")
-          break
-        case "Title Alignment":
-          recs.push("Add the target job title to your resume summary or objective to improve title alignment.")
-          break
-        case "Action Verb Strength":
-          recs.push("Replace passive descriptions with strong action verbs like 'spearheaded', 'implemented', 'optimized', and 'delivered'.")
-          break
-        case "Industry Terminology":
-          recs.push("Mirror the language and terminology used in the job description throughout your resume.")
-          break
-      }
-    }
+  const failingAreas = breakdown.filter((dimension) => dimension.status === "fail").map((dimension) => dimension.name)
+  if (failingAreas.includes("Experience Fit")) {
+    recommendations.push("Reframe relevant work, freelance projects, internships, and scope of ownership to better match the experience requirement.")
+  }
+  if (failingAreas.includes("Role Alignment")) {
+    recommendations.push(`Use the target role framing '${insights.jobTitle}' or adjacent titles in your summary and most relevant experience bullets.`)
+  }
+  if (failingAreas.includes("Impact Evidence")) {
+    recommendations.push("Rewrite weak bullets into result-oriented statements with scale, speed, revenue, quality, or efficiency metrics.")
+  }
+  if (failingAreas.includes("Critical Requirements")) {
+    recommendations.push("Move the most relevant requirements higher in the resume so scanners and recruiters see them in the first screen.")
   }
 
-  if (matchScore < 50) {
-    recs.push("Consider tailoring your resume specifically for this role — a targeted resume significantly outperforms a generic one.")
-  }
-
-  return recs.slice(0, 7)
+  return unique(recommendations).slice(0, 6)
 }
 
 export function analyzeMatch(resumeText: string, jobDescription: string): ResumeMatchResult {
-  const keywordResult = checkKeywordMatch(resumeText, jobDescription)
-  const skillsResult = checkSkillsGap(resumeText, jobDescription)
+  const insights: ResumeMatchInsights = {
+    jobTitle: extractJobTitle(jobDescription),
+    seniority: detectSeniority(jobDescription),
+    workMode: detectWorkMode(jobDescription),
+    roleFamily: detectRoleFamily(jobDescription),
+    detectedRequirements: extractRequirements(jobDescription),
+  }
+
+  const { matchedSkills, missingSkills, relevantSkills } = buildSkillCoverage(resumeText, jobDescription)
+  const keywordSignals = buildKeywordSignals(resumeText, jobDescription, missingSkills, matchedSkills)
 
   const breakdown: MatchDimension[] = [
-    keywordResult.dimension,
-    skillsResult.dimension,
-    checkExperienceLevel(resumeText, jobDescription),
-    checkEducationMatch(resumeText, jobDescription),
-    checkTitleAlignment(resumeText, jobDescription),
-    checkActionVerbStrength(resumeText, jobDescription),
-    checkIndustryTerminology(resumeText, jobDescription),
+    scoreKeywordAlignment(keywordSignals),
+    scoreSkillsCoverage(matchedSkills, missingSkills, relevantSkills),
+    scoreExperienceAlignment(resumeText, jobDescription),
+    scoreEducationAlignment(resumeText, jobDescription),
+    scoreTitleAndRoleAlignment(resumeText, insights),
+    scoreImpactAndVerbStrength(resumeText),
+    scoreRequirementsCoverage(keywordSignals),
   ]
 
-  const matchScore = breakdown.reduce((sum, d) => sum + d.score, 0)
-
-  const allMissing = [
-    ...keywordResult.missingKeywords,
-    ...skillsResult.missingSkills.filter((s) => !keywordResult.missingKeywords.includes(s)),
-  ].slice(0, 20)
-
-  const recommendations = generateRecommendations(keywordResult, skillsResult, breakdown, matchScore)
+  const matchScore = breakdown.reduce((sum, dimension) => sum + dimension.score, 0)
+  const matchedKeywords = keywordSignals.filter((signal) => signal.matched).map((signal) => signal.term)
+  const missingKeywords = keywordSignals.filter((signal) => !signal.matched).map((signal) => signal.term)
+  const recommendations = generateRecommendations(insights, missingSkills, missingKeywords, breakdown)
 
   return {
     matchScore,
     breakdown,
-    missingKeywords: allMissing,
+    missingKeywords: unique(missingKeywords).slice(0, 16),
+    matchedKeywords: unique(matchedKeywords).slice(0, 16),
+    missingSkills,
+    matchedSkills,
+    keywordSignals,
     recommendations,
+    insights,
   }
 }

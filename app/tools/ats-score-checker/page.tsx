@@ -1,31 +1,30 @@
 "use client"
 
-import React, { useState, useRef, useCallback } from "react"
+import React, { useCallback, useRef, useState } from "react"
 import Navbar from "@/src/components/navbar/navbar"
 import Footer from "@/src/components/footer/footer"
 import {
-  Upload,
-  FileText,
-  CheckCircle,
   AlertCircle,
-  XCircle,
-  Shield,
-  Zap,
-  Lock,
-  Mail,
-  Layout,
-  BarChart,
-  Award,
-  Calendar,
-  List,
-  Type,
-  AlignLeft,
+  BarChart3,
+  CheckCircle,
+  FileText,
   Hash,
-  FileCheck,
+  Layout,
+  List,
+  Mail,
+  ScanSearch,
+  Shield,
+  Sparkles,
+  Target,
+  Type,
+  Upload,
+  XCircle,
+  Zap,
 } from "lucide-react"
 import { FaPlus, FaTimes } from "react-icons/fa"
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css"
-import { trackButtonClick, trackFeatureUsage, trackError } from "@/src/utils/PostHogTracking"
+import { trackButtonClick, trackError, trackFeatureUsage } from "@/src/utils/PostHogTracking"
+import { Pill, ScoreRing, SectionBadge, STATUS_COLORS, toolTheme } from "@/src/components/tools/toolTheme"
 
 interface ATSCheckResult {
   name: string
@@ -35,28 +34,30 @@ interface ATSCheckResult {
   feedback: string
 }
 
+interface ATSMetrics {
+  wordCount: number
+  bulletCount: number
+  sectionCount: number
+  actionVerbCount: number
+  measurableResults: number
+}
+
 const CHECK_ICONS: Record<string, React.ReactNode> = {
   "Contact Information": <Mail size={18} />,
   "Text Extractability": <FileText size={18} />,
   "Section Headers": <Layout size={18} />,
-  "Date Consistency": <Calendar size={18} />,
+  "Date Consistency": <BarChart3 size={18} />,
   "Bullet Points": <List size={18} />,
   "Action Verbs": <Zap size={18} />,
-  "Resume Length": <AlignLeft size={18} />,
-  "Skills Section": <Award size={18} />,
-  "Education": <FileCheck size={18} />,
+  "Resume Length": <Type size={18} />,
+  "Skills Section": <Target size={18} />,
+  "Education": <FileText size={18} />,
   "Quantifiable Impact": <Hash size={18} />,
   "Professional Email": <Mail size={18} />,
-  "Formatting & Readability": <Type size={18} />,
-  "Language Strength": <AlertCircle size={18} />,
+  "Formatting & Readability": <Layout size={18} />,
+  "Language Strength": <Sparkles size={18} />,
   "Resume Best Practices": <Shield size={18} />,
-  "Parse Compatibility": <FileText size={18} />,
-}
-
-const STATUS_COLORS = {
-  pass: { bg: "#ecfdf5", text: "#059669", border: "#a7f3d0" },
-  warning: { bg: "#fffbeb", text: "#d97706", border: "#fde68a" },
-  fail: { bg: "#fef2f2", text: "#dc2626", border: "#fecaca" },
+  "Parse Compatibility": <ScanSearch size={18} />,
 }
 
 const STATUS_ICONS = {
@@ -69,81 +70,30 @@ const faqs = [
   {
     question: "What is an ATS score?",
     answer:
-      "An ATS (Applicant Tracking System) score measures how well your resume can be parsed and understood by automated hiring software. A higher score means better chances of passing the initial screening.",
+      "An ATS score estimates how easily applicant tracking systems can parse, index, and rank your resume. It focuses on structure, readability, and content signals rather than design alone.",
   },
   {
-    question: "Is this tool really free?",
+    question: "What makes this checker stronger now?",
     answer:
-      "Yes, 100% free. No signup, no credit card, no limits. Upload your resume and get instant results.",
+      "The current engine scores 15 resume signals, calculates strengths and priorities, and surfaces core resume metrics such as bullet density, action verbs, measurable results, and section coverage.",
   },
   {
-    question: "Is my resume data secure?",
+    question: "Is my resume stored?",
     answer:
-      "Your resume is processed server-side and never stored. The file is analyzed in memory and discarded immediately after returning your results.",
+      "No. The uploaded PDF is processed in memory for analysis and is not stored after the response is returned.",
   },
   {
-    question: "What file formats are supported?",
+    question: "What if my PDF is image-based?",
     answer:
-      "Currently we support PDF files only. PDF is the most widely accepted format by ATS systems.",
-  },
-  {
-    question: "How accurate is the ATS score?",
-    answer:
-      "Our checker runs 12 industrial-grade checks covering the most common ATS parsing criteria. While no tool can guarantee a specific ATS outcome, our checks align with what major ATS systems evaluate.",
-  },
-  {
-    question: "What should I do if my score is low?",
-    answer:
-      "Review each check's feedback and address the failing items first. Focus on adding missing sections, using standard headers, including quantifiable achievements, and ensuring proper formatting.",
+      "If the PDF contains mostly images instead of selectable text, ATS systems will struggle to parse it. The tool flags that case and recommends using a text-based PDF.",
   },
 ]
 
-function ScoreRing({ score, size = 160 }: { score: number; size?: number }) {
-  const strokeWidth = 10
-  const radius = (size - strokeWidth) / 2
-  const circumference = 2 * Math.PI * radius
-  const offset = circumference - (score / 100) * circumference
-  const color = score >= 75 ? "#059669" : score >= 50 ? "#d97706" : "#dc2626"
-
-  return (
-    <div style={{ position: "relative", width: size, height: size }}>
-      <svg width={size} height={size} style={{ transform: "rotate(-90deg)" }}>
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke="#f3f4f6"
-          strokeWidth={strokeWidth}
-        />
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
-          fill="none"
-          stroke={color}
-          strokeWidth={strokeWidth}
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          strokeLinecap="round"
-          style={{ transition: "stroke-dashoffset 1s ease" }}
-        />
-      </svg>
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <span style={{ fontSize: "2.5rem", fontWeight: 800, color }}>{score}</span>
-        <span style={{ fontSize: "0.85rem", color: "#6b7280" }}>out of 100</span>
-      </div>
-    </div>
-  )
+function getScoreLabel(score: number) {
+  if (score >= 85) return "Strong ATS readiness"
+  if (score >= 70) return "Good foundation"
+  if (score >= 50) return "Needs iteration"
+  return "High ATS risk"
 }
 
 export default function ATSScoreCheckerPage() {
@@ -151,38 +101,43 @@ export default function ATSScoreCheckerPage() {
   const [dragOver, setDragOver] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null)
   const [result, setResult] = useState<{
     score: number
     breakdown: ATSCheckResult[]
     summary: string
+    strengths: string[]
+    priorities: string[]
+    metrics: ATSMetrics
     warning?: string
   } | null>(null)
-  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const handleFile = useCallback((f: File) => {
+  const handleFile = useCallback((nextFile: File) => {
     setError(null)
     setResult(null)
-    if (f.type !== "application/pdf") {
+    if (nextFile.type !== "application/pdf") {
       setError("Please upload a PDF file.")
       return
     }
-    if (f.size > 5 * 1024 * 1024) {
+    if (nextFile.size > 5 * 1024 * 1024) {
       setError("File must be less than 5MB.")
       return
     }
-    setFile(f)
+    setFile(nextFile)
     trackFeatureUsage("ats_score_checker", "file_uploaded", {
-      file_size: f.size,
-      file_type: f.type,
+      file_size: nextFile.size,
+      file_type: nextFile.type,
     } as Record<string, unknown>)
   }, [])
 
   const handleDrop = useCallback(
-    (e: React.DragEvent) => {
-      e.preventDefault()
+    (event: React.DragEvent) => {
+      event.preventDefault()
       setDragOver(false)
-      if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0])
+      if (event.dataTransfer.files[0]) {
+        handleFile(event.dataTransfer.files[0])
+      }
     },
     [handleFile],
   )
@@ -201,25 +156,26 @@ export default function ATSScoreCheckerPage() {
       const formData = new FormData()
       formData.append("resume", file)
 
-      const res = await fetch("/api/tools/ats-score", {
+      const response = await fetch("/api/tools/ats-score", {
         method: "POST",
         body: formData,
       })
 
-      const data = await res.json()
+      const data = await response.json()
       if (!data.success) {
         setError(data.error || "Analysis failed.")
         trackError("ats_analysis_failed", data.error || "Analysis failed", "ats_score_checker")
-      } else {
-        setResult(data)
-        trackFeatureUsage("ats_score_checker", "analysis_completed", {
-          ats_score: data.score,
-          pass_count: data.breakdown?.filter((c: ATSCheckResult) => c.status === "pass").length,
-          fail_count: data.breakdown?.filter((c: ATSCheckResult) => c.status === "fail").length,
-          warning_count: data.breakdown?.filter((c: ATSCheckResult) => c.status === "warning").length,
-          is_image_pdf: data.warning === "image-based-pdf",
-        } as Record<string, unknown>)
+        return
       }
+
+      setResult(data)
+      trackFeatureUsage("ats_score_checker", "analysis_completed", {
+        ats_score: data.score,
+        pass_count: data.breakdown?.filter((item: ATSCheckResult) => item.status === "pass").length,
+        fail_count: data.breakdown?.filter((item: ATSCheckResult) => item.status === "fail").length,
+        warning_count: data.breakdown?.filter((item: ATSCheckResult) => item.status === "warning").length,
+        is_image_pdf: data.warning === "image-based-pdf",
+      } as Record<string, unknown>)
     } catch {
       setError("Something went wrong. Please try again.")
       trackError("ats_analysis_error", "Network or unexpected error", "ats_score_checker")
@@ -234,378 +190,423 @@ export default function ATSScoreCheckerPage() {
       <main
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
-          background: "linear-gradient(135deg, #fff7f2 0%, #fff0e6 50%, #ffffff 100%)",
+          background: toolTheme.bg,
           minHeight: "100vh",
         }}
       >
-        {/* Hero */}
-        <section style={{ padding: "120px 20px 40px", textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              borderRadius: "9999px",
-              padding: "4px 14px",
-              fontSize: "13px",
-              fontWeight: 600,
-              background: "#ff4c00",
-              color: "#fff",
-              marginBottom: "20px",
-            }}
-          >
-            Free ATS Score Checker
-          </span>
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 5vw, 3rem)",
-              fontWeight: 800,
-              color: "#0f172a",
-              marginBottom: "16px",
-              lineHeight: 1.15,
-            }}
-          >
-            Check Your Resume&apos;s ATS Score
-          </h1>
-          <p style={{ fontSize: "clamp(1rem, 2.5vw, 1.15rem)", color: "#4b5563", lineHeight: 1.6, marginBottom: "28px" }}>
-            Upload your resume and get an instant compatibility score with detailed feedback on what ATS systems look for.
-          </p>
+        <section style={{ padding: "120px 20px 48px" }}>
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "24px",
-              flexWrap: "wrap",
-              fontSize: "0.85rem",
-              color: "#6b7280",
-            }}
-          >
-            {[
-              { icon: <Shield size={16} color="#ff4c00" />, label: "No signup required" },
-              { icon: <Lock size={16} color="#ff4c00" />, label: "100% secure" },
-              { icon: <Zap size={16} color="#ff4c00" />, label: "Instant results" },
-            ].map((t) => (
-              <span key={t.label} style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                {t.icon} {t.label}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section style={{ maxWidth: "800px", margin: "0 auto", padding: "20px 20px 40px" }}>
-          <div
-            style={{
+              maxWidth: "1180px",
+              margin: "0 auto",
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-              gap: "20px",
+              gridTemplateColumns: "minmax(0, 1.08fr) minmax(320px, 0.92fr)",
+              gap: "24px",
+              alignItems: "stretch",
             }}
           >
-            {[
-              { step: "1", title: "Upload", desc: "Drop your PDF resume" },
-              { step: "2", title: "Analyze", desc: "15 ATS checks run instantly" },
-              { step: "3", title: "Results", desc: "Get score + actionable feedback" },
-            ].map((s) => (
-              <div
-                key={s.step}
+            <div>
+              <SectionBadge>Free ATS Score Checker</SectionBadge>
+              <h1
                 style={{
-                  textAlign: "center",
-                  padding: "20px",
-                  background: "white",
-                  borderRadius: "12px",
-                  border: "1px solid #ffd7c4",
+                  fontSize: "clamp(2.3rem, 6vw, 4.5rem)",
+                  lineHeight: 1.02,
+                  fontWeight: 800,
+                  color: toolTheme.slate,
+                  margin: "20px 0 16px",
+                  maxWidth: "760px",
                 }}
               >
-                <div
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "50%",
-                    background: "#ff4c00",
-                    color: "#fff",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontWeight: 700,
-                    fontSize: "0.9rem",
-                    marginBottom: "10px",
-                  }}
-                >
-                  {s.step}
-                </div>
-                <h3 style={{ fontWeight: 700, color: "#0f172a", marginBottom: "4px" }}>{s.title}</h3>
-                <p style={{ fontSize: "0.85rem", color: "#6b7280" }}>{s.desc}</p>
+                Audit your resume for ATS parsing, structure, and content quality.
+              </h1>
+              <p style={{ maxWidth: "650px", fontSize: "1.04rem", lineHeight: 1.7, color: toolTheme.body, margin: 0 }}>
+                Upload a PDF and get a cleaner analysis of what is helping your resume, what is blocking it, and which fixes should come first.
+              </p>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginTop: "22px" }}>
+                <Pill>No signup required</Pill>
+                <Pill tone="soft">15 ATS checks</Pill>
+                <Pill tone="warning">Strengths + priorities</Pill>
               </div>
-            ))}
+            </div>
+
+            <div
+              style={{
+                borderRadius: "28px",
+                background: "rgba(255,255,255,0.88)",
+                border: `1px solid ${toolTheme.border}`,
+                boxShadow: "0 28px 80px rgba(255,76,0,0.09)",
+                padding: "24px",
+                backdropFilter: "blur(12px)",
+              }}
+            >
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px", marginBottom: "18px" }}>
+                {[
+                  { label: "Parse-safe", value: "Layout" },
+                  { label: "Signal depth", value: "Content" },
+                  { label: "Fix order", value: "Priority" },
+                ].map((item) => (
+                  <div key={item.label} style={{ padding: "14px", borderRadius: "18px", background: toolTheme.cream, border: `1px solid ${toolTheme.border}` }}>
+                    <div style={{ fontSize: "1.02rem", fontWeight: 800, color: toolTheme.slate }}>{item.value}</div>
+                    <div style={{ fontSize: "0.82rem", color: toolTheme.muted }}>{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ display: "grid", gap: "12px" }}>
+                {[
+                  "Checks formatting risks that can break parser output",
+                  "Flags weak bullets, missing sections, and thin skills coverage",
+                  "Surfaces measurable metrics instead of a bare score only",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      padding: "12px 14px",
+                      borderRadius: "16px",
+                      background: "#fffaf6",
+                      border: `1px solid ${toolTheme.border}`,
+                    }}
+                  >
+                    <CheckCircle size={16} color={toolTheme.primary} />
+                    <span style={{ fontSize: "0.92rem", color: toolTheme.body }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Tool Section */}
-        <section style={{ maxWidth: "800px", margin: "0 auto", padding: "0 20px 60px" }}>
-          {/* Upload Area */}
+        <section style={{ padding: "0 20px 72px" }}>
           <div
-            onDragOver={(e) => {
-              e.preventDefault()
-              setDragOver(true)
-            }}
-            onDragLeave={() => setDragOver(false)}
-            onDrop={handleDrop}
-            onClick={() => inputRef.current?.click()}
             style={{
-              border: `2px dashed ${dragOver ? "#ff4c00" : "#ffd7c4"}`,
-              borderRadius: "16px",
-              padding: "48px 24px",
-              textAlign: "center",
-              background: dragOver ? "#fff2ea" : "white",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-              marginBottom: "20px",
+              maxWidth: "1180px",
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 1.05fr) minmax(320px, 0.95fr)",
+              gap: "24px",
+              alignItems: "start",
             }}
           >
-            <input
-              ref={inputRef}
-              type="file"
-              accept=".pdf"
-              style={{ display: "none" }}
-              onChange={(e) => {
-                if (e.target.files?.[0]) handleFile(e.target.files[0])
-              }}
-            />
-            <Upload size={40} color="#ff4c00" style={{ marginBottom: "12px" }} />
-            {file ? (
-              <div>
-                <p style={{ fontWeight: 600, color: "#0f172a", marginBottom: "4px" }}>{file.name}</p>
-                <p style={{ fontSize: "0.85rem", color: "#6b7280" }}>
-                  {(file.size / 1024).toFixed(0)} KB — Click or drop to replace
-                </p>
-              </div>
-            ) : (
-              <div>
-                <p style={{ fontWeight: 600, color: "#0f172a", marginBottom: "4px" }}>
-                  Drop your resume here or click to browse
-                </p>
-                <p style={{ fontSize: "0.85rem", color: "#6b7280" }}>PDF only, max 5MB</p>
-              </div>
-            )}
-          </div>
-
-          {error && (
             <div
               style={{
-                background: "#fef2f2",
-                border: "1px solid #fecaca",
-                borderRadius: "12px",
-                padding: "14px 18px",
-                marginBottom: "20px",
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                color: "#dc2626",
-                fontSize: "0.9rem",
+                borderRadius: "30px",
+                background: "rgba(255,255,255,0.92)",
+                border: `1px solid ${toolTheme.border}`,
+                boxShadow: "0 30px 80px rgba(255,76,0,0.08)",
+                padding: "26px",
               }}
             >
-              <AlertCircle size={18} /> {error}
+              <div
+                onDragOver={(event) => {
+                  event.preventDefault()
+                  setDragOver(true)
+                }}
+                onDragLeave={() => setDragOver(false)}
+                onDrop={handleDrop}
+                onClick={() => inputRef.current?.click()}
+                style={{
+                  border: `2px dashed ${dragOver ? toolTheme.primary : toolTheme.borderStrong}`,
+                  borderRadius: "26px",
+                  background: dragOver ? "#fff0e6" : "#fffaf6",
+                  padding: "42px 24px",
+                  textAlign: "center",
+                  cursor: "pointer",
+                  transition: "all 180ms ease",
+                }}
+              >
+                <input
+                  ref={inputRef}
+                  type="file"
+                  accept=".pdf"
+                  style={{ display: "none" }}
+                  onChange={(event) => {
+                    if (event.target.files?.[0]) {
+                      handleFile(event.target.files[0])
+                    }
+                  }}
+                />
+                <div
+                  style={{
+                    width: "62px",
+                    height: "62px",
+                    borderRadius: "20px",
+                    background: "#ffe8db",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "0 auto 14px",
+                  }}
+                >
+                  <Upload size={28} color={toolTheme.primary} />
+                </div>
+                <div style={{ fontWeight: 700, color: toolTheme.slate, fontSize: "1.05rem", marginBottom: "6px" }}>
+                  {file ? file.name : "Drop your resume here or click to browse"}
+                </div>
+                <div style={{ color: toolTheme.muted, fontSize: "0.92rem" }}>
+                  {file ? `${(file.size / 1024).toFixed(0)} KB • click or drop to replace` : "PDF only • up to 5 MB"}
+                </div>
+              </div>
+
+              {error && (
+                <div
+                  style={{
+                    marginTop: "16px",
+                    borderRadius: "18px",
+                    background: "#fef2f2",
+                    border: "1px solid #fecaca",
+                    padding: "14px 16px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    color: "#dc2626",
+                  }}
+                >
+                  <AlertCircle size={18} />
+                  <span>{error}</span>
+                </div>
+              )}
+
+              <button
+                onClick={analyze}
+                disabled={!file || loading}
+                style={{
+                  width: "100%",
+                  marginTop: "18px",
+                  border: "none",
+                  borderRadius: "18px",
+                  padding: "16px 18px",
+                  background: !file || loading ? "#cbd5e1" : toolTheme.primary,
+                  color: "#ffffff",
+                  fontSize: "1rem",
+                  fontWeight: 700,
+                  cursor: !file || loading ? "not-allowed" : "pointer",
+                }}
+              >
+                {loading ? "Analyzing resume..." : "Check ATS score"}
+              </button>
             </div>
-          )}
 
-          <button
-            onClick={analyze}
-            disabled={!file || loading}
-            style={{
-              width: "100%",
-              padding: "14px",
-              borderRadius: "12px",
-              border: "none",
-              background: !file || loading ? "#d1d5db" : "#ff4c00",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: "1rem",
-              cursor: !file || loading ? "not-allowed" : "pointer",
-              transition: "background 0.2s",
-              marginBottom: "32px",
-            }}
-          >
-            {loading ? "Analyzing..." : "Check ATS Score"}
-          </button>
+            <div style={{ display: "grid", gap: "16px" }}>
+              <div
+                style={{
+                  borderRadius: "28px",
+                  background: "rgba(255,255,255,0.88)",
+                  border: `1px solid ${toolTheme.border}`,
+                  padding: "24px",
+                }}
+              >
+                <div style={{ fontWeight: 800, color: toolTheme.slate, marginBottom: "14px", fontSize: "1.1rem" }}>What gets checked</div>
+                <div style={{ display: "grid", gap: "10px" }}>
+                  {[
+                    "Contact details and professional email format",
+                    "Section structure, dates, and bullet quality",
+                    "Skills coverage, quantified impact, and language strength",
+                    "Formatting hazards such as columns, symbols, and parse issues",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", gap: "10px", color: toolTheme.body, lineHeight: 1.55 }}>
+                      <span style={{ marginTop: "6px", width: "8px", height: "8px", borderRadius: "999px", background: toolTheme.primary }} />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-          {/* Results */}
-          {result && (
+              <div
+                style={{
+                  borderRadius: "28px",
+                  background: "linear-gradient(180deg, #fff8f3 0%, #ffffff 100%)",
+                  border: `1px solid ${toolTheme.border}`,
+                  padding: "24px",
+                }}
+              >
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "14px" }}>
+                  <Pill tone="soft">Secure processing</Pill>
+                  <Pill tone="soft">No saved files</Pill>
+                  <Pill tone="soft">Instant feedback</Pill>
+                </div>
+                <div style={{ color: toolTheme.body, lineHeight: 1.65 }}>
+                  This checker is tuned for utility: it tells users what the parser can read, which signals are thin, and where the resume is likely to underperform.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {result && (
+          <section style={{ padding: "0 20px 72px" }}>
             <div
               style={{
-                background: "white",
-                borderRadius: "16px",
-                border: "1px solid #ffd7c4",
-                padding: "32px",
-                boxShadow: "0 10px 30px rgba(255,76,0,0.08)",
+                maxWidth: "1180px",
+                margin: "0 auto",
+                borderRadius: "32px",
+                background: "rgba(255,255,255,0.96)",
+                border: `1px solid ${toolTheme.border}`,
+                boxShadow: "0 32px 90px rgba(255,76,0,0.08)",
+                padding: "28px",
               }}
             >
               {result.warning === "image-based-pdf" ? (
-                <div style={{ textAlign: "center", padding: "20px" }}>
-                  <AlertCircle size={48} color="#d97706" style={{ marginBottom: "16px" }} />
-                  <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#0f172a", marginBottom: "8px" }}>
-                    Image-Based PDF Detected
-                  </h3>
-                  <p style={{ color: "#4b5563", lineHeight: 1.6 }}>{result.summary}</p>
+                <div style={{ textAlign: "center", padding: "18px 0" }}>
+                  <AlertCircle size={54} color="#d97706" style={{ marginBottom: "12px" }} />
+                  <h2 style={{ fontSize: "1.4rem", fontWeight: 800, color: toolTheme.slate, marginBottom: "10px" }}>Image-based PDF detected</h2>
+                  <p style={{ maxWidth: "620px", margin: "0 auto", color: toolTheme.body, lineHeight: 1.7 }}>{result.summary}</p>
                 </div>
               ) : (
                 <>
-                  {/* Score Ring */}
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "28px" }}>
-                    <ScoreRing score={result.score} />
-                    <p
-                      style={{
-                        marginTop: "16px",
-                        color: "#4b5563",
-                        textAlign: "center",
-                        maxWidth: "500px",
-                        lineHeight: 1.6,
-                        fontSize: "0.95rem",
-                      }}
-                    >
-                      {result.summary}
-                    </p>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "minmax(250px, 300px) minmax(0, 1fr)",
+                      gap: "28px",
+                      alignItems: "center",
+                      paddingBottom: "28px",
+                      borderBottom: `1px solid ${toolTheme.border}`,
+                    }}
+                  >
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                      <ScoreRing score={result.score} />
+                      <div style={{ marginTop: "16px", fontSize: "1.05rem", fontWeight: 800, color: toolTheme.slate }}>
+                        {getScoreLabel(result.score)}
+                      </div>
+                    </div>
+
+                    <div>
+                      <SectionBadge>Result Summary</SectionBadge>
+                      <p style={{ fontSize: "1rem", lineHeight: 1.72, color: toolTheme.body, margin: "18px 0 18px" }}>{result.summary}</p>
+
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "12px" }}>
+                        {[
+                          { label: "Words", value: result.metrics.wordCount },
+                          { label: "Bullets", value: result.metrics.bulletCount },
+                          { label: "Sections", value: result.metrics.sectionCount },
+                          { label: "Action verbs", value: result.metrics.actionVerbCount },
+                          { label: "Measured results", value: result.metrics.measurableResults },
+                        ].map((item) => (
+                          <div key={item.label} style={{ borderRadius: "18px", background: toolTheme.cream, border: `1px solid ${toolTheme.border}`, padding: "14px" }}>
+                            <div style={{ fontSize: "1.2rem", fontWeight: 800, color: toolTheme.slate }}>{item.value}</div>
+                            <div style={{ fontSize: "0.84rem", color: toolTheme.muted }}>{item.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Breakdown */}
-                  <h3 style={{ fontWeight: 700, color: "#0f172a", marginBottom: "16px", fontSize: "1.1rem" }}>
-                    Detailed Breakdown
-                  </h3>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    {result.breakdown.map((check) => {
-                      const colors = STATUS_COLORS[check.status]
-                      return (
-                        <div
-                          key={check.name}
-                          style={{
-                            borderRadius: "12px",
-                            border: `1px solid ${colors.border}`,
-                            background: colors.bg,
-                            padding: "14px 18px",
-                          }}
-                        >
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "18px", marginTop: "24px", marginBottom: "28px" }}>
+                    <div style={{ borderRadius: "24px", background: "#fffaf6", border: `1px solid ${toolTheme.border}`, padding: "20px" }}>
+                      <div style={{ fontWeight: 800, color: toolTheme.slate, marginBottom: "12px" }}>What is already working</div>
+                      <div style={{ display: "grid", gap: "10px" }}>
+                        {result.strengths.map((item) => (
+                          <div key={item} style={{ display: "flex", gap: "10px", color: toolTheme.body, lineHeight: 1.55 }}>
+                            <CheckCircle size={16} color="#059669" style={{ marginTop: "3px", flexShrink: 0 }} />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div style={{ borderRadius: "24px", background: "#fffaf6", border: `1px solid ${toolTheme.border}`, padding: "20px" }}>
+                      <div style={{ fontWeight: 800, color: toolTheme.slate, marginBottom: "12px" }}>Fix these first</div>
+                      <div style={{ display: "grid", gap: "10px" }}>
+                        {result.priorities.map((item) => (
+                          <div key={item} style={{ display: "flex", gap: "10px", color: toolTheme.body, lineHeight: 1.55 }}>
+                            <AlertCircle size={16} color="#d97706" style={{ marginTop: "3px", flexShrink: 0 }} />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div style={{ fontWeight: 800, color: toolTheme.slate, marginBottom: "14px", fontSize: "1.1rem" }}>Detailed breakdown</div>
+                    <div style={{ display: "grid", gap: "12px" }}>
+                      {result.breakdown.map((check) => {
+                        const colors = STATUS_COLORS[check.status]
+                        return (
                           <div
+                            key={check.name}
                             style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-between",
-                              marginBottom: "6px",
-                              flexWrap: "wrap",
-                              gap: "8px",
+                              borderRadius: "20px",
+                              border: `1px solid ${colors.border}`,
+                              background: colors.bg,
+                              padding: "16px 18px",
                             }}
                           >
-                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                              <span style={{ color: colors.text }}>{CHECK_ICONS[check.name] || <BarChart size={18} />}</span>
-                              <span style={{ fontWeight: 600, color: "#0f172a", fontSize: "0.9rem" }}>{check.name}</span>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "6px" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                <span style={{ color: colors.text }}>{CHECK_ICONS[check.name] || <BarChart3 size={18} />}</span>
+                                <span style={{ fontWeight: 700, color: toolTheme.slate }}>{check.name}</span>
+                              </div>
+                              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                <span style={{ color: colors.text, fontWeight: 700 }}>
+                                  {check.score}/{check.maxScore}
+                                </span>
+                                {STATUS_ICONS[check.status]}
+                              </div>
                             </div>
-                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                              <span style={{ fontSize: "0.85rem", fontWeight: 600, color: colors.text }}>
-                                {check.score}/{check.maxScore}
-                              </span>
-                              {STATUS_ICONS[check.status]}
-                            </div>
+                            <div style={{ color: toolTheme.body, lineHeight: 1.6 }}>{check.feedback}</div>
                           </div>
-                          <p style={{ fontSize: "0.83rem", color: "#4b5563", lineHeight: 1.5, margin: 0 }}>
-                            {check.feedback}
-                          </p>
-                        </div>
-                      )
-                    })}
+                        )
+                      })}
+                    </div>
                   </div>
                 </>
               )}
             </div>
-          )}
-        </section>
+          </section>
+        )}
 
-        {/* What We Check */}
-        <section style={{ maxWidth: "900px", margin: "0 auto", padding: "0 20px 60px" }}>
-          <h2
-            style={{
-              textAlign: "center",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
-              fontWeight: 800,
-              color: "#0f172a",
-              marginBottom: "32px",
-            }}
-          >
-            What We Check
-          </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-              gap: "16px",
-            }}
-          >
-            {[
-              { name: "Contact Information", desc: "Email, phone, LinkedIn, location" },
-              { name: "Text Extractability", desc: "Readable by ATS parsers" },
-              { name: "Section Headers", desc: "Standard resume sections" },
-              { name: "Date Consistency", desc: "Consistent date formats" },
-              { name: "Bullet Points", desc: "Structured achievements" },
-              { name: "Action Verbs", desc: "Impactful language usage" },
-              { name: "Resume Length", desc: "Optimal word count" },
-              { name: "Skills Section", desc: "Industry-standard skills" },
-              { name: "Education", desc: "Degree, institution, GPA" },
-              { name: "Quantifiable Impact", desc: "Metrics, %, $ amounts" },
-              { name: "Professional Email", desc: "Well-formed email" },
-              { name: "Formatting & Readability", desc: "Tables, columns, special chars" },
-              { name: "Language Strength", desc: "No weak phrases or clichés" },
-              { name: "Resume Best Practices", desc: "Pronouns, filler, completeness" },
-              { name: "Parse Compatibility", desc: "Encoding & URL issues" },
-            ].map((item) => (
-              <div
-                key={item.name}
-                style={{
-                  background: "white",
-                  borderRadius: "12px",
-                  border: "1px solid #ffd7c4",
-                  padding: "18px",
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "12px",
-                }}
-              >
-                <div style={{ color: "#ff4c00", flexShrink: 0, marginTop: "2px" }}>
-                  {CHECK_ICONS[item.name] || <BarChart size={18} />}
+        <section style={{ padding: "0 20px 72px" }}>
+          <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: "24px" }}>
+              <SectionBadge>What We Check</SectionBadge>
+              <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800, color: toolTheme.slate, margin: "18px 0 10px" }}>
+                The analysis covers structure, content, and parser safety.
+              </h2>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "14px" }}>
+              {[
+                "Contact information",
+                "Section headers",
+                "Date consistency",
+                "Bullet quality",
+                "Action verbs",
+                "Resume length",
+                "Skills section",
+                "Education details",
+                "Quantifiable impact",
+                "Professional email",
+                "Formatting risks",
+                "Language strength",
+                "Best practices",
+                "Parse compatibility",
+              ].map((item) => (
+                <div key={item} style={{ borderRadius: "20px", background: "rgba(255,255,255,0.88)", border: `1px solid ${toolTheme.border}`, padding: "16px 18px", color: toolTheme.body }}>
+                  {item}
                 </div>
-                <div>
-                  <h4 style={{ fontWeight: 600, color: "#0f172a", fontSize: "0.9rem", marginBottom: "2px" }}>
-                    {item.name}
-                  </h4>
-                  <p style={{ fontSize: "0.8rem", color: "#6b7280", margin: 0 }}>{item.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section style={{ maxWidth: "700px", margin: "0 auto", padding: "0 20px 80px" }}>
-          <h2
-            style={{
-              textAlign: "center",
-              fontSize: "clamp(1.5rem, 3vw, 2rem)",
-              fontWeight: 800,
-              color: "#0f172a",
-              marginBottom: "32px",
-            }}
-          >
-            Frequently Asked Questions
-          </h2>
+        <section style={{ maxWidth: "760px", margin: "0 auto", padding: "0 20px 96px" }}>
+          <div style={{ textAlign: "center", marginBottom: "22px" }}>
+            <SectionBadge>FAQ</SectionBadge>
+            <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 800, color: toolTheme.slate, margin: "18px 0 0" }}>
+              Frequently asked questions
+            </h2>
+          </div>
           <div className={faqStyles.faqContainer}>
             {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className={`${faqStyles.faqItem} ${activeFaqIndex === index ? faqStyles.active : ""}`}
-              >
-                <button
-                  className={faqStyles.faqQuestion}
-                  onClick={() => setActiveFaqIndex(activeFaqIndex === index ? null : index)}
-                >
+              <div key={faq.question} className={`${faqStyles.faqItem} ${activeFaqIndex === index ? faqStyles.active : ""}`}>
+                <button className={faqStyles.faqQuestion} onClick={() => setActiveFaqIndex(activeFaqIndex === index ? null : index)}>
                   <span>{faq.question}</span>
-                  <span className={faqStyles.faqIcon}>
-                    {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
-                  </span>
+                  <span className={faqStyles.faqIcon}>{activeFaqIndex === index ? <FaTimes /> : <FaPlus />}</span>
                 </button>
                 {activeFaqIndex === index && (
                   <div className={faqStyles.faqAnswer}>

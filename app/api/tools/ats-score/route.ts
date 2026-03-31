@@ -55,6 +55,9 @@ export async function POST(request: NextRequest) {
       score: result.score,
       breakdown: result.breakdown,
       summary: result.summary,
+      strengths: result.strengths,
+      priorities: result.priorities,
+      metrics: result.metrics,
     })
   } catch (error: unknown) {
     console.error("[ATS Score API] Error:", error)

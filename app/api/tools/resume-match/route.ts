@@ -65,7 +65,12 @@ export async function POST(request: NextRequest) {
       matchScore: result.matchScore,
       breakdown: result.breakdown,
       missingKeywords: result.missingKeywords,
+      matchedKeywords: result.matchedKeywords,
+      missingSkills: result.missingSkills,
+      matchedSkills: result.matchedSkills,
+      keywordSignals: result.keywordSignals,
       recommendations: result.recommendations,
+      insights: result.insights,
     })
   } catch (error: unknown) {
     console.error("[Resume Match API] Error:", error)
