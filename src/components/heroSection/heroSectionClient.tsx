@@ -51,7 +51,7 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       {/* === Headline === */}
-      <h1 className="text-[3.5rem] leading-[0.85] font-bold text-black max-w-[900px] w-full mx-auto mb-2 flex flex-col items-center justify-center text-center break-words px-4 gap-0 max-[1200px]:text-[3rem] max-[1200px]:max-w-[800px] max-[968px]:text-[2.5rem] max-[968px]:max-w-[700px] max-[768px]:text-[1.8rem] max-[768px]:leading-[1.05] max-[768px]:max-w-full max-[768px]:w-full max-[768px]:px-3 max-[768px]:mb-4 max-[480px]:text-[2.1rem] max-[480px]:leading-[1.15] max-[480px]:px-2 max-[480px]:mb-3">
+      <h1 className="  hidden md:flex text-[3.5rem] leading-[0.85] font-bold text-black max-w-[900px] w-full mx-auto mb-2 flex flex-col items-center justify-center text-center break-words px-4 gap-0 max-[1200px]:text-[3rem] max-[1200px]:max-w-[800px] max-[968px]:text-[2.5rem] max-[968px]:max-w-[700px] max-[768px]:text-[1.8rem] max-[768px]:leading-[1.05] max-[768px]:max-w-full max-[768px]:w-full max-[768px]:px-3 max-[768px]:mb-4 max-[480px]:text-[2.1rem] max-[480px]:leading-[1.15] max-[480px]:px-2 max-[480px]:mb-3">
         <span className="block text-center w-full m-0 p-0">{data.headlineMain}</span>
         <span className="block text-center w-full m-0 p-0 flex items-center justify-center flex-wrap gap-3 -mt-4 max-[768px]:flex-nowrap max-[768px]:gap-0 max-[768px]:-mt-1 max-[480px]:gap-0">
           <span className="text-black tracking-[-0.02em] inline-block max-[768px]:-mr-[0.3rem]">{data.headlineHighlight}</span>
@@ -64,6 +64,35 @@ export default function HeroSectionClient({ data }: Props) {
           </span>
           <span className="text-black tracking-[-0.02em] inline-block max-[768px]:-ml-[0.45rem]">{data.headlineSuffix}</span>
         </span>
+      </h1>
+      {/* ================= MOBILE ================= */}
+      <h1 className="md:hidden text-[2rem] leading-[1.15] font-bold text-black text-center px-4 mb-3">
+
+        {/* Line 1 */}
+        <span className="block">
+          Land 15+ Interview
+        </span>
+
+        {/* Line 2 */}
+        <span className="block">
+          Calls with Flashfire
+        </span>
+
+        {/* Line 3 */}
+        <span className="flex items-center justify-center gap-2 -mt-4">
+          <span>AI</span>
+
+          <span className="inline-flex items-center mr-2 ml-2 ">
+            <FlashfireLogo
+              width={0}
+              height={0}
+              className="inline-block align-middle h-[2.4em] w-auto leading-none flex-shrink-0 object-contain -mx-8 "
+            />
+          </span>
+
+          <span>Copilot</span>
+        </span>
+
       </h1>
 
       {/* === Description === */}
@@ -80,7 +109,7 @@ export default function HeroSectionClient({ data }: Props) {
         //     ? localStorage.getItem("utm_medium") || "Website_Front_Page"
         //     : "Website_Front_Page";
 
-         
+
         //   // PostHog tracking
         //   trackButtonClick("schedule a free career call", "hero_cta", "cta", {
         //     button_location: "hero_main_cta",
@@ -238,7 +267,7 @@ export default function HeroSectionClient({ data }: Props) {
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       let attempts = parseInt(target.getAttribute('data-attempts') || '0');
-                      
+
                       // Fail fast - skip to Google favicons if Clearbit fails
                       if (attempts === 0 && target.src.includes('clearbit.com')) {
                         target.setAttribute('data-attempts', '1');
@@ -247,7 +276,7 @@ export default function HeroSectionClient({ data }: Props) {
                       }
                       // Hide logo if all attempts fail
                       if (attempts >= 1) {
-                      target.style.opacity = '0.3';
+                        target.style.opacity = '0.3';
                         target.style.pointerEvents = 'none';
                       }
                     }}
