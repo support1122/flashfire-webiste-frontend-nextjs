@@ -39176,5 +39176,1177 @@ Use AI as your assistant, not your replacement. For more information, visit <a h
         <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Thoughts</h2>
         <p style='margin-bottom:12px; line-height:1.7;'>The job market in 2026 is smarter, faster, and more competitive than ever. Leveraging the right mix of job apps like Indeed and advanced platforms can dramatically improve your chances of landing the perfect role.</p>
       `
-  }
+  },
+  {
+    id: 145,
+    slug: "resume-keywords-list-by-industry",
+    title: "Resume Keywords List by Industry: Top Skills & Examples",
+    excerpt:
+      "Explore a resume keywords list by industry, including top skills and examples to optimize your resume for ATS and improve job search success.",
+    date: "Apr 2, 2026",
+    lastUpdated: "Apr 2, 2026",
+    readTime: "18 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing", "ATS Optimization", "Career Tips", "Job Search", "Interview Preparation"],
+    author: {
+      name: "Debashri Mandal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
+    image:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-02%20at%2011.16.37%E2%80%AFPM.png",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <h1 class="text-3xl font-bold text-gray-900 mt-4 mb-4">Resume Keywords List by Industry: Top Skills &amp; Examples</h1>
+        <p style='margin-bottom:12px; line-height:1.7;'>If you&apos;re struggling to get interview calls despite having the right skills, the problem might not be your experience—it could be your keywords. Understanding the resume keywords list by industry is one of the most powerful ways to optimize your resume for modern hiring systems.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Today, recruiters rely heavily on AI and Applicant Tracking Systems (ATS) to filter candidates. That means your resume must speak the same language as job descriptions. But which keywords actually matter? And how do you choose the right ones for your industry?</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>In this detailed guide, you&apos;ll discover the best industry keywords for resume, real-world examples, and actionable strategies to boost your chances of getting shortlisted in 2026.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.indeed.com/career-advice/resumes-cover-letters/resume-keywords-and-phrases" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.indeed.com/career-advice/resumes-cover-letters/resume-keywords-and-phrases</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. What Are Resume Keywords and Why Do They Matter</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Resume keywords are specific words and phrases that highlight your skills, experience, and qualifications, helping your resume match job descriptions and pass applicant tracking systems (ATS).</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>These keywords act as signals that tell recruiters and software systems that you are a suitable candidate.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Are Resume Keywords in ATS?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>ATS systems scan resumes for:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Skills</li>
+          <li>Job titles</li>
+          <li>Certifications</li>
+          <li>Industry-specific terminology</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>If your resume lacks relevant keywords, it may never reach a human recruiter.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">General vs Industry-Specific Keywords</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Type</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">General</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Leadership, teamwork</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Industry-specific</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">data analysis, software development</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why Recruiters Rely on Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Saves time</li>
+          <li>Filters candidates efficiently</li>
+          <li>Matches job requirements quickly</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why People Search for Keywords</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Many job seekers look for a list of resume keywords by industry to:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Improve ATS scores</li>
+          <li>Increase interview chances</li>
+          <li>Tailor resumes effectively</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.theladders.com/career-advice/1000-industry-specific-keywords-that-will-make-your-resume-unstoppable-according-to-experts" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.theladders.com/career-advice/1000-industry-specific-keywords-that-will-make-your-resume-unstoppable-according-to-experts</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Why Resume Keywords Are Critical in the 2026 Job Market</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>The hiring landscape is more competitive than ever.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Trends</h3>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Rise of ATS Systems</strong> — Over 90% of large companies use ATS software (Source: Jobscan).</li>
+          <li><strong>AI-Driven Recruitment</strong> — AI tools analyze resumes in seconds.</li>
+          <li><strong>Keyword-Based Filtering</strong> — Resumes are ranked based on keyword relevance.</li>
+          <li><strong>Personalization Matters</strong> — Generic resumes rarely pass filters.</li>
+          <li><strong>High Competition</strong> — Each job attracts hundreds of applicants.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Today, many job seekers use AI-powered tools to identify the right keywords and optimize their resumes for better visibility in recruiter searches.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.theladders.com/career-advice/1000-industry-specific-keywords-that-will-make-your-resume-unstoppable-according-to-experts" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.theladders.com/career-advice/1000-industry-specific-keywords-that-will-make-your-resume-unstoppable-according-to-experts</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. How Resume Keywords Work in ATS Systems</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Understanding ATS logic can give you a huge advantage.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How ATS Scans Resumes</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Extracts keywords</li>
+          <li>Matches with job descriptions</li>
+          <li>Ranks candidates</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Importance of Keyword Placement</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Place keywords in:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Summary</li>
+          <li>Skills section</li>
+          <li>Work experience</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Hard Skills vs Soft Skills</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Type</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Hard Skills</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">financial analysis, coding</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Soft Skills</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">communication skills, leadership</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Keyword Density</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Avoid overuse</li>
+          <li>Use naturally in context</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Advanced resume optimization platforms can analyze job descriptions and suggest the most relevant keywords to include.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Comparison: Hard Skills vs. Soft Skills</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Hard skills prove you can do the specific job; soft skills prove you are a good person to work with.</p>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Skill Category</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Hard Skills (Technical)</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Soft Skills (Interpersonal)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Definition</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Teachable, measurable abilities.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Subjective traits and habits.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Acquisition</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Through formal education or training.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Through life experience and culture.</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Examples</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Data Analysis, Coding, Foreign Languages.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Leadership, Empathy, Critical Thinking.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Examples</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Financial Accounting, Graphic Design.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Communication, Time Management.</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Examples</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Copywriting, Machine Operation.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Adaptability, Conflict Resolution.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Placement</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Highlight in &quot;Skills&quot; &amp; &quot;Experience.&quot;</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Weave into &quot;Professional Summary.&quot;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.shine.com/blog/resume-keywords" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.shine.com/blog/resume-keywords</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Resume Keywords List by Industry: Overview</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Different industries require different keywords.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why Keywords Differ by Industry</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Skills vary</li>
+          <li>Tools differ</li>
+          <li>Job roles are unique</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Role-Specific vs Industry Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Role-specific → Job title-based</li>
+          <li>Industry-wide → Common across roles</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to Identify Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Analyze job descriptions</li>
+          <li>Use job boards</li>
+          <li>Study competitor resumes</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some job platforms categorize keywords based on industries to help candidates quickly align their resumes with targeted roles.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.jobscan.co/blog/top-resume-keywords-boost-resume/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.jobscan.co/blog/top-resume-keywords-boost-resume/</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Top Resume Keywords for the Technology Industry</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Tech roles demand highly specific keywords.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Core Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>software development</li>
+          <li>data analysis</li>
+          <li>Machine learning</li>
+          <li>Cloud computing</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Programming Languages</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Python</li>
+          <li>Java</li>
+          <li>JavaScript</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tools &amp; Frameworks</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>React</li>
+          <li>Docker</li>
+          <li>Kubernetes</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Certifications</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>AWS Certified</li>
+          <li>Google Cloud</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> &quot;Developed scalable applications using Python, improving system efficiency by 35%.&quot;</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Tech professionals often rely on keyword optimization tools to match their resumes with rapidly evolving job requirements.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Resume Keywords for Marketing and Sales Industry</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Marketing is constantly evolving.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>digital marketing</li>
+          <li>SEO</li>
+          <li>PPC campaigns</li>
+          <li>Content strategy</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sales Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Lead generation</li>
+          <li>CRM tools</li>
+          <li>Conversion optimization</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> &quot;Increased website traffic by 120% using SEO and content marketing strategies.&quot;</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Marketing professionals frequently update their resumes with trending keywords to stay competitive in fast-changing industries.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Industry vs. Keywords</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>This table highlights specific terms that help your resume pass through Applicant Tracking Systems (ATS) for specific sectors.</p>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Industry</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Primary Keywords</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Technical Tools / Software</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Information Technology</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Cloud Computing, SDLC, Cybersecurity, DevOps</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">AWS, Azure, Python, Docker, SQL, Jira</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Marketing &amp; Sales</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">SEO/SEM, Lead Generation, ROI, Conversion Rate</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Google Analytics, Salesforce, HubSpot</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Finance &amp; Accounting</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">GAAP, Auditing, Financial Modeling, Forecasting</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">QuickBooks, SAP, Advanced Excel (VBA)</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Healthcare</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Patient Care, HIPAA Compliance, EMR/EHR, Triage</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Epic, Cerner, Meditech, Telehealth</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Project Management</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Agile, Scrum, Stakeholder Management, Budgeting</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Asana, Trello, MS Project, Monday.com</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Human Resources</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Talent Acquisition, Onboarding, Employee Relations</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Workday, BambooHR, ADP, Greenhouse</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. Resume Keywords for Finance and Business Roles</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Finance roles require analytical precision.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Core Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>financial analysis</li>
+          <li>Budgeting</li>
+          <li>Forecasting</li>
+          <li>Risk management</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tools</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Excel</li>
+          <li>SAP</li>
+          <li>Power BI</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Business Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>business analysis</li>
+          <li>Strategy development</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Finance candidates often use keyword-based resume audits to ensure alignment with job descriptions.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Resume Keywords for the Healthcare Industry</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Healthcare resumes require accuracy and compliance.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>patient care</li>
+          <li>Clinical procedures</li>
+          <li>Medical records</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Certifications</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>BLS</li>
+          <li>ACLS</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Soft Skills</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Empathy</li>
+          <li>Communication</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Healthcare resumes require precise terminology to match regulated job requirements.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. Resume Keywords for HR and Administrative Roles</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>HR roles blend technical and interpersonal skills.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Core Keywords</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>human resource management</li>
+          <li>Recruitment</li>
+          <li>Onboarding</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Administrative Skills</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Scheduling</li>
+          <li>Documentation</li>
+          <li>Compliance</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Soft Skills</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>communication skills</li>
+          <li>Organization</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>HR professionals often optimize resumes with both technical and interpersonal keywords.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. How to Choose the Right Resume Keywords for Your Role</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Choosing keywords strategically is crucial.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Step-by-Step Framework</h3>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Analyze Job Descriptions</strong> — Look for repeated keywords.</li>
+          <li><strong>Identify Skills</strong> — Match your experience.</li>
+          <li><strong>Customize Resume</strong> — Tailor for each job.</li>
+          <li><strong>Avoid Keyword Stuffing</strong> — Keep it natural.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some job seekers also explore advanced career optimization tools and structured programs that improve focus, clarity, and consistency during their job search, helping them apply more effectively and strategically.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">11. Common Mistakes to Avoid When Using Resume Keywords</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Avoid these pitfalls:</p>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Keyword Stuffing</strong> — Overusing keywords reduces readability.</li>
+          <li><strong>Irrelevant Keywords</strong> — Only include relevant skills.</li>
+          <li><strong>Ignoring ATS Formatting</strong> — Use simple layouts.</li>
+          <li><strong>Not Updating Resume</strong> — Keep it current.</li>
+          <li><strong>Missing Industry Terms</strong> — Use specific keywords.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Resume scanning tools can quickly highlight missing or overused keywords.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">12. Final Verdict: Best Resume Keywords by Industry in 2026</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>In 2026, the best resume keywords are those that align closely with job descriptions, industry requirements, and recruiter expectations, helping candidates stand out in both ATS systems and human reviews.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Takeaways</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Use industry-specific keywords</li>
+          <li>Balance readability and optimization</li>
+          <li>Customize for each role</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Final Advice</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Your resume should evolve with your career. Keep updating your resume keywords list by industry to stay relevant.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. What are resume keywords?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Words that match job requirements and improve ATS ranking.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Why are resume keywords important?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>They help your resume get shortlisted.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. How do I find the right resume keywords?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Analyze job descriptions.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Should I use the same keywords for every job?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>No, always customize.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. What are industry-specific resume keywords?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Keywords relevant to specific roles.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Can AI tools help with resume keywords?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Yes, they improve optimization. Feel free to explore <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">flashfirejobs.com</a> to AI optimize your resume.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. How many keywords should I include?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Use them naturally—avoid stuffing.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. Do resume keywords guarantee a job?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>No, but they increase your chances.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Thoughts</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Mastering the resume keywords list by industry is essential if you want to compete in today&apos;s job market. With the right keywords, strategic placement, and continuous optimization, your resume can stand out, pass ATS filters, and land more interviews in 2026.</p>
+      `,
+  },
+  {
+    id: 146,
+    slug: "functional-vs-chronological-resume",
+    title: "Functional vs Chronological Resume: Key Differences",
+    excerpt:
+      "Compare functional vs chronological resume formats, key differences, and pros, and determine which resume style is best for your career goals.",
+    date: "Apr 2, 2026",
+    lastUpdated: "Apr 2, 2026",
+    readTime: "16 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing", "ATS Optimization", "Career Tips", "Job Search", "Interview Preparation"],
+    author: {
+      name: "Debashri Mandal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
+    image:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-02%20at%2011.18.53%E2%80%AFPM.png",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <h1 class="text-3xl font-bold text-gray-900 mt-4 mb-4">Functional vs Chronological Resume: Differences &amp; Examples</h1>
+        <p style='margin-bottom:12px; line-height:1.7;'>Choosing between a functional vs chronological resume can significantly impact whether your application gets noticed—or ignored. In today&apos;s competitive, AI-driven hiring landscape, your resume format is just as important as your skills and experience.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>But which format actually works best? Should you highlight your skills first, or your work history? And how do recruiters—and ATS systems—interpret these formats?</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>In this comprehensive guide, you&apos;ll learn the differences between a chronological resume vs functional resume, when to use each, and how to choose the best format for your career in 2026.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.tealhq.com/post/functional-vs-chronological-resume" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.tealhq.com/post/functional-vs-chronological-resume</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. What Is a Functional vs. Chronological Resume, and What Do They Actually Mean</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>A functional vs chronological resume refers to two different resume formats, where one focuses on skills and abilities, while the other highlights work history and career progression.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>These formats serve different purposes depending on your career stage and goals.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is a Functional Resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A functional resume is a skills-focused format that emphasizes:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Abilities</li>
+          <li>Achievements</li>
+          <li>Competencies</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>It minimizes the importance of the work history section.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is a Chronological Resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A chronological resume highlights your work experience in a reverse chronological format, listing your most recent job first.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Difference</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Functional → Skills-first</li>
+          <li>Chronological → Experience-first</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why Do People Compare These Formats?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Job seekers want to:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Improve hiring chances</li>
+          <li>Pass ATS filters</li>
+          <li>Highlight strengths effectively</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When Each Format Is Used</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Functional → Career gaps, freshers</li>
+          <li>Chronological → Experienced professionals</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://writrox.com/difference-between-chronological-and-functional-resumes/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://writrox.com/difference-between-chronological-and-functional-resumes/</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Why Resume Format Choice Matters in the 2026 Job Market</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Resume format is no longer just about design—it affects visibility.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Factors</h3>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>ATS Systems</strong> — Most companies use ATS software to filter resumes. An ATS-friendly resume improves your chances of getting shortlisted.</li>
+          <li><strong>Recruiter Behavior</strong> — Recruiters scan resumes in seconds.</li>
+          <li><strong>Job Market Competition</strong> — Hundreds of applicants compete for one role.</li>
+          <li><strong>Clarity and Structure</strong> — Clear resumes perform better.</li>
+          <li><strong>Impact on Shortlisting</strong> — Wrong format = missed opportunities.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Many job seekers now rely on AI-driven platforms to choose the right resume format and optimize their profiles based on job requirements.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.careerflow.ai/blog/chronological-vs-functional-resume" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.careerflow.ai/blog/chronological-vs-functional-resume</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. What Is a Functional Resume and When to Use It</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Definition</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A functional resume, also known as a skills-based resume, focuses on your abilities rather than your job history.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Structure</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Summary</li>
+          <li>Skills section</li>
+          <li>Achievements</li>
+          <li>Minimal work history</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Who Should Use It?</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Career changers</li>
+          <li>Fresh graduates</li>
+          <li>Candidates with gaps</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Advantages</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Highlights transferable skills</li>
+          <li>Hides employment gaps</li>
+          <li>Focuses on strengths</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Disadvantages</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Less preferred by recruiters</li>
+          <li>Can appear vague</li>
+          <li>Limited ATS compatibility</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A career switcher from sales to marketing highlights: Communication skills, Campaign management.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some candidates use resume tools that help group skills strategically and highlight strengths instead of timelines.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: Which Resume Format Is Right for You? (Chronological, Functional, or Combination)</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. What Is a Chronological Resume and When to Use It</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Definition</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A chronological resume lists work experience in a reverse chronological format.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Structure</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Summary</li>
+          <li>Work history</li>
+          <li>Skills</li>
+          <li>Education</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Who Should Use It?</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Experienced professionals</li>
+          <li>Stable career paths</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Advantages</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Clear career progression</li>
+          <li>Preferred by recruiters</li>
+          <li>ATS-friendly</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Disadvantages</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Highlights gaps</li>
+          <li>Less flexible</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Most recruiters prefer chronological resumes because they clearly show career growth and stability.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.naukri.com/career-advice/what-is-a-functional-resume-caid" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.naukri.com/career-advice/what-is-a-functional-resume-caid</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Functional vs Chronological Resume: Key Differences Explained</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Here&apos;s a direct comparison of a chronological vs. functional resume:</p>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Feature</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Functional Resume</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Chronological Resume</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Focus</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Skills</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Work history</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Structure</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Flexible</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Structured</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">ATS Compatibility</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Moderate</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">High</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Recruiter Preference</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Low</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">High</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Career Gaps</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Hidden</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Visible</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Insights</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Functional resumes emphasize skills</li>
+          <li>Chronological resumes emphasize experience</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Modern resume optimization tools often suggest hybrid formats when neither format alone is ideal.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.resumly.ai/blog/difference-between-chronological-and-functional-resumes" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.resumly.ai/blog/difference-between-chronological-and-functional-resumes</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Pros and Cons of Functional vs Chronological Resume</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Functional Resume</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Pros:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Highlights skills</li>
+          <li>Good for career changes</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Cons:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Less ATS-friendly</li>
+          <li>Less trusted by recruiters</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Chronological Resume</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Pros:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Easy to read</li>
+          <li>Shows growth</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Cons:</strong></p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Exposes gaps</li>
+          <li>Less flexible</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Candidates often test different formats using resume scoring tools to see which performs better.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. What Is a Combination (Hybrid) Resume Format</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>A combination (hybrid) resume blends both formats.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Structure</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Skills summary</li>
+          <li>Work experience</li>
+          <li>Achievements</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When to Use It</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Mid-level professionals</li>
+          <li>Career changers with experience</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Advantages</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Balanced approach</li>
+          <li>Highlights both skills and experience</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> A developer includes: Skills section (coding languages), Work history (projects).</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Hybrid resumes are becoming popular, as they balance skills and experience effectively.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. How to Choose Between a Functional and a Chronological Resume</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Decision Framework</h3>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Experience Level</strong> — Freshers → Functional; Experienced → Chronological</li>
+          <li><strong>Career Gaps</strong> — Large gaps → Functional</li>
+          <li><strong>Industry</strong> — Corporate → Chronological</li>
+          <li><strong>Job Role</strong> — Skill-based → Functional</li>
+          <li><strong>ATS Requirements</strong> — ATS-heavy roles → Chronological</li>
+        </ol>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Checklist</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Do you have a consistent work history?</li>
+          <li>Are you changing careers?</li>
+          <li>Is ATS optimization important?</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some job seekers also explore advanced career optimization tools and structured programs that help them choose the right format, improve clarity, and stay consistent during their job search journey.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Resume Format Comparison Table</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Feature</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Chronological Resume</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Functional Resume</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Hybrid (Combination)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Best For</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Consistent career growth, staying in the same field.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Career changers, major employment gaps.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Professionals with diverse skills + solid history.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">ATS Score</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">High (96%) — Easily parses dates and titles.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Low (66%) — Confuses bots without clear timeline context.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">High (94%) — Balances skills with readable work history.</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Recruiter Preference %</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">77% – 78% — Highly preferred for clarity and trust.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">12% — Often viewed with skepticism or as &quot;hiding&quot; info.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">68% — Increasingly accepted as a modern compromise.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Primary Focus</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Employment timeline and job titles.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Skill categories and transferable abilities.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Skill highlights backed by a full timeline.</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Interview Callback Rate</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">32% success rate for applicants.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">18% success rate for applicants.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Up to 23% higher than standard formats.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. Common Mistakes to Avoid When Choosing a Resume Format</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Avoid these errors:</p>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Choosing Functional Without Reason</strong> — Only use when necessary.</li>
+          <li><strong>Ignoring ATS</strong> — ATS compatibility is critical.</li>
+          <li><strong>Poor Structure</strong> — Keep it clean and readable.</li>
+          <li><strong>Overloading Skills</strong> — Balance is key.</li>
+          <li><strong>Not Tailoring Resume</strong> — Customize for each job.</li>
+          <li><strong>Using Outdated Formats</strong> — Keep it modern.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Resume analysis tools can identify formatting issues and suggest improvements instantly.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. Final Verdict: Functional vs Chronological Resume – Which Is Better?</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>In 2026, the best resume format depends on your experience, career goals, and how effectively you present your value, while ensuring your resume remains ATS-friendly and easy for recruiters to scan.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Best Format by Category</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Freshers: Functional or Hybrid</li>
+          <li>Experienced Professionals: Chronological</li>
+          <li>Career Switchers: Functional or Hybrid</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Final Recommendation</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Use a format that:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Matches your career stage</li>
+          <li>Highlights your strengths</li>
+          <li>Passes ATS filters</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. What is the main difference between a functional and a chronological resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Functional focuses on skills; chronological focuses on work history.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Which resume format do recruiters prefer?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Chronological format.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Is a functional resume ATS-friendly?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Less than chronological.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. When should I use a functional resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>When changing careers or having gaps.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. What is a hybrid resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A mix of both formats.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Which resume format is best for freshers?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Functional or hybrid.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Can I switch resume formats for different jobs?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Yes, customization is recommended.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. What is the best resume format in 2026?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Chronological remains the most effective.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Thoughts</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Understanding functional vs chronological resume formats gives you a strategic advantage in today&apos;s job market. By choosing the right structure and optimizing your resume accordingly, you can significantly improve your chances of getting shortlisted and landing your ideal role.</p>
+      `,
+  },
+  {
+    id: 147,
+    slug: "what-makes-a-good-resume",
+    title: "What Makes a Good Resume? Tips to Build a Strong Resume",
+    excerpt:
+      "Discover what makes a good resume, key elements, tips, and how to create a strong resume and cover letter that stand out to employers.",
+    date: "Apr 2, 2026",
+    lastUpdated: "Apr 2, 2026",
+    readTime: "17 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing", "ATS Optimization", "Career Tips", "Job Search", "Interview Preparation"],
+    author: {
+      name: "Debashri Mandal",
+      bio: "Career expert and resume strategist helping job seekers land their dream roles.",
+    },
+    image:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-02%20at%2011.20.06%E2%80%AFPM.png",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `
+        <h1 class="text-3xl font-bold text-gray-900 mt-4 mb-4">What Makes a Good Resume? Key Elements &amp; Expert Tips</h1>
+        <p style='margin-bottom:12px; line-height:1.7;'>What truly separates a resume that gets ignored from one that lands interviews? If you&apos;ve been asking yourself what makes a good resume, the answer lies in strategy—not just listing your experience.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Today, recruiters spend just seconds scanning resumes, while AI systems filter candidates before a human even looks at them. So, how do you make your resume stand out? What elements actually matter? And how can you transform an average resume into one that gets results?</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>In this comprehensive guide, you&apos;ll learn what makes a great resume, backed by real-world examples, expert insights, and actionable strategies to help you succeed in 2026.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. What Makes a Good Resume and Why It Matters</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>A good resume is a well-structured document that highlights your skills, experience, and achievements in a way that clearly demonstrates your value to potential employers.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>It&apos;s not just about listing your history—it&apos;s about compellingly telling your professional story.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Purpose of a Resume</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Showcase your qualifications</li>
+          <li>Secure interviews</li>
+          <li>Differentiate yourself from competitors</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">First Impression Matters</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Recruiters form an opinion within 6–8 seconds (Source: Ladders study). That means clarity and impact are critical.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Recruiters Scan Resumes</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>ATS filters keywords</li>
+          <li>Recruiters skim for relevance</li>
+          <li>Focus on results and skills</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Average vs Great Resume</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Average Resume</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Great Resume</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Generic</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Tailored</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Lists duties</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Shows achievements</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Poor structure</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Clean layout</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why People Search This Topic</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Job seekers want to:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Improve interview chances</li>
+          <li>Optimise for ATS</li>
+          <li>Stand out in competitive markets</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Why a Strong Resume Is Critical in the 2026 Job Market</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>The hiring landscape has changed dramatically.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Trends</h3>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>ATS Dominance</strong> — Over 75% of resumes are filtered by ATS systems.</li>
+          <li><strong>High Competition</strong> — Each job attracts hundreds of applicants.</li>
+          <li><strong>Personalisation Is Key</strong> — Generic resumes rarely succeed.</li>
+          <li><strong>AI Screening</strong> — AI evaluates resumes instantly.</li>
+          <li><strong>Recruiter Behaviour</strong> — Shortlisting happens quickly.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Modern job seekers are increasingly using AI-powered tools and platforms to optimise resumes, improve keyword matching, and increase interview chances.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Key Elements That Make a Resume Stand Out</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>A strong resume includes these essential components:</p>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Professional Summary</strong> — A concise resume summary that highlights your value.</li>
+          <li><strong>Work Experience Section</strong> — Your work experience should showcase impact, not just tasks.</li>
+          <li><strong>Skills Section</strong> — Include technical skills and soft skills.</li>
+          <li><strong>Education and Certifications</strong> — Relevant education &amp; certifications add credibility.</li>
+          <li><strong>Achievements</strong> — Focus on quantifiable results.</li>
+          <li><strong>Formatting</strong> — Clean and ATS-friendly design.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some candidates now use smart resume optimisation tools that help align their resumes with job descriptions and improve ATS performance.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. How to Write a Powerful Resume Summary</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Your summary is your first impression.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is a Resume Summary?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>A brief introduction that highlights:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Experience</li>
+          <li>Skills</li>
+          <li>Achievements</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to Write It</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Start with your role</li>
+          <li>Add experience</li>
+          <li>Include results</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> &quot;Results-driven sales professional with 5+ years of experience increasing revenue by 40% through strategic client acquisition.&quot;</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tips</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Keep it concise</li>
+          <li>Use keywords</li>
+          <li>Focus on value</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>AI-based resume assistants can help generate tailored summaries that match job intent and recruiter expectations.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.resume.com/sample/" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.resume.com/sample/</a></p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Average vs. Great Resume: Detailed Comparison</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Feature</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Average Resume</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Great Resume</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Objective / Intro</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Generic objective (e.g., &quot;Looking for a challenging role in Marketing&quot;).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Keyword-optimized summary highlighting years of experience and top 2–3 wins.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Work Experience</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Lists duties and responsibilities (e.g., &quot;Responsible for social media accounts&quot;).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Focuses on achievements with data (e.g., &quot;Increased engagement by 40% via new strategy&quot;).</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Tailoring</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">&quot;One-size-fits-all&quot; document sent to multiple employers.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Highly customized for each job description using specific employer keywords.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Skills</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Vague, common skills (e.g., &quot;Hardworking,&quot; &quot;Microsoft Word&quot;).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Themed skill groups blending hard technical skills with validated soft skills.</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Layout &amp; Design</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Cluttered, multi-column, or uses flashy graphics that confuse ATS.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Single-column, minimalist layout with consistent spacing and clear headers.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Quantification</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Qualitative descriptions (e.g., &quot;Managed a large team&quot;).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Specific metrics (e.g., &quot;Managed 25 associates across 3 time zones&quot;).</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Action Verbs</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Passive or repetitive language (e.g., &quot;Handled,&quot; &quot;Assisted with&quot;).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Dynamic action verbs (e.g., &quot;Spearheaded,&quot; &quot;Optimized,&quot; &quot;Streamlined&quot;).</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Length</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">3+ pages of exhaustive, sometimes irrelevant history.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Concise (1–2 pages) focusing only on the last 10–15 years of relevant work.</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">ATS Compatibility</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Uses tables, icons, or images that can scramble the parser.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Text-based PDF using standard professional fonts like Arial or Calibri.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.rezi.ai/posts/ats-resume-examples" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.rezi.ai/posts/ats-resume-examples</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Importance of Work Experience and Achievements</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Your experience section is the most critical part.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to Structure It</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Job title</li>
+          <li>Company</li>
+          <li>Dates</li>
+          <li>Achievements</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Use Action Verbs</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Strong action verbs include: Led, Improved, Developed.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Quantify Achievements</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Use numbers:</p>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Increased sales by 30%</li>
+          <li>Reduced costs by 20%</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> &quot;Led a team of 10, improving productivity by 25%.&quot;</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Many job seekers now use tools that suggest achievement-based bullet points based on their role and industry.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.rezi.ai/posts/ats-resume-examples" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.rezi.ai/posts/ats-resume-examples</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Skills That Make a Resume Strong</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Skills play a crucial role.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Hard vs Soft Skills</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Hard Skills</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">Soft Skills</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Coding</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Communication</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Analytics</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Leadership</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Skills Employers Look For</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Problem-solving</li>
+          <li>Adaptability</li>
+          <li>Communication</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Keyword Optimization</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Include relevant skills naturally.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Advanced job platforms help identify missing skills by comparing your resume with job requirements in real-time.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.careereducation.columbia.edu/resources/resumes-impact-creating-strong-bullet-points" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.careereducation.columbia.edu/resources/resumes-impact-creating-strong-bullet-points</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. What Makes a Great Resume Format and Design</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Design impacts readability.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Best Practices</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Use simple fonts</li>
+          <li>Maintain spacing</li>
+          <li>Use bullet points</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Format</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>The reverse chronological format is most preferred.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Avoid</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Overdesign</li>
+          <li>Clutter</li>
+          <li>Inconsistent formatting</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some resume builders automatically format resumes to ensure both ATS compatibility and recruiter readability.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.careereducation.columbia.edu/resources/resumes-impact-creating-strong-bullet-points" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.careereducation.columbia.edu/resources/resumes-impact-creating-strong-bullet-points</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. What Makes a Good Cover Letter for a Resume</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Understanding what makes a good cover letter for a resume is equally important.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Purpose</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Introduce yourself</li>
+          <li>Explain your interest</li>
+          <li>Highlight key achievements</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Structure</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Introduction</li>
+          <li>Body</li>
+          <li>Closing</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tips</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Personalise for each job</li>
+          <li>Keep it concise</li>
+          <li>Show enthusiasm</li>
+        </ul>
+        <p style='margin-bottom:12px; line-height:1.7;'>AI-powered tools can help generate customised cover letters aligned with specific job roles and company tone.</p>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://resume.io/blog/resume-summary" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://resume.io/blog/resume-summary</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. Common Resume Mistakes to Avoid</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Avoid these errors:</p>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Generic Resume</strong> — Always tailor your content.</li>
+          <li><strong>Missing Keywords</strong> — Optimise for ATS.</li>
+          <li><strong>Poor Formatting</strong> — Keep it clean.</li>
+          <li><strong>Spelling Errors</strong> — Proofread carefully.</li>
+          <li><strong>Irrelevant Information</strong> — Stay focused.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Resume analysis tools can quickly detect errors, missing keywords, and formatting issues before you apply.</p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Content &amp; Impact</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">DO</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">DON&apos;T</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do use the STAR method (Situation, Task, Action, Result).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t simply list your job description or daily chores.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do include numbers and percentages to prove success.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t use vague adjectives like &quot;hardworking&quot; or &quot;detail-oriented.&quot;</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do use powerful action verbs (e.g., Architected, Mentored).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t use passive phrases like &quot;Responsible for&quot; or &quot;Duties included.&quot;</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do list your LinkedIn profile and portfolio links.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t include your age, marital status, or full street address.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Formatting &amp; Design</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">DO</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">DON&apos;T</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do keep it to 1 page (under 10 years experience).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t exceed 2 pages unless you are in academia or medicine.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do use a single-column layout for ATS readability.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t use complex tables, columns, or graphics that break parsers.</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do use standard fonts (Arial, Calibri, Georgia).</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t use &quot;creative&quot; or script fonts that are hard to scan.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do save and send your file as a PDF.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t send a .doc or .pages file unless specifically requested.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Strategy &amp; Submission</h3>
+<div style="overflow-x: auto; margin-top: 16px; margin-bottom: 24px;">
+          <table style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb;">
+            <thead>
+              <tr style="background-color: #f9fafb;">
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">DO</th>
+                <th style="padding: 12px; text-align: left; border: 1px solid #e5e7eb; font-weight: 600;">DON&apos;T</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do tailor your resume for every single job application.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t &quot;spray and pray&quot; with one generic resume for all roles.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do include a skills section with keywords from the JD.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t list every software you&apos;ve ever touched (keep it relevant).</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do proofread for typos and grammar multiple times.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t rely solely on spellcheck; it misses context errors.</td>
+              </tr>
+              <tr style="background-color: #f9fafb;">
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Do focus on your last 10–15 years of experience.</td>
+                <td style="padding: 12px; border: 1px solid #e5e7eb; vertical-align: top;">Don&apos;t include high school info or irrelevant part-time jobs from 20 years ago.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style='margin-bottom:12px; line-height:1.7;'>Source: <a href="https://www.tealhq.com/post/resume-summary-examples" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">https://www.tealhq.com/post/resume-summary-examples</a></p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. How to Optimise Your Resume for Job Success</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Step-by-Step Strategy</h3>
+        <ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li><strong>Tailor for Each Job</strong> — Customize content.</li>
+          <li><strong>Use Keywords</strong> — Match job descriptions.</li>
+          <li><strong>Optimise for ATS</strong> — Use simple formatting.</li>
+          <li><strong>Update Regularly</strong> — Keep it current.</li>
+          <li><strong>Track Applications</strong> — Stay organized.</li>
+        </ol>
+        <p style='margin-bottom:12px; line-height:1.7;'>Some job seekers also explore advanced solutions like precision-based career optimisation programs and wellness support systems that improve focus, clarity, and performance during a job search, helping them stay consistent and competitive.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">11. Final Verdict: What Makes a Great Resume in 2026</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>A great resume in 2026 combines clear structure, measurable achievements, relevant skills, and strong keyword optimisation to stand out in both ATS systems and recruiter reviews.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Key Takeaways</h3>
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+          <li>Focus on results</li>
+          <li>Use clear formatting</li>
+          <li>Tailor for each role</li>
+        </ul>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Final Advice</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Your resume is your personal brand—treat it like your most important career asset. However, you may try watching a video for this Ex-Google Recruiter Explains: 6 Résumé Secrets That Get You Hired</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">FAQs</h2>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. What makes a good resume stand out?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Clear structure, achievements, and relevance.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. What makes for a good resume in today&apos;s job market?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Keyword optimisation and personalisation.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. What makes a great resume different from a satisfactory one?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Results-driven content and clarity.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. What makes a successful cover letter for a resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Personalisation and strong storytelling.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. How long should a resume be?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>1–2 pages are enough. But it may vary according to your experiences and job role relevance.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Do recruiters really read resumes?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Yes, but briefly.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Should I customise my resume for every job?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Absolutely. Customising a resume for every job helps you tailor the sections to each job role&apos;s requirements.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. Can AI tools help improve my resume?</h3>
+        <p style='margin-bottom:12px; line-height:1.7;'>Yes, significantly. Feel free to explore <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" style="color: #f97316; text-decoration: underline;">flashfirejobs.com</a>. Its AI tools can significantly improve your resume strength.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Thoughts</h2>
+        <p style='margin-bottom:12px; line-height:1.7;'>Understanding what makes a good resume is essential for success in today&apos;s job market. By focusing on structure, relevance, and measurable impact, you can transform your resume into a powerful tool that opens doors and accelerates your career growth.</p>
+      `,
+  },
 ];
