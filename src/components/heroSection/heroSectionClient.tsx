@@ -117,8 +117,9 @@ export default function HeroSectionClient({ data }: Props) {
             
             {/* Main hero image */}
             <div className="relative z-10 w-full h-full">
-              <Image
+            <Image
                 src="/images/woman-with-laptop.png"
+                alt="Woman holding laptop"
                 fill
                 className="object-contain"
                 priority
