@@ -26,12 +26,12 @@ export default function HeroSectionClient({ data }: Props) {
   });
 
   return (
-    <section className="bg-[#fdf8f5] text-center p-8 pb-12 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[1024px]:p-6 max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
+    <section className="bg-[#f8ebe5] text-center p-8 pb-12 pt-8 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[1024px]:p-6 max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
       {/* === Main Two Column Layout === */}
       <div className="max-w-[1200px] mx-auto flex flex-row items-center justify-between gap-8 mb-12 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
         
         {/* === Left Column - Content === */}
-        <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full">
+        <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full hidden md:block">
           {/* === Top Badge === */}
           <div className="inline-flex items-center gap-2 border border-[#e0d5cf] rounded-full px-4 py-2 mb-6 bg-white/50 max-[768px]:mb-4 max-[480px]:px-3 max-[480px]:py-1.5">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#ff4c00]">
@@ -53,7 +53,7 @@ export default function HeroSectionClient({ data }: Props) {
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[7rem] w-auto inline-block max-[768px]:h-[2rem] max-[480px]:h-[1.8rem] -mr-9 -ml-9 "
+                  className="h-[7rem] w-auto inline-block max-[768px]:h-[2rem] max-[480px]:h-[1.8rem] -mr-7 -ml-7 "
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -108,6 +108,44 @@ export default function HeroSectionClient({ data }: Props) {
             
           </button>
         </div>
+        {/* === Mobile Left Section === */}
+<div className="flex md:hidden flex-col items-center pt-25 text-center w-full px-4">
+
+{/* Badge */}
+<div className="flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3 py-1.5 mb-4 bg-white/60">
+  <div className="w-2 h-2 bg-[#ff4c00] rounded-full"></div>
+  <span className="text-[#ff4c00] text-xs font-medium">
+    {data.badges[0] || "AI Powered"}
+  </span>
+</div>
+
+{/* Heading */}
+<h1 className="text-[1.8rem] font-semibold leading-tight mb-3">
+  {data.headlineMain}
+</h1>
+
+<h2 className="text-[1.6rem] font-semibold leading-tight mb-3">
+  <span className="text-[#ff4c00]">
+    {data.headlineHighlight}
+  </span>{" "}
+  
+  {data.headlineSuffix}
+</h2>
+
+{/* Description */}
+<p className="text-sm text-[#555] mb-5 px-2 leading-relaxed">
+  {data.description}
+</p>
+
+{/* CTA */}
+<button
+  {...getButtonProps()}
+  className="w-full max-w-[280px] bg-black text-white py-3 rounded-lg font-semibold"
+>
+  {data.cta.label}
+</button>
+
+</div>
 
         {/* === Right Column - Hero Image === */}
         <div className="flex-1 relative max-[1024px]:w-full max-[1024px]:max-w-[500px] max-[1024px]:mx-auto">
@@ -134,13 +172,8 @@ export default function HeroSectionClient({ data }: Props) {
               </div>
             </div>
 
-            {/* Chat bubble decoration */}
-            <div className="absolute top-10 right-0 z-20 bg-white rounded-2xl shadow-lg px-4 py-3 max-[480px]:px-3 max-[480px]:py-2 max-[480px]:top-6">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="text-sm font-medium text-gray-700 max-[480px]:text-xs">Online</span>
-              </div>
-            </div>
+            
+            
           </div>
 
           {/* Trusted users text below image */}
