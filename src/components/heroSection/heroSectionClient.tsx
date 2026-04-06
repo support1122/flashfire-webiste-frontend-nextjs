@@ -199,15 +199,15 @@ export default function HeroSectionClient({ data }: Props) {
             <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
             
             <div className="relative z-10 w-full h-[240px] sm:w-[500px] sm:h-[330px] rounded-2xl overflow-hidden">
-  <Image
-    src="/images/Celebrating-career.png"
-    alt="Woman holding laptop"
-    fill
-    className="object-cover"
-    priority
-    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 420px"
-  />
-</div>
+                <Image
+                  src="/images/Young-professionals.png"
+                  alt="Woman holding laptop"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 420px"
+                />
+              </div>
             {/* Floating stats card */}
             <div className="absolute bottom-14 md:bottom-20 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-14">
               <div>
