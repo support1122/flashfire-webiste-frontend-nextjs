@@ -106,6 +106,30 @@ export default function HeroSectionClient({ data }: Props) {
           >
             {data.cta.label}
           </button>
+          {/* Trusted users text below image */}
+          <div className="flex items-center justify-center gap-2 -mt-12 max-[1024px]:mt-1">
+            <div className="flex -space-x-2">
+              {[
+                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
+                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
+                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/akrati.jpeg",
+              ].map((url, i) => (
+                <div
+                  key={i}
+                  className={`relative w-8 h-8 rounded-full border-2 border-white overflow-hidden shadow-sm ${i === 0 ? "" : "-ml-2"}`}
+                >
+                  <Image
+                    src={url}
+                    alt={`User ${i + 1}`}
+                    fill
+                    sizes="32px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-black font-medium ml-1 max-[480px]:text-xs">{data.trustText}</p>
+          </div>
         </div>
 
         {/* === Mobile Left Section === */}
@@ -123,7 +147,7 @@ export default function HeroSectionClient({ data }: Props) {
             {data.headlineMain}
           </h1>
 
-          <h2 className="text-[1.4rem] font-semibold leading-tight mb-2">
+          <h2 className="text-[1.6rem] font-semibold leading-tight -mt-2 mb-2">
             <span className="text-[#ff4c00]">
               {data.headlineHighlight}
             </span>{" "}
@@ -142,34 +166,6 @@ export default function HeroSectionClient({ data }: Props) {
           >
             {data.cta.label}
           </button>
-        </div>
-
-        {/* === Right Column - Hero Image === */}
-        <div className="flex-1 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
-          <div className="relative w-full aspect-square max-w-[420px] mx-auto">
-            {/* Background decorative circle */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
-            
-            {/* Main hero image */}
-            <div className="relative z-10 w-full h-full">
-              <Image
-                src="/images/woman-with-laptop.png"
-                alt="Woman holding laptop"
-                fill
-                className="object-contain"
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-
-            {/* Floating stats card */}
-            <div className="absolute bottom-16 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-14">
-              <div>
-                <p className="text-[#ff4c00] font-bold text-xs leading-tight max-[480px]:text-[0.65rem]">50+ USERS LANDED JOB</p>
-              </div>
-            </div>
-          </div>
-
           {/* Trusted users text below image */}
           <div className="flex items-center justify-center gap-2 -mt-10 max-[1024px]:mt-1">
             <div className="flex -space-x-2">
@@ -195,10 +191,37 @@ export default function HeroSectionClient({ data }: Props) {
             <p className="text-sm text-black font-medium ml-1 max-[480px]:text-xs">{data.trustText}</p>
           </div>
         </div>
+
+        {/* === Right Column - Hero Image === */}
+        <div className="flex-1 -mb-10 mt-6 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
+          <div className="relative w-full aspect-square max-w-[420px] mx-auto">
+            {/* Background decorative circle */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
+            
+            <div className="relative z-10 w-full h-[240px] sm:w-[500px] sm:h-[330px] rounded-2xl overflow-hidden">
+  <Image
+    src="/images/Celebrating-career.png"
+    alt="Woman holding laptop"
+    fill
+    className="object-cover"
+    priority
+    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 420px"
+  />
+</div>
+            {/* Floating stats card */}
+            <div className="absolute bottom-14 md:bottom-20 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-14">
+              <div>
+                <p className="text-[#ff4c00] font-bold text-xs  leading-tight max-[480px]:text-[0.65rem]">50+ USERS LANDED JOB</p>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
       </div>
 
       {/* === Universities Section === */}
-      <div className="w-[65%] mx-auto mb-6 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
+      <div className="w-[65%] mx-auto mb-6 -mt-5 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
         {/* Heading in separate box */}
         <div className="bg-white rounded-none py-3 px-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-[90%] max-w-[90%] mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
           <p className="text-[0.8rem] font-normal uppercase text-[#555] tracking-[0.05em] m-0 max-[768px]:text-[0.75rem] max-[480px]:text-[0.7rem]">{data.universityHeading}</p>
