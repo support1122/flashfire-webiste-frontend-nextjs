@@ -28,7 +28,7 @@ export default function HeroSectionClient({ data }: Props) {
   return (
     <section className="bg-[#f8ebe5] text-center p-2 pb-1 pt-2 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[1024px]:p-6 max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
       {/* === Main Two Column Layout === */}
-      <div className="max-w-[1080px] mx-auto flex flex-row items-center justify-between gap-6 mb-4 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
+      <div className="max-w-[1080px] mx-auto flex flex-row items-center justify-between gap-6 mb-8 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
         
         {/* === Left Column - Content === */}
         <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full hidden md:block">
@@ -252,7 +252,7 @@ export default function HeroSectionClient({ data }: Props) {
               return (
                 <div
                   key={index}
-                  className="flex-none bg-white border border-gray-200 rounded-md p-2 w-[180px] h-16 flex flex-row items-center justify-start gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.08)] snap-start max-[768px]:w-[160px] max-[768px]:h-14 max-[768px]:p-1.5 max-[480px]:w-[140px] max-[480px]:h-12 max-[480px]:p-1 max-[480px]:gap-1.5"
+                  className="flex-none bg-white border border-gray-200  p-2 w-[180px] h-16 flex flex-row items-center justify-start gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.08)] snap-start max-[768px]:w-[160px] max-[768px]:h-14 max-[768px]:p-1.5 max-[480px]:w-[140px] max-[480px]:h-12 max-[480px]:p-1 max-[480px]:gap-1.5"
                 >
                   <div className="relative w-10 h-10 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg max-[768px]:w-9 max-[768px]:h-9 max-[480px]:w-7 max-[480px]:h-7">
                     <Image
