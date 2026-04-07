@@ -26,9 +26,9 @@ export default function HeroSectionClient({ data }: Props) {
   });
 
   return (
-    <section className=" min-h-screen bg-[#f8ebe5] text-center py-10 md:py-16 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[1024px]:p-6 max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
+    <section className="min-h-[100vh] h-screen bg-[#f8ebe5] text-center py-4 md:py-6 font-['Space_Grotesk',sans-serif] overflow-hidden w-full max-w-full box-border flex flex-col justify-center">
       {/* === Main Two Column Layout === */}
-      <div className="max-w-[1080px] mx-auto flex flex-row items-center justify-between gap-6 mb-8 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
+      <div className="max-w-[1080px] mx-auto flex flex-row items-center justify-between gap-6 mb-4 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
         
         {/* === Left Column - Content === */}
         <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full hidden md:block">
@@ -143,16 +143,20 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* Heading */}
-          <h1 className="text-[1.6rem] font-semibold leading-tight mb-2">
-            {data.headlineMain}
+          <h1 className="text-[2.6rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.4rem] max-[968px]:text-[2rem] max-[768px]:text-[1.8rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.6rem]">
+            <span className="block">{data.headlineMain}</span>
+            <span className="block -mt-2 ">
+              <span className="text-black">{data.headlineHighlight}</span>
+              <span className="inline-flex items-center mx-1 align-middle">
+                <FlashfireLogo
+                  width={0}
+                  height={0}
+                  className="h-[3.5rem] w-auto inline-block -ml-4 -mr-4"
+                />
+              </span>
+              <span>{data.headlineSuffix}</span>
+            </span>
           </h1>
-
-          <h2 className="text-[1.6rem] font-semibold leading-tight -mt-2 mb-2">
-            <span className="text-[#ff4c00]">
-              {data.headlineHighlight}
-            </span>{" "}
-            {data.headlineSuffix}
-          </h2>
 
           {/* Description */}
           <p className="text-xs text-[#555] mb-4 px-2 leading-relaxed">
@@ -162,7 +166,7 @@ export default function HeroSectionClient({ data }: Props) {
           {/* CTA */}
           <button
             {...getButtonProps()}
-            className="w-full max-w-[260px] bg-black text-white py-2.5 rounded-lg font-semibold text-sm"
+            className="inline-block bg-[#ff4c00] text-white py-3 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-sm font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 "
           >
             {data.cta.label}
           </button>
@@ -200,29 +204,29 @@ export default function HeroSectionClient({ data }: Props) {
             
             <div className="relative z-10 w-full h-[240px] sm:w-[500px] sm:h-[330px]   overflow-hidden">
                 {/* Student Image */}
-  <Image
-    src="/images/students.png"
-    alt="Woman holding laptop"
-    fill
-    className="object-cover"
-    priority
-  />
+                  <Image
+                    src="/images/students.png"
+                    alt="Woman holding laptop"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
 
-  {/* Job Cards Overlay */}
-  <Image
-    src="/images/Job-titles.png" // <-- your uploaded image
-    alt="Job cards"
-    width={400}
-    height={120}
-    className="
-      absolute 
-      -top-12 sm:-top-10 
-      left-1/2 -translate-x-1/2 
-      z-20 
-      w-[90%] sm:w-[380px]
-      drop-shadow-xl
-    "
-  />
+            {/* Job Cards Overlay */}
+              <Image
+                src="/images/Job-titles.png" // <-- your uploaded image
+                alt="Job cards"
+                width={400}
+                height={120}
+                className="
+                  absolute 
+                  -top-12 sm:-top-10 
+                  left-1/2 -translate-x-1/2 
+                  z-20 
+                  w-[90%] sm:w-[380px]
+                  drop-shadow-xl
+                "
+              />
               </div>
             {/* Floating stats card */}
             <div className="absolute bottom-20 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-26">
@@ -244,7 +248,7 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* University logos below */}
-        <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-full mx-auto mt-0 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
+        <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-full mx-auto  scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
           <div className="flex items-center justify-start gap-[0.05rem] flex-nowrap w-max pl-2 pr-2 max-[480px]:pl-1 max-[480px]:pr-1">
             {data.universities.map((uni, index) => {
               const logoSrc = getUniversityLogo(uni.domain, uni.name);
