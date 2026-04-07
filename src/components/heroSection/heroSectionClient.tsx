@@ -61,7 +61,7 @@ export default function HeroSectionClient({ data }: Props) {
           </h1>
 
           {/* === Description === */}
-          <p className="font-['Satoshi',sans-serif] text-base font-medium leading-[1.5] text-[#555] max-w-[420px] mb-2 -mt-2 max-[1024px]:mx-auto max-[768px]:text-sm max-[768px]:mb-4 max-[480px]:text-xs max-[480px]:px-2">
+          <p className="font-['Satoshi',sans-serif] text-base font-medium leading-[1.5] text-[#555] max-w-[420px] mb-6  max-[1024px]:mx-auto max-[768px]:text-sm max-[768px]:mb-4 max-[480px]:text-xs max-[480px]:px-2">
             {data.description}
           </p>
 
@@ -102,12 +102,12 @@ export default function HeroSectionClient({ data }: Props) {
                 window.dispatchEvent(new CustomEvent("showCalendlyModal"));
               }
             }}
-            className="inline-block bg-[#ff4c00] text-white py-3 px-6 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-sm font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
+            className="inline-block bg-[#ff4c00] text-white py-3 px-4 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-sm font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
           >
             {data.cta.label}
           </button>
           {/* Trusted users text below image */}
-          <div className="flex items-center justify-center gap-2 -mt-12 max-[1024px]:mt-1">
+          {/* <div className="flex items-center justify-center gap-2 -mt-12 max-[1024px]:mt-1">
             <div className="flex -space-x-2">
               {[
                 "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
@@ -129,7 +129,7 @@ export default function HeroSectionClient({ data }: Props) {
               ))}
             </div>
             <p className="text-sm text-black font-medium ml-1 max-[480px]:text-xs">{data.trustText}</p>
-          </div>
+          </div> */}
         </div>
 
         {/* === Mobile Left Section === */}
@@ -167,7 +167,7 @@ export default function HeroSectionClient({ data }: Props) {
             {data.cta.label}
           </button>
           {/* Trusted users text below image */}
-          <div className="flex items-center justify-center gap-2 -mt-10 max-[1024px]:mt-1">
+          {/* <div className="flex items-center justify-center gap-2 -mt-10 max-[1024px]:mt-1">
             <div className="flex -space-x-2">
               {[
                 "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
@@ -189,7 +189,7 @@ export default function HeroSectionClient({ data }: Props) {
               ))}
             </div>
             <p className="text-sm text-black font-medium ml-1 max-[480px]:text-xs">{data.trustText}</p>
-          </div>
+          </div> */}
         </div>
 
         {/* === Right Column - Hero Image === */}
@@ -237,7 +237,7 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       {/* === Universities Section === */}
-      <div className="w-[65%] mx-auto mb-6 -mt-5 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
+      <div className="w-[65%] mx-auto mb-6 mt-5 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
         {/* Heading in separate box */}
         <div className="bg-white rounded-none py-3 px-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-[90%] max-w-[90%] mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
           <p className="text-[0.8rem] font-normal uppercase text-[#555] tracking-[0.05em] m-0 max-[768px]:text-[0.75rem] max-[480px]:text-[0.7rem]">{data.universityHeading}</p>
