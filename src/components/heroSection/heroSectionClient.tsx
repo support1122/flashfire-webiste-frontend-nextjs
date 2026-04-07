@@ -26,7 +26,7 @@ export default function HeroSectionClient({ data }: Props) {
   });
 
   return (
-    <section className="min-h-[100vh] h-screen bg-[#f8ebe5] text-center py-5 md:py-7 font-['Space_Grotesk',sans-serif] overflow-hidden w-full max-w-full box-border flex flex-col justify-center">
+    <section className="max-md:min-h-[100dvh] md:min-h-[100vh] md:h-screen bg-[#f8ebe5] text-center py-4 pb-10 max-[767px]:pt-2 md:py-7 font-['Space_Grotesk',sans-serif] w-full max-w-full box-border flex flex-col justify-start md:justify-center overflow-x-hidden max-md:overflow-y-visible md:overflow-hidden">
       {/* === Main Two Column Layout (~110% visual scale vs prior) === */}
       <div className="max-w-[1188px] mx-auto flex flex-row items-center justify-between gap-7 mb-5 max-[1024px]:flex-col max-[1024px]:gap-7 max-[1024px]:mb-8">
         
@@ -133,7 +133,7 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Mobile Left Section === */}
-        <div className="flex md:hidden flex-col items-center pt-20 text-center w-full px-4">
+        <div className="flex md:hidden flex-col items-center pt-[4.75rem] text-center w-full px-4 shrink-0">
           {/* Badge */}
           <div className="flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3 py-1.5 mb-3 bg-white/60">
             <div className="w-2 h-2 bg-[#ff4c00] rounded-full"></div>
