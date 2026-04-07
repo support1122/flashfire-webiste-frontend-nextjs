@@ -26,7 +26,7 @@ export default function HeroSectionClient({ data }: Props) {
   });
 
   return (
-    <section className="bg-[#f8ebe5] text-center p-2 pb-1 pt-2 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[1024px]:p-6 max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
+    <section className=" min-h-screen bg-[#f8ebe5] text-center py-10 md:py-16 font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border max-[1024px]:p-6 max-[768px]:p-4 max-[768px]:pb-10 max-[768px]:pt-6 max-[480px]:p-3 max-[480px]:pb-8 max-[480px]:pt-4">
       {/* === Main Two Column Layout === */}
       <div className="max-w-[1080px] mx-auto flex flex-row items-center justify-between gap-6 mb-8 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
         
@@ -237,14 +237,14 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       {/* === Universities Section === */}
-      <div className="w-[65%] mx-auto mb-6 mt-5 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
+      <div className="max-w-[900px] mx-auto mb-6 mt-5 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
         {/* Heading in separate box */}
-        <div className="bg-white rounded-none py-3 px-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-[90%] max-w-[90%] mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
+        <div className="bg-white rounded-none py-3 px-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
           <p className="text-[0.8rem] font-normal uppercase text-[#555] tracking-[0.05em] m-0 max-[768px]:text-[0.75rem] max-[480px]:text-[0.7rem]">{data.universityHeading}</p>
         </div>
 
         {/* University logos below */}
-        <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-[100%] max-w-[100%] mx-auto mt-0 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
+        <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-full mx-auto mt-0 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
           <div className="flex items-center justify-start gap-[0.05rem] flex-nowrap w-max pl-2 pr-2 max-[480px]:pl-1 max-[480px]:pr-1">
             {data.universities.map((uni, index) => {
               const logoSrc = getUniversityLogo(uni.domain, uni.name);
