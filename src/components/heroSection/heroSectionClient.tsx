@@ -61,7 +61,7 @@ export default function HeroSectionClient({ data }: Props) {
           </h1>
 
           {/* === Description === */}
-          <p className="font-['Satoshi',sans-serif] text-[1.1rem] font-medium leading-[1.5] text-[#555] max-w-[462px] mb-7  max-[1024px]:mx-auto max-[768px]:text-[0.9625rem] max-[768px]:mb-4 max-[480px]:text-xs max-[480px]:px-2">
+          <p className="font-['Satoshi',sans-serif] text-base font-medium leading-[1.5] text-[#555] max-w-[420px] mb-6 max-[1024px]:mx-auto max-[768px]:text-sm max-[768px]:mb-4 max-[480px]:text-xs max-[480px]:px-2">
             {data.description}
           </p>
 
@@ -159,7 +159,7 @@ export default function HeroSectionClient({ data }: Props) {
           </h1>
 
           {/* Description */}
-          <p className="text-[0.8125rem] text-[#555] mb-4 px-2 leading-relaxed">
+          <p className="text-xs text-[#555] mb-4 px-2 leading-relaxed">
             {data.description}
           </p>
 
