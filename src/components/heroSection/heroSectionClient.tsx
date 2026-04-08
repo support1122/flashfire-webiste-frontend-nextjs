@@ -28,7 +28,7 @@ export default function HeroSectionClient({ data }: Props) {
   return (
     <section className="min-h-[100vh]  bg-[#f8ebe5] py-4 md:py-5 text-center  font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border flex flex-col justify-center">
       {/* === Main Two Column Layout === */}
-      <div className="w-full md:px-25  px-2 flex flex-row items-center justify-between gap-6 mb-4 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
+      <div className="w-full md:px-25  px-2 flex flex-row items-center justify-between gap-4 mb-4 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
         
         {/* === Left Column - Content === */}
         <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full hidden md:block">
@@ -207,11 +207,25 @@ export default function HeroSectionClient({ data }: Props) {
           <div className="relative w-full aspect-square max-w-[420px] mx-auto">
             {/* Background decorative circle */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
-            
-              <div className="relative z-10 top-3 w-full h-[240px] sm:w-[500px] sm:h-[360px]   overflow-hidden">
+            <Image
+                    src="/images/image-jobtitle.png" // <-- your uploaded image
+                    alt="Job cards"
+                    width={400}
+                    height={120}
+                    className="
+                       absolute 
+                    -top-5 sm:-top-5 md:ml-2
+                      ml-4   left-1/2 
+                    -translate-x-[65%] sm:-translate-x-1/2
+                    z-20 
+                    w-[90%] sm:w-[380px]
+                    drop-shadow-xl
+                    "
+                  />
+              <div className="relative z-10 top-3 w-full h-[240px] sm:w-[550px] sm:h-[360px]   overflow-hidden">
                 {/* Student Image */}
                   <Image
-                    src="/images/Teamwork and opportunity.png"
+                    src="/images/Celebrating-friends-Photoroom.png"
                     alt="Woman holding laptop"
                     fill
                     className="object-cover"
@@ -219,7 +233,7 @@ export default function HeroSectionClient({ data }: Props) {
                   />
 
                   {/* Job Cards Overlay */}
-                  <Image
+                  {/* <Image
                     src="/images/image-jobtitle.png" // <-- your uploaded image
                     alt="Job cards"
                     width={400}
@@ -232,7 +246,7 @@ export default function HeroSectionClient({ data }: Props) {
                       w-[90%] sm:w-[380px]
                       drop-shadow-xl
                     "
-                  />
+                  /> */}
             </div>
             {/* Floating stats card */}
             <div className="absolute bottom-20 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-26">
