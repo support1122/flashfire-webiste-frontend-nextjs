@@ -57,10 +57,10 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* === Headline === */}
-          <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
+          <h1 className="text-[3.1rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.86rem] max-[968px]:text-[2.4rem] max-[768px]:text-[2.1rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.88rem]">
             <span className="block">{headlineFirst}</span>
             {headlineMid ? <span className="block">{headlineMid}</span> : null}
-            <span className="block -mt-3">
+            <span className="block -mt-4">
               <span className="text-black">{data.headlineHighlight}</span>
               <span className="inline-flex items-center mx-1 align-middle">
                 <FlashfireLogo
@@ -159,7 +159,7 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* Heading */}
-          <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
+          <h1 className="text-[3.1rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.86rem] max-[968px]:text-[2.4rem] max-[768px]:text-[2.1rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.88rem]">
             <span className="block">{headlineFirst}</span>
             {headlineMid ? <span className="block">{headlineMid}</span> : null}
             <span className="block -mt-2 ">
@@ -228,9 +228,9 @@ export default function HeroSectionClient({ data }: Props) {
                     height={120}
                     className="
                        absolute 
-                    -top-5 sm:-top-5 md:ml-2
+                    -top-6 sm:-top-8 md:ml-2
                       ml-4   left-1/2 
-                    -translate-x-[65%] sm:-translate-x-1/2
+                    -translate-x-[50%] sm:-translate-x-1/2
                     z-20 
                     w-[90%] sm:w-[380px]
                     drop-shadow-xl
