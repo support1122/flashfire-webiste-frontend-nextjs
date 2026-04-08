@@ -176,7 +176,7 @@ export default function HeroSectionClient({ data }: Props) {
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[2.8rem] w-auto inline-block -ml-4 -mr-4 max-[480px]:h-[2.4rem] max-[480px]:-ml-3 max-[480px]:-mr-3"
+                  className="h-[4.5rem] w-auto inline-block -ml-6 -mr-6 max-[480px]:h-[4rem] max-[480px]:-ml-5 max-[480px]:-mr-5"
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -329,3 +329,4 @@ export default function HeroSectionClient({ data }: Props) {
     </section>
   );
 }
+
