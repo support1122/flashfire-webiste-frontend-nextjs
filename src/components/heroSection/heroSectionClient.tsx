@@ -164,19 +164,19 @@ export default function HeroSectionClient({ data }: Props) {
 
           {/* Heading — three fixed lines on mobile: (1) full phrase (2) with (3) Flashfire + logo + suffix */}
           <h1 className="text-[3.1rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.86rem] max-[968px]:text-[2.4rem] max-[768px]:text-[2.1rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.88rem]">
-            <span className="block whitespace-nowrap [font-size:min(1.88rem,calc(0.55rem+3.85vw))] [line-height:1.12]">
+            <span className="block whitespace-nowrap [font-size:min(2.1rem,calc(0.3rem+6.8vw))] [line-height:1.12]">
               {headlineFirst}
             </span>
             {headlineMid ? (
-              <span className="block [font-size:min(1.88rem,calc(0.55rem+3.85vw))]">{headlineMid}</span>
+              <span className="block [font-size:min(2.1rem,calc(0.3rem+6.8vw))]">{headlineMid}</span>
             ) : null}
-            <span className="block -mt-2 whitespace-nowrap [font-size:min(1.88rem,calc(0.55rem+3.85vw))]">
+            <span className="block -mt-2 whitespace-nowrap [font-size:min(2.1rem,calc(0.3rem+6.8vw))]">
               <span className="text-black">{data.headlineHighlight}</span>
               <span className="inline-flex items-center mx-1 align-middle">
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[2.15rem] w-auto inline-block -ml-3 -mr-3 max-[480px]:h-[1.72rem] max-[480px]:-ml-2.5 max-[480px]:-mr-2.5"
+                  className="h-[2.8rem] w-auto inline-block -ml-4 -mr-4 max-[480px]:h-[2.4rem] max-[480px]:-ml-3 max-[480px]:-mr-3"
                 />
               </span>
               <span>{data.headlineSuffix}</span>
