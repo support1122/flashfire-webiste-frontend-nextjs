@@ -26,9 +26,9 @@ export default function HeroSectionClient({ data }: Props) {
   });
 
   return (
-    <section className="max-md:min-h-[100dvh] md:min-h-[100vh] md:h-screen bg-[#f8ebe5] text-center py-4 pb-10 max-[767px]:pt-2 md:py-7 font-['Space_Grotesk',sans-serif] w-full max-w-full box-border flex flex-col justify-start md:justify-center overflow-x-hidden max-md:overflow-y-visible md:overflow-hidden">
-      {/* === Main Two Column Layout (~110% visual scale vs prior) === */}
-      <div className="max-w-[1188px] mx-auto flex flex-row items-center justify-between gap-7 mb-5 max-[1024px]:flex-col max-[1024px]:gap-7 max-[1024px]:mb-8">
+    <section className="min-h-[100vh]  bg-[#f8ebe5] py-4 md:py-5 text-center  font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border flex flex-col justify-center">
+      {/* === Main Two Column Layout === */}
+      <div className="w-full md:px-25  px-2 flex flex-row items-center justify-between gap-4 mb-4 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
         
         {/* === Left Column - Content === */}
         <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full hidden md:block">
@@ -106,6 +106,9 @@ export default function HeroSectionClient({ data }: Props) {
           >
             {data.cta.label}
           </button>
+          <p className=" py-1 text-sm text-gray-500 ">
+            Join <span className="font-semibold text-black">600+ graduates</span> who landed interviews at top companies.
+          </p>
           {/* Trusted users text below image */}
           {/* <div className="flex items-center justify-center gap-2 -mt-12 max-[1024px]:mt-1">
             <div className="flex -space-x-2">
@@ -170,6 +173,9 @@ export default function HeroSectionClient({ data }: Props) {
           >
             {data.cta.label}
           </button>
+          <p className=" py-1 text-sm text-gray-500 ">
+            Join <span className="font-semibold text-black">600+ graduates</span> who landed interviews at top companies.
+          </p>
           {/* Trusted users text below image */}
           {/* <div className="flex items-center justify-center gap-2 -mt-10 max-[1024px]:mt-1">
             <div className="flex -space-x-2">
@@ -197,37 +203,51 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Right Column - Hero Image === */}
-        <div className="flex-1 -mb-10 mt-6 relative max-[1024px]:w-full max-[1024px]:max-w-[495px] max-[1024px]:mx-auto">
-          <div className="relative w-full aspect-square max-w-[462px] mx-auto">
+        <div className="flex-1 -mb-10 mt-2 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
+          <div className="relative w-full aspect-square max-w-[420px] mx-auto">
             {/* Background decorative circle */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
-            
-            <div className="relative z-10 w-full h-[264px] sm:w-[550px] sm:h-[363px]   overflow-hidden">
+            <Image
+                    src="/images/image-jobtitle.png" // <-- your uploaded image
+                    alt="Job cards"
+                    width={400}
+                    height={120}
+                    className="
+                       absolute 
+                    -top-5 sm:-top-5 md:ml-2
+                      ml-4   left-1/2 
+                    -translate-x-[65%] sm:-translate-x-1/2
+                    z-20 
+                    w-[90%] sm:w-[380px]
+                    drop-shadow-xl
+                    "
+                  />
+              <div className="relative z-10 top-3 w-full h-[240px] sm:w-[550px] sm:h-[360px]   overflow-hidden">
                 {/* Student Image */}
                   <Image
-                    src="/images/students.png"
+                    src="/images/Celebrating-friends-Photoroom.png"
                     alt="Woman holding laptop"
                     fill
                     className="object-cover"
                     priority
                   />
 
-            {/* Job Cards Overlay */}
-              <Image
-                src="/images/Job-titles.png" // <-- your uploaded image
-                alt="Job cards"
-                width={440}
-                height={132}
-                className="
-                  absolute 
-                  -top-12 sm:-top-10 
-                  left-1/2 -translate-x-1/2 
-                  z-20 
-                  w-[90%] sm:w-[418px]
-                  drop-shadow-xl
-                "
-              />
-              </div>
+                  {/* Job Cards Overlay */}
+                  {/* <Image
+                    src="/images/image-jobtitle.png" // <-- your uploaded image
+                    alt="Job cards"
+                    width={400}
+                    height={120}
+                    className="
+                      absolute 
+                      -top-4 sm:-top-3 
+                      left-1/2 -translate-x-1/2 
+                      z-20 
+                      w-[90%] sm:w-[380px]
+                      drop-shadow-xl
+                    "
+                  /> */}
+            </div>
             {/* Floating stats card */}
             <div className="absolute bottom-20 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-26">
               <div>

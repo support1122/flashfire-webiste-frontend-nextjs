@@ -14,11 +14,13 @@ import HomePagePTNote from "@/src/components/homePagePTNote/homePagePTNote";
 import HomePageResultStats from "@/src/components/homePageResultStats/homePageResultStats";
 import HomePageStatsCards from "@/src/components/homePageStatsCards/homePageStatsCards";
 import HomePageSteps from "@/src/components/homePageSteps/homePageSteps";
+import HomePageJobMatchingSection from "@/src/components/homePageJobMatchingSection/homePageJobMatchingSection";
 import HomePageVideo from "@/src/components/homePageVideo/homePageVideo";
 import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWhyChooseFF";
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
+import YouTubeVideo from "../../youtubeVideo/youtubeVideo";
 
 export default function CanadaHome() {
   const pathname = usePathname();
@@ -53,16 +55,19 @@ export default function CanadaHome() {
   return (
     <>
      <Navbar />
-      <HeroSection /> {/* using useState, so client */}
+      <HeroSection />
+      <HomePageStatsCards />
+      <HomePageSteps /> {/* using useState, so client */}
+      <HomePageJobMatchingSection />
       <HomePageCareerCTA />
       <HomePageBeforeAfter />
       <HomePageResultStats />
-      <HomePageStatsCards />
+     
       <HomePageOfferLetters />
      
       <HomePageMilestones /> 
       <HomePageVideo />
-      <HomePageSteps />
+      
      
      
       <HomePageWhyChooseFF /> 
@@ -76,12 +81,11 @@ export default function CanadaHome() {
       
       <HomePagePTNote /> {/* PT section not so good */}
      
-      <HomePageFAQ /> {/* using useState, so client */}
+      <HomePageFAQ />
+      <YouTubeVideo />
       <HomePageDemoCTA />
-     
-     
       <Footer />
-      <SalesPopUp />
+      
     </>
   );
 }
