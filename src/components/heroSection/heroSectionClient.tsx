@@ -225,18 +225,18 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Right Column - Hero Image === */}
-        <div className="flex-1 -mb-10 mt-2 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
+        <div className="flex-1 -mb-10 mt-12 md:mt-2 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
           <div className="relative w-full aspect-square max-w-[420px] mx-auto">
             {/* Background decorative circle */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
             <Image
-                    src="/images/image-jobtitle.png" // <-- your uploaded image
+                    src="/images/image-jobtitle.png"
                     alt="Job cards"
                     width={400}
                     height={120}
                     className="
                        absolute 
-                    -top-16 sm:-top-14 md:-top-10 md:ml-2
+                    -top-10 sm:-top-10 md:-top-10 md:ml-2
                       ml-4   left-1/2 
                     -translate-x-[50%] sm:-translate-x-1/2
                     z-20 
