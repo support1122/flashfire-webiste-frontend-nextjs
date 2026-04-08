@@ -47,6 +47,7 @@ export default function HeroSectionClient({ data }: Props) {
           {/* === Headline === */}
           <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
             <span className="block">{data.headlineMain}</span>
+            <span className="block">{data.headlineMid}</span>
             <span className="block -mt-3">
               <span className="text-black">{data.headlineHighlight}</span>
               <span className="inline-flex items-center mx-1 align-middle">
@@ -148,6 +149,7 @@ export default function HeroSectionClient({ data }: Props) {
           {/* Heading */}
           <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
             <span className="block">{data.headlineMain}</span>
+            <span className="block">{data.headlineMid}</span>
             <span className="block -mt-2 ">
               <span className="text-black">{data.headlineHighlight}</span>
               <span className="inline-flex items-center mx-1 align-middle">
