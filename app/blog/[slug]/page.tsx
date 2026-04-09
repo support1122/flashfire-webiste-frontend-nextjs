@@ -78,6 +78,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "Job Search Tips: Proven Ways to Get Hired Faster"
     : post.slug === "best-websites-for-job-search"
     ? "Best Websites for Job Search: Top Sites to Get Hired"
+    : post.slug === "best-job-search-apps"
+    ? "Best Job Search Apps: Top Job Hunting Apps 2026"
+    : post.slug === "what-to-wear-for-zoom-interview"
+    ? "What to Wear for a Zoom Interview (2026 Guide)"
+    : post.slug === "how-to-follow-up-on-job-application"
+    ? "How to Follow Up on a Job Application (2026 Guide)"
     : `${post.title} | Flashfire Blog`;
   
   return {
