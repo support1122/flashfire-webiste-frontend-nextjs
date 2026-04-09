@@ -225,8 +225,8 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Right Column - Hero Image === */}
-        <div className="flex-1 -mb-10 mt-12 md:mt-2 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
-          <div className="relative w-full aspect-square max-w-[420px] mx-auto">
+        <div className="flex-1 -mb-4 mt-12 md:mt-2 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
+          <div className="relative w-full max-w-[420px] mx-auto">
             {/* Background decorative circle */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
             <Image
@@ -271,7 +271,7 @@ export default function HeroSectionClient({ data }: Props) {
                   /> */}
             </div>
             {/* Floating stats card */}
-            <div className="absolute bottom-20 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-26">
+            <div className="absolute bottom-4 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-2">
               <div>
                 <p className="text-[#ff4c00] font-bold text-[0.8125rem]  leading-tight max-[480px]:text-[0.715rem]">50+ USERS LANDED JOB</p>
               </div>
@@ -283,7 +283,7 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       {/* === Universities Section === */}
-      <div className="max-w-[990px] mx-auto mb-7 mt-6 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
+      <div className="max-w-[990px] mx-auto mb-7 mt-1 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
         {/* Heading in separate box */}
         <div className="bg-white rounded-none py-3.5 px-[1.375rem] text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
           <p className="text-[0.88rem] font-normal uppercase text-[#555] tracking-[0.05em] m-0 max-[768px]:text-[0.825rem] max-[480px]:text-[0.77rem]">{data.universityHeading}</p>
@@ -329,4 +329,3 @@ export default function HeroSectionClient({ data }: Props) {
     </section>
   );
 }
-
