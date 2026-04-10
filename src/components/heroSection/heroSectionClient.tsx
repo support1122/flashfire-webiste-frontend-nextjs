@@ -123,7 +123,7 @@ export default function HeroSectionClient({ data }: Props) {
             type="button"
             {...getButtonProps()}
             onClick={handleGetStartedClick}
-            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
+            className="relative z-[1] touch-manipulation inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
           >
             {data.cta.label}
           </button>
@@ -157,7 +157,8 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Mobile Left Section === */}
-        <div className="flex md:hidden flex-col items-center pt-[4.75rem] text-center w-full px-4 shrink-0">
+        {/* z-30 so taps aren’t stolen by the hero job-cards image (absolute, z-20, -top) overlapping this column */}
+        <div className="relative z-30 flex md:hidden flex-col items-center pt-[4.75rem] text-center w-full px-4 shrink-0">
           {/* Badge */}
           <div className="flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3 py-1.5 mb-3 bg-white/60">
             <div className="w-2 h-2 bg-[#ff4c00] rounded-full"></div>
@@ -197,7 +198,7 @@ export default function HeroSectionClient({ data }: Props) {
             type="button"
             {...getButtonProps()}
             onClick={handleGetStartedClick}
-            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 "
+            className="relative z-[1] touch-manipulation inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 "
           >
             {data.cta.label}
           </button>
@@ -231,10 +232,10 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Right Column - Hero Image === */}
-        <div className="flex-1 -mb-4 mt-12 md:mt-2 relative max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
+        <div className="relative z-0 flex-1 -mb-4 mt-12 md:mt-2 max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
           <div className="relative w-full max-w-[420px] mx-auto">
             {/* Background decorative circle */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90"></div>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90" />
             <Image
                     src="/images/image-jobtitle.png"
                     alt="Job cards"
