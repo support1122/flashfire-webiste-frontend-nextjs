@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { MouseEvent } from "react";
 import { HeroSectionData } from "@/src/types/heroSectionData";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
@@ -36,6 +37,41 @@ export default function HeroSectionClient({ data }: Props) {
       }
     },
   });
+
+  const handleGetStartedClick = (e: MouseEvent<HTMLButtonElement>) => {
+    try {
+      e.preventDefault();
+      e.stopPropagation();
+    } catch {
+      // ignore cross-origin or non-cancelable events
+    }
+    if (typeof window === "undefined") return;
+
+    const utmSource = localStorage.getItem("utm_source") || "WEBSITE";
+    const utmMedium = localStorage.getItem("utm_medium") || "Hero_Section";
+    GTagUTM({
+      eventName: "sign_up_click",
+      label: "Hero_Start_Free_Trial_Button",
+      utmParams: {
+        utm_source: utmSource,
+        utm_medium: utmMedium,
+        utm_campaign: localStorage.getItem("utm_campaign") || "Website",
+      },
+    });
+    trackButtonClick("Get Started", "hero_cta", "cta", {
+      button_location: "hero_main_cta",
+      section: "hero_landing",
+      target_url: "/Get-Started",
+    });
+    trackSignupIntent("hero_cta", {
+      signup_source: "hero_main_button",
+      funnel_stage: "signup_intent",
+      target_url: "/Get-Started",
+    });
+    sessionStorage.setItem("preserveScrollPosition", window.scrollY.toString());
+    window.history.pushState({}, "", "/Get-Started");
+    window.dispatchEvent(new CustomEvent("showCalendlyModal"));
+  };
 
   return (
     <section className="min-h-[100vh]  bg-[#f8ebe5] py-4 md:py-5 text-center  font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border flex flex-col justify-center">
@@ -84,42 +120,10 @@ export default function HeroSectionClient({ data }: Props) {
 
           {/* === CTA Button === */}
           <button
+            type="button"
             {...getButtonProps()}
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                const utmSource = typeof window !== "undefined"
-                  ? localStorage.getItem("utm_source") || "WEBSITE"
-                  : "WEBSITE";
-                const utmMedium = typeof window !== "undefined"
-                  ? localStorage.getItem("utm_medium") || "Hero_Section"
-                  : "Hero_Section";
-                GTagUTM({
-                  eventName: "sign_up_click",
-                  label: "Hero_Start_Free_Trial_Button",
-                  utmParams: {
-                    utm_source: utmSource,
-                    utm_medium: utmMedium,
-                    utm_campaign: typeof window !== "undefined"
-                      ? localStorage.getItem("utm_campaign") || "Website"
-                      : "Website",
-                  },
-                });
-                trackButtonClick("Get Started", "hero_cta", "cta", {
-                  button_location: "hero_main_cta",
-                  section: "hero_landing",
-                  target_url: "/Get-Started"
-                });
-                trackSignupIntent("hero_cta", {
-                  signup_source: "hero_main_button",
-                  funnel_stage: "signup_intent",
-                  target_url: "/Get-Started"
-                });
-                sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-                window.history.pushState({}, '', '/Get-Started');
-                window.dispatchEvent(new CustomEvent("showCalendlyModal"));
-              }
-            }}
-            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
+            onClick={handleGetStartedClick}
+            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
           >
             {data.cta.label}
           </button>
@@ -190,8 +194,10 @@ export default function HeroSectionClient({ data }: Props) {
 
           {/* CTA */}
           <button
+            type="button"
             {...getButtonProps()}
-            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 "
+            onClick={handleGetStartedClick}
+            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 "
           >
             {data.cta.label}
           </button>
