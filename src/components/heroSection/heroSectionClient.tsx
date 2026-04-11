@@ -254,7 +254,7 @@ export default function HeroSectionClient({ data }: Props) {
               <div className="relative z-10 top-3 w-full h-[240px] sm:w-[550px] sm:h-[360px]   overflow-hidden">
                 {/* Student Image */}
                   <Image
-                    src="/images/Celebrating-friends-Photoroom.png"
+                    src="/images/3ed.png"
                     alt="Woman holding laptop"
                     fill
                     className="object-cover"
