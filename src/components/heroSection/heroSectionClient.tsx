@@ -33,19 +33,19 @@ export default function HeroSectionClient({ data }: Props) {
         {/* === Left Column - Content === */}
         <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full hidden md:block">
           {/* === Top Badge === */}
-          <div className="inline-flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3 py-1.5 mb-4 bg-white/50 max-[768px]:mb-4 max-[480px]:px-3 max-[480px]:py-1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-[#ff4c00]">
+          <div className="inline-flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3.5 py-2 mb-5 bg-white/50 max-[768px]:mb-4 max-[480px]:px-3 max-[480px]:py-1.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#ff4c00]">
               <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <span className="text-[#ff4c00] text-xs font-medium max-[480px]:text-xs">
+            <span className="text-[#ff4c00] text-[0.8125rem] font-medium max-[480px]:text-xs">
               {data.badges[0] || "AI - Powerd Job Applications"}
             </span>
           </div>
 
           {/* === Headline === */}
-          <h1 className="text-[2.6rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.4rem] max-[968px]:text-[2rem] max-[768px]:text-[1.8rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.6rem]">
+          <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
             <span className="block">{data.headlineMain}</span>
             <span className="block -mt-3">
               <span className="text-black">{data.headlineHighlight}</span>
@@ -53,7 +53,7 @@ export default function HeroSectionClient({ data }: Props) {
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[5.5rem] w-auto inline-block max-[768px]:h-[1.8rem] max-[480px]:h-[1.6rem] -mr-5 -ml-5"
+                  className="h-[6.05rem] w-auto inline-block max-[768px]:h-[1.98rem] max-[480px]:h-[1.76rem] -mr-5 -ml-5"
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -61,7 +61,7 @@ export default function HeroSectionClient({ data }: Props) {
           </h1>
 
           {/* === Description === */}
-          <p className="font-['Satoshi',sans-serif] text-base font-medium leading-[1.5] text-[#555] max-w-[420px] mb-6  max-[1024px]:mx-auto max-[768px]:text-sm max-[768px]:mb-4 max-[480px]:text-xs max-[480px]:px-2">
+          <p className="font-['Satoshi',sans-serif] text-base font-medium leading-[1.5] text-[#555] max-w-[420px] mb-6 max-[1024px]:mx-auto max-[768px]:text-sm max-[768px]:mb-4 max-[480px]:text-xs max-[480px]:px-2">
             {data.description}
           </p>
 
@@ -102,7 +102,7 @@ export default function HeroSectionClient({ data }: Props) {
                 window.dispatchEvent(new CustomEvent("showCalendlyModal"));
               }
             }}
-            className="inline-block bg-[#ff4c00] text-white py-3 px-4 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-sm font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
+            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
           >
             {data.cta.label}
           </button>
@@ -136,7 +136,7 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Mobile Left Section === */}
-        <div className="flex md:hidden flex-col items-center pt-20 text-center w-full px-4">
+        <div className="flex md:hidden flex-col items-center pt-[5.75rem] text-center w-full px-4 shrink-0">
           {/* Badge */}
           <div className="flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3 py-1.5 mb-3 bg-white/60">
             <div className="w-2 h-2 bg-[#ff4c00] rounded-full"></div>
@@ -146,7 +146,7 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* Heading */}
-          <h1 className="text-[2.6rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.4rem] max-[968px]:text-[2rem] max-[768px]:text-[1.8rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.6rem]">
+          <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
             <span className="block">{data.headlineMain}</span>
             <span className="block -mt-2 ">
               <span className="text-black">{data.headlineHighlight}</span>
@@ -154,7 +154,7 @@ export default function HeroSectionClient({ data }: Props) {
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[3.5rem] w-auto inline-block -ml-4 -mr-4"
+                  className="h-[3.85rem] w-auto inline-block -ml-4 -mr-4"
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -169,7 +169,7 @@ export default function HeroSectionClient({ data }: Props) {
           {/* CTA */}
           <button
             {...getButtonProps()}
-            className="inline-block bg-[#ff4c00] text-white py-3 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-sm font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 "
+            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 "
           >
             {data.cta.label}
           </button>
@@ -251,7 +251,7 @@ export default function HeroSectionClient({ data }: Props) {
             {/* Floating stats card */}
             <div className="absolute bottom-20 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-26">
               <div>
-                <p className="text-[#ff4c00] font-bold text-xs  leading-tight max-[480px]:text-[0.65rem]">50+ USERS LANDED JOB</p>
+                <p className="text-[#ff4c00] font-bold text-[0.8125rem]  leading-tight max-[480px]:text-[0.715rem]">50+ USERS LANDED JOB</p>
               </div>
             </div>
           </div>
@@ -261,10 +261,10 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       {/* === Universities Section === */}
-      <div className="max-w-[900px] mx-auto mb-6 mt-5 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
+      <div className="max-w-[990px] mx-auto mb-7 mt-6 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
         {/* Heading in separate box */}
-        <div className="bg-white rounded-none py-3 px-5 text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
-          <p className="text-[0.8rem] font-normal uppercase text-[#555] tracking-[0.05em] m-0 max-[768px]:text-[0.75rem] max-[480px]:text-[0.7rem]">{data.universityHeading}</p>
+        <div className="bg-white rounded-none py-3.5 px-[1.375rem] text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
+          <p className="text-[0.88rem] font-normal uppercase text-[#555] tracking-[0.05em] m-0 max-[768px]:text-[0.825rem] max-[480px]:text-[0.77rem]">{data.universityHeading}</p>
         </div>
 
         {/* University logos below */}
@@ -276,15 +276,15 @@ export default function HeroSectionClient({ data }: Props) {
               return (
                 <div
                   key={index}
-                  className="flex-none bg-white border border-gray-200  p-2 w-[180px] h-16 flex flex-row items-center justify-start gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.08)] snap-start max-[768px]:w-[160px] max-[768px]:h-14 max-[768px]:p-1.5 max-[480px]:w-[140px] max-[480px]:h-12 max-[480px]:p-1 max-[480px]:gap-1.5"
+                  className="flex-none bg-white border border-gray-200  p-2.5 w-[198px] h-[4.4rem] flex flex-row items-center justify-start gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.08)] snap-start max-[768px]:w-[176px] max-[768px]:h-[3.85rem] max-[768px]:p-1.5 max-[480px]:w-[154px] max-[480px]:h-[3.3rem] max-[480px]:p-1 max-[480px]:gap-1.5"
                 >
-                  <div className="relative w-10 h-10 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg max-[768px]:w-9 max-[768px]:h-9 max-[480px]:w-7 max-[480px]:h-7">
+                  <div className="relative w-11 h-11 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg max-[768px]:w-10 max-[768px]:h-10 max-[480px]:w-8 max-[480px]:h-8">
                     <Image
                       src={logoSrc}
                       alt={uni.name}
-                      width={40}
-                      height={40}
-                      sizes="40px"
+                      width={44}
+                      height={44}
+                      sizes="44px"
                       className="object-contain w-full h-full p-1"
                       loading="lazy"
                       unoptimized={true}
@@ -295,7 +295,7 @@ export default function HeroSectionClient({ data }: Props) {
                     />
                   </div>
 
-                  <p className="text-black text-[0.75rem] font-medium text-left leading-[1.3] m-0 p-0 flex-1 max-[768px]:text-[0.7rem] max-[480px]:text-[0.65rem] max-[480px]:leading-[1.2] line-clamp-2">
+                  <p className="text-black text-[0.825rem] font-medium text-left leading-[1.3] m-0 p-0 flex-1 max-[768px]:text-[0.77rem] max-[480px]:text-[0.715rem] max-[480px]:leading-[1.2] line-clamp-2">
                     {uni.name}
                   </p>
                 </div>

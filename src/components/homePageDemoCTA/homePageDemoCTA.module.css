@@ -14,9 +14,9 @@
   color: #fff;
   border-radius: 1.5rem;
   padding: 0;
-  box-shadow: 
+  /* box-shadow: 
     0 25px 50px -12px rgba(245, 94, 29, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset; */
   overflow: hidden;
   position: relative;
 }

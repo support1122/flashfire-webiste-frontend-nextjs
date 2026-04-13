@@ -180,11 +180,21 @@
   .quoteCard,
   .whatsappCard {
     width: 100%;
+    min-width: 0;
   }
 
   .authorImage {
     position: static;
     margin-top: 1.5rem;
     align-self: center;
+  }
+
+  .ptNoteSection {
+    padding: 2.5rem 1rem;
+  }
+
+  .container {
+    gap: 1rem;
+    padding: 0.75rem;
   }
 }

@@ -54,7 +54,7 @@ export default function HomePageSteps() {
   ];
 
   return (
-    <section className="bg-white py-12 px-6  text-center font-['Space_Grotesk',sans-serif]">
+    <section className="bg-[#f5f5f4] py-12 px-6  text-center font-['Space_Grotesk',sans-serif]">
 
       <div className="mx-auto max-w-6xl px-4 text-center">
 
