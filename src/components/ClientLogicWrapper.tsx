@@ -176,8 +176,10 @@ function ClientLogicWrapperContent({
     useEffect(() => {
         // Check if forceShowCalendlyModal is true FIRST (button clicked from any page) - show modal without navigation
         // This allows modal to show on features/pricing/how-it-works pages while keeping that page visible
-        // IMPORTANT: Check this BEFORE geoLoading check so modal can show immediately
         if (forceShowCalendlyModal) {
+            if (geoLoading) {
+                return;
+            }
             setForceShowCalendlyModal(false); // Reset the flag
             modalDismissedForRouteRef.current = null; // Reset dismissed state
             
@@ -185,7 +187,7 @@ function ClientLogicWrapperContent({
             const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
             
             // Check if user is from India - show geo-block modal instead
-            if (!geoLoading && isFromIndia && !geoBypassActive) {
+            if (isFromIndia && !geoBypassActive) {
                 setShowGeoBlockModal(true);
                 setShowCalendlyModal(false);
                 setShowSignupModal(false);
@@ -214,14 +216,16 @@ function ClientLogicWrapperContent({
 
         // Check if forceShowModal is true (button clicked from any page) - show modal without navigation
         // This allows modal to show on testimonials page while keeping that page visible
-        // IMPORTANT: Check this BEFORE geoLoading check so modal can show immediately
         if (forceShowModal) {
+            if (geoLoading) {
+                return;
+            }
             setForceShowModal(false);
             modalDismissedForRouteRef.current = null;
             
             const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
             
-            if (!geoLoading && isFromIndia && !geoBypassActive) {
+            if (isFromIndia && !geoBypassActive) {
                 setShowGeoBlockModal(true);
                 setShowCalendlyModal(false);
                 setShowSignupModal(false);
@@ -389,7 +393,7 @@ function ClientLogicWrapperContent({
                 lastRouteWithModalRef.current = null;
             }
         }
-    }, [pathname, searchParams, isFromIndia, geoLoading, forceShowModal, forceShowCalendlyModal]);
+    }, [pathname, searchParams, isFromIndia, geoLoading, geoBypassActive, forceShowModal, forceShowCalendlyModal]);
 
     // Handle modal close - mark as dismissed for current route and clean URL
     const handleGeoBlockModalClose = () => {
