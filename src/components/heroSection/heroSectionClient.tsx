@@ -93,11 +93,6 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* === Headline === */}
-
-          <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
-            <span className="block">{data.headlineMain}</span>
-            <span className="block -mt-3">
-
           <h1 className="text-[3.1rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.86rem] max-[968px]:text-[2.4rem] max-[768px]:text-[2.1rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.88rem]">
             <span className="block max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(2.4rem,calc(0.65rem+2.65vw))] max-[1024px]:[line-height:1.12]">
               {headlineFirst}
@@ -106,7 +101,6 @@ export default function HeroSectionClient({ data }: Props) {
               <span className="block max-[1024px]:[font-size:min(2.4rem,calc(0.65rem+2.65vw))]">{headlineMid}</span>
             ) : null}
             <span className="block -mt-4 max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(2.4rem,calc(0.65rem+2.65vw))]">
-
               <span className="text-black">{data.headlineHighlight}</span>
               <span className="inline-flex items-center mx-1 align-middle">
                 <FlashfireLogo
@@ -128,46 +122,8 @@ export default function HeroSectionClient({ data }: Props) {
           <button
             type="button"
             {...getButtonProps()}
-
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                const utmSource = typeof window !== "undefined"
-                  ? localStorage.getItem("utm_source") || "WEBSITE"
-                  : "WEBSITE";
-                const utmMedium = typeof window !== "undefined"
-                  ? localStorage.getItem("utm_medium") || "Hero_Section"
-                  : "Hero_Section";
-                GTagUTM({
-                  eventName: "sign_up_click",
-                  label: "Hero_Start_Free_Trial_Button",
-                  utmParams: {
-                    utm_source: utmSource,
-                    utm_medium: utmMedium,
-                    utm_campaign: typeof window !== "undefined"
-                      ? localStorage.getItem("utm_campaign") || "Website"
-                      : "Website",
-                  },
-                });
-                trackButtonClick("Get Started", "hero_cta", "cta", {
-                  button_location: "hero_main_cta",
-                  section: "hero_landing",
-                  target_url: "/Get-Started"
-                });
-                trackSignupIntent("hero_cta", {
-                  signup_source: "hero_main_button",
-                  funnel_stage: "signup_intent",
-                  target_url: "/Get-Started"
-                });
-                sessionStorage.setItem('preserveScrollPosition', window.scrollY.toString());
-                window.history.pushState({}, '', '/Get-Started');
-                window.dispatchEvent(new CustomEvent("showCalendlyModal"));
-              }
-            }}
-            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
-
             onClick={handleGetStartedClick}
             className="relative z-[1] touch-manipulation inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
-
           >
             {data.cta.label}
           </button>
@@ -201,9 +157,6 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Mobile Left Section === */}
-
-        <div className="flex md:hidden flex-col items-center pt-[5.75rem] text-center w-full px-4 shrink-0">
-
         {/* z-30 so taps aren’t stolen by the hero job-cards image (absolute, z-20, -top) overlapping this column */}
         <div className="relative z-30 flex md:hidden flex-col items-center pt-[4.75rem] text-center w-full px-4 shrink-0">
           {/* Badge */}
@@ -213,12 +166,6 @@ export default function HeroSectionClient({ data }: Props) {
               {data.badges[0] || "AI Powered"}
             </span>
           </div>
-
- 
-          {/* Heading */}
-          <h1 className="text-[2.86rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.64rem] max-[968px]:text-[2.2rem] max-[768px]:text-[1.98rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.76rem]">
-            <span className="block">{data.headlineMain}</span>
-            <span className="block -mt-2 ">
 
           {/* Heading — three fixed lines on mobile: (1) full phrase (2) with (3) Flashfire + logo + suffix */}
           <h1 className="text-[3.1rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.86rem] max-[968px]:text-[2.4rem] max-[768px]:text-[2.1rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.88rem]">
@@ -234,7 +181,6 @@ export default function HeroSectionClient({ data }: Props) {
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[3.85rem] w-auto inline-block -ml-4 -mr-4"
                   className="h-[4.5rem] w-auto inline-block -ml-6 -mr-6 max-[480px]:h-[4rem] max-[480px]:-ml-5 max-[480px]:-mr-5"
                 />
               </span>
@@ -251,7 +197,6 @@ export default function HeroSectionClient({ data }: Props) {
           <button
             type="button"
             {...getButtonProps()}
-            className="inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit hover:bg-black hover:-translate-y-0.5 active:translate-y-0 "
             onClick={handleGetStartedClick}
             className="relative z-[1] touch-manipulation inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 "
           >
@@ -346,8 +291,6 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       {/* === Universities Section === */}
-      <div className="max-w-[990px] mx-auto mb-7 mt-6 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
-
       <div className="max-w-[990px] mx-auto mb-7 mt-1 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
         {/* Heading in separate box */}
         <div className="bg-white rounded-none py-3.5 px-[1.375rem] text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
