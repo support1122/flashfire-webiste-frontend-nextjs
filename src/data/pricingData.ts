@@ -26,7 +26,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/3M2MG4HGDJVL2",
+    paymentLink: "https://buy.stripe.com/eVq9AV0WY5iGciAegD3AY01",
   },
   {
     title: "IGNITE",
@@ -42,7 +42,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/F6CESAWAYUYU2",
+    paymentLink: "https://buy.stripe.com/bJe28t7lm12qaasa0n3AY02",
   },
   {
     title: "PROFESSIONAL",
@@ -58,7 +58,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/LFLS9JHH6AKKU",
+    paymentLink: "https://buy.stripe.com/14A6oJcFGfXkgyQfkH3AY03",
   },
   {
     title: "EXECUTIVE",
@@ -76,7 +76,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: true,
-    paymentLink: "https://www.paypal.com/ncp/payment/CDRFGB6M566X8",
+    paymentLink: "https://buy.stripe.com/eVq7sNfRS4eCciAgoL3AY04",
   },
 ];
 
