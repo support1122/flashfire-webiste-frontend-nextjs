@@ -254,9 +254,10 @@ export default function HeroSectionClient({ data }: Props) {
               <div className="relative z-10 top-3 w-full h-[240px] sm:w-[550px] sm:h-[360px]   overflow-hidden">
                 {/* Student Image */}
                   <Image
-                    src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/3ed.png"
+                    src="/images/3ed.webp"
                     alt="Woman holding laptop"
                     fill
+                    sizes="(max-width: 640px) 100vw, 550px"
                     className="object-cover"
                     priority
                   />
