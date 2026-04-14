@@ -50,8 +50,8 @@ export default function BeforeAfterComparison() {
       className="relative overflow-hidden bg-white py-16 sm:py-20 md:py-24"
       style={{ fontFamily: "var(--font-space-grotesk)" }}
     >
-      <div className="pointer-events-none absolute left-[-8rem] top-20 h-[18rem] w-[18rem] bg-[rgba(245,93,29,0.16)] blur-[120px] opacity-80" />
-      <div className="pointer-events-none absolute right-[-8rem] top-32 h-[18rem] w-[18rem] bg-[rgba(245,93,29,0.16)] blur-[120px] opacity-80" />
+      <div className="pointer-events-none absolute left-[-10rem] top-12 h-[28rem] w-[28rem] rounded-full bg-[rgba(245,93,29,0.18)] blur-[140px] opacity-90" />
+      <div className="pointer-events-none absolute right-[-10rem] top-12 h-[28rem] w-[28rem] rounded-full bg-[rgba(245,93,29,0.18)] blur-[140px] opacity-90" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-[24px] border border-[#ece7e4] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
@@ -102,12 +102,12 @@ export default function BeforeAfterComparison() {
           </div>
 
           <div className="px-5 py-6 sm:px-8 md:px-10 md:py-8">
-            <div className="hidden grid-cols-[1.1fr_1fr_1fr] items-center gap-6 border-b border-[#ece7e4] pb-5 text-sm font-semibold uppercase tracking-[0.16em] text-[#6b7280] md:grid">
+            <div className="hidden grid-cols-[1.1fr_1fr_1fr] items-center gap-6 border-b border-[#e5e7eb] pb-5 text-sm font-semibold uppercase tracking-[0.16em] text-[#6b7280] md:grid">
               <div>What changes</div>
-              <div className="rounded-full border border-[#ffd9c7] bg-[#fff3ed] px-4 py-2 text-center text-[#ff4c00]">
+              <div className="rounded-full border border-[#ffd9c7] bg-white px-4 py-2 text-center text-[#ff4c00]">
                 Before Flashfire
               </div>
-              <div className="rounded-full border border-[#ffd9c7] bg-[#fff7f3] px-4 py-2 text-center text-[#d64b00]">
+              <div className="rounded-full border border-[#ffd9c7] bg-white px-4 py-2 text-center text-[#d64b00]">
                 With Flashfire
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function BeforeAfterComparison() {
               {comparisonItems.map((item, index) => (
                 <div
                   key={index}
-                  className="grid gap-4 border-b border-[#f1ebe8] py-5 last:border-b-0 md:grid-cols-[1.1fr_1fr_1fr] md:gap-6 md:py-6"
+                  className="grid gap-4 border-b border-[#e5e7eb] py-5 last:border-b-0 md:grid-cols-[1.1fr_1fr_1fr] md:gap-6 md:py-6"
                 >
                   <div className="md:pr-4">
                     <h3 className="text-lg font-semibold text-[#02060A]">{item.title}</h3>
@@ -125,26 +125,26 @@ export default function BeforeAfterComparison() {
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border border-[#ffe1d2] bg-[#fff8f4] p-4">
+                  <div className="rounded-2xl border border-[#d1d5db] bg-white p-4">
                     <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-[#ff4c00] md:hidden">
-                      <FaTimes className="text-xs" />
+                      <FaTimes className="text-xs text-[#ff4c00]" />
                       Before Flashfire
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff4c00] text-white">
+                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#ffd9c7] bg-white text-[#ff4c00]">
                         <FaTimes className="text-xs" />
                       </div>
                       <p className="text-sm leading-6 text-[#4b5563]">{item.before}</p>
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-[#ffd9c7] bg-[#fffaf7] p-4">
+                  <div className="rounded-2xl border border-[#d1d5db] bg-white p-4">
                     <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-[#d64b00] md:hidden">
-                      <FaCheck className="text-xs" />
+                      <FaCheck className="text-xs text-[#d64b00]" />
                       With Flashfire
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff7a45] text-white">
+                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#ffd9c7] bg-white text-[#d64b00]">
                         <FaCheck className="text-xs" />
                       </div>
                       <p className="text-sm leading-6 text-[#4b5563]">{item.after}</p>
