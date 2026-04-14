@@ -1,6 +1,6 @@
 "use client"
 
-import { FaArrowRight, FaCheck, FaRegClock, FaTimes } from "react-icons/fa"
+import { FaArrowRight, FaCheck, FaTimes } from "react-icons/fa"
 
 export default function BeforeAfterComparison() {
   const comparisonItems = [
@@ -55,49 +55,19 @@ export default function BeforeAfterComparison() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="overflow-hidden rounded-[24px] border border-[#ece7e4] bg-white shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-          <div className="border-b border-[#ece7e4] px-5 py-10 sm:px-8 md:px-10 md:py-12">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#ffd9c7] bg-[#fff3ed] px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-[#ff4c00]">
-                  <FaRegClock className="text-[11px]" />
-                  Better outcomes, less manual effort
-                </div>
+          <div className="border-b border-[#ece7e4] px-5 py-10 text-center sm:px-8 md:px-10 md:py-12">
+            <div className="mx-auto max-w-5xl">
+              <h2 className="text-3xl font-bold leading-[1.08] tracking-[-0.04em] text-[#1f2937] sm:text-4xl md:text-[4.1rem]">
+                Why Flashfire Is a Smarter AI Job
+                <br />
+                Matching Platform
+              </h2>
 
-                <h2 className="mt-4 text-3xl font-bold leading-tight text-[#02060A] sm:text-4xl md:text-5xl">
-                  A more professional way to job search with Flashfire
-                </h2>
-
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-[#4b5563] sm:text-base md:text-lg">
-                  Flashfire combines AI precision with human review so every application feels
-                  targeted, organized, and built to improve interview conversions.
-                </p>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-3 lg:min-w-[360px]">
-                <div className="rounded-2xl border border-[#ece7e4] bg-[#fffdfc] px-4 py-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7280]">
-                    Efficiency
-                  </p>
-                  <p className="mt-2 text-2xl font-bold text-[#02060A]">150+</p>
-                  <p className="mt-1 text-sm text-[#4b5563]">Hours saved through automation</p>
-                </div>
-
-                <div className="rounded-2xl border border-[#ece7e4] bg-[#fffdfc] px-4 py-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7280]">
-                    Volume
-                  </p>
-                  <p className="mt-2 text-2xl font-bold text-[#02060A]">1,200+</p>
-                  <p className="mt-1 text-sm text-[#4b5563]">Targeted applications delivered</p>
-                </div>
-
-                <div className="rounded-2xl border border-[#ece7e4] bg-[#fffdfc] px-4 py-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7280]">
-                    Result
-                  </p>
-                  <p className="mt-2 text-2xl font-bold text-[#02060A]">Higher</p>
-                  <p className="mt-1 text-sm text-[#4b5563]">Interview conversion momentum</p>
-                </div>
-              </div>
+              <p className="mx-auto mt-6 max-w-4xl text-base leading-[1.6] text-[#4b5563] sm:text-lg md:text-[1.15rem]">
+                We don&apos;t just apply, <span className="font-semibold">we make you get noticed.</span>{" "}
+                Flashfire combines <span className="text-[#ff4c00]">AI precision</span> with{" "}
+                <span className="text-[#ff4c00]">human insight</span> to get you interviews that actually convert.
+              </p>
             </div>
           </div>
 
@@ -154,7 +124,7 @@ export default function BeforeAfterComparison() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-[24px] border border-[#ffd9c7] bg-[linear-gradient(135deg,#fff7f3_0%,#fff1ea_100%)] px-5 py-6 sm:px-6 md:mt-10 md:px-8 md:py-7">
+            {/* <div className="mt-8 rounded-[24px] border border-[#ffd9c7] bg-[linear-gradient(135deg,#fff7f3_0%,#fff1ea_100%)] px-5 py-6 sm:px-6 md:mt-10 md:px-8 md:py-7">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div className="max-w-2xl">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#ff4c00]">
@@ -170,7 +140,7 @@ export default function BeforeAfterComparison() {
                   <FaArrowRight className="text-xs" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
