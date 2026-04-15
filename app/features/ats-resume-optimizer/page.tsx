@@ -383,6 +383,115 @@ export default function Page() {
     ]
   }
 
+  const whyFlashfireCards = [
+    {
+      title: "Smart ATS Scanning",
+      description:
+        "Flashfire analyzes your resume against job descriptions to detect missing keywords, formatting issues, and ATS compatibility problems.",
+      image:
+        "data:image/svg+xml;utf8," +
+        encodeURIComponent(`
+          <svg width="360" height="250" viewBox="0 0 360 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="360" height="250" rx="28" fill="#FFF7F2"/>
+            <rect x="75" y="86" width="210" height="116" rx="12" fill="#1F2937"/>
+            <rect x="86" y="97" width="188" height="90" rx="7" fill="url(#screen)"/>
+            <path d="M112 204H248L264 219H96L112 204Z" fill="#C7CDD8"/>
+            <rect x="145" y="209" width="70" height="5" rx="2.5" fill="#A0A9B8"/>
+            <rect x="146" y="36" width="96" height="116" rx="6" transform="rotate(-10 146 36)" fill="white" stroke="#D7DCE5" stroke-width="2"/>
+            <rect x="168" y="49" width="47" height="8" rx="4" transform="rotate(-10 168 49)" fill="#8A8F98"/>
+            <circle cx="178" cy="74" r="11" fill="#F7C59F"/>
+            <rect x="166" y="86" width="23" height="15" rx="4" fill="#2F3A4A"/>
+            <rect x="196" y="69" width="25" height="4" rx="2" transform="rotate(-10 196 69)" fill="#C3CBD7"/>
+            <rect x="196" y="78" width="31" height="4" rx="2" transform="rotate(-10 196 78)" fill="#C3CBD7"/>
+            <rect x="164" y="110" width="57" height="4" rx="2" transform="rotate(-10 164 110)" fill="#C3CBD7"/>
+            <rect x="164" y="121" width="51" height="4" rx="2" transform="rotate(-10 164 121)" fill="#C3CBD7"/>
+            <rect x="164" y="132" width="43" height="4" rx="2" transform="rotate(-10 164 132)" fill="#C3CBD7"/>
+            <path d="M121 162C132 148 139 132 146 114L163 123C154 142 146 156 133 172L121 162Z" fill="#F2C29B"/>
+            <path d="M117 160L131 171L121 179L104 169L117 160Z" fill="#F97316"/>
+            <defs>
+              <linearGradient id="screen" x1="86" y1="97" x2="274" y2="187" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1D4ED8"/>
+                <stop offset="1" stop-color="#38BDF8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        `),
+    },
+    {
+      title: "AI-Based Resume Optimization",
+      description:
+        "Instead of generic suggestions, Flashfire uses AI to recommend role-specific improvements that boost ATS ranking and recruiter relevance.",
+      image:
+        "data:image/svg+xml;utf8," +
+        encodeURIComponent(`
+          <svg width="360" height="250" viewBox="0 0 360 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="360" height="250" rx="28" fill="#FFF7F2"/>
+            <rect x="112" y="38" width="128" height="162" rx="18" fill="#F7F7FB" stroke="#DADDEA" stroke-width="2"/>
+            <rect x="134" y="64" width="76" height="12" rx="6" fill="#C9CEDB"/>
+            <rect x="134" y="84" width="86" height="12" rx="6" fill="#C9CEDB"/>
+            <rect x="134" y="110" width="70" height="12" rx="6" fill="#FBBF24"/>
+            <rect x="134" y="130" width="82" height="12" rx="6" fill="#FBBF24"/>
+            <circle cx="102" cy="112" r="34" fill="#DBEAFE" stroke="#3B82F6" stroke-width="6"/>
+            <circle cx="102" cy="112" r="14" fill="#94A3B8"/>
+            <rect x="61" y="144" width="20" height="62" rx="10" transform="rotate(-37 61 144)" fill="#3B82F6"/>
+            <circle cx="88" cy="76" r="16" fill="#4CC9F0"/>
+            <circle cx="88" cy="76" r="7" fill="white"/>
+            <rect x="70" y="94" width="36" height="14" rx="7" fill="#4CC9F0"/>
+            <circle cx="88" cy="165" r="16" fill="#4CC9F0"/>
+            <circle cx="88" cy="165" r="7" fill="white"/>
+            <rect x="70" y="183" width="36" height="14" rx="7" fill="#4CC9F0"/>
+            <circle cx="263" cy="94" r="16" fill="#F5C7A9"/>
+            <rect x="249" y="110" width="28" height="54" rx="12" fill="#1F2937"/>
+            <rect x="243" y="118" width="40" height="18" rx="9" fill="#3B82F6"/>
+            <rect x="240" y="165" width="11" height="46" rx="5.5" fill="#1F2937"/>
+            <rect x="275" y="165" width="11" height="46" rx="5.5" fill="#1F2937"/>
+            <rect x="228" y="119" width="18" height="56" rx="9" transform="rotate(24 228 119)" fill="#1F2937"/>
+            <rect x="278" y="132" width="18" height="56" rx="9" transform="rotate(-28 278 132)" fill="#1F2937"/>
+          </svg>
+        `),
+    },
+    {
+      title: "Built for Recruiter Visibility",
+      description:
+        "Optimizations are designed to balance ATS requirements with human readability so your resume works for both systems and people.",
+      image:
+        "data:image/svg+xml;utf8," +
+        encodeURIComponent(`
+          <svg width="360" height="250" viewBox="0 0 360 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="360" height="250" rx="28" fill="#FFF7F2"/>
+            <path d="M248 44C214 57 188 87 180 123C171 163 188 198 226 213C153 222 112 193 100 148C86 96 118 55 176 42C205 35 228 35 248 44Z" fill="#DBEAFE"/>
+            <path d="M112 69C128 77 138 95 140 115C124 105 112 93 101 76L112 69Z" fill="#60A5FA"/>
+            <path d="M134 54C150 66 160 87 161 111C145 98 135 81 124 61L134 54Z" fill="#60A5FA"/>
+            <rect x="144" y="83" width="110" height="120" rx="10" fill="url(#doc)"/>
+            <rect x="167" y="116" width="61" height="8" rx="4" fill="#6EA8FF"/>
+            <rect x="167" y="134" width="55" height="8" rx="4" fill="#6EA8FF"/>
+            <rect x="167" y="152" width="48" height="8" rx="4" fill="#6EA8FF"/>
+            <path d="M133 186C145 174 161 167 177 167C202 167 223 182 235 204H222C212 189 196 180 177 180C161 180 147 187 136 198L133 186Z" fill="white"/>
+            <path d="M198 103C220 85 257 85 279 103C257 121 220 121 198 103Z" fill="white" stroke="#1E3A8A" stroke-width="4"/>
+            <circle cx="238" cy="103" r="19" fill="#FACC15"/>
+            <circle cx="238" cy="103" r="9" fill="#1E293B"/>
+            <circle cx="245" cy="96" r="4" fill="white"/>
+            <circle cx="279" cy="81" r="16" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="3" stroke-dasharray="5 5"/>
+            <circle cx="306" cy="103" r="18" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="3" stroke-dasharray="5 5"/>
+            <path d="M279 70V92M268 81H290" stroke="#1D4ED8" stroke-width="4" stroke-linecap="round"/>
+            <path d="M306 91V115M294 103H318" stroke="#1D4ED8" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="112" cy="183" r="10" fill="#FACC15"/>
+            <rect x="104" y="194" width="16" height="35" rx="8" fill="#1F2937"/>
+            <rect x="95" y="201" width="10" height="28" rx="5" transform="rotate(32 95 201)" fill="#1F2937"/>
+            <rect x="118" y="202" width="10" height="28" rx="5" transform="rotate(-32 118 202)" fill="#1F2937"/>
+            <rect x="103" y="226" width="7" height="26" rx="3.5" fill="#1F2937"/>
+            <rect x="114" y="226" width="7" height="26" rx="3.5" fill="#1F2937"/>
+            <defs>
+              <linearGradient id="doc" x1="144" y1="83" x2="254" y2="203" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1D4ED8"/>
+                <stop offset="1" stop-color="#1E40AF"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        `),
+    },
+  ]
+
   return (
     <>
       <script
@@ -791,9 +900,49 @@ export default function Page() {
         </section>
 
         {/* Why Flashfire Is More Than a Basic ATS Resume Checker */}
+        <section id="why-more-than-ats-checker" className="py-18 sm:py-24 bg-[#fff9f7]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-5xl mx-auto space-y-5 mb-14 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold leading-[0.95] tracking-tight text-[#0f172a] text-balance">
+                Why Flashfire Is More Than
+                <br className="hidden md:block" /> a Basic ATS Resume Checker
+              </h2>
+
+              <p className="text-lg sm:text-xl lg:text-xl text-[#4b5563] leading-relaxed max-w-4xl mx-auto text-balance">
+                Flashfire isn&apos;t just an <span className="text-[#ff4c00]">ATS resume checker tool</span>. It&apos;s
+                a complete <span className="text-[#ff4c00]">AI resume optimizer</span> built to help your resume
+                perform better with both ATS systems and real recruiters.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {whyFlashfireCards.map((card) => (
+                <div
+                  key={card.title}
+                  className="group rounded-[20px] border-2 border-[#ff6a2a] bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08),0_6px_16px_rgba(255,76,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.12),0_10px_26px_rgba(255,76,0,0.22)]"
+                >
+                  <div className="p-6 sm:p-7">
+                    <div className="flex items-center justify-center min-h-[250px] sm:min-h-[280px] rounded-2xl bg-[radial-gradient(circle_at_top,rgba(255,106,42,0.08),transparent_55%)]">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full max-w-[320px] h-auto object-contain select-none"
+                      />
+                    </div>
+
+                    <div className="pt-5 text-center space-y-3">
+                      <h3 className="text-[1.75rem] leading-tight font-bold text-[#111827]">{card.title}</h3>
+                      <p className="text-base sm:text-lg leading-relaxed text-[#4b5563]">{card.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         <section
-  id="why-more-than-ats-checker"
-  className="py-18 sm:py-24 bg-[#fff9f7]"
+  id="why-more-than-ats-checker-legacy"
+  className="hidden"
 >
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
