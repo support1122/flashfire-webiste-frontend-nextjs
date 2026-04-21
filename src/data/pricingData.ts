@@ -26,7 +26,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/3M2MG4HGDJVL2",
+    paymentLink: "https://buy.stripe.com/eVq9AV0WY5iGciAegD3AY01",
   },
   {
     title: "IGNITE",
@@ -42,7 +42,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/F6CESAWAYUYU2",
+    paymentLink: "https://buy.stripe.com/bJe28t7lm12qaasa0n3AY02",
   },
   {
     title: "PROFESSIONAL",
@@ -58,7 +58,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/LFLS9JHH6AKKU",
+    paymentLink: "https://buy.stripe.com/14A6oJcFGfXkgyQfkH3AY03",
   },
   {
     title: "EXECUTIVE",
@@ -76,7 +76,7 @@ export const usPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: true,
-    paymentLink: "https://www.paypal.com/ncp/payment/CDRFGB6M566X8",
+    paymentLink: "https://buy.stripe.com/eVq7sNfRS4eCciAgoL3AY04",
   },
 ];
 
@@ -95,7 +95,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/83KSCHQNBM68W",
+    paymentLink: "https://buy.stripe.com/4gM4gBbBCcL85UcegD3AY0j",
   },
   {
     title: "IGNITE",
@@ -111,7 +111,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/TLKWRAXG373KA",
+    paymentLink: "https://buy.stripe.com/fZubJ3eNO6mKaasfkH3AY0k",
   },
   {
     title: "PROFESSIONAL",
@@ -129,7 +129,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: false,
-    paymentLink: "https://www.paypal.com/ncp/payment/MXTA9N9VPFKZ6",
+    paymentLink: "https://buy.stripe.com/8x28wReNOaD00zS7Sf3AY0l",
   },
   {
     title: "EXECUTIVE",
@@ -149,6 +149,6 @@ export const canadaPricingPlans: PricingPlan[] = [
     ],
     addOn: true,
     highlight: true,
-    paymentLink: "https://www.paypal.com/ncp/payment/HSUW63VZUHQUW",
+    paymentLink: "https://buy.stripe.com/7sY9AV3566mKgyQ0pN3AY0m",
   },
 ];

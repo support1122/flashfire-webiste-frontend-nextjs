@@ -12,14 +12,46 @@ interface UpgradePrice {
   to: string;
   price: number;
   paymentUrl?: string;
+  /** Stripe checkout for `/en-ca` when different from US */
+  canadaPaymentUrl?: string;
 }
 
 const upgradePrices: UpgradePrice[] = [
-  { from: "PRIME", to: "PROFESSIONAL", price: 240, paymentUrl: "https://www.paypal.com/ncp/payment/SZW8UGWUF4KRC" },
-  { from: "PRIME", to: "EXECUTIVE", price: 490, paymentUrl: "https://www.paypal.com/ncp/payment/4S564BKM8577N" },
-  { from: "IGNITE", to: "PROFESSIONAL", price: 170, paymentUrl: "https://www.paypal.com/ncp/payment/7Z7GT5CF75L3A" },
-  { from: "IGNITE", to: "EXECUTIVE", price: 420, paymentUrl: "https://www.paypal.com/ncp/payment/AHW9DGNYWABZ4" },
-  { from: "PROFESSIONAL", to: "EXECUTIVE", price: 285, paymentUrl: "https://www.paypal.com/ncp/payment/VR5YKZW26JUEL" },
+  {
+    from: "PRIME",
+    to: "PROFESSIONAL",
+    price: 240,
+    paymentUrl: "https://buy.stripe.com/7sY7sN2128uS1DWdcz3AY08",
+    canadaPaymentUrl: "https://buy.stripe.com/bJe28t9tu26u96o5K73AY0q",
+  },
+  {
+    from: "PRIME",
+    to: "EXECUTIVE",
+    price: 490,
+    paymentUrl: "https://buy.stripe.com/fZu3cx6hi9yW82k0pN3AY09",
+    canadaPaymentUrl: "https://buy.stripe.com/6oU8wRcFG4eC5Uc1tR3AY0r",
+  },
+  {
+    from: "IGNITE",
+    to: "PROFESSIONAL",
+    price: 170,
+    paymentUrl: "https://buy.stripe.com/28E6oJ9tu7qOfuM3BZ3AY0d",
+    canadaPaymentUrl: "https://buy.stripe.com/00w9AV212eTg6YgfkH3AY0n",
+  },
+  {
+    from: "IGNITE",
+    to: "EXECUTIVE",
+    price: 420,
+    paymentUrl: "https://buy.stripe.com/5kQcN7eNO7qO2I06Ob3AY0e",
+    canadaPaymentUrl: "https://buy.stripe.com/fZu5kF9tueTg82kc8v3AY0v",
+  },
+  {
+    from: "PROFESSIONAL",
+    to: "EXECUTIVE",
+    price: 285,
+    paymentUrl: "https://buy.stripe.com/00w7sNgVW4eCbew1tR3AY0f",
+    canadaPaymentUrl: "https://buy.stripe.com/5kQ5kF212aD0eqIfkH3AY0x",
+  },
 ];
 
 export default function HomePagePricingPlans() {
@@ -133,7 +165,9 @@ export default function HomePagePricingPlans() {
           up => up.from === selectedPlanForUpgrade && up.to === plan.title
         );
         const upgradePrice = upgradePriceConfig?.price || 0;
-        const upgradePaymentUrl = upgradePriceConfig?.paymentUrl;
+        const upgradePaymentUrl = isCanadaContext
+          ? upgradePriceConfig?.canadaPaymentUrl ?? upgradePriceConfig?.paymentUrl
+          : upgradePriceConfig?.paymentUrl;
         
         return {
           ...plan,
@@ -141,7 +175,7 @@ export default function HomePagePricingPlans() {
           upgradePaymentUrl: upgradePaymentUrl,
         };
       });
-  }, [selectedPlanForUpgrade, pricingPlans]);
+  }, [selectedPlanForUpgrade, pricingPlans, isCanadaContext]);
 
   const handleUpgradeClick = (planTitle: string, planIndex: number) => {
     if (selectedPlanForUpgrade === planTitle) {
@@ -222,46 +256,46 @@ export default function HomePagePricingPlans() {
     }>>> = {
       US: {
         PRIME: [
-          { applications: 250, price: 120, label: "+250 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/5Z872VARCZ6R8" },
-          { applications: 500, price: 200, label: "+500 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/QCMVESBD5YL7E" },
-          { applications: 1000, price: 350, label: "+1000 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/24YFDJZBTQA5U" },
+          { applications: 250, price: 120, label: "+250 Add-On", paymentUrl: "https://buy.stripe.com/dRmeVf7lm8uSaas6Ob3AY05" },
+          { applications: 500, price: 200, label: "+500 Add-On", paymentUrl: "https://buy.stripe.com/28E5kF3567qObewegD3AY06" },
+          { applications: 1000, price: 350, label: "+1000 Add-On", paymentUrl: "https://buy.stripe.com/00w28t35626udmE2xV3AY07" },
         ],
         IGNITE: [
-          { applications: 250, price: 130, label: "+250 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/ZTFDFLX4LDXRN" },
-          { applications: 500, price: 220, label: "+500 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/N9UN59NZ4TCZ6" },
-          { applications: 1000, price: 380, label: "+1000 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/5RLLXWWV7KBL2" },
+          { applications: 250, price: 130, label: "+250 Add-On", paymentUrl: "https://buy.stripe.com/28E7sN9tufXk6Yga0n3AY0a" },
+          { applications: 500, price: 220, label: "+500 Add-On", paymentUrl: "https://buy.stripe.com/eVqaEZ5debH4fuM7Sf3AY0b" },
+          { applications: 1000, price: 380, label: "+1000 Add-On", paymentUrl: "https://buy.stripe.com/9B69AVfRS6mKdmEgoL3AY0c" },
         ],
         PROFESSIONAL: [
-          { applications: 250, price: 120, label: "+250 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/95X9FAUHTUPM4" },
-          { applications: 500, price: 200, label: "+500 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/58R6C59U8LBMS" },
-          { applications: 1000, price: 350, label: "+1000 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/QCQ5JTXK9ZY5L" },
+          { applications: 250, price: 120, label: "+250 Add-On", paymentUrl: "https://buy.stripe.com/dRmeVf7lm8uSaas6Ob3AY05" },
+          { applications: 500, price: 200, label: "+500 Add-On", paymentUrl: "https://buy.stripe.com/28E5kF3567qObewegD3AY06" },
+          { applications: 1000, price: 350, label: "+1000 Add-On", paymentUrl: "https://buy.stripe.com/00w28t35626udmE2xV3AY07" },
         ],
         EXECUTIVE: [
-          { applications: 250, price: 110, label: "+250 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/R3UJGRAV9363A" },
-          { applications: 500, price: 190, label: "+500 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/JNJ7Y36YDSGYW" },
-          { applications: 1000, price: 330, label: "+1000 Add-On", paymentUrl: "https://www.paypal.com/ncp/payment/2RZEKDPESWA5A" },
+          { applications: 250, price: 110, label: "+250 Add-On", paymentUrl: "https://buy.stripe.com/28EfZj9tu9yW2I0goL3AY0g" },
+          { applications: 500, price: 190, label: "+500 Add-On", paymentUrl: "https://buy.stripe.com/fZu6oJdJK7qObew1tR3AY0h" },
+          { applications: 1000, price: 330, label: "+1000 Add-On", paymentUrl: "https://buy.stripe.com/4gM5kF9tu6mK1DW3BZ3AY0i" },
         ],
       },
       CA: {
         PRIME: [
-          { applications: 250, price: 170, label: "+250 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_250_CA_PLACEHOLDER" },
-          { applications: 500, price: 280, label: "+500 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_500_CA_PLACEHOLDER" },
-          { applications: 1000, price: 490, label: "+1000 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/PRIME_1000_CA_PLACEHOLDER" },
+          { applications: 250, price: 170, label: "+250 Extra Applications", paymentUrl: "https://buy.stripe.com/00w9AV212eTg6YgfkH3AY0n" },
+          { applications: 500, price: 280, label: "+500 Extra Applications", paymentUrl: "https://buy.stripe.com/00w7sN2124eCdmE0pN3AY0o" },
+          { applications: 1000, price: 490, label: "+1000 Extra Applications", paymentUrl: "https://buy.stripe.com/00w14pcFGfXk96o7Sf3AY0p" },
         ],
         IGNITE: [
-          { applications: 250, price: 180, label: "+250 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/VTDKG7AXSJ75Y" },
-          { applications: 500, price: 305, label: "+500 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/EX2YV4CN2WV3L" },
-          { applications: 1000, price: 530, label: "+1000 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/X4AC3EKGLV4WN" },
+          { applications: 250, price: 180, label: "+250 Extra Applications", paymentUrl: "https://buy.stripe.com/cNi3cx49ah1odmEc8v3AY0s" },
+          { applications: 500, price: 305, label: "+500 Extra Applications", paymentUrl: "https://buy.stripe.com/9B65kF9tu12qfuM0pN3AY0t" },
+          { applications: 1000, price: 530, label: "+1000 Extra Applications", paymentUrl: "https://buy.stripe.com/9B69AV7lmbH46Yg8Wj3AY0u" },
         ],
         PROFESSIONAL: [
-          { applications: 250, price: 170, label: "+250 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/GMKAWCJ8TBV4J" },
-          { applications: 500, price: 280, label: "+500 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/MMNRPXCKKLFX8" },
-          { applications: 1000, price: 490, label: "+1000 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/AA2DZ2ZBUEQSQ" },
+          { applications: 250, price: 170, label: "+250 Extra Applications", paymentUrl: "https://buy.stripe.com/00w9AV212eTg6YgfkH3AY0n" },
+          { applications: 500, price: 280, label: "+500 Extra Applications", paymentUrl: "https://buy.stripe.com/7sYcN7eNObH41DW8Wj3AY0w" },
+          { applications: 1000, price: 490, label: "+1000 Extra Applications", paymentUrl: "https://buy.stripe.com/00w14pcFGfXk96o7Sf3AY0p" },
         ],
         EXECUTIVE: [
-          { applications: 250, price: 155, label: "+250 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/S43ZN9SE6ER6U" },
-          { applications: 500, price: 265, label: "+500 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/Y3Q97WGY7HCTW" },
-          { applications: 1000, price: 460, label: "+1000 Extra Applications", paymentUrl: "https://www.paypal.com/ncp/payment/NM9683EWP7GKG" },
+          { applications: 250, price: 155, label: "+250 Extra Applications", paymentUrl: "https://buy.stripe.com/14A8wRfRS9yWdmEb4r3AY0y" },
+          { applications: 500, price: 265, label: "+500 Extra Applications", paymentUrl: "https://buy.stripe.com/5kQ6oJ356fXk1DWc8v3AY0z" },
+          { applications: 1000, price: 460, label: "+1000 Extra Applications", paymentUrl: "https://buy.stripe.com/eVqaEZ3565iG3M4dcz3AY0A" },
         ],
       },
     };
