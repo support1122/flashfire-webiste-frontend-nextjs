@@ -70,14 +70,6 @@ const offerLetters: OfferLetterData[] = [
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/TEJA.jpeg",
   },
   {
-    name: "Aryan",
-    company: "IBM",
-    linkedinUrl: "#",
-    imagePath: "/images/aryan_offer.png",
-    profileImagePath:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg",
-  },
-  {
     name: "Amit",
     company: "Armorcode",
     linkedinUrl: "#",
