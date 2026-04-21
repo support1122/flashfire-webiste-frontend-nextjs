@@ -5,22 +5,22 @@ import { ArrowRight, Play } from "lucide-react";
 const shorts = [
     {
         id: 1,
-        videoId: "38RlLnPNtTY",
+        videoId: "nTZjnhjXA40",
        
     },
     {
         id: 2,
-        videoId: "esns_i_hC54",
+        videoId: "mi01Gg_iUq8",
        
     },
     {
         id: 3,
-        videoId: "SdWPTpVZqYM",
+        videoId: "yMJ8q903TFs",
       
     },
     {
         id: 4,
-        videoId: "3IWxKQP3Y88",
+        videoId: "DPci5TQPGIM",
        
     },
 ];
