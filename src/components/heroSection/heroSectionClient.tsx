@@ -93,20 +93,20 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* === Headline === */}
-          <h1 className="text-[3.25rem] leading-[0.98] font-bold text-black  max-[1400px]:text-[3.75rem] max-[1200px]:text-[3.2rem] max-[1024px]:text-center max-[1024px]:text-[3rem]">
+          <h1 className="text-[3rem] leading-[0.98] font-bold text-black  max-[1400px]:text-[3.75rem] max-[1200px]:text-[3.2rem] max-[1024px]:text-center max-[1024px]:text-[3rem]">
             <span className="block max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(3rem,calc(1rem+3.6vw))] max-[1024px]:[line-height:1.04]">
               {headlineFirst}
             </span>
             {headlineMid ? (
               <span className="block max-[1024px]:[font-size:min(3rem,calc(1rem+3.6vw))]">{headlineMid}</span>
             ) : null}
-            <span className="block -mt-4 max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(3rem,calc(1rem+3.6vw))]">
+            <span className="block -mt-2 max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(3rem,calc(1rem+3.6vw))]">
               <span className="text-black">{data.headlineHighlight}</span>
-              <span className="inline-flex items-center mx-2 align-middle">
+              <span className="inline-flex items-center align-middle">
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[7rem] w-auto inline-block -mr-6 -ml-6 max-[1200px]:h-[5.75rem]"
+                  className="h-[6rem] -ml-3 -mr-3 w-auto inline-block "
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -158,9 +158,11 @@ export default function HeroSectionClient({ data }: Props) {
 
         {/* === Mobile Left Section === */}
         {/* z-30 so taps aren’t stolen by the hero job-cards image (absolute, z-20, -top) overlapping this column */}
-        <div className="relative z-30 flex md:hidden flex-col items-center pt-[4.75rem] text-center w-full px-4 shrink-0">
+        <div className="relative z-30 flex md:hidden flex-col items-center pt-25 text-center w-full px-1 shrink-0">
+         
+
           {/* Badge */}
-          <div className="flex items-center gap-2 border border-[#d7c8c1] rounded-full px-3.5 py-2 mb-4 bg-white/70 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
+          <div className="flex items-center gap-2 border border-[#d7c8c1] rounded-full px-3.5 py-2 mb-3 bg-white/70 shadow-[0_8px_24px_rgba(0,0,0,0.06)]">
             <div className="w-2 h-2 bg-[#ff4c00] rounded-full"></div>
             <span className="text-[#ff4c00] text-xs font-medium">
               {data.badges[0] || "AI Powered"}
@@ -168,20 +170,20 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* Heading — three fixed lines on mobile: (1) full phrase (2) with (3) Flashfire + logo + suffix */}
-          <h1 className="text-[3.1rem] leading-[1.02] font-bold text-black mb-3 max-[480px]:text-[1.95rem]">
-            <span className="block whitespace-nowrap [font-size:min(2.35rem,calc(0.55rem+7vw))] [line-height:1.08]">
+          <h1 className="w-full max-w-[24rem] text-[3.1rem] leading-[1.04] font-bold text-black mb-3 max-[480px]:max-w-[20rem] max-[480px]:text-[1.95rem]">
+            <span className="block whitespace-nowrap [font-size:min(1.9rem,calc(0.45rem+5vw))] [line-height:1.08]">
               {headlineFirst}
             </span>
             {headlineMid ? (
-              <span className="block [font-size:min(2.35rem,calc(0.55rem+7vw))]">{headlineMid}</span>
+              <span className="block [font-size:min(1.9rem,calc(0.45rem+5vw))]">{headlineMid}</span>
             ) : null}
-            <span className="block mt-1 whitespace-nowrap [font-size:min(2.35rem,calc(0.55rem+7vw))]">
+            <span className="block -mt-2 whitespace-nowrap [font-size:min(1.9rem,calc(0.45rem+5vw))]">
               <span className="text-black">{data.headlineHighlight}</span>
-              <span className="inline-flex items-center mx-2 align-middle">
+              <span className="inline-flex items-center -mx-2 align-middle">
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[4.8rem] w-auto inline-block -ml-6 -mr-6 max-[480px]:h-[4.15rem] max-[480px]:-ml-5 max-[480px]:-mr-5"
+                  className="h-[4.6rem] w-auto inline-block max-[480px]:h-[3.25rem]"
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -189,7 +191,7 @@ export default function HeroSectionClient({ data }: Props) {
           </h1>
 
           {/* Description */}
-          <p className="text-sm text-[#555] mb-5 px-2 leading-relaxed">
+          <p className="max-w-[22rem] text-sm text-[#555] mb-5 px-2 leading-relaxed">
             {data.description}
           </p>
 
@@ -198,7 +200,7 @@ export default function HeroSectionClient({ data }: Props) {
             type="button"
             {...getButtonProps()}
             onClick={handleGetStartedClick}
-            className="relative z-[1] touch-manipulation inline-flex items-center justify-center bg-[#ff4c00] text-white py-3.5 px-7 rounded-full font-semibold no-underline mb-4 shadow-[0_6px_0_#111111] border border-black/10 cursor-pointer text-base font-inherit outline-none transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_9px_0_#111111] active:translate-y-0 active:shadow-[0_4px_0_#111111] focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2"
+            className="relative z-[1] touch-manipulation inline-flex min-w-[12.5rem] items-center justify-center bg-[#ff4c00] text-white py-3.5 px-7 rounded-full font-semibold no-underline mb-4 shadow-[0_6px_0_#111111] border border-black/10 cursor-pointer text-base font-inherit outline-none transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_9px_0_#111111] active:translate-y-0 active:shadow-[0_4px_0_#111111] focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2"
           >
             {data.cta.label}
           </button>
@@ -232,12 +234,12 @@ export default function HeroSectionClient({ data }: Props) {
         </div>
 
         {/* === Right Column - Hero Image === */}
-        <div className="relative z-0 flex-1 mt-6 md:mt-0 max-[1024px]:w-full max-[1024px]:max-w-[720px] max-[1024px]:mx-auto">
+        <div className="relative z-0 flex-1 mt-2 md:mt-0 w-full max-[1024px]:max-w-[720px] max-[1024px]:mx-auto">
           <div className="relative w-full max-w-[52rem] mx-auto">
-            <div className="pointer-events-none absolute inset-x-[8%] top-[18%] h-[58%] rounded-[50%] bg-white/45 blur-[70px]" />
-            <div className="pointer-events-none absolute left-[16%] bottom-[10%] h-32 w-32 rounded-full bg-[#ff4c00]/10 blur-3xl" />
+            <div className="pointer-events-none absolute inset-x-[8%] top-[18%] h-[58%] rounded-[50%] bg-white/45 blur-[70px] max-[767px]:inset-x-[18%] max-[767px]:top-[20%] max-[767px]:h-[46%] max-[767px]:blur-[42px]" />
+            <div className="pointer-events-none absolute left-[16%] bottom-[10%] h-32 w-32 rounded-full bg-[#ff4c00]/10 blur-3xl max-[767px]:left-[10%] max-[767px]:bottom-[16%] max-[767px]:h-20 max-[767px]:w-20 max-[767px]:blur-2xl" />
 
-            <div className="relative z-10 mx-auto aspect-[1.12/1] w-full max-w-[50rem]">
+            <div className="relative z-10 mx-auto aspect-[1.12/1] w-full max-w-[50rem] max-[767px]:aspect-[1/1.02] max-[767px]:max-w-[23rem]">
               <div className="absolute left-[8%] top-[44%] hidden md:block h-10 w-10 rounded-full border-2 border-dashed border-black/20" />
               <div className="absolute right-[6%] top-[30%] hidden md:block text-[3rem] text-black/15">✈</div>
 
@@ -246,7 +248,7 @@ export default function HeroSectionClient({ data }: Props) {
                 alt="Woman working on laptop"
                 fill
                 sizes="(max-width: 1024px) 100vw, 800px"
-                className="object-contain object-center"
+                className="object-contain object-center max-[767px]:scale-[1.03]"
                 priority
               />
             </div>
