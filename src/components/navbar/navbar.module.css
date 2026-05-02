@@ -629,102 +629,96 @@
   box-shadow: 0 0.2rem 0 #ff4c00;
 }
 
-/* === Black Friday Sale Banner === */
+/* === Sale Banner === */
 .saleBanner {
   width: 100%;
   background-color: #f5f5f0;
-  border-top: 1px solid rgba(241, 241, 241, 0.2);
-  padding: 0.75rem 1rem;
+  border-top: 2px solid #202020;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.25rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 36px;
 }
 
 .saleBannerContent {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.42rem;
   flex-wrap: wrap;
   max-width: 1400px;
   width: 100%;
+  color: #202020;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1;
 }
 
 .saleText {
-  font-weight: 700;
-  font-size: 1rem;
-  color: #000;
-  letter-spacing: 0.01em;
-}
-
-.countdownText {
-  color: #ff4c00;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.saleBannerButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: #1a1a1a;
-  color: #fff;
-  font-size: 1rem;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: background-color 0.2s;
-}
-
-.saleBannerButton:hover {
-  background-color: #ff4c00;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #202020;
+  white-space: nowrap;
 }
 
 .asterisk {
   color: #ff4c00;
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.65rem;
+  font-weight: 900;
   line-height: 1;
+  margin-right: 0.15rem;
+  transform: translateY(2px);
 }
 
 .discountText {
   font-size: 0.95rem;
-  color: #000;
-  font-weight: 500;
+  color: #202020;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.countdownContainer {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.countdownBox {
-  background-color: #fff;
-  border: 2px solid #ff4c00;
-  border-radius: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  min-width: 60px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(255, 76, 0, 0.2);
-}
-
-.countdownNumber {
+.countdownText {
+  color: #ff4c00;
+  font-size: 0.95rem;
   font-weight: 800;
-  font-size: 1.25rem;
-  color: #000;
-  line-height: 1.2;
-  margin-bottom: 0.2rem;
+  white-space: nowrap;
 }
 
-.countdownLabel {
-  font-size: 0.7rem;
-  color: #000;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+.saleBannerButton {
+  width: 32px;
+  height: 24px;
+  border: 0;
+  border-radius: 9999px;
+  background: #000000;
+  color: #ffffff;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 0;
+  margin-left: 0.5rem;
+  transform: translateY(-1px);
+  padding: 0 0 1px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.saleBannerButton:hover {
+  background: #111111;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.saleBannerButton:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 @media (min-width: 901px) and (max-width: 1280px) {
@@ -885,15 +879,18 @@
   }
 
   .saleBanner {
-    padding: 0.6rem 0.75rem;
+    padding: 0.25rem 0.75rem;
   }
 
   .saleBannerContent {
     gap: 0.5rem;
-    font-size: 0.9rem;
   }
 
   .saleText {
+    font-size: 0.85rem;
+  }
+
+  .discountText {
     font-size: 0.85rem;
   }
 
@@ -901,25 +898,15 @@
     font-size: 0.85rem;
   }
 
-  .discountText {
-    font-size: 0.8rem;
-  }
-
   .asterisk {
-    font-size: 1rem;
+    font-size: 1.35rem;
   }
 
-  .countdownBox {
-    min-width: 50px;
-    padding: 0.4rem 0.6rem;
-  }
-
-  .countdownNumber {
-    font-size: 1.1rem;
-  }
-
-  .countdownLabel {
-    font-size: 0.65rem;
+  .saleBannerButton {
+    width: 30px;
+    height: 23px;
+    font-size: 0.95rem;
+    margin-left: 0.35rem;
   }
 }
 
@@ -982,25 +969,24 @@
   }
 
   .saleBannerContent {
-    flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.35rem;
   }
 
-  .countdownContainer {
-    gap: 0.4rem;
+  .saleText,
+  .discountText,
+  .countdownText {
+    font-size: 0.78rem;
   }
 
-  .countdownBox {
-    min-width: 45px;
-    padding: 0.35rem 0.5rem;
+  .discountText {
+    display: none;
   }
 
-  .countdownNumber {
-    font-size: 1rem;
-  }
-
-  .countdownLabel {
-    font-size: 0.6rem;
+  .saleBannerButton {
+    width: 28px;
+    height: 22px;
+    box-shadow: none;
+    font-size: 0.9rem;
+    margin-left: 0.2rem;
   }
 }
-
