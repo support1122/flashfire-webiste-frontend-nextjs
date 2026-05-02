@@ -927,7 +927,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                 {String(timeLeft.minutes).padStart(2, "0")}m{" "}
                 {String(timeLeft.seconds).padStart(2, "0")}s
               </span>
-              <span className={styles.discountText}>Start getting interviews faster.</span>
+              <span className={styles.discountText}>Start getting interviews faster</span>
               <Link
                 href={pricingSectionHref}
                 className={styles.saleBannerButton}
