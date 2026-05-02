@@ -742,7 +742,6 @@ export default function NavbarClient({ links, ctas }: Props) {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFeatureOpen, setIsFeatureOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const featureCloseTimer = useRef<NodeJS.Timeout | null>(null);
   const cancelFeatureClose = () => {
     if (featureCloseTimer.current) {
@@ -763,14 +762,12 @@ export default function NavbarClient({ links, ctas }: Props) {
     minutes: 0,
     seconds: 0,
   });
-  const [slotsRemaining, setSlotsRemaining] = useState(5);
   const pathname = usePathname();
   // Ensure pathname is always a string to prevent hydration mismatches
   const safePathname = pathname || (typeof window !== 'undefined' ? window.location.pathname : '') || '';
   const isCanadaContext = safePathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
 
-  const isBookPage = safePathname === "/book-a-demo" || safePathname === "/en-ca/book-a-demo";
   const isImageTestimonialsPage = safePathname === "/testimonials" || safePathname === "/en-ca/testimonials" || safePathname === "/image-testimonials" || safePathname === "/en-ca/image-testimonials";
   const isBlogsPage =
     safePathname.startsWith("/blogs") ||
@@ -782,24 +779,12 @@ export default function NavbarClient({ links, ctas }: Props) {
 
   const isExternalHref = (href: string) => href.startsWith("http");
   const primaryIsExternal = ctas.primary ? isExternalHref(ctas.primary.href) : false;
-  const secondaryIsExternal = ctas.secondary ? isExternalHref(ctas.secondary.href) : false;
 
   const getHref = (href: string) => {
     if (isExternalHref(href) || href.startsWith("#")) {
       return href;
     }
     return `${prefix}${href}`;
-  };
-
-  const pushCustomUrl = (path?: string) => {
-    if (typeof window === "undefined" || !path) return;
-    const isCanada = window.location.pathname.startsWith("/en-ca");
-    const normalized = path.startsWith("/en-ca")
-      ? path
-      : isCanada
-        ? `/en-ca${path}`
-        : path;
-    window.history.pushState({}, "", normalized);
   };
 
   const { getButtonProps } = useGeoBypass({
@@ -894,64 +879,33 @@ export default function NavbarClient({ links, ctas }: Props) {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Set mounted to true after component mounts to prevent hydration mismatches
+  // Countdown timer - resets every 24 hours at local midnight.
   useEffect(() => {
-    setMounted(true);
-  }, []);
-  // Countdown timer - Runs from 1st of month to end of month (30th or 31st)
-  useEffect(() => {
-    // Only run on client side
     if (typeof window === "undefined") return;
 
     const calculateTimeLeft = () => {
       const now = new Date();
-      const currentYear = now.getFullYear();
-      const currentMonth = now.getMonth();
-
-      // Get the first day of the current month
-      const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
-
-      // Get the last day of the current month (day 0 of next month gives us the last day of current month)
-      const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
-      lastDayOfMonth.setHours(23, 59, 59, 999); // Set to end of day
-
-      // Calculate slot count based on current date
-      const currentDay = now.getDate();
-      let slots = 5;
-      if (currentDay >= 1 && currentDay <= 10) {
-        slots = 5;
-      } else if (currentDay >= 11 && currentDay <= 20) {
-        slots = 4;
-      } else {
-        slots = 3;
-      }
-      setSlotsRemaining(slots);
-
-      const current = now.getTime();
-      const endDate = lastDayOfMonth.getTime();
-      const difference = endDate - current;
+      const endOfDay = new Date(now);
+      endOfDay.setHours(23, 59, 59, 999);
+      const difference = endOfDay.getTime() - now.getTime();
 
       if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
         const minutes = Math.floor(
-          (difference % (1000 * 60 * 60)) / (1000 * 60),
+          (difference % (1000 * 60 * 60)) / (1000 * 60)
         );
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        setTimeLeft({ days, hours, minutes, seconds });
+        setTimeLeft({ days: 0, hours, minutes, seconds });
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        setSlotsRemaining(0);
       }
     };
 
-    // Calculate immediately
     calculateTimeLeft();
 
-    // Update every second
     const interval = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(interval);
@@ -1113,6 +1067,29 @@ export default function NavbarClient({ links, ctas }: Props) {
 
       {/* Sticky Container for Navbar */}
       <div className="sticky top-0 left-0 right-0 z-50">
+        {!isImageTestimonialsPage && !isBlogsPage && (
+          <div className={styles.saleBanner}>
+            <div className={styles.saleBannerContent}>
+              <span className={styles.asterisk}>*</span>
+              <span className={styles.saleText}>Limited-Time Special Offer</span>
+              <span className={styles.countdownText}>
+                {String(timeLeft.hours).padStart(2, "0")}hr{" "}
+                {String(timeLeft.minutes).padStart(2, "0")}m{" "}
+                {String(timeLeft.seconds).padStart(2, "0")}s
+              </span>
+              <span className={styles.discountText}>Lock In Your Savings Today!</span>
+              <button
+                type="button"
+                {...getButtonProps()}
+                onClick={openCalendly}
+                className={styles.saleBannerButton}
+                aria-label="Book now"
+              >
+                &rarr;
+              </button>
+            </div>
+          </div>
+        )}
         <nav
           className={styles.navContainer}
           style={{
@@ -1135,12 +1112,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
-                    // If navigating to home, scroll to top after navigation
-                    const handleScrollToTop = () => {
-                      window.scrollTo({ top: 0, behavior: "instant" });
-                      // Remove listener after scrolling
-                      window.removeEventListener("focus", handleScrollToTop);
-                    };
                     // Scroll after navigation completes
                     setTimeout(() => {
                       window.scrollTo({ top: 0, behavior: "instant" });
@@ -2211,9 +2182,4 @@ export default function NavbarClient({ links, ctas }: Props) {
     </>
   );
 }
-
-
-
-
-
 
