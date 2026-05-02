@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 const CANADA_CODE = 'CA';
-const STORAGE_KEY = 'ff_country_code_v1';
 
 // Cache for country codes (in-memory for server-side)
 const countryCache = new Map<string, { code: string; expiresAt: number }>();
@@ -69,7 +68,7 @@ function detectCountryFallback(request: NextRequest): string {
   return 'US';
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   
   // Add noindex header for Next.js image optimization routes (crawlable but not indexable)
@@ -150,4 +149,3 @@ export const config = {
     '/((?!api|_next/static|favicon.ico).*)',
   ],
 };
-

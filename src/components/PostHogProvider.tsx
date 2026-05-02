@@ -142,9 +142,6 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
 
   // Only initialize PostHog if we have an API key
   if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
-    console.warn(
-      "PostHog API key not found. PostHog tracking will be disabled."
-    );
     return <>{children}</>;
   }
 
@@ -159,4 +156,3 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
     </PostHogProvider>
   );
 }
-

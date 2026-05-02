@@ -786,6 +786,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     }
     return `${prefix}${href}`;
   };
+  const pricingSectionHref = `${prefix}/pricing`;
 
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
@@ -911,157 +912,6 @@ export default function NavbarClient({ links, ctas }: Props) {
     return () => clearInterval(interval);
   }, []);
 
-  const openCalendly = (e?: React.MouseEvent<HTMLButtonElement>) => {
-    // Prevent any default scroll behavior
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    const utmSource = typeof window !== "undefined"
-      ? localStorage.getItem("utm_source") || "WEBSITE"
-      : "WEBSITE";
-    const utmMedium = typeof window !== "undefined"
-      ? localStorage.getItem("utm_medium") || "Navigation_Banner"
-      : "Navigation_Banner";
-
-    // GTag tracking
-    GTagUTM({
-      eventName: "calendly_modal_open",
-      label: "Book_Now_Banner_Button",
-      utmParams: {
-        utm_source: utmSource,
-        utm_medium: utmMedium,
-        utm_campaign: typeof window !== "undefined"
-          ? localStorage.getItem("utm_campaign") || "Website"
-          : "Website",
-      },
-    });
-
-    // PostHog tracking (automatically includes UTM via getUTMContext)
-    trackButtonClick("Book Now", "navigation_banner", "cta", {
-      button_location: "banner",
-      navigation_type: "banner_cta",
-    });
-
-    // Check current path
-    const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-    const normalizedPath = currentPath.split('?')[0]; // Remove query params
-
-    // Pages where we should change URL to /book-now but keep page content
-    const stayOnPageRoutes = [
-      '/features', '/en-ca/features',
-      '/how-it-works', '/en-ca/how-it-works',
-      '/how-flashfire-ai-job-automation-platform-works', '/en-ca/how-flashfire-ai-job-automation-platform-works',
-      '/pricing', '/en-ca/pricing',
-      '/feature', '/en-ca/feature'
-    ];
-
-    const shouldStayOnPage = stayOnPageRoutes.includes(normalizedPath);
-    const isAlreadyOnBookNow = normalizedPath === '/book-now' || normalizedPath === '/en-ca/book-now';
-
-    // If we should stay on the current page, change URL but keep content
-    if (shouldStayOnPage) {
-      // Save the previous page path to sessionStorage so we can navigate back on modal close
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem('previousPageBeforeBookNow', normalizedPath);
-      }
-
-      // Save current scroll position
-      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-      }
-
-      // Change URL to /book-now using pushState (doesn't reload page)
-      const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/book-now' : '/book-now';
-
-      // Change URL immediately using pushState (before router.push for instant feedback)
-      if (typeof window !== "undefined") {
-        window.history.pushState({}, '', targetPath);
-      }
-
-      // Dispatch custom event to force show modal FIRST (before navigation)
-      if (typeof window !== "undefined") {
-        window.dispatchEvent(new CustomEvent('showCalendlyModal'));
-      }
-
-      // Use router.push with shallow routing to update Next.js state without full navigation
-      // Using replace instead of push to avoid adding to history stack
-      router.replace(targetPath);
-
-      // Restore scroll position immediately after modal opens
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-          setTimeout(() => {
-            window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-          }, 50);
-        });
-      });
-
-      return;
-    }
-
-    // If already on book-now, just show modal
-    if (isAlreadyOnBookNow) {
-      // Save current scroll position
-      const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-      // Dispatch custom event to force show modal
-      if (typeof window !== "undefined") {
-        window.dispatchEvent(new CustomEvent('showCalendlyModal'));
-      }
-
-      // Restore scroll position immediately after modal opens
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-          setTimeout(() => {
-            window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-          }, 50);
-        });
-      });
-
-      return;
-    }
-
-    // Save current scroll position before navigation
-    const currentScrollY = typeof window !== "undefined" ? window.scrollY : 0;
-    if (typeof window !== "undefined") {
-      sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-    }
-
-    // Navigate to /book-now WITHOUT exposing UTM params in the URL
-    const targetPath = '/book-now';
-
-    // Dispatch custom event to force show modal (even if already on the route)
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new CustomEvent('showCalendlyModal'));
-
-      // Use window.history.pushState to update URL without scrolling
-      window.history.pushState({}, '', targetPath);
-
-      // Trigger Next.js router update without scroll
-      router.push(targetPath);
-
-      // Immediately restore scroll position to prevent scroll to top
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-          setTimeout(() => {
-            window.scrollTo({ top: currentScrollY, behavior: 'instant' as ScrollBehavior });
-          }, 50);
-        });
-      });
-    } else {
-      router.push(targetPath);
-    }
-  };
-
   return (
     <>
 
@@ -1071,22 +921,20 @@ export default function NavbarClient({ links, ctas }: Props) {
           <div className={styles.saleBanner}>
             <div className={styles.saleBannerContent}>
               <span className={styles.asterisk}>*</span>
-              <span className={styles.saleText}>Limited-Time Special Offer</span>
+              <span className={styles.saleText}>Your special offer ends in</span>
               <span className={styles.countdownText}>
                 {String(timeLeft.hours).padStart(2, "0")}hr{" "}
                 {String(timeLeft.minutes).padStart(2, "0")}m{" "}
                 {String(timeLeft.seconds).padStart(2, "0")}s
               </span>
-              <span className={styles.discountText}>Lock In Your Savings Today!</span>
-              <button
-                type="button"
-                {...getButtonProps()}
-                onClick={openCalendly}
+              <span className={styles.discountText}>Start getting interviews faster.</span>
+              <Link
+                href={pricingSectionHref}
                 className={styles.saleBannerButton}
-                aria-label="Book now"
+                aria-label="Go to pricing"
               >
                 &rarr;
-              </button>
+              </Link>
             </div>
           </div>
         )}
@@ -2182,4 +2030,3 @@ export default function NavbarClient({ links, ctas }: Props) {
     </>
   );
 }
-
