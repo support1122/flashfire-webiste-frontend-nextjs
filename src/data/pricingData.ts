@@ -139,7 +139,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     oldPrice: "CA$949",
     features: [
       "Everything in Professional",
-      "1000+ tailored applications",
+      "1200 tailored applications",
       "Portfolio development",
       "Emailing Recruiters",
       "1 Cover Letter (All Applications)",

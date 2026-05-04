@@ -1,723 +1,3 @@
-// "use client";
-
-// import { useState, useEffect } from "react";
-// import { usePathname } from "next/navigation";
-// import Link from "next/link";
-// import styles from "./navbar.module.css";
-// import type { NavLink, NavbarCTA } from "../../types/navbarData";
-// import { trackButtonClick, trackModalOpen } from "@/src/utils/PostHogTracking";
-// import { GTagUTM } from "@/src/utils/GTagUTM";
-// import { useRouter } from "next/navigation";
-// import { getCurrentUTMParams } from "@/src/utils/UTMUtils";
-
-// type Props = {
-//   links: NavLink[];
-//   ctas: NavbarCTA;
-// };
-
-// export default function NavbarClient({ links, ctas }: Props) {
-//   const router = useRouter();
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const [timeLeft, setTimeLeft] = useState({
-//     days: 0,
-//     hours: 0,
-//     minutes: 0,
-//     seconds: 0,
-//   });
-//   const pathname = usePathname();
-//   const isCanadaContext = pathname.startsWith("/en-ca");
-//   const prefix = isCanadaContext ? "/en-ca" : "";
-
-//   const isBookPage = pathname === "/schedule-a-free-career-call" || pathname === "/en-ca/schedule-a-free-career-call";
-
-//   const isExternalHref = (href: string) => href.startsWith("http");
-//   const primaryIsExternal = isExternalHref(ctas.primary.href);
-//   const secondaryIsExternal = isExternalHref(ctas.secondary.href);
-
-//   const getHref = (href: string) => {
-//     if (isExternalHref(href) || href.startsWith("#")) {
-//       return href;
-//     }
-//     return `${prefix}${href}`;
-//   };
-
-//   // Countdown timer - Set end date (November 28, 2025 11:59 PM)
-//   useEffect(() => {
-//     // Only run on client side
-//     if (typeof window === "undefined") return;
-
-//     // Set the target date: November 28, 2025 at 11:59:59 PM
-//     const targetDate = new Date(2025, 10, 28, 23, 59, 59); // Month is 0-indexed, so 10 = November
-
-//     const calculateTimeLeft = () => {
-//       const now = new Date().getTime();
-//       const endDate = targetDate.getTime();
-//       const difference = endDate - now;
-
-//       if (difference > 0) {
-//         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-//         const hours = Math.floor(
-//           (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-//         );
-//         const minutes = Math.floor(
-//           (difference % (1000 * 60 * 60)) / (1000 * 60),
-//         );
-//         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-//         setTimeLeft({ days, hours, minutes, seconds });
-//       } else {
-//         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-//       }
-//     };
-
-//     // Calculate immediately
-//     calculateTimeLeft();
-
-//     // Update every second
-//     const interval = setInterval(calculateTimeLeft, 1000);
-
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   const openCalendly = () => {
-//     const utmSource = typeof window !== "undefined"
-//       ? localStorage.getItem("utm_source") || "WEBSITE"
-//       : "WEBSITE";
-//     const utmMedium = typeof window !== "undefined"
-//       ? localStorage.getItem("utm_medium") || "Navigation_Banner"
-//       : "Navigation_Banner";
-
-//     // GTag tracking
-//     GTagUTM({
-//       eventName: "calendly_modal_open",
-//       label: "Book_Now_Banner_Button",
-//       utmParams: {
-//         utm_source: utmSource,
-//         utm_medium: utmMedium,
-//         utm_campaign: typeof window !== "undefined"
-//           ? localStorage.getItem("utm_campaign") || "Website"
-//           : "Website",
-//       },
-//     });
-
-//     // PostHog tracking (automatically includes UTM via getUTMContext)
-//     trackButtonClick("Book Now", "navigation_banner", "cta", {
-//       button_location: "banner",
-//       navigation_type: "banner_cta",
-//     });
-
-//     // Navigate to /book-now with preserved UTM params
-//     const utmParams = getCurrentUTMParams();
-//     const targetPath = utmParams ? `/book-now?${utmParams}` : '/book-now';
-
-//     // Dispatch custom event to force show modal (even if already on the route)
-//     if (typeof window !== 'undefined') {
-//       window.dispatchEvent(new CustomEvent('showCalendlyModal'));
-//     }
-
-//     router.push(targetPath);
-//   };
-
-//   return (
-//     <>
-//       {/* Sticky Container for Navbar and Banner */}
-//       <div className="sticky top-0 z-50">
-//         <nav 
-//           className={styles.navContainer}
-//           style={{
-//             backdropFilter: 'blur(120px)',
-//             WebkitBackdropFilter: 'blur(120px)',
-//           }}
-//         >
-//       <div className={styles.navInner}>
-//         {/* Left Section: Logo */}
-//         <div className={styles.navLeft}>
-//           <Link href={isCanadaContext ? "/en-ca" : "/"} className={styles.navLogoText}>
-//             FLASHFIRE
-//           </Link>
-//         </div>
-
-//         {/* Center Section: Links (Desktop) */}
-//         <ul className={styles.navLinks}>
-//           {links.map((link) => (
-//             <li key={link.href} className={styles.navLinkItem}>
-//               <a 
-//                 href={getHref(link.href)} 
-//                 className={styles.navLinkText}
-//                 target={link.target}
-//                 rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-//               >
-//                 {link.name}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-
-//         {/* Right Section: CTAs (Desktop) */}
-//         <div className={styles.navRight}>
-//           {secondaryIsExternal ? (
-//             <a
-//               href={ctas.secondary.href}
-//               className={styles.navSecondaryButton}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               onClick={() => {
-//                 trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "secondary_cta"
-//                 });
-//               }}
-//             >
-//               {ctas.secondary.label}
-//             </a>
-//           ) : (
-//             <Link
-//               href={ctas.secondary.href}
-//               className={styles.navSecondaryButton}
-//               onClick={() => {
-//                 trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "secondary_cta"
-//                 });
-//               }}
-//             >
-//               {ctas.secondary.label}
-//             </Link>
-//           )}
-//           {primaryIsExternal ? (
-//             <a
-//               href={ctas.primary.href}
-//               className={styles.navPrimaryButton}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               onClick={() => {
-//                 trackButtonClick(ctas.primary.label, "navigation", "cta", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "primary_cta"
-//                 });
-//                 if (ctas.primary.href.includes("calendly")) {
-//                   trackModalOpen("calendly_modal", "navigation_button", {
-//                     trigger_source: "navbar_cta"
-//                   });
-//                 }
-//               }}
-//             >
-//               {ctas.primary.label}
-//             </a>
-//           ) : (
-//             <Link
-//               href={ctas.primary.href}
-//               className={styles.navPrimaryButton}
-//               onClick={() => {
-//                 trackButtonClick(ctas.primary.label, "navigation", "cta", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "primary_cta"
-//                 });
-//                 if (ctas.primary.href.includes("calendly")) {
-//                   trackModalOpen("calendly_modal", "navigation_button", {
-//                     trigger_source: "navbar_cta"
-//                   });
-//                 }
-//               }}
-//             >
-//               {ctas.primary.label}
-//             </Link>
-//           )}
-//         </div>
-
-//         {/* Mobile Menu Icon */}
-//         <button
-//           className={styles.navMenuIcon}
-//           onClick={() => setIsMenuOpen(!isMenuOpen)}
-//           aria-label="Toggle menu"
-//         >
-//           <div
-//             className={isMenuOpen ? styles.iconClose : styles.iconHamburger}
-//           />
-//         </button>
-//       </div>
-
-//       {/* Mobile Dropdown */}
-//       {isMenuOpen && (
-//         <div className={styles.navMobileMenu}>
-//           <ul className={styles.navMobileLinks}>
-//             {links.map((link) => (
-//               <li key={link.href}>
-//                 <a 
-//                   href={getHref(link.href)} 
-//                   className={styles.navMobileLink}
-//                   target={link.target}
-//                   rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-//                 >
-//                   {link.name}
-//                 </a>
-//               </li>
-//             ))}
-//           </ul>
-//           <div className={styles.navMobileButtons}>
-//             <a
-//               href={ctas.secondary.href}
-//               className={styles.navMobileSecondary}
-//               target={secondaryIsExternal ? "_blank" : undefined}
-//               rel={secondaryIsExternal ? "noopener noreferrer" : undefined}
-//               onClick={() => {
-//                 trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-//                   button_location: "navbar_mobile",
-//                   navigation_type: "secondary_cta"
-//                 });
-//               }}
-//             >
-//               {ctas.secondary.label}
-//             </a>
-//             <a
-//               href={ctas.primary.href}
-//               className={styles.navMobilePrimary}
-//               target={primaryIsExternal ? "_blank" : undefined}
-//               rel={primaryIsExternal ? "noopener noreferrer" : undefined}
-//               onClick={() => {
-//                 trackButtonClick(ctas.primary.label, "navigation", "cta", {
-//                   button_location: "navbar_mobile",
-//                   navigation_type: "primary_cta"
-//                 });
-//                 if (ctas.primary.href.includes("calendly")) {
-//                   trackModalOpen("calendly_modal", "navigation_button", {
-//                     trigger_source: "navbar_mobile_cta"
-//                   });
-//                 }
-//               }}
-//             >
-//               {ctas.primary.label}
-//             </a>
-//           </div>
-//         </div>
-//       )}
-//     </nav>
-
-//     {/* Black Friday Sale Banner - Below Navbar */}
-//     <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
-//       <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
-//         {/* Text part - stays in one line on mobile */}
-//         <div className="flex items-center gap-2 max-[600px]:gap-1.5 max-[600px]:flex-nowrap max-[600px]:w-full max-[600px]:justify-center">
-//           <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
-//             BLACK FRIDAY SALE
-//           </span>
-//           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
-//             ✱
-//           </span>
-//           <span className="text-[0.85rem] text-black font-medium max-[900px]:text-[0.75rem] max-[600px]:text-[0.7rem] whitespace-nowrap">
-//             Get flat $20 discount on all plans
-//           </span>
-//           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
-//             ✱
-//           </span>
-//         </div>
-//         <div className="flex gap-1 items-center max-[600px]:gap-0.5">
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.days).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Days
-//             </div>
-//           </div>
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.hours).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Hrs
-//             </div>
-//           </div>
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.minutes).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Mins
-//             </div>
-//           </div>
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.seconds).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Secs
-//             </div>
-//           </div>
-//           <button
-//             onClick={openCalendly}
-//             className="rounded-full bg-white text-red-600 font-bold px-5 sm:px-6 py-2 shadow-lg hover:shadow-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-base sm:text-lg ml-3 max-[600px]:ml-2"
-//           >
-//             Book Now
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// "use client";
-
-// import { useState, useEffect } from "react";
-// import { usePathname } from "next/navigation";
-// import Link from "next/link";
-// import styles from "./navbar.module.css";
-// import type { NavLink, NavbarCTA } from "../../types/navbarData";
-// import { trackButtonClick, trackModalOpen } from "@/src/utils/PostHogTracking";
-// import { GTagUTM } from "@/src/utils/GTagUTM";
-// import { useRouter } from "next/navigation";
-// import { getCurrentUTMParams } from "@/src/utils/UTMUtils";
-
-// type Props = {
-//   links: NavLink[];
-//   ctas: NavbarCTA;
-// };
-
-// export default function NavbarClient({ links, ctas }: Props) {
-//   const router = useRouter();
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-//   const [timeLeft, setTimeLeft] = useState({
-//     days: 0,
-//     hours: 0,
-//     minutes: 0,
-//     seconds: 0,
-//   });
-//   const pathname = usePathname();
-//   const isCanadaContext = pathname.startsWith("/en-ca");
-//   const prefix = isCanadaContext ? "/en-ca" : "";
-
-//   const isBookPage = pathname === "/schedule-a-free-career-call" || pathname === "/en-ca/schedule-a-free-career-call";
-
-//   const isExternalHref = (href: string) => href.startsWith("http");
-//   const primaryIsExternal = isExternalHref(ctas.primary.href);
-//   const secondaryIsExternal = isExternalHref(ctas.secondary.href);
-
-//   const getHref = (href: string) => {
-//     if (isExternalHref(href) || href.startsWith("#")) {
-//       return href;
-//     }
-//     return `${prefix}${href}`;
-//   };
-
-//   // Countdown timer - Set end date (November 28, 2025 11:59 PM)
-//   useEffect(() => {
-//     // Only run on client side
-//     if (typeof window === "undefined") return;
-
-//     // Set the target date: November 28, 2025 at 11:59:59 PM
-//     const targetDate = new Date(2025, 10, 28, 23, 59, 59); // Month is 0-indexed, so 10 = November
-
-//     const calculateTimeLeft = () => {
-//       const now = new Date().getTime();
-//       const endDate = targetDate.getTime();
-//       const difference = endDate - now;
-
-//       if (difference > 0) {
-//         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-//         const hours = Math.floor(
-//           (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-//         );
-//         const minutes = Math.floor(
-//           (difference % (1000 * 60 * 60)) / (1000 * 60),
-//         );
-//         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-//         setTimeLeft({ days, hours, minutes, seconds });
-//       } else {
-//         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-//       }
-//     };
-
-//     // Calculate immediately
-//     calculateTimeLeft();
-
-//     // Update every second
-//     const interval = setInterval(calculateTimeLeft, 1000);
-
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   const openCalendly = () => {
-//     const utmSource = typeof window !== "undefined"
-//       ? localStorage.getItem("utm_source") || "WEBSITE"
-//       : "WEBSITE";
-//     const utmMedium = typeof window !== "undefined"
-//       ? localStorage.getItem("utm_medium") || "Navigation_Banner"
-//       : "Navigation_Banner";
-
-//     // GTag tracking
-//     GTagUTM({
-//       eventName: "calendly_modal_open",
-//       label: "Book_Now_Banner_Button",
-//       utmParams: {
-//         utm_source: utmSource,
-//         utm_medium: utmMedium,
-//         utm_campaign: typeof window !== "undefined"
-//           ? localStorage.getItem("utm_campaign") || "Website"
-//           : "Website",
-//       },
-//     });
-
-//     // PostHog tracking (automatically includes UTM via getUTMContext)
-//     trackButtonClick("Book Now", "navigation_banner", "cta", {
-//       button_location: "banner",
-//       navigation_type: "banner_cta",
-//     });
-
-//     // Navigate to /book-now with preserved UTM params
-//     const utmParams = getCurrentUTMParams();
-//     const targetPath = utmParams ? `/book-now?${utmParams}` : '/book-now';
-
-//     // Dispatch custom event to force show modal (even if already on the route)
-//     if (typeof window !== 'undefined') {
-//       window.dispatchEvent(new CustomEvent('showCalendlyModal'));
-//     }
-
-//     router.push(targetPath);
-//   };
-
-//   return (
-//     <>
-//       {/* Sticky Container for Navbar and Banner */}
-//       <div className="sticky top-0 z-50">
-//         <nav 
-//           className={styles.navContainer}
-//           style={{
-//             backdropFilter: 'blur(120px)',
-//             WebkitBackdropFilter: 'blur(120px)',
-//           }}
-//         >
-//       <div className={styles.navInner}>
-//         {/* Left Section: Logo */}
-//         <div className={styles.navLeft}>
-//           <Link href={isCanadaContext ? "/en-ca" : "/"} className={styles.navLogoText}>
-//             FLASHFIRE
-//           </Link>
-//         </div>
-
-//         {/* Center Section: Links (Desktop) */}
-//         <ul className={styles.navLinks}>
-//           {links.map((link) => (
-//             <li key={link.href} className={styles.navLinkItem}>
-//               <a 
-//                 href={getHref(link.href)} 
-//                 className={styles.navLinkText}
-//                 target={link.target}
-//                 rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-//               >
-//                 {link.name}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-
-//         {/* Right Section: CTAs (Desktop) */}
-//         <div className={styles.navRight}>
-//           {secondaryIsExternal ? (
-//             <a
-//               href={ctas.secondary.href}
-//               className={styles.navSecondaryButton}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               onClick={() => {
-//                 trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "secondary_cta"
-//                 });
-//               }}
-//             >
-//               {ctas.secondary.label}
-//             </a>
-//           ) : (
-//             <Link
-//               href={ctas.secondary.href}
-//               className={styles.navSecondaryButton}
-//               onClick={() => {
-//                 trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "secondary_cta"
-//                 });
-//               }}
-//             >
-//               {ctas.secondary.label}
-//             </Link>
-//           )}
-//           {primaryIsExternal ? (
-//             <a
-//               href={ctas.primary.href}
-//               className={styles.navPrimaryButton}
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               onClick={() => {
-//                 trackButtonClick(ctas.primary.label, "navigation", "cta", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "primary_cta"
-//                 });
-//                 if (ctas.primary.href.includes("calendly")) {
-//                   trackModalOpen("calendly_modal", "navigation_button", {
-//                     trigger_source: "navbar_cta"
-//                   });
-//                 }
-//               }}
-//             >
-//               {ctas.primary.label}
-//             </a>
-//           ) : (
-//             <Link
-//               href={ctas.primary.href}
-//               className={styles.navPrimaryButton}
-//               onClick={() => {
-//                 trackButtonClick(ctas.primary.label, "navigation", "cta", {
-//                   button_location: "navbar_desktop",
-//                   navigation_type: "primary_cta"
-//                 });
-//                 if (ctas.primary.href.includes("calendly")) {
-//                   trackModalOpen("calendly_modal", "navigation_button", {
-//                     trigger_source: "navbar_cta"
-//                   });
-//                 }
-//               }}
-//             >
-//               {ctas.primary.label}
-//             </Link>
-//           )}
-//         </div>
-
-//         {/* Mobile Menu Icon */}
-//         <button
-//           className={styles.navMenuIcon}
-//           onClick={() => setIsMenuOpen(!isMenuOpen)}
-//           aria-label="Toggle menu"
-//         >
-//           <div
-//             className={isMenuOpen ? styles.iconClose : styles.iconHamburger}
-//           />
-//         </button>
-//       </div>
-
-//       {/* Mobile Dropdown */}
-//       {isMenuOpen && (
-//         <div className={styles.navMobileMenu}>
-//           <ul className={styles.navMobileLinks}>
-//             {links.map((link) => (
-//               <li key={link.href}>
-//                 <a 
-//                   href={getHref(link.href)} 
-//                   className={styles.navMobileLink}
-//                   target={link.target}
-//                   rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
-//                 >
-//                   {link.name}
-//                 </a>
-//               </li>
-//             ))}
-//           </ul>
-//           <div className={styles.navMobileButtons}>
-//             <a
-//               href={ctas.secondary.href}
-//               className={styles.navMobileSecondary}
-//               target={secondaryIsExternal ? "_blank" : undefined}
-//               rel={secondaryIsExternal ? "noopener noreferrer" : undefined}
-//               onClick={() => {
-//                 trackButtonClick(ctas.secondary.label, "navigation", "secondary", {
-//                   button_location: "navbar_mobile",
-//                   navigation_type: "secondary_cta"
-//                 });
-//               }}
-//             >
-//               {ctas.secondary.label}
-//             </a>
-//             <a
-//               href={ctas.primary.href}
-//               className={styles.navMobilePrimary}
-//               target={primaryIsExternal ? "_blank" : undefined}
-//               rel={primaryIsExternal ? "noopener noreferrer" : undefined}
-//               onClick={() => {
-//                 trackButtonClick(ctas.primary.label, "navigation", "cta", {
-//                   button_location: "navbar_mobile",
-//                   navigation_type: "primary_cta"
-//                 });
-//                 if (ctas.primary.href.includes("calendly")) {
-//                   trackModalOpen("calendly_modal", "navigation_button", {
-//                     trigger_source: "navbar_mobile_cta"
-//                   });
-//                 }
-//               }}
-//             >
-//               {ctas.primary.label}
-//             </a>
-//           </div>
-//         </div>
-//       )}
-//     </nav>
-
-//     {/* Black Friday Sale Banner - Below Navbar */}
-//     <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
-//       <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2">
-//         {/* Text part - stays in one line on mobile */}
-//         <div className="flex items-center gap-2 max-[600px]:gap-1.5 max-[600px]:flex-nowrap max-[600px]:w-full max-[600px]:justify-center">
-//           <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
-//             BLACK FRIDAY SALE
-//           </span>
-//           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
-//             ✱
-//           </span>
-//           <span className="text-[0.85rem] text-black font-medium max-[900px]:text-[0.75rem] max-[600px]:text-[0.7rem] whitespace-nowrap">
-//             Get flat $20 discount on all plans
-//           </span>
-//           <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
-//             ✱
-//           </span>
-//         </div>
-//         <div className="flex gap-1 items-center max-[600px]:gap-0.5">
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.days).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Days
-//             </div>
-//           </div>
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.hours).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Hrs
-//             </div>
-//           </div>
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.minutes).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Mins
-//             </div>
-//           </div>
-//           <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-//             <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-//               {String(timeLeft.seconds).padStart(2, "0")}
-//             </div>
-//             <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-//               Secs
-//             </div>
-//           </div>
-//           <button
-//             onClick={openCalendly}
-//             className="rounded-full bg-white text-red-600 font-bold px-5 sm:px-6 py-2 shadow-lg hover:shadow-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-base sm:text-lg ml-3 max-[600px]:ml-2"
-//           >
-//             Book Now
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//       </div>
-//     </>
-//   );
-// }
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -754,7 +34,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     cancelFeatureClose();
     featureCloseTimer.current = setTimeout(() => {
       setIsFeatureOpen(false);
-    }, 400); // slightly longer delay so users can move into the dropdown
+    }, 400);
   };
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -763,7 +43,6 @@ export default function NavbarClient({ links, ctas }: Props) {
     seconds: 0,
   });
   const pathname = usePathname();
-  // Ensure pathname is always a string to prevent hydration mismatches
   const safePathname = pathname || (typeof window !== 'undefined' ? window.location.pathname : '') || '';
   const isCanadaContext = safePathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
@@ -774,8 +53,6 @@ export default function NavbarClient({ links, ctas }: Props) {
     safePathname.startsWith("/blog") ||
     safePathname.startsWith("/en-ca/blogs") ||
     safePathname.startsWith("/en-ca/blog");
-
- 
 
   const isExternalHref = (href: string) => href.startsWith("http");
   const primaryIsExternal = ctas.primary ? isExternalHref(ctas.primary.href) : false;
@@ -796,25 +73,17 @@ export default function NavbarClient({ links, ctas }: Props) {
     },
   });
 
-  // Handle section clicks - jump to section start AND update URL
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, skipNavigation = false) => {
     const sectionMap: { [key: string]: string } = {};
-
     const sectionId = sectionMap[href];
 
-    // Always prevent default for section links
     e.preventDefault();
 
-    if (!sectionId) {
-      return;
-    }
+    if (!sectionId) return;
 
     const section = document.getElementById(sectionId);
-    if (!section) {
-      return;
-    }
+    if (!section) return;
 
-    // Check if already at this section (within 50px tolerance)
     const rect = section.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const elementTop = rect.top + scrollTop;
@@ -826,9 +95,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     const targetScrollPosition = Math.max(0, elementTop - offset);
     const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-    // If already at this section, don't scroll again - just update URL if needed
     if (Math.abs(currentScrollPosition - targetScrollPosition) < 50) {
-      // Still update URL if not already set
       const targetUrl = `${prefix}${href}`;
       if (window.location.pathname !== targetUrl) {
         window.history.pushState({}, '', targetUrl);
@@ -836,39 +103,32 @@ export default function NavbarClient({ links, ctas }: Props) {
       return;
     }
 
-    // Update URL to reflect the section (for SEO and shareability) - but only if not skipping navigation
     if (!skipNavigation) {
       const targetUrl = `${prefix}${href}`;
       window.history.pushState({}, '', targetUrl);
     }
 
-    // Smooth scroll to section with butter-smooth easing
     smoothScrollToElement(sectionId, {
-      duration: 800, // 800ms for smooth feel
-      easing: 'easeInOutCubic', // Butter smooth easing
-    }).then(() => {
-    });
+      duration: 800,
+      easing: 'easeInOutCubic',
+    }).then(() => {});
   };
 
-  // Handle browser back/forward buttons for section navigation
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const handlePopState = () => {
       const currentPath = window.location.pathname;
       const sectionMap: { [key: string]: string } = {};
-
       const sectionId = sectionMap[currentPath];
       if (sectionId) {
         setTimeout(() => {
-          // Use smooth scroll for browser navigation
           smoothScrollToElement(sectionId, {
             duration: 800,
             easing: 'easeInOutCubic',
           });
         }, 100);
       } else if (currentPath === '/' || currentPath === '/en-ca') {
-        // Back to homepage, smooth scroll to top
         smoothScrollTo(0, {
           duration: 600,
           easing: 'easeOutCubic',
@@ -914,7 +174,6 @@ export default function NavbarClient({ links, ctas }: Props) {
 
   return (
     <>
-
       {/* Sticky Container for Navbar */}
       <div className="sticky top-0 left-0 right-0 z-50">
         {!isImageTestimonialsPage && !isBlogsPage && (
@@ -952,7 +211,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                 href={isCanadaContext ? "/en-ca" : "/"}
                 className={styles.navLogoText}
                 onClick={(e) => {
-                  // If already on home page, scroll to top
                   const currentPath = pathname;
                   const isOnHomePage = currentPath === "/" || currentPath === "/en-ca" || currentPath === prefix + "/";
 
@@ -960,7 +218,10 @@ export default function NavbarClient({ links, ctas }: Props) {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
+<<<<<<< HEAD
                     // Scroll after navigation completes
+=======
+>>>>>>> 38ea962642496598c5688e57cbc728a45fe299e6
                     setTimeout(() => {
                       window.scrollTo({ top: 0, behavior: "instant" });
                     }, 100);
@@ -974,13 +235,12 @@ export default function NavbarClient({ links, ctas }: Props) {
             {/* Center Section: Links (Desktop) */}
             <ul className={styles.navLinks}>
               {links.map((link) => {
-                const sectionLinks: string[] = []; // No section links anymore
+                const sectionLinks: string[] = [];
                 const isSectionLink = sectionLinks.includes(link.href);
                 const isOnHomePage = pathname === '/' || pathname === '/en-ca' || pathname === prefix + '/';
                 const isOnPricingPage = pathname === '/pricing' || pathname === '/en-ca/pricing' || pathname === prefix + '/pricing';
                 const isOnSectionPage = pathname === getHref(link.href) || pathname === link.href || pathname === prefix + link.href;
                 const isExternal = isExternalHref(link.href) || link.target === "_blank";
-
                 const isFeaturesLink = link.name.toLowerCase() === "features";
 
                 return (
@@ -1009,8 +269,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                         >
                           {link.name}
                           <span
-                            className={`${styles.caret} ${isFeatureOpen ? styles.caretOpen : ""
-                              }`}
+                            className={`${styles.caret} ${isFeatureOpen ? styles.caretOpen : ""}`}
                           >
                             ▾
                           </span>
@@ -1038,12 +297,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    Resume Optimizer
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    Resume score for ATS
-                                  </span>
+                                  <span className={styles.featureTitle}>Resume Optimizer</span>
+                                  <span className={styles.featureSub}>Resume score for ATS</span>
                                 </div>
                               </Link>
 
@@ -1060,12 +315,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    LinkedIn Optimization
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    Optimize LinkedIn profile
-                                  </span>
+                                  <span className={styles.featureTitle}>LinkedIn Optimization</span>
+                                  <span className={styles.featureSub}>Optimize LinkedIn profile</span>
                                 </div>
                               </Link>
 
@@ -1082,12 +333,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    Job Automation
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    Auto apply to roles
-                                  </span>
+                                  <span className={styles.featureTitle}>Job Automation</span>
+                                  <span className={styles.featureSub}>Auto apply to roles</span>
                                 </div>
                               </Link>
 
@@ -1103,12 +350,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    Job Tracker
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    Track applications
-                                  </span>
+                                  <span className={styles.featureTitle}>Job Tracker</span>
+                                  <span className={styles.featureSub}>Track applications</span>
                                 </div>
                               </Link>
 
@@ -1125,12 +368,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    Precision Targeting
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    Smart job matching
-                                  </span>
+                                  <span className={styles.featureTitle}>Precision Targeting</span>
+                                  <span className={styles.featureSub}>Smart job matching</span>
                                 </div>
                               </Link>
 
@@ -1147,12 +386,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    Dashboard & Analytics
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    Performance insights
-                                  </span>
+                                  <span className={styles.featureTitle}>Dashboard & Analytics</span>
+                                  <span className={styles.featureSub}>Performance insights</span>
                                 </div>
                               </Link>
 
@@ -1171,12 +406,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    Cover Letter Builder
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    AI-powered writing
-                                  </span>
+                                  <span className={styles.featureTitle}>Cover Letter Builder</span>
+                                  <span className={styles.featureSub}>AI-powered writing</span>
                                 </div>
                               </Link>
 
@@ -1194,12 +425,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   </svg>
                                 </div>
                                 <div className={styles.featureTexts}>
-                                  <span className={styles.featureTitle}>
-                                    Interview Tips
-                                  </span>
-                                  <span className={styles.featureSub}>
-                                    Real-time AI prep
-                                  </span>
+                                  <span className={styles.featureTitle}>Interview Tips</span>
+                                  <span className={styles.featureSub}>Real-time AI prep</span>
                                 </div>
                               </Link>
                             </div>
@@ -1221,40 +448,29 @@ export default function NavbarClient({ links, ctas }: Props) {
                         className={styles.navLinkText}
                         onClick={(e) => {
                           e.preventDefault();
-                          // Always navigate to home page if on pricing page
                           if (isOnPricingPage || (!isOnHomePage && !isOnSectionPage)) {
-                            // Navigate to home first
                             router.push(prefix + '/');
-                            // Wait for navigation to complete and DOM to update
                             const scrollToSectionOnHome = () => {
                               const currentPath = window.location.pathname;
                               const isNowOnHome = currentPath === '/' || currentPath === '/en-ca' || currentPath === prefix + '/';
-
                               if (isNowOnHome) {
-                                // Double check that we're on home page and section exists
                                 const sectionId = link.href.replace('/', '');
                                 const section = document.getElementById(sectionId);
                                 if (section) {
                                   handleSectionClick(e, link.href);
                                 } else {
-                                  // Section not found yet, wait a bit more
                                   setTimeout(scrollToSectionOnHome, 100);
                                 }
                               } else {
-                                // Not on home yet, wait a bit more
                                 setTimeout(scrollToSectionOnHome, 100);
                               }
                             };
-
-                            // Start checking after a short delay
                             requestAnimationFrame(() => {
                               setTimeout(scrollToSectionOnHome, 300);
                             });
                           } else if (isOnSectionPage && !isOnHomePage) {
-                            // If on section page (like /feature), just scroll to section without navigating
                             handleSectionClick(e, link.href, true);
                           } else {
-                            // Already on home page, just scroll
                             handleSectionClick(e, link.href);
                           }
                         }}
@@ -1275,12 +491,9 @@ export default function NavbarClient({ links, ctas }: Props) {
                         href={getHref(link.href)}
                         className={styles.navLinkText}
                         onClick={(e) => {
-                          // Special handling for Pricing link - prevent scroll to top when already on pricing page
                           if (link.href === '/pricing' && isOnPricingPage) {
                             e.preventDefault();
                             e.stopPropagation();
-
-                            // Scroll to pricing heading with navbar offset
                             const headingElement = document.getElementById('pricing-heading');
                             if (headingElement) {
                               const stickyNavbar = document.querySelector('.sticky.top-0') ||
@@ -1288,13 +501,10 @@ export default function NavbarClient({ links, ctas }: Props) {
                                 document.querySelector('[class*="nav"]');
                               const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
                               const offset = navbarHeight + 20;
-
                               const rect = headingElement.getBoundingClientRect();
                               const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                               const elementTop = rect.top + scrollTop;
                               const targetScrollPosition = Math.max(0, elementTop - offset);
-
-                              // Only scroll if not already at the correct position
                               const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                               if (Math.abs(currentScrollPosition - targetScrollPosition) > 50) {
                                 smoothScrollToElement('pricing-heading', {
@@ -1332,7 +542,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                       target_url: "/book-a-demo",
                     });
                     if (typeof window !== "undefined") {
-                      // Save current page and scroll position before navigating
                       const currentPath = safePathname || window.location.pathname;
                       sessionStorage.setItem('previousPageBeforeBookADemo', currentPath);
                       const currentScrollY = window.scrollY || window.pageYOffset || 0;
@@ -1345,7 +554,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                 </Link>
               ) : null}
             </div>
-
 
             {/* Mobile Menu Icon */}
             <button
@@ -1364,7 +572,7 @@ export default function NavbarClient({ links, ctas }: Props) {
             <div className={styles.navMobileMenu}>
               <ul className={styles.navMobileLinks}>
                 {links.map((link) => {
-                  const sectionLinks: string[] = []; // No section links anymore
+                  const sectionLinks: string[] = [];
                   const isSectionLink = sectionLinks.includes(link.href);
                   const isOnHomePage = safePathname === '/' || safePathname === '/en-ca' || safePathname === prefix + '/';
                   const isOnPricingPage = safePathname === '/pricing' || safePathname === '/en-ca/pricing' || safePathname === prefix + '/pricing';
@@ -1384,8 +592,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                           >
                             {link.name}
                             <span
-                              className={`${styles.caret} ${isFeatureOpen ? styles.caretOpen : ""
-                                }`}
+                              className={`${styles.caret} ${isFeatureOpen ? styles.caretOpen : ""}`}
                             >
                               ▾
                             </span>
@@ -1419,12 +626,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      Resume Optimizer
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      Resume score for ATS
-                                    </span>
+                                    <span className={styles.featureTitle}>Resume Optimizer</span>
+                                    <span className={styles.featureSub}>Resume score for ATS</span>
                                   </div>
                                 </a>
 
@@ -1451,12 +654,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      LinkedIn Opt.
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      Optimize LinkedIn profile
-                                    </span>
+                                    <span className={styles.featureTitle}>LinkedIn Opt.</span>
+                                    <span className={styles.featureSub}>Optimize LinkedIn profile</span>
                                   </div>
                                 </a>
 
@@ -1483,12 +682,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      Job Automation
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      Auto apply to roles
-                                    </span>
+                                    <span className={styles.featureTitle}>Job Automation</span>
+                                    <span className={styles.featureSub}>Auto apply to roles</span>
                                   </div>
                                 </a>
 
@@ -1514,12 +709,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      Job Tracker
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      Track applications
-                                    </span>
+                                    <span className={styles.featureTitle}>Job Tracker</span>
+                                    <span className={styles.featureSub}>Track applications</span>
                                   </div>
                                 </a>
 
@@ -1546,12 +737,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      Precision Targeting
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      Smart job matching
-                                    </span>
+                                    <span className={styles.featureTitle}>Precision Targeting</span>
+                                    <span className={styles.featureSub}>Smart job matching</span>
                                   </div>
                                 </a>
 
@@ -1578,12 +765,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      Dashboard & Analytics
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      Performance insights
-                                    </span>
+                                    <span className={styles.featureTitle}>Dashboard & Analytics</span>
+                                    <span className={styles.featureSub}>Performance insights</span>
                                   </div>
                                 </a>
 
@@ -1612,12 +795,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      Cover Letter Builder
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      AI-powered writing
-                                    </span>
+                                    <span className={styles.featureTitle}>Cover Letter Builder</span>
+                                    <span className={styles.featureSub}>AI-powered writing</span>
                                   </div>
                                 </a>
 
@@ -1645,12 +824,8 @@ export default function NavbarClient({ links, ctas }: Props) {
                                     </svg>
                                   </div>
                                   <div className={styles.featureTexts}>
-                                    <span className={styles.featureTitle}>
-                                      Interview Tips
-                                    </span>
-                                    <span className={styles.featureSub}>
-                                      Real-time AI prep
-                                    </span>
+                                    <span className={styles.featureTitle}>Interview Tips</span>
+                                    <span className={styles.featureSub}>Real-time AI prep</span>
                                   </div>
                                 </a>
                               </div>
@@ -1661,19 +836,13 @@ export default function NavbarClient({ links, ctas }: Props) {
                                 onClick={(e) => {
                                   e.preventDefault();
                                   e.stopPropagation();
-
-                                  // Close menus
                                   setIsMenuOpen(false);
                                   setIsFeatureOpen(false);
-
-                                  // Track navigation click
                                   trackButtonClick("All Features", "navigation", "link", {
                                     button_location: "navbar_mobile_features",
                                     navigation_type: "internal_link",
                                     destination: link.href
                                   });
-
-                                  // Small delay to ensure menus close before navigation
                                   setTimeout(() => {
                                     router.push(getHref(link.href));
                                   }, 100);
@@ -1691,40 +860,29 @@ export default function NavbarClient({ links, ctas }: Props) {
                           onClick={(e) => {
                             e.preventDefault();
                             setIsMenuOpen(false);
-                            // Always navigate to home page if on pricing page
                             if (isOnPricingPage || (!isOnHomePage && !isOnSectionPage)) {
-                              // Navigate to home first
                               router.push(prefix + '/');
-                              // Wait for navigation to complete and DOM to update
                               const scrollToSectionOnHome = () => {
                                 const currentPath = window.location.pathname;
                                 const isNowOnHome = currentPath === '/' || currentPath === '/en-ca' || currentPath === prefix + '/';
-
                                 if (isNowOnHome) {
-                                  // Double check that we're on home page and section exists
                                   const sectionId = link.href.replace('/', '');
                                   const section = document.getElementById(sectionId);
                                   if (section) {
                                     handleSectionClick(e, link.href);
                                   } else {
-                                    // Section not found yet, wait a bit more
                                     setTimeout(scrollToSectionOnHome, 100);
                                   }
                                 } else {
-                                  // Not on home yet, wait a bit more
                                   setTimeout(scrollToSectionOnHome, 100);
                                 }
                               };
-
-                              // Start checking after a short delay
                               requestAnimationFrame(() => {
                                 setTimeout(scrollToSectionOnHome, 300);
                               });
                             } else if (isOnSectionPage && !isOnHomePage) {
-                              // If on section page (like /feature), just scroll to section without navigating
                               handleSectionClick(e, link.href, true);
                             } else {
-                              // Already on home page, just scroll
                               handleSectionClick(e, link.href);
                             }
                           }}
@@ -1748,20 +906,13 @@ export default function NavbarClient({ links, ctas }: Props) {
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
-
-                            // Close menu immediately
                             setIsMenuOpen(false);
-
-                            // Track navigation click
                             trackButtonClick(link.name, "navigation", "link", {
                               button_location: "navbar_mobile",
                               navigation_type: "internal_link",
                               destination: link.href
                             });
-
-                            // Special handling for Pricing link - prevent scroll to top when already on pricing page
                             if (link.href === '/pricing' && isOnPricingPage) {
-                              // Scroll to pricing heading with navbar offset
                               const headingElement = document.getElementById('pricing-heading');
                               if (headingElement) {
                                 const stickyNavbar = document.querySelector('.sticky.top-0') ||
@@ -1769,13 +920,10 @@ export default function NavbarClient({ links, ctas }: Props) {
                                   document.querySelector('[class*="nav"]');
                                 const navbarHeight = stickyNavbar ? stickyNavbar.getBoundingClientRect().height : 0;
                                 const offset = navbarHeight + 20;
-
                                 const rect = headingElement.getBoundingClientRect();
                                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                                 const elementTop = rect.top + scrollTop;
                                 const targetScrollPosition = Math.max(0, elementTop - offset);
-
-                                // Only scroll if not already at the correct position
                                 const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
                                 if (Math.abs(currentScrollPosition - targetScrollPosition) > 50) {
                                   smoothScrollToElement('pricing-heading', {
@@ -1786,8 +934,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                               }
                               return;
                             }
-
-                            // Navigate using router.push for better control
                             router.push(getHref(link.href));
                           }}
                         >
@@ -1855,7 +1001,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                         target_url: "/book-a-demo"
                       });
                       if (typeof window !== "undefined") {
-                        // Save current page and scroll position before navigating
                         const currentPath = safePathname || window.location.pathname;
                         sessionStorage.setItem('previousPageBeforeBookADemo', currentPath);
                         const currentScrollY = window.scrollY || window.pageYOffset || 0;
@@ -1907,8 +1052,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                       : "WEBSITE";
                   const utmMedium =
                     typeof window !== "undefined"
-                      ? localStorage.getItem("utm_medium") ||
-                        "Navigation_Navbar_Button"
+                      ? localStorage.getItem("utm_medium") || "Navigation_Navbar_Button"
                       : "Navigation_Navbar_Button";
                   const utmCampaign =
                     typeof window !== "undefined"
@@ -1935,16 +1079,9 @@ export default function NavbarClient({ links, ctas }: Props) {
                   });
                   if (typeof window !== "undefined") {
                     const currentPath = safePathname || window.location.pathname;
-                    sessionStorage.setItem(
-                      "previousPageBeforeBookADemo",
-                      currentPath
-                    );
-                    const currentScrollY =
-                      window.scrollY || window.pageYOffset || 0;
-                    sessionStorage.setItem(
-                      "preserveScrollPosition",
-                      currentScrollY.toString()
-                    );
+                    sessionStorage.setItem("previousPageBeforeBookADemo", currentPath);
+                    const currentScrollY = window.scrollY || window.pageYOffset || 0;
+                    sessionStorage.setItem("preserveScrollPosition", currentScrollY.toString());
                     window.dispatchEvent(new CustomEvent("showCalendlyModal"));
                   }
                 }}
@@ -1953,79 +1090,6 @@ export default function NavbarClient({ links, ctas }: Props) {
               </Link>
             </div>
           )}
-
-        {/* Slots Remaining Banner - Below Navbar */}
-        {/* {!isImageTestimonialsPage && !isBlogsPage && (
-          <div className="w-full bg-[#f5f5f0] border-t border-[rgba(241,241,241,0.2)] py-0.5 px-4 flex items-center justify-center max-[900px]:py-0.5 max-[900px]:px-3 font-['Space_Grotesk',sans-serif]">
-          <div className="flex items-center justify-center gap-2 flex-wrap max-w-[1400px] w-full max-[900px]:gap-1.5 max-[600px]:flex-col max-[600px]:gap-2"> */}
-        {/* Text part - hidden on mobile */}
-        {/* <div className="flex items-center gap-2 max-[600px]:hidden">
-          <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
-            ✱
-          </span>
-          <span className="font-bold text-[1.1rem] text-black tracking-[0.02em] uppercase max-[900px]:text-[0.85rem] max-[600px]:text-[0.75rem] whitespace-nowrap">
-                  Hurry up only {slotsRemaining} slots remaining
-                </span>
-          <span className="text-[#ff4c00] text-[1rem] font-bold leading-none max-[900px]:text-sm max-[600px]:text-[0.7rem]">
-            ✱
-          </span>
-        </div> */}
-        {/* Mobile text part - visible only on mobile */}
-        {/* <div className="hidden max-[600px]:flex items-center justify-center gap-1.5 w-full">
-          <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
-            ✱
-          </span>
-          <span className="font-bold text-[0.75rem] text-black tracking-[0.02em] uppercase whitespace-nowrap">
-            Hurry up only {slotsRemaining} slots remaining
-          </span>
-          <span className="text-[#ff4c00] text-[0.7rem] font-bold leading-none">
-            ✱
-          </span>
-              </div>
-        <div className="flex gap-1 items-center max-[600px]:gap-0.5">
-          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-              {String(timeLeft.days).padStart(2, "0")}
-                    </div>
-            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-              Days
-                    </div>
-                  </div>
-          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-              {String(timeLeft.hours).padStart(2, "0")}
-            </div>
-            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-              Hrs
-            </div>
-          </div>
-          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-              {String(timeLeft.minutes).padStart(2, "0")}
-            </div>
-            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-              Mins
-            </div>
-          </div>
-          <div className="bg-white border border-black rounded-[0.3rem] py-0.5 px-1.5 min-w-[42px] text-center shadow-[0_1px_3px_rgba(255,76,0,0.2),0_3px_1px_#ff4c00] max-[900px]:min-w-[38px] max-[900px]:py-0.5 max-[900px]:px-1.5 max-[600px]:min-w-[35px] max-[600px]:py-0.5 max-[600px]:px-1">
-            <div className="font-extrabold text-[0.9rem] text-black leading-[1.1] mb-[0.05rem] max-[900px]:text-[0.85rem] max-[600px]:text-xs">
-              {String(timeLeft.seconds).padStart(2, "0")}
-            </div>
-            <div className="text-[0.55rem] text-black font-medium uppercase tracking-[0.02em] max-[900px]:text-[0.5rem] max-[600px]:text-[0.45rem]">
-              Secs
-            </div>
-          </div>
-                <button
-                  {...getBookNowButtonProps()}
-                  onClick={openCalendly}
-            className="rounded-lg bg-[#ff4c00]   text-white font-semibold py-1.5 px-4 sm:px-5 border-b-4 border-b-black hover:bg-white hover:text-black hover:border-b-[#ff4c00] transition-all shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-sm sm:text-base ml-3 max-[500px]:ml-2 cursor-pointer"
-                >
-                  Book Now
-                </button>
-              </div>
-            </div>
-          </div>
-          )}*/}
       </div>
     </>
   );

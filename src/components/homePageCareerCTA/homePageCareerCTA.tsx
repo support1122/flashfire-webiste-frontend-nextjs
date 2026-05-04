@@ -183,7 +183,7 @@ export default function HomePageCareerCTA() {
               </div>
 
               <p>
-                Join <span className={styles.highlight}>100+</span> graduates
+                Join <span className={styles.highlight}>600+</span> graduates
                 who landed offers at top companies.
               </p>
             </div>
