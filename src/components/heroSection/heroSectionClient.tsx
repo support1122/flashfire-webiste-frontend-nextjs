@@ -9,13 +9,35 @@ import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 // Use Google Favicons as primary - more reliable
-const getUniversityLogo = (domain: string, name: string) => {
+const getUniversityLogo = (domain: string) => {
   return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
 };
 
 type Props = {
   data: HeroSectionData;
 };
+
+const heroProcessSteps = [
+  "Upload resume",
+  "AI optimizes it",
+  "We apply for you",
+  "Track & prepare",
+];
+
+const heroStats = [
+  {
+    value: "1,200+",
+    label: "Applications submitted in the last 2 months",
+  },
+  {
+    value: "15+",
+    label: "Average interview calls",
+  },
+  {
+    value: "500+",
+    label: "Users landed jobs",
+  },
+];
 
 /** Splits "… with" into two lines so layout stays stable at any zoom (no reliance on soft wrap). */
 function splitHeadlineMain(headlineMain: string): { first: string; mid: string | null } {
@@ -93,20 +115,20 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* === Headline === */}
-          <h1 className="text-[3rem] leading-[0.98] font-bold text-black  max-[1400px]:text-[3.75rem] max-[1200px]:text-[3.2rem] max-[1024px]:text-center max-[1024px]:text-[3rem]">
-            <span className="block max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(3rem,calc(1rem+3.6vw))] max-[1024px]:[line-height:1.04]">
+          <h1 className="text-[2.65rem] leading-[0.98] font-bold text-black max-[1400px]:text-[3.25rem] max-[1200px]:text-[2.85rem] max-[1024px]:text-center max-[1024px]:text-[2.65rem]">
+            <span className="block max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(2.65rem,calc(0.9rem+3.2vw))] max-[1024px]:[line-height:1.04]">
               {headlineFirst}
             </span>
             {headlineMid ? (
-              <span className="block max-[1024px]:[font-size:min(3rem,calc(1rem+3.6vw))]">{headlineMid}</span>
+              <span className="block max-[1024px]:[font-size:min(2.65rem,calc(0.9rem+3.2vw))]">{headlineMid}</span>
             ) : null}
-            <span className="block -mt-2 max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(3rem,calc(1rem+3.6vw))]">
+            <span className="block -mt-2 max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(2.65rem,calc(0.9rem+3.2vw))]">
               <span className="text-black">{data.headlineHighlight}</span>
               <span className="inline-flex items-center align-middle">
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[6rem] -ml-3 -mr-3 w-auto inline-block "
+                  className="h-[5.15rem] -ml-3 -mr-3 w-auto inline-block"
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -114,22 +136,45 @@ export default function HeroSectionClient({ data }: Props) {
           </h1>
 
           {/* === Description === */}
-          <p className="font-['Satoshi',sans-serif] text-[1.1rem] font-medium leading-[1.6] text-[#555] max-w-[35rem] mb-8 max-[1024px]:mx-auto max-[1024px]:text-center">
+          <p className="font-['Satoshi',sans-serif] text-base font-medium leading-[1.5] text-[#555] max-w-[33rem] mb-1 max-[1024px]:mx-auto max-[1024px]:text-center">
             {data.description}
           </p>
+
+          <div className="mb-3 flex w-fit max-w-full flex-wrap items-center gap-x-2 gap-y-2 px-0 py-1 text-[0.82rem] font-bold text-black max-[1024px]:mx-auto max-[1024px]:justify-center">
+            {heroProcessSteps.map((step, index) => (
+              <span key={step} className="inline-flex items-center gap-2 whitespace-nowrap">
+                <span>{step}</span>
+                {index < heroProcessSteps.length - 1 ? (
+                  <span className="text-[#ff4c00]" aria-hidden="true">↠</span>
+                ) : null}
+              </span>
+            ))}
+          </div>
 
           {/* === CTA Button === */}
           <button
             type="button"
             {...getButtonProps()}
             onClick={handleGetStartedClick}
-            className="relative z-[1] touch-manipulation inline-flex items-center justify-center bg-[#ff4c00] text-white py-4 px-9 rounded-full font-semibold no-underline mb-6 shadow-[0_7px_0_#111111] border border-black/10 cursor-pointer text-lg font-inherit outline-none transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_11px_0_#111111] active:translate-y-0 active:shadow-[0_4px_0_#111111] focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2"
+            className="relative z-[1] touch-manipulation inline-flex items-center justify-center bg-[#ff4c00] text-white py-3.5 px-8 rounded-full font-semibold no-underline mb-5 shadow-[0_7px_0_#111111] border border-black/10 cursor-pointer text-base font-inherit outline-none transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_11px_0_#111111] active:translate-y-0 active:shadow-[0_4px_0_#111111] focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2"
           >
             {data.cta.label}
           </button>
-          <p className="py-1 text-base text-gray-500">
-            Join <span className="font-semibold text-black">600+ graduates</span> who landed interviews at top companies.
-          </p>
+          <div className="mt-1 grid w-full max-w-[39rem] grid-cols-3 px-0 py-4 -ml-4 text-left max-[1024px]:mx-auto">
+            {heroStats.map((stat, index) => (
+              <div
+                key={stat.value}
+                className={`px-5 ${index > 0 ? "border-l border-black/20" : ""}`}
+              >
+                <p className="mb-2 text-[1.9rem] font-bold leading-none text-black max-[1200px]:text-[1.7rem]">
+                  {stat.value}
+                </p>
+                <p className="max-w-[8rem] text-sm font-semibold leading-[1.15] text-[#777]">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
           {/* Trusted users text below image */}
           {/* <div className="flex items-center justify-center gap-2 -mt-12 max-[1024px]:mt-1">
             <div className="flex -space-x-2">
@@ -170,20 +215,20 @@ export default function HeroSectionClient({ data }: Props) {
           </div>
 
           {/* Heading — three fixed lines on mobile: (1) full phrase (2) with (3) Flashfire + logo + suffix */}
-          <h1 className="w-full max-w-[24rem] text-[3.1rem] leading-[1.04] font-bold text-black mb-3 max-[480px]:max-w-[20rem] max-[480px]:text-[1.95rem]">
-            <span className="block whitespace-nowrap [font-size:min(1.9rem,calc(0.45rem+5vw))] [line-height:1.08]">
+          <h1 className="w-full max-w-[23rem] text-[2.65rem] leading-[1.04] font-bold text-black mb-3 max-[480px]:max-w-[20rem] max-[480px]:text-[1.75rem]">
+            <span className="block whitespace-nowrap [font-size:min(1.65rem,calc(0.4rem+4.5vw))] [line-height:1.08]">
               {headlineFirst}
             </span>
             {headlineMid ? (
-              <span className="block [font-size:min(1.9rem,calc(0.45rem+5vw))]">{headlineMid}</span>
+              <span className="block [font-size:min(1.65rem,calc(0.4rem+4.5vw))]">{headlineMid}</span>
             ) : null}
-            <span className="block -mt-2 whitespace-nowrap [font-size:min(1.9rem,calc(0.45rem+5vw))]">
+            <span className="block -mt-2 whitespace-nowrap [font-size:min(1.65rem,calc(0.4rem+4.5vw))]">
               <span className="text-black">{data.headlineHighlight}</span>
               <span className="inline-flex items-center -mx-2 align-middle">
                 <FlashfireLogo
                   width={0}
                   height={0}
-                  className="h-[4.6rem] w-auto inline-block max-[480px]:h-[3.25rem]"
+                  className="h-[3.9rem] w-auto inline-block max-[480px]:h-[2.9rem]"
                 />
               </span>
               <span>{data.headlineSuffix}</span>
@@ -191,22 +236,45 @@ export default function HeroSectionClient({ data }: Props) {
           </h1>
 
           {/* Description */}
-          <p className="max-w-[22rem] text-sm text-[#555] mb-5 px-2 leading-relaxed">
+          <p className="max-w-[21rem] text-[0.82rem] text-[#555] mb-4 px-2 leading-relaxed">
             {data.description}
           </p>
+
+          <div className="mb-4 flex w-full max-w-[21rem] flex-wrap items-center justify-center gap-x-1.5 gap-y-1.5 px-0 py-1 text-[0.66rem] font-bold text-black">
+            {heroProcessSteps.map((step, index) => (
+              <span key={step} className="inline-flex items-center gap-1.5 whitespace-nowrap">
+                <span>{step}</span>
+                {index < heroProcessSteps.length - 1 ? (
+                  <span className="text-[#ff4c00]" aria-hidden="true">-&gt;</span>
+                ) : null}
+              </span>
+            ))}
+          </div>
 
           {/* CTA */}
           <button
             type="button"
             {...getButtonProps()}
             onClick={handleGetStartedClick}
-            className="relative z-[1] touch-manipulation inline-flex min-w-[12.5rem] items-center justify-center bg-[#ff4c00] text-white py-3.5 px-7 rounded-full font-semibold no-underline mb-4 shadow-[0_6px_0_#111111] border border-black/10 cursor-pointer text-base font-inherit outline-none transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_9px_0_#111111] active:translate-y-0 active:shadow-[0_4px_0_#111111] focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2"
+            className="relative z-[1] touch-manipulation inline-flex min-w-[11.5rem] items-center justify-center bg-[#ff4c00] text-white py-3 px-6 rounded-full font-semibold no-underline mb-4 shadow-[0_6px_0_#111111] border border-black/10 cursor-pointer text-[0.92rem] font-inherit outline-none transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_9px_0_#111111] active:translate-y-0 active:shadow-[0_4px_0_#111111] focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2"
           >
             {data.cta.label}
           </button>
-          <p className=" py-1 text-sm text-gray-500 ">
-            Join <span className="font-semibold text-black">600+ graduates</span> who landed interviews at top companies.
-          </p>
+          <div className="grid w-full max-w-[21rem] grid-cols-3 px-0 py-2.5 text-left">
+            {heroStats.map((stat, index) => (
+              <div
+                key={stat.value}
+                className={`px-2.5 ${index > 0 ? "border-l border-black/20" : ""}`}
+              >
+                <p className="mb-1.5 text-[1.2rem] font-bold leading-none text-black max-[380px]:text-[1.05rem]">
+                  {stat.value}
+                </p>
+                <p className="text-[0.62rem] font-semibold leading-[1.12] text-[#777] max-[380px]:text-[0.58rem]">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
           {/* Trusted users text below image */}
           {/* <div className="flex items-center justify-center gap-2 -mt-10 max-[1024px]:mt-1">
             <div className="flex -space-x-2">
@@ -269,7 +337,7 @@ export default function HeroSectionClient({ data }: Props) {
         <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-full mx-auto  scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
           <div className="flex items-center justify-start gap-[0.05rem] flex-nowrap w-max pl-2 pr-2 max-[480px]:pl-1 max-[480px]:pr-1">
             {data.universities.map((uni, index) => {
-              const logoSrc = getUniversityLogo(uni.domain, uni.name);
+              const logoSrc = getUniversityLogo(uni.domain);
 
               return (
                 <div
