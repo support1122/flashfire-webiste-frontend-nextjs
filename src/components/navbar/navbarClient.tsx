@@ -218,10 +218,6 @@ export default function NavbarClient({ links, ctas }: Props) {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
-<<<<<<< HEAD
-                    // Scroll after navigation completes
-=======
->>>>>>> 38ea962642496598c5688e57cbc728a45fe299e6
                     setTimeout(() => {
                       window.scrollTo({ top: 0, behavior: "instant" });
                     }, 100);

@@ -42592,7 +42592,7 @@ Use AI as your assistant, not your replacement. For more information, visit <a h
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
     image:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-12%20at%203.49.29%E2%80%AFPM.png",
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/xyz%20resume%20format.png",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
         <p style='margin-bottom:12px; line-height:1.7;'>If you&apos;re struggling to create a resume that actually gets noticed, understanding the XYZ resume format could be a game-changer. In today&apos;s competitive job market, your resume isn&apos;t just a document—it&apos;s your personal marketing tool.</p>
@@ -42827,7 +42827,7 @@ Use AI as your assistant, not your replacement. For more information, visit <a h
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
     image:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-12%20at%203.51.19%E2%80%AFPM.png",
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/is%20magna%20cum%20%20laude%20good.png",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
         <p style='margin-bottom:12px; line-height:1.7;'>If you&apos;re a student aiming for academic excellence, you&apos;ve probably asked yourself: Is magna cum laude good, and does it really matter for your future?</p>
@@ -43040,7 +43040,7 @@ Use AI as your assistant, not your replacement. For more information, visit <a h
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
     image:
-      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-12%20at%203.52.42%E2%80%AFPM.png",
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/top%20collleges%20in%20texas.png",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
         <p style='margin-bottom:12px; line-height:1.7;'>If you&apos;re planning to study in the U.S., exploring the top colleges in Texas is a smart move. Texas has quickly become one of the most popular education destinations due to its strong universities, affordable tuition, and excellent job opportunities.</p>
@@ -45749,7 +45749,7 @@ Best regards,
     name: "Debashri Mandal",
     bio: "Career expert and resume strategist helping job seekers land their dream roles.",
   },
-  image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-23%20at%208.14.03%E2%80%AFPM.png",
+  image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/coursera%20vs%20linkedin%20learning.png",
   categoryColor: "bg-blue-100 text-blue-600",
   content: `
 <p style='margin-bottom:12px; line-height:1.7;'>If you&apos;re trying to choose between coursera vs linkedin learning (or linkedin learning vs coursera), you&apos;re likely asking one key question: Which platform will actually help me build skills and get a job faster?</p>
@@ -46000,7 +46000,7 @@ Best regards,
     name: "Debashri Mandal",
     bio: "Career expert and resume strategist helping job seekers land their dream roles.",
   },
-  image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-23%20at%208.14.59%E2%80%AFPM.png",
+  image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/is%20indeed%20reliable.png",
   categoryColor: "bg-blue-100 text-blue-600",
   content: `
 <p style='margin-bottom:12px; line-height:1.7;'>If you&apos;ve ever wondered is indeed reliable or questioned is indeed a reliable source, you&apos;re not alone. With millions of job listings available online, it&apos;s natural to ask: Can you trust the jobs you see? Are recruiters genuine? Is your personal data safe?</p>
@@ -46269,7 +46269,7 @@ Best regards,
     name: "Debashri Mandal",
     bio: "Career expert and resume strategist helping job seekers land their dream roles.",
   },
-  image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-04-23%20at%208.16.05%E2%80%AFPM.png",
+  image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/indeed%20vs%20glassdoor.png",
   categoryColor: "bg-blue-100 text-blue-600",
   content: `
 <p style='margin-bottom:12px; line-height:1.7;'>When it comes to choosing the right job platform, the debate around indeed vs glassdoor (and glassdoor vs indeed) is one of the most common among students and job seekers.</p>
