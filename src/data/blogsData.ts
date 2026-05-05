@@ -14556,7 +14556,7 @@ FAQs
       name: "Debashri Mandal",
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
-    image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769632070/best-ai-job-application-tools-to-automate-your-job-search_nf6nqr.jpg",
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/best%20ai%20job%20application.png",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
 <p style='margin-bottom:12px; line-height:1.7;'>
@@ -15115,7 +15115,7 @@ FAQs
       name: "Debashri Mandal",
       bio: "Career expert and resume strategist helping job seekers land their dream roles.",
     },
-    image: "https://res.cloudinary.com/drcka8x04/image/upload/v1769632414/how-to-make-your-linkedin-profile-attractive-to-recruiters_jbmjor.jpg",
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Blogs/how%20to%20get%20recruiters.png",
     categoryColor: "bg-blue-100 text-blue-600",
     content: `
 <p style="margin:0 0 1.125rem 0; font-size:0.9375rem; line-height:1.75; color:#374151;">
