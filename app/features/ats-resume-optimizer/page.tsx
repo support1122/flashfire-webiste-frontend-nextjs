@@ -790,6 +790,7 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Why Flashfire Is More Than a Basic ATS Resume Checker */}
         <section
   id="why-more-than-ats-checker"
   className="py-18 sm:py-24 bg-[#fff9f7]"
