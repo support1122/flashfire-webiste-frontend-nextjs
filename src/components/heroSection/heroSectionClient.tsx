@@ -1,34 +1,61 @@
 "use client";
 
 import Image from "next/image";
-import type { MouseEvent } from "react";
-import { HeroSectionData } from "@/src/types/heroSectionData";
-import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
-import { GTagUTM } from "@/src/utils/GTagUTM";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
+import { HeroSectionData } from "@/src/types/heroSectionData";
+import { GTagUTM } from "@/src/utils/GTagUTM";
+import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-
-// Use Google Favicons as primary - more reliable
-const getUniversityLogo = (domain: string, name: string) => {
-  return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
-};
 
 type Props = {
   data: HeroSectionData;
 };
 
-/** Splits "… with" into two lines so layout stays stable at any zoom (no reliance on soft wrap). */
-function splitHeadlineMain(headlineMain: string): { first: string; mid: string | null } {
-  const trimmed = headlineMain.trimEnd();
-  const m = trimmed.match(/^(.*?)\s+with$/i);
-  if (m) {
-    return { first: m[1].trimEnd(), mid: "with" };
-  }
-  return { first: headlineMain, mid: null };
-}
+const heroStats = [
+  {
+    value: "1200+",
+    label: "Applications submitted in the last 2 months",
+  },
+  {
+    value: "15+",
+    label: "Average Interview calls",
+  },
+  {
+    value: "50+",
+    label: "Land their first job",
+  },
+];
+
+const trustedUniversities = [
+  "HARVARD UNIVERSITY",
+  "Stanford University",
+  "UNIVERSITY OF MICHIGAN",
+  "Berkeley",
+  "Carnegie Mellon University",
+];
 
 export default function HeroSectionClient({ data }: Props) {
-  const { first: headlineFirst, mid: headlineMid } = splitHeadlineMain(data.headlineMain);
+  const heroRef = useRef<HTMLElement | null>(null);
+  const [planeAnimationKey, setPlaneAnimationKey] = useState(0);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPlaneAnimationKey((key) => key + 1);
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
 
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
@@ -43,22 +70,24 @@ export default function HeroSectionClient({ data }: Props) {
       e.preventDefault();
       e.stopPropagation();
     } catch {
-      // ignore cross-origin or non-cancelable events
+      // Some browser-generated events cannot be cancelled.
     }
+
     if (typeof window === "undefined") return;
 
     const utmSource = localStorage.getItem("utm_source") || "WEBSITE";
     const utmMedium = localStorage.getItem("utm_medium") || "Hero_Section";
+
     GTagUTM({
       eventName: "sign_up_click",
-      label: "Hero_Start_Free_Trial_Button",
+      label: "Hero_Book_A_Demo_Button",
       utmParams: {
         utm_source: utmSource,
         utm_medium: utmMedium,
         utm_campaign: localStorage.getItem("utm_campaign") || "Website",
       },
     });
-    trackButtonClick("Get Started", "hero_cta", "cta", {
+    trackButtonClick(data.cta.label, "hero_cta", "cta", {
       button_location: "hero_main_cta",
       section: "hero_landing",
       target_url: "/Get-Started",
@@ -68,270 +97,211 @@ export default function HeroSectionClient({ data }: Props) {
       funnel_stage: "signup_intent",
       target_url: "/Get-Started",
     });
+
     sessionStorage.setItem("preserveScrollPosition", window.scrollY.toString());
     window.history.pushState({}, "", "/Get-Started");
     window.dispatchEvent(new CustomEvent("showCalendlyModal"));
   };
 
   return (
-    <section className="min-h-[100vh]  bg-[#f8ebe5] py-4 md:py-5 text-center  font-['Space_Grotesk',sans-serif] overflow-x-hidden w-full max-w-full box-border flex flex-col justify-center">
-      {/* === Main Two Column Layout === */}
-      <div className="w-full md:px-25  px-2 flex flex-row items-center justify-between gap-4 mb-4 max-[1024px]:flex-col max-[1024px]:gap-6 max-[1024px]:mb-8">
-        
-        {/* === Left Column - Content === */}
-        <div className="flex-1 text-left max-[1024px]:text-center max-[1024px]:w-full hidden md:block">
-          {/* === Top Badge === */}
-          <div className="inline-flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3.5 py-2 mb-5 bg-white/50 max-[768px]:mb-4 max-[480px]:px-3 max-[480px]:py-1.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-[#ff4c00]">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span className="text-[#ff4c00] text-[0.8125rem] font-medium max-[480px]:text-xs">
-              {data.badges[0] || "AI - Powerd Job Applications"}
-            </span>
-          </div>
+    <section
+      ref={heroRef}
+      className="relative w-full overflow-hidden bg-white font-['Space_Grotesk',sans-serif] text-black"
+    >
+      <style jsx global>{`
+        @keyframes heroPlaneTopFlow {
+          0% {
+            opacity: 0;
+            clip-path: inset(0 100% 55% 0);
+            transform: translate3d(-46px, 42px, 0) rotate(-10deg) scale(0.92);
+          }
+          42% {
+            opacity: 1;
+            clip-path: inset(0 28% 18% 0);
+            transform: translate3d(-12px, 12px, 0) rotate(5deg) scale(1.02);
+          }
+          72% {
+            clip-path: inset(0 0 0 0);
+            transform: translate3d(4px, -3px, 0) rotate(-3deg) scale(1);
+          }
+          100% {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+          }
+        }
 
-          {/* === Headline === */}
-          <h1 className="text-[3.1rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.86rem] max-[968px]:text-[2.4rem] max-[768px]:text-[2.1rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.88rem]">
-            <span className="block max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(2.4rem,calc(0.65rem+2.65vw))] max-[1024px]:[line-height:1.12]">
-              {headlineFirst}
-            </span>
-            {headlineMid ? (
-              <span className="block max-[1024px]:[font-size:min(2.4rem,calc(0.65rem+2.65vw))]">{headlineMid}</span>
-            ) : null}
-            <span className="block -mt-4 max-[1024px]:whitespace-nowrap max-[1024px]:[font-size:min(2.4rem,calc(0.65rem+2.65vw))]">
-              <span className="text-black">{data.headlineHighlight}</span>
-              <span className="inline-flex items-center mx-1 align-middle">
+        @keyframes heroPlaneLowerFlow {
+          0% {
+            opacity: 0;
+            clip-path: inset(44% 0 0 100%);
+            transform: translate3d(42px, -32px, 0) rotate(170deg) scale(0.9);
+          }
+          44% {
+            opacity: 1;
+            clip-path: inset(15% 0 0 34%);
+            transform: translate3d(14px, -10px, 0) rotate(187deg) scale(1.02);
+          }
+          74% {
+            clip-path: inset(0 0 0 0);
+            transform: translate3d(-5px, 4px, 0) rotate(178deg) scale(1);
+          }
+          100% {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+            transform: translate3d(0, 0, 0) rotate(182deg) scale(1);
+          }
+        }
+
+        .hero-plane-top-flow {
+          animation: heroPlaneTopFlow 1.45s cubic-bezier(0.2, 0.85, 0.2, 1)
+            both;
+          transform-origin: 18% 12%;
+          will-change: transform, clip-path, opacity;
+        }
+
+        .hero-plane-lower-flow {
+          animation: heroPlaneLowerFlow 1.55s cubic-bezier(0.2, 0.85, 0.2, 1)
+            both;
+          transform-origin: 68% 18%;
+          will-change: transform, clip-path, opacity;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-plane-top-flow,
+          .hero-plane-lower-flow {
+            animation: none;
+          }
+        }
+      `}</style>
+      <div className="relative min-h-[600px] bg-[#f7e6df] md:min-h-[640px] lg:min-h-[650px]">
+        <Image
+          key={`top-plane-${planeAnimationKey}`}
+          src="/images/element2.png"
+          alt=""
+          width={394}
+          height={296}
+          priority
+          className="hero-plane-top-flow pointer-events-none absolute right-[-8px] top-[44px] z-10 hidden h-auto w-[224px] select-none lg:block xl:right-[-6px] xl:top-[46px] xl:w-[230px]"
+        />
+        <Image
+          src="/images/element1.png"
+          alt=""
+          width={83}
+          height={99}
+          priority
+          className="pointer-events-none absolute z-10 hidden h-auto w-[44px] select-none lg:left-[51.6%] lg:top-[178px] lg:block xl:left-[51.4%] xl:top-[184px]"
+        />
+        <Image
+          src="/images/element3.png"
+          alt=""
+          width={207}
+          height={213}
+          priority
+          className="pointer-events-none absolute z-10 hidden h-auto w-[46px] select-none lg:bottom-[82px] lg:left-[48.8%] lg:block xl:bottom-[88px] xl:left-[48.8%]"
+        />
+        <Image
+          src="/images/element3.png"
+          alt=""
+          width={207}
+          height={213}
+          className="pointer-events-none absolute z-10 hidden h-auto w-[44px] select-none lg:right-[18.2%] lg:top-[302px] lg:block xl:right-[18.5%] xl:top-[308px]"
+        />
+        <Image
+          src="/images/element3.png"
+          alt=""
+          width={207}
+          height={213}
+          className="pointer-events-none absolute z-10 hidden h-auto w-[38px] select-none lg:right-[23.5%] lg:top-[230px] lg:block xl:right-[23.8%] xl:top-[236px]"
+        />
+
+        <div className="relative z-20 mx-auto flex min-h-[600px] w-full max-w-[1536px] flex-col px-5 pb-7 pt-14 md:min-h-[640px] md:px-[5.4vw] md:pb-0 md:pt-10 lg:min-h-[650px] lg:flex-row lg:items-center">
+          <div className="relative z-20 max-w-[560px] text-center lg:w-[47%] lg:pt-2 lg:text-left">
+            <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
+              {data.badges[0]}
+            </div>
+
+            <h1 className="text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-black sm:text-[40px] md:text-[46px] xl:text-[49px]">
+              <span className="block">Land Interview</span>
+              <span className="block -mt-5 whitespace-nowrap">
+                Calls Faster with
                 <FlashfireLogo
-                  width={0}
-                  height={0}
-                  className="h-[6.05rem] w-auto inline-block max-[768px]:h-[1.98rem] max-[480px]:h-[1.76rem] -mr-5 -ml-5"
+                  width={58}
+                  height={58}
+                  className="-ml-2 inline-block h-[1.28em] w-auto translate-y-[0.18em] align-baseline"
                 />
               </span>
-              <span>{data.headlineSuffix}</span>
-            </span>
-          </h1>
+              <span className="block whitespace-nowrap text-[#f55d1d]">
+                Flashfire AI Copilot
+              </span>
+            </h1>
 
-          {/* === Description === */}
-          <p className="font-['Satoshi',sans-serif] text-base font-medium leading-[1.5] text-[#555] max-w-[420px] mb-6 max-[1024px]:mx-auto max-[768px]:text-sm max-[768px]:mb-4 max-[480px]:text-xs max-[480px]:px-2">
-            {data.description}
-          </p>
+            <p className="mt-5 max-w-[530px] font-['Satoshi',sans-serif] text-[15px] font-medium leading-[1.55] text-[#262626] sm:text-[17px]">
+              {data.description}
+            </p>
 
-          {/* === CTA Button === */}
-          <button
-            type="button"
-            {...getButtonProps()}
-            onClick={handleGetStartedClick}
-            className="relative z-[1] touch-manipulation inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-5 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 max-[768px]:py-3 max-[768px]:px-5 max-[768px]:text-[0.9rem] max-[768px]:mb-4 max-[480px]:py-2.5 max-[480px]:px-4 max-[480px]:text-xs max-[480px]:mb-3 max-[480px]:w-full max-[480px]:max-w-[260px]"
-          >
-            {data.cta.label}
-          </button>
-          <p className=" py-1 text-sm text-gray-500 ">
-            Join <span className="font-semibold text-black">600+ graduates</span> who landed interviews at top companies.
-          </p>
-          {/* Trusted users text below image */}
-          {/* <div className="flex items-center justify-center gap-2 -mt-12 max-[1024px]:mt-1">
-            <div className="flex -space-x-2">
-              {[
-                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
-                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
-                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/akrati.jpeg",
-              ].map((url, i) => (
+            <button
+              type="button"
+              {...getButtonProps()}
+              onClick={handleGetStartedClick}
+              className="mt-7 inline-flex h-[54px] min-w-[174px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff5a1f] px-7 text-[18px] font-bold text-white shadow-[-8px_8px_0_#3b3b3b] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-black hover:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
+            >
+              {data.cta.label}
+            </button>
+
+            <div className="mt-10 grid w-full max-w-[600px] grid-cols-1 gap-2 sm:grid-cols-3">
+              {heroStats.map((stat) => (
                 <div
-                  key={i}
-                  className={`relative w-8 h-8 rounded-full border-2 border-white overflow-hidden shadow-sm ${i === 0 ? "" : "-ml-2"}`}
+                  key={stat.value}
+                  className="flex min-h-[48px] items-center rounded-[5px] bg-white px-3 py-2 text-left shadow-[0_6px_18px_rgba(64,31,18,0.08)]"
                 >
-                  <Image
-                    src={url}
-                    alt={`User ${i + 1}`}
-                    fill
-                    sizes="32px"
-                    className="object-cover"
-                  />
+                  <strong className="shrink-0 text-[20px] font-bold leading-none text-black">
+                    {stat.value}
+                  </strong>
+                  <span className="mx-3 h-7 w-px shrink-0 bg-[#e9d9d1]" />
+                  <span className="font-['Satoshi',sans-serif] text-[10px] font-medium leading-[1.25] text-[#6a6765]">
+                    {stat.label}
+                  </span>
                 </div>
               ))}
             </div>
-            <p className="text-sm text-black font-medium ml-1 max-[480px]:text-xs">{data.trustText}</p>
-          </div> */}
-        </div>
-
-        {/* === Mobile Left Section === */}
-        {/* z-30 so taps aren’t stolen by the hero job-cards image (absolute, z-20, -top) overlapping this column */}
-        <div className="relative z-30 flex md:hidden flex-col items-center pt-[4.75rem] text-center w-full px-4 shrink-0">
-          {/* Badge */}
-          <div className="flex items-center gap-2 border border-[#e0d5cf] rounded-full px-3 py-1.5 mb-3 bg-white/60">
-            <div className="w-2 h-2 bg-[#ff4c00] rounded-full"></div>
-            <span className="text-[#ff4c00] text-xs font-medium">
-              {data.badges[0] || "AI Powered"}
-            </span>
           </div>
 
-          {/* Heading — three fixed lines on mobile: (1) full phrase (2) with (3) Flashfire + logo + suffix */}
-          <h1 className="text-[3.1rem] leading-[1.1] font-bold text-black mb-1 max-[1200px]:text-[2.86rem] max-[968px]:text-[2.4rem] max-[768px]:text-[2.1rem] max-[768px]:leading-[1.15] max-[480px]:text-[1.88rem]">
-            <span className="block whitespace-nowrap [font-size:min(2.1rem,calc(0.3rem+6.8vw))] [line-height:1.12]">
-              {headlineFirst}
-            </span>
-            {headlineMid ? (
-              <span className="block [font-size:min(2.1rem,calc(0.3rem+6.8vw))]">{headlineMid}</span>
-            ) : null}
-            <span className="block -mt-2 whitespace-nowrap [font-size:min(2.1rem,calc(0.3rem+6.8vw))]">
-              <span className="text-black">{data.headlineHighlight}</span>
-              <span className="inline-flex items-center mx-1 align-middle">
-                <FlashfireLogo
-                  width={0}
-                  height={0}
-                  className="h-[4.5rem] w-auto inline-block -ml-6 -mr-6 max-[480px]:h-[4rem] max-[480px]:-ml-5 max-[480px]:-mr-5"
-                />
-              </span>
-              <span>{data.headlineSuffix}</span>
-            </span>
-          </h1>
-
-          {/* Description */}
-          <p className="text-xs text-[#555] mb-4 px-2 leading-relaxed">
-            {data.description}
-          </p>
-
-          {/* CTA */}
-          <button
-            type="button"
-            {...getButtonProps()}
-            onClick={handleGetStartedClick}
-            className="relative z-[1] touch-manipulation inline-block bg-[#ff4c00] text-white py-3.5 px-5 rounded-lg font-semibold no-underline mb-4 shadow-[0_3px_0_black] border-none cursor-pointer text-[0.9625rem] font-inherit outline-none hover:bg-black hover:shadow-none hover:-translate-y-0.5 active:translate-y-0 active:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2 "
-          >
-            {data.cta.label}
-          </button>
-          <p className=" py-1 text-sm text-gray-500 ">
-            Join <span className="font-semibold text-black">600+ graduates</span> who landed interviews at top companies.
-          </p>
-          {/* Trusted users text below image */}
-          {/* <div className="flex items-center justify-center gap-2 -mt-10 max-[1024px]:mt-1">
-            <div className="flex -space-x-2">
-              {[
-                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/amit%20(1).jpg",
-                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aman.jpg",
-                "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/akrati.jpeg",
-              ].map((url, i) => (
-                <div
-                  key={i}
-                  className={`relative w-8 h-8 rounded-full border-2 border-white overflow-hidden shadow-sm ${i === 0 ? "" : "-ml-2"}`}
-                >
-                  <Image
-                    src={url}
-                    alt={`User ${i + 1}`}
-                    fill
-                    sizes="32px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-black font-medium ml-1 max-[480px]:text-xs">{data.trustText}</p>
-          </div> */}
-        </div>
-
-        {/* === Right Column - Hero Image === */}
-        <div className="relative z-0 flex-1 -mb-4 mt-12 md:mt-2 max-[1024px]:w-full max-[1024px]:max-w-[450px] max-[1024px]:mx-auto">
-          <div className="relative w-full max-w-[420px] mx-auto">
-            {/* Background decorative circle */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#ff4c00]/10 to-[#ff4c00]/5 rounded-full blur-3xl transform scale-90" />
+          <div className="relative mt-5 min-h-[390px] lg:absolute lg:bottom-0 lg:right-[1.5vw] lg:mt-0 lg:h-[590px] lg:min-h-0 lg:w-[58vw] xl:h-[610px] xl:w-[60vw]">
             <Image
-                    src="/images/image-jobtitle.png"
-                    alt="Job cards"
-                    width={400}
-                    height={120}
-                    className="
-                       absolute 
-                    -top-10 sm:-top-10 md:-top-10 md:ml-2
-                      ml-4   left-1/2 
-                    -translate-x-[50%] sm:-translate-x-1/2
-                    z-20 
-                    w-[90%] sm:w-[380px]
-                    drop-shadow-xl
-                    "
-                  />
-              <div className="relative z-10 top-3 w-full h-[240px] sm:w-[550px] sm:h-[360px]   overflow-hidden">
-                {/* Student Image */}
-                  <Image
-                    src="/images/3ed.webp"
-                    alt="Woman holding laptop"
-                    fill
-                    sizes="(max-width: 640px) 100vw, 550px"
-                    className="object-cover"
-                    priority
-                  />
-
-                  {/* Job Cards Overlay */}
-                  {/* <Image
-                    src="/images/image-jobtitle.png" // <-- your uploaded image
-                    alt="Job cards"
-                    width={400}
-                    height={120}
-                    className="
-                      absolute 
-                      -top-4 sm:-top-3 
-                      left-1/2 -translate-x-1/2 
-                      z-20 
-                      w-[90%] sm:w-[380px]
-                      drop-shadow-xl
-                    "
-                  /> */}
-            </div>
-            {/* Floating stats card */}
-            <div className="absolute bottom-4 left-0 z-20 bg-white rounded-xl shadow-lg px-3 py-2 flex items-center gap-2 max-[480px]:px-2.5 max-[480px]:py-1.5 max-[480px]:bottom-2">
-              <div>
-                <p className="text-[#ff4c00] font-bold text-[0.8125rem]  leading-tight max-[480px]:text-[0.715rem]">50+ USERS LANDED JOB</p>
-              </div>
-            </div>
+              src="/images/firefly.png"
+              alt="Students celebrating career success with Flashfire"
+              fill
+              priority
+              sizes="(max-width: 1024px) 92vw, 58vw"
+              className="object-contain object-bottom lg:object-right-bottom"
+            />
           </div>
-
-          
         </div>
       </div>
 
-      {/* === Universities Section === */}
-      <div className="max-w-[990px] mx-auto mb-7 mt-1 flex flex-col gap-[0.05rem] items-center justify-center max-[768px]:w-full max-[768px]:p-2 max-[768px]:mb-4 max-[480px]:mb-3">
-        {/* Heading in separate box */}
-        <div className="bg-white rounded-none py-3.5 px-[1.375rem] text-center shadow-[0_1px_3px_rgba(0,0,0,0.08)] w-full mx-auto mb-0 max-[768px]:w-[95%] max-[768px]:py-2.5 max-[768px]:px-4 max-[480px]:w-full max-[480px]:py-2 max-[480px]:px-3">
-          <p className="text-[0.88rem] font-normal uppercase text-[#555] tracking-[0.05em] m-0 max-[768px]:text-[0.825rem] max-[480px]:text-[0.77rem]">{data.universityHeading}</p>
-        </div>
+      <div className="relative mx-auto w-full max-w-[1536px] px-5 py-10 text-center md:px-[5.4vw] md:py-[52px]">
+        <Image
+          key={`lower-plane-${planeAnimationKey}`}
+          src="/images/element2.png"
+          alt=""
+          width={394}
+          height={296}
+          className="hero-plane-lower-flow pointer-events-none absolute left-[-34px] top-[6px] hidden h-auto w-[150px] select-none lg:block"
+        />
+        <p className="font-['Satoshi',sans-serif] text-[17px] font-medium leading-[1.4] text-[#9d9d9d] md:text-[20px]">
+          {data.universityHeading}
+        </p>
 
-        {/* University logos below */}
-        <div className="flex justify-start items-center overflow-x-auto overflow-y-hidden relative p-0 rounded-none w-full mx-auto  scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] max-[768px]:max-w-[95%] max-[480px]:w-full max-[480px]:max-w-full">
-          <div className="flex items-center justify-start gap-[0.05rem] flex-nowrap w-max pl-2 pr-2 max-[480px]:pl-1 max-[480px]:pr-1">
-            {data.universities.map((uni, index) => {
-              const logoSrc = getUniversityLogo(uni.domain, uni.name);
-
-              return (
-                <div
-                  key={index}
-                  className="flex-none bg-white border border-gray-200  p-2.5 w-[198px] h-[4.4rem] flex flex-row items-center justify-start gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.08)] snap-start max-[768px]:w-[176px] max-[768px]:h-[3.85rem] max-[768px]:p-1.5 max-[480px]:w-[154px] max-[480px]:h-[3.3rem] max-[480px]:p-1 max-[480px]:gap-1.5"
-                >
-                  <div className="relative w-11 h-11 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg max-[768px]:w-10 max-[768px]:h-10 max-[480px]:w-8 max-[480px]:h-8">
-                    <Image
-                      src={logoSrc}
-                      alt={uni.name}
-                      width={44}
-                      height={44}
-                      sizes="44px"
-                      className="object-contain w-full h-full p-1"
-                      loading="lazy"
-                      unoptimized={true}
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                      }}
-                    />
-                  </div>
-
-                  <p className="text-black text-[0.825rem] font-medium text-left leading-[1.3] m-0 p-0 flex-1 max-[768px]:text-[0.77rem] max-[480px]:text-[0.715rem] max-[480px]:leading-[1.2] line-clamp-2">
-                    {uni.name}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+        <div className="mt-7 grid grid-cols-2 items-center gap-x-8 gap-y-6 text-[#a7a7a7] sm:grid-cols-3 lg:grid-cols-5">
+          {trustedUniversities.map((university) => (
+            <div
+              key={university}
+              className="flex min-h-[48px] items-center justify-center font-serif text-[19px] font-semibold leading-tight opacity-80 md:text-[22px]"
+            >
+              {university}
+            </div>
+          ))}
         </div>
       </div>
     </section>
