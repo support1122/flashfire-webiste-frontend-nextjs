@@ -174,7 +174,132 @@ export default function HeroSectionClient({ data }: Props) {
           }
         }
       `}</style>
-      <div className="relative min-h-[600px] bg-[#f7e6df] md:min-h-[640px] lg:min-h-[650px]">
+
+      {/* Mobile-only hero section */}
+      <div className="lg:hidden">
+        <div className="relative overflow-hidden bg-[#f7e6df] px-4 pb-7 pt-9 text-center">
+          <Image
+            key={`mobile-top-plane-${planeAnimationKey}`}
+            src="/images/element2.png"
+            alt=""
+            width={394}
+            height={296}
+            priority
+            className="hero-plane-top-flow pointer-events-none absolute right-[-48px] top-[14px] z-10 h-auto w-[142px] select-none"
+          />
+          <Image
+            src="/images/element1.png"
+            alt=""
+            width={83}
+            height={99}
+            priority
+            className="pointer-events-none absolute left-[22%] top-[585px] z-10 h-auto w-[36px] select-none"
+          />
+          <Image
+            src="/images/element3.png"
+            alt=""
+            width={207}
+            height={213}
+            priority
+            className="pointer-events-none absolute bottom-[230px] left-[10%] z-10 h-auto w-[34px] select-none"
+          />
+          <Image
+            src="/images/element3.png"
+            alt=""
+            width={207}
+            height={213}
+            className="pointer-events-none absolute right-[10%] top-[575px] z-10 h-auto w-[34px] select-none"
+          />
+
+          <div className="relative z-20 mx-auto max-w-[430px]">
+            <div className="mb-4 inline-flex h-[25px] max-w-full items-center justify-center rounded-full bg-white px-3.5 text-[10px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
+              {data.badges[0]}
+            </div>
+
+            <h1 className="mx-auto max-w-[360px] text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-black min-[420px]:max-w-[410px] min-[420px]:text-[38px]">
+              <span className="block">Land Interview</span>
+              <span className="-mt-2 block">
+                Calls Faster with
+                <FlashfireLogo
+                  width={58}
+                  height={58}
+                  className="-ml-1 inline-block h-[1.28em] w-auto translate-y-[0.24em] align-baseline"
+                />
+              </span>
+              <span className="block text-[#f55d1d]">Flashfire AI Copilot</span>
+            </h1>
+
+            <p className="mx-auto mt-4 max-w-[390px] font-['Satoshi',sans-serif] text-[14px] font-medium leading-[1.55] text-[#262626]">
+              {data.description}
+            </p>
+
+            <button
+              type="button"
+              {...getButtonProps()}
+              onClick={handleGetStartedClick}
+              className="mt-6 inline-flex h-[50px] min-w-[160px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff5a1f] px-6 text-[16px] font-bold text-white shadow-[-7px_7px_0_#3b3b3b] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-black hover:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
+            >
+              {data.cta.label}
+            </button>
+
+            <div className="mx-auto mt-8 grid w-full max-w-[360px] grid-cols-1 gap-2 min-[520px]:max-w-[600px] min-[520px]:grid-cols-3">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.value}
+                  className="flex min-h-[46px] items-center rounded-[5px] bg-white px-3 py-2 text-left shadow-[0_6px_18px_rgba(64,31,18,0.08)]"
+                >
+                  <strong className="shrink-0 text-[20px] font-bold leading-none text-black">
+                    {stat.value}
+                  </strong>
+                  <span className="mx-3 h-7 w-px shrink-0 bg-[#e9d9d1]" />
+                  <span className="font-['Satoshi',sans-serif] text-[10px] font-medium leading-[1.25] text-[#6a6765]">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-20 mx-auto mt-5 min-h-[280px] w-full max-w-[520px]">
+            <Image
+              src="/images/firefly.png"
+              alt="Students celebrating career success with Flashfire"
+              fill
+              priority
+              sizes="96vw"
+              className="object-contain object-bottom"
+            />
+          </div>
+        </div>
+
+        <div className="relative z-30 overflow-visible bg-white px-4 py-9 text-center">
+          <Image
+            key={`mobile-lower-plane-${planeAnimationKey}`}
+            src="/images/element2.png"
+            alt=""
+            width={394}
+            height={296}
+            className="hero-plane-lower-flow pointer-events-none absolute left-[-12px] top-[-12px] z-50 h-auto w-[112px] select-none"
+          />
+          <p className="mx-auto max-w-[340px] font-['Satoshi',sans-serif] text-[15px] font-medium leading-[1.4] text-[#9d9d9d]">
+            {data.universityHeading}
+          </p>
+
+          <div className="mt-6 flex gap-7 overflow-x-auto px-1 pb-2 text-[#a7a7a7] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {trustedUniversities.map((university) => (
+              <div
+                key={university}
+                className="flex min-h-[42px] min-w-max items-center justify-center whitespace-nowrap font-serif text-[18px] font-semibold leading-tight opacity-80"
+              >
+                {university}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="relative isolate hidden overflow-visible lg:block">
+        <div className="relative z-0 min-h-[650px] bg-[#f7e6df]">
         <Image
           key={`top-plane-${planeAnimationKey}`}
           src="/images/element2.png"
@@ -182,7 +307,7 @@ export default function HeroSectionClient({ data }: Props) {
           width={394}
           height={296}
           priority
-          className="hero-plane-top-flow pointer-events-none absolute right-[-8px] top-[44px] z-10 hidden h-auto w-[224px] select-none lg:block xl:right-[-6px] xl:top-[46px] xl:w-[230px]"
+          className="hero-plane-top-flow pointer-events-none absolute right-[-8px] top-[44px] z-10 h-auto w-[224px] select-none xl:right-[-6px] xl:top-[46px] xl:w-[230px]"
         />
         <Image
           src="/images/element1.png"
@@ -190,7 +315,7 @@ export default function HeroSectionClient({ data }: Props) {
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute z-10 hidden h-auto w-[44px] select-none lg:left-[51.6%] lg:top-[178px] lg:block xl:left-[51.4%] xl:top-[184px]"
+          className="pointer-events-none absolute left-[51.6%] top-[178px] z-10 h-auto w-[44px] select-none xl:left-[51.4%] xl:top-[184px]"
         />
         <Image
           src="/images/element3.png"
@@ -198,30 +323,30 @@ export default function HeroSectionClient({ data }: Props) {
           width={207}
           height={213}
           priority
-          className="pointer-events-none absolute z-10 hidden h-auto w-[46px] select-none lg:bottom-[82px] lg:left-[48.8%] lg:block xl:bottom-[88px] xl:left-[48.8%]"
+          className="pointer-events-none absolute bottom-[82px] left-[48.8%] z-10 h-auto w-[46px] select-none xl:bottom-[88px] xl:left-[48.8%]"
         />
         <Image
           src="/images/element3.png"
           alt=""
           width={207}
           height={213}
-          className="pointer-events-none absolute z-10 hidden h-auto w-[44px] select-none lg:right-[18.2%] lg:top-[302px] lg:block xl:right-[18.5%] xl:top-[308px]"
+          className="pointer-events-none absolute right-[18.2%] top-[302px] z-10 h-auto w-[44px] select-none xl:right-[18.5%] xl:top-[308px]"
         />
         <Image
           src="/images/element3.png"
           alt=""
           width={207}
           height={213}
-          className="pointer-events-none absolute z-10 hidden h-auto w-[38px] select-none lg:right-[23.5%] lg:top-[230px] lg:block xl:right-[23.8%] xl:top-[236px]"
+          className="pointer-events-none absolute right-[23.5%] top-[230px] z-10 h-auto w-[38px] select-none xl:right-[23.8%] xl:top-[236px]"
         />
 
-        <div className="relative z-20 mx-auto flex min-h-[600px] w-full max-w-[1536px] flex-col px-5 pb-7 pt-14 md:min-h-[640px] md:px-[5.4vw] md:pb-0 md:pt-10 lg:min-h-[650px] lg:flex-row lg:items-center">
-          <div className="relative z-20 max-w-[560px] text-center lg:w-[47%] lg:pt-2 lg:text-left">
+        <div className="relative z-20 mx-auto flex min-h-[650px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-10">
+          <div className="relative z-20 max-w-[560px] text-left lg:w-[47%] lg:pt-2">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
             </div>
 
-            <h1 className="text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-black sm:text-[40px] md:text-[46px] xl:text-[49px]">
+            <h1 className="text-[46px] font-bold leading-[1.08] tracking-[-0.02em] text-black xl:text-[49px]">
               <span className="block">Land Interview</span>
               <span className="block -mt-5 whitespace-nowrap">
                 Calls Faster with
@@ -236,7 +361,7 @@ export default function HeroSectionClient({ data }: Props) {
               </span>
             </h1>
 
-            <p className="mt-5 max-w-[530px] font-['Satoshi',sans-serif] text-[15px] font-medium leading-[1.55] text-[#262626] sm:text-[17px]">
+            <p className="mt-5 max-w-[530px] font-['Satoshi',sans-serif] text-[17px] font-medium leading-[1.55] text-[#262626]">
               {data.description}
             </p>
 
@@ -249,11 +374,11 @@ export default function HeroSectionClient({ data }: Props) {
               {data.cta.label}
             </button>
 
-            <div className="mt-10 grid w-full max-w-[600px] grid-cols-1 gap-2 sm:grid-cols-3">
+            <div className="mt-10 grid w-full max-w-[600px] grid-cols-3 gap-2">
               {heroStats.map((stat) => (
                 <div
                   key={stat.value}
-                  className="flex min-h-[48px] items-center rounded-[5px] bg-white px-3 py-2 text-left shadow-[0_6px_18px_rgba(64,31,18,0.08)]"
+                  className="flex min-h-[46px] items-center rounded-[5px] bg-white px-3 py-2 text-left shadow-[0_6px_18px_rgba(64,31,18,0.08)] sm:min-h-[48px]"
                 >
                   <strong className="shrink-0 text-[20px] font-bold leading-none text-black">
                     {stat.value}
@@ -267,42 +392,43 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className="relative mt-5 min-h-[390px] lg:absolute lg:bottom-0 lg:right-[1.5vw] lg:mt-0 lg:h-[590px] lg:min-h-0 lg:w-[58vw] xl:h-[610px] xl:w-[60vw]">
+          <div className="absolute bottom-0 right-[1.5vw] h-[590px] w-[58vw] xl:h-[610px] xl:w-[60vw]">
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
               fill
               priority
-              sizes="(max-width: 1024px) 92vw, 58vw"
-              className="object-contain object-bottom lg:object-right-bottom"
+              sizes="58vw"
+              className="object-contain object-right-bottom"
             />
           </div>
         </div>
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1536px] px-5 py-10 text-center md:px-[5.4vw] md:py-[52px]">
+      <div className="relative z-20 mx-auto w-full max-w-[1536px] overflow-visible px-[5.4vw] py-[52px] text-center">
         <Image
           key={`lower-plane-${planeAnimationKey}`}
           src="/images/element2.png"
           alt=""
           width={394}
           height={296}
-          className="hero-plane-lower-flow pointer-events-none absolute left-[-34px] top-[6px] hidden h-auto w-[150px] select-none lg:block"
+          className="hero-plane-lower-flow pointer-events-none absolute left-[-34px] top-[6px] z-50 h-auto w-[150px] select-none"
         />
-        <p className="font-['Satoshi',sans-serif] text-[17px] font-medium leading-[1.4] text-[#9d9d9d] md:text-[20px]">
+        <p className="font-['Satoshi',sans-serif] text-[20px] font-medium leading-[1.4] text-[#9d9d9d]">
           {data.universityHeading}
         </p>
 
-        <div className="mt-7 grid grid-cols-2 items-center gap-x-8 gap-y-6 text-[#a7a7a7] sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-7 grid grid-cols-5 items-center gap-x-10 gap-y-6 text-[#a7a7a7]">
           {trustedUniversities.map((university) => (
             <div
               key={university}
-              className="flex min-h-[48px] items-center justify-center font-serif text-[19px] font-semibold leading-tight opacity-80 md:text-[22px]"
+              className="flex min-h-[48px] items-center justify-center whitespace-nowrap font-serif text-[18px] font-semibold leading-tight opacity-80 xl:text-[20px]"
             >
               {university}
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );
