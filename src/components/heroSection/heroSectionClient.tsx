@@ -297,7 +297,7 @@ export default function HeroSectionClient({ data }: Props) {
 
       <div className="relative isolate hidden overflow-visible lg:block">
         <div className="relative z-0 min-h-[650px] bg-[#f7e6df]">
-        <div className="pointer-events-none absolute right-[-9.5vw] top-[28px] z-10 aspect-[394/296] w-[310px] origin-center select-none xl:right-[-4.8vw] xl:top-[42px] xl:w-[326px]">
+        <div className="pointer-events-none absolute right-[-15vw] top-[-19px] z-10 aspect-[394/296] w-[310px] origin-center select-none xl:right-[-11vw] xl:top-[-12px] xl:w-[326px]">
           <PlaneTrailScene priority />
         </div>
         <Image
@@ -321,7 +321,7 @@ export default function HeroSectionClient({ data }: Props) {
           alt=""
           width={207}
           height={213}
-          className="pointer-events-none absolute right-[18.2%] top-[302px] z-10 h-auto w-[44px] select-none xl:right-[18.5%] xl:top-[308px]"
+          className="pointer-events-none absolute right-[18.2%] top-[432px] z-10 h-auto w-[44px] select-none xl:right-[18.5%] xl:top-[150px]"
         />
         <Image
           src="/images/element3.png"
