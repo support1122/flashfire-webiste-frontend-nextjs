@@ -164,7 +164,7 @@ export default function HeroSectionClient({ data }: Props) {
             width={83}
             height={99}
             priority
-            className="pointer-events-none absolute left-[20%] top-[490px] z-10 h-auto w-[34px] select-none"
+            className="pointer-events-none absolute left-[10%] top-[590px] z-10 h-auto w-[34px] select-none"
           />
           <Image
             src="/images/element3.png"
@@ -172,14 +172,14 @@ export default function HeroSectionClient({ data }: Props) {
             width={207}
             height={213}
             priority
-            className="pointer-events-none absolute right-[36%] top-[508px] z-10 h-auto w-[20px] select-none"
+            className="pointer-events-none absolute right-[36%] top-[558px] z-10 h-auto w-[20px] select-none"
           />
           <Image
             src="/images/element3.png"
             alt=""
             width={207}
             height={213}
-            className="pointer-events-none absolute right-[15%] top-[459px] z-10 h-auto w-[22px] select-none"
+            className="pointer-events-none absolute right-[25%] top-[609px] z-10 h-auto w-[22px] select-none"
           />
 
           <div className="relative z-20 mx-auto max-w-[430px]">
@@ -216,18 +216,18 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute right-[-34px] top-[360px] z-10 aspect-[394/296] w-[190px] origin-center select-none">
+          <div className="pointer-events-none absolute right-[-34px] top-[510px] z-10 aspect-[394/296] w-[190px] origin-center select-none">
             <PlaneTrailScene priority />
           </div>
 
-          <div className="relative z-20 mx-auto mt-6 h-[460px] w-[calc(100%+120px)] max-w-[700px]">
+          <div className="relative left-1/2 z-20 mt-6 h-[500px] w-[118vw] max-w-[680px] -translate-x-1/2">
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
               fill
               priority
               sizes="96vw"
-              className="scale-110 object-contain object-bottom"
+              className="scale-125 object-contain object-bottom"
             />
           </div>
         </div>
