@@ -101,7 +101,7 @@ function PlaneTrailScene({
         }`}
       />
       <Image
-        src="/images/elementplane.png"
+        src="/images/element4.png"
         alt=""
         width={117}
         height={90}
