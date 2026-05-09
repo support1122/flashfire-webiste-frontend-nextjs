@@ -77,21 +77,27 @@ const getUniversityLineClass = (universityName: string, lineIndex: number) => {
 
 function PlaneTrailScene({
   priority = false,
-  planePosition = "start",
+  position = "topRight",
 }: {
   priority?: boolean;
-  planePosition?: "start" | "end";
+  position?: "topRight" | "bottomLeft";
 }) {
+  const isBottomLeft = position === "bottomLeft";
+
   return (
-    <>
+    <div
+      className={`absolute inset-0 h-[200px] w-[200px] origin-center ${
+        isBottomLeft ? "rotate-180" : ""
+      }`}
+    >
       <Image
         src="/images/elementtail.png"
         alt=""
         width={319}
         height={173}
         priority={priority}
-        className={`hero-plane-tail ${
-          planePosition === "end" ? "hero-plane-tail-end" : ""
+        className={`absolute left-[42px] h-auto w-[180px] opacity-90 ${
+          isBottomLeft ? "top-[22px]" : "top-[30px]"
         }`}
       />
       <Image
@@ -100,13 +106,11 @@ function PlaneTrailScene({
         width={117}
         height={90}
         priority={priority}
-        className={`hero-plane-body ${
-          planePosition === "end"
-            ? "hero-plane-body-end"
-            : "hero-plane-body-start"
+        className={`absolute h-auto w-[60px] ${
+          isBottomLeft ? "left-[4px] top-[10px]" : "left-0 top-0"
         }`}
       />
-    </>
+    </div>
   );
 }
 
@@ -183,47 +187,6 @@ export default function HeroSectionClient({ data }: Props) {
       ref={heroRef}
       className="relative w-full overflow-hidden bg-white font-['Space_Grotesk',sans-serif] text-black"
     >
-      <style jsx global>{`
-        .hero-plane-scene {
-          aspect-ratio: 394 / 296;
-          transform-origin: center;
-        }
-
-        .hero-plane-tail {
-          position: absolute;
-          left: 12%;
-          top: 22%;
-          height: auto;
-          width: 82%;
-        }
-
-        .hero-plane-tail-end {
-          left: -1%;
-          top: 7%;
-          width: 101%;
-          transform: none;
-          transform-origin: center;
-        }
-
-        .hero-plane-body {
-          position: absolute;
-          height: auto;
-          width: 28%;
-        }
-
-        .hero-plane-body-start {
-          left: 0;
-          top: 2%;
-        }
-
-        .hero-plane-body-end {
-          left: 95%;
-          top: 55%;
-          transform: none;
-          transform-origin: center;
-        }
-      `}</style>
-
       {/* Mobile-only hero section */}
       <div className="lg:hidden">
         <div className="relative overflow-hidden bg-[#f7e6df] px-6 pb-0 pt-6 text-left">
@@ -278,16 +241,16 @@ export default function HeroSectionClient({ data }: Props) {
                 type="button"
                 {...getButtonProps()}
                 onClick={handleGetStartedClick}
-                className="inline-flex h-[46px] w-full max-w-[283px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff5a1f] px-6 text-[16px] font-bold text-white shadow-[-6px_6px_0_#3b3b3b] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-black hover:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
+                className="inline-flex h-[46px] w-full max-w-[283px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff4c00] px-6 text-[16px] font-bold text-white shadow-[0_6px_0_#000] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#ff5a1f] hover:shadow-[0_6px_0_#000] focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
               >
-                {data.cta.label}
+                Get Started →
               </button>
             </div>
           </div>
 
           <div
             key={`mobile-top-plane-${planeAnimationKey}`}
-            className="hero-plane-scene pointer-events-none absolute right-[-18px] top-[370px] z-10 w-[154px] select-none"
+            className="pointer-events-none absolute right-[-4px] top-[392px] z-10 aspect-[394/296] w-[154px] origin-center select-none"
           >
             <PlaneTrailScene priority />
           </div>
@@ -324,9 +287,9 @@ export default function HeroSectionClient({ data }: Props) {
 
           <div
             key={`mobile-lower-plane-${planeAnimationKey}`}
-            className="hero-plane-scene pointer-events-none absolute left-[-34px] top-[-46px] z-50 hidden w-[146px] select-none"
+            className="pointer-events-none absolute left-[-12px] top-[-36px] z-50 hidden aspect-[394/296] w-[142px] origin-center select-none"
           >
-            <PlaneTrailScene planePosition="end" />
+            <PlaneTrailScene position="bottomLeft" />
           </div>
           <p className="mx-auto mt-16 max-w-[290px] font-['Satoshi',sans-serif] text-[14px] font-medium leading-[1.45] text-[#9d9d9d]">
             {data.universityHeading}
@@ -374,7 +337,7 @@ export default function HeroSectionClient({ data }: Props) {
         <div className="relative z-0 min-h-[650px] bg-[#f7e6df]">
         <div
           key={`top-plane-${planeAnimationKey}`}
-          className="hero-plane-scene pointer-events-none absolute right-[-30px] top-[44px] z-10 w-[232px] select-none xl:right-[-20px] xl:top-[46px] xl:w-[240px]"
+          className="pointer-events-none absolute right-[1.8vw] top-[86px] z-10 aspect-[394/296] w-[236px] origin-center select-none xl:right-[3.5vw] xl:top-[92px] xl:w-[248px]"
         >
           <PlaneTrailScene priority />
         </div>
@@ -409,7 +372,7 @@ export default function HeroSectionClient({ data }: Props) {
           className="pointer-events-none absolute right-[23.5%] top-[230px] z-10 h-auto w-[38px] select-none xl:right-[23.8%] xl:top-[236px]"
         />
 
-        <div className="relative z-20 mx-auto flex min-h-[650px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-10">
+        <div className="relative z-20 mx-auto flex min-h-[650px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-4">
           <div className="relative z-20 max-w-[560px] text-left lg:w-[47%] lg:pt-2">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
@@ -422,7 +385,7 @@ export default function HeroSectionClient({ data }: Props) {
                 <FlashfireLogo
                   width={58}
                   height={58}
-                  className="-ml-2 inline-block h-[1.28em] w-auto translate-y-[0.18em] align-baseline"
+                  className="-ml-2 inline-block h-[1.3em] w-auto translate-y-[0.28em] align-baseline"
                 />
               </span>
               <span className="block whitespace-nowrap text-[#f55d1d]">
@@ -438,9 +401,9 @@ export default function HeroSectionClient({ data }: Props) {
               type="button"
               {...getButtonProps()}
               onClick={handleGetStartedClick}
-              className="mt-7 inline-flex h-[54px] min-w-[174px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff5a1f] px-7 text-[18px] font-bold text-white shadow-[-8px_8px_0_#3b3b3b] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-black hover:shadow-none focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
+              className="mt-7 inline-flex h-[54px] min-w-[174px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff4c00] px-7 text-[18px] font-bold text-white shadow-[0_6px_0_#000] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#ff5a1f] hover:shadow-[0_6px_0_#000] focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
             >
-              {data.cta.label}
+              Get Started →
             </button>
 
             <div className="mt-10 grid w-full max-w-[600px] grid-cols-3 gap-2">
@@ -477,9 +440,9 @@ export default function HeroSectionClient({ data }: Props) {
       <div className="relative z-20 mx-auto w-full max-w-[1536px] overflow-visible px-[5.4vw] py-[52px] text-center">
         <div
           key={`lower-plane-${planeAnimationKey}`}
-          className="hero-plane-scene pointer-events-none absolute left-[-52px] top-[-46px] z-50 w-[170px] select-none"
+          className="pointer-events-none absolute left-[42px] top-[-78px] z-50 aspect-[394/296] w-[220px] origin-center select-none"
         >
-          <PlaneTrailScene planePosition="end" />
+          <PlaneTrailScene position="bottomLeft" />
         </div>
         <p className="font-['Satoshi',sans-serif] text-[20px] font-medium leading-[1.4] text-[#9d9d9d]">
           {data.universityHeading}
