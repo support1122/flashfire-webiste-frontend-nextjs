@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { type MouseEvent } from "react";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { HeroSectionData } from "@/src/types/heroSectionData";
 import { GTagUTM } from "@/src/utils/GTagUTM";
@@ -86,28 +86,18 @@ function PlaneTrailScene({
 
   return (
     <div
-      className={`absolute inset-0 h-[200px] w-[200px] origin-center ${
+      className={`absolute inset-0 h-[150px] w-[150px] origin-center ${
         isBottomLeft ? "rotate-180" : ""
       }`}
     >
-      <Image
-        src="/images/elementtail.png"
-        alt=""
-        width={319}
-        height={173}
-        priority={priority}
-        className={`absolute left-[42px] h-auto w-[180px] opacity-90 ${
-          isBottomLeft ? "top-[22px]" : "top-[30px]"
-        }`}
-      />
       <Image
         src="/images/element4.png"
         alt=""
         width={117}
         height={90}
         priority={priority}
-        className={`absolute h-auto w-[60px] ${
-          isBottomLeft ? "left-[4px] top-[10px]" : "left-0 top-0"
+        className={`absolute h-auto w-[240px] ${
+          isBottomLeft ? "left-[4px] top-[13px]" : "left-0  top-0"
         }`}
       />
     </div>
@@ -115,27 +105,6 @@ function PlaneTrailScene({
 }
 
 export default function HeroSectionClient({ data }: Props) {
-  const heroRef = useRef<HTMLElement | null>(null);
-  const [planeAnimationKey, setPlaneAnimationKey] = useState(0);
-
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setPlaneAnimationKey((key) => key + 1);
-        }
-      },
-      { threshold: 0.35 }
-    );
-
-    observer.observe(hero);
-
-    return () => observer.disconnect();
-  }, []);
-
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
@@ -184,7 +153,6 @@ export default function HeroSectionClient({ data }: Props) {
 
   return (
     <section
-      ref={heroRef}
       className="relative w-full overflow-hidden bg-white font-['Space_Grotesk',sans-serif] text-black"
     >
       {/* Mobile-only hero section */}
@@ -248,10 +216,7 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div
-            key={`mobile-top-plane-${planeAnimationKey}`}
-            className="pointer-events-none absolute right-[-4px] top-[392px] z-10 aspect-[394/296] w-[154px] origin-center select-none"
-          >
+          <div className="pointer-events-none absolute right-[-4px] top-[392px] z-10 aspect-[394/296] w-[154px] origin-center select-none">
             <PlaneTrailScene priority />
           </div>
 
@@ -285,10 +250,7 @@ export default function HeroSectionClient({ data }: Props) {
             ))}
           </div>
 
-          <div
-            key={`mobile-lower-plane-${planeAnimationKey}`}
-            className="pointer-events-none absolute left-[-12px] top-[-36px] z-50 hidden aspect-[394/296] w-[142px] origin-center select-none"
-          >
+          <div className="pointer-events-none absolute left-[-12px] top-[-36px] z-50 hidden aspect-[394/296] w-[142px] origin-center select-none">
             <PlaneTrailScene position="bottomLeft" />
           </div>
           <p className="mx-auto mt-16 max-w-[290px] font-['Satoshi',sans-serif] text-[14px] font-medium leading-[1.45] text-[#9d9d9d]">
@@ -335,10 +297,7 @@ export default function HeroSectionClient({ data }: Props) {
 
       <div className="relative isolate hidden overflow-visible lg:block">
         <div className="relative z-0 min-h-[650px] bg-[#f7e6df]">
-        <div
-          key={`top-plane-${planeAnimationKey}`}
-          className="pointer-events-none absolute right-[1.8vw] top-[86px] z-10 aspect-[394/296] w-[236px] origin-center select-none xl:right-[3.5vw] xl:top-[92px] xl:w-[248px]"
-        >
+        <div className="pointer-events-none absolute right-[1.8vw] top-[86px] z-10 aspect-[394/296] w-[236px] origin-center select-none xl:right-[3.5vw] xl:top-[92px] xl:w-[248px]">
           <PlaneTrailScene priority />
         </div>
         <Image
@@ -438,10 +397,7 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       <div className="relative z-20 mx-auto w-full max-w-[1536px] overflow-visible px-[5.4vw] py-[52px] text-center">
-        <div
-          key={`lower-plane-${planeAnimationKey}`}
-          className="pointer-events-none absolute left-[42px] top-[-78px] z-50 aspect-[394/296] w-[220px] origin-center select-none"
-        >
+        <div className="pointer-events-none absolute left-[42px] top-[-78px] z-50 aspect-[394/296] w-[220px] origin-center select-none">
           <PlaneTrailScene position="bottomLeft" />
         </div>
         <p className="font-['Satoshi',sans-serif] text-[20px] font-medium leading-[1.4] text-[#9d9d9d]">
