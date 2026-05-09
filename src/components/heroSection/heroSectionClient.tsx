@@ -86,7 +86,7 @@ function PlaneTrailScene({
 
   return (
     <div
-      className={`absolute inset-0 h-[150px] w-[150px] origin-center ${
+      className={`absolute inset-0 h-[200px] w-[200px] origin-center ${
         isBottomLeft ? "rotate-180" : ""
       }`}
     >
