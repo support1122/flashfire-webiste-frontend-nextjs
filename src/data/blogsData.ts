@@ -53499,10 +53499,10 @@ Best regards,
     bio: "Career expert and resume strategist helping job seekers land their dream roles.",
   },
   image:
-    "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-05-09%20at%2010.08.58%E2%80%AFAM.png",
+    "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-05-09%20at%209.09.02%E2%80%AFPM.png",
   categoryColor: "bg-indigo-100 text-indigo-600",
   content: `
-<img src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-05-09%20at%2010.08.58%E2%80%AFAM.png" alt="Remote Job vs Office Job" style="width: 100%; max-width: 800px; height: auto; margin-bottom: 24px; border-radius: 8px;" />
+<img src="https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Screenshot%202026-05-09%20at%209.09.02%E2%80%AFPM.png" alt="Remote Job vs Office Job" style="width: 100%; max-width: 800px; height: auto; margin-bottom: 24px; border-radius: 8px;" />
 
 <p style='margin-bottom:12px; line-height:1.7;'>The debate around remote job vs office job has become one of the biggest workplace discussions in 2026. Some professionals love the flexibility of working from home, while others prefer the structure and social interaction of a traditional office environment.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>But which option is actually better for your productivity, salary, mental health, and long-term career growth?</p>
