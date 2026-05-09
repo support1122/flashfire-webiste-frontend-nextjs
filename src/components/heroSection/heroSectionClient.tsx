@@ -96,8 +96,8 @@ function PlaneTrailScene({
         width={117}
         height={90}
         priority={priority}
-        className={`absolute h-auto w-[240px] ${
-          isBottomLeft ? "left-[4px] top-[13px]" : "left-0  top-0"
+        className={`absolute h-auto w-[300px] ${
+          isBottomLeft ? "left-[0px] top-[10px]" : "left-0 top-0"
         }`}
       />
     </div>
@@ -216,18 +216,18 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute right-[-4px] top-[392px] z-10 aspect-[394/296] w-[154px] origin-center select-none">
+          <div className="pointer-events-none absolute right-[-34px] top-[360px] z-10 aspect-[394/296] w-[190px] origin-center select-none">
             <PlaneTrailScene priority />
           </div>
 
-          <div className="relative z-20 mx-auto mt-8 h-[338px] w-[calc(100%+48px)] max-w-[520px] -translate-x-6">
+          <div className="relative z-20 mx-auto mt-6 h-[460px] w-[calc(100%+120px)] max-w-[700px]">
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
               fill
               priority
               sizes="96vw"
-              className="object-contain object-bottom"
+              className="scale-110 object-contain object-bottom"
             />
           </div>
         </div>
@@ -250,7 +250,7 @@ export default function HeroSectionClient({ data }: Props) {
             ))}
           </div>
 
-          <div className="pointer-events-none absolute left-[-12px] top-[-36px] z-50 hidden aspect-[394/296] w-[142px] origin-center select-none">
+          <div className="pointer-events-none absolute left-[-24px] top-[-48px] z-50 hidden aspect-[394/296] w-[180px] origin-center select-none">
             <PlaneTrailScene position="bottomLeft" />
           </div>
           <p className="mx-auto mt-16 max-w-[290px] font-['Satoshi',sans-serif] text-[14px] font-medium leading-[1.45] text-[#9d9d9d]">
@@ -297,7 +297,7 @@ export default function HeroSectionClient({ data }: Props) {
 
       <div className="relative isolate hidden overflow-visible lg:block">
         <div className="relative z-0 min-h-[650px] bg-[#f7e6df]">
-        <div className="pointer-events-none absolute right-[1.8vw] top-[86px] z-10 aspect-[394/296] w-[236px] origin-center select-none xl:right-[3.5vw] xl:top-[92px] xl:w-[248px]">
+        <div className="pointer-events-none absolute right-[-9.5vw] top-[28px] z-10 aspect-[394/296] w-[310px] origin-center select-none xl:right-[-4.8vw] xl:top-[42px] xl:w-[326px]">
           <PlaneTrailScene priority />
         </div>
         <Image
@@ -383,7 +383,7 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className="absolute bottom-0 right-[1.5vw] h-[590px] w-[58vw] xl:h-[610px] xl:w-[60vw]">
+          <div className="absolute bottom-0 right-[-14vw] h-[700px] w-[69vw] xl:right-[-8vw] xl:h-[720px] xl:w-[71vw]">
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
@@ -397,7 +397,7 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       <div className="relative z-20 mx-auto w-full max-w-[1536px] overflow-visible px-[5.4vw] py-[52px] text-center">
-        <div className="pointer-events-none absolute left-[42px] top-[-78px] z-50 aspect-[394/296] w-[220px] origin-center select-none">
+        <div className="pointer-events-none absolute left-[12px] top-[-104px] z-50 aspect-[394/296] w-[292px] origin-center select-none">
           <PlaneTrailScene position="bottomLeft" />
         </div>
         <p className="font-['Satoshi',sans-serif] text-[20px] font-medium leading-[1.4] text-[#9d9d9d]">
