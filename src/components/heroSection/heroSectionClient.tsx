@@ -7,6 +7,7 @@ import { HeroSectionData } from "@/src/types/heroSectionData";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
+import styles from "./heroSection.module.css";
 
 type Props = {
   data: HeroSectionData;
@@ -23,7 +24,7 @@ const heroStats = [
   },
   {
     value: "50+",
-    label: "Land their first job",
+    label: "Landed their first job",
   },
 ];
 
@@ -220,7 +221,7 @@ export default function HeroSectionClient({ data }: Props) {
             <PlaneTrailScene priority />
           </div>
 
-          <div className="relative left-1/2 z-20 mt-6 h-[500px] w-[118vw] max-w-[680px] -translate-x-1/2">
+          <div className="relative left-1/2 z-20 mt-15 h-[500px] w-[118vw] max-w-[680px] -translate-x-1/2">
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
@@ -296,7 +297,7 @@ export default function HeroSectionClient({ data }: Props) {
       </div>
 
       <div className="relative isolate hidden overflow-visible lg:block">
-        <div className="relative z-0 min-h-[650px] bg-[#f7e6df]">
+        <div className="relative z-0 min-h-[720px] overflow-hidden bg-[#f7e6df]">
         <div className="pointer-events-none absolute right-[-15vw] top-[-19px] z-10 aspect-[394/296] w-[310px] origin-center select-none xl:right-[-11vw] xl:top-[-12px] xl:w-[326px]">
           <PlaneTrailScene priority />
         </div>
@@ -331,7 +332,7 @@ export default function HeroSectionClient({ data }: Props) {
           className="pointer-events-none absolute right-[23.5%] top-[230px] z-10 h-auto w-[38px] select-none xl:right-[23.8%] xl:top-[236px]"
         />
 
-        <div className="relative z-20 mx-auto flex min-h-[650px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-4">
+        <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-4">
           <div className="relative z-20 max-w-[560px] text-left lg:w-[47%] lg:pt-2">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
@@ -383,7 +384,7 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className="absolute bottom-0 right-[-14vw] h-[700px] w-[69vw] xl:right-[-8vw] xl:h-[720px] xl:w-[71vw]">
+          <div className={`${styles.desktopFireflyImage} absolute bottom-0 right-[-14vw] h-[700px] w-[69vw] xl:right-[-8vw] xl:h-[720px] xl:w-[71vw]`}>
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
