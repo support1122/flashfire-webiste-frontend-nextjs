@@ -297,12 +297,12 @@
 }
 
 .desktopFireflyImage {
-  transform: translateY(0);
+  transform: translateY(45px);
 }
 
 @media (min-width: 1024px) and (min-resolution: 0.88dppx) and (max-resolution: 0.92dppx) {
   .desktopFireflyImage {
-    transform: translateY(0);
+    transform: translateY(65px);
   }
 }
 
