@@ -801,24 +801,50 @@
 /* === Responsive Adjustments === */
 @media (max-width: 900px) {
   .navInner {
-    padding: 1rem 1.5rem;
+    width: 100%;
+    padding: 1.25rem 1.45rem 1rem;
+    gap: 0.75rem;
   }
 
   .navLogoText {
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding: 0.2rem 0;
   }
 
-  .navLinks,
-  .navRight {
+  .navLinks {
     display: none;
   }
 
+  .navRight {
+    display: flex;
+    margin-left: auto;
+    gap: 0;
+  }
+
+  .navSecondaryButton {
+    display: none;
+  }
+
+  .navPrimaryButton {
+    width: 118px;
+    height: 38px;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    box-shadow: -4px 4px 0 #3b3b3b;
+  }
+
   .navMenuIcon {
-    display: block;
+    display: flex;
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
   }
 
   .navMobileButtonsSticky {
-    display: block;
+    display: none;
   }
 
   .navMobileLinks {
@@ -879,7 +905,7 @@
   }
 
   .saleBanner {
-    padding: 0.25rem 0.75rem;
+    display: none;
   }
 
   .saleBannerContent {
@@ -911,6 +937,23 @@
 }
 
 @media (max-width: 600px) {
+  .navContainer {
+    box-shadow: none;
+  }
+
+  .iconHamburger,
+  .iconClose {
+    width: 1.45rem;
+    height: 0.14rem;
+  }
+
+  .iconHamburger::before,
+  .iconHamburger::after,
+  .iconClose::before {
+    width: 1.45rem;
+    height: 0.14rem;
+  }
+
   .navMobileMenu {
     padding: 1.25rem 1rem;
     /* Leave room for sticky CTA bar at the bottom on very small screens */

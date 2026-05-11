@@ -522,7 +522,7 @@ export default function NavbarClient({ links, ctas }: Props) {
 
             {/* Right Section: CTAs (Desktop) */}
             <div className={styles.navRight}>
-              {ctas.primary && (ctas.primary.href === "/book-a-demo" || ctas.primary.href === "/en-ca/book-a-demo") ? (
+              {ctas.primary && (ctas.primary.href === "/Get-Started" || ctas.primary.href === "/en-ca/Get-Started") ? (
                 <Link
                   href={getHref(ctas.primary.href)}
                   className={styles.navPrimaryButton}
@@ -535,7 +535,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                     trackSignupIntent("navbar_cta", {
                       signup_source: "navbar_button",
                       funnel_stage: "signup_intent",
-                      target_url: "/book-a-demo",
+                      target_url: "/Get-Started",
                     });
                     if (typeof window !== "undefined") {
                       const currentPath = safePathname || window.location.pathname;
@@ -961,7 +961,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                   >
                     {ctas.primary.label}
                   </a>
-                ) : ctas.primary && (ctas.primary.href === "/book-a-demo" || ctas.primary.href === "/en-ca/book-a-demo") ? (
+                ) : ctas.primary && (ctas.primary.href === "/Get-Started" || ctas.primary.href === "/en-ca/Get-Started") ? (
                   <Link
                     href={getHref(ctas.primary.href)}
                     className={styles.navMobilePrimary}
@@ -979,22 +979,22 @@ export default function NavbarClient({ links, ctas }: Props) {
                         : "Website";
                       GTagUTM({
                         eventName: "whatsapp_support_click",
-                        label: "Navbar_Book_A_Demo_Button_Mobile",
+                        label: "Navbar_Get_Started_Button_Mobile",
                         utmParams: {
                           utm_source: utmSource,
                           utm_medium: utmMedium,
                           utm_campaign: utmCampaign,
                         },
                       });
-                      trackButtonClick("Book a Demo", "navigation", "cta", {
+                      trackButtonClick("Get Started", "navigation", "cta", {
                         button_location: "navbar_mobile",
                         navigation_type: "primary_cta",
-                        page: "book-a-demo",
+                        page: "Get-Started",
                       });
-                      trackSignupIntent("book_a_demo_mobile", {
+                      trackSignupIntent("get_started_mobile", {
                         signup_source: "navbar_mobile_button",
                         funnel_stage: "signup_intent",
-                        target_url: "/book-a-demo"
+                        target_url: "/Get-Started"
                       });
                       if (typeof window !== "undefined") {
                         const currentPath = safePathname || window.location.pathname;
@@ -1031,11 +1031,11 @@ export default function NavbarClient({ links, ctas }: Props) {
           )}
         </nav>
 
-        {/* Mobile Bottom Book a Demo CTA */}
+        {/* Mobile Bottom Get Started CTA */}
         {!isMenuOpen &&
           ctas.primary &&
-          (ctas.primary.href === "/book-a-demo" ||
-            ctas.primary.href === "/en-ca/book-a-demo") && (
+          (ctas.primary.href === "/Get-Started" ||
+            ctas.primary.href === "/en-ca/Get-Started") && (
             <div className={styles.navMobileButtonsSticky}>
               <Link
                 href={getHref(ctas.primary.href)}
@@ -1056,22 +1056,22 @@ export default function NavbarClient({ links, ctas }: Props) {
                       : "Website";
                   GTagUTM({
                     eventName: "whatsapp_support_click",
-                    label: "Navbar_Book_A_Demo_Button_Mobile_Bottom_Bar",
+                    label: "Navbar_Get_Started_Button_Mobile_Bottom_Bar",
                     utmParams: {
                       utm_source: utmSource,
                       utm_medium: utmMedium,
                       utm_campaign: utmCampaign,
                     },
                   });
-                  trackButtonClick("Book a Demo", "navigation", "cta", {
+                  trackButtonClick("Get Started", "navigation", "cta", {
                     button_location: "navbar_mobile_bottom_bar",
                     navigation_type: "primary_cta",
-                    page: "book-a-demo",
+                    page: "Get-Started",
                   });
-                  trackSignupIntent("book_a_demo_mobile_bottom_bar", {
+                  trackSignupIntent("get_started_mobile_bottom_bar", {
                     signup_source: "navbar_mobile_bottom_bar",
                     funnel_stage: "signup_intent",
-                    target_url: "/book-a-demo",
+                    target_url: "/Get-Started",
                   });
                   if (typeof window !== "undefined") {
                     const currentPath = safePathname || window.location.pathname;
