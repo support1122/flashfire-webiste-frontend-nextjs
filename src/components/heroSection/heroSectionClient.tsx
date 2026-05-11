@@ -333,7 +333,7 @@ export default function HeroSectionClient({ data }: Props) {
         />
 
         <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-4">
-          <div className="relative z-20 max-w-[560px] text-left lg:w-[47%] lg:pt-2">
+          <div className="relative z-20 max-w-[560px] text-left lg:w-[47%] lg:-translate-y-6 lg:pt-2">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
             </div>
