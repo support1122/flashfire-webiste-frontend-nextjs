@@ -217,11 +217,11 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute right-[-34px] top-[510px] z-10 aspect-[394/296] w-[190px] origin-center select-none">
+          <div className="pointer-events-none absolute right-[-34px] top-[430px] z-10 aspect-[394/296] w-[190px] origin-center select-none">
             <PlaneTrailScene priority />
           </div>
 
-          <div className="relative left-1/2 z-20 mt-15 h-[500px] w-[118vw] max-w-[680px] -translate-x-1/2">
+          <div className="relative left-1/2 z-20 -mt-10 h-[460px] w-[118vw] max-w-[680px] -translate-x-1/2">
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
@@ -307,7 +307,7 @@ export default function HeroSectionClient({ data }: Props) {
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute left-[51.6%] top-[178px] z-10 h-auto w-[44px] select-none xl:left-[51.4%] xl:top-[184px]"
+          className="pointer-events-none absolute left-[51.6%] top-[140px] z-10 h-auto w-[60px] select-none xl:left-[51.4%] xl:top-[184px]"
         />
         <Image
           src="/images/element3.png"
@@ -333,12 +333,12 @@ export default function HeroSectionClient({ data }: Props) {
         />
 
         <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-4">
-          <div className="relative z-20 max-w-[560px] text-left lg:w-[47%] lg:-translate-y-6 lg:pt-2">
+          <div className="relative z-20 max-w-[740px] text-left lg:w-[50%] lg:-translate-y-6 lg:pt-2">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
             </div>
 
-            <h1 className="text-[46px] font-bold leading-[1.08] tracking-[-0.02em] text-black xl:text-[49px]">
+            <h1 className="text-[54px] font-bold leading-[1.05] tracking-[-0.02em] text-black xl:text-[64px]">
               <span className="block">Land Interview</span>
               <span className="block -mt-5 whitespace-nowrap">
                 Calls Faster with
@@ -353,7 +353,7 @@ export default function HeroSectionClient({ data }: Props) {
               </span>
             </h1>
 
-            <p className="mt-5 max-w-[530px] font-['Satoshi',sans-serif] text-[17px] font-medium leading-[1.55] text-[#262626]">
+            <p className="mt-5 max-w-[540px] font-['Satoshi',sans-serif] text-[20px] font-medium leading-[1.55] text-[#262626]">
               {data.description}
             </p>
 
@@ -384,7 +384,7 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className={`${styles.desktopFireflyImage} absolute bottom-0 right-[-14vw] h-[700px] w-[69vw] xl:right-[-8vw] xl:h-[720px] xl:w-[71vw]`}>
+          <div className={`${styles.desktopFireflyImage} absolute bottom-0 right-[-18vw] h-[700px] w-[72vw] xl:right-[-13vw] xl:h-[720px] xl:w-[76vw]`}>
             <Image
               src="/images/firefly.png"
               alt="Students celebrating career success with Flashfire"
