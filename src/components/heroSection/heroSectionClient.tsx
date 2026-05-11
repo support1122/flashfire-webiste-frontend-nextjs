@@ -11,6 +11,8 @@ import styles from "./heroSection.module.css";
 
 type Props = {
   data: HeroSectionData;
+  heroImageSrc?: string;
+  shiftHeroImageLeft?: boolean;
 };
 
 const heroStats = [
@@ -105,7 +107,23 @@ function PlaneTrailScene({
   );
 }
 
-export default function HeroSectionClient({ data }: Props) {
+export default function HeroSectionClient({
+  data,
+  heroImageSrc = "/images/firefly.png",
+  shiftHeroImageLeft = false,
+}: Props) {
+  const mobileHeroFrameClass = shiftHeroImageLeft
+    ? "w-full max-w-[620px]"
+    : "w-[118vw] max-w-[680px]";
+  const mobileHeroHeightClass = shiftHeroImageLeft ? "h-[560px]" : "h-[460px]";
+  const mobileHeroOffsetClass = shiftHeroImageLeft ? "-mt-24" : "-mt-10";
+  const mobileHeroImageClass = shiftHeroImageLeft
+    ? "origin-bottom scale-135 -translate-x-8"
+    : "scale-125";
+  const desktopHeroBottomClass = shiftHeroImageLeft ? "bottom-14" : "bottom-0";
+  const desktopHeroImagePositionClass = shiftHeroImageLeft
+    ? "right-[0vw] w-[59vw] xl:right-[1vw] xl:w-[63vw]"
+    : "right-[-18vw] w-[72vw] xl:right-[-13vw] xl:w-[76vw]";
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
@@ -221,14 +239,14 @@ export default function HeroSectionClient({ data }: Props) {
             <PlaneTrailScene priority />
           </div>
 
-          <div className="relative left-1/2 z-20 -mt-10 h-[460px] w-[118vw] max-w-[680px] -translate-x-1/2">
+          <div className={`relative left-1/2 z-20 -translate-x-1/2 ${mobileHeroHeightClass} ${mobileHeroOffsetClass} ${mobileHeroFrameClass}`}>
             <Image
-              src="/images/firefly.png"
+              src={heroImageSrc}
               alt="Students celebrating career success with Flashfire"
               fill
               priority
               sizes="96vw"
-              className="scale-125 object-contain object-bottom"
+              className={`${mobileHeroImageClass} object-contain object-right-bottom`}
             />
           </div>
         </div>
@@ -384,9 +402,9 @@ export default function HeroSectionClient({ data }: Props) {
             </div>
           </div>
 
-          <div className={`${styles.desktopFireflyImage} absolute bottom-0 right-[-18vw] h-[700px] w-[72vw] xl:right-[-13vw] xl:h-[720px] xl:w-[76vw]`}>
+          <div className={`${styles.desktopFireflyImage} absolute h-[700px] xl:h-[720px] ${desktopHeroBottomClass} ${desktopHeroImagePositionClass}`}>
             <Image
-              src="/images/firefly.png"
+              src={heroImageSrc}
               alt="Students celebrating career success with Flashfire"
               fill
               priority
