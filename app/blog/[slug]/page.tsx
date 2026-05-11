@@ -84,6 +84,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? "What to Wear for a Zoom Interview (2026 Guide)"
     : post.slug === "how-to-follow-up-on-job-application"
     ? "How to Follow Up on a Job Application (2026 Guide)"
+    : post.slug === "remote-job-vs-office-job"
+    ? "Remote Job vs Office Job: Pros, Cons & Key Differences"
+    : post.slug === "how-to-get-a-job-quickly"
+    ? "How to Get a Job Quickly (Even in a Competitive Market)"
+    : post.slug === "what-is-hidden-job-market"
+    ? "What Is the Hidden Job Market? How It Works in 2026"
     : `${post.title} | Flashfire Blog`;
   
   return {
