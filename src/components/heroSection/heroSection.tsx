@@ -8,6 +8,15 @@ export default function HeroSection() {
   const pathname = usePathname();
   const isCanadaContext = pathname?.startsWith("/en-ca") || false;
   const data = isCanadaContext ? heroSectionDataCA : heroSectionData;
+  const heroImageSrc = isCanadaContext
+    ? "/images/firefly-canada.png"
+    : "/images/firefly.png";
   
-  return <HeroSectionClient data={data} />;
+  return (
+    <HeroSectionClient
+      data={data}
+      heroImageSrc={heroImageSrc}
+      shiftHeroImageLeft={isCanadaContext}
+    />
+  );
 }
