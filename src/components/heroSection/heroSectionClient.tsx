@@ -165,7 +165,7 @@ export default function HeroSectionClient({ data }: Props) {
             width={83}
             height={99}
             priority
-            className="pointer-events-none absolute left-[10%] top-[590px] z-10 h-auto w-[34px] select-none"
+            className="pointer-events-none absolute left-[10%] top-[490px] z-10 h-auto w-[34px] select-none"
           />
           <Image
             src="/images/element3.png"
@@ -173,7 +173,7 @@ export default function HeroSectionClient({ data }: Props) {
             width={207}
             height={213}
             priority
-            className="pointer-events-none absolute right-[36%] top-[558px] z-10 h-auto w-[20px] select-none"
+            className="pointer-events-none absolute right-[29%] top-[548px] z-10 h-auto w-[40px] select-none"
           />
           <Image
             src="/images/element3.png"
