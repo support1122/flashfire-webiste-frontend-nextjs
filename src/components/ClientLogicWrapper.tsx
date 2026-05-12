@@ -33,11 +33,12 @@ function ClientLogicWrapperContent({
 
     useEffect(() => {
         if (typeof document === "undefined") return;
-        document.body.style.overflow = showStrategyCallCard ? "hidden" : "";
+        const locked = showStrategyCallCard || showCalendlyModal;
+        document.body.style.overflow = locked ? "hidden" : "";
         return () => {
             document.body.style.overflow = "";
         };
-    }, [showStrategyCallCard]);
+    }, [showStrategyCallCard, showCalendlyModal]);
 
     // Track button clicks to force show modal
     const [forceShowModal, setForceShowModal] = useState(false);
@@ -180,38 +181,20 @@ function ClientLogicWrapperContent({
             if (geoLoading) {
                 return;
             }
-            setForceShowCalendlyModal(false); // Reset the flag
-            modalDismissedForRouteRef.current = null; // Reset dismissed state
-            
-            // Save scroll position before opening modal to prevent scroll-to-top
-            const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-            
-            // Check if user is from India - show geo-block modal instead
+            setForceShowCalendlyModal(false);
+            modalDismissedForRouteRef.current = null;
+
             if (isFromIndia && !geoBypassActive) {
                 setShowGeoBlockModal(true);
                 setShowCalendlyModal(false);
                 setShowSignupModal(false);
             } else {
-                // Show Calendly modal
                 setShowCalendlyModal(true);
                 setShowSignupModal(false);
                 setShowGeoBlockModal(false);
             }
-            
-            // Restore scroll position after modal opens to prevent scroll-to-top
-            if (typeof window !== 'undefined' && currentScrollY > 0) {
-                requestAnimationFrame(() => {
-                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                    requestAnimationFrame(() => {
-                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                        setTimeout(() => {
-                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                        }, 100);
-                    });
-                });
-            }
-            
-            return; // Don't process route-based logic when showing modal from button click
+
+            return;
         }
 
         // Check if forceShowModal is true (button clicked from any page) - show modal without navigation
@@ -222,9 +205,7 @@ function ClientLogicWrapperContent({
             }
             setForceShowModal(false);
             modalDismissedForRouteRef.current = null;
-            
-            const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-            
+
             if (isFromIndia && !geoBypassActive) {
                 setShowGeoBlockModal(true);
                 setShowCalendlyModal(false);
@@ -235,19 +216,7 @@ function ClientLogicWrapperContent({
                 setShowSignupModal(false);
                 setShowGeoBlockModal(false);
             }
-            
-            if (typeof window !== 'undefined' && currentScrollY > 0) {
-                requestAnimationFrame(() => {
-                    window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                    requestAnimationFrame(() => {
-                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                        setTimeout(() => {
-                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                        }, 100);
-                    });
-                });
-            }
-            
+
             return;
         }
 
@@ -315,41 +284,22 @@ function ClientLogicWrapperContent({
 
         // Logic for restricted actions (Signup / Booking)
         if (isGetMeInterview || isScheduleCareerCall || isBookMyDemoCall || isSignup || isBookDemo) {
-            // Check if user has already submitted the form
-            const hasSubmitted = typeof window !== "undefined" && localStorage.getItem("submitted") === "true";
-            
             // If forceShowModal is true (button was clicked), always show modal
             if (forceShowModal) {
-                setForceShowModal(false); // Reset the flag
-                modalDismissedForRouteRef.current = null; // Reset dismissed state
-                
-                // Save scroll position before opening modal to prevent scroll-to-top
-                const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-                
+                setForceShowModal(false);
+                modalDismissedForRouteRef.current = null;
+
                 if (isFromIndia && !geoBypassActive) {
                     setShowGeoBlockModal(true);
                     setShowSignupModal(false);
                 } else {
                     if (isGetMeInterview || isScheduleCareerCall || isBookMyDemoCall || isSignup) {
-                        const savedFormData = loadFormData();
+                        loadFormData();
                         setShowCalendlyModal(true);
                         setShowSignupModal(false);
                     }
                 }
-                
-                // Restore scroll position after modal opens to prevent scroll-to-top
-                if (typeof window !== 'undefined' && currentScrollY > 0) {
-                    requestAnimationFrame(() => {
-                        window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                        requestAnimationFrame(() => {
-                            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                            setTimeout(() => {
-                                window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-                            }, 100);
-                        });
-                    });
-                }
-                
+
                 return;
             }
             
@@ -377,7 +327,7 @@ function ClientLogicWrapperContent({
                 } else {
                     // If not from India, show the appropriate modal for the route
                     if (isGetMeInterview || isScheduleCareerCall || isBookMyDemoCall || isSignup) {
-                        const savedFormData = loadFormData();
+                        loadFormData();
                         setShowCalendlyModal(true);
                         setShowSignupModal(false);
                     }
