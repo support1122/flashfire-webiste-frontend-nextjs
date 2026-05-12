@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { type MouseEvent } from "react";
+import { useRef, type SyntheticEvent } from "react";
 import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { HeroSectionData } from "@/src/types/heroSectionData";
 import { GTagUTM } from "@/src/utils/GTagUTM";
@@ -131,16 +131,21 @@ export default function HeroSectionClient({
       }
     },
   });
+  const lastHeroCtaActivationRef = useRef(0);
 
-  const handleGetStartedClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleGetStartedClick = (e?: SyntheticEvent<HTMLButtonElement>) => {
     try {
-      e.preventDefault();
-      e.stopPropagation();
+      e?.preventDefault();
+      e?.stopPropagation();
     } catch {
       // Some browser-generated events cannot be cancelled.
     }
 
     if (typeof window === "undefined") return;
+
+    const now = Date.now();
+    if (now - lastHeroCtaActivationRef.current < 700) return;
+    lastHeroCtaActivationRef.current = now;
 
     const utmSource = localStorage.getItem("utm_source") || "WEBSITE";
     const utmMedium = localStorage.getItem("utm_medium") || "Hero_Section";
@@ -227,6 +232,7 @@ export default function HeroSectionClient({
               <button
                 type="button"
                 {...getButtonProps()}
+                onPointerUp={handleGetStartedClick}
                 onClick={handleGetStartedClick}
                 className="inline-flex h-[46px] w-full max-w-[283px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff4c00] px-6 text-[16px] font-bold text-white shadow-[0_6px_0_#000] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#ff5a1f] hover:shadow-[0_6px_0_#000] focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
               >
@@ -239,7 +245,7 @@ export default function HeroSectionClient({
             <PlaneTrailScene priority />
           </div>
 
-          <div className={`relative left-1/2 z-20 -translate-x-1/2 ${mobileHeroHeightClass} ${mobileHeroOffsetClass} ${mobileHeroFrameClass}`}>
+          <div className={`pointer-events-none relative left-1/2 z-10 -translate-x-1/2 ${mobileHeroHeightClass} ${mobileHeroOffsetClass} ${mobileHeroFrameClass}`}>
             <Image
               src={heroImageSrc}
               alt="Students celebrating career success with Flashfire"

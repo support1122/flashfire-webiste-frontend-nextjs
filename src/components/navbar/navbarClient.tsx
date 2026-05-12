@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import type { NavLink, NavbarCTA } from "../../types/navbarData";
-import { trackButtonClick, trackSignupIntent, trackModalOpen } from "@/src/utils/PostHogTracking";
+import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { useRouter } from "next/navigation";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
@@ -55,7 +55,6 @@ export default function NavbarClient({ links, ctas }: Props) {
     safePathname.startsWith("/en-ca/blog");
 
   const isExternalHref = (href: string) => href.startsWith("http");
-  const primaryIsExternal = ctas.primary ? isExternalHref(ctas.primary.href) : false;
 
   const getHref = (href: string) => {
     if (isExternalHref(href) || href.startsWith("#")) {
@@ -940,105 +939,18 @@ export default function NavbarClient({ links, ctas }: Props) {
                   );
                 })}
               </ul>
-              <div className={styles.navMobileButtons}>
-                {ctas.primary && primaryIsExternal ? (
-                  <a
-                    href={ctas.primary.href}
-                    className={styles.navMobilePrimary}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => {
-                      trackButtonClick(ctas.primary.label, "navigation", "cta", {
-                        button_location: "navbar_mobile",
-                        navigation_type: "primary_cta"
-                      });
-                      if (ctas.primary.href.includes("calendly")) {
-                        trackModalOpen("calendly_modal", "navigation_button", {
-                          trigger_source: "navbar_mobile_cta"
-                        });
-                      }
-                    }}
-                  >
-                    {ctas.primary.label}
-                  </a>
-                ) : ctas.primary && (ctas.primary.href === "/Get-Started" || ctas.primary.href === "/en-ca/Get-Started") ? (
-                  <Link
-                    href={getHref(ctas.primary.href)}
-                    className={styles.navMobilePrimary}
-                    {...getButtonProps()}
-                    onClick={() => {
-                      setIsMenuOpen(false);
-                      const utmSource = typeof window !== "undefined"
-                        ? localStorage.getItem("utm_source") || "WEBSITE"
-                        : "WEBSITE";
-                      const utmMedium = typeof window !== "undefined"
-                        ? localStorage.getItem("utm_medium") || "Navigation_Navbar_Button"
-                        : "Navigation_Navbar_Button";
-                      const utmCampaign = typeof window !== "undefined"
-                        ? localStorage.getItem("utm_campaign") || "Website"
-                        : "Website";
-                      GTagUTM({
-                        eventName: "whatsapp_support_click",
-                        label: "Navbar_Get_Started_Button_Mobile",
-                        utmParams: {
-                          utm_source: utmSource,
-                          utm_medium: utmMedium,
-                          utm_campaign: utmCampaign,
-                        },
-                      });
-                      trackButtonClick("Get Started", "navigation", "cta", {
-                        button_location: "navbar_mobile",
-                        navigation_type: "primary_cta",
-                        page: "Get-Started",
-                      });
-                      trackSignupIntent("get_started_mobile", {
-                        signup_source: "navbar_mobile_button",
-                        funnel_stage: "signup_intent",
-                        target_url: "/Get-Started"
-                      });
-                      if (typeof window !== "undefined") {
-                        const currentPath = safePathname || window.location.pathname;
-                        sessionStorage.setItem('previousPageBeforeBookADemo', currentPath);
-                        const currentScrollY = window.scrollY || window.pageYOffset || 0;
-                        sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-                        window.dispatchEvent(new CustomEvent("showCalendlyModal"));
-                      }
-                    }}
-                  >
-                    {ctas.primary?.label}
-                  </Link>
-                ) : ctas.primary ? (
-                  <Link
-                    href={ctas.primary.href}
-                    className={styles.navMobilePrimary}
-                    onClick={() => {
-                      trackButtonClick(ctas.primary.label, "navigation", "cta", {
-                        button_location: "navbar_mobile",
-                        navigation_type: "primary_cta"
-                      });
-                      if (ctas.primary.href.includes("calendly")) {
-                        trackModalOpen("calendly_modal", "navigation_button", {
-                          trigger_source: "navbar_mobile_cta"
-                        });
-                      }
-                    }}
-                  >
-                    {ctas.primary.label}
-                  </Link>
-                ) : null}
-              </div>
             </div>
           )}
         </nav>
 
-        {/* Mobile Bottom Get Started CTA */}
+        {/* Mobile Bottom Book a Demo CTA */}
         {!isMenuOpen &&
           ctas.primary &&
           (ctas.primary.href === "/Get-Started" ||
             ctas.primary.href === "/en-ca/Get-Started") && (
             <div className={styles.navMobileButtonsSticky}>
               <Link
-                href={getHref(ctas.primary.href)}
+                href={getHref("/book-a-demo")}
                 className={styles.navMobilePrimary}
                 {...getButtonProps()}
                 onClick={() => {
@@ -1056,22 +968,22 @@ export default function NavbarClient({ links, ctas }: Props) {
                       : "Website";
                   GTagUTM({
                     eventName: "whatsapp_support_click",
-                    label: "Navbar_Get_Started_Button_Mobile_Bottom_Bar",
+                    label: "Navbar_Book_A_Demo_Button_Mobile_Bottom_Bar",
                     utmParams: {
                       utm_source: utmSource,
                       utm_medium: utmMedium,
                       utm_campaign: utmCampaign,
                     },
                   });
-                  trackButtonClick("Get Started", "navigation", "cta", {
+                  trackButtonClick("Book a Demo", "navigation", "cta", {
                     button_location: "navbar_mobile_bottom_bar",
                     navigation_type: "primary_cta",
-                    page: "Get-Started",
+                    page: "book-a-demo",
                   });
-                  trackSignupIntent("get_started_mobile_bottom_bar", {
+                  trackSignupIntent("book_a_demo_mobile_bottom_bar", {
                     signup_source: "navbar_mobile_bottom_bar",
                     funnel_stage: "signup_intent",
-                    target_url: "/Get-Started",
+                    target_url: "/book-a-demo",
                   });
                   if (typeof window !== "undefined") {
                     const currentPath = safePathname || window.location.pathname;
@@ -1082,7 +994,7 @@ export default function NavbarClient({ links, ctas }: Props) {
                   }
                 }}
               >
-                {ctas.primary.label}
+                Book a Demo →
               </Link>
             </div>
           )}
