@@ -39,58 +39,82 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Check if it's a blog post
   const post = blogPosts.find((p) => p.slug === slug);
   if (post) {
-  // Custom meta title for specific blogs
-  const metaTitle = post.slug === "how-to-optimize-resume-for-ats" 
-    ? "How to Optimize a Resume for ATS | ATS Resume Optimization"
-    : post.slug === "how-to-search-for-a-new-job"
-    ? "How to Search for a New Job: The Best Way to Find One Fast"
-    : post.slug === "how-to-automate-job-applications"
-    ? "How to Automate Job Applications | Job Application Automation"
-    : post.slug === "best-ai-job-application-tools"
-    ? "Best AI Job Application Tool in 2026 | Top AI Tools"
-    : post.slug === "linkedin-profile-attractive-to-recruiters"
-    ? "How to Make Your LinkedIn Profile Attractive to Recruiters"
-    : post.slug === "check-if-resume-is-ats-friendly"
-    ? "How to Check If Your Resume Is ATS Friendly"
-    : post.slug === "how-to-beat-ats-systems"
-    ? "How to Beat ATS Systems & Get Your Resume Shortlisted"
-    : post.slug === "highest-paying-software-engineering-jobs"
-    ? "Highest Paying Software Engineering Jobs in 2026"
-    : post.slug === "how-to-get-a-job-as-a-software-engineer"
-    ? "How to Get a Job as a Software Engineer in 2026"
-    : post.slug === "find-job-after-graduation"
-    ? "How to Find a Job After Graduation in 2026"
-    : post.slug === "how-to-change-careers"
-    ? "How to Change Careers Successfully | Step-by-Step Guide"
-    : post.slug === "devops-engineer-job-responsibilities"
-    ? "DevOps Engineer Job Responsibilities & Job Profile"
-    : post.slug === "best-paying-jobs-in-the-us"
-    ? "Best Paying Jobs in the US: Top 10 High-Salary Careers"
-    : post.slug === "how-to-get-a-job-in-digital-marketing"
-    ? "How to Get a Job in Digital Marketing (2026 Guide)"
-    : post.slug === "software-engineer-duties-roles-responsibilities"
-    ? "Software Engineer Duties & Responsibilities Guide"
-    : post.slug === "cloud-engineer-duties-job-description"
-    ? "Cloud Engineer Duties & Job Description Guide"
-    : post.slug === "job-search-hacks"
-    ? "Job Search Hacks: Smart Tips to Get Hired Faster"
-    : post.slug === "job-search-tips"
-    ? "Job Search Tips: Proven Ways to Get Hired Faster"
-    : post.slug === "best-websites-for-job-search"
-    ? "Best Websites for Job Search: Top Sites to Get Hired"
-    : post.slug === "best-job-search-apps"
-    ? "Best Job Search Apps: Top Job Hunting Apps 2026"
-    : post.slug === "what-to-wear-for-zoom-interview"
-    ? "What to Wear for a Zoom Interview (2026 Guide)"
-    : post.slug === "how-to-follow-up-on-job-application"
-    ? "How to Follow Up on a Job Application (2026 Guide)"
-    : post.slug === "remote-job-vs-office-job"
-    ? "Remote Job vs Office Job: Pros, Cons & Key Differences"
-    : post.slug === "how-to-get-a-job-quickly"
-    ? "How to Get a Job Quickly (Even in a Competitive Market)"
-    : post.slug === "what-is-hidden-job-market"
-    ? "What Is the Hidden Job Market? How It Works in 2026"
-    : `${post.title} | Flashfire Blog`;
+  // Meta title overrides per slug
+  const metaTitleMap: Record<string, string> = {
+    // ATS & Resume
+    "how-to-optimize-resume-for-ats": "How to Optimize a Resume for ATS | ATS Resume Optimization",
+    "check-if-resume-is-ats-friendly": "How to Check If Your Resume Is ATS Friendly",
+    "how-to-beat-ats-systems": "How to Beat ATS Systems & Get Your Resume Shortlisted",
+    "best-file-format-for-resume": "Best File Format for Resume: ATS-Friendly Options Explained",
+    "ai-resume-optimization-tools": "Best AI Resume Optimization Tools in 2026",
+    "best-ai-tools-for-resume-writing": "Best AI Resume Writing Tools in 2026",
+    // Job Search
+    "how-to-search-for-a-new-job": "How to Search for a New Job: The Best Way to Find One Fast",
+    "how-to-automate-job-applications": "How to Automate Job Applications in 2026",
+    "best-ai-job-application-tools": "Best AI Job Application Tools in 2026",
+    "ai-job-search-tools": "Best AI Job Search Tools in USA for 2026",
+    "job-search-hacks": "Job Search Hacks: Smart Tips to Get Hired Faster",
+    "job-search-tips": "Job Search Tips: Proven Ways to Get Hired Faster",
+    "best-websites-for-job-search": "Best Websites for Job Search: Top Sites to Get Hired",
+    "best-job-search-apps": "Best Job Search Apps in USA for 2026",
+    "apps-like-indeed": "Best Job Search Apps Like Indeed in 2026",
+    "best-job-search-strategies-opt-students": "Best Job Search Strategy for OPT Students USA",
+    // LinkedIn
+    "linkedin-profile-attractive-to-recruiters": "How to Make Your LinkedIn Profile Attractive to Recruiters",
+    "optimize-linkedin-profile": "How to Optimize Your LinkedIn Profile for Better Visibility",
+    // AI Tools
+    "can-you-use-ai-for-job-applications": "Can You Use AI for Job Applications in 2026?",
+    // Software Engineering
+    "highest-paying-software-engineering-jobs": "Highest Paying Software Engineering Jobs 2026",
+    "how-to-get-a-job-as-a-software-engineer": "How to Get a Job as a Software Engineer in 2026",
+    "software-engineer-career-outlook": "Software Engineer Career Outlook in USA 2026",
+    "software-engineer-duties-roles-responsibilities": "Software Engineer Duties & Responsibilities Guide",
+    "best-job-boards-for-software-engineers": "Best Job Boards for Software Engineers in USA",
+    "highest-paying-coding-jobs": "Highest Paying Coding Jobs in USA 2026",
+    // Career & Salary
+    "best-paying-jobs-in-the-us": "Best Paying Jobs in USA for 2026",
+    "best-paying-tech-jobs": "Best Paying Tech Jobs in USA for 2026",
+    "highest-paying-ai-jobs": "Highest Paying AI Jobs in USA for 2026",
+    "highest-paying-remote-jobs": "Highest Paying Remote Jobs in USA (2026)",
+    "jobs-with-high-salary": "Top High Salary Jobs in USA for 2026",
+    "best-careers-for-the-future": "Best Future Careers in USA for 2026",
+    "future-jobs-in-demand-2030": "Future Jobs in Demand in USA by 2030",
+    // Career Guidance
+    "find-job-after-graduation": "How to Find a Job After Graduation in 2026",
+    "how-to-change-careers": "How to Change Careers Successfully | Step-by-Step Guide",
+    "how-to-get-a-job-in-digital-marketing": "How to Get a Job in Digital Marketing (2026 Guide)",
+    // Engineering Roles
+    "devops-engineer-job-responsibilities": "DevOps Engineer Job Responsibilities & Job Profile",
+    "cloud-engineer-duties-job-description": "Cloud Engineer Duties & Job Description Guide",
+    "full-stack-developer-responsibilities": "Full Stack Developer Roles and Responsibilities",
+    // Job Platforms & Reviews
+    "is-indeed-reliable": "Is Indeed Reliable for Jobs in USA?",
+    "is-indeed-a-good-place-to-find-jobs": "Is Indeed Good for Finding Jobs in USA?",
+    "indeed-vs-glassdoor": "Indeed vs Glassdoor: Best Job Site in USA?",
+    "is-clearancejobs-legit": "Is ClearanceJobs Legit in USA? Review 2026",
+    "is-jobright-ai-legit": "Is Jobright.ai Legit? Review for USA Job Seekers",
+    "flexjobs-cost-pricing-plans": "FlexJobs Cost & Pricing Review for 2026",
+    "best-us-job-portals-for-international-students": "Best USA Job Portals for International Students",
+    // International Students & Visa
+    "us-job-market-for-international-students": "USA Job Market for International Students 2026",
+    "opt-jobs-in-usa": "OPT Jobs in USA for International Students 2026",
+    "companies-that-sponsor-h1b-visas": "Top H1B Visa Sponsoring Companies in USA (2026)",
+    "visa-sponsored-jobs-in-usa": "Visa Sponsored Jobs in USA: 2026 Guide",
+    "h1b-salary": "H1B Salary Guide USA: Pay Trends for 2026",
+    "h1b-cap-exempt-jobs": "H1B Cap-Exempt Jobs in USA: 2026 Guide",
+    "opt-h1b-jobs-future": "OPT & H1B Job Future in USA for 2026",
+    "when-do-summer-internships-start": "When Do Summer Internships Start in USA 2026?",
+    "summa-cum-laude-vs-magna-cum-laude": "Summa vs Magna Cum Laude: GPA & Honors Guide",
+    // Why job hunting
+    "why-is-it-so-hard-to-find-a-job-in-us": "Why Is It Hard to Find Jobs in USA in 2026?",
+    // Interview & Application
+    "what-to-wear-for-zoom-interview": "What to Wear for a Zoom Interview (2026 Guide)",
+    "how-to-follow-up-on-job-application": "How to Follow Up on a Job Application (2026 Guide)",
+    "remote-job-vs-office-job": "Remote Job vs Office Job: Pros, Cons & Key Differences",
+    "how-to-get-a-job-quickly": "How to Get a Job Quickly (Even in a Competitive Market)",
+    "what-is-hidden-job-market": "What Is the Hidden Job Market? How It Works in 2026",
+  };
+  const metaTitle = metaTitleMap[post.slug] ?? post.title;
   
   return {
     title: metaTitle,
