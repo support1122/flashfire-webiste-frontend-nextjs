@@ -331,7 +331,7 @@ export default function HeroSectionClient({
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute left-[51.6%] top-[140px] z-10 h-auto w-[60px] select-none xl:left-[51.4%] xl:top-[184px]"
+          className="pointer-events-none absolute left-[55.5%] top-[105px] z-30 h-auto w-[60px] select-none xl:left-[55.5%] xl:top-[140px]"
         />
         <Image
           src="/images/element3.png"
