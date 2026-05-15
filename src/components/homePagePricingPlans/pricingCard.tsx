@@ -5,6 +5,11 @@ import { FaBolt } from "react-icons/fa";
 import { trackButtonClick } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 
+interface PricingFeature {
+  label: string;
+  description?: string;
+}
+
 interface PricingPlan {
   title: string;
   tag?: string;
@@ -12,7 +17,7 @@ interface PricingPlan {
   description: string;
   price: string;
   oldPrice?: string;
-  features: string[];
+  features: PricingFeature[];
   addOn?: boolean;
   highlight?: boolean;
   paymentLink?: string;
@@ -25,7 +30,7 @@ interface PricingCardProps {
   description: string;
   price: string;
   oldPrice?: string;
-  features: string[];
+  features: PricingFeature[];
   addOn?: boolean;
   highlight?: boolean;
   paymentLink?: string;
@@ -123,7 +128,7 @@ export default function PricingCard({
   return (
     <div className="flex flex-col w-full h-full">
       <div
-        className={`bg-white border rounded-[0.3rem] p-4 sm:p-6 lg:p-8 flex-1 flex flex-col text-left relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] ${highlight ? "border-2 border-[#ff4c00]" : "border border-black"}`}
+        className={`bg-white border rounded-[0.3rem] p-4 sm:p-5 flex-1 flex flex-col text-left relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] ${highlight ? "border-2 border-[#ff4c00]" : "border border-black"}`}
       >
         {tag && (
           <div
@@ -171,7 +176,7 @@ export default function PricingCard({
 
         <hr className="-mt-1 mb-2 sm:mb-3 text-black" />
 
-        <ul className="list-none p-0 mb-4 sm:mb-6 flex-grow min-h-[8rem] sm:min-h-[10rem]">
+        <ul className="list-none p-0 mb-4 sm:mb-6 flex-grow">
           {/* Subtitle as first feature item - bold and colored */}
           <li className="flex items-center gap-2 text-sm sm:text-base font-extrabold text-[#ff4c00] mb-2 sm:mb-3">
             <FaBolt className="text-[#ff4c00] text-base sm:text-lg flex-shrink-0" />
@@ -180,9 +185,15 @@ export default function PricingCard({
           {features.map((feature, i) => (
             <li
               key={i}
-              className="flex items-center gap-2 text-sm sm:text-base text-black mb-1.5 sm:mb-2"
+              className="flex items-start gap-3 mb-3 sm:mb-4"
             >
-              <FaBolt className="text-[#ff4c00] text-sm sm:text-base flex-shrink-0" /> <span>{feature}</span>
+              <FaBolt className="text-[#ff4c00] text-base sm:text-lg flex-shrink-0 mt-0.5" />
+              <span className="flex flex-col">
+                <span className="text-sm sm:text-[15px] font-semibold text-black leading-snug">{feature.label}</span>
+                {feature.description && (
+                  <span className="text-[12px] text-gray-400 leading-snug mt-0.5">{feature.description}</span>
+                )}
+              </span>
             </li>
           ))}
         </ul>
