@@ -1,3 +1,8 @@
+export interface PricingFeature {
+  label: string;
+  description?: string;
+}
+
 export interface PricingPlan {
   title: string;
   tag?: string;
@@ -5,7 +10,7 @@ export interface PricingPlan {
   description: string;
   price: string;
   oldPrice?: string;
-  features: string[];
+  features: PricingFeature[];
   addOn?: boolean;
   highlight?: boolean;
   paymentLink?: string;
@@ -19,10 +24,10 @@ export const usPricingPlans: PricingPlan[] = [
     price: "$99",
     oldPrice: "$219",
     features: [
-      "No Time Constraint",
-      "AI-powered job matching",
-      "Resume Optimization",
-      "Basic Analytical Dashboard",
+      { label: "No Time Constraint", description: "Until your applications are completed" },
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
     ],
     addOn: true,
     highlight: false,
@@ -35,10 +40,10 @@ export const usPricingPlans: PricingPlan[] = [
     price: "$199",
     oldPrice: "$299",
     features: [
-      "No Time Constraint",
-      "AI-powered job matching",
-      "Resume Optimization",
-      "Basic Analytical Dashboard",
+      { label: "No Time Constraint", description: "Until your applications are completed" },
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
     ],
     addOn: true,
     highlight: false,
@@ -48,13 +53,15 @@ export const usPricingPlans: PricingPlan[] = [
     title: "PROFESSIONAL",
     tag: "ECONOMICAL",
     subTitle: "500 Applications",
-    description: "Most popular for mid-level professionals",
+    description: "Best for mid-level professionals",
     price: "$349",
     oldPrice: "$449",
     features: [
-      "Everything in Ignite",
-      "LinkedIn profile optimization",
-      "Interview preparation tips",
+      { label: "No Time Constraint", description: "Until your applications are completed" },
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
+      { label: "LinkedIn Makeover", description: "Let recruiters come to you" },
     ],
     addOn: true,
     highlight: false,
@@ -64,14 +71,17 @@ export const usPricingPlans: PricingPlan[] = [
     title: "EXECUTIVE",
     tag: "MOST POPULAR",
     subTitle: "1200 Applications",
-    description: "For early professionals & executives",
+    description: "For new grads & early professionals",
     price: "$599",
     oldPrice: "$699",
     features: [
-      "Everything in Professional",
-      "Portfolio development",
-      "Emailing Recruiters",
-      "1 Cover Letter (All Applications)",
+      { label: "No Time Constraint", description: "Until your applications are completed" },
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
+      { label: "LinkedIn Makeover", description: "Let recruiters come to you" },
+      { label: "1 Cover Letter", description: "1 cover letter used for all applications" },
+      { label: "Emailing Recruiters", description: "We personally reach out to recruiters for you" },
     ],
     addOn: true,
     highlight: true,
@@ -87,10 +97,9 @@ export const canadaPricingPlans: PricingPlan[] = [
     price: "CA$139",
     oldPrice: "CA$199",
     features: [
-      "AI-powered job matching",
-      "160 tailored applications",
-      "Resume optimization",
-      "Basic analytics dashboard",
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
     ],
     addOn: true,
     highlight: false,
@@ -103,10 +112,10 @@ export const canadaPricingPlans: PricingPlan[] = [
     price: "CA$239",
     oldPrice: "CA$389",
     features: [
-      "AI-powered job matching",
-      "250 tailored applications",
-      "Resume optimization",
-      "Basic analytics dashboard",
+      { label: "No Time Constraint", description: "Until your applications are completed" },
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
     ],
     addOn: true,
     highlight: false,
@@ -116,15 +125,15 @@ export const canadaPricingPlans: PricingPlan[] = [
     title: "PROFESSIONAL",
     tag: "ECONOMICAL",
     subTitle: "500 Applications",
-    description: "Most popular for mid-level professionals",
+    description: "Best for mid-level professionals",
     price: "CA$409",
     oldPrice: "CA$619",
     features: [
-      "Everything in Ignite",
-      "500 tailored applications",
-      "Priority job matching",
-      "LinkedIn profile optimization",
-      "Interview preparation tips",
+      { label: "No Time Constraint", description: "Until your applications are completed" },
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
+      { label: "LinkedIn Makeover", description: "Let recruiters come to you" },
     ],
     addOn: true,
     highlight: false,
@@ -134,16 +143,17 @@ export const canadaPricingPlans: PricingPlan[] = [
     title: "EXECUTIVE",
     tag: "MOST POPULAR",
     subTitle: "1200 Applications",
-    description: "For early professionals & executives",
+    description: "For new grads & early professionals",
     price: "CA$799",
     oldPrice: "CA$949",
     features: [
-      "Everything in Professional",
-      "1200 tailored applications",
-      "Portfolio development",
-      "Emailing Recruiters",
-      "1 Cover Letter (All Applications)",
-
+      { label: "No Time Constraint", description: "Until your applications are completed" },
+      { label: "We Find Jobs", description: "We find & apply to jobs for you" },
+      { label: "AI Custom Resumes", description: "Tailored resume for every application" },
+      { label: "Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
+      { label: "LinkedIn Makeover", description: "Let recruiters come to you" },
+      { label: "1 Cover Letter", description: "1 cover letter used for all applications" },
+      { label: "Emailing Recruiters", description: "We personally reach out to recruiters for you" },
     ],
     addOn: true,
     highlight: true,
