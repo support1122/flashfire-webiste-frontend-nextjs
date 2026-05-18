@@ -17,7 +17,7 @@ type Props = {
 
 const heroStats = [
   {
-    value: "1200+",
+    value: "1,200+",
     label: "Applications submitted in the last 2 months",
   },
   {
@@ -25,8 +25,8 @@ const heroStats = [
     label: "Average Interview calls",
   },
   {
-    value: "50+",
-    label: "Landed their first job",
+    value: "500+",
+    label: "Users landed jobs",
   },
 ];
 
@@ -257,22 +257,23 @@ export default function HeroSectionClient({
           </div>
         </div>
 
-        <div className="relative z-30 overflow-visible bg-white px-6 pb-10 pt-9 text-center">
-          <div className="mx-auto grid w-full max-w-[340px] grid-cols-1 gap-5">
-            {heroStats.map((stat) => (
-              <div
-                key={stat.value}
-                className="flex min-h-[68px] items-center rounded-[8px] bg-white px-4 py-3 text-left shadow-[0_4px_18px_rgba(245,93,29,0.12)]"
-              >
-                <strong className="w-[74px] shrink-0 text-[24px] font-bold leading-none text-black">
-                  {stat.value}
-                </strong>
-                <span className="mr-4 h-7 w-px shrink-0 bg-[#ddd8d5]" />
-                <span className="font-['Satoshi',sans-serif] text-[11px] font-medium leading-[1.25] text-[#777]">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+        <div className="relative z-30 overflow-visible bg-white px-6 pb-10 text-center">
+          <div className="-mx-6 bg-[#f7e6df] px-6 py-9">
+            <div className="mx-auto grid w-full max-w-[318px] grid-cols-3 gap-0 rounded-[10px] bg-[#f7e6df] px-2 py-4 text-left">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.value}
+                  className="min-h-[78px] border-r border-[#bcb3ae] px-2.5 last:border-r-0"
+                >
+                  <strong className="block text-[21px] font-black leading-none tracking-[-0.02em] text-black">
+                    {stat.value}
+                  </strong>
+                  <span className="mt-2.5 block font-['Satoshi',sans-serif] text-[9.5px] font-bold leading-[1.15] text-[#777]">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="pointer-events-none absolute left-[-24px] top-[-48px] z-50 hidden aspect-[394/296] w-[180px] origin-center select-none">
@@ -331,7 +332,7 @@ export default function HeroSectionClient({
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute left-[55.5%] top-[105px] z-30 h-auto w-[60px] select-none xl:left-[55.5%] xl:top-[140px]"
+          className="pointer-events-none absolute left-[51.6%] top-[140px] z-10 h-auto w-[60px] select-none xl:left-[51.4%] xl:top-[184px]"
         />
         <Image
           src="/images/element3.png"
@@ -390,17 +391,16 @@ export default function HeroSectionClient({
               Get Started →
             </button>
 
-            <div className="mt-10 grid w-full max-w-[600px] grid-cols-3 gap-2">
+            <div className="mt-9 grid w-full -ml-6 max-w-[560px] grid-cols-3 gap-0">
               {heroStats.map((stat) => (
                 <div
                   key={stat.value}
-                  className="flex min-h-[46px] items-center rounded-[5px] bg-white px-3 py-2 text-left shadow-[0_6px_18px_rgba(64,31,18,0.08)] sm:min-h-[48px]"
+                  className="min-h-[82px] border-r border-[#b8afa9] px-6 text-left last:border-r-0"
                 >
-                  <strong className="shrink-0 text-[20px] font-bold leading-none text-black">
+                  <strong className="block text-[33px] font-black leading-none tracking-[-0.03em] text-black">
                     {stat.value}
                   </strong>
-                  <span className="mx-3 h-7 w-px shrink-0 bg-[#e9d9d1]" />
-                  <span className="font-['Satoshi',sans-serif] text-[10px] font-medium leading-[1.25] text-[#6a6765]">
+                  <span className="mt-3 block max-w-[116px] font-['Satoshi',sans-serif] text-[13px] font-bold leading-[1.08] text-[#78716d]">
                     {stat.label}
                   </span>
                 </div>
