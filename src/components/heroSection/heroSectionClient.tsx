@@ -25,7 +25,7 @@ const heroStats = [
     label: "Average Interview calls",
   },
   {
-    value: "500+",
+    value: "50+",
     label: "Users landed jobs",
   },
 ];
