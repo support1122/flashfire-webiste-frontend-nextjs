@@ -165,7 +165,7 @@ export default function PricingCard({
           className="absolute left-0 top-0 flex h-[42px] items-center px-6"
           style={{ width: tabMainWidth }}
         >
-          <span className="truncate text-[13px] font-medium uppercase text-white">
+          <span className="truncate text-[15px] font-medium uppercase text-white">
             {title}
           </span>
         </div>
@@ -203,16 +203,12 @@ export default function PricingCard({
             <h3 className={`text-3xl sm:text-[2.35rem] font-extrabold leading-none tracking-[-0.02em] ${cardTextClass}`}>
               {formattedPrice}
             </h3>
-            <span className={`pb-1 text-xs sm:text-sm font-bold tracking-[-0.02em] ${mutedTextClass}`}>
-              ({subTitle})
-            </span>
-           
           </div>
         </div>
 
 
 
-        <p className={`${cardTextClass} text-xs sm:text-sm mb-4 min-h-[2rem]`}>
+        <p className={`${cardTextClass} text-sm sm:text-[0.95rem] mb-4 min-h-[2rem]`}>
           {description}
         </p>
 
@@ -220,8 +216,18 @@ export default function PricingCard({
 
         <ul
           className="list-none p-0 mb-4 sm:mb-5"
-          style={{ minHeight: `${maxFeatureCount * 3.4}rem` }}
+          style={{ minHeight: `${(maxFeatureCount + 1) * 3.4}rem` }}
         >
+          <li className={`flex items-start gap-3 mb-5 ${cardTextClass}`}>
+            <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center">
+              <FaBolt className="text-[#ff4c00] text-[16px]" />
+            </span>
+            <span className="min-w-0">
+              <strong className="block text-[0.95rem] font-extrabold leading-tight text-[#ff4c00]">
+                {subTitle}
+              </strong>
+            </span>
+          </li>
           {features.map((feature, i) => (
             <li
               key={i}
@@ -231,10 +237,10 @@ export default function PricingCard({
                 <FaBolt className="text-[#ff4c00] text-[16px]" />
               </span>
               <span className="min-w-0">
-                <strong className={`block text-sm font-extrabold leading-tight ${cardTextClass}`}>
+                <strong className={`block text-[0.95rem] font-extrabold leading-tight ${cardTextClass}`}>
                   {feature.title}
                 </strong>
-                <span className={`mt-1 block text-xs leading-snug ${mutedTextClass}`}>
+                <span className={`mt-1 block text-[0.8rem] leading-snug ${mutedTextClass}`}>
                   {feature.description}
                 </span>
               </span>
@@ -270,7 +276,7 @@ export default function PricingCard({
       </p> */}
 
           <button
-            className="border border-[#ff4c00] bg-[#ff4c00] py-3 sm:py-[0.9rem] px-3 sm:px-4 font-semibold text-sm sm:text-[0.95rem] rounded-md w-full cursor-pointer text-white transition-all duration-300 hover:bg-[#e24300]"
+            className="border border-black bg-black py-3 sm:py-[0.9rem] px-3 sm:px-4 font-semibold text-sm sm:text-[0.95rem] rounded-md w-full cursor-pointer text-white transition-all duration-300 hover:bg-[#222]"
             onClick={() => {
               const utmSource = typeof window !== "undefined"
                 ? localStorage.getItem("utm_source") || "WEBSITE"
