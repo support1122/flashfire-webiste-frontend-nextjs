@@ -949,8 +949,9 @@ export default function NavbarClient({ links, ctas }: Props) {
           (ctas.primary.href === "/Get-Started" ||
             ctas.primary.href === "/en-ca/Get-Started") && (
             <div className={styles.navMobileButtonsSticky}>
-              <button
-                type="button"
+
+              <Link
+                href={getHref("/book-a-demo")}
                 className={styles.navMobilePrimary}
                 {...getButtonProps()}
                 onClick={() => {
@@ -988,12 +989,20 @@ export default function NavbarClient({ links, ctas }: Props) {
                   if (typeof window !== "undefined") {
                     const currentPath = safePathname || window.location.pathname;
                     sessionStorage.setItem("previousPageBeforeBookADemo", currentPath);
+                    const currentScrollY =
+                      window.scrollY || window.pageYOffset || 0;
+                    sessionStorage.setItem(
+                      "preserveScrollPosition",
+                      currentScrollY.toString()
+                    );
                     window.dispatchEvent(new CustomEvent("showCalendlyModal"));
                   }
                 }}
               >
                 Book a Demo →
-              </button>
+
+              </Link>
+
             </div>
           )}
       </div>

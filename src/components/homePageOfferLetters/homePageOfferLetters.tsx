@@ -1,5 +1,13 @@
 import HomePageOfferLettersClient from "./homePageOfferLettersClient";
 
-export default function HomePageOfferLetters() {
-  return <HomePageOfferLettersClient />;
+interface HomePageOfferLettersProps {
+  heading?: string;
+  variant?: "split" | "auto";
+  autoScroll?: boolean;
+  enableLoopControls?: boolean;
+  buttonOnlyScroll?: boolean;
+}
+
+export default function HomePageOfferLetters(props: HomePageOfferLettersProps) {
+  return <HomePageOfferLettersClient {...props} />;
 }
