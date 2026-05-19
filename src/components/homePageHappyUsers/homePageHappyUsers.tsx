@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 import CachedTestimonialImage from "./CachedTestimonialImage";
+import styles from "./homePageHappyUsers.module.css";
 
 // Helper function to optimize Cloudinary URLs for fast loading
 const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
@@ -70,10 +71,30 @@ export const ALL_REVIEW_IMAGES = [
 ];
 
 
-export default function HomePageHappyUsers() {
+interface HomePageHappyUsersProps {
+  variant?: "default" | "pricing" | "pricingVideos";
+}
+
+export default function HomePageHappyUsers({
+  variant = "default",
+}: HomePageHappyUsersProps) {
   const pathname = usePathname();
   const isCanadaContext = pathname.startsWith("/en-ca");
   const prefix = isCanadaContext ? "/en-ca" : "";
+
+  const handleTryItYourself = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const currentPath = pathname || window.location.pathname;
+    const currentScrollY = window.scrollY || window.pageYOffset || 0;
+
+    sessionStorage.setItem("previousPageBeforeBookADemo", currentPath);
+    sessionStorage.setItem("preserveScrollPosition", currentScrollY.toString());
+    window.history.pushState({}, "", `${prefix}/Get-Started`);
+    window.dispatchEvent(new CustomEvent("showCalendlyModal"));
+  };
 
   const videos = [
     {
@@ -106,6 +127,7 @@ export default function HomePageHappyUsers() {
   const reviewImages = ALL_REVIEW_IMAGES.slice(0, 24);
 
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const [isPricingVideoPaused, setIsPricingVideoPaused] = useState(false);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [loadedProfileImages, setLoadedProfileImages] = useState<Set<number>>(new Set());
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -267,6 +289,213 @@ export default function HomePageHappyUsers() {
       });
     };
   }, [reviewImages, loadedImages, loadedProfileImages, videos]);
+
+  if (variant === "pricingVideos") {
+    return (
+      <section className="bg-[#fffaf8] py-20 px-8 text-center max-[768px]:py-16 max-[768px]:px-4">
+        <div
+          className={`${styles.pricingVideoDeck} ${
+            playingIndex !== null || isPricingVideoPaused
+              ? styles.pricingVideoDeckPaused
+              : ""
+          }`}
+          onMouseEnter={() => setIsPricingVideoPaused(true)}
+          onMouseLeave={() => setIsPricingVideoPaused(false)}
+          onPointerEnter={() => setIsPricingVideoPaused(true)}
+          onPointerLeave={() => setIsPricingVideoPaused(false)}
+        >
+          <div className={styles.pricingVideoTrack}>
+          {[...videos, ...videos].map((video, itemIndex) => {
+            const index = itemIndex % videos.length;
+            const animationDelay = `-${itemIndex * 5}s`;
+
+            return (
+            <div
+              key={`${video.name}-${itemIndex}`}
+              className={styles.pricingVideoCard}
+              style={
+                {
+                  animationDelay,
+                  animationPlayState:
+                    playingIndex !== null || isPricingVideoPaused
+                      ? "paused"
+                      : "running",
+                } as React.CSSProperties
+              }
+            >
+              <div className="relative w-full h-full rounded-none overflow-hidden">
+                {playingIndex === itemIndex && (
+                  <>
+                    <iframe
+                      id={`pricingUserVideo-${itemIndex}`}
+                      src={`${video.videoUrl}?autoplay=1&rel=0`}
+                      className="w-full h-full object-cover block rounded-none"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      frameBorder="0"
+                    />
+                    <button
+                      onClick={() => setPlayingIndex(null)}
+                      className="absolute top-2 right-2 w-8 h-8 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 z-30"
+                      aria-label="Close video"
+                    >
+                      ×
+                    </button>
+                  </>
+                )}
+
+                {playingIndex !== itemIndex && (
+                  <>
+                    <div
+                      ref={(el) => {
+                        profileImageRefs.current[index * 2] = el;
+                      }}
+                      data-index={index * 2}
+                      data-profile="true"
+                      className="w-full h-full relative"
+                    >
+                      <CachedTestimonialImage
+                        src={video.profileImage}
+                        alt={`${video.name} - Click to play video`}
+                        width={800}
+                        height={1280}
+                        className="w-full h-full object-cover rounded-none cursor-pointer"
+                        onClick={() => setPlayingIndex(itemIndex)}
+                        priority
+                        sizes="(max-width: 768px) 100vw, 330px"
+                      />
+                    </div>
+                    <div
+                      className="absolute top-[44%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70px] h-[70px] rounded-full bg-black/65 text-white text-[2rem] font-bold flex justify-center items-center cursor-pointer transition-all duration-250 backdrop-blur-[2px] hover:bg-black/75 hover:scale-105 z-10"
+                      onClick={() => setPlayingIndex(itemIndex)}
+                    >
+                      ▶
+                    </div>
+                  </>
+                )}
+
+                <div className="absolute bottom-3 left-3 right-3 h-[94px] bg-black border border-[#ff4c00] text-white text-left py-4 px-5 flex items-center z-20">
+                  <div className="flex items-center gap-3 w-full h-full">
+                    <div className="relative w-[46px] h-[46px] rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
+                      <Image
+                        src={video.smallProfileImage}
+                        alt={video.name}
+                        width={46}
+                        height={46}
+                        className="w-full h-full object-cover rounded-full"
+                        unoptimized
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                      <p className="text-[18px] font-semibold m-0 text-white leading-tight truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                        {video.name}
+                      </p>
+                      <p className="text-[13px] m-0 text-white/90 leading-tight mt-1 truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                        {video.company}
+                      </p>
+                    </div>
+                    <a
+                      href={video.linkedinUrl !== "#" ? video.linkedinUrl : "#"}
+                      target={video.linkedinUrl !== "#" ? "_blank" : undefined}
+                      rel={video.linkedinUrl !== "#" ? "noopener noreferrer" : undefined}
+                      className={`flex-shrink-0 w-7 h-7 bg-white rounded flex items-center justify-center transition-colors ${
+                        video.linkedinUrl !== "#"
+                          ? "hover:bg-[#ff4c00] cursor-pointer"
+                          : "cursor-default opacity-50"
+                      }`}
+                      aria-label="LinkedIn Profile"
+                      onClick={(e) => {
+                        if (video.linkedinUrl === "#") {
+                          e.preventDefault();
+                        }
+                      }}
+                    >
+                      <svg
+                        className="w-4 h-4 text-black"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            );
+          })}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (variant === "pricing") {
+    const pricingReviewImages = ALL_REVIEW_IMAGES.slice(0, 18);
+
+    return (
+      <section
+        id="testimonials"
+        className="relative w-full overflow-visible bg-[#ff5a18] font-['Space_Grotesk',sans-serif] scroll-mt-[90px] max-[768px]:scroll-mt-[70px]"
+      >
+        <div className="relative mx-auto grid min-h-[780px] w-full grid-cols-[500px_minmax(0,1fr)] overflow-hidden px-[59px] pt-[65px] max-[1024px]:grid-cols-[360px_minmax(0,1fr)] max-[1024px]:px-7 max-[768px]:flex max-[768px]:min-h-0 max-[768px]:flex-col max-[768px]:gap-8 max-[768px]:px-5 max-[768px]:py-10">
+          <div className="relative z-[2] flex flex-col items-start pt-[3px] text-left max-[768px]:pt-0">
+            <h2 className="mb-[360px] max-w-[430px] text-[64px] font-black leading-[1.02] tracking-[-0.02em] text-white max-[1024px]:mb-[280px] max-[1024px]:text-[50px] max-[768px]:mb-8 max-[768px]:max-w-[360px] max-[768px]:text-[40px] max-[480px]:text-[34px]">
+              560+ Happy User&rsquo;s Love
+            </h2>
+
+            <button
+              type="button"
+              onClick={handleTryItYourself}
+              className="inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
+            >
+              Try it by yourself
+              <span className="text-[34px] font-normal leading-none" aria-hidden="true">
+                &rarr;
+              </span>
+            </button>
+          </div>
+
+          <div className={`${styles.pricingReviewViewport} relative h-[650px] min-w-0 overflow-hidden max-[768px]:h-[420px] max-[480px]:h-[360px]`}>
+            <div className={`${styles.pricingReviewTrack} columns-4 gap-[10px] max-[1200px]:columns-3 max-[768px]:columns-3 max-[520px]:columns-2`}>
+              {[...pricingReviewImages, ...pricingReviewImages].map((imageSrc, i) => (
+                <div
+                  key={`${imageSrc}-${i}`}
+                  className="mb-[10px] inline-block w-full overflow-hidden rounded-[3px] bg-white shadow-[0_3px_8px_rgba(0,0,0,0.18)] [break-inside:avoid]"
+                >
+                  <CachedTestimonialImage
+                    src={imageSrc}
+                    alt={`Flashfire user review ${i + 1}`}
+                    width={340}
+                    height={480}
+                    className="block h-auto w-full object-contain"
+                    priority={i < 8}
+                    sizes="(max-width: 520px) 50vw, (max-width: 768px) 33vw, 180px"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-[92px] bg-gradient-to-b from-[#ff5a18] via-[rgba(255,90,24,0.82)] to-[rgba(255,90,24,0)]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[150px] bg-gradient-to-b from-[rgba(255,90,24,0)] via-[rgba(255,90,24,0.82)] to-[#ff5a18]" />
+          </div>
+        </div>
+
+        <div className="absolute bottom-[-75px] left-1/2 z-[5] h-[150px] w-[150px] -translate-x-1/2 max-[768px]:hidden">
+          <Image
+            src="/images/character1.png"
+            alt="Flashfire mascot"
+            fill
+            sizes="150px"
+            className="object-contain"
+          />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

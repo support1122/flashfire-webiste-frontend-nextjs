@@ -2,8 +2,13 @@
 import Image from "next/image";
 import { FaLinkedin } from "react-icons/fa";
 
+interface HomePageFoundersNoteProps {
+  variant?: "default" | "pricing";
+}
 
-export default function HomePageFoundersNote() {
+export default function HomePageFoundersNote({
+  variant = "default",
+}: HomePageFoundersNoteProps) {
   const whatsappNumber = "919817349846";
   const defaultMessage = "Hi! I'm interested in a free strategy call with Flashfire.";
   const encodedMessage = encodeURIComponent(defaultMessage);
@@ -11,6 +16,90 @@ export default function HomePageFoundersNote() {
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
   };
+
+  if (variant === "pricing") {
+    return (
+      <section
+        id="founders-note"
+        className="bg-[#fffaf8] px-4 py-[96px] font-['Space_Grotesk',sans-serif] max-[768px]:px-3 max-[768px]:py-12"
+      >
+        <div className="relative mx-auto grid min-h-[765px] w-full max-w-[1198px] grid-cols-[minmax(0,1fr)_372px] items-center gap-[82px] overflow-hidden rounded-[22px] bg-[#ff5a18] px-[61px] py-[72px] text-white max-[1000px]:grid-cols-[minmax(0,1fr)_320px] max-[1000px]:gap-10 max-[1000px]:px-10 max-[1000px]:py-16 max-[820px]:min-h-0 max-[820px]:grid-cols-1 max-[820px]:gap-8 max-[820px]:px-7 max-[820px]:py-9 max-[480px]:rounded-[16px] max-[480px]:px-5 max-[480px]:py-8">
+          <div className="relative z-[1] max-w-[594px] text-left max-[820px]:max-w-none max-[820px]:pt-8">
+            <div
+              aria-hidden="true"
+              className="absolute left-[-34px] top-[-82px] text-[170px] font-black leading-none text-white/25 max-[820px]:left-[-12px] max-[820px]:top-[-58px]"
+            >
+              &ldquo;
+            </div>
+
+            <p className="relative mb-6 text-[18px] font-medium leading-[1.35] max-[480px]:mb-4 max-[480px]:text-[14px]">
+              To Every Job Seeker Who&apos;s Ready To Move Forward,
+            </p>
+
+            <div className="relative space-y-[18px] text-[18px] font-medium leading-[1.24] tracking-[-0.01em] max-[1000px]:text-[15px] max-[820px]:text-[14px] max-[480px]:space-y-[12px] max-[480px]:text-[12px] max-[480px]:leading-[1.3]">
+              <p>
+                I know how exhausting the job search can be. You keep sending out
+                applications, waiting for replies, and start to wonder if it&apos;s
+                you. Especially in the U.S., where hundreds apply for the same role,
+                even the most talented people begin to lose hope.
+              </p>
+              <p>
+                Flashfire was born from that same feeling. I watched my sister-
+                smart, capable, and hardworking- apply to hundreds of roles and
+                still get no response. It wasn&apos;t her fault. The system had
+                stopped seeing people for who they are.
+              </p>
+              <p>
+                That&apos;s when Pranjal joined me. He had been through the same
+                struggle preparing hard, clearing rounds, yet still falling short.
+                Not because he wasn&apos;t good enough, but because the process
+                wasn&apos;t fair.
+                <br />
+                Together, we started building Flashfire with belief, empathy, and
+                persistence. What began as a way to help one person is now helping
+                hundreds find their &quot;yes.&quot;
+              </p>
+              <p className="pt-[12px] font-semibold">
+                &quot;The Problem Was Never The People. It Was The Process.&quot;
+              </p>
+              <div className="pt-[10px] text-[20px] font-semibold leading-[1.25] max-[1000px]:text-[16px] max-[480px]:text-[14px]">
+                <p>Adit</p>
+                <p>Partner, Flashfire</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative z-[1] flex items-center justify-end max-[820px]:justify-center">
+            <div className="relative h-[591px] w-[372px] overflow-visible max-[1000px]:h-[508px] max-[1000px]:w-[320px] max-[820px]:h-[430px] max-[820px]:w-[290px] max-[480px]:h-[330px] max-[480px]:w-[220px]">
+              <div className="absolute inset-0 overflow-hidden rounded-br-[10px] bg-[#022746]">
+                <Image
+                  src="/images/Adit.jpg"
+                  alt="Adit Jain"
+                  fill
+                  sizes="247px"
+                  className="scale-[1.035] object-contain object-center"
+                />
+              </div>
+
+              <div className="absolute right-0 top-0 z-[2] h-[86px] w-[86px] rounded-bl-[18px] bg-[#ff5a18] max-[480px]:h-[58px] max-[480px]:w-[58px]" />
+              <div className="absolute right-[-1px] top-[84px] z-[2] h-[56px] w-[56px] rounded-bl-[18px] bg-[#ff5a18] max-[480px]:top-[56px] max-[480px]:h-[40px] max-[480px]:w-[40px]" />
+              <div className="absolute bottom-0 left-0 z-[2] h-[62px] w-[62px] rounded-tr-[12px] bg-[#ff5a18] max-[480px]:h-[42px] max-[480px]:w-[42px]" />
+              <div className="absolute right-0 top-[-8px] z-[3] h-[59px] w-[59px] rounded-[13px] bg-[#022746] max-[480px]:h-[42px] max-[480px]:w-[42px]" />
+              <a
+                href="https://www.linkedin.com/in/adit-jain-907555218/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Adit Jain LinkedIn profile"
+                className="absolute bottom-[12px] left-[12px] z-[4] flex h-[48px] w-[48px] items-center justify-center rounded-[4px] bg-white text-[#0a5481] shadow-[0_4px_12px_rgba(0,0,0,0.18)] transition-transform hover:scale-105 max-[480px]:h-[38px] max-[480px]:w-[38px]"
+              >
+                <FaLinkedin className="h-[35px] w-[35px] max-[480px]:h-[27px] max-[480px]:w-[27px]" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

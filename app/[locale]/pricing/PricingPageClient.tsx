@@ -5,6 +5,7 @@ import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
 import HomePagePricingPlans from "@/src/components/homePagePricingPlans/homePagePricingPlans";
 import HomePageOfferLetters from "@/src/components/homePageOfferLetters/homePageOfferLetters";
+import PricingInvestment from "@/src/components/pricingInvestment/PricingInvestment";
 import HomePageHappyUsers from "@/src/components/homePageHappyUsers/homePageHappyUsers";
 import HomePageFoundersNote from "@/src/components/homePageFoundersNote/homePageFoundersNote";
 import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
@@ -42,11 +43,17 @@ export default function PricingPageClient() {
     <>
       <Navbar />
       <HomePagePricingPlans />
-      <HomePageOfferLetters />
-      <div className="mt-10 md:mt-14">
-        <HomePageHappyUsers />
+      <HomePageOfferLetters
+        heading="50+ Offer letters received"
+        enableLoopControls
+        buttonOnlyScroll
+      />
+      <PricingInvestment />
+      <div className="mt-[55px] md:mt-[70px]">
+        <HomePageHappyUsers variant="pricing" />
       </div>
-      <HomePageFoundersNote />
+      <HomePageHappyUsers variant="pricingVideos" />
+      <HomePageFoundersNote variant="pricing" />
       <HomePageFAQ />
       <Footer />
     </>

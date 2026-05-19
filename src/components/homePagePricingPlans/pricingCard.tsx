@@ -1,14 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { FaBolt } from "react-icons/fa";
 import { trackButtonClick } from "@/src/utils/PostHogTracking";
 import { GTagUTM } from "@/src/utils/GTagUTM";
-
-interface PricingFeature {
-  label: string;
-  description?: string;
-}
 
 interface PricingPlan {
   title: string;
@@ -21,6 +16,11 @@ interface PricingPlan {
   addOn?: boolean;
   highlight?: boolean;
   paymentLink?: string;
+}
+
+interface PricingFeature {
+  title: string;
+  description: string;
 }
 
 interface PricingCardProps {
@@ -41,6 +41,7 @@ interface PricingCardProps {
   isBoosterOptionsVisible?: boolean;
   onOptionsClick?: (planTitle: string) => void;
   isOptionsVisible?: boolean;
+  visualHighlight?: boolean;
 }
 
 export default function PricingCard({
@@ -56,11 +57,9 @@ export default function PricingCard({
   paymentLink,
   allPlans = [],
   onUpgradeClick,
-  isUpgradeOptionsVisible = false,
   onBoosterClick,
-  isBoosterOptionsVisible = false,
   onOptionsClick,
-  isOptionsVisible = false,
+  visualHighlight,
 }: PricingCardProps) {
   // Check if this plan has upgrade options
   const hasUpgradeOptions = useMemo(() => {
@@ -125,29 +124,69 @@ export default function PricingCard({
     return paymentLink;
   }, [paymentLink]);
 
+  const maxFeatureCount = useMemo(() => {
+    if (!allPlans || allPlans.length === 0) return features.length;
+    return Math.max(features.length, ...allPlans.map((plan) => plan.features.length));
+  }, [allPlans, features.length]);
+
+  const isDarkCard = visualHighlight ?? highlight;
+  const cardTextClass = isDarkCard ? "text-white" : "text-[#262626]";
+  const mutedTextClass = isDarkCard ? "text-white/78" : "text-[#262626]/70";
+  const dividerClass = isDarkCard ? "border-white/30" : "border-black/35";
+  const tabMainWidth = 154;
+  const tabStepOneLeft = tabMainWidth;
+  const tabStepTwoLeft = tabMainWidth + 16;
+  const tabSquareLeft = tabMainWidth + 40;
+  const tabTotalWidth = tabMainWidth + 68;
+
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="group flex h-full w-full flex-col pt-9">
       <div
-        className={`bg-white border rounded-[0.3rem] p-4 sm:p-5 flex-1 flex flex-col text-left relative transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.05)] ${highlight ? "border-2 border-[#ff4c00]" : "border border-black"}`}
+        className="relative z-0 ml-1 h-[58px] max-w-[92%] transition-transform duration-300 group-hover:-translate-y-1"
+        style={{ width: tabTotalWidth }}
+      >
+        <div
+          className="absolute left-0 top-0 h-[42px] rounded-tl-[6px] bg-[#262626]"
+          style={{ width: tabMainWidth }}
+        />
+        <div
+          className="absolute top-[12px] h-[46px] w-4 bg-[#262626]"
+          style={{ left: tabStepOneLeft }}
+        />
+        <div
+          className="absolute top-[28px] h-5 w-4 bg-[#262626]"
+          style={{ left: tabStepTwoLeft }}
+        />
+        <div
+          className="absolute top-[12px] h-4 w-4 bg-[#262626]"
+          style={{ left: tabSquareLeft }}
+        />
+        <div
+          className="absolute left-0 top-0 flex h-[42px] items-center px-6"
+          style={{ width: tabMainWidth }}
+        >
+          <span className="truncate text-[13px] font-medium uppercase text-white">
+            {title}
+          </span>
+        </div>
+      </div>
+      <div
+        className={`relative z-10 -mt-[22px] flex flex-1 flex-col rounded-[14px] border border-black p-5 sm:p-6 text-left shadow-[-5px_6px_0_0_#000] transition-transform duration-300 group-hover:-translate-y-1 ${isDarkCard ? "bg-black" : "bg-white"}`}
       >
         {tag && (
           <div
-            className={`absolute -top-3 left-1/2 -translate-x-1/2 text-white text-xs sm:text-[0.9rem] font-semibold rounded px-2 sm:px-3 py-0.5 sm:py-1 ${tag === "MOST POPULAR" ? "bg-[#ff4c00]" : "bg-[#111]"
+            className={`absolute right-5 top-5 text-white text-[0.65rem] sm:text-xs font-semibold rounded px-2 sm:px-3 py-1 ${tag === "MOST POPULAR" ? "bg-[#ff4c00]" : "bg-[#262626]"
               }`}
           >
             {tag}
           </div>
         )}
 
-        <h4 className="text-[#ff4c00] text-lg sm:text-xl lg:text-[1.5rem] font-bold mb-1">
-          {title}
-        </h4>
-
-        <div className="mb-3">
+        <div className="mb-4 pt-6 sm:pt-7">
           {/* Old price + Discount tag */}
           {oldPrice && (
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-sm text-gray-400 line-through">
+              <span className={`text-sm line-through ${isDarkCard ? "text-white/45" : "text-gray-400"}`}>
                 {oldPrice}
               </span>
 
@@ -160,39 +199,44 @@ export default function PricingCard({
           )}
 
           {/* Main price */}
-          <div className="flex items-end gap-1">
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-black leading-none">
+          <div className="flex flex-wrap items-end gap-x-1.5 gap-y-1">
+            <h3 className={`text-3xl sm:text-[2.35rem] font-extrabold leading-none tracking-[-0.02em] ${cardTextClass}`}>
               {formattedPrice}
             </h3>
+            <span className={`pb-1 text-xs sm:text-sm font-bold tracking-[-0.02em] ${mutedTextClass}`}>
+              ({subTitle})
+            </span>
            
           </div>
         </div>
 
 
 
-        <p className="text-[#555] text-sm sm:text-base mb-4 sm:mb-6">
+        <p className={`${cardTextClass} text-xs sm:text-sm mb-4 min-h-[2rem]`}>
           {description}
         </p>
 
-        <hr className="-mt-1 mb-2 sm:mb-3 text-black" />
+        <hr className={`mb-5 border-t ${dividerClass}`} />
 
-        <ul className="list-none p-0 mb-4 sm:mb-6 flex-grow">
-          {/* Subtitle as first feature item - bold and colored */}
-          <li className="flex items-center gap-2 text-sm sm:text-base font-extrabold text-[#ff4c00] mb-2 sm:mb-3">
-            <FaBolt className="text-[#ff4c00] text-base sm:text-lg flex-shrink-0" />
-            <span className="font-extrabold text-[#ff4c00]">{subTitle}</span>
-          </li>
+        <ul
+          className="list-none p-0 mb-4 sm:mb-5"
+          style={{ minHeight: `${maxFeatureCount * 3.4}rem` }}
+        >
           {features.map((feature, i) => (
             <li
               key={i}
-              className="flex items-start gap-3 mb-3 sm:mb-4"
+              className={`flex items-start gap-3 mb-5 last:mb-0 ${cardTextClass}`}
             >
-              <FaBolt className="text-[#ff4c00] text-base sm:text-lg flex-shrink-0 mt-0.5" />
-              <span className="flex flex-col">
-                <span className="text-sm sm:text-[15px] font-semibold text-black leading-snug">{feature.label}</span>
-                {feature.description && (
-                  <span className="text-[12px] text-gray-400 leading-snug mt-0.5">{feature.description}</span>
-                )}
+              <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center">
+                <FaBolt className="text-[#ff4c00] text-[16px]" />
+              </span>
+              <span className="min-w-0">
+                <strong className={`block text-sm font-extrabold leading-tight ${cardTextClass}`}>
+                  {feature.title}
+                </strong>
+                <span className={`mt-1 block text-xs leading-snug ${mutedTextClass}`}>
+                  {feature.description}
+                </span>
               </span>
             </li>
           ))}
@@ -213,7 +257,7 @@ export default function PricingCard({
                   }
                 }
               }}
-              className="bg-[#ff4c00] text-white border-none py-2 sm:py-2.5 px-3 sm:px-4 font-semibold text-xs sm:text-sm rounded-[0.5rem] w-full cursor-pointer transition-all duration-300 hover:bg-[#e24300] mb-3 sm:mb-4"
+              className="bg-[#ff4c00] text-white border border-[#ff4c00] py-2.5 sm:py-3 px-3 sm:px-4 font-semibold text-xs sm:text-sm rounded-md w-full cursor-pointer transition-all duration-300 hover:bg-[#e24300] mb-3 sm:mb-4"
             >
               {addOn && hasUpgradeOptions ? "View Options" : addOn && title === "EXECUTIVE" ? "View Options" : addOn ? "Booster Add-On" : "Upgrade Plan"}
             </button>
@@ -226,7 +270,7 @@ export default function PricingCard({
       </p> */}
 
           <button
-            className="bg-black text-white border-none py-2.5 sm:py-[0.9rem] px-3 sm:px-4 font-semibold text-sm sm:text-[0.95rem] rounded-[0.4rem] w-full cursor-pointer transition-all duration-300 hover:bg-[#111]"
+            className="border border-[#ff4c00] bg-[#ff4c00] py-3 sm:py-[0.9rem] px-3 sm:px-4 font-semibold text-sm sm:text-[0.95rem] rounded-md w-full cursor-pointer text-white transition-all duration-300 hover:bg-[#e24300]"
             onClick={() => {
               const utmSource = typeof window !== "undefined"
                 ? localStorage.getItem("utm_source") || "WEBSITE"
@@ -262,8 +306,12 @@ export default function PricingCard({
                 total_price: finalPrice
               });
 
-              if (currentPaymentLink) {
-                window.open(currentPaymentLink, "_blank");
+              if (currentPaymentLink && typeof window !== "undefined") {
+                const checkoutWindow = window.open(currentPaymentLink, "_blank", "noopener,noreferrer");
+
+                if (!checkoutWindow) {
+                  window.location.href = currentPaymentLink;
+                }
               }
             }}
           >
