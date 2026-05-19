@@ -619,7 +619,7 @@ export default function HomePagePricingPlans() {
             {/* Pixel Art Mascot - on the left */}
             <div className="relative h-[108px] w-[108px] shrink-0 sm:h-[124px] sm:w-[124px]">
               <Image
-                src="/images/right-logo-2.png"
+                src="/images/right logo.png"
                 alt="Risk-free shield"
                 fill
                 sizes="124px"
