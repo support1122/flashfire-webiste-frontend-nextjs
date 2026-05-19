@@ -131,8 +131,12 @@ export default function HomePageOfferLettersClient({
 }: HomePageOfferLettersClientProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const isAutoVariant = variant === "auto";
+  // For loop controls: repeat 10x so user never reaches the end — no reset logic needed
+  const repeated = Array.from({ length: 10 }, () => offerLetters).flat();
   const visibleOfferLetters = isAutoVariant
     ? [...offerLetters, ...offerLetters]
+    : enableLoopControls
+    ? repeated
     : offerLetters;
 
   useEffect(() => {
@@ -179,24 +183,9 @@ export default function HomePageOfferLettersClient({
       return;
     }
 
-    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
     const scrollAmount = Math.min(carousel.clientWidth * 0.85, 380);
-    const isAtStart = carousel.scrollLeft <= 1;
-    const isAtEnd = carousel.scrollLeft >= maxScrollLeft - 1;
-    let nextScrollLeft = carousel.scrollLeft;
-
-    if (direction === "right" && isAtEnd) {
-      nextScrollLeft = 0;
-    } else if (direction === "left" && isAtStart) {
-      nextScrollLeft = maxScrollLeft;
-    } else if (direction === "left") {
-      nextScrollLeft = Math.max(0, carousel.scrollLeft - scrollAmount);
-    } else {
-      nextScrollLeft = Math.min(maxScrollLeft, carousel.scrollLeft + scrollAmount);
-    }
-
-    carousel.scrollTo({
-      left: nextScrollLeft,
+    carousel.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
     });
   };
