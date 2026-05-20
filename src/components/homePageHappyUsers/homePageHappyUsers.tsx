@@ -92,7 +92,7 @@ export default function HomePageHappyUsers({
 
     sessionStorage.setItem("previousPageBeforeBookADemo", currentPath);
     sessionStorage.setItem("preserveScrollPosition", currentScrollY.toString());
-    window.history.pushState({}, "", `${prefix}/Get-Started`);
+    window.history.pushState({}, "", `${prefix}/book-a-demo`);
     window.dispatchEvent(new CustomEvent("showCalendlyModal"));
   };
 
@@ -453,7 +453,7 @@ export default function HomePageHappyUsers({
               onClick={handleTryItYourself}
               className="inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
             >
-              Try it by yourself
+              Book a Demo
               <span className="text-[34px] font-normal leading-none" aria-hidden="true">
                 &rarr;
               </span>
