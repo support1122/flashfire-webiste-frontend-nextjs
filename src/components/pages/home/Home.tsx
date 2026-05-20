@@ -61,7 +61,7 @@ const Home = () => {
       <HomePageBeforeAfter />
       <HomePageResultStats />
      
-      <HomePageOfferLetters />
+      <HomePageOfferLetters heading="50+ Offer letters received" />
      
       <HomePageMilestones /> 
       <HomePageVideo />
@@ -70,7 +70,7 @@ const Home = () => {
      
       <HomePageWhyChooseFF /> 
       <HomePageHappyUsers />
-      <HomePageFoundersNote />
+      <HomePageFoundersNote variant="pricing" />
 
       {/* using useState, so client */}
      
