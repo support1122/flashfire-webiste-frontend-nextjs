@@ -89,7 +89,9 @@ export default function JobMatchingSection() {
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-extrabold leading-tight text-black md:text-5xl">
             What Makes Flashfire an{" "}
-            <span className="text-[#ff4c00]">AI Job Matching Platform</span>
+            <span className="text-[#ff4c00]">AI Job</span>
+            <br className="hidden sm:block" />
+            <span className="text-[#ff4c00]"> Matching Platform</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-base font-medium leading-8 text-[#7a7a7a] md:text-xl">

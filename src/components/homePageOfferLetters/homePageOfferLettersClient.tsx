@@ -121,6 +121,21 @@ const offerLetters: OfferLetterData[] = [
   
 ];
 
+const jumpCarouselWithoutAnimation = (
+  carousel: HTMLDivElement,
+  scrollLeft: number,
+) => {
+  const previousScrollBehavior = carousel.style.scrollBehavior;
+  const previousScrollSnapType = carousel.style.scrollSnapType;
+
+  carousel.style.scrollBehavior = "auto";
+  carousel.style.scrollSnapType = "none";
+  carousel.scrollLeft = scrollLeft;
+  carousel.getBoundingClientRect();
+  carousel.style.scrollBehavior = previousScrollBehavior;
+  carousel.style.scrollSnapType = previousScrollSnapType;
+};
+
 
 export default function HomePageOfferLettersClient({
   heading = "40+ Offer letters received",
@@ -131,12 +146,9 @@ export default function HomePageOfferLettersClient({
 }: HomePageOfferLettersClientProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const isAutoVariant = variant === "auto";
-  // For loop controls: repeat 10x so user never reaches the end — no reset logic needed
-  const repeated = Array.from({ length: 10 }, () => offerLetters).flat();
-  const visibleOfferLetters = isAutoVariant
-    ? [...offerLetters, ...offerLetters]
-    : enableLoopControls
-    ? repeated
+  const hasLoopControls = enableLoopControls && !isAutoVariant;
+  const visibleOfferLetters = isAutoVariant || hasLoopControls
+    ? [...offerLetters, ...offerLetters, ...offerLetters]
     : offerLetters;
 
   useEffect(() => {
@@ -168,6 +180,22 @@ export default function HomePageOfferLettersClient({
     };
   }, [autoScroll, isAutoVariant]);
 
+  useEffect(() => {
+    const carousel = carouselRef.current;
+
+    if (!hasLoopControls || !carousel) {
+      return;
+    }
+
+    const frameId = requestAnimationFrame(() => {
+      jumpCarouselWithoutAnimation(carousel, carousel.scrollWidth / 3);
+    });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+    };
+  }, [hasLoopControls]);
+
   const scrollOffers = (direction: "left" | "right") => {
     const carousel = carouselRef.current;
 
@@ -184,6 +212,34 @@ export default function HomePageOfferLettersClient({
     }
 
     const scrollAmount = Math.min(carousel.clientWidth * 0.85, 380);
+
+    if (hasLoopControls) {
+      const loopWidth = carousel.scrollWidth / 3;
+      const middleStart = loopWidth;
+      const middleEnd = loopWidth * 2;
+
+      if (carousel.scrollLeft < middleStart - scrollAmount) {
+        jumpCarouselWithoutAnimation(carousel, carousel.scrollLeft + loopWidth);
+      } else if (carousel.scrollLeft > middleEnd - carousel.clientWidth + scrollAmount) {
+        jumpCarouselWithoutAnimation(carousel, carousel.scrollLeft - loopWidth);
+      }
+
+      carousel.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+
+      window.setTimeout(() => {
+        if (carousel.scrollLeft < middleStart) {
+          jumpCarouselWithoutAnimation(carousel, carousel.scrollLeft + loopWidth);
+        } else if (carousel.scrollLeft >= middleEnd) {
+          jumpCarouselWithoutAnimation(carousel, carousel.scrollLeft - loopWidth);
+        }
+      }, 420);
+
+      return;
+    }
+
     carousel.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",

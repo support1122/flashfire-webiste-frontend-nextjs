@@ -33,8 +33,12 @@ export default function BeforeAfterComparison() {
 
   return (
     <section
-      className="py-20 md:py-28 bg-[#f5f5f4]"
-      style={{ fontFamily: "var(--font-space-grotesk)" }}
+      className="py-20 md:py-28 bg-white"
+      style={{
+        fontFamily: "var(--font-space-grotesk)",
+        backgroundImage: "radial-gradient(#d9d9d9 1px, transparent 1px)",
+        backgroundSize: "24px 24px",
+      }}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
 
