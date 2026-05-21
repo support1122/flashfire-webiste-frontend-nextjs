@@ -78,7 +78,7 @@ img {
 /* force rebuild after removing invalid classes */
 
 .ff-faq-section {
-  background: #f8efe9;
+  background: #faf7f2 !important;
   padding: 5rem 1.5rem 6rem;
   scroll-margin-top: 100px;
 }
@@ -97,7 +97,7 @@ img {
 
 .ff-faq-header h2 {
   color: #02050a;
-  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-size: clamp(2.25rem, 4vw, 3.1rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: 0;
@@ -112,7 +112,7 @@ img {
   width: min(100%, 560px);
   margin: 0 auto;
   color: #05070b;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
   font-weight: 500;
   line-height: 1.35;
 }
@@ -254,7 +254,7 @@ img {
   }
 
   .ff-faq-header h2 {
-    font-size: 2.25rem;
+    font-size: 1.9rem;
   }
 
   .ff-faq-question {
@@ -273,7 +273,7 @@ img {
 
 @media (max-width: 480px) {
   .ff-faq-header h2 {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 
   .ff-faq-question {

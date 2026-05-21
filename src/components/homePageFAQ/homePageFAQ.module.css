@@ -1,5 +1,5 @@
 .faqSection {
-  background-color: #f8efe9;
+  background-color: #faf7f2 !important;
   padding: 5rem 1.5rem 6rem;
   font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
   scroll-margin-top: 100px;
@@ -15,7 +15,7 @@
 }
 
 .header h2 {
-  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-size: clamp(2.25rem, 4vw, 3.1rem);
   line-height: 1.05;
   font-weight: 800;
   color: #02050a;
@@ -31,7 +31,7 @@
   width: min(100%, 560px);
   margin: 0 auto;
   color: #05070b;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
   font-weight: 500;
   line-height: 1.35;
 }
@@ -196,7 +196,7 @@
   }
 
   .header h2 {
-    font-size: 2.25rem;
+    font-size: 1.9rem;
     line-height: 1.08;
   }
 
@@ -224,7 +224,7 @@
 /* === SMALL PHONES === */
 @media (max-width: 480px) {
   .header h2 {
-    font-size: 1.9rem;
+    font-size: 1.5rem;
   }
 
   .header p {
