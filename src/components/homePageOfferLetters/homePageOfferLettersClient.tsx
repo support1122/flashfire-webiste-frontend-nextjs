@@ -19,6 +19,7 @@ interface HomePageOfferLettersClientProps {
   autoScroll?: boolean;
   enableLoopControls?: boolean;
   buttonOnlyScroll?: boolean;
+  continuousScroll?: boolean;
 }
 
 const offerLetters: OfferLetterData[] = [
@@ -143,13 +144,18 @@ export default function HomePageOfferLettersClient({
   autoScroll = false,
   enableLoopControls = false,
   buttonOnlyScroll = false,
+  continuousScroll = false,
 }: HomePageOfferLettersClientProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const isAutoVariant = variant === "auto";
   const hasLoopControls = enableLoopControls && !isAutoVariant;
-  const visibleOfferLetters = isAutoVariant || hasLoopControls
-    ? [...offerLetters, ...offerLetters, ...offerLetters]
-    : offerLetters;
+  const hasContinuousMarquee = continuousScroll && !isAutoVariant;
+  const visibleOfferLetters =
+    isAutoVariant || hasLoopControls
+      ? [...offerLetters, ...offerLetters, ...offerLetters]
+      : hasContinuousMarquee
+        ? [...offerLetters, ...offerLetters]
+        : offerLetters;
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -298,73 +304,139 @@ export default function HomePageOfferLettersClient({
           )}
         </div>
 
-        <div
-          className={`${styles.offerCarousel} ${
-            buttonOnlyScroll ? styles.buttonOnlyCarousel : ""
-          } ${isAutoVariant ? styles.autoOfferCarousel : ""
-          }`}
-          ref={carouselRef}
-        >
-          {visibleOfferLetters.map((offer, i) => (
-            <div
-              key={`${offer.name}-${i}`}
-              className={`${styles.offerCard} ${
-                isAutoVariant ? styles.autoOfferCard : ""
-              }`}
-            >
-              <div className={styles.imagePlaceholder}>
-                <Image
-                  src={offer.imagePath}
-                  alt={`Offer Letter - ${offer.name}`}
-                  fill
-                  sizes="260px"
-                  className={styles.offerImage}
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "/images/offer-placeholder.jpg";
-                  }}
-                />
-              </div>
-
-              <div className={styles.offerOverlay}>
-                <div className={styles.profileInfo}>
-                  <div className={styles.avatar}>
+        {hasContinuousMarquee ? (
+          <div className={styles.offerCarouselMarquee}>
+            <div className={styles.offerMarqueeTrack}>
+              {visibleOfferLetters.map((offer, i) => (
+                <div key={`${offer.name}-${i}`} className={styles.offerCard}>
+                  <div className={styles.imagePlaceholder}>
                     <Image
-                      src={offer.profileImagePath || offer.imagePath}
-                      alt={offer.name}
-                      width={28}
-                      height={28}
-                      className={styles.avatarImage}
-                      unoptimized
+                      src={offer.imagePath}
+                      alt={`Offer Letter - ${offer.name}`}
+                      fill
+                      sizes="260px"
+                      className={styles.offerImage}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.style.display = "none";
+                        target.src = "/images/offer-placeholder.jpg";
                       }}
                     />
                   </div>
-                  <div>
-                    <p className={styles.name}>{offer.name}</p>
-                    <p className={styles.company}>{offer.company}</p>
+
+                  <div className={styles.offerOverlay}>
+                    <div className={styles.profileInfo}>
+                      <div className={styles.avatar}>
+                        <Image
+                          src={offer.profileImagePath || offer.imagePath}
+                          alt={offer.name}
+                          width={28}
+                          height={28}
+                          className={styles.avatarImage}
+                          unoptimized
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = "none";
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <p className={styles.name}>{offer.name}</p>
+                        <p className={styles.company}>{offer.company}</p>
+                      </div>
+                    </div>
+                    {offer.linkedinUrl !== "#" ? (
+                      <Link
+                        href={offer.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.linkedinIcon}
+                      >
+                        in
+                      </Link>
+                    ) : (
+                      <span
+                        className={`${styles.linkedinIcon} ${styles.linkedinIconDummy}`}
+                      >
+                        in
+                      </span>
+                    )}
                   </div>
                 </div>
-                {offer.linkedinUrl !== "#" ? (
-                  <Link
-                    href={offer.linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.linkedinIcon}
-                  >
-                    in
-                  </Link>
-                ) : (
-                  <span className={`${styles.linkedinIcon} ${styles.linkedinIconDummy}`}>
-                    in
-                  </span>
-                )}
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div
+            className={`${styles.offerCarousel} ${
+              buttonOnlyScroll ? styles.buttonOnlyCarousel : ""
+            } ${hasLoopControls ? styles.loopCarousel : ""} ${
+              isAutoVariant ? styles.autoOfferCarousel : ""
+            }`}
+            ref={carouselRef}
+          >
+            {visibleOfferLetters.map((offer, i) => (
+              <div
+                key={`${offer.name}-${i}`}
+                className={`${styles.offerCard} ${
+                  isAutoVariant ? styles.autoOfferCard : ""
+                }`}
+              >
+                <div className={styles.imagePlaceholder}>
+                  <Image
+                    src={offer.imagePath}
+                    alt={`Offer Letter - ${offer.name}`}
+                    fill
+                    sizes="260px"
+                    className={styles.offerImage}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/images/offer-placeholder.jpg";
+                    }}
+                  />
+                </div>
+
+                <div className={styles.offerOverlay}>
+                  <div className={styles.profileInfo}>
+                    <div className={styles.avatar}>
+                      <Image
+                        src={offer.profileImagePath || offer.imagePath}
+                        alt={offer.name}
+                        width={28}
+                        height={28}
+                        className={styles.avatarImage}
+                        unoptimized
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <p className={styles.name}>{offer.name}</p>
+                      <p className={styles.company}>{offer.company}</p>
+                    </div>
+                  </div>
+                  {offer.linkedinUrl !== "#" ? (
+                    <Link
+                      href={offer.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.linkedinIcon}
+                    >
+                      in
+                    </Link>
+                  ) : (
+                    <span
+                      className={`${styles.linkedinIcon} ${styles.linkedinIconDummy}`}
+                    >
+                      in
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
