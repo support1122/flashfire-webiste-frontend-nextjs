@@ -290,55 +290,51 @@ export default function ContactUsClient() {
         </section>
 
         {/* FAQ Section */}
-        <section className="bg-[#fff7f2] py-16">
-      <div className="max-w-4xl mx-auto px-4 md:px-6">
+        <section className="ff-faq-section">
+      <div className="ff-faq-shell">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+        <div className="ff-faq-header">
+          <h2>
             Frequently Asked
-            <span className="block text-[#ff4c00]">Questions</span>
+            <span className="block">Questions</span>
           </h2>
 
-          <p className="text-lg text-slate-600">
+          <p>
             Get answers about contacting Flashfire.
           </p>
         </div>
 
         {/* FAQ Container */}
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="ff-faq-list">
           {faqs.map((item, i) => (
             <div
               key={i}
-              className={`border-b border-gray-200 transition-all ${
+              className={`ff-faq-item ${
                 activeFaqIndex === i
-                  ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]"
+                  ? "is-active"
                   : ""
               }`}
             >
               <button
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                className="ff-faq-question"
                 onClick={() =>
                   setActiveFaqIndex(activeFaqIndex === i ? null : i)
                 }
               >
                 <span
-                  className={`font-semibold text-lg md:text-xl ${
-                    activeFaqIndex === i
-                      ? "text-[#ff4c00]"
-                      : "text-slate-900"
-                  }`}
+                  className="ff-faq-question-text"
                 >
                   {item.q}
                 </span>
 
-                <span className="text-[#ff4c00] shrink-0 ml-4">
+                <span className="ff-faq-icon">
                   {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                 </span>
               </button>
 
               {activeFaqIndex === i && (
-                <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
+                <div className="ff-faq-answer">
                   <p>{item.a}</p>
                 </div>
               )}

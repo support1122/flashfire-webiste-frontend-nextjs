@@ -20,7 +20,6 @@ import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWh
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
-import YouTubeVideo from "../../youtubeVideo/youtubeVideo";
 
 export default function CanadaHome() {
   const pathname = usePathname();
@@ -82,11 +81,9 @@ export default function CanadaHome() {
       <HomePagePTNote /> {/* PT section not so good */}
      
       <HomePageFAQ />
-      <YouTubeVideo />
       <HomePageDemoCTA />
       <Footer />
       
     </>
   );
 }
-

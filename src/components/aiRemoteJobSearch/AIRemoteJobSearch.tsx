@@ -744,19 +744,18 @@ export default function AIRemoteJobSearchPage() {
         </section>
 
         {/* FAQ SECTION - Clean Accordion */}
-        <section className="bg-white py-16 sm:py-20 lg:py-24">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <section className="ff-faq-section">
+          <div className="ff-faq-shell">
+            <div className="ff-faq-header">
               <span className="inline-block px-4 py-1.5 rounded-full bg-[#ff4c00]/10 text-[#ff4c00] text-sm font-semibold mb-4 border border-[#ff4c00]/20">
                 FAQ
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+              <h2>
                 Frequently Asked Questions
               </h2>
             </div>
 
-            <div className="bg-[#faf8f6] rounded-2xl p-2">
-              <div className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+            <div className="ff-faq-list">
                 {[
                   {
                     q: "What is an AI remote job finder?",
@@ -785,29 +784,27 @@ export default function AIRemoteJobSearchPage() {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className={`border-b border-slate-100 last:border-b-0 ${activeFaqIndex === i ? "bg-[#fff8f5]" : "bg-white"
+                    className={`ff-faq-item ${activeFaqIndex === i ? "is-active" : ""
                       }`}
                   >
                     <button
-                      className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-[#fff8f5] transition-colors"
+                      className="ff-faq-question"
                       onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                     >
-                      <span className={`font-bold text-base sm:text-lg pr-4 ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                      <span className="ff-faq-question-text">
                         {item.q}
                       </span>
-                      <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeFaqIndex === i ? "bg-[#ff4c00] text-white" : "bg-slate-100 text-slate-500"
-                        }`}>
+                      <span className="ff-faq-icon">
                         {activeFaqIndex === i ? <X size={16} /> : <Plus size={16} />}
                       </span>
                     </button>
                     {activeFaqIndex === i && (
-                      <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+                      <div className="ff-faq-answer">
                         <p>{item.a}</p>
                       </div>
                     )}
                   </div>
                 ))}
-              </div>
             </div>
           </div>
         </section>

@@ -784,19 +784,19 @@ export default function JobApplicationStatusTrackerPage() {
         </section>
 
         {/* FAQ SECTION */}
-        <section className="bg-[#f9e8e0] py-24">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+        <section className="ff-faq-section">
+          <div className="ff-faq-shell">
+            <div className="ff-faq-header">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-orange-600 font-semibold text-sm mb-4 border border-orange-200 shadow-sm">
                 <MessageSquare size={16} />
                 Support
               </div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">
+              <h2>
                 FAQs
               </h2>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-orange-200/50">
+            <div className="ff-faq-list">
               {[
                 {
                   q: "What is a job application status tracker?",
@@ -833,25 +833,25 @@ export default function JobApplicationStatusTrackerPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-orange-100 transition-all ${activeFaqIndex === i ? "bg-[#fff7f3]" : "bg-white"
+                  className={`ff-faq-item ${activeFaqIndex === i ? "is-active" : ""
                     }`}
                 >
                   <button
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    className="ff-faq-question"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-lg ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className="ff-faq-question-text">
                       {item.q}
                     </span>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeFaqIndex === i ? "bg-[#ff4c00]/10" : "bg-slate-100"}`}>
-                      <span className={`shrink-0  ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-500"}`}>
+                    <div className="ff-faq-icon">
+                      <span>
                         {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                       </span>
                     </div>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600">
-                      <p className="leading-relaxed">{item.a}</p>
+                    <div className="ff-faq-answer">
+                      <p>{item.a}</p>
                     </div>
                   )}
                 </div>

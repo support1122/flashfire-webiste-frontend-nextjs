@@ -499,18 +499,18 @@ export default function AboutUs() {
       </section>
 
       {/* === FAQ SECTION === */}
-      <section className="bg-[#fdf7f4] py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F55D1D] mb-4 tracking-tight">
+      <section className="ff-faq-section">
+        <div className="ff-faq-shell">
+          <div className="ff-faq-header">
+            <h2>
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600">
+            <p>
               Get answers about our AI job application service.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="ff-faq-list">
             {[
               {
                 question: "What is an AI job application service?",
@@ -527,27 +527,25 @@ export default function AboutUs() {
             ].map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl border border-black/5 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                className={`ff-faq-item ${activeFaqIndex === index ? "is-active" : ""}`}
               >
                 <button
                   onClick={() => setActiveFaqIndex(activeFaqIndex === index ? null : index)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                  className="ff-faq-question"
                 >
-                  <h3 className="text-lg font-bold text-gray-900 pr-4">
+                  <h3 className="ff-faq-question-text">
                     {faq.question}
                   </h3>
-                  <span className={`flex-shrink-0 w-8 h-8 rounded-full bg-[#F55D1D]/10 flex items-center justify-center text-[#F55D1D] transition-transform duration-300 ${activeFaqIndex === index ? 'rotate-45' : ''}`}>
-                    <FaPlus className="w-4 h-4" />
+                  <span className="ff-faq-icon">
+                    {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
                   </span>
                 </button>
 
-                <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${activeFaqIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-                >
-                  <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                {activeFaqIndex === index && (
+                  <div className="ff-faq-answer">
                     {faq.answer}
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
@@ -559,7 +557,6 @@ export default function AboutUs() {
     </div>
   );
 }    
-
 
 
 
