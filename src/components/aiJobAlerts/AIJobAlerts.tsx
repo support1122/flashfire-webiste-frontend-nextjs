@@ -507,16 +507,16 @@ export default function AIJobAlertsPage() {
         </section>
 
         {/* FAQ Section - Modern Accordion */}
-        <section className="bg-[#f9e8e0] py-24">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+        <section className="ff-faq-section">
+          <div className="ff-faq-shell">
+            <div className="ff-faq-header">
               <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#ff4c00]/20 text-[#ff4c00] text-sm font-semibold mb-4">FAQ</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
+              <h2>
                 Frequently Asked Questions
               </h2>
             </div>
 
-            <div className="bg-white rounded-3xl shadow-sm overflow-hidden border border-slate-100">
+            <div className="ff-faq-list">
               {[
                 { q: "What are AI job alerts?", a: "AI job alerts use intelligent algorithms to notify you about relevant job openings instantly." },
                 { q: "How does a job notification app work?", a: "A job notification app analyzes your skills and preferences to deliver targeted alerts." },
@@ -529,22 +529,22 @@ export default function AIJobAlertsPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-slate-100 last:border-b-0 transition-colors ${activeFaqIndex === i ? "bg-[#fff7f3]" : "hover:bg-slate-50"}`}
+                  className={`ff-faq-item ${activeFaqIndex === i ? "is-active" : ""}`}
                 >
                   <button
-                    className="w-full flex items-center justify-between p-6 text-left"
+                    className="ff-faq-question"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-bold text-base pr-4 ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className="ff-faq-question-text">
                       {item.q}
                     </span>
-                    <span className={`text-[#ff4c00] shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeFaqIndex === i ? "bg-[#ff4c00]/10" : ""}`}>
+                    <span className="ff-faq-icon">
                       {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600">
-                      <p className="leading-relaxed">{item.a}</p>
+                    <div className="ff-faq-answer">
+                      <p>{item.a}</p>
                     </div>
                   )}
                 </div>

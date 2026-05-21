@@ -21,7 +21,6 @@ import HomePageWhyChooseFF from "@/src/components/homePageWhyChooseFF/homePageWh
 import Navbar from "@/src/components/navbar/navbar";
 import SalesPopUp from "@/src/components/SalesPopUp";
 import HomePageBeforeAfter from "../../homePageBeforeAfter/homePageBeforeAfter";
-import YouTubeVideo from "../../youtubeVideo/youtubeVideo";
 
 const Home = () => {
   const pathname = usePathname();
@@ -80,7 +79,6 @@ const Home = () => {
       <HomePagePTNote /> {/* PT section not so good */}
      
       <HomePageFAQ />
-      <YouTubeVideo />
       <HomePageDemoCTA />
       <Footer />
       

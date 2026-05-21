@@ -632,15 +632,15 @@ export default function AICopilot() {
       <HomePageHappyUsers />
      
       {/* FAQ Section */}
-      <section className="py-20 bg-[#f9e8e0]">
-        <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
+      <section className="ff-faq-section">
+        <div className="ff-faq-shell">
+          <div className="ff-faq-header">
+            <h2>
               FAQs
             </h2>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          <div className="ff-faq-list">
             {[
               {
                 q: "What is AI job application automation?",
@@ -657,22 +657,22 @@ export default function AICopilot() {
             ].map((item, i) => (
               <div
                 key={i}
-                className={`border-b border-gray-200 transition-all ${activeFaqIndex === i ? "bg-[#fff7f3] border-l-4 border-l-[#ff4c00]" : ""
+                className={`ff-faq-item ${activeFaqIndex === i ? "is-active" : ""
                   }`}
               >
                 <button
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                  className="ff-faq-question"
                   onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                 >
-                  <span className={`font-semibold text-lg md:text-xl ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                  <span className="ff-faq-question-text">
                     {item.q}
                   </span>
-                  <span className="text-[#ff4c00] shrink-0 ml-4">
+                  <span className="ff-faq-icon">
                     {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                   </span>
                 </button>
                 {activeFaqIndex === i && (
-                  <div className="px-6 pb-6 text-slate-600 text-base animate-fadeIn">
+                  <div className="ff-faq-answer">
                     <p>{item.a}</p>
                   </div>
                 )}

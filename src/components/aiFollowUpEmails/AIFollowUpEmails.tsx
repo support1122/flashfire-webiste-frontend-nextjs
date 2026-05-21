@@ -701,18 +701,18 @@ export default function AIFollowUpEmailsPage() {
         </section>
 
         {/* FAQ SECTION - Clean Accordion */}
-        <section className="bg-[#f9e8e0] py-20">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+        <section className="ff-faq-section">
+          <div className="ff-faq-shell">
+            <div className="ff-faq-header">
               <span className="inline-block px-4 py-1.5 rounded-full bg-white border border-[#ff4c00]/20 text-sm font-semibold text-[#ff4c00] mb-4">
                 FAQ
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              <h2>
                 Frequently Asked Questions
               </h2>
             </div>
 
-            <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
+            <div className="ff-faq-list">
               {[
                 {
                   q: "When should I send a follow-up email?",
@@ -733,24 +733,24 @@ export default function AIFollowUpEmailsPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-slate-100 last:border-b-0 ${
-                    activeFaqIndex === i ? "bg-[#fff7f3]" : "bg-white"
+                  className={`ff-faq-item ${
+                    activeFaqIndex === i ? "is-active" : ""
                   }`}
                 >
                   <button
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-[#fff7f3]/50"
+                    className="ff-faq-question"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-lg pr-4 ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className="ff-faq-question-text">
                       {item.q}
                     </span>
-                    <span className={`text-[#ff4c00] shrink-0 w-10 h-10 rounded-full flex items-center justify-center border ${activeFaqIndex === i ? "bg-[#ff4c00]/10 border-[#ff4c00]/20" : "border-slate-200"}`}>
+                    <span className="ff-faq-icon">
                       {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-6 pb-6 text-slate-600">
-                      <p className="leading-relaxed">{item.a}</p>
+                    <div className="ff-faq-answer">
+                      <p>{item.a}</p>
                     </div>
                   )}
                 </div>

@@ -769,16 +769,16 @@ export default function AICareerAssessmentPage() {
         </section>
 
         {/* FAQ - Clean Accordion */}
-        <section className="py-16 bg-[#f9e8e0]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+        <section className="ff-faq-section">
+          <div className="ff-faq-shell">
+            <div className="ff-faq-header">
+              <h2>
                 Frequently Asked Questions
               </h2>
-              <p className="text-base text-slate-600">Everything you need to know about our AI career assessment</p>
+              <p>Everything you need to know about our AI career assessment</p>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-100">
+            <div className="ff-faq-list">
               {[
                 {
                   q: "What is an AI career assessment test?",
@@ -807,22 +807,22 @@ export default function AICareerAssessmentPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className={`border-b border-slate-100 last:border-b-0 ${activeFaqIndex === i ? "bg-[#fff7f3]" : "bg-white"
+                  className={`ff-faq-item ${activeFaqIndex === i ? "is-active" : ""
                     }`}
                 >
                   <button
-                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-[#fff7f3] transition-colors"
+                    className="ff-faq-question"
                     onClick={() => setActiveFaqIndex(activeFaqIndex === i ? null : i)}
                   >
-                    <span className={`font-semibold text-base sm:text-lg pr-4 ${activeFaqIndex === i ? "text-[#ff4c00]" : "text-slate-900"}`}>
+                    <span className="ff-faq-question-text">
                       {item.q}
                     </span>
-                    <span className={`text-[#ff4c00] shrink-0 transition-transform ${activeFaqIndex === i ? "rotate-45" : ""}`}>
+                    <span className="ff-faq-icon">
                       {activeFaqIndex === i ? <FaTimes /> : <FaPlus />}
                     </span>
                   </button>
                   {activeFaqIndex === i && (
-                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-slate-600 text-sm sm:text-base">
+                    <div className="ff-faq-answer">
                       <p>{item.a}</p>
                     </div>
                   )}
