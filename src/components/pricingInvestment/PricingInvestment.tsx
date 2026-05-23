@@ -1,166 +1,133 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 import styles from "./PricingInvestment.module.css";
 
-const flashfireHoursPerWeek = 3;
-const flashfireApplicationsPerWeek = 40;
-const beforeInterviewRate = 8;
-const flashfireInterviewRate = 28;
-const defaultHoursPerWeek = 20;
-const defaultApplicationsPerWeek = 10;
-const defaultHourlyValue = 50;
+const workingDaysPerMonth = 25;
+const minutesPerManualApplication = 20;
+const flashfireResponseMultiplier = 2.8;
+const maxFlashfireResponseRate = 50;
 
-const toNumber = (value: string, fallback: number) => {
-  if (value.trim() === "") {
-    return fallback;
-  }
-
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : fallback;
-};
+const sliderStyle = (value: number, min: number, max: number) =>
+  ({
+    "--slider-progress": `${((value - min) / (max - min)) * 100}%`,
+  } as CSSProperties);
 
 export default function PricingInvestment() {
-  const [hoursPerWeekInput, setHoursPerWeekInput] = useState("");
-  const [applicationsPerWeekInput, setApplicationsPerWeekInput] = useState("");
-  const [hourlyValueInput, setHourlyValueInput] = useState("");
+  const [applicationsPerDay, setApplicationsPerDay] = useState(20);
+  const [companyResponseRate, setCompanyResponseRate] = useState(10);
 
-  const hoursPerWeek = toNumber(hoursPerWeekInput, defaultHoursPerWeek);
-  const applicationsPerWeek = toNumber(applicationsPerWeekInput, defaultApplicationsPerWeek);
-  const hourlyValue = toNumber(hourlyValueInput, defaultHourlyValue);
-
-  const metrics = useMemo(() => {
-    const weeklySavings = Math.max(0, (hoursPerWeek - flashfireHoursPerWeek) * hourlyValue);
-    const flashfireApplications = Math.max(
-      flashfireApplicationsPerWeek,
-      applicationsPerWeek * 4
+  const results = useMemo(() => {
+    const monthlyApplications = applicationsPerDay * workingDaysPerMonth;
+    const timeSavedHours = Math.round(
+      (monthlyApplications * minutesPerManualApplication) / 60
+    );
+    const flashfireResponseRate = Math.min(
+      maxFlashfireResponseRate,
+      Math.round(companyResponseRate * flashfireResponseMultiplier)
     );
 
-    return [
-      {
-        label: "Weekly Savings",
-        beforeLabel: "0$",
-        flashfireLabel: `${weeklySavings}$`,
-        beforeValue: 0,
-        flashfireValue: weeklySavings,
-      },
-      {
-        label: "Interview Rate",
-        beforeLabel: `${beforeInterviewRate}%`,
-        flashfireLabel: `${flashfireInterviewRate}%`,
-        beforeValue: beforeInterviewRate,
-        flashfireValue: flashfireInterviewRate,
-      },
-      {
-        label: "Applications Per Week",
-        beforeLabel: String(applicationsPerWeek),
-        flashfireLabel: String(flashfireApplications),
-        beforeValue: applicationsPerWeek,
-        flashfireValue: flashfireApplications,
-      },
-      {
-        label: "Hours Per Week",
-        beforeLabel: String(hoursPerWeek),
-        flashfireLabel: String(flashfireHoursPerWeek),
-        beforeValue: hoursPerWeek,
-        flashfireValue: flashfireHoursPerWeek,
-      },
-    ].map((metric) => {
-      const maxValue = Math.max(metric.beforeValue, metric.flashfireValue, 1);
-      const beforePercent = Math.max(4, (metric.beforeValue / maxValue) * 100);
-      const flashfirePercent = Math.max(4, (metric.flashfireValue / maxValue) * 100);
-
-      return {
-        ...metric,
-        beforeHeight: `${beforePercent}%`,
-        beforeShort: beforePercent < 18,
-        flashfireHeight: `${flashfirePercent}%`,
-        flashfireShort: flashfirePercent < 18,
-      };
-    });
-  }, [applicationsPerWeek, hourlyValue, hoursPerWeek]);
+    return {
+      flashfireResponseRate,
+      monthlyApplications,
+      timeSavedHours,
+    };
+  }, [applicationsPerDay, companyResponseRate]);
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} aria-labelledby="pricing-investment-title">
       <div className={styles.inner}>
         <header className={styles.header}>
-          <h2>The best Investment for your Career</h2>
+          <h2 id="pricing-investment-title">
+            See How Much Time You Save with{" "}
+            <span>FlashFire</span>
+          </h2>
           <p>
-            Flashfire Saves you time, Increases your interview chances and helps
-            you land better opportunities that lead to higher salaries and
-            long-term career growth
+            Adjust your job hunt volume and company response rate to see the
+            difference instantly.
           </p>
         </header>
 
-        <div className={styles.controls}>
-          <label>
-            <span>Hours per week on applications</span>
-            <input
-              type="number"
-              min="0"
-              placeholder={String(defaultHoursPerWeek)}
-              value={hoursPerWeekInput}
-              onClick={() => setHoursPerWeekInput("")}
-              onChange={(event) => setHoursPerWeekInput(event.target.value)}
-            />
-          </label>
-
-          <label>
-            <span>Applications per week</span>
-            <input
-              type="number"
-              min="0"
-              placeholder={String(defaultApplicationsPerWeek)}
-              value={applicationsPerWeekInput}
-              onClick={() => setApplicationsPerWeekInput("")}
-              onChange={(event) => setApplicationsPerWeekInput(event.target.value)}
-            />
-          </label>
-
-          <label>
-            <span>Your hourly value ($)</span>
-            <input
-              type="number"
-              min="0"
-              placeholder={String(defaultHourlyValue)}
-              value={hourlyValueInput}
-              onClick={() => setHourlyValueInput("")}
-              onChange={(event) => setHourlyValueInput(event.target.value)}
-            />
-          </label>
-        </div>
-
-        <div className={styles.chart} aria-label="Flashfire investment comparison chart">
-          {metrics.map((metric) => (
-            <div className={styles.group} key={metric.label}>
-              <div className={styles.bars}>
-                <div className={styles.barWrap}>
-                  <span className={styles.beforeName}>Before</span>
-                  <div
-                    className={`${styles.beforeBar} ${
-                      metric.beforeShort ? styles.shortBar : ""
-                    }`}
-                    style={{ height: metric.beforeHeight }}
-                  >
-                    <strong>{metric.beforeLabel}</strong>
+        <div className={styles.calculator}>
+          <div className={styles.controls} aria-label="FlashFire savings calculator">
+            <label className={styles.sliderGroup}>
+              <span className={styles.sliderLabel}>
+                Applications you fill in a day
+              </span>
+              <div className={styles.sliderRow}>
+                <div className={styles.rangeWrap}>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value={applicationsPerDay}
+                    onChange={(event) =>
+                      setApplicationsPerDay(Number(event.target.value))
+                    }
+                    style={sliderStyle(applicationsPerDay, 1, 100)}
+                    aria-label="Applications you fill in a day"
+                  />
+                  <div className={styles.rangeLimits}>
+                    <span>1</span>
+                    <span>100</span>
                   </div>
                 </div>
-
-                <div className={styles.barWrap}>
-                  <span className={styles.flashfireName}>Flashfire</span>
-                  <div
-                    className={`${styles.flashfireBar} ${
-                      metric.flashfireShort ? styles.shortBar : ""
-                    }`}
-                    style={{ height: metric.flashfireHeight }}
-                  >
-                    <strong>{metric.flashfireLabel}</strong>
-                  </div>
-                </div>
+                <strong className={styles.valueBlock}>
+                  {applicationsPerDay}
+                  <span>/ day</span>
+                </strong>
               </div>
-              <p>{metric.label}</p>
+            </label>
+
+            <label className={styles.sliderGroup}>
+              <span className={styles.sliderLabel}>
+                Response rate from companies (%)
+              </span>
+              <div className={styles.sliderRow}>
+                <div className={styles.rangeWrap}>
+                  <input
+                    type="range"
+                    min="1"
+                    max="50"
+                    value={companyResponseRate}
+                    onChange={(event) =>
+                      setCompanyResponseRate(Number(event.target.value))
+                    }
+                    style={sliderStyle(companyResponseRate, 1, 50)}
+                    aria-label="Response rate from companies"
+                  />
+                  <div className={styles.rangeLimits}>
+                    <span>1%</span>
+                    <span>50%</span>
+                  </div>
+                </div>
+                <strong className={styles.valueBlock}>
+                  {companyResponseRate}
+                  <span>%</span>
+                </strong>
+              </div>
+            </label>
+          </div>
+
+          <div className={styles.divider} aria-hidden="true" />
+
+          <aside className={styles.results} aria-live="polite">
+            <span className={styles.resultBadge}>Your Results</span>
+            <div className={styles.resultMetric}>
+              <strong>{results.timeSavedHours} hours</strong>
+              <span>saved from manual applications each month</span>
             </div>
-          ))}
+            <div className={styles.responseMetric}>
+              <strong>{results.flashfireResponseRate}%</strong>
+              <span>estimated company response rate with FlashFire</span>
+            </div>
+            <p className={styles.resultNote}>
+              Based on {results.monthlyApplications.toLocaleString()} targeted
+              applications per month, with FlashFire applying consistently while
+              you focus on interviews.
+            </p>
+          </aside>
         </div>
       </div>
     </section>
