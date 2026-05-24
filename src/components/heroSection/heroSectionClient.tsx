@@ -17,8 +17,8 @@ type Props = {
 
 const heroStats = [
   {
-    value: "1,200+",
-    label: "Applications submitted in the last 2 months",
+    value: "1,200",
+    label: "Applications are submitted in 2 months",
   },
   {
     value: "15+",
