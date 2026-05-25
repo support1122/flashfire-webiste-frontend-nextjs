@@ -1,35 +1,31 @@
 "use client";
 
-import { FaCreditCard } from "react-icons/fa";
 import Link from "next/link";
 
 export default function PaymentPolicy() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-       
-        
-
-        {/* Content */}
-        <div className="bg-white rounded-lg shadow-sm p-8">
-        <Link
+    <main className="min-h-screen bg-white px-4 py-6 sm:px-6 lg:px-8">
+      <article className="relative mx-auto max-w-7xl overflow-hidden rounded-lg bg-white px-6 py-10 shadow-[-26px_0_46px_rgba(249,115,22,0.18),0_10px_36px_rgba(15,23,42,0.05)] sm:px-10 lg:px-14">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[length:520px_auto] bg-center bg-no-repeat opacity-[0.075] bg-[url('/images/character-shape.png')]"
+          aria-hidden="true"
+        />
+        <div className="relative z-10">
+          <Link
             href="/"
-            className="flex  space-x-2 text-orange-600 hover:text-orange-700 mb-4 transition-colors duration-200"
+            className="mb-8 inline-flex text-base font-semibold text-slate-700 transition-colors duration-200 hover:text-black"
           >
-            <span>← Back to Home</span>
+            <span>&larr; Back to Home</span>
           </Link>
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="p-2 bg-purple-100 rounded-lg">
-              <FaCreditCard className="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                Payment Policy
-              </h1>
-              <p className="text-gray-600">Last updated: July 2025</p>
-            </div>
-          </div>
-          <div className="prose prose-lg max-w-none">
+          <header className="mb-10">
+            <h1 className="text-4xl font-black leading-tight text-black sm:text-5xl">
+              Payment Policy
+            </h1>
+            <p className="mt-8 text-xl font-medium text-slate-600">
+              Last updated: July 2025
+            </p>
+          </header>
+          <div className="max-w-6xl text-[17px] leading-8 text-black sm:text-[18px] sm:leading-9">
             <p className="text-gray-700 mb-8">
               This Payment Policy outlines the terms and conditions for all
               financial transactions related to Flashfire&rsquo;s AI-powered job
@@ -91,7 +87,7 @@ export default function PaymentPolicy() {
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
               Free Trial Terms
             </h3>
-            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
+            <div className="mb-6 border-l-4 border-slate-300 bg-slate-50 p-4">
               <p className="text-gray-700">
                 <strong>Trial Obligation:</strong> If you receive any interview
                 call or recruiter response during the free trial period, you
@@ -289,8 +285,8 @@ export default function PaymentPolicy() {
               </p>
             </div>
 
-            <div className="mt-8 p-6 bg-purple-50 rounded-lg border border-purple-200">
-              <p className="text-purple-800 font-medium">
+            <div className="mt-8 rounded-lg border border-slate-200 bg-slate-50 p-6">
+              <p className="font-medium text-slate-900">
                 We are committed to transparent and secure payment processing.
                 If you have any questions about our payment policies or need
                 assistance with billing, our support team is here to help.
@@ -298,7 +294,7 @@ export default function PaymentPolicy() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </article>
+    </main>
   );
 }
