@@ -8,7 +8,6 @@ import HomePageOfferLetters from "@/src/components/homePageOfferLetters/homePage
 import HomePageHappyUsers from "@/src/components/homePageHappyUsers/homePageHappyUsers";
 import HomePageFoundersNote from "@/src/components/homePageFoundersNote/homePageFoundersNote";
 import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
-import PricingInvestment from "@/src/components/pricingInvestment/PricingInvestment";
 
 export default function PricingPageClient() {
   const hasScrolledRef = useRef(false);
@@ -43,7 +42,6 @@ export default function PricingPageClient() {
     <>
       <Navbar />
       <HomePagePricingPlans />
-      <PricingInvestment />
       <HomePageOfferLetters
         heading="50+ Offer letters received"
         enableLoopControls
