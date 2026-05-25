@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { ArrowRight, FileText, Minus, PhoneCall, Plus, Rocket } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
@@ -36,7 +35,8 @@ const steps = [
 export default function HomePageSteps() {
   const [activeIndex, setActiveIndex] = useState(-1);
 
-  const handleGetStarted = () => {
+  const handleGetStarted = (e: React.MouseEvent) => {
+    e.preventDefault();
     trackSignupIntent("homepage_steps_cta", {
       button_location: "homepage_steps_section",
       section: "homepage_steps",
@@ -46,6 +46,10 @@ export default function HomePageSteps() {
       section: "homepage_steps",
       destination: "/Get-Started",
     });
+    if (typeof window !== "undefined") {
+      window.history.pushState({}, "", "/Get-Started");
+      window.dispatchEvent(new CustomEvent("showCalendlyModal"));
+    }
   };
 
   return (
@@ -64,15 +68,12 @@ export default function HomePageSteps() {
             submissions and tracking.
           </p>
 
-          <Link
-            href="/Get-Started"
-            scroll={false}
+          <button
             onClick={handleGetStarted}
             className="mt-12 inline-flex min-h-12 items-center justify-center bg-black px-6 text-base font-bold text-white transition-colors hover:bg-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00] focus:ring-offset-2 focus:ring-offset-[#faebe4]"
           >
             Get Started →
-            
-          </Link>
+          </button>
         </div>
 
         <div className="space-y-4 lg:pl-8">

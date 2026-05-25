@@ -60,7 +60,11 @@ const Home = () => {
       <HomePageBeforeAfter />
       <HomePageResultStats />
      
-      <HomePageOfferLetters heading="50+ Offer letters received" />
+      <HomePageOfferLetters
+        heading="50+ Offer letters received"
+        enableLoopControls
+        buttonOnlyScroll
+      />
      
       <HomePageMilestones /> 
       <HomePageVideo />
