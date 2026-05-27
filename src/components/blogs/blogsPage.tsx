@@ -560,7 +560,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                       </Link>
                     ) : (
                       <div className={styles.authorName} itemProp="name">
-                        By Flashfire Team
+                        By Debashri Mandal
                       </div>
                     )}
                     {post.author?.bio && (

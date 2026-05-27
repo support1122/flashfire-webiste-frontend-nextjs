@@ -81,7 +81,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
                 </span>
               </>
             ) : (
-              <>By <span className="font-semibold text-[#111]">Flashfire Team</span></>
+              <>By <span className="font-semibold text-[#111]">Debashri Mandal</span></>
             )}
           </p>
 
