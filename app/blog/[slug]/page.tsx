@@ -19,7 +19,7 @@ type Props = {
 // Generate static params for all blog posts and categories
 export async function generateStaticParams() {
   const blogSlugs = blogPosts
-    .filter((post) => post.slug && post.slug !== "undefined")
+    .filter((post): post is NonNullable<typeof post> => !!post && !!post.slug && post.slug !== "undefined")
     .map((post) => ({
       slug: post.slug,
     }));
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = resolvedParams;
   
   // Check if it's a blog post
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = blogPosts.find((p) => p && p.slug === slug);
   if (post) {
   // Meta title overrides per slug
   const metaTitleMap: Record<string, string> = {
@@ -217,10 +217,8 @@ export default async function BlogSlugPage({ params }: Props) {
   }
 
   // Check if it's a blog post
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = blogPosts.find((p) => p && p.slug === slug);
   if (post) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-expect-error
   return <BlogsPage post={post} />;
   }
 

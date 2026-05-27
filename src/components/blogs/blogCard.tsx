@@ -10,11 +10,11 @@ type Blog = {
   id: number;
   slug?: string;
   title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  category: string;
-  image: string;
+  excerpt?: string;
+  date?: string;
+  readTime?: string;
+  category?: string;
+  image?: string;
   categoryColor?: string;
   tags?: string[];
   author?: {
@@ -51,7 +51,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
         {/* === Image === */}
         <div className="w-full aspect-video overflow-hidden relative bg-[#f9f9f9] max-[768px]:aspect-[16/10]">
           <CachedBlogImage
-            src={blog.image}
+            src={blog.image || ""}
             alt={blog.title}
             width={400}
             height={250}
@@ -63,7 +63,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
         {/* === Content === */}
         <div className="px-6 pt-6 pb-2">
           <p className="text-[0.9rem] font-bold text-[#f78b5d] uppercase mb-2 bg-transparent">
-            {blog.category.toUpperCase()}
+            {(blog.category || "").toUpperCase()}
           </p>
 
           <h3 className="text-[1.2rem] font-bold text-[#111] mb-2.5 leading-[1.4] line-clamp-2">{blog.title}</h3>

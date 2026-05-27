@@ -16,11 +16,11 @@ type BlogPost = {
   id: number;
   slug?: string;
   title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  category: string;
-  image: string;
+  excerpt?: string;
+  date?: string;
+  readTime?: string;
+  category?: string;
+  image?: string;
   author?: Author;
 };
 

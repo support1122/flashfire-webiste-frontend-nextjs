@@ -19,7 +19,7 @@ export default function BlogImagePreloader() {
         new Set(
           blogPosts
             .map((post) => post.image)
-            .filter(Boolean)
+            .filter((img): img is string => !!img)
         )
       );
 

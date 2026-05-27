@@ -18,16 +18,16 @@ import { categoryToSlug, tagToSlug } from "@/src/utils/blogCategoryUtils";
 
 type BlogPost = {
   id: number;
-  slug: string;
+  slug?: string;
   title: string;
   excerpt?: string;
-  image: string;
-  category: string;
-  categoryColor: string;
-  date: string;
+  image?: string;
+  category?: string;
+  categoryColor?: string;
+  date?: string;
   lastUpdated?: string;
-  readTime: string;
-  content: string;
+  readTime?: string;
+  content?: string;
   tags?: string[];
   author?: {
     name: string;
@@ -268,8 +268,8 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
       .filter((p) => !excludeIds.has(p.id))
       .sort((a, b) => {
         // Sort by date descending (newer first) as a proxy for "most viewed"
-        const dateA = new Date(a.date).getTime();
-        const dateB = new Date(b.date).getTime();
+        const dateA = new Date(a.date || 0).getTime();
+        const dateB = new Date(b.date || 0).getTime();
         return dateB - dateA;
       })
       .slice(0, 5);
@@ -392,8 +392,8 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
         url: "https://www.flashfirejobs.com/favicon.ico",
       },
     },
-    datePublished: convertToISODate(post.date),
-    dateModified: convertToISODate(post.lastUpdated || post.date),
+    datePublished: convertToISODate(post.date || ""),
+    dateModified: convertToISODate(post.lastUpdated || post.date || ""),
   };
 
   // Generate FAQ schema if FAQ items exist (use empty array to avoid hydration issues)
@@ -430,7 +430,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
         "@type": "ListItem",
         position: 3,
         name: post.category,
-        item: `https://www.flashfirejobs.com/blog/${categoryToSlug(post.category)}`,
+        item: `https://www.flashfirejobs.com/blog/${categoryToSlug(post.category || "")}`,
       },
       {
         "@type": "ListItem",
@@ -491,7 +491,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
             <span className={styles.breadcrumbSeparator}> &gt; </span>
             <Link href="/blog">Blog</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
-            <Link href={`/blog/${categoryToSlug(post.category)}`}>{post.category}</Link>
+            <Link href={`/blog/${categoryToSlug(post.category || "")}`}>{post.category}</Link>
             <span className={styles.breadcrumbSeparator}> &gt; </span>
             <span className={styles.breadcrumbCurrent} title={post.title}>{post.title}</span>
           </nav>
@@ -505,7 +505,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               {/* === HERO IMAGE === */}
               <div className={styles.imageWrapper}>
                 <CachedBlogImage
-                  src={post.image}
+                  src={post.image || ""}
                   alt={post.title}
                   width={1200}
                   height={630}
@@ -693,7 +693,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                       >
                         <div className={styles.recentPostImage}>
                           <CachedBlogImage
-                            src={recentPost.image}
+                            src={recentPost.image || ""}
                             alt={recentPost.title}
                             width={80}
                             height={60}
@@ -728,7 +728,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                         >
                           <div className={styles.recentPostImage}>
                             <CachedBlogImage
-                              src={viewedPost.image}
+                              src={viewedPost.image || ""}
                               alt={viewedPost.title}
                               width={80}
                               height={60}
@@ -807,7 +807,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                     <Link href={`/blog/${relatedPost.slug}`}>
                       <div className={styles.relatedImage}>
                         <CachedBlogImage
-                          src={relatedPost.image}
+                          src={relatedPost.image || ""}
                           alt={relatedPost.title}
                           width={400}
                           height={250}

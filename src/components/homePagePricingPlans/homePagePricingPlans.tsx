@@ -357,15 +357,15 @@ export default function HomePagePricingPlans() {
       </div>
 
       {/* === Options Sections - Below Cards === */}
-      {((selectedPlanForBooster !== null && selectedBoosterPlanIndex !== null && boosterOptions.length > 0) || 
+      {((selectedPlanForBooster !== null && selectedBoosterPlanIndex !== null && boosterOptions.length > 0) ||
         (selectedPlanForUpgrade !== null && selectedPlanIndex !== null && upgradeOptions.length > 0)) && (
         <div className="mb-16 sm:mb-20 lg:mb-24 mt-4 sm:mt-6 px-2 sm:px-0">
           {(() => {
             const boosterPlanIndex = selectedBoosterPlanIndex;
             const upgradePlanIndex = selectedPlanIndex;
-            const hasBoth = boosterPlanIndex !== null && upgradePlanIndex !== null && 
+            const hasBoth = boosterPlanIndex !== null && upgradePlanIndex !== null &&
                             selectedPlanForBooster !== null && selectedPlanForUpgrade !== null;
-            
+
             // When both are visible, display them full width side by side
             if (hasBoth) {
               return (
@@ -474,25 +474,25 @@ export default function HomePagePricingPlans() {
                 </div>
               );
             }
-            
+
             // When only one is visible, center it in the middle
             const planIndex = boosterPlanIndex !== null ? boosterPlanIndex : (upgradePlanIndex !== null ? upgradePlanIndex : 0);
-            
+
             if (planIndex === null) return null;
-            
+
             // Calculate empty columns to center the section (2 columns wide in a 4-column grid)
             const totalColumns = 4;
             const sectionWidth = 2;
             const emptyColumnsBefore = Math.floor((totalColumns - sectionWidth) / 2);
             const emptyColumnsAfter = totalColumns - sectionWidth - emptyColumnsBefore;
-            
+
             return (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
                 {/* Empty columns before the section (to center it) */}
                 {Array.from({ length: emptyColumnsBefore }).map((_, i) => (
                   <div key={`empty-before-${i}`} />
                 ))}
-                
+
                 {/* Booster Add-On section (when only booster is visible) */}
                 {selectedPlanForBooster !== null && boosterPlanIndex !== null && boosterOptions.length > 0 && (
                   <div ref={boosterSectionRef} className="col-span-1 sm:col-span-2 lg:col-span-2 bg-white border border-[#ffb99d] rounded-lg p-4 sm:p-5 shadow-[0_18px_50px_rgba(255,76,0,0.12)]">

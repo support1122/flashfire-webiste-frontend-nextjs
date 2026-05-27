@@ -1,31 +1,33 @@
 "use client";
 
+import { FaShieldAlt } from "react-icons/fa";
 import Link from "next/link";
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-white px-4 py-6 sm:px-6 lg:px-8">
-      <article className="relative mx-auto max-w-7xl overflow-hidden rounded-lg bg-white px-6 py-10 shadow-[-26px_0_46px_rgba(249,115,22,0.18),0_10px_36px_rgba(15,23,42,0.05)] sm:px-10 lg:px-14">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[length:520px_auto] bg-center bg-no-repeat opacity-[0.075] bg-[url('/images/character-shape.png')]"
-          aria-hidden="true"
-        />
-        <div className="relative z-10">
-          <Link
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        {/* Content */}
+        <div className="bg-white rounded-lg shadow-sm p-8">
+        <Link
             href="/"
-            className="mb-8 inline-flex text-base font-semibold text-slate-700 transition-colors duration-200 hover:text-black"
+            className="flex  space-x-2 text-orange-600 hover:text-orange-700 mb-4 transition-colors duration-200"
           >
-            <span>&larr; Back to Home</span>
+            <span>← Back to Home</span>
           </Link>
-          <header className="mb-10">
-            <h1 className="text-4xl font-black leading-tight text-black sm:text-5xl">
-              Privacy Policy
-            </h1>
-            <p className="mt-8 text-xl font-medium text-slate-600">
-              Last updated: July 2025
-            </p>
-          </header>
-          <div className="max-w-6xl text-[17px] leading-8 text-black sm:text-[18px] sm:leading-9">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="p-2 bg-blue-100 rounded-lg">
+              <FaShieldAlt className="w-6 h-6 text-blue-600" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Privacy Policy
+              </h1>
+              <p className="text-gray-600">Last updated: July 2025</p>
+            </div>
+          </div>
+          <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 mb-8">
               At Flashfire, we are committed to protecting your privacy and
               ensuring the security of your personal information. This Privacy
@@ -187,7 +189,7 @@ export default function PrivacyPolicy() {
             </div>
           </div>
         </div>
-      </article>
-    </main>
+      </div>
+    </div>
   );
 }

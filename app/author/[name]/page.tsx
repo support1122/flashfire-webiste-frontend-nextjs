@@ -14,9 +14,9 @@ type Props = {
 // Generate static params for all authors
 export async function generateStaticParams() {
   const authors = new Map<string, { name: string; bio: string }>();
-  
+
   blogPosts.forEach((post) => {
-    if (post.author?.name) {
+    if (post && post.author?.name) {
       if (!authors.has(post.author.name)) {
         authors.set(post.author.name, {
           name: post.author.name,
@@ -35,12 +35,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { name } = await params;
   const decodedName = name.replace(/-/g, " ");
-  
+
   // Find author by matching name (case-insensitive)
   const authorPosts = blogPosts.filter(
-    (post) => post.author?.name?.toLowerCase() === decodedName.toLowerCase()
+    (post): post is NonNullable<typeof post> => !!post && post.author?.name?.toLowerCase() === decodedName.toLowerCase()
   );
-  
+
   if (authorPosts.length === 0) {
     return {
       title: "Author Not Found | Flashfire",
@@ -51,7 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const author = authorPosts[0].author!;
+  const firstPost = authorPosts[0];
+  const author = firstPost!.author!;
   const authorName = author.name;
 
   return {
@@ -76,17 +77,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function AuthorPage({ params }: Props) {
   const { name } = await params;
   const decodedName = name.replace(/-/g, " ");
-  
+
   // Find all posts by this author (case-insensitive match)
   const authorPosts = blogPosts.filter(
-    (post) => post.author?.name?.toLowerCase() === decodedName.toLowerCase()
+    (post): post is NonNullable<typeof post> => !!post && post.author?.name?.toLowerCase() === decodedName.toLowerCase()
   );
-  
+
   if (authorPosts.length === 0) {
     return notFound();
   }
 
-  const author = authorPosts[0].author!;
+  const firstPost = authorPosts[0];
+  const author = firstPost!.author!;
 
   return (
     <>
@@ -96,4 +98,3 @@ export default async function AuthorPage({ params }: Props) {
     </>
   );
 }
-

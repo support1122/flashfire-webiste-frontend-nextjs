@@ -93,6 +93,45 @@
   overflow-x: hidden;
 }
 
+.loopCarousel {
+  scroll-snap-type: none;
+}
+
+.offerCarouselMarquee {
+  align-self: center;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.offerMarqueeTrack {
+  animation: offerMarqueeScroll 75s linear infinite;
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  will-change: transform;
+}
+
+.offerCarouselMarquee:hover .offerMarqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes offerMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offerMarqueeTrack {
+    animation: none;
+  }
+}
+
 .autoOfferSection {
   background: #ff5a18;
 }

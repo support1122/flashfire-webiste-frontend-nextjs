@@ -19,7 +19,7 @@ type Props = {
 export async function generateStaticParams() {
   const allTags = new Set<string>();
   blogPosts.forEach((post) => {
-    if (post.tags && post.tags.length > 0) {
+    if (post && post.tags && post.tags.length > 0) {
       post.tags.forEach((tag) => {
         if (tag) allTags.add(tag);
       });
