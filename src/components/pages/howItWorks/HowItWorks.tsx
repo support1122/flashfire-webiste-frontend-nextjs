@@ -2,7 +2,6 @@
 
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
-import SalesPopUp from "@/src/components/SalesPopUp";
 import styles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
 import { useState } from "react";
 import { GTagUTM } from "@/src/utils/GTagUTM";
@@ -470,7 +469,6 @@ export default function HowItWorks() {
       </main>
 
       <Footer />
-      <SalesPopUp />
     </div>
   );
 }
