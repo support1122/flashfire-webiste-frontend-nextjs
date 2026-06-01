@@ -29,7 +29,7 @@ export default function TermsOfService() {
               <h1 className="text-3xl font-bold text-gray-900">
                 Terms and Conditions
               </h1>
-              <p className="text-gray-600">Last updated: July 2025</p>
+              <p className="text-gray-600">Last updated: June 2026</p>
             </div>
           </div>
           <div className="prose prose-lg max-w-none">
@@ -128,7 +128,55 @@ export default function TermsOfService() {
             </div>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              6. Service Limitations
+              6. Application Validity & Expiry Policy
+            </h2>
+            <p className="text-gray-700 mb-4">
+              All purchased application credits are valid for a period of{" "}
+              <strong>6 months</strong> from the date of purchase. Applications
+              not utilized within this window will expire and are not eligible
+              for a refund, extension, or transfer.
+            </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-4">
+              <h3 className="font-semibold text-gray-900 mb-2">
+                6-Month Validity Window:
+              </h3>
+              <p className="text-gray-700">
+                Your remaining application credits must be availed within 6
+                months of your purchase date. After this period, any unused
+                applications will automatically expire regardless of the plan
+                tier purchased.
+              </p>
+            </div>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
+              <li>
+                The 6-month clock starts on the date your payment is confirmed
+                and your plan is activated.
+              </li>
+              <li>
+                Pausing, delaying, or not initiating the onboarding process does
+                not pause or reset the validity period.
+              </li>
+              <li>
+                Booster add-ons and upgrade credits follow the same 6-month
+                validity window as your base plan.
+              </li>
+              <li>
+                Flashfire is not responsible for unused applications resulting
+                from user inactivity, delays in profile submission, or failure
+                to complete onboarding within the validity period.
+              </li>
+            </ul>
+            <p className="text-gray-700 mb-6">
+              We strongly recommend completing your onboarding and beginning
+              your application campaign promptly after purchase to make the most
+              of your plan. If you have concerns about your validity window,
+              please contact us at{" "}
+              <strong>support@flashfirejobs.com</strong> before your credits
+              expire.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              7. Service Limitations
             </h2>
             <p className="text-gray-700 mb-6">
               Flashfire does not guarantee job offers, interview calls, hiring
@@ -146,7 +194,7 @@ export default function TermsOfService() {
             </div>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              7. User Responsibilities
+              8. User Responsibilities
             </h2>
             <p className="text-gray-700 mb-4">
               By using Flashfire, you agree to:
@@ -165,7 +213,7 @@ export default function TermsOfService() {
             </ul>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              8. Intellectual Property
+              9. Intellectual Property
             </h2>
             <p className="text-gray-700 mb-6">
               All Flashfire branding, content, graphics, designs, and platform
@@ -175,7 +223,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              9. Termination
+              10. Termination
             </h2>
             <p className="text-gray-700 mb-6">
               We reserve the right to suspend, restrict, or terminate your
@@ -185,7 +233,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              10. Limitation of Liability
+              11. Limitation of Liability
             </h2>
             <p className="text-gray-700 mb-6">
               To the maximum extent permitted by law, Flashfire and its
@@ -196,7 +244,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              11. Privacy Policy
+              12. Privacy Policy
             </h2>
             <p className="text-gray-700 mb-4">
               Flashfire respects your privacy. By using the Service, you agree
