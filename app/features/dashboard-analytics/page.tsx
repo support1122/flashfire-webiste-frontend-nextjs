@@ -1,53 +1,152 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import {
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
+import { FaPlus, FaTimes } from "react-icons/fa";
 import Navbar from "@/src/components/navbar/navbar";
 import Footer from "@/src/components/footer/footer";
-import { BarChart, TrendingUp, PieChart, Activity, Target, Award } from "lucide-react";
-import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
-import { GTagUTM } from "@/src/utils/GTagUTM";
-import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import { FaPlus, FaTimes } from "react-icons/fa";
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css";
+import { GTagUTM } from "@/src/utils/GTagUTM";
+import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
+import { useGeoBypass } from "@/src/utils/useGeoBypass";
 
 export default function DashboardAnalyticsPage() {
   const router = useRouter();
   const pathname = usePathname();
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+  const [activeDesignedForIndex, setActiveDesignedForIndex] = useState<number | null>(null);
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
-      // Bypass will be handled by the event listener
+      // Bypass will be handled by the event listener.
     },
   });
+
+  const dashboardAnalyticsFAQs = [
+    {
+      question: "What is job search analytics?",
+      answer:
+        "Job search analytics helps you analyze job application data such as response rates, interview conversions, and company performance. FlashFire's job search analytics dashboard turns this data into actionable insights.",
+    },
+    {
+      question: "How does job application tracking improve interview rates?",
+      answer:
+        "Job application tracking helps you see which roles and companies respond best. FlashFire combines job application tracking with analytics to help you focus on what works and improve interview rates.",
+    },
+    {
+      question: "Is a job search dashboard better than using spreadsheets?",
+      answer:
+        "Yes. A job search dashboard automatically tracks applications, analyzes performance, and surfaces insights that spreadsheets can't provide.",
+    },
+  ];
+
+  const benefits = [
+    {
+      title: "Application Performance",
+      desc:
+        "Monitor job application tracking metrics, including how many applications you submit and how many receive responses.",
+    },
+    {
+      title: "Interview Conversion",
+      desc:
+        "Understand interview conversion rates using job search analytics to see which job applications lead to interviews and offers.",
+    },
+    {
+      title: "Company & Role Insights",
+      desc: "See which roles, companies, and industries respond best to you.",
+    },
+  ];
+
+  const steps = [
+    {
+      number: "01",
+      title: "Track Job Applications",
+      desc:
+        "Track job applications, responses, and interview activity using a centralized job search dashboard.",
+    },
+    {
+      number: "02",
+      title: "ATS-Friendly Formatting",
+      desc: "Identify patterns across interviews, rejections, and company types.",
+    },
+    {
+      number: "03",
+      title: "Optimize",
+      desc: "Refine targeting, resume versions, and role selection using insights.",
+    },
+    {
+      number: "04",
+      title: "Improve",
+      desc: "Increase interview rate and reduce rejections with each iteration.",
+    },
+  ];
+
+  const audience = [
+    "High-volume job applicants",
+    "International candidates tracking visa-friendly companies",
+    "Professionals optimizing job search strategy",
+    "Data-driven job seekers",
+  ];
+
+  const analyticsUsers = [
+    {
+      title: "High-Volume Applicants",
+      desc: "Understand what's working when applying at scale.",
+    },
+    {
+      title: "International Candidates",
+      desc: "Track visa-friendly companies and interview trends.",
+    },
+    {
+      title: "Career Optimizers",
+      desc: "Continuously improve strategy using real data.",
+    },
+  ];
+
+  const designedFor = [
+    {
+      number: "01",
+      title: "High-Volume Applicants",
+      desc: "See which application sources, companies, and role types produce the strongest response rates.",
+    },
+    {
+      number: "02",
+      title: "International Candidates",
+      desc: "Track visa-friendly companies, regions, and interview success patterns in one place.",
+    },
+    {
+      number: "03",
+      title: "Optimization-Focused Professionals",
+      desc: "Use analytics to refine targeting, resume versions, and follow-up strategy.",
+    },
+    {
+      number: "04",
+      title: "Data-Driven Job Seekers",
+      desc: "Replace guessing with clear signals about what converts and what does not.",
+    },
+  ];
 
   const handleFaqToggle = (index: number) => {
     setActiveFaqIndex(activeFaqIndex === index ? null : index);
   };
 
-  const dashboardAnalyticsFAQs = [
-    {
-      question: "What is job search analytics?",
-      answer: "Job search analytics helps you analyze job application data such as response rates, interview conversions, and company performance. FlashFire's job search analytics dashboard turns this data into actionable insights."
-    },
-    {
-      question: "How does job application tracking improve interview rates?",
-      answer: "Job application tracking helps you see which roles and companies respond best. FlashFire combines job application tracking with analytics to help you focus on what works and improve interview rates."
-    },
-    {
-      question: "Is a job search dashboard better than using spreadsheets?",
-      answer: "Yes. A job search dashboard automatically tracks applications, analyzes performance, and surfaces insights that spreadsheets can't provide."
-    }
-  ];
+  const handleDesignedForToggle = (index: number) => {
+    setActiveDesignedForIndex(activeDesignedForIndex === index ? null : index);
+  };
 
   const handleGetMeInterview = () => {
     try {
-      const utmSource = typeof window !== "undefined" && window.localStorage
-        ? localStorage.getItem("utm_source") || "WEBSITE"
-        : "WEBSITE";
-      const utmMedium = typeof window !== "undefined" && window.localStorage
-        ? localStorage.getItem("utm_medium") || "Dashboard_Analytics_Page"
-        : "Dashboard_Analytics_Page";
+      const utmSource =
+        typeof window !== "undefined" && window.localStorage
+          ? localStorage.getItem("utm_source") || "WEBSITE"
+          : "WEBSITE";
+      const utmMedium =
+        typeof window !== "undefined" && window.localStorage
+          ? localStorage.getItem("utm_medium") || "Dashboard_Analytics_Page"
+          : "Dashboard_Analytics_Page";
 
       try {
         GTagUTM({
@@ -56,483 +155,337 @@ export default function DashboardAnalyticsPage() {
           utmParams: {
             utm_source: utmSource,
             utm_medium: utmMedium,
-            utm_campaign: typeof window !== "undefined" && window.localStorage
-              ? localStorage.getItem("utm_campaign") || "Website"
-              : "Website",
+            utm_campaign:
+              typeof window !== "undefined" && window.localStorage
+                ? localStorage.getItem("utm_campaign") || "Website"
+                : "Website",
           },
         });
       } catch (gtagError) {
-        console.warn('GTagUTM error:', gtagError);
+        console.warn("GTagUTM error:", gtagError);
       }
 
       try {
         trackButtonClick("Get Me Interview", "dashboard_analytics_cta", "cta", {
           button_location: "dashboard_analytics_hero_section",
-          section: "dashboard_analytics_hero"
+          section: "dashboard_analytics_hero",
         });
         trackSignupIntent("dashboard_analytics_cta", {
           signup_source: "dashboard_analytics_hero_button",
-          funnel_stage: "signup_intent"
+          funnel_stage: "signup_intent",
         });
       } catch (trackError) {
-        console.warn('Tracking error:', trackError);
+        console.warn("Tracking error:", trackError);
       }
 
-      // Check current path first
-      const currentPath = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-      const normalizedPath = currentPath.split('?')[0];
-      const isAlreadyOnGetMeInterview = normalizedPath === '/get-me-interview' ||
-        normalizedPath === '/en-ca/get-me-interview';
-      const isOnDashboardAnalyticsPage = normalizedPath === '/features/dashboard-analytics' ||
-        normalizedPath === '/en-ca/features/dashboard-analytics';
+      const currentPath =
+        pathname || (typeof window !== "undefined" ? window.location.pathname : "");
+      const normalizedPath = currentPath.split("?")[0];
+      const isAlreadyOnGetMeInterview =
+        normalizedPath === "/get-me-interview" ||
+        normalizedPath === "/en-ca/get-me-interview";
+      const isOnDashboardAnalyticsPage =
+        normalizedPath === "/features/dashboard-analytics" ||
+        normalizedPath === "/en-ca/features/dashboard-analytics";
 
-      // If already on the route, save scroll position and prevent navigation
       if (isAlreadyOnGetMeInterview) {
-        const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-
-        if (typeof window !== 'undefined') {
-          window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
+        const currentScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+        if (typeof window !== "undefined") {
+          window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
         }
-
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-          requestAnimationFrame(() => {
-            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-            setTimeout(() => {
-              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-            }, 50);
-          });
-        });
-
+        requestAnimationFrame(() => window.scrollTo({ top: currentScrollY, behavior: "instant" }));
         return;
       }
 
-      // Dispatch custom event to force show modal FIRST
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('showStrategyCallCard'));
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("showStrategyCallCard"));
       }
 
-      // If on dashboard analytics features page, change URL but keep page content visible
       if (isOnDashboardAnalyticsPage) {
-        const currentScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
-        
-        // Update URL for tracking without navigation
-        if (typeof window !== 'undefined') {
-          const targetPath = normalizedPath.startsWith('/en-ca') ? '/en-ca/get-me-interview' : '/get-me-interview';
-          window.history.pushState({}, '', targetPath);
+        const currentScrollY = typeof window !== "undefined" ? window.scrollY : 0;
+        if (typeof window !== "undefined") {
+          window.history.pushState(
+            {},
+            "",
+            normalizedPath.startsWith("/en-ca") ? "/en-ca/get-me-interview" : "/get-me-interview"
+          );
         }
-        
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-          requestAnimationFrame(() => {
-            window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-            setTimeout(() => {
-              window.scrollTo({ top: currentScrollY, behavior: 'instant' });
-            }, 50);
-          });
-        });
-        
+        requestAnimationFrame(() => window.scrollTo({ top: currentScrollY, behavior: "instant" }));
         return;
       }
 
-      // Save current scroll position before navigation to preserve it
-      if (typeof window !== 'undefined') {
-        const currentScrollY = window.scrollY;
-        sessionStorage.setItem('preserveScrollPosition', currentScrollY.toString());
-        
-        const targetPath = '/get-me-interview';
-        window.history.pushState({}, '', targetPath);
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("preserveScrollPosition", window.scrollY.toString());
+        window.history.pushState({}, "", "/get-me-interview");
       }
 
-      // Only navigate if NOT already on the page
-      const targetPath = '/get-me-interview';
-      router.push(targetPath);
+      router.push("/get-me-interview");
     } catch (error) {
-      console.warn('Error in Get Me Interview handler:', error);
+      console.warn("Error in Get Me Interview handler:", error);
     }
   };
 
   const handleHowItWorks = () => {
-    const section = document.getElementById("how-it-works")
-    if (!section) return
-  
-    const yOffset = -80 // adjust if navbar height changes
-    const y =
-      section.getBoundingClientRect().top +
-      window.pageYOffset +
-      yOffset
-  
-    window.scrollTo({ top: y, behavior: "smooth" })
+    const section = document.getElementById("how-it-works");
+    if (!section) return;
+    const yOffset = -80;
+    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
   return (
     <>
       <Navbar />
-      <div className="bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white min-h-screen overflow-x-hidden">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-b from-[#fff0e6] via-[#fff7f2] to-white py-12 sm:py-20 lg:py-28">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <main className="min-h-screen overflow-x-hidden bg-white text-[#111827]">
+        <section className="relative bg-[#fff3ee] px-4 py-20 sm:py-28">
+          <div className="mx-auto max-w-[1180px] text-center">
+            <span className="mb-7 inline-flex rounded-full bg-[#ff4c00] px-4 py-1.5 text-[9px] font-extrabold uppercase text-white">
+              Dashboard & Analytics
+            </span>
+            <h1 className="mx-auto max-w-[850px] text-[36px] font-extrabold leading-[1.14] tracking-normal text-[#111827] sm:text-[54px] sm:leading-[1.14]">
+                Job Search Analytics Dashboard
+              for Smarter Job Application Tracking
+            </h1>
+            <p className="mx-auto mt-6 max-w-[650px] text-[17px] font-medium leading-8 text-[#596273]">
+              FlashFire&apos;s job search analytics dashboard helps you track job applications,
+              analyze response rates, and monitor interview conversions so you can optimize your
+              job search using real data.
+            </p>
 
-    {/* Eyebrow */}
-    <div className="inline-flex items-center gap-2 mb-6">
-      <span className="h-2 w-2 rounded-full bg-[#ff4c00]" />
-      <span className="text-sm font-semibold tracking-wide text-[#ff4c00]">
-        DASHBOARD & ANALYTICS
-      </span>
-    </div>
-
-    {/* Heading */}
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] text-[#0b1220] mb-6 sm:mb-8">
-      Job Search Analytics Dashboard for <br className="hidden sm:block" />
-      <span className="text-[#ff4c00]">Smarter Job Application Tracking</span>
-    </h1>
-
-    {/* Subheading */}
-    <p className="text-base sm:text-lg md:text-xl text-[#5b6475] max-w-3xl mx-auto leading-relaxed mb-8 sm:mb-12 px-1">
-      FlashFire's job search analytics dashboard helps you track job applications, analyze response rates, and monitor interview conversions so you can optimize your job search using real data.
-    </p>
-
-    {/* CTA */}
-    <div className="flex flex-col sm:flex-row justify-center gap-4">
-      <button
-        {...getButtonProps()}
-        onClick={handleGetMeInterview}
-        className="bg-white border-2 border-black px-6 sm:px-8 py-3 sm:py-4 font-bold text-black text-base sm:text-lg hover:bg-[#f9e8e0] transition-colors rounded-lg inline-flex items-center justify-center gap-2"
-        style={{ boxShadow: '0 4px 0 0 rgba(245, 93, 29, 1)' }}
-      >
-        Get Me Interview →
-      </button>
-      <button
-        onClick={handleHowItWorks}
-        className="border-2 border-[#ff4c00] text-[#ff4c00] bg-transparent hover:bg-[#fff2ea] px-6 sm:px-8 py-3 sm:py-4 font-semibold text-base sm:text-lg transition-colors rounded-lg inline-flex items-center justify-center gap-2"
-      >
-        How Our Job Search Analytics Dashboard Works
-      </button>
-    </div>
-  </div>
-</section>
-<section className="py-12 sm:py-20 lg:py-28 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
-    <div className="text-center mb-10 sm:mb-16 lg:mb-20">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220]">
-        Everything You Need to <span className="text-[#ff4c00]">Track</span>
-      </h2>
-      <p className="mt-4 text-base sm:text-lg text-[#5b6475] max-w-3xl mx-auto px-1">
-        FlashFire combines job application tracking and job search analytics to give you a complete view of your job search performance, from applications to interviews.
-      </p>
-    </div>
-
-    <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-      {[
-        {
-          title: "Application Performance",
-          desc: "Monitor job application tracking metrics, including how many applications you submit and how many receive responses.",
-        },
-        {
-          title: "Interview Conversion",
-          desc: "Understand interview conversion rates using job search analytics to see which job applications lead to interviews and offers.",
-        },
-        {
-          title: "Company & Role Insights",
-          desc: "See which roles, companies, and industries respond best to you.",
-        },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="bg-[#fff7f2] rounded-2xl p-10 border border-[#ffd6c4] hover:shadow-lg transition"
-        >
-          <h3 className="text-xl font-bold mb-4 text-[#0b1220]">
-            {item.title}
-          </h3>
-          <p className="text-[#5b6475] text-sm leading-relaxed">
-            {item.desc}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-<section id="how-it-works" className="py-32 bg-[#fff7f2]">
-  <div className="max-w-7xl mx-auto px-6">
-
-    {/* ===== Header ===== */}
-    <div className="text-center mb-24">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-[#0b1220] mb-6">
-        How Job Search Analytics <span className="text-[#ff4c00]">Improves Your Job Application Results</span>
-      </h2>
-      <p className="text-lg text-[#5b6475] max-w-3xl mx-auto">
-        Turn raw application data into clear insights that help you
-        refine strategy, reduce waste, and land interviews faster.
-      </p>
-    </div>
-
-    {/* ===== Steps ===== */}
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
-      {[
-        {
-          step: "01",
-          title: "Track Job Applications",
-          desc: "Track job applications, responses, and interview activity using a centralized job search dashboard.",
-        },
-        {
-          step: "02",
-          title: "Analyze",
-          desc: "Identify patterns across interviews, rejections, and company types.",
-        },
-        {
-          step: "03",
-          title: "Optimize",
-          desc: "Refine targeting, resume versions, and role selection using insights.",
-        },
-        {
-          step: "04",
-          title: "Improve",
-          desc: "Increase interview rate and reduce rejections with each iteration.",
-        },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="bg-white rounded-2xl p-5 sm:p-6 lg:p-10 border border-[#ffd6c4] text-center hover:shadow-lg transition"
-        >
-          {/* Step Badge */}
-          <div className="w-14 h-14 mx-auto mb-4 sm:mb-6 rounded-full bg-[#fff1ea] flex items-center justify-center text-[#ff4c00] font-extrabold text-lg">
-            {item.step}
-          </div>
-
-          <h3 className="font-bold text-xl mb-3 text-[#0b1220]">
-            {item.title}
-          </h3>
-
-          <p className="text-sm text-[#5b6475] leading-relaxed">
-            {item.desc}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-{/* ================= WHO IS THIS JOB SEARCH ANALYTICS DASHBOARD FOR ================= */}
-<section className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6">
-    <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0b1220] leading-tight">
-        Who Is This Job Search Analytics <br className="hidden sm:block" />
-        <span className="text-[#ff4c00]">Dashboard For?</span>
-      </h2>
-      <p className="mt-4 sm:mt-6 text-base sm:text-lg text-[#5b6475] max-w-2xl mx-auto px-1">
-        FlashFire's job search analytics dashboard is built for job seekers who want deeper visibility into their job application tracking and measurable improvements in interview outcomes.
-      </p>
-    </div>
-
-    <div className="max-w-4xl mx-auto">
-      <p className="text-lg font-semibold text-[#0b1220] mb-6 text-center">
-        Perfect for:
-      </p>
-      <div className="grid sm:grid-cols-2 gap-6">
-        {[
-          "High-volume job applicants",
-          "International candidates tracking visa-friendly companies",
-          "Professionals optimizing job search strategy",
-          "Data-driven job seekers",
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="bg-[#fff7f2] rounded-2xl border border-[#ffd6c4] p-6 shadow-sm hover:shadow-md transition-shadow"
-          >
-            <div className="flex items-start gap-3">
-              <span className="w-6 h-6 rounded-full border-2 border-[#ff4c00] text-[#ff4c00] flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
-                ✓
-              </span>
-              <p className="text-[#0b1220] font-medium leading-relaxed">
-                {item}
-              </p>
+            <div className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
+              <button
+                {...getButtonProps()}
+                onClick={handleGetMeInterview}
+                className="inline-flex h-[50px] w-full max-w-[292px] items-center justify-center gap-2 rounded-md border-2 border-black bg-white px-7 text-[14px] font-extrabold text-black transition hover:bg-[#ffe8dd] sm:w-auto sm:min-w-[180px]"
+                style={{ boxShadow: "0 4px 0 0 #ff4c00" }}
+              >
+                Get Me Interview
+                <ArrowRight size={14} />
+              </button>
+              <button
+                type="button"
+                onClick={handleHowItWorks}
+                className="inline-flex min-h-[50px] w-full max-w-[292px] items-center justify-center rounded-md border-2 border-[#ff4c00] bg-transparent px-4 py-3 text-center text-[14px] font-extrabold leading-6 text-[#ff4c00] transition hover:bg-white sm:h-[50px] sm:max-w-full sm:min-w-[365px] sm:px-7 sm:py-0"
+              >
+                How Our Job Search Analytics Dashboard Works
+              </button>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
-{/* ================= WHO IS THIS FOR ================= */}
-{/* ================= WHO IS THIS FOR (PREMIUM) ================= */}
-<section className="py-36 bg-[#fff7f2] relative overflow-hidden">
+        </section>
 
-  {/* Soft ambient background */}
-  <div className="absolute top-0 right-0 w-[520px] h-[520px] bg-[#ffe3d4] rounded-full blur-3xl opacity-50" />
-  <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[#fff0e6] rounded-full blur-3xl opacity-60" />
+        <section className="bg-white px-4 py-20 sm:py-28">
+          <div className="mx-auto max-w-[1040px]">
+            <div className="mb-16 text-center">
+              <h2 className="text-[34px] font-extrabold leading-[1.1] text-[#111827] sm:text-[46px]">
+                Everything You Need to Track
+              </h2>
+              <p className="mx-auto mt-8 max-w-[720px] text-[19px] font-medium leading-8 text-[#596273]">
+                FlashFire combines job application tracking and job search analytics to give you a
+                complete view of your job search performance, from applications to interviews.
+              </p>
+            </div>
 
-  <div className="relative max-w-7xl mx-auto px-6">
-
-    {/* Outer Frame */}
-    <div className="bg-white border border-[#ffd6c4] rounded-[32px] p-10 md:p-14 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
-
-      <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 sm:gap-12 lg:gap-16 items-start">
-
-        {/* LEFT — CONTENT */}
-        <div>
-          <div className="inline-flex items-center gap-3 mb-6">
-            <span className="w-3 h-3 rounded-full bg-[#ff4c00]" />
-            <span className="text-sm font-semibold tracking-wide text-[#ff4c00]">
-              WHO THIS IS BUILT FOR
-            </span>
+            <div className="grid auto-rows-fr gap-6 md:grid-cols-3">
+              {benefits.map((item) => (
+                <article
+                  key={item.title}
+                  className="h-full min-h-[185px] min-w-0 overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white p-6 shadow-[0_10px_24px_rgba(17,24,39,0.12)] sm:p-7"
+                >
+                  <h3 className="text-[16px] font-extrabold leading-tight text-[#111827]">{item.title}</h3>
+                  <p className="mt-5 text-[14px] font-medium leading-7 text-[#596273]">{item.desc}</p>
+                </article>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-[#0b1220]">
-            Designed for Job Seekers <br className="hidden sm:block" />
-            Who Want{" "}
-            <span className="text-[#ff4c00]">
-              Measurable Progress
-            </span>
-          </h2>
+        <section id="how-it-works" className="bg-white px-4 py-16 sm:py-24">
+          <div className="mx-auto max-w-[1080px]">
+            <div className="mb-12 text-center">
+              <h2 className="text-[31px] font-extrabold leading-[1.12] text-[#111827] sm:text-[40px] sm:leading-tight">
+                How Our Job Search Analytics Dashboard
+                <br className="hidden sm:block" />
+                Improves Job Application Results
+              </h2>
+              <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-medium leading-7 text-[#596273]">
+                Turn raw application data into clear insights that help you refine strategy,
+                reduce waste, and land interviews faster.
+              </p>
+            </div>
 
-          <p className="mt-4 sm:mt-6 lg:mt-8 text-base sm:text-lg text-[#5b6475] leading-relaxed max-w-xl">
-            FlashFire’s job search analytics dashboard is built for candidates
-            who want visibility into their job application tracking and
-            real improvement in interview outcomes.
-          </p>
-
-          <p className="mt-4 text-[#5b6475] leading-relaxed max-w-xl">
-            Instead of guessing, you see clear signals — what converts,
-            what doesn’t, and where to focus next.
-          </p>
-
-          {/* Insight Strip */}
-          <div className="mt-6 sm:mt-10 flex flex-wrap gap-4 sm:gap-6">
-            {[
-              { label: "Applications", value: "Tracked" },
-              { label: "Interview Rate", value: "Visible" },
-              { label: "Decisions", value: "Data-Driven" },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#fff7f2] border border-[#ffd6c4] rounded-xl px-5 py-4"
-              >
-                <div className="text-sm font-semibold text-[#0b1220]">
-                  {item.value}
-                </div>
-                <div className="text-xs text-[#5b6475]">
-                  {item.label}
-                </div>
-              </div>
-            ))}
+            <div className="grid auto-rows-fr gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {steps.map((step) => (
+                <article
+                  key={step.title}
+                  className="h-full min-h-[170px] min-w-0 overflow-hidden border border-black bg-[#ff4c00] p-4 text-white shadow-[4px_4px_0_0_rgba(0,0,0,0.75)] sm:p-5"
+                >
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white text-[12px] font-extrabold text-[#ff4c00]">
+                    {step.number}
+                  </span>
+                  <h3 className="mt-5 text-[15px] font-extrabold leading-tight">{step.title}</h3>
+                  <p className="mt-4 text-[13px] font-medium leading-6 text-white/90">{step.desc}</p>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* RIGHT — PERSONA STACK */}
-        <div className="relative">
+        <section className="bg-white px-4 py-20 sm:py-28">
+          <div className="mx-auto max-w-[820px]">
+            <div className="mb-8 text-center sm:mb-9">
+              <h2 className="text-[30px] font-extrabold leading-[1.08] text-[#111827] sm:text-[36px]">
+                Who Is This Job Search Analytics
+                <br className="hidden sm:block" />
+                Dashboard For
+              </h2>
+              <p className="mx-auto mt-5 max-w-[430px] text-[11px] font-medium leading-5 text-[#7a8290]">
+                FlashFire&apos;s job search analytics dashboard is built for job seekers who want
+                deeper visibility into their job application tracking and measurable improvements
+                in interview outcomes.
+              </p>
+            </div>
 
-          {/* Accent rail */}
-          <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full bg-gradient-to-b from-[#ff4c00] via-[#ff9b66] to-transparent" />
-
-          <div className="space-y-7 pl-10">
-
-            {[
-              {
-                title: "High-Volume Applicants",
-                desc: "Candidates applying to many roles who need clarity on what actually converts into interviews.",
-              },
-              {
-                title: "International Candidates",
-                desc: "Track visa-friendly companies, regions, and interview success patterns in one place.",
-              },
-              {
-                title: "Optimization-Focused Professionals",
-                desc: "People continuously refining resumes, roles, and targeting using real performance data.",
-              },
-              {
-                title: "Data-Driven Job Seekers",
-                desc: "Anyone serious about improving interview outcomes with measurable insights.",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group bg-[#fff7f2] border border-[#ffd6c4] rounded-2xl p-6 hover:bg-white hover:shadow-lg transition"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff4c00]" />
-                  <h3 className="text-lg font-extrabold text-[#0b1220]">
-                    {item.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-[#5b6475] leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-
+            <div className="grid auto-rows-fr gap-2 sm:grid-cols-2">
+              {audience.map((item) => (
+                <article
+                  key={item}
+                  className="flex h-[146px] min-w-0 flex-col overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white px-6 py-6 shadow-[0_8px_18px_rgba(17,24,39,0.12)] sm:h-[146px] sm:px-7"
+                >
+                  <span className="mb-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff4c00] text-white">
+                    <CheckCircle size={19} strokeWidth={3} />
+                  </span>
+                  <p className="text-[15px] font-extrabold leading-6 text-[#ff4c00]">{item}</p>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
 
-      </div>
-    </div>
-  </div>
-</section>
+        <section className="bg-white px-4 py-16 sm:py-24">
+          <div className="mx-auto max-w-[880px]">
+            <h2 className="mb-12 text-center text-[30px] font-extrabold leading-tight text-[#111827] sm:text-[32px]">
+              Who Benefits Most From Analytics?
+            </h2>
+            <div className="grid border border-[#111827] bg-white shadow-[4px_4px_0_#111827] md:grid-cols-3">
+              {analyticsUsers.map((item, index) => (
+                <article
+                  key={item.title}
+                  className={`min-h-[105px] p-4 ${index !== analyticsUsers.length - 1 ? "border-b border-[#111827] md:border-b-0 md:border-r" : ""}`}
+                >
+                  <h3 className="text-[14px] font-extrabold leading-tight text-[#111827]">{item.title}</h3>
+                  <p className="mt-3 text-[13px] font-medium leading-6 text-[#596273]">{item.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
+        <section className="bg-[#fff3ee] px-4 py-16 sm:py-24">
+          <div className="mx-auto grid max-w-[1120px] gap-12 lg:grid-cols-[420px_1fr] lg:items-start">
+            <div>
+              <h2 className="max-w-[390px] text-[32px] font-extrabold leading-[1.35] tracking-normal text-[#111827] sm:text-[36px]">
+                Designed for Job Seekers Who Want Measurable Progress?
+              </h2>
+              <p className="mt-7 max-w-[390px] text-[13px] font-medium leading-6 text-[#7a8290]">
+                FlashFire&apos;s job search analytics dashboard is built for candidates who want
+                visibility into their job application tracking and real improvement in interview
+                outcomes.
+              </p>
+              <p className="mt-6 max-w-[390px] text-[13px] font-medium leading-6 text-[#7a8290]">
+                Instead of guessing, you see clear signals - what converts, what doesn&apos;t, and
+                where to focus next.
+              </p>
+            </div>
 
+            <div className="space-y-3">
+              {designedFor.map((item, index) => {
+                const isOpen = activeDesignedForIndex === index;
 
-<section className="py-24 bg-white">
-  <div className="max-w-7xl mx-auto px-6">
+                return (
+                  <article
+                    key={item.number}
+                    className="overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white"
+                  >
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      onClick={() => handleDesignedForToggle(index)}
+                      className={`flex min-h-[48px] w-full items-center justify-between gap-4 px-3 text-left sm:px-4 ${
+                        isOpen ? "bg-[#ff4c00] text-white" : "text-[#111827]"
+                      }`}
+                    >
+                      <span className="flex min-w-0 items-center gap-3">
+                        <span
+                          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-[4px] text-[20px] font-extrabold ${
+                            isOpen ? "bg-white/25 text-white" : "bg-[#ffe5dc] text-[#ff4c00]"
+                          }`}
+                        >
+                          {item.number}
+                        </span>
+                        <span className="text-[13px] font-extrabold leading-tight sm:text-[14px]">
+                          {item.title}
+                        </span>
+                      </span>
+                      <span
+                        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[20px] leading-none ${
+                          isOpen ? "bg-white text-[#ff4c00]" : "bg-[#ffe5dc] text-[#ff4c00]"
+                        }`}
+                      >
+                        {isOpen ? "-" : "+"}
+                      </span>
+                    </button>
+                    {isOpen && (
+                      <p className="px-4 py-5 text-[12px] font-medium leading-6 text-[#7a8290]">
+                        {item.desc}
+                      </p>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-    <div className="text-center mb-20">
-      <h2 className="text-4xl md:text-5xl font-extrabold">
-        Who Benefits Most From <span className="text-[#ff4c00]">Analytics?</span>
-      </h2>
-    </div>
+        <section className="bg-white px-4 py-16 sm:py-24">
+          <div className="mx-auto max-w-[760px] text-center">
+            <h2 className="text-[31px] font-extrabold leading-[1.15] text-black sm:text-[42px]">
+              Ready to Use Job Search Analytics That
+              <br className="hidden sm:block" />
+              <span className="text-[#ff4c00]">Get Results?</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-[620px] text-[15px] font-medium leading-7 text-[#596273]">
+              Join job seekers who use FlashFire to track applications, understand patterns,
+              and increase their interview chances.
+            </p>
+            <button
+              {...getButtonProps()}
+              onClick={handleGetMeInterview}
+              className="mt-9 inline-flex h-[44px] min-w-[190px] items-center justify-center rounded-md bg-[#ff4c00] px-7 text-[13px] font-extrabold text-white transition hover:bg-[#e94400]"
+            >
+              Get Me Interview
+              <ArrowRight className="ml-1 inline" size={14} />
+            </button>
+          </div>
+        </section>
 
-    <div className="grid md:grid-cols-3 gap-8">
-      {[
-        {
-          title: "High-Volume Applicants",
-          desc: "Understand what’s working when applying at scale.",
-        },
-        {
-          title: "International Candidates",
-          desc: "Track visa-friendly companies and interview trends.",
-        },
-        {
-          title: "Career Optimizers",
-          desc: "Continuously improve strategy using real data.",
-        },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="bg-[#fff7f2] rounded-2xl p-5 sm:p-6 lg:p-10 border border-[#ffd6c4] hover:shadow-lg transition"
-        >
-          <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-[#0b1220]">
-            {item.title}
-          </h3>
-          <p className="text-[#5b6475] text-sm leading-relaxed">
-            {item.desc}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-        {/* ================= FAQ ================= */}
         <section id="faq" className={faqStyles.faqSection}>
           <div id="faq-header" className={faqStyles.header}>
             <h2>Question? We Got You Answers.</h2>
             <p>
-              We get it, job search analytics can sound complex. Here's everything
-              explained, plain and simple.
+              We get it, job search analytics can sound complex. Here&apos;s everything explained,
+              plain and simple.
             </p>
           </div>
 
           <div className={faqStyles.faqContainer}>
             {dashboardAnalyticsFAQs.map((faq, index) => (
               <div
-                key={index}
+                key={faq.question}
                 className={`${faqStyles.faqItem} ${
                   activeFaqIndex === index ? faqStyles.active : ""
                 }`}
               >
-                <button
-                  className={faqStyles.faqQuestion}
-                  onClick={() => handleFaqToggle(index)}
-                >
+                <button className={faqStyles.faqQuestion} onClick={() => handleFaqToggle(index)}>
                   <span>{faq.question}</span>
                   <span className={faqStyles.icon}>
                     {activeFaqIndex === index ? <FaTimes /> : <FaPlus />}
@@ -548,11 +501,8 @@ export default function DashboardAnalyticsPage() {
             ))}
           </div>
         </section>
-
-      </div>
-    
+      </main>
       <Footer />
     </>
   );
 }
-
