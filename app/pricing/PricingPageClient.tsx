@@ -43,7 +43,7 @@ export default function PricingPageClient() {
       <Navbar />
       <HomePagePricingPlans />
       <HomePageOfferLetters
-        heading="50+ Offer letters received"
+        heading="60+ Offer letters received"
         enableLoopControls
         buttonOnlyScroll
       />

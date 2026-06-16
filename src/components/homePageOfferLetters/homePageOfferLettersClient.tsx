@@ -24,6 +24,20 @@ interface HomePageOfferLettersClientProps {
 
 const offerLetters: OfferLetterData[] = [
   {
+    name: "Sage",
+    company: "Sleek Technologies",
+    linkedinUrl: "#",
+    imagePath: "/images/sage offer.png",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/sage.png",
+  },{
+    name: "Naman",
+    company: "Amplitude",
+    linkedinUrl: "#",
+    imagePath: "/images/naman offer.png",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/naman.png",
+  },{
     name: "Kanchan",
     company: "MiRus",
     linkedinUrl: "https://www.linkedin.com/in/dr-kanchan-yadav-ba0b18106/",
@@ -139,7 +153,7 @@ const jumpCarouselWithoutAnimation = (
 
 
 export default function HomePageOfferLettersClient({
-  heading = "50+ Offer letters received",
+  heading = "60+ Offer letters received",
   variant = "split",
   autoScroll = false,
   enableLoopControls = false,
