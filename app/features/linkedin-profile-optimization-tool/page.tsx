@@ -130,16 +130,34 @@ export default function LinkedInOptimizationPage() {
     ]
   }
 
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Flashfire LinkedIn Profile Optimization Tool",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://www.flashfirejobs.com/features/linkedin-profile-optimization-tool",
+    description: "LinkedIn profile optimization tool that helps recruiters find you faster. Optimize headlines, keywords, and summaries to boost profile visibility.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "452" },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flashfirejobs.com" },
+      { "@type": "ListItem", position: 2, name: "Features", item: "https://www.flashfirejobs.com/feature" },
+      { "@type": "ListItem", position: 3, name: "LinkedIn Profile Optimization Tool", item: "https://www.flashfirejobs.com/features/linkedin-profile-optimization-tool" },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-white text-[#0b0b0b]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
 
 
@@ -651,7 +669,6 @@ export default function LinkedInOptimizationPage() {
 
       {/* ================= FINAL CTA (same as homepage) ================= */}
       <HomePageDemoCTA />
-
       <Footer />
     </div>
   );

@@ -146,8 +146,43 @@ export default function FlashFireInterview() {
     }
   }, []);
 
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Flashfire AI Interview Practice Tool",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://www.flashfirejobs.com/features/interview-tips",
+    description: "Practice mock interviews with FlashFire's AI interview tool. Get instant feedback, improve answers, and prepare confidently for real interviews.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", ratingCount: "74" },
+  };
+
+  const faqSchemaInterview = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: interviewFAQs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flashfirejobs.com" },
+      { "@type": "ListItem", position: 2, name: "Features", item: "https://www.flashfirejobs.com/feature" },
+      { "@type": "ListItem", position: 3, name: "AI Interview Practice", item: "https://www.flashfirejobs.com/features/interview-tips" },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaInterview) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main className="min-h-screen overflow-x-hidden bg-white text-[#111827]">
         <section className="relative bg-[#fff3ee] px-4 py-20 sm:py-24">

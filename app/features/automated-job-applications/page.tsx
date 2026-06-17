@@ -330,12 +330,44 @@ export default function JobApplicationAutomationPage() {
     },
   };
 
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Flashfire Automated Job Applications",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://www.flashfirejobs.com/features/automated-job-applications",
+    description: "Automated job applications powered by AI help you apply faster, target the right roles, and get interview calls sooner.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "95" },
+  };
+
+  const faqSchemaAutomation = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: jobAutomationFAQs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flashfirejobs.com" },
+      { "@type": "ListItem", position: 2, name: "Features", item: "https://www.flashfirejobs.com/feature" },
+      { "@type": "ListItem", position: 3, name: "Automated Job Applications", item: "https://www.flashfirejobs.com/features/automated-job-applications" },
+    ],
+  };
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaAutomation) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main className="min-h-screen bg-white font-['Space_Grotesk',sans-serif] text-[#111827]">
         <section className="relative overflow-hidden bg-[#fff1eb] py-16 sm:py-28 lg:py-32">

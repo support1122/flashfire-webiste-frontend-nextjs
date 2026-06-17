@@ -850,7 +850,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
             <a
               href="https://www.flashfirejobs.com"
               target="_blank"
-              
+
               rel="noopener noreferrer"
               className={styles.ctaButton}
             >

@@ -233,8 +233,43 @@ export default function DashboardAnalyticsPage() {
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Flashfire Job Search Analytics Dashboard",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://www.flashfirejobs.com/features/dashboard-analytics",
+    description: "Use FlashFire's job search analytics dashboard to track job applications, response rates, and interview conversions. Optimize your job search with data.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.8", ratingCount: "62" },
+  };
+
+  const faqSchemaDashboard = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: dashboardAnalyticsFAQs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flashfirejobs.com" },
+      { "@type": "ListItem", position: 2, name: "Features", item: "https://www.flashfirejobs.com/feature" },
+      { "@type": "ListItem", position: 3, name: "Dashboard & Analytics", item: "https://www.flashfirejobs.com/features/dashboard-analytics" },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaDashboard) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main className="min-h-screen overflow-x-hidden bg-white text-[#111827]">
         <section className="relative bg-[#fff3ee] px-4 py-20 sm:py-28">
