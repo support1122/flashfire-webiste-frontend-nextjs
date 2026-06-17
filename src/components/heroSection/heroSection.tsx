@@ -4,19 +4,22 @@ import { usePathname } from "next/navigation";
 import { heroSectionData, heroSectionDataCA } from "@/src/data/herosection";
 import HeroSectionClient from "./heroSectionClient";
 
-export default function HeroSection() {
+type Props = {
+  country?: "us" | "ca";
+};
+
+export default function HeroSection({ country }: Props) {
   const pathname = usePathname();
-  const isCanadaContext = pathname?.startsWith("/en-ca") || false;
+  const isCanadaContext =
+    country === "ca" || (country !== "us" && pathname?.startsWith("/en-ca"));
   const data = isCanadaContext ? heroSectionDataCA : heroSectionData;
-  const heroImageSrc = isCanadaContext
-    ? "/images/firefly-canada.png"
-    : "/images/firefly.png";
-  
+  const heroImageSrc = "/images/landingpageImg.png";
+
   return (
     <HeroSectionClient
       data={data}
       heroImageSrc={heroImageSrc}
-      shiftHeroImageLeft={isCanadaContext}
+      shiftHeroImageLeft={false}
     />
   );
 }

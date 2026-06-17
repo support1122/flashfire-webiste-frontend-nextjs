@@ -632,93 +632,120 @@
 /* === Sale Banner === */
 .saleBanner {
   width: 100%;
-  background-color: #f5f5f0;
-  border-top: 2px solid #202020;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 0.25rem 1rem;
+  background-color: #f55d1d;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 36px;
+  min-height: 46px;
 }
 
 .saleBannerContent {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.42rem;
-  flex-wrap: wrap;
   max-width: 1400px;
   width: 100%;
-  color: #202020;
+  gap: 2rem;
+  color: #fff;
   font-family: "Space Grotesk", sans-serif;
   line-height: 1;
 }
 
-.saleText {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #202020;
-  white-space: nowrap;
-}
-
-.asterisk {
-  color: #ff4c00;
-  font-size: 1.65rem;
-  font-weight: 900;
-  line-height: 1;
-  margin-right: 0.15rem;
-  transform: translateY(2px);
-}
-
-.discountText {
-  font-size: 0.95rem;
-  color: #202020;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.countdownText {
-  color: #ff4c00;
-  font-size: 0.95rem;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.saleBannerButton {
-  width: 32px;
-  height: 24px;
-  border: 0;
-  border-radius: 9999px;
-  background: #000000;
-  color: #ffffff;
-  box-shadow: none;
-  cursor: pointer;
+.updateButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 1.1rem;
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.updateButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.countdownWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.flashSaleLabel {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  margin-right: 0.1rem;
+}
+
+.endsInText {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  margin-right: 0.3rem;
+}
+
+.digitTile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 4px;
+  width: 22px;
+  height: 26px;
+  line-height: 1;
+}
+
+.unitLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0.1rem;
+  white-space: nowrap;
+}
+
+.colonSep {
   font-size: 1rem;
-  font-weight: 900;
-  line-height: 0;
-  margin-left: 0.5rem;
-  transform: translateY(-1px);
-  padding: 0 0 1px;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.8;
 }
 
-.saleBannerButton:hover {
-  background: #111111;
-  transform: translateY(-2px);
-  box-shadow: none;
+.getNowLink {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
 }
 
-.saleBannerButton:active {
-  transform: translateY(0);
-  box-shadow: none;
+.getNowLink:hover {
+  opacity: 0.85;
+}
+
+.starIcon {
+  font-size: 1.3rem;
+  color: #fff;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 @media (min-width: 901px) and (max-width: 1280px) {
@@ -898,33 +925,6 @@
   .saleBanner {
     display: none;
   }
-
-  .saleBannerContent {
-    gap: 0.5rem;
-  }
-
-  .saleText {
-    font-size: 0.85rem;
-  }
-
-  .discountText {
-    font-size: 0.85rem;
-  }
-
-  .countdownText {
-    font-size: 0.85rem;
-  }
-
-  .asterisk {
-    font-size: 1.35rem;
-  }
-
-  .saleBannerButton {
-    width: 30px;
-    height: 23px;
-    font-size: 0.95rem;
-    margin-left: 0.35rem;
-  }
 }
 
 @media (max-width: 600px) {
@@ -1000,25 +1000,4 @@
     font-size: 1rem;
   }
 
-  .saleBannerContent {
-    gap: 0.35rem;
-  }
-
-  .saleText,
-  .discountText,
-  .countdownText {
-    font-size: 0.78rem;
-  }
-
-  .discountText {
-    display: none;
-  }
-
-  .saleBannerButton {
-    width: 28px;
-    height: 22px;
-    box-shadow: none;
-    font-size: 0.9rem;
-    margin-left: 0.2rem;
-  }
 }

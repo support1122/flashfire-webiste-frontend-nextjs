@@ -178,21 +178,28 @@ export default function NavbarClient({ links, ctas }: Props) {
         {!isImageTestimonialsPage && !isBlogsPage && (
           <div className={styles.saleBanner}>
             <div className={styles.saleBannerContent}>
-              <span className={styles.asterisk}>*</span>
-              <span className={styles.saleText}>Your special offer ends in</span>
-              <span className={styles.countdownText}>
-                {String(timeLeft.hours).padStart(2, "0")}hr{" "}
-                {String(timeLeft.minutes).padStart(2, "0")}m{" "}
-                {String(timeLeft.seconds).padStart(2, "0")}s
-              </span>
-              <span className={styles.discountText}>Start getting interviews faster</span>
-              <Link
-                href={pricingSectionHref}
-                className={styles.saleBannerButton}
-                aria-label="Go to pricing"
-              >
-                &rarr;
+              <Link href={pricingSectionHref} className={styles.updateButton} aria-label="Update offer">
+                UPDATE
               </Link>
+              <div className={styles.countdownWrapper}>
+                <span className={styles.flashSaleLabel}>FLASHSALE</span>
+                <span className={styles.endsInText}>ends in</span>
+                <span className={styles.digitTile}>{String(timeLeft.hours).padStart(2, "0")[0]}</span>
+                <span className={styles.digitTile}>{String(timeLeft.hours).padStart(2, "0")[1]}</span>
+                <span className={styles.unitLabel}>hr</span>
+                <span className={styles.colonSep}>:</span>
+                <span className={styles.digitTile}>{String(timeLeft.minutes).padStart(2, "0")[0]}</span>
+                <span className={styles.digitTile}>{String(timeLeft.minutes).padStart(2, "0")[1]}</span>
+                <span className={styles.unitLabel}>m</span>
+                <span className={styles.colonSep}>:</span>
+                <span className={styles.digitTile}>{String(timeLeft.seconds).padStart(2, "0")[0]}</span>
+                <span className={styles.digitTile}>{String(timeLeft.seconds).padStart(2, "0")[1]}</span>
+                <span className={styles.unitLabel}>s</span>
+              </div>
+              <Link href={pricingSectionHref} className={styles.getNowLink} aria-label="Get now">
+                GET NOW !!
+              </Link>
+              <span className={styles.starIcon}>✳</span>
             </div>
           </div>
         )}

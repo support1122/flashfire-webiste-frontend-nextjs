@@ -25,7 +25,7 @@ const heroStats = [
     label: "Average Interview calls",
   },
   {
-    value: "50+",
+    value: "60+",
     label: "Users landed jobs",
   },
 ];
@@ -109,21 +109,22 @@ function PlaneTrailScene({
 
 export default function HeroSectionClient({
   data,
-  heroImageSrc = "/images/firefly.png",
+  heroImageSrc = "/images/usa-img.png",
   shiftHeroImageLeft = false,
 }: Props) {
   const mobileHeroFrameClass = shiftHeroImageLeft
-    ? "w-full max-w-[620px]"
-    : "w-[118vw] max-w-[680px]";
-  const mobileHeroHeightClass = shiftHeroImageLeft ? "h-[560px]" : "h-[460px]";
-  const mobileHeroOffsetClass = shiftHeroImageLeft ? "-mt-24" : "-mt-10";
+    ? "w-[105vw] max-w-[460px]"
+    : "w-[105vw] max-w-[460px]";
+  const mobileHeroHeightClass = shiftHeroImageLeft
+    ? "h-[300px] min-[340px]:h-[320px]"
+    : "h-[300px] min-[340px]:h-[320px]";
+  const mobileHeroOffsetClass = shiftHeroImageLeft ? "mt-16" : "mt-16";
   const mobileHeroImageClass = shiftHeroImageLeft
-    ? "origin-bottom scale-135 -translate-x-8"
-    : "scale-125";
-  const desktopHeroBottomClass = shiftHeroImageLeft ? "bottom-14" : "bottom-0";
-  const desktopHeroImagePositionClass = shiftHeroImageLeft
-    ? "right-[0vw] w-[59vw] xl:right-[1vw] xl:w-[63vw]"
-    : "right-[-18vw] w-[72vw] xl:right-[-13vw] xl:w-[76vw]";
+    ? "origin-bottom scale-[1.0]"
+    : "origin-bottom scale-[1.0]";
+  const desktopHeroHeightClass = "top-0 bottom-0";
+  const desktopHeroBottomClass = "";
+  const desktopHeroImagePositionClass = styles.desktopUsHeroImage;
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
@@ -182,30 +183,6 @@ export default function HeroSectionClient({
       {/* Mobile-only hero section */}
       <div className="lg:hidden">
         <div className="relative overflow-hidden bg-[#f7e6df] px-6 pb-0 pt-6 text-left">
-          <Image
-            src="/images/element1.png"
-            alt=""
-            width={83}
-            height={99}
-            priority
-            className="pointer-events-none absolute left-[10%] top-[490px] z-10 h-auto w-[34px] select-none"
-          />
-          <Image
-            src="/images/element3.png"
-            alt=""
-            width={207}
-            height={213}
-            priority
-            className="pointer-events-none absolute right-[29%] top-[548px] z-10 h-auto w-[40px] select-none"
-          />
-          <Image
-            src="/images/element3.png"
-            alt=""
-            width={207}
-            height={213}
-            className="pointer-events-none absolute right-[25%] top-[609px] z-10 h-auto w-[22px] select-none"
-          />
-
           <div className="relative z-20 mx-auto max-w-[430px]">
             <div className="mb-5 inline-flex h-[28px] max-w-full items-center justify-center rounded-full bg-white px-3.5 text-[9px] font-bold uppercase leading-none tracking-[0.08em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
@@ -241,19 +218,44 @@ export default function HeroSectionClient({
             </div>
           </div>
 
-          <div className="pointer-events-none absolute right-[-34px] top-[430px] z-10 aspect-[394/296] w-[190px] origin-center select-none">
-            <PlaneTrailScene priority />
-          </div>
-
-          <div className={`pointer-events-none relative left-1/2 z-10 -translate-x-1/2 ${mobileHeroHeightClass} ${mobileHeroOffsetClass} ${mobileHeroFrameClass}`}>
+          {/* Image + decorative elements — outer wrapper is the positioning context */}
+          <div className="relative mt-6 flex justify-center">
+            {/* Paper plane — above top-right of image */}
             <Image
-              src={heroImageSrc}
-              alt="Students celebrating career success with Flashfire"
-              fill
+              src="/images/element4.png"
+              alt=""
+              width={117}
+              height={90}
               priority
-              sizes="96vw"
-              className={`${mobileHeroImageClass} object-contain object-right-bottom`}
+              className="pointer-events-none absolute right-[-5%] top-[6px] z-0 h-auto w-[160px] select-none"
             />
+            {/* Small spark — left edge, mid-height */}
+            <Image
+              src="/images/element1.png"
+              alt=""
+              width={83}
+              height={99}
+              className="pointer-events-none absolute left-[12%] top-[18%] z-20 h-auto w-[29px] select-none"
+            />
+            {/* Cross — upper-left, inside image area */}
+            <Image
+              src="/images/element3.png"
+              alt=""
+              width={207}
+              height={213}
+              className="pointer-events-none absolute left-[60%] top-[100px] z-20 h-auto w-[25px] select-none"
+            />
+            {/* Hero image — overflow-hidden crops the bottom (feet) */}
+            <div className="relative z-10 h-[300px] min-[340px]:h-[320px] mt-16 w-[82vw] max-w-[360px] overflow-hidden">
+              <Image
+                src={heroImageSrc}
+                alt="Students celebrating career success with Flashfire"
+                fill
+                priority
+                sizes="82vw"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
         </div>
 
@@ -332,7 +334,7 @@ export default function HeroSectionClient({
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute left-[51.6%] top-[140px] z-10 h-auto w-[60px] select-none xl:left-[51.4%] xl:top-[184px]"
+          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[49.8%] xl:top-[80px]"
         />
         <Image
           src="/images/element3.png"
@@ -340,21 +342,21 @@ export default function HeroSectionClient({
           width={207}
           height={213}
           priority
-          className="pointer-events-none absolute bottom-[82px] left-[48.8%] z-10 h-auto w-[46px] select-none xl:bottom-[88px] xl:left-[48.8%]"
+          className="pointer-events-none absolute  z-10 h-auto w-[48px] select-none xl:left-[42.6%] xl:top-[386px]"
         />
         <Image
           src="/images/element3.png"
           alt=""
           width={207}
           height={213}
-          className="pointer-events-none absolute right-[18.2%] top-[432px] z-10 h-auto w-[44px] select-none xl:right-[18.5%] xl:top-[150px]"
+          className="pointer-events-none absolute  z-10 h-auto w-[48px] select-none xl:right-[29.2%] xl:top-[108px]"
         />
         <Image
           src="/images/element3.png"
           alt=""
           width={207}
           height={213}
-          className="pointer-events-none absolute right-[23.5%] top-[230px] z-10 h-auto w-[38px] select-none xl:right-[23.8%] xl:top-[236px]"
+          className="pointer-events-none absolute  z-10 h-auto w-[35px] select-none xl:right-[23.8%] xl:top-[238px]"
         />
 
         <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-4">
@@ -408,7 +410,7 @@ export default function HeroSectionClient({
             </div>
           </div>
 
-          <div className={`${styles.desktopFireflyImage} absolute h-[700px] xl:h-[720px] ${desktopHeroBottomClass} ${desktopHeroImagePositionClass}`}>
+          <div className={`absolute ${desktopHeroHeightClass} ${desktopHeroBottomClass} ${desktopHeroImagePositionClass}`}>
             <Image
               src={heroImageSrc}
               alt="Students celebrating career success with Flashfire"

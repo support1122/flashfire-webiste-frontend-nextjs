@@ -296,13 +296,25 @@
   flex-shrink: 0;
 }
 
-.desktopFireflyImage {
-  transform: translateY(45px);
+.desktopUsHeroImage {
+  right: 3vw;
+  width: 64vw;
+  max-width: 1040px;
+}
+
+@media (min-width: 1280px) {
+  .desktopUsHeroImage {
+    right: 3vw;
+    width: 66vw;
+    max-width: 1120px;
+  }
 }
 
 @media (min-width: 1024px) and (min-resolution: 0.88dppx) and (max-resolution: 0.92dppx) {
-  .desktopFireflyImage {
-    transform: translateY(65px);
+  .desktopUsHeroImage {
+    right: 3vw;
+    width: 65vw;
+    max-width: 1080px;
   }
 }
 
