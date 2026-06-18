@@ -122,7 +122,7 @@ export default function HeroSectionClient({
   const mobileHeroImageClass = shiftHeroImageLeft
     ? "origin-bottom scale-[1.0]"
     : "origin-bottom scale-[1.0]";
-  const desktopHeroHeightClass = "top-0 bottom-0";
+  const desktopHeroHeightClass = "top-16 bottom-0";
   const desktopHeroBottomClass = "";
   const desktopHeroImagePositionClass = styles.desktopUsHeroImage;
   const { getButtonProps } = useGeoBypass({
@@ -334,7 +334,7 @@ export default function HeroSectionClient({
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[49.8%] xl:top-[80px]"
+          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[54.8%] xl:top-[130px]"
         />
         <Image
           src="/images/element3.png"
@@ -349,7 +349,7 @@ export default function HeroSectionClient({
           alt=""
           width={207}
           height={213}
-          className="pointer-events-none absolute  z-10 h-auto w-[48px] select-none xl:right-[29.2%] xl:top-[108px]"
+          className="pointer-events-none absolute  z-10 h-auto w-[48px] select-none xl:right-[25.2%] xl:top-[190px]"
         />
         <Image
           src="/images/element3.png"
