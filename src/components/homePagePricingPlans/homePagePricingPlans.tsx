@@ -341,6 +341,7 @@ export default function HomePagePricingPlans() {
             price={plan.price}
             oldPrice={plan.oldPrice}
             features={plan.features}
+            inheritsFrom={plan.inheritsFrom}
             addOn={plan.addOn}
             highlight={plan.highlight}
             paymentLink={plan.paymentLink}
