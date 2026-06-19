@@ -442,16 +442,30 @@ export default function HomePageHappyUsers({
         id="testimonials"
         className="relative w-full overflow-visible bg-[#ff5a18] font-['Space_Grotesk',sans-serif] scroll-mt-[90px] max-[768px]:scroll-mt-[70px]"
       >
-        <div className="relative mx-auto grid min-h-[780px] w-full grid-cols-[500px_minmax(0,1fr)] overflow-hidden px-[59px] pt-[65px] max-[1024px]:grid-cols-[360px_minmax(0,1fr)] max-[1024px]:px-7 max-[768px]:flex max-[768px]:min-h-0 max-[768px]:flex-col max-[768px]:gap-8 max-[768px]:px-5 max-[768px]:py-10">
-          <div className="relative z-[2] flex flex-col items-start pt-[3px] text-left max-[768px]:pt-0">
-            <h2 className="mb-[360px] max-w-[430px] text-[64px] font-black leading-[1.02] tracking-[-0.02em] text-white max-[1024px]:mb-[280px] max-[1024px]:text-[50px] max-[768px]:mb-8 max-[768px]:max-w-[360px] max-[768px]:text-[40px] max-[480px]:text-[34px]">
+        <div className="relative mx-auto grid min-h-[1200px] w-full grid-cols-[500px_minmax(0,1fr)] overflow-hidden px-[59px] pt-[65px] max-[1024px]:grid-cols-[360px_minmax(0,1fr)] max-[1024px]:px-7 max-[768px]:flex max-[768px]:min-h-0 max-[768px]:flex-col max-[768px]:gap-8 max-[768px]:px-5 max-[768px]:py-10">
+          <div className="relative z-[2] flex flex-col items-start pt-[3px] text-left max-[768px]:pt-0 h-full">
+            <h2 className="max-w-[430px] text-[64px] font-black leading-[1.02] tracking-[-0.02em] text-white max-[1024px]:text-[50px] max-[768px]:mb-8 max-[768px]:max-w-[360px] max-[768px]:text-[40px] max-[480px]:text-[34px]">
               560+ Happy User&rsquo;s Love
             </h2>
 
+            <div className="flex-1 flex items-center max-[768px]:hidden">
+              <button
+                type="button"
+                onClick={handleTryItYourself}
+                className="inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
+              >
+                Book a Demo
+                <span className="text-[34px] font-normal leading-none" aria-hidden="true">
+                  &rarr;
+                </span>
+              </button>
+            </div>
+
+            {/* Mobile: button shown inline */}
             <button
               type="button"
               onClick={handleTryItYourself}
-              className="inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
+              className="hidden max-[768px]:inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
             >
               Book a Demo
               <span className="text-[34px] font-normal leading-none" aria-hidden="true">
@@ -460,7 +474,7 @@ export default function HomePageHappyUsers({
             </button>
           </div>
 
-          <div className={`${styles.pricingReviewViewport} relative h-[650px] min-w-0 overflow-hidden max-[768px]:h-[420px] max-[480px]:h-[360px]`}>
+          <div className={`${styles.pricingReviewViewport} relative h-[1050px] min-w-0 overflow-hidden max-[768px]:h-[750px] max-[480px]:h-[650px]`}>
             <div className={`${styles.pricingReviewTrack} columns-4 gap-[10px] max-[1200px]:columns-3 max-[768px]:columns-3 max-[520px]:columns-2`}>
               {[...pricingReviewImages, ...pricingReviewImages].map((imageSrc, i) => (
                 <div
