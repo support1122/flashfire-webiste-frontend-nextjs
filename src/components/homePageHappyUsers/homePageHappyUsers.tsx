@@ -474,7 +474,7 @@ export default function HomePageHappyUsers({
             </button>
           </div>
 
-          <div className={`${styles.pricingReviewViewport} relative h-[1050px] min-w-0 overflow-hidden max-[768px]:h-[750px] max-[480px]:h-[650px]`}>
+          <div className={`${styles.pricingReviewViewport} relative h-[1050px] min-w-0 overflow-hidden max-[768px]:h-[1050px] max-[480px]:h-[950px]`}>
             <div className={`${styles.pricingReviewTrack} columns-4 gap-[10px] max-[1200px]:columns-3 max-[768px]:columns-3 max-[520px]:columns-2`}>
               {[...pricingReviewImages, ...pricingReviewImages].map((imageSrc, i) => (
                 <div
