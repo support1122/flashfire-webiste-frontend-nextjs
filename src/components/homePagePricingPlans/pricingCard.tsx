@@ -13,6 +13,7 @@ interface PricingPlan {
   price: string;
   oldPrice?: string;
   features: PricingFeature[];
+  inheritsFrom?: string;
   addOn?: boolean;
   highlight?: boolean;
   paymentLink?: string;
@@ -31,6 +32,7 @@ interface PricingCardProps {
   price: string;
   oldPrice?: string;
   features: PricingFeature[];
+  inheritsFrom?: string;
   addOn?: boolean;
   highlight?: boolean;
   paymentLink?: string;
@@ -52,6 +54,7 @@ export default function PricingCard({
   price,
   oldPrice,
   features,
+  inheritsFrom,
   addOn,
   highlight,
   paymentLink,
@@ -214,10 +217,7 @@ export default function PricingCard({
 
         <hr className={`mb-5 border-t ${dividerClass}`} />
 
-        <ul
-          className="list-none p-0 mb-4 sm:mb-5"
-          style={{ minHeight: `${(maxFeatureCount + 1) * 3.4}rem` }}
-        >
+        <ul className="list-none p-0 mb-4 sm:mb-5">
           <li className={`flex items-start gap-3 mb-5 ${cardTextClass}`}>
             <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center">
               <FaBolt className="text-[#ff4c00] text-[16px]" />
@@ -228,6 +228,18 @@ export default function PricingCard({
               </strong>
             </span>
           </li>
+          {inheritsFrom && (
+            <li className={`flex items-start gap-3 mb-5 ${cardTextClass}`}>
+              <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center">
+                <FaBolt className="text-[#ff4c00] text-[16px]" />
+              </span>
+              <span className="min-w-0">
+                <strong className={`block text-[0.95rem] font-extrabold leading-tight ${isDarkCard ? "text-white/60" : "text-[#262626]/50"}`}>
+                  Everything in {inheritsFrom.charAt(0) + inheritsFrom.slice(1).toLowerCase()} +
+                </strong>
+              </span>
+            </li>
+          )}
           {features.map((feature, i) => (
             <li
               key={i}
