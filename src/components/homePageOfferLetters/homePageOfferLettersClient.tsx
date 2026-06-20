@@ -24,6 +24,20 @@ interface HomePageOfferLettersClientProps {
 
 const offerLetters: OfferLetterData[] = [
   {
+    name: "Aryan ",
+    company: " Impact.com",
+    linkedinUrl: "#",
+    imagePath: "/images/aryan-2-offer.png",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.png",
+  },{
+    name: "Param",
+    company: "Marqeta",
+    linkedinUrl: "#",
+    imagePath: "/images/Param-offer.png",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/param.png",
+  },{
     name: "Sage",
     company: "Sleek Technologies",
     linkedinUrl: "#",
