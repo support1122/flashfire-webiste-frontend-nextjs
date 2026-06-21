@@ -145,6 +145,67 @@ export default function ResumeParser() {
             </div>
           )}
         </div>
+
+        {/* How It Works */}
+        <div className="mt-4">
+          <h2 className="text-2xl font-black text-[#0b0b0b] mb-6">How It Works</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              { step: "1", title: "Upload Your PDF", desc: "Click the upload area and select your resume PDF file from your device." },
+              { step: "2", title: "Instant Render", desc: "PDF.js renders your resume pages directly in the browser — no server upload needed." },
+              { step: "3", title: "Preview & Review", desc: "See your exact resume as it appears, page by page, in a clean PDF viewer." },
+            ].map((item) => (
+              <div key={item.step} className="rounded-2xl border border-[#f0ded4] bg-white p-6 shadow-[0_4px_20px_rgba(245,93,29,0.06)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white font-black text-base mb-4">{item.step}</div>
+                <h3 className="text-base font-black text-[#0b0b0b] mb-1">{item.title}</h3>
+                <p className="text-sm text-[#6c5c54]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Features */}
+        <div>
+          <h2 className="text-2xl font-black text-[#0b0b0b] mb-6">Why Use Our Resume Parser?</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: "⚡", title: "Instant Preview", desc: "No waiting — your PDF renders in seconds right in your browser." },
+              { icon: "🔒", title: "100% Private", desc: "Your file never leaves your device. Everything runs locally in the browser." },
+              { icon: "📄", title: "Multi-Page Support", desc: "Whether your resume is 1 page or 3, all pages are rendered perfectly." },
+              { icon: "🎯", title: "Pixel-Perfect Rendering", desc: "See exactly how recruiters and ATS systems see your resume layout." },
+              { icon: "💻", title: "No Login Required", desc: "Completely free, no sign-up, no account needed." },
+              { icon: "📱", title: "Works on Any Device", desc: "Use it on desktop, tablet, or mobile — fully responsive." },
+            ].map((f) => (
+              <div key={f.title} className="flex gap-4 rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_4px_20px_rgba(245,93,29,0.06)]">
+                <span className="text-2xl shrink-0">{f.icon}</span>
+                <div>
+                  <h3 className="text-sm font-black text-[#0b0b0b] mb-1">{f.title}</h3>
+                  <p className="text-sm text-[#6c5c54]">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div className="mb-4">
+          <h2 className="text-2xl font-black text-[#0b0b0b] mb-6">Frequently Asked Questions</h2>
+          <div className="flex flex-col gap-3">
+            {[
+              { q: "Is my resume data stored anywhere?", a: "No. Your PDF is processed entirely in your browser using PDF.js. Nothing is uploaded to any server." },
+              { q: "What file types are supported?", a: "Currently PDF files only. Make sure your resume is saved as a .pdf file before uploading." },
+              { q: "Why isn't my PDF rendering?", a: "Some PDFs with heavy graphics or password protection may not render. Try exporting a clean version from Word or Google Docs." },
+              { q: "Can I use this on mobile?", a: "Yes! The tool works on mobile browsers. Upload your PDF and the preview will display below the upload section." },
+              { q: "Is this tool really free?", a: "Yes, 100% free. No sign-up, no watermark, no hidden fees." },
+            ].map((item) => (
+              <div key={item.q} className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_4px_20px_rgba(245,93,29,0.06)]">
+                <h3 className="text-sm font-black text-[#0b0b0b] mb-1">{item.q}</h3>
+                <p className="text-sm text-[#6c5c54]">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </main>
   );
