@@ -127,6 +127,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Reddit Pixel */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_j7kj6g9uvz00",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_j7kj6g9uvz00');rdt('track','PageVisit');`,
+          }}
+        />
         {/* Google Tag Manager — keep high in <head> per Google */}
         <script
           dangerouslySetInnerHTML={{

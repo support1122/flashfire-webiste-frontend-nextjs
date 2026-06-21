@@ -130,6 +130,9 @@ export default function EmployerForm() {
       // Always show success to user, even for duplicates (handled in backend/Discord)
       if (response.ok && (response.status === 200 || response.status === 201)) {
         console.log("✅ Form submitted successfully");
+        if (typeof window !== "undefined" && (window as any).rdt) {
+          (window as any).rdt('track', 'Lead');
+        }
         setSuccess(true);
         setFormData(INITIAL_FORM_DATA);
         setTimeout(() => router.push("/"), 2000);
@@ -138,6 +141,9 @@ export default function EmployerForm() {
         const errorMessage = result?.message || "Unknown error";
         console.log("ℹ️ Backend response:", errorMessage, "(Discord notification sent)");
         // Still show success to user
+        if (typeof window !== "undefined" && (window as any).rdt) {
+          (window as any).rdt('track', 'Lead');
+        }
         setSuccess(true);
         setFormData(INITIAL_FORM_DATA);
         setTimeout(() => router.push("/"), 2000);

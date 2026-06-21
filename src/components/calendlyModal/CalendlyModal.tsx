@@ -160,6 +160,11 @@ export default function CalendlyModal({
           }
         } catch {}
 
+        // Reddit Pixel - Lead event on meeting booked
+        if (typeof window !== "undefined" && (window as any).rdt) {
+          (window as any).rdt('track', 'Lead');
+        }
+
         // Navigate to meeting-booked page
         router.push("/meeting-booked");
 

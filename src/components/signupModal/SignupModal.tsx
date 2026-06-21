@@ -159,6 +159,11 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
       country_code: formData.countryCode
     });
 
+    // Reddit Pixel - Lead event on signup form submit
+    if (typeof window !== "undefined" && (window as any).rdt) {
+      (window as any).rdt('track', 'Lead');
+    }
+
     // Open Calendly modal IMMEDIATELY (don't wait for backend)
     setIsCalendlyOpen(true);
 

@@ -74,6 +74,9 @@ export default function ContactForm() {
       }
 
       if (response.ok && (response.status === 200 || response.status === 201)) {
+        if (typeof window !== "undefined" && (window as any).rdt) {
+          (window as any).rdt('track', 'Lead');
+        }
         setSuccess(true);
         setFormData({
           fullName: "",
