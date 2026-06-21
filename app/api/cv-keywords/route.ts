@@ -1,40 +1,47 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { resumeText, jobDescription } = await req.json();
-  if (!resumeText?.trim() || !jobDescription?.trim()) {
-    return NextResponse.json({ error: "Resume and job description required" }, { status: 400 });
-  }
+  try {
+    const body = await req.json();
+    const { resumeText, jobDesc, jobDescription } = body;
+    const jd = jobDesc || jobDescription || "";
 
-  const prompt = `You are an expert ATS keyword analyzer. Compare the resume against the job description and identify keyword matches and gaps.
+    if (!resumeText?.trim()) {
+      return NextResponse.json({ error: "Resume text required" }, { status: 400 });
+    }
+
+    if (!process.env.OPENAI_API_KEY) {
+      return NextResponse.json({ error: "OpenAI API key not configured" }, { status: 500 });
+    }
+
+    const prompt = `You are an expert ATS keyword analyzer. Analyze the resume and identify key skills, keywords, and gaps.
 
 Resume:
 """
 ${resumeText.slice(0, 3000)}
 """
-
-Job Description:
-"""
-${jobDescription.slice(0, 2000)}
-"""
+${jd.trim() ? `\nJob Description:\n"""\n${jd.slice(0, 2000)}\n"""` : ""}
 
 Return ONLY valid JSON in this exact format (no markdown, no explanation):
 {
-  "matchRate": <number 0-100>,
-  "matchLevel": "<Strong Match / Good Match / Partial Match / Low Match>",
-  "summary": "<1-2 sentence assessment of how well this resume matches the job>",
-  "matched": ["<keyword1>", "<keyword2>", ...],
-  "missing": ["<keyword1>", "<keyword2>", ...],
-  "suggestions": ["<tip1>", "<tip2>", "<tip3>"]
+  "matchRate": 75,
+  "matchLevel": "Good Match",
+  "summary": "Your resume shows strong alignment with key technical skills.",
+  "matched": ["SQL", "Python", "Excel"],
+  "missing": ["Tableau", "Power BI", "Agile"],
+  "suggestions": ["Add quantified metrics to your bullet points", "Include Tableau in your skills section"]
 }
 
 Rules:
-- matchRate: realistic percentage of important job keywords found in resume
-- matched: 10-20 meaningful keywords/phrases from the job description that ARE in the resume
-- missing: 8-15 important keywords/phrases from the job description that are NOT in the resume, sorted by importance
-- suggestions: 3-5 specific tips on how to improve the resume for this role`;
+- matchRate: number 0-100 (no quotes)
+- matchLevel: one of "Strong Match", "Good Match", "Partial Match", "Low Match"
+- If job description is provided: compare resume keywords against it
+- If no job description: extract strong keywords found in resume as matched, suggest commonly missing keywords for the detected role as missing
+- matched: 10-20 meaningful keywords/skills found in the resume
+- missing: 8-12 important keywords not in the resume
+- suggestions: 3-5 specific actionable tips
+- Return ONLY the JSON object, nothing else`;
 
-  try {
     const res = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -45,15 +52,37 @@ Rules:
         model: "gpt-4o-mini",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.3,
-        max_tokens: 800,
+        max_tokens: 900,
       }),
     });
 
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error("OpenAI error:", res.status, errText);
+      return NextResponse.json({ error: `OpenAI error: ${res.status}` }, { status: 500 });
+    }
+
     const data = await res.json();
-    const content = data.choices?.[0]?.message?.content || "";
-    const parsed = JSON.parse(content);
+    const content = data.choices?.[0]?.message?.content?.trim() || "";
+
+    if (!content) {
+      return NextResponse.json({ error: "Empty response from AI" }, { status: 500 });
+    }
+
+    // Strip markdown code fences if present
+    const clean = content.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
+
+    let parsed;
+    try {
+      parsed = JSON.parse(clean);
+    } catch {
+      console.error("JSON parse failed. Content was:", content);
+      return NextResponse.json({ error: "AI returned invalid JSON" }, { status: 500 });
+    }
+
     return NextResponse.json(parsed);
-  } catch {
-    return NextResponse.json({ error: "AI analysis failed" }, { status: 500 });
+  } catch (err: any) {
+    console.error("cv-keywords route error:", err);
+    return NextResponse.json({ error: err?.message || "Unknown error" }, { status: 500 });
   }
 }
