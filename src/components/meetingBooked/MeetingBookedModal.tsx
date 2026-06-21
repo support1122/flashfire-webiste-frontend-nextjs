@@ -169,7 +169,7 @@ export default function MeetingBookedModal({ onClose }: Props) {
 
             <p className="text-[11px] md:text-sm text-slate-600 flex items-center gap-1 text-center">
               <Users className="w-4 h-4" />
-              Trusted by 560+ Users
+              Trusted by 1000+ Users
             </p>
 
             <Link

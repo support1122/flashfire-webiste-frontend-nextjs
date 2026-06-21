@@ -445,7 +445,7 @@ export default function HomePageHappyUsers({
         <div className="relative mx-auto grid min-h-[1200px] w-full grid-cols-[500px_minmax(0,1fr)] overflow-hidden px-[59px] pt-[65px] max-[1024px]:grid-cols-[360px_minmax(0,1fr)] max-[1024px]:px-7 max-[768px]:flex max-[768px]:min-h-0 max-[768px]:flex-col max-[768px]:gap-8 max-[768px]:px-5 max-[768px]:py-10">
           <div className="relative z-[2] flex flex-col items-start pt-[3px] text-left max-[768px]:pt-0 h-full">
             <h2 className="max-w-[430px] text-[64px] font-black leading-[1.02] tracking-[-0.02em] text-white max-[1024px]:text-[50px] max-[768px]:mb-8 max-[768px]:max-w-[360px] max-[768px]:text-[40px] max-[480px]:text-[34px]">
-              560+ Happy User&rsquo;s Love
+              1000+ Happy User&rsquo;s Love
             </h2>
 
             <div className="flex-1 flex items-center max-[768px]:hidden">
@@ -533,7 +533,7 @@ export default function HomePageHappyUsers({
             letterSpacing: "-2.29px",
           }}
         >
-          560+ Happy User{'\''}s Love
+          1000+ Happy User{'\''}s Love
         </h2>
         <p
           className="mb-12 max-[600px]:text-[1.125rem]"

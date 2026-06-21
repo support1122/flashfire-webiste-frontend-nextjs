@@ -526,7 +526,7 @@ function Features() {
             <div className="relative flex flex-[1.3] items-center overflow-hidden bg-black p-8 max-[1024px]:mt-6 max-[1024px]:w-full max-[1024px]:text-center max-[768px]:flex-col max-[768px]:items-center max-[768px]:p-6">
               <div className="relative z-10 flex w-[65%] flex-col items-start justify-start text-left max-[1024px]:w-full max-[1024px]:items-center max-[1024px]:text-center">
                 <p className="mb-3 text-[0.75rem] font-semibold text-[#fffaf8]">
-                  HELPING 560+ JOB SEEKERS
+                  HELPING 1000+ JOB SEEKERS
                 </p>
                 <blockquote className="mb-4 text-[1.6rem] font-bold italic leading-tight text-[#eee] max-[1024px]:text-[1.2rem] max-[768px]:text-[1rem]">
                   &quot;I&apos;ve seen brilliant people lose hope. Flashfire exists so they
