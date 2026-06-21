@@ -154,6 +154,68 @@ export default function ATSScoreChecker() {
             </div>
           )}
         </div>
+
+        {/* How It Works */}
+        <div>
+          <h2 className="text-2xl font-black text-[#0b0b0b] mb-6">How It Works</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {[
+              { step: "1", title: "Paste Your Resume", desc: "Copy your full resume text and paste it into the input field on the left." },
+              { step: "2", title: "AI Analyzes It", desc: "Our AI checks your resume for keywords, formatting, structure, and ATS compatibility signals." },
+              { step: "3", title: "Get Your Score", desc: "See your ATS score, a grade, category breakdown, found keywords, missing keywords, and actionable tips." },
+            ].map((item) => (
+              <div key={item.step} className="rounded-2xl border border-[#f0ded4] bg-white p-6 shadow-[0_4px_20px_rgba(245,93,29,0.06)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white font-black text-base mb-4">{item.step}</div>
+                <h3 className="text-base font-black text-[#0b0b0b] mb-1">{item.title}</h3>
+                <p className="text-sm text-[#6c5c54]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* What ATS Actually Checks */}
+        <div>
+          <h2 className="text-2xl font-black text-[#0b0b0b] mb-2">What ATS Actually Checks</h2>
+          <p className="text-sm text-[#6c5c54] mb-6">Most companies use ATS to filter resumes before a human ever sees them. Here is what it looks for:</p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: "Keyword Match", desc: "ATS scans for exact and related keywords from the job description. Missing keywords = automatic rejection." },
+              { title: "Clean Formatting", desc: "Tables, columns, text boxes, and images confuse ATS parsers. Plain single-column layout works best." },
+              { title: "Standard Section Headings", desc: "Use headings like Experience, Education, Skills — not creative names like My Journey or What I Have Built." },
+              { title: "Contact Info & Dates", desc: "ATS looks for phone, email, and employment dates in a readable format. Missing these lowers your parse score." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_4px_20px_rgba(245,93,29,0.06)]">
+                <h3 className="text-sm font-black text-[#0b0b0b] mb-2">{item.title}</h3>
+                <p className="text-sm text-[#6c5c54]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Tips */}
+        <div className="mb-4">
+          <h2 className="text-2xl font-black text-[#0b0b0b] mb-6">Quick Tips to Boost Your Score</h2>
+          <div className="rounded-2xl border border-[#f0ded4] bg-white p-7 shadow-[0_4px_20px_rgba(245,93,29,0.06)]">
+            <div className="flex flex-col divide-y divide-[#f0ded4]">
+              {[
+                { tip: "Use standard fonts", detail: "Arial, Calibri, or Times New Roman. Fancy fonts may not parse correctly." },
+                { tip: "Avoid headers and footers", detail: "ATS often skips content inside headers and footers — put your contact info in the main body." },
+                { tip: "Spell out abbreviations", detail: 'Write "Search Engine Optimization (SEO)" not just "SEO" — ATS may not recognize the short form.' },
+                { tip: "Use bullet points, not paragraphs", detail: "Bullet points are easier for ATS to parse and for recruiters to scan." },
+                { tip: "Save as a simple PDF or .docx", detail: "Avoid designed PDFs with columns and graphics. A plain Word doc or simple PDF parses the best." },
+              ].map((item) => (
+                <div key={item.tip} className="flex gap-4 py-4 first:pt-0 last:pb-0">
+                  <div className="w-2 h-2 rounded-full bg-[#ff4c00] shrink-0 mt-1.5" />
+                  <div>
+                    <span className="text-sm font-black text-[#0b0b0b]">{item.tip} — </span>
+                    <span className="text-sm text-[#6c5c54]">{item.detail}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </main>
   );
