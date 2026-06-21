@@ -82,7 +82,7 @@ export default function CVKeywordScanner() {
                 />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-bold text-[#312925]">Job Description <span className="text-xs font-normal text-[#9c8880]">(optional — for better matching)</span></label>
+                <label className="mb-1.5 block text-sm font-bold text-[#312925]">Job Description <span className="text-[#f55d1d]">*</span></label>
                 <textarea
                   className="w-full resize-none rounded-lg border border-[#ead8cf] bg-[#fffaf7] px-4 py-3 text-sm text-[#312925] outline-none focus:border-[#f55d1d] transition"
                   rows={5}
@@ -94,7 +94,7 @@ export default function CVKeywordScanner() {
               {error && <p className="text-xs text-red-500">{error}</p>}
               <button
                 onClick={handleScan}
-                disabled={!resumeText.trim() || loading}
+                disabled={!resumeText.trim() || !jobDesc.trim() || loading}
                 className="flex items-center justify-center gap-2 rounded-lg bg-[#ff4c00] py-3.5 text-sm font-bold text-white shadow-[0_4px_0_#000] hover:bg-[#ff5a0f] transition disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {loading ? <><Loader2 size={15} className="animate-spin" /> Scanning...</> : <><Sparkles size={15} /> Scan Keywords</>}
