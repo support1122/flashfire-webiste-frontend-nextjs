@@ -73,8 +73,8 @@ export default function Footer() {
           {/* LINKS GRID */}
           <div
             className="
-              grid grid-cols-6 gap-x-4 gap-y-10
-              max-[1100px]:grid-cols-3
+              grid grid-cols-7 gap-x-4 gap-y-10
+              max-[1200px]:grid-cols-3
               max-[768px]:grid-cols-2 max-[768px]:gap-y-8
               max-[480px]:grid-cols-1 max-[480px]:gap-6
             "
@@ -208,6 +208,22 @@ export default function Footer() {
                 <Link href={getHref("/ai-interview-answer-generator")} className={linkClass}>
                   AI Interview Answer Generator
                 </Link>
+              </div>
+            </div>
+
+            {/* RESUME TOOLS */}
+            <div className="max-[480px]:mb-2">
+              <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:mb-2 max-[480px]:text-xs">
+                RESUME TOOLS
+              </h4>
+              <div className="flex flex-col gap-1.5 max-[480px]:gap-1">
+                <Link href={getHref("/ats-score-checker")} className={linkClass}>ATS Score Checker</Link>
+                <Link href={getHref("/resume-parser")} className={linkClass}>Resume Parser</Link>
+                <Link href={getHref("/cv-keyword-scanner")} className={linkClass}>CV Keyword Scanner</Link>
+                <Link href={getHref("/resume-bullet-point-generator")} className={linkClass}>Resume Bullet Generator</Link>
+                <Link href={getHref("/resume-parser-software")} className={linkClass}>Resume Parser Software</Link>
+                <Link href={getHref("/ai-resume-summary-generator")} className={linkClass}>AI Resume Summary</Link>
+                <Link href={getHref("/resume-headline-generator")} className={linkClass}>Resume Headline Generator</Link>
               </div>
             </div>
 
