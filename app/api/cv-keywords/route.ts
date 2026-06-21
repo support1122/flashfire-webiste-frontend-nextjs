@@ -14,39 +14,37 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "OpenAI API key not configured" }, { status: 500 });
     }
 
-    const prompt = `You are an expert ATS keyword analyzer. Analyze the resume and identify key skills, keywords, and gaps.
+    const prompt = `You are a senior technical recruiter and ATS expert. Your job is to do a deep, thorough keyword analysis — like a professional resume optimizer would.
 
 Resume:
 """
-${resumeText.slice(0, 3000)}
+${resumeText.slice(0, 4000)}
 """
-${jd.trim() ? `\nJob Description:\n"""\n${jd.slice(0, 2000)}\n"""` : ""}
+${jd.trim() ? `\nJob Description:\n"""\n${jd.slice(0, 3000)}\n"""` : ""}
 
-CRITICAL RULES FOR MATCHING:
-- Search for keywords case-insensitively (Power BI = power bi = POWER BI)
-- If a keyword appears ANYWHERE in the resume text, it MUST go in "matched", NOT "missing"
-- Do not put a keyword in "missing" if it exists in the resume in any form
-- Read the entire resume carefully before deciding matched vs missing
+SYNONYM & ABBREVIATION RULES (critical — do not violate):
+- CI/CD = Continuous Integration = Continuous Delivery = Continuous Deployment → if resume has "CI/CD", mark ALL these as MATCHED
+- REST API = RESTful API = Representational State Transfer → any form counts as matched
+- K8s = Kubernetes, IaC = Infrastructure as Code, ML = Machine Learning, etc.
+- If the resume mentions a tool/technology in ANY section (summary, experience, skills), it is MATCHED
+- Only mark as MISSING if the keyword is completely absent from the entire resume in all forms
 
-Return ONLY valid JSON in this exact format (no markdown, no explanation):
+MATCHING RULES:
+- Be exhaustive — extract 25-40 matched keywords, not just 10-15
+- Match acronyms to full forms: if resume has "Kafka" and JD says "Apache Kafka", it's MATCHED
+- Match partial: if resume has "vulnerability scanning" and JD says "vulnerability remediation", check carefully — these are different, only match if both concepts appear
+- Go through EVERY bullet point, EVERY skills section line, EVERY sentence in the resume
+- missing: only truly absent skills/concepts that appear in the JD — aim for 5-10, not more
+
+Return ONLY valid JSON, no markdown, no explanation:
 {
-  "matchRate": 75,
-  "matchLevel": "Good Match",
-  "summary": "Your resume shows strong alignment with key technical skills.",
-  "matched": ["SQL", "Python", "Excel", "Power BI"],
-  "missing": ["Tableau", "Agile", "Scrum"],
-  "suggestions": ["Add quantified metrics to your bullet points", "Include Tableau in your skills section"]
-}
-
-Rules:
-- matchRate: number 0-100 (no quotes)
-- matchLevel: one of "Strong Match", "Good Match", "Partial Match", "Low Match"
-- If job description is provided: compare resume keywords against it
-- If no job description: extract strong keywords found in resume as matched, suggest commonly missing keywords for the detected role as missing
-- matched: 10-20 meaningful keywords/skills ACTUALLY PRESENT in the resume text
-- missing: 8-12 important keywords genuinely NOT found anywhere in the resume
-- suggestions: 3-5 specific actionable tips about adding missing keywords, quantifying achievements, or strengthening the resume — keep them short and direct, relevant to what's actually missing
-- Return ONLY the JSON object, nothing else`;
+  "matchRate": <number 0-100>,
+  "matchLevel": "<Strong Match | Good Match | Partial Match | Low Match>",
+  "summary": "<2 sentence honest assessment of fit>",
+  "matched": ["<every keyword/skill from JD that exists in resume, including abbreviation expansions>"],
+  "missing": ["<keywords genuinely absent from entire resume>"],
+  "suggestions": ["<3-5 specific tips: which exact missing keywords to add, where to add them, how to reword bullets>"]
+}`;
 
     const res = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -57,8 +55,8 @@ Rules:
       body: JSON.stringify({
         model: "gpt-4o-mini",
         messages: [{ role: "user", content: prompt }],
-        temperature: 0.3,
-        max_tokens: 900,
+        temperature: 0.2,
+        max_tokens: 1200,
       }),
     });
 
@@ -75,7 +73,6 @@ Rules:
       return NextResponse.json({ error: "Empty response from AI" }, { status: 500 });
     }
 
-    // Strip markdown code fences if present
     const clean = content.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
 
     let parsed;
