@@ -45,7 +45,7 @@ Rules:
 - If no job description: extract strong keywords found in resume as matched, suggest commonly missing keywords for the detected role as missing
 - matched: 10-20 meaningful keywords/skills ACTUALLY PRESENT in the resume text
 - missing: 8-12 important keywords genuinely NOT found anywhere in the resume
-- suggestions: 3-5 specific actionable tips
+- suggestions: 3-5 specific actionable tips about adding missing keywords, quantifying achievements, or strengthening the resume — keep them short and direct, relevant to what's actually missing
 - Return ONLY the JSON object, nothing else`;
 
     const res = await fetch("https://api.openai.com/v1/chat/completions", {

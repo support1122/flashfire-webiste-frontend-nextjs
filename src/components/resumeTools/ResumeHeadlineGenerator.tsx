@@ -209,28 +209,6 @@ export default function ResumeHeadlineGenerator() {
           )}
         </div>
 
-        <div className="rounded-2xl border border-[#f0ded4] bg-white p-7 shadow-[0_18px_60px_rgba(245,93,29,0.08)]">
-          <p className="text-base font-black text-[#312925] mb-1">What makes a great resume headline?</p>
-          <p className="text-sm text-[#6c5c54] mb-5">
-            The best headlines combine your role, a differentiator (years, skills, or industry), and a value signal. Here are patterns used by top professionals:
-          </p>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {[
-              { pattern: "[Role] | [Skill 1] | [Skill 2] | [Skill 3]", example: "Marketing Analyst | CRM & Campaign Analytics | SQL | Python | Power BI" },
-              { pattern: "[Role] | [X]+ Years | [Specialization]", example: "Software Engineer | 4+ Years | Distributed Systems & Cloud Security" },
-              { pattern: "[Role] | [Skill]-Focused | [Industry]", example: "Business Intelligence Analyst | SQL, Power BI, Snowflake | KPI Reporting" },
-              { pattern: "[Role] | [Domain 1] & [Domain 2]", example: "Research Associate | Biologics Development & Protein Characterization" },
-              { pattern: "[Title 1] | [Title 2] | [Title 3]", example: "AI Engineer | ML Engineer | Backend Engineer" },
-              { pattern: "[Adjective] [Role] | [X]+ Years of [Skill] | [Industry]", example: "Strategic Data Analyst | 3+ Years of SQL & Python | Fintech" },
-            ].map(({ pattern, example }) => (
-              <div key={pattern} className="rounded-lg border border-[#f0ded4] bg-[#fff8f4] p-4">
-                <p className="text-xs font-bold text-[#f55d1d] mb-1 font-mono">{pattern}</p>
-                <p className="text-xs text-[#6c5c54]">e.g. {example}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
     </main>
   );
