@@ -23,7 +23,20 @@ export default function CVKeywordScanner() {
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      setResult(data);
+
+      // Hard fix: move any "missing" keyword that actually exists in resume into matched
+      const resumeLower = resumeText.toLowerCase();
+      const falselyMissing: string[] = [];
+      const trulyMissing: string[] = [];
+      (data.missing || []).forEach((kw: string) => {
+        if (resumeLower.includes(kw.toLowerCase())) {
+          falselyMissing.push(kw);
+        } else {
+          trulyMissing.push(kw);
+        }
+      });
+      const correctedMatched = [...new Set([...(data.matched || []), ...falselyMissing])];
+      setResult({ ...data, matched: correctedMatched, missing: trulyMissing });
     } catch {
       setError("Scan failed. Please try again.");
     } finally {
