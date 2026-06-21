@@ -219,10 +219,9 @@ export default function Footer() {
               </h4>
               <div className="flex flex-col gap-1.5 max-[480px]:gap-1">
                 <Link href={getHref("/ats-optimized-resume-checker")} className={linkClass}>ATS Score Checker</Link>
-                <Link href={getHref("/cv-keyword-scanner")} className={linkClass}>CV Keyword Scanner</Link>
-                <Link href={getHref("/resume-bullet-point-generator")} className={linkClass}>Resume Bullet Generator</Link>
-                <Link href={getHref("/ai-resume-summary-generator")} className={linkClass}>AI Resume Summary</Link>
                 <Link href={getHref("/resume-headline-generator")} className={linkClass}>Resume Headline Generator</Link>
+                <Link href={getHref("/ai-resume-summary-generator")} className={linkClass}>AI Resume Summary</Link>
+                <Link href={getHref("/resume-bullet-point-generator")} className={linkClass}>Resume Bullet Generator</Link>
               </div>
             </div>
 
