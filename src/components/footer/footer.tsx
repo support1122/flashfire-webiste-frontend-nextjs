@@ -222,7 +222,6 @@ export default function Footer() {
                 <Link href={getHref("/resume-parser")} className={linkClass}>Resume Parser</Link>
                 <Link href={getHref("/cv-keyword-scanner")} className={linkClass}>CV Keyword Scanner</Link>
                 <Link href={getHref("/resume-bullet-point-generator")} className={linkClass}>Resume Bullet Generator</Link>
-                <Link href={getHref("/resume-parser-software")} className={linkClass}>Resume Parser Software</Link>
                 <Link href={getHref("/ai-resume-summary-generator")} className={linkClass}>AI Resume Summary</Link>
                 <Link href={getHref("/resume-headline-generator")} className={linkClass}>Resume Headline Generator</Link>
               </div>
