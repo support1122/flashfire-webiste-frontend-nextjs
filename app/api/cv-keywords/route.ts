@@ -36,7 +36,12 @@ SYNONYM RULES (must follow):
 - Tool name matches full name: "Kafka" = "Apache Kafka", "Spark" = "Apache Spark"
 - If resume has the concept even in different words, it counts
 
-NO LIMITS on matched or missing arrays — if JD has 40 keywords and resume has 30, return 30 matched and 10 missing. Be complete.
+MISSING KEYWORDS RULES (critical):
+- Focus on HARD SKILLS first: specific technologies, tools, frameworks, protocols, platforms, certifications
+- Examples of hard skills to look for: OAuth, TLS, PKI, SAML, MFA, Zero Trust, TPM, OWASP, passkeys, device trust, attestation, static analysis, secrets management, SLOs, SLIs, CloudFormation, prompt engineering, Git, SQL, NoSQL
+- Soft skills like "communication", "collaboration", "teamwork" — DO NOT include in missing, skip them entirely
+- Only include a soft skill as missing if it is a core explicit requirement (e.g. "Agile methodology" is a process skill, include it)
+- NO LIMITS — if 20 hard skills are missing, list all 20
 
 Return ONLY valid JSON, no markdown:
 {
@@ -44,8 +49,8 @@ Return ONLY valid JSON, no markdown:
   "matchLevel": "<Strong Match | Good Match | Partial Match | Low Match>",
   "summary": "<2 honest sentences about fit for this specific role>",
   "matched": ["<all keywords from JD found in resume — no limit>"],
-  "missing": ["<all keywords from JD NOT found in resume — no limit, include every single one>"],
-  "suggestions": ["<5 specific tips: exact missing keywords to add, which section to add them in, how to reword existing bullets to include missing terms>"]
+  "missing": ["<all HARD SKILL keywords from JD NOT found in resume — no soft skills, no limit>"],
+  "suggestions": ["<5 specific tips: exact missing hard-skill keywords to add, which section to add them in, how to reword existing bullets>"]
 }`;
 
     const res = await fetch("https://api.openai.com/v1/chat/completions", {
