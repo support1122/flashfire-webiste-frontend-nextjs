@@ -1,16 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { FileText, Loader2, RotateCcw, Sparkles, Upload } from "lucide-react";
+import { FileText, Loader2, Upload, RotateCcw } from "lucide-react";
 
 export default function ResumeParser() {
   const [fileName, setFileName] = useState("");
-  const [resumeText, setResumeText] = useState("");
-  const [result, setResult] = useState<any>(null);
+  const [pages, setPages] = useState<string[]>([]); // base64 PNG per page
   const [loading, setLoading] = useState(false);
-  const [extracting, setExtracting] = useState(false);
   const [error, setError] = useState("");
-
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -23,67 +20,50 @@ export default function ResumeParser() {
     document.head.appendChild(script);
   }, []);
 
-  const extractTextFromPDF = async (file: File): Promise<string> => {
+  const renderPDF = async (file: File) => {
     const pdfjsLib = (window as any).pdfjsLib;
-    if (!pdfjsLib) throw new Error("PDF library not loaded");
+    if (!pdfjsLib) throw new Error("PDF.js not loaded yet");
+
     const arrayBuffer = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-    let text = "";
+    const renderedPages: string[] = [];
+
     for (let i = 1; i <= pdf.numPages; i++) {
       const page = await pdf.getPage(i);
-      const content = await page.getTextContent();
-      text += content.items.map((item: any) => item.str).join(" ") + "\n";
+      const viewport = page.getViewport({ scale: 1.8 });
+      const canvas = document.createElement("canvas");
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext("2d");
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      renderedPages.push(canvas.toDataURL("image/png"));
     }
-    return text;
+
+    return renderedPages;
   };
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     setFileName(file.name);
-    setResult(null);
+    setPages([]);
     setError("");
-    setExtracting(true);
-    try {
-      const text = await extractTextFromPDF(file);
-      setResumeText(text);
-    } catch {
-      setError("Could not read PDF. Please try again.");
-    } finally {
-      setExtracting(false);
-    }
-  };
-
-  const handleParse = async () => {
-    if (!resumeText.trim()) return;
     setLoading(true);
-    setError("");
     try {
-      const res = await fetch("/api/resume-parser", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ resumeText }),
-      });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      setResult(data);
+      // Small delay to ensure PDF.js worker is ready
+      await new Promise((r) => setTimeout(r, 500));
+      const rendered = await renderPDF(file);
+      setPages(rendered);
     } catch {
-      setError("Parsing failed. Please try again.");
+      setError("Could not render PDF. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   const handleReset = () => {
-    setFileName(""); setResumeText(""); setResult(null); setError("");
+    setFileName(""); setPages([]); setError("");
     if (inputRef.current) inputRef.current.value = "";
-  };
-
-  // Parse contact line into name + rest
-  const parseName = (contact: string) => {
-    if (!contact) return { name: "", rest: "" };
-    const lines = contact.split(/[|\n,]/).map((s) => s.trim()).filter(Boolean);
-    return { name: lines[0] || "", rest: lines.slice(1).join("  ·  ") };
   };
 
   return (
@@ -96,34 +76,33 @@ export default function ResumeParser() {
             <FileText size={14} /> Free Resume Parser
           </span>
           <h1 className="text-4xl font-black leading-tight text-[#0b0b0b] max-[480px]:text-3xl">Resume Parser</h1>
-          <p className="text-base text-[#6c5c54]">Upload your resume PDF and instantly get a structured document preview.</p>
+          <p className="text-base text-[#6c5c54]">Upload your PDF resume and see an instant preview on the right.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
 
           {/* Left — Upload */}
-          <div className="border border-[#f0ded4] bg-white p-7 shadow-[0_18px_60px_rgba(245,93,29,0.08)] rounded-2xl flex flex-col gap-5">
+          <div className="border border-[#f0ded4] bg-white p-7 shadow-[0_18px_60px_rgba(245,93,29,0.08)] rounded-2xl flex flex-col gap-5 h-fit">
             <div className="flex items-center justify-between">
               <p className="text-base font-black text-[#312925]">Upload Resume</p>
-              {(fileName || result) && (
+              {fileName && (
                 <button onClick={handleReset} className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#ead8cf] bg-white text-[#6c5c54] hover:bg-[#fff2ec] transition">
                   <RotateCcw size={15} />
                 </button>
               )}
             </div>
 
-            {/* Drop zone */}
             <div
               onClick={() => inputRef.current?.click()}
               className="flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed border-[#ead8cf] bg-[#fffaf7] p-12 text-center cursor-pointer hover:border-[#f55d1d] hover:bg-[#fff2ec] transition"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#fff2ec]">
-                {extracting ? <Loader2 size={24} className="text-[#f55d1d] animate-spin" /> : <Upload size={24} className="text-[#f55d1d]" />}
+                {loading ? <Loader2 size={24} className="text-[#f55d1d] animate-spin" /> : <Upload size={24} className="text-[#f55d1d]" />}
               </div>
               {fileName ? (
                 <>
                   <p className="text-sm font-bold text-[#312925]">{fileName}</p>
-                  <p className="text-xs text-[#9c8880]">{extracting ? "Extracting text..." : "PDF loaded — click Parse below"}</p>
+                  <p className="text-xs text-[#9c8880]">{loading ? "Rendering pages..." : `${pages.length} page${pages.length !== 1 ? "s" : ""} rendered`}</p>
                 </>
               ) : (
                 <>
@@ -135,182 +114,22 @@ export default function ResumeParser() {
             </div>
 
             {error && <p className="text-xs text-red-500">{error}</p>}
-
-            <button
-              onClick={handleParse}
-              disabled={!resumeText.trim() || loading || extracting}
-              className="flex items-center justify-center gap-2 rounded-lg bg-[#ff4c00] py-3.5 text-sm font-bold text-white shadow-[0_4px_0_#000] hover:bg-[#ff5a0f] hover:shadow-[0_5px_0_#000] transition active:translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              {loading ? <><Loader2 size={15} className="animate-spin" /> Parsing...</> : <><Sparkles size={15} /> Parse Resume</>}
-            </button>
           </div>
 
-          {/* Right — Document Preview */}
-          {result ? (
+          {/* Right — PDF Preview */}
+          {pages.length > 0 ? (
             <div
-              className="overflow-y-auto rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.18)]"
-              style={{ maxHeight: "780px", background: "#e8e8e8", padding: "24px 20px" }}
+              className="overflow-y-auto rounded-2xl"
+              style={{ maxHeight: "800px", background: "#525659", padding: "20px 16px", display: "flex", flexDirection: "column", gap: "16px" }}
             >
-              {/* White paper page */}
-              <div
-                style={{
-                  background: "#ffffff",
-                  width: "100%",
-                  minHeight: "1000px",
-                  boxShadow: "0 2px 16px rgba(0,0,0,0.15)",
-                  padding: "52px 52px 60px 52px",
-                  fontFamily: "'Times New Roman', Times, serif",
-                  color: "#111111",
-                  fontSize: "11px",
-                  lineHeight: "1.55",
-                  position: "relative",
-                }}
-              >
-                {/* Name */}
-                {result.contact && (() => {
-                  const { name, rest } = parseName(result.contact);
-                  return (
-                    <div style={{ textAlign: "center", marginBottom: "14px", paddingBottom: "10px", borderBottom: "1.5px solid #111" }}>
-                      <div style={{ fontSize: "20px", fontWeight: "bold", letterSpacing: "0.5px", marginBottom: "2px" }}>{name}</div>
-                      {result.title && <div style={{ fontSize: "11px", color: "#444", marginBottom: "3px" }}>{result.title}</div>}
-                      {rest && <div style={{ fontSize: "10px", color: "#333", letterSpacing: "0.2px" }}>{rest}</div>}
-                    </div>
-                  );
-                })()}
-
-                {/* Summary */}
-                {result.summary && (
-                  <div style={{ marginBottom: "12px" }}>
-                    <div style={{
-                      fontSize: "10.5px", fontWeight: "bold", textTransform: "uppercase",
-                      letterSpacing: "1.5px", borderBottom: "1px solid #111",
-                      paddingBottom: "2px", marginBottom: "5px"
-                    }}>Summary</div>
-                    <p style={{ margin: 0, textAlign: "justify" }}>{result.summary}</p>
-                  </div>
-                )}
-
-                {/* Experience */}
-                {result.experience && (
-                  <div style={{ marginBottom: "12px" }}>
-                    <div style={{
-                      fontSize: "10.5px", fontWeight: "bold", textTransform: "uppercase",
-                      letterSpacing: "1.5px", borderBottom: "1px solid #111",
-                      paddingBottom: "2px", marginBottom: "5px"
-                    }}>Work Experience</div>
-                    <div style={{ whiteSpace: "pre-wrap" }}>
-                      {result.experience.split("\n\n").map((block: string, i: number) => {
-                        const lines = block.split("\n");
-                        const header = lines[0];
-                        const bullets = lines.slice(1);
-                        const parts = header.split("|").map((s: string) => s.trim());
-                        return (
-                          <div key={i} style={{ marginBottom: "9px" }}>
-                            <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
-                              <span style={{ fontWeight: "bold", fontSize: "11px" }}>{parts[0]}</span>
-                              <span style={{ color: "#444", fontSize: "10px" }}>{parts[2] || ""}</span>
-                            </div>
-                            <div style={{ fontStyle: "italic", fontSize: "10.5px", marginBottom: "3px" }}>{parts[1] || ""}</div>
-                            {bullets.map((b: string, j: number) => (
-                              <div key={j} style={{ paddingLeft: "12px", position: "relative", marginBottom: "1px" }}>
-                                <span style={{ position: "absolute", left: 0 }}>•</span>
-                                {b.replace(/^[•\-]\s*/, "")}
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                {/* Education */}
-                {result.education && (
-                  <div style={{ marginBottom: "12px" }}>
-                    <div style={{
-                      fontSize: "10.5px", fontWeight: "bold", textTransform: "uppercase",
-                      letterSpacing: "1.5px", borderBottom: "1px solid #111",
-                      paddingBottom: "2px", marginBottom: "5px"
-                    }}>Education</div>
-                    <div style={{ whiteSpace: "pre-wrap" }}>
-                      {result.education.split("\n").map((line: string, i: number) => {
-                        const parts = line.split("|").map((s: string) => s.trim());
-                        if (parts.length >= 2) {
-                          return (
-                            <div key={i} style={{ marginBottom: "5px" }}>
-                              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                <span style={{ fontWeight: "bold" }}>{parts[0]}</span>
-                                <span style={{ color: "#444", fontSize: "10px" }}>{parts[2] || ""}</span>
-                              </div>
-                              <div style={{ fontStyle: "italic" }}>{parts[1]}</div>
-                            </div>
-                          );
-                        }
-                        return <div key={i}>{line}</div>;
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                {/* Projects */}
-                {result.projects && result.projects.trim() && (
-                  <div style={{ marginBottom: "12px" }}>
-                    <div style={{
-                      fontSize: "10.5px", fontWeight: "bold", textTransform: "uppercase",
-                      letterSpacing: "1.5px", borderBottom: "1px solid #111",
-                      paddingBottom: "2px", marginBottom: "5px"
-                    }}>Projects</div>
-                    <div>
-                      {result.projects.split("\n\n").map((block: string, i: number) => {
-                        const lines = block.split("\n");
-                        const header = lines[0];
-                        const bullets = lines.slice(1);
-                        const parts = header.split("|").map((s: string) => s.trim());
-                        return (
-                          <div key={i} style={{ marginBottom: "9px" }}>
-                            <div style={{ display: "flex", justifyContent: "space-between" }}>
-                              <span style={{ fontWeight: "bold", fontSize: "11px" }}>{parts[0]}</span>
-                              <span style={{ color: "#444", fontSize: "10px" }}>{parts[1] || ""}</span>
-                            </div>
-                            {bullets.map((b: string, j: number) => (
-                              <div key={j} style={{ paddingLeft: "12px", position: "relative", marginBottom: "1px" }}>
-                                <span style={{ position: "absolute", left: 0 }}>•</span>
-                                {b.replace(/^[•\-]\s*/, "")}
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
-                {/* Skills */}
-                {result.skills?.length > 0 && (
-                  <div style={{ marginBottom: "12px" }}>
-                    <div style={{
-                      fontSize: "10.5px", fontWeight: "bold", textTransform: "uppercase",
-                      letterSpacing: "1.5px", borderBottom: "1px solid #111",
-                      paddingBottom: "2px", marginBottom: "5px"
-                    }}>Skills</div>
-                    <p style={{ margin: 0 }}>
-                      {Array.isArray(result.skills) ? result.skills.join(" • ") : result.skills}
-                    </p>
-                  </div>
-                )}
-
-                {/* Leadership / Volunteering */}
-                {result.leadership && result.leadership.trim() && (
-                  <div style={{ marginBottom: "12px" }}>
-                    <div style={{
-                      fontSize: "10.5px", fontWeight: "bold", textTransform: "uppercase",
-                      letterSpacing: "1.5px", borderBottom: "1px solid #111",
-                      paddingBottom: "2px", marginBottom: "5px"
-                    }}>Leadership &amp; Volunteering</div>
-                    <div style={{ whiteSpace: "pre-wrap" }}>{result.leadership}</div>
-                  </div>
-                )}
-              </div>
+              {pages.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`Page ${i + 1}`}
+                  style={{ width: "100%", boxShadow: "0 2px 12px rgba(0,0,0,0.4)", display: "block" }}
+                />
+              ))}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-[#ead8cf] bg-white p-16 text-center">
@@ -318,10 +137,10 @@ export default function ResumeParser() {
                 {loading ? <Loader2 size={28} className="text-[#f55d1d] animate-spin" /> : <FileText size={28} className="text-[#f55d1d]" />}
               </div>
               <p className="text-base font-bold text-[#312925]">
-                {loading ? "Parsing your resume..." : "Resume preview will appear here"}
+                {loading ? "Rendering your PDF..." : "PDF preview will appear here"}
               </p>
               <p className="text-sm text-[#9c8880]">
-                {loading ? "AI is extracting your information" : "Upload a PDF and click Parse Resume"}
+                {loading ? "Converting pages to images" : "Upload a PDF to get started"}
               </p>
             </div>
           )}
