@@ -73,10 +73,11 @@ export default function Footer() {
           {/* LINKS GRID */}
           <div
             className="
-              grid grid-cols-6 gap-x-8 gap-y-10
-              max-[1200px]:grid-cols-3
-              max-[768px]:grid-cols-2 max-[768px]:gap-y-8
+              grid gap-y-10
               max-[480px]:grid-cols-1 max-[480px]:gap-6
+              max-[768px]:grid-cols-2 max-[768px]:gap-y-8
+              max-[1200px]:grid-cols-4
+              xl:grid-cols-7 xl:gap-x-6
             "
           >
             {/* QUICK ACCESS */}
@@ -217,11 +218,9 @@ export default function Footer() {
                 RESUME TOOLS
               </h4>
               <div className="flex flex-col gap-1.5 max-[480px]:gap-1">
-                <Link href={getHref("/ats-score-checker")} className={linkClass}>ATS Score Checker</Link>
-                <Link href={getHref("/resume-parser")} className={linkClass}>Resume Parser</Link>
+                <Link href={getHref("/ats-optimized-resume-checker")} className={linkClass}>ATS Score Checker</Link>
                 <Link href={getHref("/cv-keyword-scanner")} className={linkClass}>CV Keyword Scanner</Link>
                 <Link href={getHref("/resume-bullet-point-generator")} className={linkClass}>Resume Bullet Generator</Link>
-                <Link href={getHref("/resume-parser-software")} className={linkClass}>Resume Parser Software</Link>
                 <Link href={getHref("/ai-resume-summary-generator")} className={linkClass}>AI Resume Summary</Link>
                 <Link href={getHref("/resume-headline-generator")} className={linkClass}>Resume Headline Generator</Link>
               </div>
@@ -248,25 +247,25 @@ export default function Footer() {
               </div>
             </div>
 
-        </div>
-
-          {/* FOLLOW US — below grid */}
-          <div className="mt-8">
-            <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:text-xs">
-              FOLLOW US
-            </h4>
-            <div className="flex items-center gap-3 max-[480px]:gap-4">
-              <Link href="https://www.linkedin.com/company/flashfire-pvt-ltd/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
-                <FaLinkedinIn />
-              </Link>
-              <Link href="https://www.instagram.com/flashfirejobs/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
-                <FaInstagram />
-              </Link>
-              <Link href="https://www.youtube.com/@flashfireindia" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
-                <FaYoutube />
-              </Link>
+            {/* FOLLOW US */}
+            <div className="max-[480px]:mb-2">
+              <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:mb-2 max-[480px]:text-xs">
+                FOLLOW US
+              </h4>
+              <div className="flex items-center gap-3 max-[480px]:gap-4">
+                <Link href="https://www.linkedin.com/company/flashfire-pvt-ltd/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
+                  <FaLinkedinIn />
+                </Link>
+                <Link href="https://www.instagram.com/flashfirejobs/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
+                  <FaInstagram />
+                </Link>
+                <Link href="https://www.youtube.com/@flashfireindia" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
+                  <FaYoutube />
+                </Link>
+              </div>
             </div>
-          </div>
+
+        </div>
       </div>
 
       {/* BOTTOM */}
