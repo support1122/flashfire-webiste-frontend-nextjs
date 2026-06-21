@@ -22,13 +22,19 @@ ${resumeText.slice(0, 3000)}
 """
 ${jd.trim() ? `\nJob Description:\n"""\n${jd.slice(0, 2000)}\n"""` : ""}
 
+CRITICAL RULES FOR MATCHING:
+- Search for keywords case-insensitively (Power BI = power bi = POWER BI)
+- If a keyword appears ANYWHERE in the resume text, it MUST go in "matched", NOT "missing"
+- Do not put a keyword in "missing" if it exists in the resume in any form
+- Read the entire resume carefully before deciding matched vs missing
+
 Return ONLY valid JSON in this exact format (no markdown, no explanation):
 {
   "matchRate": 75,
   "matchLevel": "Good Match",
   "summary": "Your resume shows strong alignment with key technical skills.",
-  "matched": ["SQL", "Python", "Excel"],
-  "missing": ["Tableau", "Power BI", "Agile"],
+  "matched": ["SQL", "Python", "Excel", "Power BI"],
+  "missing": ["Tableau", "Agile", "Scrum"],
   "suggestions": ["Add quantified metrics to your bullet points", "Include Tableau in your skills section"]
 }
 
@@ -37,8 +43,8 @@ Rules:
 - matchLevel: one of "Strong Match", "Good Match", "Partial Match", "Low Match"
 - If job description is provided: compare resume keywords against it
 - If no job description: extract strong keywords found in resume as matched, suggest commonly missing keywords for the detected role as missing
-- matched: 10-20 meaningful keywords/skills found in the resume
-- missing: 8-12 important keywords not in the resume
+- matched: 10-20 meaningful keywords/skills ACTUALLY PRESENT in the resume text
+- missing: 8-12 important keywords genuinely NOT found anywhere in the resume
 - suggestions: 3-5 specific actionable tips
 - Return ONLY the JSON object, nothing else`;
 
