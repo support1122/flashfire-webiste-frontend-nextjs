@@ -14,36 +14,38 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "OpenAI API key not configured" }, { status: 500 });
     }
 
-    const prompt = `You are a senior technical recruiter and ATS expert. Your job is to do a deep, thorough keyword analysis — like a professional resume optimizer would.
+    const prompt = `You are a senior ATS resume expert. Do a COMPLETE, exhaustive keyword gap analysis. Leave nothing out.
 
 Resume:
 """
-${resumeText.slice(0, 4000)}
+${resumeText.slice(0, 4500)}
 """
-${jd.trim() ? `\nJob Description:\n"""\n${jd.slice(0, 3000)}\n"""` : ""}
+${jd.trim() ? `\nJob Description:\n"""\n${jd.slice(0, 3500)}\n"""` : ""}
 
-SYNONYM & ABBREVIATION RULES (critical — do not violate):
-- CI/CD = Continuous Integration = Continuous Delivery = Continuous Deployment → if resume has "CI/CD", mark ALL these as MATCHED
-- REST API = RESTful API = Representational State Transfer → any form counts as matched
-- K8s = Kubernetes, IaC = Infrastructure as Code, ML = Machine Learning, etc.
-- If the resume mentions a tool/technology in ANY section (summary, experience, skills), it is MATCHED
-- Only mark as MISSING if the keyword is completely absent from the entire resume in all forms
+YOUR TASK:
+1. Read the ENTIRE job description line by line. Extract EVERY skill, tool, technology, concept, methodology, and requirement mentioned.
+2. For EACH one, search the ENTIRE resume (every section) to see if it exists — in any form, abbreviation, or synonym.
+3. If found → matched. If NOT found anywhere → missing. Do NOT skip anything.
 
-MATCHING RULES:
-- Be exhaustive — extract 25-40 matched keywords, not just 10-15
-- Match acronyms to full forms: if resume has "Kafka" and JD says "Apache Kafka", it's MATCHED
-- Match partial: if resume has "vulnerability scanning" and JD says "vulnerability remediation", check carefully — these are different, only match if both concepts appear
-- Go through EVERY bullet point, EVERY skills section line, EVERY sentence in the resume
-- missing: only truly absent skills/concepts that appear in the JD — aim for 5-10, not more
+SYNONYM RULES (must follow):
+- CI/CD in resume = "Continuous Integration" AND "Continuous Delivery" both matched
+- "REST API" or "RESTful" = "Representational State Transfer (REST)" matched
+- "Kubernetes" or "K8s" = matched for either
+- "IaC" = "Infrastructure as Code" matched
+- "Go" or "Golang" = matched for either
+- Tool name matches full name: "Kafka" = "Apache Kafka", "Spark" = "Apache Spark"
+- If resume has the concept even in different words, it counts
 
-Return ONLY valid JSON, no markdown, no explanation:
+NO LIMITS on matched or missing arrays — if JD has 40 keywords and resume has 30, return 30 matched and 10 missing. Be complete.
+
+Return ONLY valid JSON, no markdown:
 {
-  "matchRate": <number 0-100>,
+  "matchRate": <realistic number 0-100 based on how many JD keywords are covered>,
   "matchLevel": "<Strong Match | Good Match | Partial Match | Low Match>",
-  "summary": "<2 sentence honest assessment of fit>",
-  "matched": ["<every keyword/skill from JD that exists in resume, including abbreviation expansions>"],
-  "missing": ["<keywords genuinely absent from entire resume>"],
-  "suggestions": ["<3-5 specific tips: which exact missing keywords to add, where to add them, how to reword bullets>"]
+  "summary": "<2 honest sentences about fit for this specific role>",
+  "matched": ["<all keywords from JD found in resume — no limit>"],
+  "missing": ["<all keywords from JD NOT found in resume — no limit, include every single one>"],
+  "suggestions": ["<5 specific tips: exact missing keywords to add, which section to add them in, how to reword existing bullets to include missing terms>"]
 }`;
 
     const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -55,8 +57,8 @@ Return ONLY valid JSON, no markdown, no explanation:
       body: JSON.stringify({
         model: "gpt-4o-mini",
         messages: [{ role: "user", content: prompt }],
-        temperature: 0.2,
-        max_tokens: 1200,
+        temperature: 0.1,
+        max_tokens: 2500,
       }),
     });
 
