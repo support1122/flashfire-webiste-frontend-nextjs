@@ -73,10 +73,9 @@ export default function Footer() {
           {/* LINKS GRID */}
           <div
             className="
-              grid grid-cols-2 gap-8 max-[1024px]:gap-6
-              md:grid-cols-4
-              lg:grid-cols-5
-              max-[768px]:gap-y-8
+              grid grid-cols-6 gap-x-4 gap-y-10
+              max-[1100px]:grid-cols-3
+              max-[768px]:grid-cols-2 max-[768px]:gap-y-8
               max-[480px]:grid-cols-1 max-[480px]:gap-6
             "
           >
