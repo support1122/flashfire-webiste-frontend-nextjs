@@ -92,24 +92,22 @@ export default function CVKeywordScanner() {
           {result ? (
             <div className="flex flex-col gap-4">
               {/* Match Score */}
-              {result.matchScore !== undefined && (
-                <div className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_18px_60px_rgba(245,93,29,0.08)] flex items-center gap-4">
-                  <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full border-4 border-[#f55d1d] shrink-0">
-                    <span className="text-2xl font-black text-[#312925]">{result.matchScore}%</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-black text-[#312925]">Keyword Match Score</p>
-                    <p className="text-sm text-[#6c5c54] mt-1">{result.summary}</p>
-                  </div>
+              <div className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_18px_60px_rgba(245,93,29,0.08)] flex items-center gap-4">
+                <div className="flex flex-col items-center justify-center w-20 h-20 rounded-full border-4 border-[#f55d1d] shrink-0">
+                  <span className="text-2xl font-black text-[#312925]">{result.matchRate}%</span>
                 </div>
-              )}
+                <div>
+                  <p className="text-sm font-black text-[#312925]">{result.matchLevel}</p>
+                  <p className="text-sm text-[#6c5c54] mt-1">{result.summary}</p>
+                </div>
+              </div>
 
               {/* Found Keywords */}
-              {result.foundKeywords?.length > 0 && (
+              {result.matched?.length > 0 && (
                 <div className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_18px_60px_rgba(245,93,29,0.08)]">
-                  <p className="text-sm font-black text-[#312925] mb-3">✅ Keywords Found ({result.foundKeywords.length})</p>
+                  <p className="text-sm font-black text-[#312925] mb-3">✅ Keywords Found ({result.matched.length})</p>
                   <div className="flex flex-wrap gap-2">
-                    {result.foundKeywords.map((kw: string) => (
+                    {result.matched.map((kw: string) => (
                       <span key={kw} className="rounded-full bg-green-50 border border-green-200 px-3 py-1 text-xs font-medium text-green-700">{kw}</span>
                     ))}
                   </div>
@@ -117,16 +115,16 @@ export default function CVKeywordScanner() {
               )}
 
               {/* Missing Keywords */}
-              {result.missingKeywords?.length > 0 && (
+              {result.missing?.length > 0 && (
                 <div className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_18px_60px_rgba(245,93,29,0.08)]">
                   <div className="flex items-center justify-between mb-3">
-                    <p className="text-sm font-black text-[#312925]">❌ Missing Keywords ({result.missingKeywords.length})</p>
-                    <button onClick={() => handleCopy(result.missingKeywords.join(", "), "missing")} className="flex items-center gap-1 text-xs text-[#f55d1d] hover:opacity-80">
+                    <p className="text-sm font-black text-[#312925]">❌ Missing Keywords ({result.missing.length})</p>
+                    <button onClick={() => handleCopy(result.missing.join(", "), "missing")} className="flex items-center gap-1 text-xs text-[#f55d1d] hover:opacity-80">
                       {copied === "missing" ? <Check size={12} /> : <Copy size={12} />} Copy all
                     </button>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {result.missingKeywords.map((kw: string) => (
+                    {result.missing.map((kw: string) => (
                       <span key={kw} className="rounded-full bg-red-50 border border-red-200 px-3 py-1 text-xs font-medium text-red-600">{kw}</span>
                     ))}
                   </div>
@@ -136,7 +134,7 @@ export default function CVKeywordScanner() {
               {/* Suggestions */}
               {result.suggestions?.length > 0 && (
                 <div className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_18px_60px_rgba(245,93,29,0.08)]">
-                  <p className="text-sm font-black text-[#312925] mb-3">Improvement Tips</p>
+                  <p className="text-sm font-black text-[#312925] mb-3">💡 Improvement Tips</p>
                   <ul className="flex flex-col gap-2">
                     {result.suggestions.map((s: string, i: number) => (
                       <li key={i} className="flex gap-2 text-sm text-[#312925]"><span className="text-[#f55d1d] font-bold shrink-0">{i + 1}.</span>{s}</li>
