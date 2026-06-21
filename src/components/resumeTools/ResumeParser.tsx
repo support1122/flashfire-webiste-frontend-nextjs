@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { FileText, Loader2, RotateCcw, Sparkles, Upload, Copy, Check } from "lucide-react";
+import { FileText, Loader2, RotateCcw, Sparkles, Upload } from "lucide-react";
 
 export default function ResumeParser() {
   const [fileName, setFileName] = useState("");
@@ -10,7 +10,7 @@ export default function ResumeParser() {
   const [loading, setLoading] = useState(false);
   const [extracting, setExtracting] = useState(false);
   const [error, setError] = useState("");
-  const [copiedSection, setCopiedSection] = useState<string | null>(null);
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -74,24 +74,10 @@ export default function ResumeParser() {
     }
   };
 
-  const handleCopy = (text: string, key: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedSection(key);
-    setTimeout(() => setCopiedSection(null), 1500);
-  };
-
   const handleReset = () => {
     setFileName(""); setResumeText(""); setResult(null); setError("");
     if (inputRef.current) inputRef.current.value = "";
   };
-
-  const sections = [
-    { key: "contact", label: "Contact Information", icon: "👤" },
-    { key: "summary", label: "Professional Summary", icon: "📝" },
-    { key: "skills", label: "Skills", icon: "🛠️" },
-    { key: "experience", label: "Work Experience", icon: "💼" },
-    { key: "education", label: "Education", icon: "🎓" },
-  ];
 
   return (
     <main className="min-h-screen bg-[#fff8f4]">
@@ -152,31 +138,57 @@ export default function ResumeParser() {
               </button>
             </div>
 
-            {/* Right — Preview */}
+            {/* Right — Document Preview */}
             {result ? (
-              <div className="flex flex-col gap-4 overflow-y-auto max-h-[700px] pr-1">
-                {sections.map(({ key, label, icon }) => result[key] && (
-                  <div key={key} className="rounded-2xl border border-[#f0ded4] bg-white p-5 shadow-[0_18px_60px_rgba(245,93,29,0.08)]">
-                    <div className="flex items-center justify-between mb-3">
-                      <p className="text-sm font-black text-[#312925]">{icon} {label}</p>
-                      <button
-                        onClick={() => handleCopy(Array.isArray(result[key]) ? result[key].join(", ") : result[key], key)}
-                        className="flex items-center gap-1 text-xs text-[#f55d1d] hover:opacity-80 transition"
-                      >
-                        {copiedSection === key ? <><Check size={12} /> Copied</> : <><Copy size={12} /> Copy</>}
-                      </button>
+              <div className="overflow-y-auto max-h-[700px] rounded-2xl border border-[#f0ded4] shadow-[0_18px_60px_rgba(245,93,29,0.08)]">
+                {/* Paper */}
+                <div className="bg-white px-10 py-10 font-serif text-[#1a1a1a] text-sm leading-relaxed min-h-full">
+
+                  {/* Name & Contact */}
+                  {result.contact && (
+                    <div className="text-center mb-6 border-b border-gray-300 pb-5">
+                      <h1 className="text-2xl font-black tracking-wide text-[#0b0b0b] mb-1">
+                        {result.contact.split(/[|\n,]/)[0].trim()}
+                      </h1>
+                      <p className="text-xs text-gray-500 leading-6">
+                        {result.contact.split(/[|\n]/).slice(1).join("  •  ").trim()}
+                      </p>
                     </div>
-                    {Array.isArray(result[key]) ? (
-                      <div className="flex flex-wrap gap-2">
-                        {result[key].map((item: string, i: number) => (
-                          <span key={i} className="rounded-full bg-[#fff2ec] border border-[#f0ded4] px-3 py-1 text-xs font-medium text-[#f55d1d]">{item}</span>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="text-sm text-[#312925] leading-relaxed whitespace-pre-wrap">{result[key]}</p>
-                    )}
-                  </div>
-                ))}
+                  )}
+
+                  {/* Summary */}
+                  {result.summary && (
+                    <div className="mb-5">
+                      <h2 className="text-xs font-black uppercase tracking-widest text-[#f55d1d] border-b border-[#f0ded4] pb-1 mb-2">Summary</h2>
+                      <p className="text-sm text-gray-700 leading-relaxed">{result.summary}</p>
+                    </div>
+                  )}
+
+                  {/* Experience */}
+                  {result.experience && (
+                    <div className="mb-5">
+                      <h2 className="text-xs font-black uppercase tracking-widest text-[#f55d1d] border-b border-[#f0ded4] pb-1 mb-2">Experience</h2>
+                      <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{result.experience}</p>
+                    </div>
+                  )}
+
+                  {/* Education */}
+                  {result.education && (
+                    <div className="mb-5">
+                      <h2 className="text-xs font-black uppercase tracking-widest text-[#f55d1d] border-b border-[#f0ded4] pb-1 mb-2">Education</h2>
+                      <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{result.education}</p>
+                    </div>
+                  )}
+
+                  {/* Skills */}
+                  {result.skills?.length > 0 && (
+                    <div className="mb-2">
+                      <h2 className="text-xs font-black uppercase tracking-widest text-[#f55d1d] border-b border-[#f0ded4] pb-1 mb-2">Skills</h2>
+                      <p className="text-sm text-gray-700">{Array.isArray(result.skills) ? result.skills.join(" • ") : result.skills}</p>
+                    </div>
+                  )}
+
+                </div>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-[#ead8cf] bg-white p-16 text-center">
@@ -184,7 +196,7 @@ export default function ResumeParser() {
                   {loading ? <Loader2 size={28} className="text-[#f55d1d] animate-spin" /> : <FileText size={28} className="text-[#f55d1d]" />}
                 </div>
                 <p className="text-base font-bold text-[#312925]">
-                  {loading ? "Parsing your resume..." : "Parsed data will appear here"}
+                  {loading ? "Parsing your resume..." : "Resume preview will appear here"}
                 </p>
                 <p className="text-sm text-[#9c8880]">
                   {loading ? "AI is extracting your information" : "Upload a PDF and click Parse Resume"}
