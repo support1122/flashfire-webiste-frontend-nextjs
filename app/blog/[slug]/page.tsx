@@ -219,50 +219,7 @@ export default async function BlogSlugPage({ params }: Props) {
   // Check if it's a blog post
   const post = blogPosts.find((p) => p && p.slug === slug);
   if (post) {
-    const articleSchema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: post.title,
-      description: post.excerpt,
-      image: post.image || "https://www.flashfirejobs.com/images/og-image.png",
-      datePublished: post.date,
-      dateModified: post.lastUpdated || post.date,
-      author: {
-        "@type": "Person",
-        name: post.author?.name || "Flashfire",
-        description: post.author?.bio || "Career expert at Flashfire helping job seekers land their dream roles.",
-        url: post.author?.name
-          ? `https://www.flashfirejobs.com/author/${post.author.name.toLowerCase().replace(/\s+/g, "-")}`
-          : "https://www.flashfirejobs.com",
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "Flashfire",
-        logo: { "@type": "ImageObject", url: "https://www.flashfirejobs.com/images/og-image.png" },
-      },
-      mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.flashfirejobs.com/blog/${post.slug}` },
-    };
-
-    const breadcrumbSchema = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.flashfirejobs.com" },
-        { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.flashfirejobs.com/blog" },
-        ...(post.category
-          ? [{ "@type": "ListItem", position: 3, name: post.category, item: `https://www.flashfirejobs.com/blog/${post.category.toLowerCase().replace(/\s+/g, "-")}` }]
-          : []),
-        { "@type": "ListItem", position: post.category ? 4 : 3, name: post.title, item: `https://www.flashfirejobs.com/blog/${post.slug}` },
-      ],
-    };
-
-    return (
-      <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-        <BlogsPage post={post} />
-      </>
-    );
+    return <BlogsPage post={post} />;
   }
 
   // Check if it's a category

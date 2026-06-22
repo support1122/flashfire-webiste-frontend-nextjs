@@ -41,6 +41,7 @@ export default function PricingPageClient() {
   return (
     <>
       <Navbar />
+      <h1 className="sr-only">Pricing - Affordable Job Search Automation Plans | Flashfire</h1>
       <HomePagePricingPlans />
       <HomePageOfferLetters
         heading="60+ Offer letters received"

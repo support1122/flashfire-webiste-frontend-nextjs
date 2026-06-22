@@ -44,7 +44,7 @@ export default function Home() {
     "@id": "https://www.flashfirejobs.com/#organization",
     "name": "Flashfirejobs",
     "url": "https://www.flashfirejobs.com/",
-    "logo": "https://www.flashfirejobs.com/favicon.ico",
+    "logo": "https://www.flashfirejobs.com/images/flashfire-logo.png",
     "description": "Flashfire is an AI-powered job search platform helping candidates get interview calls faster through intelligent job matching and automation.",
     "sameAs": [
       "https://www.instagram.com/flashfirejobs/",

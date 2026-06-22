@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import HomePage from "@/src/components/pages/home/Home";
-import ScrollToSection from "@/src/utils/ui/scrollToSection";
+import Navbar from "@/src/components/navbar/navbar";
+import Footer from "@/src/components/footer/footer";
+import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
 
 export const metadata: Metadata = {
   title: "FAQ - Frequently Asked Questions | Flashfire Job Search Automation",
@@ -25,8 +26,23 @@ export const metadata: Metadata = {
 export default function FAQPage() {
   return (
     <>
-      <HomePage />
-      <ScrollToSection targetId="faq" />
+      <Navbar />
+      <main style={{ paddingTop: "5rem", minHeight: "60vh" }}>
+        <h1
+          style={{
+            textAlign: "center",
+            fontSize: "2rem",
+            fontWeight: 700,
+            margin: "2rem auto 1rem",
+            maxWidth: "800px",
+            padding: "0 1rem",
+          }}
+        >
+          Frequently Asked Questions
+        </h1>
+        <HomePageFAQ />
+      </main>
+      <Footer />
     </>
   );
 }
