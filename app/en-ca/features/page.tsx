@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Features - Why Choose Flashfire",
   description:
     "Explore Flashfire's key features: AI-powered matching, dynamic resume optimization, LinkedIn optimization, precision targeting, and more.",
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/en-ca/features",
+  },
 };
 
 export default function FeaturesPageCA() {

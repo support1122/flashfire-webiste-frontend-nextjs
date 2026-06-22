@@ -5,6 +5,9 @@ import ResumeParser from "@/src/components/resumeTools/ResumeParser";
 export const metadata = {
   title: "Resume Parser | Flashfire",
   description: "Extract structured data from your resume instantly. Free online resume parser.",
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/resume-parser",
+  },
 };
 
 export default function ResumeParserPage() {

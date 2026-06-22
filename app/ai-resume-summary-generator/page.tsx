@@ -5,6 +5,9 @@ import AiResumeSummaryGenerator from "@/src/components/resumeTools/AiResumeSumma
 export const metadata = {
   title: "AI Resume Summary Generator | Flashfire",
   description: "Generate a compelling professional resume summary in seconds. Free AI resume summary generator.",
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/ai-resume-summary-generator",
+  },
 };
 
 export default function AiResumeSummaryGeneratorPage() {

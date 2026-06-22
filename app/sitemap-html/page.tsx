@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/sitemap-html",
+  },
 };
 
 export default function HTMLSitemapPage() {

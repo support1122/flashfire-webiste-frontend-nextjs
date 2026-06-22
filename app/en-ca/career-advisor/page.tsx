@@ -11,7 +11,7 @@ export const metadata: Metadata = {
         follow: true,
     },
     alternates: {
-        canonical: "https://www.flashfirejobs.com/career-advisor",
+        canonical: "https://www.flashfirejobs.com/en-ca/career-advisor",
     },
     openGraph: {
         title: "Career Advisor - Get personalized job recommendations",

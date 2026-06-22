@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.flashfirejobs.com/Linkedin-Profile-Optimization-Services",
+    canonical: "https://www.flashfirejobs.com/linkedin-profile-optimization-services",
   },
   openGraph: {
     title: "LinkedIn Optimization Services | Optimize Your LinkedIn Profile",

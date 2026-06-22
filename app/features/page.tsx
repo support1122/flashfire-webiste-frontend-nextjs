@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "AI-Powered Job Search & Job Search Automation",
   description:
     "Flashfire offers AI-powered job search and job search automation to apply smarter, optimize resumes, and get interview calls faster.",
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/features",
+  },
 };
 
 export default function FeaturesPage() {

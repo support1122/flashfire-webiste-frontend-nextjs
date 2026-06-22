@@ -10,7 +10,7 @@ export const metadata: Metadata = {
         follow: true,
     },
     alternates: {
-        canonical: "https://www.flashfirejobs.com/recent-job-openings",
+        canonical: "https://www.flashfirejobs.com/en-ca/recent-job-openings",
     },
     openGraph: {
         title: "Recent Job Openings - Flashfire",

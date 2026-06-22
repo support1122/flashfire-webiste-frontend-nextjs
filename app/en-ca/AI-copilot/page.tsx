@@ -11,13 +11,13 @@ const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.flashfirejobs.com/AI-copilot",
+    canonical: "https://www.flashfirejobs.com/en-ca/AI-copilot",
   },
   openGraph: {
     title: "AI Copilot - Get personalized interview tips",
     description:
       "Get personalized interview tips based on your skills, experience, and career goals.",
-    url: "https://www.flashfirejobs.com/AI-copilot",
+    url: "https://www.flashfirejobs.com/en-ca/AI-copilot",
     type: "website",
   },
   twitter: {

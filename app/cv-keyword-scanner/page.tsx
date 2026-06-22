@@ -5,6 +5,9 @@ import CVKeywordScanner from "@/src/components/resumeTools/CVKeywordScanner";
 export const metadata = {
   title: "CV Keyword Scanner | Flashfire",
   description: "Scan your resume for missing keywords. Match your CV to job descriptions. Free CV keyword scanner.",
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/cv-keyword-scanner",
+  },
 };
 
 export default function CVKeywordScannerPage() {

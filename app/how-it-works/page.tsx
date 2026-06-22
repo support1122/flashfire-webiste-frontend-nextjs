@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
+    canonical: "https://www.flashfirejobs.com/how-it-works",
   },
   openGraph: {
     title: "How Flashfire's AI Job Automation Platform Works?",

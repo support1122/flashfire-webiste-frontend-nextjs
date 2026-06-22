@@ -5,6 +5,9 @@ import ResumeBulletPointGenerator from "@/src/components/resumeTools/ResumeBulle
 export const metadata = {
   title: "Resume Bullet Point Generator | Flashfire",
   description: "Turn vague job duties into sharp, ATS-friendly bullet points. Free AI resume bullet point generator.",
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/resume-bullet-point-generator",
+  },
 };
 
 export default function ResumeBulletPointGeneratorPage() {
