@@ -7,7 +7,7 @@ import TestimonialImagePreloader from "@/src/components/homePageHappyUsers/Testi
 export const metadata: Metadata = {
   title: "Success Stories & Testimonials | Flashfire",
   description:
-    "See real success stories from job seekers who landed their dream jobs with Flashfire. Read testimonials from professionals who automated their job search and saved 150+ hours.",
+    "See real success stories from job seekers who landed their dream jobs with Flashfire. Read testimonials from professionals who automated their job search.",
   robots: {
     index: true,
     follow: true,

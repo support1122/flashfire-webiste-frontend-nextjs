@@ -4,7 +4,7 @@ import Footer from "@/src/components/footer/footer";
 import JobSearch from "@/src/components/pages/jobSearch/JobSearch";
 
 export const metadata: Metadata = {
-  title: "Job Search - Find Jobs Faster With Human-Powered Automation | Flashfire",
+  title: "AI Job Search Automation | Flashfire",
   description:
     "Flashfire applies to relevant jobs on your behalf so you don't have to search manually. Get updates without lifting a finger.",
   robots: {

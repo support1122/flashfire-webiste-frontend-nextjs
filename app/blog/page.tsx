@@ -9,7 +9,7 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: "Blog - Career Tips, Job Search Advice & Industry Insights | Flashfire",
+  title: "Career & Job Search Tips | Flashfire Blog",
   description:
     "Discover expert career tips, job search strategies, resume writing guides, and industry insights to accelerate your job search success.",
   robots: {
@@ -44,7 +44,7 @@ export default function BlogPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Blog - Career Tips, Job Search Advice & Industry Insights | Flashfire",
+    "name": "Flashfire Blog",
     "url": "https://www.flashfirejobs.com/blog",
     "description": "Discover expert career tips, job search strategies, resume writing guides, and industry insights to accelerate your job search success.",
     "publisher": {

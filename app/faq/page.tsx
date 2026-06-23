@@ -4,7 +4,7 @@ import Footer from "@/src/components/footer/footer";
 import HomePageFAQ from "@/src/components/homePageFAQ/homePageFAQ";
 
 export const metadata: Metadata = {
-  title: "FAQ - Frequently Asked Questions | Flashfire Job Search Automation",
+  title: "Flashfire FAQ: Job Search Automation Questions",
   description:
     "Find answers to common questions about Flashfire's job search automation service, pricing, how it works, and more.",
   robots: {

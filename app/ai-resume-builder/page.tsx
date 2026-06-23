@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import AIResumeBuilderPageClient from "./AIResumeBuilderClient";
 
 export const metadata: Metadata = {
-  title: "AI Resume Builder | Flashfire",
-  description: "Build an ATS-optimized resume in minutes with Flashfire's AI Resume Builder. Get more interviews with a professionally crafted resume tailored to your target job.",
+  title: "AI Resume Builder — ATS-Optimized | Flashfire",
+  description: "Build an ATS-optimized resume in minutes with Flashfire's AI Resume Builder. Get more interviews with a resume tailored to your target job.",
   alternates: {
     canonical: "https://www.flashfirejobs.com/ai-resume-builder",
   },
   openGraph: {
-    title: "AI Resume Builder | Flashfire",
+    title: "AI Resume Builder — ATS-Optimized | Flashfire",
     description: "Build an ATS-optimized resume in minutes with Flashfire's AI Resume Builder.",
     url: "https://www.flashfirejobs.com/ai-resume-builder",
     type: "website",
