@@ -23,51 +23,58 @@ const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
 };
 
 // Export full list - images served directly from /public/images/happy-users-sc for maximum speed
-// Order maintained to match the original layout
+
 export const ALL_REVIEW_IMAGES = [
-  "/images/happy-users-sc/image29.png",
-  "/images/happy-users-sc/image30.png",
-  "/images/happy-users-sc/image31.png",
-  "/images/happy-users-sc/image28.png",
-  "/images/happy-users-sc/image26.png",
-  "/images/happy-users-sc/image22.png",
-  "/images/happy-users-sc/image25.png",
-  "/images/happy-users-sc/image27.jpg",
-  "/images/happy-users-sc/image24.png",
-  "/images/happy-users-sc/image23.png",
-  "/images/happy-users-sc/image3.jpg",
-  "/images/happy-users-sc/image34.png",
-  "/images/happy-users-sc/image43.png",
-  "/images/happy-users-sc/image44.png",
-  "/images/happy-users-sc/image45.png",
-  "/images/happy-users-sc/image46.png",
-  "/images/happy-users-sc/image20.png",
-  "/images/happy-users-sc/image21.jpg",
-  "/images/happy-users-sc/image13.png",
-  "/images/happy-users-sc/image19.png",
-  "/images/happy-users-sc/image15.png",
-  "/images/happy-users-sc/image17.png",
-  "/images/happy-users-sc/image16.png",
-  "/images/happy-users-sc/image14.png",
-  "/images/happy-users-sc/image18.jpg",
-  "/images/happy-users-sc/image9.png",
-  "/images/happy-users-sc/image12.jpg",
-  "/images/happy-users-sc/image8.jpg",
-  "/images/happy-users-sc/image7.jpg",
-  "/images/happy-users-sc/image32.png",
-  "/images/happy-users-sc/image33.png",
-  "/images/happy-users-sc/image36.png",
-  "/images/happy-users-sc/image1.jpg",
-  "/images/happy-users-sc/image37.png",
-  "/images/happy-users-sc/image38.png",
-  "/images/happy-users-sc/image39.png",
-  "/images/happy-users-sc/image40.png",
-  "/images/happy-users-sc/image41.png",
-  "/images/happy-users-sc/image42.png",
-  "/images/happy-users-sc/image5.jpg",
-  "/images/happy-users-sc/image6.jpg",
-  "/images/happy-users-sc/image2.jpg",
-  "/images/happy-users-sc/image10.jpg",
+  "/images/happy-users-sc/image47.png?v=2",
+  "/images/happy-users-sc/image48.png?v=2",
+  "/images/happy-users-sc/image49.png?v=2",
+  "/images/happy-users-sc/image50.png?v=2",
+  "/images/happy-users-sc/image51.png?v=2",
+  "/images/happy-users-sc/image52.png?v=2",
+  "/images/happy-users-sc/image53.png?v=2",
+  "/images/happy-users-sc/image29.png?v=2",
+  "/images/happy-users-sc/image30.png?v=2",
+  "/images/happy-users-sc/image31.png?v=2",
+  "/images/happy-users-sc/image28.png?v=2",
+  "/images/happy-users-sc/image26.png?v=2",
+  "/images/happy-users-sc/image22.png?v=2",
+  "/images/happy-users-sc/image25.png?v=2",
+  "/images/happy-users-sc/image27.jpg?v=2",
+  "/images/happy-users-sc/image24.png?v=2",
+  "/images/happy-users-sc/image23.png?v=2",
+  "/images/happy-users-sc/image3.jpg?v=2",
+  "/images/happy-users-sc/image34.png?v=2",
+  "/images/happy-users-sc/image43.png?v=2",
+  "/images/happy-users-sc/image44.png?v=2",
+  "/images/happy-users-sc/image45.png?v=2",
+  "/images/happy-users-sc/image46.png?v=2",
+  "/images/happy-users-sc/image20.png?v=2",
+  "/images/happy-users-sc/image21.jpg?v=2",
+  "/images/happy-users-sc/image13.png?v=2",
+  "/images/happy-users-sc/image19.png?v=2",
+  "/images/happy-users-sc/image15.png?v=2",
+  "/images/happy-users-sc/image17.png?v=2",
+  "/images/happy-users-sc/image16.png?v=2",
+  "/images/happy-users-sc/image14.png?v=2",
+  "/images/happy-users-sc/image18.jpg?v=2",
+  "/images/happy-users-sc/image9.png?v=2",
+  "/images/happy-users-sc/image12.jpg?v=2",
+  "/images/happy-users-sc/image8.jpg?v=2",
+  "/images/happy-users-sc/image7.jpg?v=2",
+  "/images/happy-users-sc/image32.png?v=2",
+  "/images/happy-users-sc/image33.png?v=2",
+  "/images/happy-users-sc/image36.png?v=2",
+  "/images/happy-users-sc/image1.jpg?v=2",
+  "/images/happy-users-sc/image37.png?v=2",
+  "/images/happy-users-sc/image38.png?v=2",
+  "/images/happy-users-sc/image39.png?v=2",
+  "/images/happy-users-sc/image40.png?v=2",
+  "/images/happy-users-sc/image41.png?v=2",
+  "/images/happy-users-sc/image42.png?v=2",
+  "/images/happy-users-sc/image5.jpg?v=2",
+  "/images/happy-users-sc/image6.jpg?v=2",
+  "/images/happy-users-sc/image2.jpg?v=2",
+  "/images/happy-users-sc/image10.jpg?v=2"
 ];
 
 
@@ -442,30 +449,16 @@ export default function HomePageHappyUsers({
         id="testimonials"
         className="relative w-full overflow-visible bg-[#ff5a18] font-['Space_Grotesk',sans-serif] scroll-mt-[90px] max-[768px]:scroll-mt-[70px]"
       >
-        <div className="relative mx-auto grid min-h-[1200px] w-full grid-cols-[500px_minmax(0,1fr)] overflow-hidden px-[59px] pt-[65px] max-[1024px]:grid-cols-[360px_minmax(0,1fr)] max-[1024px]:px-7 max-[768px]:flex max-[768px]:min-h-0 max-[768px]:flex-col max-[768px]:gap-8 max-[768px]:px-5 max-[768px]:py-10">
-          <div className="relative z-[2] flex flex-col items-start pt-[3px] text-left max-[768px]:pt-0 h-full">
-            <h2 className="max-w-[430px] text-[64px] font-black leading-[1.02] tracking-[-0.02em] text-white max-[1024px]:text-[50px] max-[768px]:mb-8 max-[768px]:max-w-[360px] max-[768px]:text-[40px] max-[480px]:text-[34px]">
-              1000+ Happy User&rsquo;s Love
+        <div className="relative mx-auto grid min-h-[1560px] w-full grid-cols-[500px_minmax(0,1fr)] overflow-hidden px-[59px] pt-[65px] max-[1024px]:grid-cols-[360px_minmax(0,1fr)] max-[1024px]:px-7 max-[768px]:flex max-[768px]:min-h-0 max-[768px]:flex-col max-[768px]:gap-8 max-[768px]:px-5 max-[768px]:py-10">
+          <div className="relative z-[2] flex flex-col items-start pt-[3px] text-left max-[768px]:pt-0">
+            <h2 className="mb-[720px] max-w-[430px] text-[64px] font-black leading-[1.02] tracking-[-0.02em] text-white max-[1024px]:mb-[560px] max-[1024px]:text-[50px] max-[768px]:mb-4 max-[768px]:max-w-[360px] max-[768px]:text-[40px] max-[480px]:text-[34px]">
+              560+ Happy User&rsquo;s Love
             </h2>
 
-            <div className="flex-1 flex items-center max-[768px]:hidden">
-              <button
-                type="button"
-                onClick={handleTryItYourself}
-                className="inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
-              >
-                Book a Demo
-                <span className="text-[34px] font-normal leading-none" aria-hidden="true">
-                  &rarr;
-                </span>
-              </button>
-            </div>
-
-            {/* Mobile: button shown inline */}
             <button
               type="button"
               onClick={handleTryItYourself}
-              className="hidden max-[768px]:inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
+              className="inline-flex h-[56px] items-center gap-4 bg-black px-[24px] text-[20px] font-bold leading-none text-white transition-colors hover:bg-[#1c1c1c]"
             >
               Book a Demo
               <span className="text-[34px] font-normal leading-none" aria-hidden="true">
@@ -474,7 +467,7 @@ export default function HomePageHappyUsers({
             </button>
           </div>
 
-          <div className={`${styles.pricingReviewViewport} relative h-[1050px] min-w-0 overflow-hidden max-[768px]:h-[1050px] max-[480px]:h-[950px]`}>
+          <div className={`${styles.pricingReviewViewport} relative h-[1300px] min-w-0 overflow-hidden max-[768px]:h-[1400px] max-[480px]:h-[1200px]`}>
             <div className={`${styles.pricingReviewTrack} columns-4 gap-[10px] max-[1200px]:columns-3 max-[768px]:columns-3 max-[520px]:columns-2`}>
               {[...pricingReviewImages, ...pricingReviewImages].map((imageSrc, i) => (
                 <div
@@ -533,7 +526,7 @@ export default function HomePageHappyUsers({
             letterSpacing: "-2.29px",
           }}
         >
-          1000+ Happy User{'\''}s Love
+          560+ Happy User{'\''}s Love
         </h2>
         <p
           className="mb-12 max-[600px]:text-[1.125rem]"
