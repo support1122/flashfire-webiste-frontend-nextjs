@@ -3,30 +3,27 @@ import { blogPosts } from '@/src/data/blogsData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.flashfirejobs.com'
-  
+
   // Filter and map blog posts to sitemap entries
   const blogUrls: MetadataRoute.Sitemap = blogPosts
     .filter((post) => {
-      // Ensure post has a valid slug
-      return post?.slug && 
-             typeof post.slug === 'string' && 
-             post.slug.trim() !== '' && 
+      return post?.slug &&
+             typeof post.slug === 'string' &&
+             post.slug.trim() !== '' &&
              post.slug !== 'undefined'
     })
     .map((post) => {
       const lastUpdated = post.lastUpdated || post.date || new Date().toISOString().split('T')[0]
-      // Parse date safely - handle various formats
       let lastModified: Date
       try {
         lastModified = new Date(lastUpdated)
-        // If date is invalid, use current date
         if (isNaN(lastModified.getTime())) {
           lastModified = new Date()
         }
       } catch {
         lastModified = new Date()
       }
-      
+
       return {
         url: `${baseUrl}/blog/${post.slug}`,
         lastModified,
@@ -34,11 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       }
     })
-  
-  // Log for debugging (only in development)
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`[Sitemap] Generated ${blogUrls.length} blog URLs`)
-  }
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -59,7 +51,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
-   
     {
       url: `${baseUrl}/features`,
       lastModified: new Date(),
@@ -67,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blogs`,
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.8,
@@ -85,12 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/image-testimonials`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
-    {
       url: `${baseUrl}/employers`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
@@ -102,25 +87,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/talk-to-an-expert`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/see-flashfire-in-action`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/book-my-demo-call`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    },
-    
     {
       url: `${baseUrl}/how-flashfire-ai-job-automation-platform-works`,
       lastModified: new Date(),
@@ -153,6 +119,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ]
 
-  // Combine and return all routes
   return [...staticRoutes, ...blogUrls]
 }

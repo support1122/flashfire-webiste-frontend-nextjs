@@ -24,8 +24,21 @@ export const metadata: Metadata = {
 };
 
 export default function FAQPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "name": "FAQ - Frequently Asked Questions | Flashfire",
+    "url": "https://www.flashfirejobs.com/faq",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com"
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
       <main style={{ paddingTop: "5rem", minHeight: "60vh" }}>
         <h1

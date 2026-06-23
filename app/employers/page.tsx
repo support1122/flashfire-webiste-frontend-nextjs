@@ -24,8 +24,22 @@ export const metadata: Metadata = {
 };
 
 export default function EmployersPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Employers - Partner with Flashfire | Hire Top Talent Faster",
+    "url": "https://www.flashfirejobs.com/employers",
+    "description": "Partner with Flashfire to access pre-screened, qualified candidates. Connect with job seekers actively applying to roles in your industry.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com"
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
       <EmployerForm />
       <Footer />

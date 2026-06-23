@@ -34,6 +34,24 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-  return <PricingPageClient />;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Pricing - Affordable Job Search Automation Plans | Flashfire",
+    "url": "https://www.flashfirejobs.com/pricing",
+    "description": "Choose the perfect Flashfire plan for your job search. Transparent pricing with flexible options to automate your job applications and save time.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com"
+    }
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <PricingPageClient />
+    </>
+  );
 }
 

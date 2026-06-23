@@ -41,8 +41,22 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog - Career Tips, Job Search Advice & Industry Insights | Flashfire",
+    "url": "https://www.flashfirejobs.com/blog",
+    "description": "Discover expert career tips, job search strategies, resume writing guides, and industry insights to accelerate your job search success.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com"
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
       <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
         <BlogsClient />

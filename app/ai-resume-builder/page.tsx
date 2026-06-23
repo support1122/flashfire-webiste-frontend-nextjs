@@ -24,5 +24,24 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AIResumeBuilderPageClient />;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Resume Builder | Flashfire",
+    "url": "https://www.flashfirejobs.com/ai-resume-builder",
+    "description": "Build an ATS-optimized resume in minutes with Flashfire's AI Resume Builder. Get more interviews with a professionally crafted resume tailored to your target job.",
+    "applicationCategory": "BusinessApplication",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com"
+    }
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <AIResumeBuilderPageClient />
+    </>
+  );
 }

@@ -25,8 +25,23 @@ export const metadata = {
 };
 
 export default function ATSScoreCheckerPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ATS Score Checker | Flashfire",
+    "url": "https://www.flashfirejobs.com/ats-score-checker",
+    "description": "Check your resume ATS score instantly. Get detailed feedback and improvement tips. Free ATS score checker.",
+    "applicationCategory": "BusinessApplication",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com"
+    }
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
       <ATSScoreChecker />
       <Footer />

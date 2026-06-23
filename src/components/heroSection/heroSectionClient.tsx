@@ -188,7 +188,7 @@ export default function HeroSectionClient({
               {data.badges[0]}
             </div>
 
-            <h1 aria-hidden="true" className="max-w-[340px] text-[33px] font-bold leading-[1.08] tracking-[-0.02em] text-black min-[390px]:text-[35px]">
+            <p role="heading" aria-level={1} className="max-w-[340px] text-[33px] font-bold leading-[1.08] tracking-[-0.02em] text-black min-[390px]:text-[35px]">
               <span className="block">Land Interview</span>
               <span className="-mt-1 block whitespace-nowrap">
                 Calls Faster with
@@ -199,7 +199,7 @@ export default function HeroSectionClient({
                 />
               </span>
               <span className="block text-[#f55d1d]">Flashfire AI Copilot</span>
-            </h1>
+            </p>
 
             <p className="mt-4 max-w-[338px] font-['Satoshi',sans-serif] text-[15.5px] font-medium leading-[1.55] text-[#262626]">
               {data.description}

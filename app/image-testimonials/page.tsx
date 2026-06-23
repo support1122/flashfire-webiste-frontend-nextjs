@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description:
     "See real success stories from job seekers who landed their dream jobs with Flashfire. Read testimonials from professionals who automated their job search and saved 150+ hours.",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/image-testimonials",

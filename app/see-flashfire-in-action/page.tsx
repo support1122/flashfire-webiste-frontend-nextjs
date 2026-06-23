@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   description:
     "Watch Flashfire in action. See how our AI-powered job search automation works with a live demo of our platform features.",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/see-flashfire-in-action",

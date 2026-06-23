@@ -24,8 +24,22 @@ export const metadata: Metadata = {
 };
 
 export default function JobSearchPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Job Search - Find Jobs Faster With Human-Powered Automation | Flashfire",
+    "url": "https://www.flashfirejobs.com/job-search",
+    "description": "Flashfire applies to relevant jobs on your behalf so you don't have to search manually. Get updates without lifting a finger.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com"
+    }
+  };
+
   return (
     <div className="bg-white text-black min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
       <main className="mt-0">
         <JobSearch />

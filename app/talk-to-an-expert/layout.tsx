@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   description:
     "Connect with Flashfire experts via WhatsApp to get personalized help with your job search, resume optimization, and career questions.",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/talk-to-an-expert",
