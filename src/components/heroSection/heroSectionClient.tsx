@@ -188,7 +188,7 @@ export default function HeroSectionClient({
               {data.badges[0]}
             </div>
 
-            <h1 className="max-w-[340px] text-[33px] font-bold leading-[1.08] tracking-[-0.02em] text-black min-[390px]:text-[35px]">
+            <h1 aria-hidden="true" className="max-w-[340px] text-[33px] font-bold leading-[1.08] tracking-[-0.02em] text-black min-[390px]:text-[35px]">
               <span className="block">Land Interview</span>
               <span className="-mt-1 block whitespace-nowrap">
                 Calls Faster with

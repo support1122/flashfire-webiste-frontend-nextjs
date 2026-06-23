@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://www.flashfirejobs.com/blogs",
+    canonical: "https://www.flashfirejobs.com/blog",
   },
   openGraph: {
     title: "Blog - Career Tips & Job Search Advice",
     description:
       "Discover expert career tips, job search strategies, and industry insights.",
-    url: "https://www.flashfirejobs.com/blogs",
+    url: "https://www.flashfirejobs.com/blog",
     type: "website",
     images: [
       {

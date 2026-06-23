@@ -42,7 +42,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": "https://www.flashfirejobs.com/#organization",
-    "name": "Flashfirejobs",
+    "name": "Flashfire",
     "url": "https://www.flashfirejobs.com/",
     "logo": "https://www.flashfirejobs.com/images/flashfire-logo.png",
     "description": "Flashfire is an AI-powered job search platform helping candidates get interview calls faster through intelligent job matching and automation.",
