@@ -9,28 +9,28 @@ const steps = [
     title: "Resume Tailoring",
     detail:
       "Your resume is customized for each role with role-specific keywords and formatting recruiters love.",
-    image: "/images/step1.png",
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step1.png",
   },
   {
     number: 2,
     title: "LinkedIn Optimization",
     detail:
       "We rewrite your LinkedIn to stand out in U.S. recruiter searches, using AI-powered keyword matching.",
-    image: "/images/step2.png",
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step2.png",
   },
   {
     number: 3,
     title: "Smart Job Applications",
     detail:
       "We apply to 1000+ curated jobs that match your goals, location, and visa needs - no spam, just precision.",
-    image: "/images/step3.png",
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step3.png",
   },
   {
     number: 4,
     title: "Get Interview Calls",
     detail:
       "Start receiving interview invites as we track and optimize every application. You focus on prep, we handle the hustle.",
-    image: "/images/step4.png",
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step4.png",
   },
 ];
 
