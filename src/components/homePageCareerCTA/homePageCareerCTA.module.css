@@ -1,5 +1,5 @@
 .careerSection {
-  background-color: #fff;
+  background-color: #fff8f8;
   font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
   padding: 6rem 2rem;
 }
@@ -91,8 +91,8 @@
 
 .userNote {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
   color: #111;
@@ -102,6 +102,7 @@
 .userAvatars {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .userAvatars img {
@@ -120,6 +121,13 @@
 .highlight {
   color: #ff4c00;
   font-weight: 600;
+}
+
+.userNote p {
+  margin: 0;
+  line-height: 1.4;
+  min-width: 0;
+  flex: 1;
 }
 
 /* === RIGHT STATS GRID === */
@@ -209,7 +217,9 @@
   }
 
   .userNote {
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     text-align: center;
   }
 }
@@ -227,12 +237,9 @@
     width: 100%;
   }
 
-  /* Stats Grid First */
-  
-
   .rightGridTop,
   .rightGridBottom {
-    display: contents; /* flatten rows to grid */
+    display: contents;
   }
 
   .statCard {
@@ -241,12 +248,12 @@
     padding: 1.2rem;
   }
 
-  /* Text Below */
   .leftContent {
     order: 1;
     width: 100%;
     text-align: left;
   }
+
   .rightGrid {
     order: 2;
     width: 100%;
@@ -255,6 +262,7 @@
     grid-template-rows: repeat(2, auto);
     gap: 1rem;
   }
+
   .heading {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -262,8 +270,8 @@
 
   .subtext {
     font-size: 1rem;
-    width: 95%;
-    margin: 0 auto 1.8rem;
+    width: 100%;
+    margin: 0 0 1.8rem;
   }
 
   .featuresList {
@@ -278,23 +286,23 @@
   .ctaRow {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
   }
 
   .ctaButton {
     font-size: 0.95rem;
     padding: 0.9rem 1.2rem;
+    width: 100%;
+    text-align: center;
   }
 
   .userNote {
     font-size: 0.85rem;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: flex-start;
-  }
-
-  .userNote p {
-    font-size: 0.85rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
     text-align: left;
+    width: 100%;
   }
 }
 
@@ -328,13 +336,19 @@
 
   .ctaButton {
     font-size: 0.9rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .userNote {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
   }
 
   .userNote p {
-    font-size: 0.85rem;
-    text-align: left;
+    font-size: 0.8rem;
   }
 }

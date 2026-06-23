@@ -367,12 +367,12 @@ export default function HeroSectionClient({
 
             <h1 className="text-[54px] font-bold leading-[1.05] tracking-[-0.02em] text-black xl:text-[64px]">
               <span className="block">Land Interview</span>
-              <span className="block -mt-5 whitespace-nowrap">
+              <span className="block -mt-8 whitespace-nowrap">
                 Calls Faster with
                 <FlashfireLogo
                   width={58}
                   height={58}
-                  className="-ml-2 inline-block h-[1.3em] w-auto translate-y-[0.28em] align-baseline"
+                  className="-ml-2 inline-block h-[1.5em] w-auto translate-y-[0.28em] align-baseline"
                 />
               </span>
               <span className="block whitespace-nowrap text-[#f55d1d]">
