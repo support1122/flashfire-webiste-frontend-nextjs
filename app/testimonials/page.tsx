@@ -65,11 +65,26 @@ export default function TestimonialsPage() {
     }
   };
 
+  const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Flashfire",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "200"
+    }
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
       />
       <TestimonialImagePreloader />
       <Navbar />
