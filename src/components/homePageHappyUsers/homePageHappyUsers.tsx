@@ -56,7 +56,7 @@ export const ALL_REVIEW_IMAGES = [
   `${R2}/image16.png`,
   `${R2}/image14.png`,
   `${R2}/image18.jpg`,
-  `${R2}/image9.jpg`,
+  `${R2}/image9.png`,
   `${R2}/image12.jpg`,
   `${R2}/image8.jpg`,
   `${R2}/image7.jpg`,
