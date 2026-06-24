@@ -2,7 +2,7 @@ import {Metadata} from "next";
 import AICopilot from "@/src/components/AICopilot/AICopilot";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "AI Job Application Automation Software & Job Search Platform",
   description:
     "FlashFire is an AI job search platform and automatic job application software that finds jobs, optimizes resumes, and applies daily to help you get interviews faster.",

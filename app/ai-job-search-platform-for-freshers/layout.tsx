@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.flashfirejobs.com/ai-job-search-platform-for-freshers",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Job Search Platform for Freshers — Flashfire",
+    description: "Fresh graduate? Flashfire automates your job search so you can apply to hundreds of roles with optimized resumes and get interviews faster.",
+    images: ["https://www.flashfirejobs.com/images/og-image.png"],
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

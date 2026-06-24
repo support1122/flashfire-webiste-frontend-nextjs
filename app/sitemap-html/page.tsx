@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   title: "HTML Sitemap - All Pages | Flashfire",
   description: "Complete list of all pages and blog posts on Flashfire",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/sitemap-html",

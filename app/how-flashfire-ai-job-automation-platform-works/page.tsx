@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     url: "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "How Flashfire AI Job Automation Works",
+    description: "See how Flashfire automates your job search with AI-optimized applications and targeted resume submissions.",
+    images: ["https://www.flashfirejobs.com/images/og-image.png"],
+  },
 };
 
 export default function HowItWorksPage() {

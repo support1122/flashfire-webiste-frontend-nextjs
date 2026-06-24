@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.flashfirejobs.com/features/interview-tips",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Interview Practice Tool — Flashfire",
+    description: "Practice mock interviews with AI, get instant feedback, and prepare confidently for real interviews with Flashfire.",
+    images: ["https://www.flashfirejobs.com/images/og-image.png"],
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

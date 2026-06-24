@@ -127,12 +127,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Reddit Pixel */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_j7kj6g9uvz00",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_j7kj6g9uvz00');rdt('track','PageVisit');`,
-          }}
-        />
         {/* Google Tag Manager — keep high in <head> per Google */}
         <script
           dangerouslySetInnerHTML={{
@@ -243,24 +237,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             alt=""
           />
         </noscript>
-        {/* Google Analytics + Google Ads — single gtag.js, afterInteractive */}
+        {/* Reddit Pixel — loaded after page paint, non-blocking */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"
+          id="reddit-pixel"
           strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_j7kj6g9uvz00",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_j7kj6g9uvz00');rdt('track','PageVisit');`
+          }}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function() {
-              dataLayer.push(arguments);
-            };
-            window.gtag("js", new Date());
-            window.gtag("config", "G-4P890VGD8D", {
-              page_path: window.location.pathname,
-            });
-            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");` : ''}
-          `}
-        </Script>
         {/* LinkedIn Insight Tag - Load with afterInteractive strategy */}
         {process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID && (
           <>
