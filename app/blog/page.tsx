@@ -46,7 +46,7 @@ export default function BlogPage() {
     "@type": "Blog",
     "name": "Flashfire Blog",
     "url": "https://www.flashfirejobs.com/blog",
-    "description": "Discover expert career tips, job search strategies, resume writing guides, and industry insights to accelerate your job search success.",
+    "description": "Career tips, job search advice and industry insights",
     "publisher": {
       "@type": "Organization",
       "name": "Flashfire",
