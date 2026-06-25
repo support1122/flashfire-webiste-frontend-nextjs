@@ -57,9 +57,9 @@ export default function AuthorProfile({ author, posts }: AuthorProfileProps) {
           {/* === TOP SECTION WITH PROFILE === */}
           <div ref={authorHeaderRef} className={styles.authorHeader}>
             <div className={styles.authorImageWrapper}>
-              {author.image ? (
+              {(author.image || author.name === "Debashri Mandal") ? (
                 <Image
-                  src={author.image}
+                  src={author.image || "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/1778226526974.png"}
                   alt={author.name}
                   width={120}
                   height={120}
