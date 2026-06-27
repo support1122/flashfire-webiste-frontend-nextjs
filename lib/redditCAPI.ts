@@ -14,7 +14,7 @@ export interface RedditCAPIEventParams {
   email?: string | null;
   ipAddress?: string | null;
   userAgent?: string | null;
-  orderId?: string | null;
+  conversionId?: string | null; // must match transactionId sent from pixel for deduplication
   value?: number;
   currency?: string;
 }
@@ -25,26 +25,31 @@ export async function sendRedditCAPIEvent(params: RedditCAPIEventParams): Promis
     return;
   }
 
-  const { eventType, clickId, email, ipAddress, userAgent, orderId, value, currency = 'USD' } = params;
+  const { eventType, clickId, email, ipAddress, userAgent, conversionId, value, currency = 'USD' } = params;
 
   const event: Record<string, unknown> = {
-    event_at: Date.now(), // Unix epoch milliseconds as required by Reddit API v3
+    event_at: Date.now(), // Unix epoch milliseconds
     action_source: 'SERVER',
     type: { tracking_type: eventType },
   };
 
   if (clickId) event.click_id = clickId;
-  if (orderId) event.event_id = orderId; // deduplication key
 
+  // User identifiers (matched against Reddit's logged-in users)
   const user: Record<string, unknown> = {};
   if (email) user.email = hashEmail(email);
   if (ipAddress) user.ip_address = ipAddress;
   if (userAgent) user.user_agent = userAgent;
   if (Object.keys(user).length > 0) event.user = user;
 
+  // Metadata — conversion_id is required for pixel+CAPI deduplication
+  const metadata: Record<string, unknown> = {};
+  if (conversionId) metadata.conversion_id = conversionId;
   if (value !== undefined) {
-    event.custom_data = { value, currency };
+    metadata.value = value;
+    metadata.currency = currency;
   }
+  if (Object.keys(metadata).length > 0) event.metadata = metadata;
 
   const payload = {
     data: {

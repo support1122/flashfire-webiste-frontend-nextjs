@@ -113,7 +113,7 @@ async function handleCheckoutSession(obj: any): Promise<void> {
     await sendRedditCAPIEvent({
       eventType: 'Purchase',
       email: email !== 'unknown' ? email : null,
-      orderId: obj.id, // Stripe session ID as deduplication key
+      conversionId: obj.id, // Stripe session ID as deduplication key (matches metadata.conversion_id)
       value: obj.amount_total != null ? obj.amount_total / 100 : undefined,
       currency: obj.currency?.toUpperCase() || 'USD',
     });
