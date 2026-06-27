@@ -237,12 +237,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             alt=""
           />
         </noscript>
-        {/* Reddit Pixel — loaded after page paint, non-blocking */}
+        {/* Reddit Pixel v2 — loaded after page paint, non-blocking */}
         <Script
           id="reddit-pixel"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_j7kj6g9uvz00",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_j7kj6g9uvz00');rdt('track','PageVisit');`
+            __html: `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/v2/rdtag.js";t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_j8tdb9hlk690');rdt('track','PageVisit');`
           }}
         />
         {/* LinkedIn Insight Tag - Load with afterInteractive strategy */}
