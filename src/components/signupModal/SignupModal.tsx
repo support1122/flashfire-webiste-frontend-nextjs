@@ -179,7 +179,7 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
           clickId: rdtClickId,
           email: formData.email,
           userAgent: navigator.userAgent,
-          orderId: rdtSignupEventId,
+          conversionId: rdtSignupEventId,
         }),
       }).catch((err) => console.error('[Reddit CAPI] SignUp call failed:', err));
     }

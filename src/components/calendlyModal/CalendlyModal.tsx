@@ -180,7 +180,7 @@ export default function CalendlyModal({
               clickId: rdtClickId,
               email: inviteeEmail,
               userAgent: navigator.userAgent,
-              orderId: rdtLeadEventId,
+              conversionId: rdtLeadEventId,
             }),
           }).catch((err) => console.error('[Reddit CAPI] Lead call failed:', err));
         }

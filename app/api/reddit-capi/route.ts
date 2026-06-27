@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'invalid json' }, { status: 400 });
   }
 
-  const { eventType, clickId, email, userAgent, orderId, value, currency } = body;
+  const { eventType, clickId, email, userAgent, conversionId, value, currency } = body;
 
   if (!eventType) {
     return NextResponse.json({ error: 'eventType is required' }, { status: 400 });
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
       email: email ?? null,
       ipAddress: ip,
       userAgent: userAgent ?? req.headers.get('user-agent') ?? null,
-      orderId: orderId ?? null,
+      conversionId: conversionId ?? null,
       value,
       currency,
     });
