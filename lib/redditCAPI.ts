@@ -27,27 +27,33 @@ export async function sendRedditCAPIEvent(params: RedditCAPIEventParams): Promis
 
   const { eventType, clickId, email, ipAddress, userAgent, orderId, value, currency = 'USD' } = params;
 
+  const event: Record<string, unknown> = {
+    event_at: Date.now(), // Unix epoch milliseconds as required by Reddit API v3
+    action_source: 'SERVER',
+    type: { tracking_type: eventType },
+  };
+
+  if (clickId) event.click_id = clickId;
+  if (orderId) event.event_id = orderId; // deduplication key
+
+  const user: Record<string, unknown> = {};
+  if (email) user.email = hashEmail(email);
+  if (ipAddress) user.ip_address = ipAddress;
+  if (userAgent) user.user_agent = userAgent;
+  if (Object.keys(user).length > 0) event.user = user;
+
+  if (value !== undefined) {
+    event.custom_data = { value, currency };
+  }
+
   const payload = {
-    test_mode: false,
-    events: [
-      {
-        event_at: new Date().toISOString(),
-        event_type: { tracking_type: eventType },
-        ...(clickId ? { click_id: clickId } : {}),
-        user: {
-          ...(email ? { email: hashEmail(email) } : {}),
-          ...(ipAddress ? { ip_address: ipAddress } : {}),
-          ...(userAgent ? { user_agent: userAgent } : {}),
-        },
-        custom_event_source: 'SERVER',
-        ...(orderId ? { order_id: orderId } : {}),
-        ...(value !== undefined ? { value, currency } : {}),
-      },
-    ],
+    data: {
+      events: [event],
+    },
   };
 
   const response = await fetch(
-    `https://ads-api.reddit.com/api/v2.0/conversions/events/${PIXEL_ID}`,
+    `https://ads-api.reddit.com/api/v3/pixels/${PIXEL_ID}/conversion_events`,
     {
       method: 'POST',
       headers: {
