@@ -52,6 +52,7 @@ export async function sendRedditCAPIEvent(params: RedditCAPIEventParams): Promis
   if (Object.keys(metadata).length > 0) event.metadata = metadata;
 
   const payload = {
+    test_id: 't2_2hbge82ka5', // TEMPORARY — remove before final production deploy
     data: {
       events: [event],
     },
