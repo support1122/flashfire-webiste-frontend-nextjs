@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.flashfirejobs.com/en-ca/offer-and-salary",
+        languages: {
+            "en-US": "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
+            "en-CA": "https://www.flashfirejobs.com/en-ca/offer-and-salary",
+            "x-default": "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
+        },
     },
     openGraph: {
         title: "Job Offer & Salary Negotiation | Flashfire",

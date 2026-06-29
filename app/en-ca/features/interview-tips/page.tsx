@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.flashfirejobs.com/en-ca/features/interview-tips",
+        languages: {
+            "en-US": "https://www.flashfirejobs.com/features/interview-tips",
+            "en-CA": "https://www.flashfirejobs.com/en-ca/features/interview-tips",
+            "x-default": "https://www.flashfirejobs.com/features/interview-tips",
+        },
     },
     openGraph: {
         title: "Interview Tips for Canadian Job Seekers | Flashfire",

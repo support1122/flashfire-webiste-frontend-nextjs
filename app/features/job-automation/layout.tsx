@@ -1,6 +1,14 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/features/job-automation",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/job-automation",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/job-automation",
+      "x-default": "https://www.flashfirejobs.com/features/job-automation",
+    },
+  },
   twitter: {
     card: "summary_large_image",
     title: "AI Job Application Automation — Flashfire",

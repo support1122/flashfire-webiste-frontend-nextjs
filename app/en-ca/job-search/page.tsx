@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/job-search",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/job-search",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/job-search",
+      "x-default": "https://www.flashfirejobs.com/job-search",
+    },
   },
   openGraph: {
     title: "Job Search: Faster Human-Powered Automation",

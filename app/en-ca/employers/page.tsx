@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/employers",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/employers",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/employers",
+      "x-default": "https://www.flashfirejobs.com/employers",
+    },
   },
   openGraph: {
     title: "Flashfire for Employers: Hire Top Talent Faster",

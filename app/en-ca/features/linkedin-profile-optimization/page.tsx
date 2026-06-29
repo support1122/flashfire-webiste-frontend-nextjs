@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features/linkedin-profile-optimization",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/linkedin-profile-optimization",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/linkedin-profile-optimization",
+      "x-default": "https://www.flashfirejobs.com/features/linkedin-profile-optimization",
+    },
   },
   openGraph: {
     title: "LinkedIn Optimization for Canadian Recruiters",

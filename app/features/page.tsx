@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     "Flashfire offers AI-powered job search and job search automation to apply smarter, optimize resumes, and get interview calls faster.",
   alternates: {
     canonical: "https://www.flashfirejobs.com/features",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features",
+      "x-default": "https://www.flashfirejobs.com/features",
+    },
   },
   openGraph: {
     title: "AI-Powered Job Search & Job Search Automation",

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features/cover-letter",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/cover-letter",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/cover-letter",
+      "x-default": "https://www.flashfirejobs.com/features/cover-letter",
+    },
   },
   openGraph: {
     title: "AI Cover Letter Builder | Flashfire Canada",

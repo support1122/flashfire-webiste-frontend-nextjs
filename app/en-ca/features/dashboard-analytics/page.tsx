@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features/dashboard-analytics",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/dashboard-analytics",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/dashboard-analytics",
+      "x-default": "https://www.flashfirejobs.com/features/dashboard-analytics",
+    },
   },
   openGraph: {
     title: "Job Application Dashboard & Analytics | Flashfire CA",
