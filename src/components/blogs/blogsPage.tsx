@@ -22,6 +22,7 @@ type BlogPost = {
   title: string;
   excerpt?: string;
   image?: string;
+  coverImage?: string;
   category?: string;
   categoryColor?: string;
   date?: string;
