@@ -4,7 +4,7 @@ import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Get in Touch with Flashfire | Flashfire Canada",
+  title: "Contact Flashfire: Get in Touch | Flashfire Canada",
   description:
     "Have questions about Flashfire? Contact our Canada team for support, partnerships, or job search automation inquiries.",
   robots: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca/contact-us",
   },
   openGraph: {
-    title: "Contact Us - Flashfire Canada",
+    title: "Contact Flashfire: Get in Touch | Flashfire Canada",
     description:
       "Talk to Flashfire’s Canada team for support, partnerships, or general questions.",
     url: "https://www.flashfirejobs.com/en-ca/contact-us",

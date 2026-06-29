@@ -3,7 +3,7 @@ import AICopilot from "@/src/components/AICopilot/AICopilot";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 const metadata: Metadata = {
-  title: "AI Copilot - Get personalized interview tips | Flashfire",
+  title: "AI Copilot: Personalized Interview Tips | Flashfire",
   description:
     "Get personalized interview tips based on your skills, experience, and career goals. Our interview buddy is here to help you land your dream job.",
   robots: {
@@ -14,7 +14,7 @@ const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca/AI-copilot",
   },
   openGraph: {
-    title: "AI Copilot - Get personalized interview tips",
+    title: "AI Copilot: Personalized Interview Tips | Flashfire",
     description:
       "Get personalized interview tips based on your skills, experience, and career goals.",
     url: "https://www.flashfirejobs.com/en-ca/AI-copilot",

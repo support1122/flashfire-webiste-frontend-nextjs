@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-  const schema = {
+  const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Pricing - Affordable Job Search Automation Plans | Flashfire",
@@ -47,9 +47,58 @@ export default function PricingPage() {
     }
   };
 
+  const softwareApplicationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Flashfire",
+    "url": "https://www.flashfirejobs.com/pricing",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered job search automation platform that finds jobs, optimizes resumes, and applies to roles on your behalf.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "PRIME",
+        "price": "99",
+        "priceCurrency": "USD",
+        "url": "https://www.flashfirejobs.com/pricing",
+        "availability": "https://schema.org/InStock",
+        "category": "OneTime"
+      },
+      {
+        "@type": "Offer",
+        "name": "IGNITE",
+        "price": "199",
+        "priceCurrency": "USD",
+        "url": "https://www.flashfirejobs.com/pricing",
+        "availability": "https://schema.org/InStock",
+        "category": "OneTime"
+      },
+      {
+        "@type": "Offer",
+        "name": "PROFESSIONAL",
+        "price": "349",
+        "priceCurrency": "USD",
+        "url": "https://www.flashfirejobs.com/pricing",
+        "availability": "https://schema.org/InStock",
+        "category": "OneTime"
+      },
+      {
+        "@type": "Offer",
+        "name": "EXECUTIVE",
+        "price": "599",
+        "priceCurrency": "USD",
+        "url": "https://www.flashfirejobs.com/pricing",
+        "availability": "https://schema.org/InStock",
+        "category": "OneTime"
+      }
+    ]
+  };
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }} />
       <PricingPageClient />
     </>
   );

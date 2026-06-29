@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import CanadaHome from "@/src/components/countries/ca/Home";
 
 export const metadata: Metadata = {
-  title: "FLASHFIRE - AI-Powered Job Search Automation | Land Your Dream Job Faster (Canada)",
+  title: "Flashfire: AI Job Search Automation Canada",
   description:
     "We apply to 1000+ jobs on your behalf with tailored resumes for every role. Save 150+ hours, skip the grunt work, and stay in control with real-time updates. Your job hunt—automated.",
   robots: {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca",
   },
   openGraph: {
-    title: "FLASHFIRE - AI-Powered Job Search Automation (Canada)",
+    title: "Flashfire: AI Job Search Automation Canada",
     description:
       "We apply to 1000+ jobs on your behalf with tailored resumes for every role. Save 150+ hours, skip the grunt work, and stay in control with real-time updates.",
     url: "https://www.flashfirejobs.com/en-ca",

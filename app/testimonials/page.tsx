@@ -65,31 +65,11 @@ export default function TestimonialsPage() {
     }
   };
 
-  const aggregateRatingSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Flashfire",
-    "url": "https://www.flashfirejobs.com/",
-    "description": "AI-powered job application service that automates job search and resume optimization to help you land interviews faster.",
-    "image": "https://www.flashfirejobs.com/images/og-image.png",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "200",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
       />
       <TestimonialImagePreloader />
       <Navbar />

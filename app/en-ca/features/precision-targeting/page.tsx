@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export { default } from "@/app/features/precision-targeting/page";
 
 export const metadata: Metadata = {
-  title: "Precision Targeting - Find the Right Canadian Roles | Flashfire",
+  title: "Precision Job Targeting: Find Canadian Roles",
   description:
     "Flashfire pinpoints roles that match your visa status, salary goals, and tech stack so every application is high intent.",
   robots: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca/features/precision-targeting",
   },
   openGraph: {
-    title: "Precision Targeting - Hyper-Relevant Job Matching",
+    title: "Precision Job Targeting: Find Canadian Roles",
     description:
       "Use Flashfire’s targeting engine to surface Canadian roles aligned to your background, visa, and compensation needs.",
     url: "https://www.flashfirejobs.com/en-ca/features/precision-targeting",

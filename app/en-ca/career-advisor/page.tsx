@@ -3,7 +3,7 @@ import CareerAdvisor from "@/src/components/careerAdvisor/careerAdvisor";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 export const metadata: Metadata = {
-    title: "Career Advisor - Get personalized job recommendations | Flashfire",
+    title: "AI Career Advisor: Personalized Job Recommendations",
     description:
         "Get personalized job recommendations based on your skills, experience, and career goals. Our career advisor is here to help you find the perfect job.",
     robots: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         canonical: "https://www.flashfirejobs.com/en-ca/career-advisor",
     },
     openGraph: {
-        title: "Career Advisor - Get personalized job recommendations",
+        title: "AI Career Advisor: Personalized Job Recommendations",
         description:
             "Get personalized job recommendations based on your skills, experience, and career goals.",
         url: "https://www.flashfirejobs.com/career-advisor",

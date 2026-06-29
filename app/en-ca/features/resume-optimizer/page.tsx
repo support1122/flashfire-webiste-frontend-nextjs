@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export { default } from "@/app/features/resume-optimizer/page";
 
 export const metadata: Metadata = {
-  title: "Resume Optimizer - ATS-Friendly Resumes for Every Role | Flashfire Canada",
+  title: "ATS Resume Optimizer & Builder | Flashfire Canada",
   description:
     "Optimize your resume for each job you apply to. Flashfire aligns your experience with every JD so Canadian recruiters and ATS systems say yes.",
   robots: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca/features/resume-optimizer",
   },
   openGraph: {
-    title: "Resume Optimizer - ATS-Friendly Resumes for Every Role",
+    title: "ATS Resume Optimizer & Builder | Flashfire Canada",
     description:
       "Automatically tailor your resume to each job description and pass every ATS filter with Flashfire.",
     url: "https://www.flashfirejobs.com/en-ca/features/resume-optimizer",
