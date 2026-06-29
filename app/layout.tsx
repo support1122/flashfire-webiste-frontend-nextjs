@@ -152,40 +152,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"
           rel="stylesheet"
         />
-        {/* DNS prefetch and preconnect for Calendly */}
-        <link rel="dns-prefetch" href="https://calendly.com" />
+        {/* Calendly — non-blocking CSS load (print-trick swap). The sync stylesheet was the largest render-blocking request (~1,200ms) per PageSpeed Insights. */}
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <link
-          rel="preconnect"
-          href="https://calendly.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://assets.calendly.com"
-          crossOrigin="anonymous"
-        />
-        <link
           rel="preload"
-          href="https://assets.calendly.com/assets/external/widget.css"
           as="style"
-        />
-        <link
-          rel="stylesheet"
           href="https://assets.calendly.com/assets/external/widget.css"
         />
-        <link
-          rel="preload"
-          href="https://assets.calendly.com/assets/external/widget.js"
-          as="script"
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://assets.calendly.com/assets/external/widget.css"
+          />
+        </noscript>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://assets.calendly.com/assets/external/widget.css';l.media='print';l.onload=function(){l.media='all'};document.head.appendChild(l);})();`,
+          }}
         />
-        {/* DNS prefetch and preconnect for Cloudinary (blog images) */}
+        {/* Cloudinary (blog images) — dns-prefetch only; preconnect was warned as unused on PSI */}
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        <link
-          rel="preconnect"
-          href="https://res.cloudinary.com"
-          crossOrigin="anonymous"
-        />
       </head>
       <body
         suppressHydrationWarning
@@ -295,10 +281,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-        {/* Calendly Script - Load early for instant booking modal */}
+        {/* Calendly Script - lazyOnload so it does not compete with LCP. Booking modal opens on user click, so a small delay is acceptable. */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>

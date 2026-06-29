@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     "Explore Flashfire's key features: AI-powered matching, dynamic resume optimization, LinkedIn optimization, precision targeting, and more.",
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features",
+      "x-default": "https://www.flashfirejobs.com/features",
+    },
   },
 };
 

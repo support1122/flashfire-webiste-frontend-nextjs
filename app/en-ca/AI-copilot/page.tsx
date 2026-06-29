@@ -12,6 +12,11 @@ const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/AI-copilot",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/AI-copilot",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/AI-copilot",
+      "x-default": "https://www.flashfirejobs.com/AI-copilot",
+    },
   },
   openGraph: {
     title: "AI Copilot: Personalized Interview Tips | Flashfire",

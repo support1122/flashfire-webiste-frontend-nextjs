@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/faq",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/faq",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/faq",
+      "x-default": "https://www.flashfirejobs.com/faq",
+    },
   },
   openGraph: {
     title: "Flashfire FAQs: AI Job Search Questions Answered",

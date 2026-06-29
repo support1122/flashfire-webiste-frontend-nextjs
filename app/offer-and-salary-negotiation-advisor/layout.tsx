@@ -1,6 +1,14 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/offer-and-salary",
+      "x-default": "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
+    },
+  },
   twitter: {
     card: "summary_large_image",
     title: "Offer & Salary Negotiation Advisor — Flashfire",

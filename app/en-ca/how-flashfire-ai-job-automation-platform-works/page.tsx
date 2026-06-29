@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/how-flashfire-ai-job-automation-platform-works",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/how-flashfire-ai-job-automation-platform-works",
+      "x-default": "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
+    },
   },
   openGraph: {
     title: "How It Works: Student Job Search Automation",

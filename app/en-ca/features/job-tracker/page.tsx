@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features/job-tracker",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/job-tracker",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/job-tracker",
+      "x-default": "https://www.flashfirejobs.com/features/job-tracker",
+    },
   },
   openGraph: {
     title: "Real-Time AI Job Tracker Dashboard | Flashfire CA",

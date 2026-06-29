@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/pricing",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/pricing",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/pricing",
+      "x-default": "https://www.flashfirejobs.com/pricing",
+    },
   },
   openGraph: {
     title: "Flashfire CA Pricing: Affordable Job Automation Plans",

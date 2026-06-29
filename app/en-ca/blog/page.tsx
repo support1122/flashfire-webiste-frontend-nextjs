@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/blog",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/blog",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/blog",
+      "x-default": "https://www.flashfirejobs.com/blog",
+    },
   },
   openGraph: {
     title: "Flashfire Blog: Canadian Career Tips & Job Advice",

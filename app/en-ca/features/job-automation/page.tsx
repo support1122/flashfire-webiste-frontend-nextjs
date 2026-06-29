@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features/job-automation",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/job-automation",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/job-automation",
+      "x-default": "https://www.flashfirejobs.com/features/job-automation",
+    },
   },
   openGraph: {
     title: "Automated Job Applications: Apply to 1000+ Roles",
