@@ -15,6 +15,7 @@ type Blog = {
   readTime?: string;
   category?: string;
   image?: string;
+  coverImage?: string;
   categoryColor?: string;
   tags?: string[];
   author?: {
@@ -51,7 +52,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
         {/* === Image === */}
         <div className="w-full aspect-video overflow-hidden relative bg-[#f9f9f9] max-[768px]:aspect-[16/10]">
           <CachedBlogImage
-            src={blog.image || ""}
+            src={blog.image || blog.coverImage || ""}
             alt={blog.title}
             width={400}
             height={250}
