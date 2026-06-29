@@ -117,13 +117,12 @@ export default function CachedBlogImage({
           setIsLoading(false);
           blobUrl = cached;
         } else {
-          // Cache miss - load normally
+          // Cache miss - let Next.js Image handle rendering directly
           setIsCached(false);
-          // Keep loading state true until image loads
-          
+          setIsLoading(false);
+
           // Preload and cache in background (non-blocking)
           if (!isCancelled) {
-            // Start caching immediately but don't block render
             imageCache.preloadImage(src).catch(() => {
               // Silently fail preload
             });
