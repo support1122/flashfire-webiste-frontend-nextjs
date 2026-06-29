@@ -32,19 +32,29 @@ export default function BlogImagePreloader() {
         const priorityImages = blogImageUrls.slice(0, 6);
         const remainingImages = blogImageUrls.slice(6);
 
-        // Start preloading priority images immediately (non-blocking)
+        // Start preloading priority images after first paint settles. Previously
+        // a 500ms timeout could fire before the homepage hero LCP completed,
+        // causing the blog images to compete for bandwidth on mobile. Now we
+        // wait for the load event before scheduling.
         if (priorityImages.length > 0) {
-          // Use requestIdleCallback with shorter timeout for priority images
           const loadPriority = () => {
             imageCache.preloadImages(priorityImages, 3).catch(() => {
               // Silently fail
             });
           };
 
-          if ('requestIdleCallback' in window) {
-            (window as any).requestIdleCallback(loadPriority, { timeout: 500 });
+          const schedulePriority = () => {
+            if ('requestIdleCallback' in window) {
+              (window as any).requestIdleCallback(loadPriority, { timeout: 2500 });
+            } else {
+              setTimeout(loadPriority, 800);
+            }
+          };
+
+          if (document.readyState === 'complete') {
+            schedulePriority();
           } else {
-            setTimeout(loadPriority, 100);
+            window.addEventListener('load', schedulePriority, { once: true });
           }
         }
 

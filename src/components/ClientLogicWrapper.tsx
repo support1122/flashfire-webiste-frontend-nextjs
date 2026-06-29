@@ -80,9 +80,43 @@ function ClientLogicWrapperContent({
         captureUTMParams();
     }, [searchParams]);
 
-    // Warm Calendly once so first booking click opens instantly.
+    // Warm Calendly once so first booking click opens instantly. Deferred
+    // until after the load event (or first user interaction) so the Calendly
+    // script does not compete with the hero LCP on mobile.
     useEffect(() => {
-        warmCalendly();
+        let done = false;
+        const run = () => {
+            if (done) return;
+            done = true;
+            warmCalendly();
+        };
+
+        const w = window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number };
+        const schedule = () => {
+            if (typeof w.requestIdleCallback === 'function') {
+                w.requestIdleCallback(run, { timeout: 3000 });
+            } else {
+                setTimeout(run, 1500);
+            }
+        };
+
+        if (document.readyState === 'complete') {
+            schedule();
+        } else {
+            window.addEventListener('load', schedule, { once: true });
+        }
+
+        // Also warm on first user interaction in case load is slow on mobile
+        const onInteract = () => run();
+        window.addEventListener('pointerdown', onInteract, { once: true, passive: true });
+        window.addEventListener('touchstart', onInteract, { once: true, passive: true });
+        window.addEventListener('keydown', onInteract, { once: true });
+
+        return () => {
+            window.removeEventListener('pointerdown', onInteract);
+            window.removeEventListener('touchstart', onInteract);
+            window.removeEventListener('keydown', onInteract);
+        };
     }, []);
 
     // Update pathname ref when pathname changes

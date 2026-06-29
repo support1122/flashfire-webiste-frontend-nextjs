@@ -152,24 +152,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"
           rel="stylesheet"
         />
-        {/* Calendly — non-blocking CSS load (print-trick swap). The sync stylesheet was the largest render-blocking request (~1,200ms) per PageSpeed Insights. */}
+        {/* Calendly — dns-prefetch only. The CalendlyModal component uses
+            react-calendly's InlineWidget, which loads the script and CSS on
+            demand when the modal opens. Eagerly loading widget.css/.js from
+            the root layout was the cause of:
+              1. PSI's #1 render-blocking warning (~1,200ms LCP cost)
+              2. The "Duplicated JavaScript" finding (react-calendly already
+                 ships the same script). */}
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
-        <link
-          rel="preload"
-          as="style"
-          href="https://assets.calendly.com/assets/external/widget.css"
-        />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://assets.calendly.com/assets/external/widget.css"
-          />
-        </noscript>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://assets.calendly.com/assets/external/widget.css';l.media='print';l.onload=function(){l.media='all'};document.head.appendChild(l);})();`,
-          }}
-        />
         {/* Cloudinary (blog images) — dns-prefetch only; preconnect was warned as unused on PSI */}
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>
@@ -281,11 +271,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-        {/* Calendly Script - lazyOnload so it does not compete with LCP. Booking modal opens on user click, so a small delay is acceptable. */}
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
-        />
+        {/* Calendly script removed from layout. react-calendly's InlineWidget
+            (used in CalendlyModal) loads the same script on demand when the
+            booking modal opens. Having both caused PSI's "Duplicated
+            JavaScript" finding and a redundant 110+ KiB download on every
+            page load. */}
       </body>
     </html>
   );
