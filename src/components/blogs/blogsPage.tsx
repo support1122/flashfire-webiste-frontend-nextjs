@@ -22,7 +22,9 @@ type BlogPost = {
   title: string;
   excerpt?: string;
   image?: string;
+  coverImage?: string;
   category?: string;
+  categories?: string[];
   categoryColor?: string;
   date?: string;
   lastUpdated?: string;
@@ -241,18 +243,22 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
 
   // Get related articles (same category preferred; allow more than 3 to enable scroll)
   const relatedArticles = useMemo(() => {
-    const sameCategory = blogPosts.filter(
-      (p) => p.category === post.category && p.id !== post.id
-    );
+    // Support both `category` (string) and `categories` (array) fields
+    const postCategories: string[] = post.categories || (post.category ? [post.category] : []);
 
-    // If none in same category, fall back to first 3 from other categories
+    const sameCategory = blogPosts.filter((p) => {
+      if (p.id === post.id) return false;
+      const pCategories: string[] = (p as any).categories || (p.category ? [p.category] : []);
+      return postCategories.some((c) => pCategories.includes(c));
+    });
+
+    // If none in same category, fall back to recent posts
     if (sameCategory.length === 0) {
-      return blogPosts.filter((p) => p.id !== post.id).slice(0, 3);
+      return blogPosts.filter((p) => p.id !== post.id).slice(-6).reverse();
     }
 
-    // Allow more than 3 to enable scrolling when needed
     return sameCategory;
-  }, [post.category, post.id]);
+  }, [post.category, post.categories, post.id]);
 
   // Get recent posts (exclude current)
   const recentPosts = useMemo(() => {
