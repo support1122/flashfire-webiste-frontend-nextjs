@@ -45,7 +45,9 @@ export default function TestimonialImagePreloader() {
         const priorityImages = allTestimonialImages.slice(0, 12);
         const remainingImages = allTestimonialImages.slice(12);
 
-        // Start preloading priority images immediately
+        // Defer priority preloads until after the load event. The previous
+        // 200ms timeout fired before LCP completed on mobile, causing 12
+        // testimonial images to compete with the hero for bandwidth.
         if (priorityImages.length > 0) {
           const loadPriority = () => {
             imageCache.preloadImages(priorityImages, 4).catch(() => {
@@ -53,10 +55,18 @@ export default function TestimonialImagePreloader() {
             });
           };
 
-          if ('requestIdleCallback' in window) {
-            (window as any).requestIdleCallback(loadPriority, { timeout: 200 });
+          const schedulePriority = () => {
+            if ('requestIdleCallback' in window) {
+              (window as any).requestIdleCallback(loadPriority, { timeout: 2000 });
+            } else {
+              setTimeout(loadPriority, 600);
+            }
+          };
+
+          if (document.readyState === 'complete') {
+            schedulePriority();
           } else {
-            setTimeout(loadPriority, 50);
+            window.addEventListener('load', schedulePriority, { once: true });
           }
         }
 

@@ -34,6 +34,12 @@ const optimizeCloudinaryUrl = (url: string, width: number = 1200) => {
 
 export default function HomeImagePreloader() {
   useEffect(() => {
+    // Defer all preloads until after the hero LCP is painted. The video
+    // thumbnails live far down the page so preloading them eagerly competed
+    // with the hero image for bandwidth on mobile and hurt LCP discovery.
+    // requestIdleCallback runs only when the browser has nothing else to do;
+    // fallback to a 1.5s timeout for Safari.
+    const runPreloads = () => {
     // Preconnect to Cloudinary for faster image loading
     const preconnect = document.createElement('link');
     preconnect.rel = 'preconnect';
@@ -76,6 +82,14 @@ export default function HomeImagePreloader() {
       smallProfileImg.src = smallProfileImageUrl;
       smallProfileImg.loading = 'eager';
     });
+    };
+
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number };
+    if (typeof w.requestIdleCallback === 'function') {
+      w.requestIdleCallback(runPreloads, { timeout: 2500 });
+    } else {
+      setTimeout(runPreloads, 1500);
+    }
 
     return () => {
       // Cleanup is handled automatically by browser
