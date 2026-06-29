@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export { default } from "@/app/get-me-interview/page";
 
 export const metadata: Metadata = {
-  title: "Get Me Interview - Flashfire Job Search Automation (Canada)",
+  title: "Get Me an Interview | Flashfire Canada",
   description:
     "Unlock Flashfire’s human-powered, AI-assisted job search system built for Canadian job seekers. Track every application and land interviews faster.",
   robots: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca/get-me-interview",
   },
   openGraph: {
-    title: "Get Me Interview - Flashfire Canada",
+    title: "Get Me an Interview | Flashfire Canada",
     description:
       "Activate Flashfire’s end-to-end job application engine: resume tailoring, job automation, tracking, and updates—all for Canada.",
     url: "https://www.flashfirejobs.com/en-ca/get-me-interview",

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/job-search",
   },
   openGraph: {
-    title: "Job Search - Find Jobs Faster With Human-Powered Automation",
+    title: "AI Job Search — Apply Faster With Flashfire",
     description:
       "Flashfire applies to relevant jobs on your behalf so you don't have to search manually.",
     url: "https://www.flashfirejobs.com/job-search",

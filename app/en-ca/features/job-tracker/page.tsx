@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export { default } from "@/app/features/job-tracker/page";
 
 export const metadata: Metadata = {
-  title: "Job Tracker - Real-Time Application Dashboard | Flashfire Canada",
+  title: "Real-Time AI Job Tracker Dashboard | Flashfire CA",
   description:
     "Monitor every Canadian application in one live dashboard with status updates, recruiter notes, and reminders so nothing slips.",
   robots: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca/features/job-tracker",
   },
   openGraph: {
-    title: "Job Tracker - Real-Time Application Dashboard",
+    title: "Real-Time AI Job Tracker Dashboard | Flashfire CA",
     description:
       "Track submissions, interviews, and outcomes across every job Flashfire applies to on your behalf.",
     url: "https://www.flashfirejobs.com/en-ca/features/job-tracker",

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export { default } from "@/app/features/dashboard-analytics/page";
 
 export const metadata: Metadata = {
-  title: "Dashboard & Analytics - Stay in Control of Your Search | Flashfire Canada",
+  title: "Job Application Dashboard & Analytics | Flashfire CA",
   description:
     "See every Canadian application, pipeline stage, and conversion metric in one analytics dashboard so you always know what's next.",
   robots: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://www.flashfirejobs.com/en-ca/features/dashboard-analytics",
   },
   openGraph: {
-    title: "Dashboard & Analytics - Real-Time Visibility",
+    title: "Job Application Dashboard & Analytics | Flashfire CA",
     description:
       "Track applications, interviews, and wins through Flashfire’s live analytics dashboard built for job seekers.",
     url: "https://www.flashfirejobs.com/en-ca/features/dashboard-analytics",

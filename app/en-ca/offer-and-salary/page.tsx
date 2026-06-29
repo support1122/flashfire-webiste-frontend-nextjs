@@ -4,7 +4,7 @@ import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 
 export const metadata: Metadata = {
-    title: "Offer & Salary - Flashfire",
+    title: "Job Offer & Salary Negotiation | Flashfire",
     description: "Offer & Salary - Flashfire",
     robots: {
         index: true,
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         canonical: "https://www.flashfirejobs.com/en-ca/offer-and-salary",
     },
     openGraph: {
-        title: "Offer & Salary - Flashfire",
+        title: "Job Offer & Salary Negotiation | Flashfire",
         description: "Offer & Salary - Flashfire",
         url: "https://www.flashfirejobs.com/offer-and-salary",
         siteName: "Flashfire",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Offer & Salary - Flashfire",
+        title: "Job Offer & Salary Negotiation | Flashfire",
         description: "Offer & Salary - Flashfire",
         images: [
             { url: "https://www.flashfirejobs.com/og-image.png" },

@@ -3,7 +3,7 @@ import RecentJobOpenings from "@/src/components/recentJobOpenings/recentJobOpeni
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 export const metadata: Metadata = {
-    title: "Recent Job Openings - Flashfire",
+    title: "Recent Canadian Job Openings | Flashfire",
     description: "Recent Job Openings - Flashfire",
     robots: {
         index: true,
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         canonical: "https://www.flashfirejobs.com/en-ca/recent-job-openings",
     },
     openGraph: {
-        title: "Recent Job Openings - Flashfire",
+        title: "Recent Canadian Job Openings | Flashfire",
         description: "Recent Job Openings - Flashfire",
         url: "https://www.flashfirejobs.com/recent-job-openings",
         siteName: "Flashfire",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Recent Job Openings - Flashfire",
+        title: "Recent Canadian Job Openings | Flashfire",
         description: "Recent Job Openings - Flashfire",
         images: [
             { url: "https://www.flashfirejobs.com/images/og-image.png" },
