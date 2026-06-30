@@ -53,7 +53,7 @@ export default function NotFound() {
                 Pricing
               </Link>
               <Link
-                href="/feature"
+                href="/features"
                 className="text-[#ff4c00] hover:text-[#e64400] hover:underline transition-colors"
               >
                 Features

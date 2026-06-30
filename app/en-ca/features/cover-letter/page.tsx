@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export { default } from "@/app/features/cover-letter/page";
 
 export const metadata: Metadata = {
-  title: "Cover Letter Builder - Persuasive Letters in Minutes | Flashfire Canada",
+  title: "AI Cover Letter Builder | Flashfire Canada",
   description:
     "Generate personalized cover letters tailored to each Canadian role without writing from scratch. Flashfire keeps tone, proof, and keywords on point.",
   robots: {
@@ -12,9 +12,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features/cover-letter",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/cover-letter",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/cover-letter",
+      "x-default": "https://www.flashfirejobs.com/features/cover-letter",
+    },
   },
   openGraph: {
-    title: "Cover Letter Builder - Personalized & Proof-Based",
+    title: "AI Cover Letter Builder | Flashfire Canada",
     description:
       "Craft compelling cover letters fast using Flashfire’s AI + human review workflow designed for Canadian employers.",
     url: "https://www.flashfirejobs.com/en-ca/features/cover-letter",

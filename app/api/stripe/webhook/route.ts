@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
+import { sendRedditCAPIEvent } from '@/lib/redditCAPI';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -106,6 +107,19 @@ async function handleCheckoutSession(obj: any): Promise<void> {
   fields.push({ name: 'Source', value: obj.payment_link ? `Payment Link (${obj.payment_link})` : 'Checkout', inline: true });
   fields.push({ name: 'Session', value: obj.id, inline: true });
   fields.push(...metadataFields(obj.metadata));
+
+  // Reddit CAPI — Purchase event (server-side, deduplicated via session ID)
+  try {
+    await sendRedditCAPIEvent({
+      eventType: 'Purchase',
+      email: email !== 'unknown' ? email : null,
+      conversionId: obj.id, // Stripe session ID as deduplication key (matches metadata.conversion_id)
+      value: obj.amount_total != null ? obj.amount_total / 100 : undefined,
+      currency: obj.currency?.toUpperCase() || 'USD',
+    });
+  } catch (err) {
+    console.error('[Reddit CAPI] Purchase event failed (non-fatal):', err);
+  }
 
   await postDiscord(`✅ **New Payment** — ${amount}`, [
     {

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/see-flashfire-in-action",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/see-flashfire-in-action",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/see-flashfire-in-action",
+      "x-default": "https://www.flashfirejobs.com/see-flashfire-in-action",
+    },
   },
   openGraph: {
     title: "See Flashfire in Action - Live Demo & Product Tour",

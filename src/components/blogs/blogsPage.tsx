@@ -22,7 +22,9 @@ type BlogPost = {
   title: string;
   excerpt?: string;
   image?: string;
+  coverImage?: string;
   category?: string;
+  categories?: string[];
   categoryColor?: string;
   date?: string;
   lastUpdated?: string;
@@ -241,18 +243,22 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
 
   // Get related articles (same category preferred; allow more than 3 to enable scroll)
   const relatedArticles = useMemo(() => {
-    const sameCategory = blogPosts.filter(
-      (p) => p.category === post.category && p.id !== post.id
-    );
+    // Support both `category` (string) and `categories` (array) fields
+    const postCategories: string[] = post.categories || (post.category ? [post.category] : []);
 
-    // If none in same category, fall back to first 3 from other categories
+    const sameCategory = blogPosts.filter((p) => {
+      if (p.id === post.id) return false;
+      const pCategories: string[] = (p as any).categories || (p.category ? [p.category] : []);
+      return postCategories.some((c) => pCategories.includes(c));
+    });
+
+    // If none in same category, fall back to recent posts
     if (sameCategory.length === 0) {
-      return blogPosts.filter((p) => p.id !== post.id).slice(0, 3);
+      return blogPosts.filter((p) => p.id !== post.id).slice(-6).reverse();
     }
 
-    // Allow more than 3 to enable scrolling when needed
     return sameCategory;
-  }, [post.category, post.id]);
+  }, [post.category, post.categories, post.id]);
 
   // Get recent posts (exclude current)
   const recentPosts = useMemo(() => {
@@ -376,7 +382,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     },
     headline: post.title,
     description: post.excerpt || post.title,
-    image: post.image || "",
+    image: post.image || post.coverImage || "",
     author: {
       "@type": "Person",
       name: post.author?.name || "Arjun Sharma",
@@ -505,7 +511,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
               {/* === HERO IMAGE === */}
               <div className={styles.imageWrapper}>
                 <CachedBlogImage
-                  src={post.image || ""}
+                  src={post.image || post.coverImage || ""}
                   alt={post.title}
                   width={1200}
                   height={630}
@@ -693,7 +699,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                       >
                         <div className={styles.recentPostImage}>
                           <CachedBlogImage
-                            src={recentPost.image || ""}
+                            src={recentPost.image || recentPost.coverImage || ""}
                             alt={recentPost.title}
                             width={80}
                             height={60}
@@ -728,7 +734,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                         >
                           <div className={styles.recentPostImage}>
                             <CachedBlogImage
-                              src={viewedPost.image || ""}
+                              src={viewedPost.image || viewedPost.coverImage || ""}
                               alt={viewedPost.title}
                               width={80}
                               height={60}
@@ -807,7 +813,7 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
                     <Link href={`/blog/${relatedPost.slug}`}>
                       <div className={styles.relatedImage}>
                         <CachedBlogImage
-                          src={relatedPost.image || ""}
+                          src={relatedPost.image || relatedPost.coverImage || ""}
                           alt={relatedPost.title}
                           width={400}
                           height={250}

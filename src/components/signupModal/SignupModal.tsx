@@ -159,9 +159,29 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
       country_code: formData.countryCode
     });
 
-    // Reddit Pixel - Lead event on signup form submit
-    if (typeof window !== "undefined" && (window as any).rdt) {
-      (window as any).rdt('track', 'Lead');
+    // Reddit Pixel - SignUp event with deduplication transactionId
+    const rdtSignupEventId = typeof crypto !== "undefined" && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `signup-${Date.now()}`;
+    if (typeof window !== "undefined") {
+      if ((window as any).rdt) {
+        (window as any).rdt('track', 'SignUp', { transactionId: rdtSignupEventId });
+        console.log('[Reddit Pixel] SignUp fired, transactionId:', rdtSignupEventId);
+      }
+      // Read rdt_cid cookie and send CAPI Lead event server-side for deduplication
+      const rdtCidMatch = document.cookie.match(/(^| )rdt_cid=([^;]+)/);
+      const rdtClickId = rdtCidMatch ? decodeURIComponent(rdtCidMatch[2]) : null;
+      fetch('/api/reddit-capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          eventType: 'SignUp',
+          clickId: rdtClickId,
+          email: formData.email,
+          userAgent: navigator.userAgent,
+          conversionId: rdtSignupEventId,
+        }),
+      }).catch((err) => console.error('[Reddit CAPI] SignUp call failed:', err));
     }
 
     // Open Calendly modal IMMEDIATELY (don't wait for backend)

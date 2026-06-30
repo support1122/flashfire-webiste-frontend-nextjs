@@ -1,5 +1,11 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return [{ locale: "en-ca" }];
+}
 import HomePage from "@/src/components/pages/home/Home";
 import CanadaHome from "@/src/components/countries/ca/Home";
 

@@ -5,7 +5,7 @@ import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
 
 export const metadata: Metadata = {
-  title: "Blog - Career Tips, Job Search Advice & Industry Insights | Flashfire (Canada)",
+  title: "Flashfire Blog: Canadian Career Tips & Job Advice",
   description:
     "Discover expert career tips, job search strategies, resume writing guides, and industry insights to accelerate your job search success.",
   robots: {
@@ -14,9 +14,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/blog",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/blog",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/blog",
+      "x-default": "https://www.flashfirejobs.com/blog",
+    },
   },
   openGraph: {
-    title: "Blog - Career Tips & Job Search Advice",
+    title: "Flashfire Blog: Canadian Career Tips & Job Advice",
     description:
       "Discover expert career tips, job search strategies, and industry insights.",
     url: "https://www.flashfirejobs.com/en-ca/blog",

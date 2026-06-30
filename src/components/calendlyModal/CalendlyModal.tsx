@@ -160,9 +160,29 @@ export default function CalendlyModal({
           }
         } catch {}
 
-        // Reddit Pixel - Lead event on meeting booked
-        if (typeof window !== "undefined" && (window as any).rdt) {
-          (window as any).rdt('track', 'Lead');
+        // Reddit Pixel - Lead event on meeting booked with deduplication transactionId
+        const rdtLeadEventId = typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `lead-${Date.now()}`;
+        if (typeof window !== "undefined") {
+          if ((window as any).rdt) {
+            (window as any).rdt('track', 'Lead', { transactionId: rdtLeadEventId });
+            console.log('[Reddit Pixel] Lead fired, transactionId:', rdtLeadEventId);
+          }
+          // Read rdt_cid cookie and send CAPI Lead event server-side for deduplication
+          const rdtCidMatch = document.cookie.match(/(^| )rdt_cid=([^;]+)/);
+          const rdtClickId = rdtCidMatch ? decodeURIComponent(rdtCidMatch[2]) : null;
+          fetch('/api/reddit-capi', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              eventType: 'Lead',
+              clickId: rdtClickId,
+              email: inviteeEmail,
+              userAgent: navigator.userAgent,
+              conversionId: rdtLeadEventId,
+            }),
+          }).catch((err) => console.error('[Reddit CAPI] Lead call failed:', err));
         }
 
         // Navigate to meeting-booked page

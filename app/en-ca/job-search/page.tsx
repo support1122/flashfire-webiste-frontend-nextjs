@@ -4,7 +4,7 @@ import Footer from "@/src/components/footer/footer";
 import JobSearch from "@/src/components/pages/jobSearch/JobSearch";
 
 export const metadata: Metadata = {
-  title: "Job Search - Find Jobs Faster With Human-Powered Automation | Flashfire",
+  title: "Job Search: Faster Human-Powered Automation",
   description:
     "Flashfire applies to relevant jobs on your behalf so you don't have to search manually. Get updates without lifting a finger.",
   robots: {
@@ -13,9 +13,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/job-search",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/job-search",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/job-search",
+      "x-default": "https://www.flashfirejobs.com/job-search",
+    },
   },
   openGraph: {
-    title: "Job Search - Find Jobs Faster With Human-Powered Automation",
+    title: "Job Search: Faster Human-Powered Automation",
     description:
       "Flashfire applies to relevant jobs on your behalf so you don't have to search manually.",
     url: "https://www.flashfirejobs.com/en-ca/job-search",

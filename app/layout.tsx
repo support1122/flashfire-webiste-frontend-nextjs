@@ -127,12 +127,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Reddit Pixel */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_j7kj6g9uvz00",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_j7kj6g9uvz00');rdt('track','PageVisit');`,
-          }}
-        />
         {/* Google Tag Manager — keep high in <head> per Google */}
         <script
           dangerouslySetInnerHTML={{
@@ -158,40 +152,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"
           rel="stylesheet"
         />
-        {/* DNS prefetch and preconnect for Calendly */}
-        <link rel="dns-prefetch" href="https://calendly.com" />
+        {/* Calendly — dns-prefetch only. The CalendlyModal component uses
+            react-calendly's InlineWidget, which loads the script and CSS on
+            demand when the modal opens. Eagerly loading widget.css/.js from
+            the root layout was the cause of:
+              1. PSI's #1 render-blocking warning (~1,200ms LCP cost)
+              2. The "Duplicated JavaScript" finding (react-calendly already
+                 ships the same script). */}
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
-        <link
-          rel="preconnect"
-          href="https://calendly.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://assets.calendly.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="https://assets.calendly.com/assets/external/widget.css"
-          as="style"
-        />
-        <link
-          rel="stylesheet"
-          href="https://assets.calendly.com/assets/external/widget.css"
-        />
-        <link
-          rel="preload"
-          href="https://assets.calendly.com/assets/external/widget.js"
-          as="script"
-        />
-        {/* DNS prefetch and preconnect for Cloudinary (blog images) */}
+        {/* Cloudinary (blog images) — dns-prefetch only; preconnect was warned as unused on PSI */}
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        <link
-          rel="preconnect"
-          href="https://res.cloudinary.com"
-          crossOrigin="anonymous"
-        />
       </head>
       <body
         suppressHydrationWarning
@@ -243,24 +213,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             alt=""
           />
         </noscript>
-        {/* Google Analytics + Google Ads — single gtag.js, afterInteractive */}
+        {/* Reddit Pixel v2 — loaded after page paint, non-blocking */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-4P890VGD8D"
+          id="reddit-pixel"
           strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/v2/rdtag.js";t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_j8tdb9hlk690');rdt('track','PageVisit');`
+          }}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function() {
-              dataLayer.push(arguments);
-            };
-            window.gtag("js", new Date());
-            window.gtag("config", "G-4P890VGD8D", {
-              page_path: window.location.pathname,
-            });
-            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID ? `window.gtag("config", "${process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID}");` : ''}
-          `}
-        </Script>
         {/* LinkedIn Insight Tag - Load with afterInteractive strategy */}
         {process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID && (
           <>
@@ -311,11 +271,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             `,
           }}
         />
-        {/* Calendly Script - Load early for instant booking modal */}
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
-        />
+        {/* Calendly script removed from layout. react-calendly's InlineWidget
+            (used in CalendlyModal) loads the same script on demand when the
+            booking modal opens. Having both caused PSI's "Duplicated
+            JavaScript" finding and a redundant 110+ KiB download on every
+            page load. */}
       </body>
     </html>
   );

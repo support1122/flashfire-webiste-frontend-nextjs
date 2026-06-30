@@ -37,7 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = resolvedParams;
   
   // Check if it's a blog post
-  const post = blogPosts.find((p) => p && p.slug === slug);
+  const rawPostMeta = blogPosts.find((p) => p && p.slug === slug);
+  const post = rawPostMeta ? {
+    ...rawPostMeta,
+    image: rawPostMeta.image || (rawPostMeta as unknown as Record<string, unknown>).coverImage as string || "",
+  } : undefined;
   if (post) {
   // Meta title overrides per slug
   const metaTitleMap: Record<string, string> = {
@@ -217,8 +221,12 @@ export default async function BlogSlugPage({ params }: Props) {
   }
 
   // Check if it's a blog post
-  const post = blogPosts.find((p) => p && p.slug === slug);
-  if (post) {
+  const rawPost = blogPosts.find((p) => p && p.slug === slug);
+  if (rawPost) {
+    const post = {
+      ...rawPost,
+      image: rawPost.image || (rawPost as unknown as Record<string, unknown>).coverImage as string || "",
+    };
     return <BlogsPage post={post} />;
   }
 

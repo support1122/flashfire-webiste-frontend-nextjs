@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://www.flashfirejobs.com/recent-job-openings",
+        languages: {
+            "en-US": "https://www.flashfirejobs.com/recent-job-openings",
+            "en-CA": "https://www.flashfirejobs.com/en-ca/recent-job-openings",
+            "x-default": "https://www.flashfirejobs.com/recent-job-openings",
+        },
     },
     openGraph: {
         title: "AI Job Search Assistant & Job Application Automation Tool",

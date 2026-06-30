@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export { default } from "@/app/features/job-automation/page";
 
 export const metadata: Metadata = {
-  title: "Job Automation - Apply to 1,000+ Roles Without the Grind | Flashfire Canada",
+  title: "Automated Job Applications: Apply to 1000+ Roles",
   description:
     "Flashfire sources high-fit Canadian roles, tailors your assets, and applies on your behalf so you land interviews while saving 150+ hours.",
   robots: {
@@ -12,9 +12,14 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/en-ca/features/job-automation",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/features/job-automation",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/features/job-automation",
+      "x-default": "https://www.flashfirejobs.com/features/job-automation",
+    },
   },
   openGraph: {
-    title: "Job Automation - Let Flashfire Apply for You",
+    title: "Automated Job Applications: Apply to 1000+ Roles",
     description:
       "Scale your job hunt with human-powered, AI-assisted application automation purpose-built for Canadian job seekers.",
     url: "https://www.flashfirejobs.com/en-ca/features/job-automation",

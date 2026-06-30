@@ -83,6 +83,10 @@ function getBlogsWithTags(): BlogPostWithOptionalMeta[] {
   const baseBlogs = blogPosts as unknown as BlogPostWithOptionalMeta[];
 
   blogsWithTagsCache = baseBlogs.map((blog) => {
+    // Support both `image` (old) and `coverImage` (new) field names
+    if (!blog.image && (blog as unknown as Record<string, unknown>).coverImage) {
+      blog = { ...blog, image: (blog as unknown as Record<string, unknown>).coverImage as string };
+    }
     const existingTags = blog.tags && blog.tags.length > 0 ? blog.tags : [];
     
     // Always include the blog's category as a tag for filtering

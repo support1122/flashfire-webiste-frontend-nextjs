@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.flashfirejobs.com/testimonials",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/testimonials",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/testimonials",
+      "x-default": "https://www.flashfirejobs.com/testimonials",
+    },
   },
   openGraph: {
     title: "Success Stories & Testimonials | Flashfire",
@@ -65,26 +70,11 @@ export default function TestimonialsPage() {
     }
   };
 
-  const aggregateRatingSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Flashfire",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "200"
-    }
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
       />
       <TestimonialImagePreloader />
       <Navbar />
