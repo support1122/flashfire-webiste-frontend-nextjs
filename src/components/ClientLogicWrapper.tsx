@@ -35,31 +35,13 @@ function ClientLogicWrapperContent({
         if (typeof document === "undefined") return;
         const locked = showStrategyCallCard || showCalendlyModal;
         if (locked) {
-            const scrollY = window.scrollY;
+            document.documentElement.style.overflow = "hidden";
             document.body.style.overflow = "hidden";
-            document.body.style.position = "fixed";
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = "100%";
-        } else {
-            const top = document.body.style.top;
-            document.body.style.overflow = "";
-            document.body.style.position = "";
-            document.body.style.top = "";
-            document.body.style.width = "";
-            if (top) {
-                window.scrollTo(0, -parseInt(top));
-            }
+            return () => {
+                document.documentElement.style.overflow = "";
+                document.body.style.overflow = "";
+            };
         }
-        return () => {
-            const top = document.body.style.top;
-            document.body.style.overflow = "";
-            document.body.style.position = "";
-            document.body.style.top = "";
-            document.body.style.width = "";
-            if (top) {
-                window.scrollTo(0, -parseInt(top));
-            }
-        };
     }, [showStrategyCallCard, showCalendlyModal]);
 
     // Track button clicks to force show modal
