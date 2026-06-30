@@ -24,6 +24,13 @@ interface HomePageOfferLettersClientProps {
 
 const offerLetters: OfferLetterData[] = [
   {
+    name: "Akshad ",
+    company: " ICF",
+    linkedinUrl: "#",
+    imagePath: "/images/akshad-offer.png",
+    profileImagePath:
+      "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Akshad.png",
+  },{
     name: "Aryan ",
     company: " Impact.com",
     linkedinUrl: "#",

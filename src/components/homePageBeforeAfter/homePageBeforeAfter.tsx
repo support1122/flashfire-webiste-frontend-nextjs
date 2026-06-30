@@ -49,10 +49,8 @@ export default function BeforeAfterComparison() {
           </h2>
 
           <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-            We don’t just apply, we <span className="font-semibold">make you get noticed</span>.
-            Flashfire combines <span className="text-[#ff4c00] font-medium">AI precision</span>
-            with <span className="text-[#ff4c00] font-medium">human insight</span>
-            to get you interviews that actually convert.
+            Compare how <span className="font-semibold">AI-powered job applications</span>.
+            help you get  <span className="text-[#ff4c00] font-medium">more interviews.</span>
           </p>
         </div>
 
