@@ -1,5 +1,5 @@
 .videoContainer {
-  background: linear-gradient(to bottom, #f9e8e0, #ffffff);
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,6 +71,7 @@
   object-fit: cover;
   border: none;
   display: block;
+  background-color: #fff6f4;
 }
 
 /* === Responsive Styles === */

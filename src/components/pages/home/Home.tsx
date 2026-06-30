@@ -28,17 +28,17 @@ const Home = () => {
   useEffect(() => {
     // Scroll to top when navigating to homepage (handles back button and direct navigation)
     const isHomePage = pathname === "/" || pathname === "/en-ca";
-    
+
     if (isHomePage) {
       // Use requestAnimationFrame to ensure DOM is ready
       requestAnimationFrame(() => {
         window.scrollTo({ top: 0, behavior: "instant" });
-        
+
         // Also scroll after a short delay to catch any late scrolls from browser restoration
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: "instant" });
         }, 50);
-        
+
         // One more check after layout
         requestAnimationFrame(() => {
           setTimeout(() => {
@@ -53,39 +53,30 @@ const Home = () => {
     <>
       <Navbar />
       <HeroSection />
-      <HomePageStatsCards />
-      <HomePageSteps /> {/* using useState, so client */}
-      <HomePageJobMatchingSection />
-      <HomePageCareerCTA />
-      <HomePageBeforeAfter />
+      <HomePageVideo />
       <HomePageResultStats />
-     
+      <HomePageStatsCards />
+      <HomePageMilestones />
+      <HomePageSteps /> 
       <HomePageOfferLetters
         heading="60+ Offer letters received"
         enableLoopControls
         buttonOnlyScroll
       />
-     
-      <HomePageMilestones /> 
-      <HomePageVideo />
-      
-     
-     
-      <HomePageWhyChooseFF /> 
+     <HomePageJobMatchingSection />
+      <HomePageBeforeAfter />
+      <HomePageWhyChooseFF />
       <HomePageHappyUsers />
-      <HomePageFoundersNote variant="pricing" />
-
-      {/* using useState, so client */}
-     
-       {/* using useState, so client */}
-      {/* AJ section not so good */}
-      
-      <HomePagePTNote /> {/* PT section not so good */}
-     
+      <HomePagePTNote />
       <HomePageFAQ />
       <HomePageDemoCTA />
-      <Footer />
+      <HomePageFoundersNote variant="pricing" />
+      <HomePageCareerCTA />
       
+     
+
+      <Footer />
+
       {/* <SalesPopUp /> */}
     </>
   );
