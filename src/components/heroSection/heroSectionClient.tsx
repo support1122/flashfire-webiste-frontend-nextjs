@@ -171,8 +171,6 @@ export default function HeroSectionClient({
       target_url: "/Get-Started",
     });
 
-    sessionStorage.setItem("preserveScrollPosition", window.scrollY.toString());
-    window.history.pushState({}, "", "/Get-Started");
     window.dispatchEvent(new CustomEvent("showCalendlyModal"));
   };
 
