@@ -416,35 +416,43 @@ export default function BlogsPage({ post }: { post: BlogPost }) {
     })),
   } : null;
 
+  const breadcrumbCategory = post.category || post.categories?.[0];
+
+  const breadcrumbItems = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.flashfirejobs.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://www.flashfirejobs.com/blog",
+    },
+    ...(breadcrumbCategory
+      ? [
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: breadcrumbCategory,
+            item: `https://www.flashfirejobs.com/blog/${categoryToSlug(breadcrumbCategory)}`,
+          },
+        ]
+      : []),
+    {
+      "@type": "ListItem",
+      position: breadcrumbCategory ? 4 : 3,
+      name: post.title,
+      item: `https://www.flashfirejobs.com/blog/${post.slug}`,
+    },
+  ];
+
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://www.flashfirejobs.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Blog",
-        item: "https://www.flashfirejobs.com/blog",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: post.category,
-        item: `https://www.flashfirejobs.com/blog/${categoryToSlug(post.category || "")}`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: post.title,
-        item: `https://www.flashfirejobs.com/blog/${post.slug}`,
-      },
-    ],
+    itemListElement: breadcrumbItems,
   };
 
   return (
