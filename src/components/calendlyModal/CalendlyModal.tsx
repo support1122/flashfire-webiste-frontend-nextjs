@@ -278,7 +278,7 @@ export default function CalendlyModal({
     },
   } as CalendlyEventListenerOptions);
 
-  const calendlyUrl = `https://calendly.com/feedback-flashfire/30min?utm_source=${
+  const calendlyUrl = `https://calendly.com/feedback-flashfire/15min?utm_source=${
     typeof window !== "undefined"
       ? localStorage.getItem("utm_source") || "webpage_visit"
       : "webpage_visit"
