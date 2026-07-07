@@ -44,7 +44,7 @@ export default function TestimonialsPageCA() {
   return (
     <>
       <Navbar />
-      <HappyUsersGalleryPage />
+      <HappyUsersGalleryPage heading="Real Stories from Canadian Job Seekers" />
       <Footer />
     </>
   );

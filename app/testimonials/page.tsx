@@ -48,25 +48,30 @@ export const revalidate = false; // Never revalidate - page is static
 export default function TestimonialsPage() {
   const reviewSchema = {
     "@context": "https://schema.org/",
-    "@type": "Review",
-    "author": {
-      "@type": "Person",
-      "name": "Aman Guleria"
+    "@type": "Product",
+    "name": "Flashfire AI Job Search Platform",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "478"
     },
-    "itemReviewed": {
-      "@type": "Product",
-      "name": "AI Job Search Platform"
-    },
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "5"
-    },
-    "name": "Best AI Powered Job Searching Platform",
-    "reviewBody": "Flashfire guided me through my entire application process with precision and efficiency. The platform's comprehensive approach — from resume optimization to automated applications — made everything seamless. The real-time updates and tracking kept me informed throughout. I landed interviews at Barclays within 10 days, and the structured process made all the difference!",
-    "datePublished": "2025-05-11",
-    "publisher": {
-      "@type": "Organization",
-      "name": "FlashFire"
+    "review": {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Aman Guleria"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "name": "Best AI Powered Job Searching Platform",
+      "reviewBody": "Flashfire guided me through my entire application process with precision and efficiency. The platform's comprehensive approach — from resume optimization to automated applications — made everything seamless. The real-time updates and tracking kept me informed throughout. I landed interviews at Barclays within 10 days, and the structured process made all the difference!",
+      "datePublished": "2025-05-11",
+      "publisher": {
+        "@type": "Organization",
+        "name": "FlashFire"
+      }
     }
   };
 
@@ -78,7 +83,7 @@ export default function TestimonialsPage() {
       />
       <TestimonialImagePreloader />
       <Navbar />
-      <HappyUsersGalleryPage />
+      <HappyUsersGalleryPage heading="All Happy User&rsquo;s Testimonials" />
       <Footer />
     </>
   );
