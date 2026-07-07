@@ -46,7 +46,7 @@ export default function BlogPageCA() {
     <>
       <Navbar />
       <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
-        <BlogsClient />
+        <BlogsClient heading="Career Tips & Job Advice for Canadian Job Seekers" />
       </Suspense>
       <Footer />
     </>

@@ -249,6 +249,11 @@ const nextConfig: NextConfig = {
         destination: "/en-ca/how-flashfire-ai-job-automation-platform-works",
         permanent: true,
       },
+      {
+        source: "/en-ca/about-us",
+        destination: "/about-us",
+        permanent: true,
+      },
     ];
   },
 };

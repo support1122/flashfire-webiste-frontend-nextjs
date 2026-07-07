@@ -12,6 +12,7 @@ import { categoryToSlug, slugToCategory, tagToSlug, slugToTag } from "@/src/util
 type BlogsClientProps = {
   categorySlug?: string;
   tagSlug?: string;
+  heading?: string;
 };
 
 
@@ -116,7 +117,7 @@ function getBlogsWithTags(): BlogPostWithOptionalMeta[] {
   return blogsWithTagsCache;
 }
 
-export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps = {}) {
+export default function BlogsClient({ categorySlug, tagSlug, heading }: BlogsClientProps = {}) {
   const searchParams = useSearchParams();
   const tagParam = searchParams.get("tag");
   const categoryParam = searchParams.get("category");
@@ -294,7 +295,7 @@ export default function BlogsClient({ categorySlug, tagSlug }: BlogsClientProps 
             ? `Blogs tagged: ${decodedTag}`
             : decodedCategory
             ? `Blogs in ${decodedCategory}`
-            : "Insights That Spark Career Growth."}
+            : heading || "Insights That Spark Career Growth."}
         </h1>
         <p>
           {decodedTag || decodedCategory ? (
