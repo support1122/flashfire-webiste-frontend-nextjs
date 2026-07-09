@@ -442,13 +442,13 @@ max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-co
                 width: "100%",
                 minHeight: "calc(100vh - 100px)",
               }}
-              pageSettings={{
-                backgroundColor: "ffffff",
-                hideEventTypeDetails: false,
-                hideLandingPageDetails: false,
-                primaryColor: "f97316",
-                textColor: "374151",
-              }}
+              // pageSettings={{
+              //   backgroundColor: "ffffff",
+              //   hideEventTypeDetails: false,
+              //   hideLandingPageDetails: false,
+              //   primaryColor: "4d94ff",
+              //   textColor: "374151",
+              // }}
             />
           </div>
         </div>
