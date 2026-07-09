@@ -42,6 +42,7 @@ export default function NavbarClient({ links, ctas }: Props) {
     minutes: 0,
     seconds: 0,
   });
+  const [isOfferBarDismissed, setIsOfferBarDismissed] = useState(false);
   const pathname = usePathname();
   const safePathname = pathname || (typeof window !== 'undefined' ? window.location.pathname : '') || '';
   const isCanadaContext = safePathname.startsWith("/en-ca");
@@ -53,6 +54,8 @@ export default function NavbarClient({ links, ctas }: Props) {
     safePathname.startsWith("/blog") ||
     safePathname.startsWith("/en-ca/blogs") ||
     safePathname.startsWith("/en-ca/blog");
+  const isPricingPage = safePathname.includes("/pricing");
+  const showOfferBar = !isOfferBarDismissed && !isImageTestimonialsPage && !isBlogsPage && !isPricingPage;
 
   const isExternalHref = (href: string) => href.startsWith("http");
 
@@ -171,10 +174,74 @@ export default function NavbarClient({ links, ctas }: Props) {
     return () => clearInterval(interval);
   }, []);
 
+  // Anniversary offer bar - respects a per-session dismissal.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (sessionStorage.getItem("ff_anniversary_offer_dismissed") === "true") {
+      setIsOfferBarDismissed(true);
+    }
+  }, []);
+
+  const handleDismissOfferBar = () => {
+    setIsOfferBarDismissed(true);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("ff_anniversary_offer_dismissed", "true");
+    }
+  };
+
   return (
     <>
       {/* Sticky Container for Navbar */}
       <div className="sticky top-0 left-0 right-0 z-50">
+        {showOfferBar && (
+          <div className={styles.offerBar} role="region" aria-label="Anniversary offer">
+            <div className={styles.offerBarInner}>
+              <span className={styles.offerBadge}>
+                <span className={styles.offerAsterisk}>★</span> Anniversary Sale
+              </span>
+              <span className={styles.offerDivider} aria-hidden="true" />
+              <span className={styles.offerMessage}>
+                Celebrate with us — special anniversary pricing for a limited time.
+              </span>
+              <span className={styles.offerDivider} aria-hidden="true" />
+              <span className={styles.offerCountdown}>
+                <span className={styles.offerCountdownLabel}>Ends in</span>
+                <span className={styles.offerTimeTile}>
+                  {String(timeLeft.hours).padStart(2, "0")}
+                </span>
+                <span className={styles.offerTimeColon}>:</span>
+                <span className={styles.offerTimeTile}>
+                  {String(timeLeft.minutes).padStart(2, "0")}
+                </span>
+                <span className={styles.offerTimeColon}>:</span>
+                <span className={styles.offerTimeTile}>
+                  {String(timeLeft.seconds).padStart(2, "0")}
+                </span>
+              </span>
+              <Link
+                href={pricingSectionHref}
+                className={styles.offerButton}
+                onClick={() =>
+                  trackButtonClick("Anniversary Offer", "navigation", "cta", {
+                    button_location: "offer_bar",
+                    navigation_type: "promo_cta",
+                    target_url: pricingSectionHref,
+                  })
+                }
+              >
+                View Pricing <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <button
+              type="button"
+              className={styles.offerCloseButton}
+              aria-label="Dismiss anniversary offer"
+              onClick={handleDismissOfferBar}
+            >
+              ×
+            </button>
+          </div>
+        )}
         <nav
           className={styles.navContainer}
           style={{
