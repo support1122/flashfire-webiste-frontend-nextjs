@@ -5,8 +5,10 @@ import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { captureUTMParams } from "@/src/utils/captureUTMParams";
 
-// Inner component to handle pageview tracking
-function PostHogPageView({ children }: { children: React.ReactNode }) {
+// Inner component to handle pageview tracking. Renders nothing itself —
+// mounted alongside (not around) page content so it can suspend on
+// useSearchParams() without affecting what gets rendered/streamed for children.
+function PostHogPageView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const posthog = usePostHog();
@@ -111,7 +113,7 @@ function PostHogPageView({ children }: { children: React.ReactNode }) {
     }
   }, [pathname, searchParams, posthog]);
 
-  return <>{children}</>;
+  return null;
 }
 
 export function PHProvider({ children }: { children: React.ReactNode }) {
@@ -153,9 +155,10 @@ export function PHProvider({ children }: { children: React.ReactNode }) {
       apiKey={process.env.NEXT_PUBLIC_POSTHOG_KEY}
       options={posthogOptions}
     >
-      <Suspense fallback={<>{children}</>}>
-        <PostHogPageView>{children}</PostHogPageView>
+      <Suspense fallback={null}>
+        <PostHogPageView />
       </Suspense>
+      {children}
     </PostHogProvider>
   );
 }
