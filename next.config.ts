@@ -163,6 +163,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/en-ca/blogs",
+        destination: "/en-ca/blog",
+        permanent: true,
+      },
+      {
         source: "/feature",
         destination: "/features",
         permanent: true,
@@ -247,11 +252,6 @@ const nextConfig: NextConfig = {
       {
         source: "/en-ca/how-it-works",
         destination: "/en-ca/how-flashfire-ai-job-automation-platform-works",
-        permanent: true,
-      },
-      {
-        source: "/en-ca/about-us",
-        destination: "/about-us",
         permanent: true,
       },
     ];

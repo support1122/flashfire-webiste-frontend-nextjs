@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: LocaleFAQPageProps): Promise<
     description:
       "Find answers to common questions about Flashfire's job search automation service, pricing, how it works, and more.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

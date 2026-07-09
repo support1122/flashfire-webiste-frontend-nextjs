@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: LocaleEmployersPageProps): Pr
     description:
       "Partner with Flashfire to access pre-screened, qualified candidates. Connect with job seekers actively applying to roles in your industry.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 
