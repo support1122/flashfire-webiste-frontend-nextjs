@@ -446,7 +446,7 @@ max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl flex flex-co
                 backgroundColor: "ffffff",
                 hideEventTypeDetails: false,
                 hideLandingPageDetails: false,
-                primaryColor: "f97316",
+                primaryColor: "4d5055",
                 textColor: "374151",
               }}
             />
