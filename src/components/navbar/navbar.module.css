@@ -629,197 +629,123 @@
   box-shadow: 0 0.2rem 0 #ff4c00;
 }
 
-/* === Anniversary Offer Bar === */
-.offerBar {
-  position: relative;
+/* === Sale Banner === */
+.saleBanner {
   width: 100%;
-  background: linear-gradient(90deg, #e64400 0%, #ff4c00 50%, #ff6b33 100%);
-  font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
-}
-
-.offerBarInner {
+  background-color: #f55d1d;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  min-height: 46px;
+}
+
+.saleBannerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 1400px;
-  margin: 0 auto;
   width: 100%;
-  gap: 0.6rem 0.9rem;
-  padding: 0.55rem 2.75rem 0.55rem 1.25rem;
+  gap: 2rem;
   color: #fff;
+  font-family: "Space Grotesk", sans-serif;
   line-height: 1;
 }
 
-.offerBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  flex-shrink: 0;
-  color: #fff;
-  font-size: 0.92rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-}
-
-.offerAsterisk {
+.updateButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffe0c2;
-  font-weight: 500;
-  font-size: 1.05rem;
-  line-height: 1;
-  transform: translateY(0.5px);
-}
-
-.offerMessage {
-  font-size: 0.88rem;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0.92;
-}
-
-.offerDivider {
-  width: 1px;
-  height: 16px;
-  background: rgba(255, 255, 255, 0.35);
-  flex-shrink: 0;
-}
-
-.offerCountdown {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  flex-shrink: 0;
-}
-
-.offerCountdownLabel {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  white-space: nowrap;
-  margin-right: 0.15rem;
-}
-
-.offerTimeTile {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 28px;
-  height: 24px;
-  padding: 0 0.3rem;
-  background: rgba(0, 0, 0, 0.32);
-  color: #fff;
-  font-size: 0.82rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  border-radius: 5px;
-  line-height: 1;
-}
-
-.offerTimeColon {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #fff;
-  opacity: 0.75;
-}
-
-.offerButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  flex-shrink: 0;
-  background: transparent;
-  color: #fff;
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  padding: 0.38rem 1rem;
+  border: 2px solid #fff;
   border-radius: 999px;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 1.1rem;
   text-decoration: none;
   white-space: nowrap;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+  transition: background 0.2s;
 }
 
-.offerButton:hover {
-  background: #fff;
-  color: #e64400;
-  border-color: #fff;
-  transform: translateY(-1px);
+.updateButton:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
-.offerButton:active {
-  transform: translateY(0);
-}
-
-.offerCloseButton {
-  position: absolute;
-  right: 0.75rem;
-  top: 0.7rem;
+.countdownWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  background: transparent;
-  border: none;
-  border-radius: 50%;
+  gap: 0.3rem;
+}
+
+.flashSaleLabel {
+  font-size: 0.9rem;
+  font-weight: 800;
   color: #fff;
-  opacity: 0.85;
-  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  margin-right: 0.1rem;
+}
+
+.endsInText {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  margin-right: 0.3rem;
+}
+
+.digitTile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 4px;
+  width: 22px;
+  height: 26px;
   line-height: 1;
-  cursor: pointer;
-  transition: background 0.2s ease, opacity 0.2s ease;
 }
 
-.offerCloseButton:hover {
-  background: rgba(255, 255, 255, 0.2);
-  opacity: 1;
+.unitLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0.1rem;
+  white-space: nowrap;
 }
 
-@media (max-width: 900px) {
-  .offerBarInner {
-    justify-content: center;
-    padding: 0.5rem 2.6rem 0.5rem 0.9rem;
-    gap: 0.4rem 0.6rem;
-  }
-
-  .offerMessage {
-    display: none;
-  }
-
-  .offerDivider {
-    display: none;
-  }
+.colonSep {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0.8;
 }
 
-@media (max-width: 480px) {
-  .offerBarInner {
-    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-    gap: 0.35rem 0.5rem;
-  }
+.getNowLink {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
 
-  .offerBadge {
-    font-size: 0.72rem;
-  }
+.getNowLink:hover {
+  opacity: 0.85;
+}
 
-  .offerCountdownLabel {
-    display: none;
-  }
-
-  .offerTimeTile {
-    min-width: 22px;
-    height: 21px;
-    font-size: 0.72rem;
-  }
-
-  .offerButton {
-    font-size: 0.75rem;
-    padding: 0.32rem 0.75rem;
-  }
+.starIcon {
+  font-size: 1.3rem;
+  color: #fff;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 @media (min-width: 901px) and (max-width: 1280px) {
@@ -994,6 +920,10 @@
   .navMobilePrimary {
     padding: 0.95rem 1.25rem;
     font-size: 1.05rem;
+  }
+
+  .saleBanner {
+    display: none;
   }
 }
 

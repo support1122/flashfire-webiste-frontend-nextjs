@@ -81,23 +81,10 @@ export default function JobMatchingSection() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-white via-white to-[#fff6f4] px-4 py-20 sm:px-6 md:px-12 lg:py-24">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[#ff4c00]/[0.07] blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-[#ff4c00]/[0.06] blur-3xl"
-      />
-
-      <div className="relative mx-auto max-w-6xl">
+    <section className="w-full bg-white px-4 py-20 sm:px-6 md:px-12 lg:py-24">
+      <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="inline-block rounded-full bg-[#fff0ea] px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-[#ff4c00]">
-            AI Job Matching
-          </span>
-
-          <h2 className="mt-5 text-4xl font-extrabold leading-tight text-black md:text-5xl">
+          <h2 className="text-4xl font-extrabold leading-tight text-black md:text-5xl">
             What Makes Flashfire an{" "}
             <span className="text-[#ff4c00]">AI Job</span>
             <br className="hidden sm:block" />
@@ -114,38 +101,34 @@ export default function JobMatchingSection() {
           <button
             {...getButtonProps()}
             onClick={handleStartAIJobSearch}
-            className="mt-12 inline-flex min-h-12 items-center justify-center rounded-[8px] border-b-4 border-b-black bg-[#ff4c00] px-8 text-base font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#ff4c00] focus:ring-offset-2"
+            className="mt-12 inline-flex min-h-12 items-center justify-center rounded-[5px] bg-black px-8 text-base font-bold text-white shadow-md transition-colors hover:bg-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00] focus:ring-offset-2"
           >
             Start AI-Powered Job Search
           </button>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((item, index) => {
+        <div className="mx-auto mt-7 grid max-w-5xl grid-cols-1 gap-7 md:grid-cols-2">
+          {features.map((item) => {
             const Icon = item.icon;
 
             return (
               <article
                 key={item.title}
-                className="group relative flex flex-col rounded-3xl border border-[#f1ddd3] bg-white p-7 text-left shadow-[0_4px_14px_rgba(255,76,0,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[#ff4c00]/50 hover:shadow-[0_16px_32px_rgba(255,76,0,0.16)]"
+                className="flex min-h-[122px] items-center gap-7 rounded-[5px] border border-[#e4e4e4] bg-white px-9 py-7 text-left shadow-[0_4px_14px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(0,0,0,0.14)]"
               >
-                <span className="absolute right-6 top-6 text-2xl font-extrabold text-[#fff0ea] transition-colors duration-300 group-hover:text-[#ffe1d2]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#fff6f4] text-[#ff4c00] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#ff4c00] group-hover:text-white">
-                  <Icon className="h-7 w-7" strokeWidth={1.7} />
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center text-[#ff8a2a]">
+                  <Icon className="h-12 w-12" strokeWidth={1.7} />
                 </div>
 
-                <h3 className="mb-2 mt-6 text-base font-extrabold text-black md:text-lg">
-                  {item.title}
-                </h3>
+                <div>
+                  <h3 className="mb-2 text-base font-extrabold text-black md:text-lg">
+                    {item.title}
+                  </h3>
 
-                <p className="text-sm font-medium leading-6 text-[#777] md:text-[15px]">
-                  {item.text}
-                </p>
-
-                <span className="mt-5 block h-0.5 w-8 rounded-full bg-[#ff4c00]/20 transition-all duration-300 group-hover:w-12 group-hover:bg-[#ff4c00]" />
+                  <p className="text-sm font-medium leading-5 text-[#777] md:text-[15px]">
+                    {item.text}
+                  </p>
+                </div>
               </article>
             );
           })}
