@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: LocaleTermsOfServicePageProps
     description:
       "Read Flashfire's Terms of Service to understand the terms and conditions for using our job search automation service.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

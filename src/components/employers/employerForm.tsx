@@ -45,6 +45,29 @@ const INITIAL_FORM_DATA = {
 
 type FormData = typeof INITIAL_FORM_DATA;
 
+const employerBenefits = [
+  {
+    title: "Pre-Screened, Job-Ready Candidates",
+    description:
+      "Every candidate in our network has already gone through resume optimization and application coaching, so you're reviewing people who understand how to present their skills clearly and are actively engaged in their job search.",
+  },
+  {
+    title: "Faster Time-to-Hire",
+    description:
+      "Instead of sifting through hundreds of unqualified applicants, tell us your hiring needs and we'll help you connect with candidates whose skills, experience, and expectations already match your role.",
+  },
+  {
+    title: "Built for Startups and Growing Teams",
+    description:
+      "Whether you're hiring your first employee or scaling a full department, our process adapts to your company size, industry, and urgency — from immediate openings to roles you're planning months ahead.",
+  },
+  {
+    title: "No Long-Term Commitment Required",
+    description:
+      "Submit your hiring needs once and our team reaches out to discuss next steps. There's no obligation to sign a long-term contract before you see whether the candidates we surface are a fit.",
+  },
+];
+
 export default function EmployerForm() {
   const router = useRouter();
   const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
@@ -502,6 +525,50 @@ export default function EmployerForm() {
                 </div>
               </form>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Employer Content Section */}
+      <div className="bg-[#fdf7f4] px-6 py-16 lg:px-12">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 lg:text-4xl">
+            Why Employers Partner With Flashfire
+          </h2>
+          <p className="mx-auto mb-12 max-w-3xl text-center text-lg leading-relaxed text-gray-600">
+            Hiring the right person shouldn't mean weeks of sorting through resumes that don't match what
+            you're actually looking for. Flashfire connects employers with candidates who have already
+            invested time in refining their resumes, clarifying their goals, and preparing for the roles
+            they want — so the people you talk to are ready for a real conversation, not a first screening.
+          </p>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {employerBenefits.map((benefit) => (
+              <div
+                key={benefit.title}
+                className="rounded-xl border-2 border-gray-100 bg-white p-6 shadow-sm"
+              >
+                <h3 className="mb-2 text-lg font-semibold text-gray-900">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 max-w-3xl mx-auto text-gray-600 leading-relaxed space-y-4">
+            <p>
+              Fill out the form above with a few details about your company and the role you're hiring for —
+              company size, industry, location, salary range, and how urgently you need to fill the position.
+              Our team reviews every submission and follows up directly to understand your hiring needs in
+              more depth before introducing you to relevant candidates.
+            </p>
+            <p>
+              We work with employers across a range of industries and company sizes, from early-stage startups
+              filling their first few roles to established companies scaling out entire teams. There's no fee
+              to submit a hiring request, and you're never obligated to move forward if the candidates we
+              introduce aren't the right fit.
+            </p>
           </div>
         </div>
       </div>

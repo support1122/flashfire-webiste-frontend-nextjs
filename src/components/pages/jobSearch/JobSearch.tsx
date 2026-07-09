@@ -35,8 +35,36 @@ const steps = [
 
 const benefits = [
   "Flashfire scans job listings near your location",
-  "Our team applies to matched roles for you", 
+  "Our team applies to matched roles for you",
   "You get updates without lifting a finger"
+];
+
+const jobSearchFaqs = [
+  {
+    question: "How is Flashfire different from a normal job search?",
+    answer:
+      "A normal job search means hours spent scrolling through job boards, retyping the same details into dozens of application forms, and losing track of which roles you've already applied to. Flashfire replaces that manual grind with a dedicated team that searches, filters, and applies to matching roles on your behalf, so your time goes into interview prep instead of data entry.",
+  },
+  {
+    question: "Do real people apply to jobs, or is it fully automated?",
+    answer:
+      "It's human-powered automation. A trained team of 4-5 specialists reviews each opening, checks it against your goals, skills, visa status, and salary expectations, and submits a tailored application. Software helps us scan listings faster, but a person makes the final call on every submission.",
+  },
+  {
+    question: "What information does Flashfire use to find matching jobs?",
+    answer:
+      "We start with your target roles, preferred locations, salary range, work authorization status, and core skills. From there, we continuously scan job listings across company career pages and major job boards, filtering out roles that don't fit so you only see progress on opportunities that actually match your profile.",
+  },
+  {
+    question: "How will I know which jobs have been applied to?",
+    answer:
+      "Every application is logged and visible from your dashboard in real time. You'll see the company, role, and application status without having to ask for updates or dig through your inbox for confirmation emails.",
+  },
+  {
+    question: "Is this job search service suitable for career changers and recent graduates?",
+    answer:
+      "Yes. Whether you're pivoting industries, graduating and applying for your first full-time role, or a working professional looking for your next step, the underlying process is the same: define your goals, let the team find and apply to matching roles, and review progress from one place instead of managing it all yourself.",
+  },
 ];
 
 export default function JobSearch() {
@@ -312,6 +340,55 @@ export default function JobSearch() {
 
   </div>
 </section>
+
+      {/* Why Choose Flashfire Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-6 text-center">
+            Why Job Seekers Choose Flashfire
+          </h2>
+          <div className="space-y-4 text-black/70 text-lg leading-relaxed">
+            <p>
+              Searching for a job while working full-time, studying, or managing a career transition is exhausting.
+              Most job seekers spend more time filling out repetitive application forms than actually preparing for
+              interviews. Flashfire was built to fix that imbalance by taking the manual, repetitive part of the
+              job search off your plate.
+            </p>
+            <p>
+              Instead of relying on generic keyword matching, our team looks at your specific goals — the roles
+              you want, the industries you're targeting, your location preferences, and your visa or work
+              authorization status — before applying to a single job. That means the applications going out under
+              your name are relevant, not just high in volume.
+            </p>
+            <p>
+              This approach works well for people who already know what they want but don't have the bandwidth to
+              apply consistently, as well as for people who are new to the job market and unsure where to start.
+              Either way, you keep full visibility into every application through your dashboard, so you're never
+              left wondering what's happening with your job search.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#fff7f2]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-10 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            {jobSearchFaqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-sm border border-[#ff4c00]/10"
+              >
+                <h3 className="text-lg font-bold text-black mb-2">{faq.question}</h3>
+                <p className="text-black/70 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">

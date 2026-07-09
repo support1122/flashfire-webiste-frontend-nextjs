@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: LocaleBlogPageProps): Promise
     description:
       "Discover expert career tips, job search strategies, resume writing guides, and industry insights to accelerate your job search success.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

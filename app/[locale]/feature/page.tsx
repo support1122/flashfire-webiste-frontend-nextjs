@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: LocaleFeaturePageProps): Prom
     description:
       "Discover Flashfire's powerful features: AI-powered resume tailoring, automated job applications, real-time tracking, and more to accelerate your job search.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

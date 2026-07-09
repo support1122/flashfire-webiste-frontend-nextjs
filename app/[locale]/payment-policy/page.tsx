@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: LocalePaymentPolicyPageProps)
     description:
       "Read Flashfire's Payment Policy to understand our payment terms and billing information.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

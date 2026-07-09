@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: LocaleRefundPolicyPageProps):
     description:
       "Read Flashfire's Refund Policy to understand our refund terms and conditions.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

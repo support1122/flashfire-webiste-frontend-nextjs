@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: LocalePrivacyPolicyPageProps)
     description:
       "Read Flashfire's Privacy Policy to understand how we collect, use, and protect your personal information.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

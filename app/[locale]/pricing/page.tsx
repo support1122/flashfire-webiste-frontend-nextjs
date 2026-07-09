@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: LocalePricingPageProps): Prom
     description:
       "Choose the perfect Flashfire plan for your job search. Transparent pricing with flexible options to automate your job applications and save time.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 

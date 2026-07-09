@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: LocaleTestimonialsPageProps):
     description:
       "Read success stories and testimonials from job seekers who used Flashfire to land their dream jobs. See how our automated job search service helped them succeed.",
     robots: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
     alternates: {
       canonical: isCanada 
