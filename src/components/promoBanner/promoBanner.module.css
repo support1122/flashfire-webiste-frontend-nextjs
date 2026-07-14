@@ -1,0 +1,113 @@
+.promoBar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: #e85d1a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 20px;
+  height: 44px;
+  user-select: none;
+  flex-wrap: wrap;
+}
+
+.promoLabel {
+  font-size: 13.5px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.promoDivider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.promoText {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
+.promoEnds {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.tSeg {
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+  width: 30px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.tColon {
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btnPricing {
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.btnPricing:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 900px) {
+  .promoText {
+    display: none;
+  }
+
+  .promoDivider:nth-of-type(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .promoBar {
+    height: auto;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .btnPricing {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .tSeg {
+    width: 26px;
+    height: 22px;
+  }
+}
