@@ -1,9 +1,5 @@
 .promoBar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 60;
+  position: relative;
   background: #e85d1a;
   color: #fff;
   display: flex;
