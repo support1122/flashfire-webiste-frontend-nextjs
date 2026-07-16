@@ -4,6 +4,7 @@ import { PostHogProvider, usePostHog } from "posthog-js/react";
 import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { captureUTMParams } from "@/src/utils/captureUTMParams";
+import { apiUrl } from "@/src/utils/apiBase";
 
 // Inner component to handle pageview tracking. Renders nothing itself —
 // mounted alongside (not around) page content so it can suspend on
@@ -82,8 +83,7 @@ function PostHogPageView() {
 
       // Track to MongoDB (non-blocking) via backend API
       if (typeof window !== "undefined") {
-        const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.flashfirejobs.com";
-        fetch(`${API_BASE_URL}/api/track/page-visit`, {
+        fetch(apiUrl("/api/track/page-visit"), {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { X, Calendar, CheckCircle } from "lucide-react";
 import { InlineWidget, useCalendlyEventListener } from "react-calendly";
 import { warmCalendly } from "@/src/utils/calendlyWarmup";
+import { apiUrl } from "@/src/utils/apiBase";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -247,7 +248,7 @@ export default function CalendlyModal({
           }
 
           const response = await fetch(
-            `${API_BASE_URL}api/campaign-bookings/frontend-capture`,
+            apiUrl("/api/campaign-bookings/frontend-capture"),
             {
               method: "POST",
               headers: {

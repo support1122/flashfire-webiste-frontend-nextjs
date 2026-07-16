@@ -1,3 +1,5 @@
+import { apiUrl } from './apiBase';
+
 const STORAGE_KEY = 'ff_country_code_v1';
 const CANADA_CODE = 'CA';
 
@@ -21,14 +23,8 @@ export function cacheCountryCode(code: string): void {
 }
 
 export async function fetchCountryCode(): Promise<string | null> {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  
-  if (!baseUrl) {
-    console.warn('[CountryDetection] NEXT_PUBLIC_API_BASE_URL not set');
-    return null;
-  }
   try {
-    const res = await fetch(`${baseUrl}/api/geo`, {
+    const res = await fetch(apiUrl('/api/geo'), {
       headers: { 'ngrok-skip-browser-warning': 'true' }
     });
     if (!res.ok) {
