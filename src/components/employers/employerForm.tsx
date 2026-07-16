@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { apiUrl } from "@/src/utils/apiBase";
 import {
   Building,
   Phone,
@@ -118,19 +119,10 @@ export default function EmployerForm() {
 
     if (!validateForm()) return;
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
-    if (!baseUrl) {
-      console.error("NEXT_PUBLIC_API_BASE_URL is not set");
-      setError("Configuration error. Please contact support.");
-      setLoading(false);
-      return;
-    }
-
     setLoading(true);
 
     try {
-      const response = await fetch(`${baseUrl}/employerform`, {
+      const response = await fetch(apiUrl("/employerform"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

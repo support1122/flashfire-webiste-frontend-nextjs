@@ -1,3 +1,5 @@
+import { apiUrl } from "./apiBase";
+
 export const captureUTMParams = () => {
   if (typeof window === "undefined") {
     return;
@@ -35,9 +37,7 @@ export const captureUTMParams = () => {
   }
 
   if (utmSource) {
-    const API_BASE_URL =
-      process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.flashfirejobs.com";
-    fetch(`${API_BASE_URL}api/campaigns/track/visit`, {
+    fetch(apiUrl("/api/campaigns/track/visit"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

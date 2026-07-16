@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import posthog from "posthog-js";
+import { apiUrl } from "./apiBase";
 
 // Event naming convention: [action]_[object]_[context]
 // Examples: button_click_hero_cta, form_submit_signup, page_view_home
@@ -203,9 +204,7 @@ const sendButtonClickToBackend = async (
       return; // Skip backend tracking if no campaign
     }
 
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.flashfirejobs.com';
-    
-    await fetch(`${API_BASE_URL}/api/campaigns/track/button-click`, {
+    await fetch(apiUrl('/api/campaigns/track/button-click'), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
