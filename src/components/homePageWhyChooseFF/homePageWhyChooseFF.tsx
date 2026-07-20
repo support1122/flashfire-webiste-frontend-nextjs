@@ -113,6 +113,18 @@ export default function HomePageWhyChooseFF() {
             you succeed.
           </p>
         </article>
+
+        <article
+          className={`${featureCardBase}`}
+        >
+          <h3 className="text-[2rem] font-bold text-[#111] mb-3">
+            Support Beyond the Interview
+          </h3>
+          <p className="text-[1.125rem] text-[#333] leading-[1.5]">
+            From interview prep to offer negotiation, we stay with you until
+            you're confident and ready to start your new role.
+          </p>
+        </article>
       </div>
 
       {/* === Bottom Section === */}

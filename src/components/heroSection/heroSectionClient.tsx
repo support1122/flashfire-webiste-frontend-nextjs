@@ -187,15 +187,21 @@ export default function HeroSectionClient({
 
             <p role="heading" aria-level={1} className="max-w-[340px] text-[30px] font-bold leading-[1.12] tracking-[-0.02em] text-black min-[390px]:text-[32px]">
               <span className="block">Land More Interview Calls</span>
-              <span className="block">
+              <span className="-mt-3 block">
                 With a Dedicated{" "}
+                <Image
+                  src="/images/flashfire-logo.png"
+                  alt="Flashfire"
+                  width={50}
+                  height={50}
+                  className="inline-block h-[2.78em] -ml-3 w-auto translate-y-[0.2em] rounded-[7px] align-baseline"
+                />{" "}
                 <span className="text-[#f55d1d]">Job Search Team</span>
               </span>
             </p>
 
-            <p className="mt-3 max-w-[338px] font-['Satoshi',sans-serif] text-[13.5px] font-medium leading-[1.55] text-[#3a3a3a]">
-              <span className="font-bold text-black">{data.description[0]}</span>{" "}
-              {data.description[1]} {data.description[2]}
+            <p className="mt-4 max-w-[338px] font-['Satoshi',sans-serif] text-[13.5px] font-medium leading-[1.55] text-[#3a3a3a]">
+              {data.description[0]} {data.description[1]} {data.description[2]}
             </p>
 
             <div className="mt-6 flex justify-center">
@@ -360,17 +366,23 @@ export default function HeroSectionClient({
 
             <h1 className="text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-black xl:text-[48px]">
               <span className="block">Land More Interview Calls</span>
-              <span className="block">
+              <span className="-mt-3 block">
                 With a Dedicated{" "}
+                <Image
+                  src="/images/flashfire-logo.png"
+                  alt="Flashfire"
+                  width={64}
+                  height={64}
+                  className="inline-block h-[2.78em] -ml-3 w-auto translate-y-[0.2em] rounded-[8px] align-baseline"
+                />{" "}
                 <span className="whitespace-nowrap text-[#f55d1d]">
                   Job Search Team
                 </span>
               </span>
             </h1>
 
-            <p className="mt-4 max-w-[500px] font-['Satoshi',sans-serif] text-[15.5px] font-medium leading-[1.6] text-[#3a3a3a]">
-              <span className="font-bold text-black">{data.description[0]}</span>{" "}
-              {data.description[1]} {data.description[2]}
+            <p className="mt-5 max-w-[500px] font-['Satoshi',sans-serif] text-[16px] font-medium leading-[1.6] text-[#3a3a3a]">
+              {data.description[0]} {data.description[1]} {data.description[2]}
             </p>
 
             <button
