@@ -27,15 +27,15 @@ export default function HomePageWhyChooseFF() {
       {/* === Header === */}
       <header className="w-[55%] mx-auto mb-12 max-[1024px]:w-4/5 max-[768px]:w-full">
         <h2 className="text-[50.84px] font-bold text-[#02060A] mb-4 leading-[110%] tracking-[-0.03em] font-['Satoshi',sans-serif] max-[1024px]:text-[2.4rem] max-[768px]:text-[1.8rem]">
-        Why Choose Flashfire?
+        Why Job Seekers Choose Flashfire
         </h2>
         <p className="text-[20px] font-medium text-[#02060A] leading-[139%] tracking-[-0.03em] font-['Satoshi',sans-serif] max-[1024px]:text-[1.05rem] max-[768px]:text-[1rem]">
           We don&apos;t just apply, we <strong className="font-bold italic">make you get noticed.</strong>{" "}
           Flashfire combines{" "}
-          <span className="text-[#ff4c00] font-semibold">AI precision</span>
+          <span className="text-[#ff4c00] font-semibold">expert guidance</span>
           <br />
           with{" "}
-          <span className="text-[#d64b00] font-semibold">human insight</span> to
+          <span className="text-[#d64b00] font-semibold">smart technology</span> to
           get you interviews that actually convert.
         </p>
       </header>
@@ -57,12 +57,11 @@ export default function HomePageWhyChooseFF() {
           className={`${featureCardBase}`}
         >
           <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            AI-Powered Matching
+            A Dedicated Job Search Team
           </h3>
           <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            For each and every application, your base resume is automatically
-            optimized to the job description with ATS-friendly keywords and
-            skills.
+            You're supported by experienced professionals who work on your job
+            search every day.
           </p>
         </article>
 
@@ -70,11 +69,11 @@ export default function HomePageWhyChooseFF() {
           className={`${featureCardBase} `}
         >
           <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            Dynamic Resume Optimization
+            Smarter Applications, Not More Applications
           </h3>
           <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            We build your base resume from scratch and tailor it for each job,
-            making it ATS-friendly and recruiter-visible.
+            We focus on quality opportunities that match your experience
+            instead of sending random applications.
           </p>
         </article>
 
@@ -82,11 +81,11 @@ export default function HomePageWhyChooseFF() {
           className={`${featureCardBase} basis-[28.3%] max-[768px]:basis-full`}
         >
           <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            LinkedIn Profile Optimization
+            Resume &amp; LinkedIn Experts
           </h3>
           <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            We professionally optimize your LinkedIn profile to boost recruiter
-            visibility and align with your job search goals.
+            Your profile is optimized to improve recruiter visibility and ATS
+            compatibility.
           </p>
         </article>
 
@@ -94,11 +93,11 @@ export default function HomePageWhyChooseFF() {
           className={`${featureCardBase} basis-[24.1%] max-[768px]:basis-full`}
         >
           <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            Precision Targeting
+            Real-Time Guidance
           </h3>
           <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            We only apply to jobs that fit your pay, location, company size, and
-            career goals — and only to jobs posted in the last 24–48 hours.
+            Questions? Need advice? Your team is always available through
+            WhatsApp with regular updates.
           </p>
         </article>
 
@@ -106,25 +105,12 @@ export default function HomePageWhyChooseFF() {
           className={`${featureCardBase} basis-[36.7%] max-[768px]:basis-full`}
         >
           <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            Lightning Fast Applications
+            AI That Works Quietly
           </h3>
           <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            A dedicated team of 4–5 people handles your job hunt, applying to
-            1200+ roles in 6–7 weeks. We'll keep you posted with every update in
-            a WhatsApp group made just for you.
-          </p>
-        </article>
-
-        <article
-          className={`${featureCardBase} basis-[36.7%] max-[768px]:basis-full`}
-        >
-          <h3 className="text-[2rem] font-bold text-[#111] mb-3">
-            Dashboard &amp; Analytics
-          </h3>
-          <p className="text-[1.125rem] text-[#333] leading-[1.5]">
-            Access a personalized dashboard to track applications, monitor
-            success rates, and get real-time insights to improve your job search
-            strategy.
+            We use AI to speed up resume tailoring, job matching, and
+            application tracking, so our experts can spend more time helping
+            you succeed.
           </p>
         </article>
       </div>

@@ -3,7 +3,7 @@ export interface HeroSectionData {
   headlineMain: string;
   headlineHighlight: string;
   headlineSuffix: string;
-  description: string;
+  description: string[];
   cta: { label: string; href: string };
   trustText: string;
   universityHeading: string;
