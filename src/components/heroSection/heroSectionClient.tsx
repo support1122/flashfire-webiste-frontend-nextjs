@@ -368,15 +368,17 @@ export default function HeroSectionClient({
 
             <h1 className="text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-black xl:text-[48px]">
               <span className="block">Land More Interview Calls</span>
-              <span className="-mt-8 block">
+              <span className="block mt-1">
                 With a Dedicated{" "}
-                <Image
-                  src="/images/flashfire-logo.png"
-                  alt="Flashfire"
-                  width={64}
-                  height={64}
-                  className="inline-block h-[1.85em] -ml-4 w-auto translate-y-[3.14em] rounded-[8px] align-baseline"
-                />{" "}
+                <span className="relative -ml-4 inline-block h-[1em] w-[1.85em] align-middle">
+                  <Image
+                    src="/images/flashfire-logo.png"
+                    alt="Flashfire"
+                    width={64}
+                    height={64}
+                    className="absolute left-0 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[8px]"
+                  />
+                </span>{" "}
                 <span className="whitespace-nowrap text-[#f55d1d]">
                   Job Search Team
                 </span>
