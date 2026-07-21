@@ -185,17 +185,19 @@ export default function HeroSectionClient({
               {data.badges[0]}
             </div>
 
-            <p role="heading" aria-level={1} className="max-w-[340px] text-[30px] font-bold leading-[1.12] tracking-[-0.02em] text-black min-[390px]:text-[32px]">
+            <p role="heading" aria-level={1} className="max-w-[340px] text-[30px] font-bold leading-[1.02] tracking-[-0.02em] text-black min-[390px]:text-[32px]">
               <span className="block">Land More Interview Calls</span>
-              <span className="-mt-8 block">
+              <span className="block">
                 With a Dedicated{" "}
-                <Image
-                  src="/images/flashfire-logo.png"
-                  alt="Flashfire"
-                  width={50}
-                  height={50}
-                  className="inline-block h-[1.85em] -ml-4 w-auto translate-y-[0.18em] rounded-[7px] align-baseline"
-                />{" "}
+                <span className="relative -ml-4 inline-block h-[1em] w-[1.85em] align-middle">
+                  <Image
+                    src="/images/flashfire-logo.png"
+                    alt="Flashfire"
+                    width={50}
+                    height={50}
+                    className="absolute left-0 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[7px]"
+                  />
+                </span>{" "}
                 <span className="text-[#f55d1d]">Job Search Team</span>
               </span>
             </p>
