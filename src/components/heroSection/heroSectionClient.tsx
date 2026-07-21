@@ -187,14 +187,14 @@ export default function HeroSectionClient({
 
             <p role="heading" aria-level={1} className="max-w-[340px] text-[30px] font-bold leading-[1.12] tracking-[-0.02em] text-black min-[390px]:text-[32px]">
               <span className="block">Land More Interview Calls</span>
-              <span className="-mt-3 block">
+              <span className="-mt-8 block">
                 With a Dedicated{" "}
                 <Image
                   src="/images/flashfire-logo.png"
                   alt="Flashfire"
                   width={50}
                   height={50}
-                  className="inline-block h-[2.78em] -ml-3 w-auto translate-y-[0.2em] rounded-[7px] align-baseline"
+                  className="inline-block h-[1.85em] -ml-4 w-auto translate-y-[0.18em] rounded-[7px] align-baseline"
                 />{" "}
                 <span className="text-[#f55d1d]">Job Search Team</span>
               </span>
@@ -373,7 +373,7 @@ export default function HeroSectionClient({
                   alt="Flashfire"
                   width={64}
                   height={64}
-                  className="inline-block h-[2.78em] -ml-3 w-auto translate-y-[0.2em] rounded-[8px] align-baseline"
+                  className="inline-block h-[1.85em] -ml-2 w-auto translate-y-[0.14em] rounded-[8px] align-baseline"
                 />{" "}
                 <span className="whitespace-nowrap text-[#f55d1d]">
                   Job Search Team

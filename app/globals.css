@@ -35,9 +35,11 @@ body {
   overflow-x: hidden;
 }
 
-img {
-  height: auto;
-  max-width: 100%;
+@layer base {
+  img {
+    height: auto;
+    max-width: 100%;
+  }
 }
 
 *,
