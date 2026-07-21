@@ -5,9 +5,8 @@ export const heroSectionData: HeroSectionData = {
   headlineHighlight: "Flashfire",
   headlineSuffix: "AI Copilot",
   description: [
-    "Finding a job shouldn't feel like a full-time job.",
-    "Our career experts help optimize your resume, apply strategically to the right roles, track every application, and guide you throughout your job search, so you can focus on preparing for interviews while we handle the heavy lifting.",
-    "AI works behind the scenes to make everything faster and smarter, but real people are with you every step of the way.",
+    "We apply to 1200 USA job applications & track everything while you focus on winning the interview.",
+    
   ],
   cta: { label: "Get Started →", href: "/contact-us" },
   trustText: "Trusted by 1000+ Users",
@@ -37,9 +36,7 @@ export const heroSectionDataCA: HeroSectionData = {
   headlineHighlight: "Flashfire",
   headlineSuffix: "AI Copilot",
   description: [
-    "Finding a job shouldn't feel like a full-time job.",
-    "Our career experts help optimize your resume, apply strategically to the right roles, track every application, and guide you throughout your job search, so you can focus on preparing for interviews while we handle the heavy lifting.",
-    "AI works behind the scenes to make everything faster and smarter, but real people are with you every step of the way.",
+    "We apply to 1200 Canada job applications & track everything while you focus on winning the interview.",
   ],
   cta: { label: "Get Started →", href: "/contact-us" },
   trustText: "Trusted by 1000+ Users",
