@@ -335,7 +335,7 @@ export default function HeroSectionClient({
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[54.8%] xl:top-[130px]"
+          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[55.8%] xl:top-[130px]"
         />
         <Image
           src="/images/element3.png"
@@ -361,25 +361,27 @@ export default function HeroSectionClient({
         />
 
         <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-start px-[5.4vw] pb-8 pt-16">
-          <div className="relative z-20 max-w-[620px] text-left lg:w-[50%]">
+          <div className="relative z-20 max-w-[700px] text-left xl:max-w-[880px] 2xl:max-w-[1080px]">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
             </div>
 
-            <h1 className="text-[42px] font-bold leading-[1.1] tracking-[-0.02em] text-black xl:text-[48px]">
-              <span className="block">Land More Interview Calls</span>
-              <span className="block mt-1">
-                With a Dedicated{" "}
-                <span className="relative -ml-4 inline-block h-[1em] w-[1.85em] align-middle">
-                  <Image
-                    src="/images/flashfire-logo.png"
-                    alt="Flashfire"
-                    width={64}
-                    height={64}
-                    className="absolute left-0 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[8px]"
-                  />
-                </span>{" "}
-                <span className="whitespace-nowrap text-[#f55d1d]">
+            <h1 className="text-[44px] font-bold leading-[1.1] tracking-[-0.02em] text-black xl:text-[60px] 2xl:text-[68px]">
+              <span className="block whitespace-nowrap">Land More Interview Calls</span>
+              <span className="mt-1 flex flex-wrap items-center gap-x-3">
+                <span className="inline-flex shrink-0 items-center gap-x-1 whitespace-nowrap">
+                  <span>With a Dedicated</span>
+                  <span className="relative inline-block h-[1em] w-[1.85em] align-middle">
+                    <Image
+                      src="/images/flashfire-logo.png"
+                      alt="Flashfire"
+                      width={64}
+                      height={64}
+                      className="absolute -left-4 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[8px]"
+                    />
+                  </span>
+                </span>
+                <span className="shrink-0 whitespace-nowrap text-[#f55d1d] ">
                   Job Search Team
                 </span>
               </span>
