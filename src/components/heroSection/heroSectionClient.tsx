@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, type SyntheticEvent } from "react";
+import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { HeroSectionData } from "@/src/types/heroSectionData";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
@@ -189,15 +190,11 @@ export default function HeroSectionClient({
               <span className="block">Land More Interview Calls</span>
               <span className="block">
                 With a Dedicated{" "}
-                <span className="relative -ml-4 inline-block h-[1em] w-[1.85em] align-middle">
-                  <Image
-                    src="/images/flashfire-logo.png"
-                    alt="Flashfire"
-                    width={50}
-                    height={50}
-                    className="absolute left-0 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[7px]"
-                  />
-                </span>{" "}
+                <FlashfireLogo
+                  width={58}
+                  height={58}
+                  className="-ml-1 inline-block h-[1.2em] w-auto align-middle"
+                />{" "}
                 <span className="text-[#f55d1d]">Job Search Team</span>
               </span>
             </p>
@@ -371,15 +368,11 @@ export default function HeroSectionClient({
               <span className="mt-1 flex flex-wrap items-center gap-x-3">
                 <span className="inline-flex shrink-0 items-center gap-x-1 whitespace-nowrap">
                   <span>With a Dedicated</span>
-                  <span className="relative inline-block h-[1em] w-[1.85em] align-middle">
-                    <Image
-                      src="/images/flashfire-logo.png"
-                      alt="Flashfire"
-                      width={64}
-                      height={64}
-                      className="absolute -left-4 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[8px]"
-                    />
-                  </span>
+                  <FlashfireLogo
+                    width={58}
+                    height={58}
+                    className="-ml-2 inline-block h-[1.5em] w-auto align-middle"
+                  />
                 </span>
                 <span className="shrink-0 whitespace-nowrap text-[#f55d1d] ">
                   Job Search Team
