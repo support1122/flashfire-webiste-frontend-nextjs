@@ -1,11 +1,13 @@
 import { HeroSectionData } from "../types/heroSectionData";
 export const heroSectionData: HeroSectionData = {
-  badges: ["LAND INTERVIEW IN 1 WEEK", "50 USERS LANDED JOB"],
+  badges: ["HELPING YOU LAND INTERVIEWS FASTER", "50 USERS LANDED JOB"],
   headlineMain: "Land 15+ Interview Calls with",
   headlineHighlight: "Flashfire",
   headlineSuffix: "AI Copilot",
-  description:
+  description: [
     "We apply to 1200 USA job applications & track everything while you focus on winning the interview.",
+    
+  ],
   cta: { label: "Get Started →", href: "/contact-us" },
   trustText: "Trusted by 1000+ Users",
   universityHeading:
@@ -29,12 +31,13 @@ export const heroSectionData: HeroSectionData = {
 };
 
 export const heroSectionDataCA: HeroSectionData = {
-  badges: ["LAND INTERVIEW IN 1 WEEK", "50 USERS LANDED JOB"],
+  badges: ["HELPING YOU LAND INTERVIEWS FASTER", "50 USERS LANDED JOB"],
   headlineMain: "Land 15+ Interview Calls with",
   headlineHighlight: "Flashfire",
   headlineSuffix: "AI Copilot",
-  description:
+  description: [
     "We apply to 1200 Canada job applications & track everything while you focus on winning the interview.",
+  ],
   cta: { label: "Get Started →", href: "/contact-us" },
   trustText: "Trusted by 1000+ Users",
   universityHeading:

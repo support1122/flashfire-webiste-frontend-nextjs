@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useRef, type SyntheticEvent } from "react";
-import FlashfireLogo from "@/src/components/FlashfireLogo";
 import { HeroSectionData } from "@/src/types/heroSectionData";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
@@ -182,28 +181,32 @@ export default function HeroSectionClient({
       <div className="lg:hidden">
         <div className="relative overflow-hidden bg-[#f7e6df] px-6 pb-0 pt-6 text-left">
           <div className="relative z-20 mx-auto max-w-[430px]">
-            <div className="mb-5 inline-flex h-[28px] max-w-full items-center justify-center rounded-full bg-white px-3.5 text-[9px] font-bold uppercase leading-none tracking-[0.08em] text-[#f55d1d] shadow-sm">
+            <div className="mb-5 inline-flex h-[26px] max-w-full items-center justify-center rounded-full bg-white px-3.5 text-[9px] font-bold uppercase leading-none tracking-[0.08em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
             </div>
 
-            <p role="heading" aria-level={1} className="max-w-[340px] text-[33px] font-bold leading-[1.08] tracking-[-0.02em] text-black min-[390px]:text-[35px]">
-              <span className="block">Land Interview</span>
-              <span className="-mt-1 block whitespace-nowrap">
-                Calls Faster with
-                <FlashfireLogo
-                  width={58}
-                  height={58}
-                  className="-ml-1 inline-block h-[1.2em] w-auto translate-y-[0.2em] align-baseline"
-                />
+            <p role="heading" aria-level={1} className="max-w-[340px] text-[30px] font-bold leading-[1.02] tracking-[-0.02em] text-black min-[390px]:text-[32px]">
+              <span className="block">Land More Interview Calls</span>
+              <span className="block">
+                With a Dedicated{" "}
+                <span className="relative -ml-4 inline-block h-[1em] w-[1.85em] align-middle">
+                  <Image
+                    src="/images/flashfire-logo.png"
+                    alt="Flashfire"
+                    width={50}
+                    height={50}
+                    className="absolute left-0 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[7px]"
+                  />
+                </span>{" "}
+                <span className="text-[#f55d1d]">Job Search Team</span>
               </span>
-              <span className="block text-[#f55d1d]">Flashfire AI Copilot</span>
             </p>
 
-            <p className="mt-4 max-w-[338px] font-['Satoshi',sans-serif] text-[15.5px] font-medium leading-[1.55] text-[#262626]">
-              {data.description}
+            <p className="mt-4 max-w-[338px] font-['Satoshi',sans-serif] text-[13.5px] font-medium leading-[1.55] text-[#3a3a3a]">
+              {data.description[0]} {data.description[1]} {data.description[2]}
             </p>
 
-            <div className="mt-8 flex justify-center">
+            <div className="mt-6 flex justify-center">
               <button
                 type="button"
                 {...getButtonProps()}
@@ -332,7 +335,7 @@ export default function HeroSectionClient({
           width={83}
           height={99}
           priority
-          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[54.8%] xl:top-[130px]"
+          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[55.8%] xl:top-[130px]"
         />
         <Image
           src="/images/element3.png"
@@ -357,41 +360,47 @@ export default function HeroSectionClient({
           className="pointer-events-none absolute  z-10 h-auto w-[35px] select-none xl:right-[23.8%] xl:top-[238px]"
         />
 
-        <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-center px-[5.4vw] pb-0 pt-4">
-          <div className="relative z-20 max-w-[740px] text-left lg:w-[50%] lg:-translate-y-6 lg:pt-2">
+        <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-start px-[5.4vw] pb-8 pt-16">
+          <div className="relative z-20 max-w-[700px] mt-7 text-left xl:max-w-[880px] 2xl:max-w-[1080px]">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
             </div>
 
-            <h1 className="text-[54px] font-bold leading-[1.05] tracking-[-0.02em] text-black xl:text-[64px]">
-              <span className="block">Land Interview</span>
-              <span className="block -mt-8 whitespace-nowrap">
-                Calls Faster with
-                <FlashfireLogo
-                  width={58}
-                  height={58}
-                  className="-ml-2 inline-block h-[1.5em] w-auto translate-y-[0.28em] align-baseline"
-                />
-              </span>
-              <span className="block whitespace-nowrap text-[#f55d1d]">
-                Flashfire AI Copilot
+            <h1 className="text-[44px] font-bold leading-[1.1] tracking-[-0.02em] text-black xl:text-[60px] 2xl:text-[68px]">
+              <span className="block whitespace-nowrap">Land More Interview Calls</span>
+              <span className="mt-1 flex flex-wrap items-center gap-x-3">
+                <span className="inline-flex shrink-0 items-center gap-x-1 whitespace-nowrap">
+                  <span>With a Dedicated</span>
+                  <span className="relative inline-block h-[1em] w-[1.85em] align-middle">
+                    <Image
+                      src="/images/flashfire-logo.png"
+                      alt="Flashfire"
+                      width={64}
+                      height={64}
+                      className="absolute -left-4 top-1/2 h-[1.85em] w-auto -translate-y-1/2 rounded-[8px]"
+                    />
+                  </span>
+                </span>
+                <span className="shrink-0 whitespace-nowrap text-[#f55d1d] ">
+                  Job Search Team
+                </span>
               </span>
             </h1>
 
-            <p className="mt-5 max-w-[540px] font-['Satoshi',sans-serif] text-[20px] font-medium leading-[1.55] text-[#262626]">
-              {data.description}
+            <p className="mt-5 max-w-[500px] font-['Satoshi',sans-serif] text-[16px] font-medium leading-[1.6] text-[#3a3a3a]">
+              {data.description[0]} {data.description[1]} {data.description[2]}
             </p>
 
             <button
               type="button"
               {...getButtonProps()}
               onClick={handleGetStartedClick}
-              className="mt-7 inline-flex h-[54px] min-w-[174px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff4c00] px-7 text-[18px] font-bold text-white shadow-[0_6px_0_#000] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#ff5a1f] hover:shadow-[0_6px_0_#000] focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
+              className="mt-6 inline-flex h-[54px] min-w-[174px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff4c00] px-7 text-[18px] font-bold text-white shadow-[0_6px_0_#000] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#ff5a1f] hover:shadow-[0_6px_0_#000] focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
             >
               Get Started →
             </button>
 
-            <div className="mt-9 grid w-full -ml-6 max-w-[560px] grid-cols-3 gap-0">
+            <div className="mt-8 grid w-full -ml-6 max-w-[560px] grid-cols-3 gap-0">
               {heroStats.map((stat) => (
                 <div
                   key={stat.value}
