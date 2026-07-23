@@ -361,7 +361,7 @@ export default function HeroSectionClient({
         />
 
         <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-start px-[5.4vw] pb-8 pt-16">
-          <div className="relative z-20 max-w-[700px] text-left xl:max-w-[880px] 2xl:max-w-[1080px]">
+          <div className="relative z-20 max-w-[700px] mt-7 text-left xl:max-w-[880px] 2xl:max-w-[1080px]">
             <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
               {data.badges[0]}
             </div>
