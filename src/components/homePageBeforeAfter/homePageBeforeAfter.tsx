@@ -5,29 +5,29 @@ import { FaTimes, FaCheck } from "react-icons/fa"
 export default function BeforeAfterComparison() {
   const comparisonItems = [
     {
-      title: "ATS-Friendly Resume Optimization",
+      title: "Recruiter-Ready Resume",
       caption:
-        "Resumes tailored to each job description with ATS-friendly keywords",
+        "Your resume is tailored for every role to improve ATS and recruiter visibility.",
     },
     {
-      title: "Time Efficiency in Job Search",
-      caption: "150+ hours saved through AI-powered automation",
+      title: "Save Time",
+      caption: "Spend less time applying and more time preparing for interviews.",
     },
     {
-      title: "Accuracy & Attention to Detail",
-      caption: "Role-matched applications reviewed by AI + humans",
+      title: "Expert Review",
+      caption: "Every application is reviewed to ensure it matches your skills and career goals.",
     },
     {
-      title: "Automated Applications",
-      caption: "1,200+ smart applications sent strategically — not spam",
+      title: "Strategic Applications",
+      caption: "We apply to 1,200+ carefully selected jobs, not random listings.",
     },
     {
-      title: "Application Tracking & Proof",
-      caption: "Real-time tracking with visible proof and updates",
+      title: "Complete Application Tracking",
+      caption: "Monitor every application with real-time updates and transparent progress.",
     },
     {
-      title: "Interview Opportunity Rate",
-      caption: "Higher interview conversion rates within weeks",
+      title: "More Interview Opportunities",
+      caption: "A smarter job search strategy helps you get interview calls faster.",
     },
   ]
 
@@ -49,8 +49,8 @@ export default function BeforeAfterComparison() {
           </h2>
 
           <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-            Compare how <span className="font-semibold">AI-powered job applications</span>.
-            help you get  <span className="text-[#ff4c00] font-medium">more interviews.</span>
+            See how <span className="font-semibold">expert guidance and smart technology</span>{" "}
+            help you land <span className="text-[#ff4c00] font-medium">more interviews, faster.</span>
           </p>
         </div>
 
@@ -58,10 +58,10 @@ export default function BeforeAfterComparison() {
         <div className="hidden md:grid grid-cols-3 pb-6 border-b border-gray-300 text-sm font-semibold text-gray-600">
           <div></div>
           <div className="text-center text-[#ff4c00]">
-            Before Flashfire
+            Without Flashfire
           </div>
           <div className="text-center text-gray-900">
-            After Flashfire
+            With Flashfire
           </div>
         </div>
 
@@ -110,7 +110,7 @@ export default function BeforeAfterComparison() {
                   <div className="flex items-center justify-between border border-gray-300 rounded-md px-4 py-3">
                     <div className="flex items-center gap-2 text-[#ff4c00] text-sm">
                       <FaTimes />
-                      <span className="font-medium">Before Flashfire</span>
+                      <span className="font-medium">Without Flashfire</span>
                     </div>
                   </div>
 

@@ -6,30 +6,30 @@ import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking
 const steps = [
   {
     number: 1,
-    title: "Resume Tailoring",
+    title: "We Understand Your Career Goals",
     detail:
-      "Your resume is customized for each role with role-specific keywords and formatting recruiters love.",
+      "We learn about your experience, target roles, visa requirements, salary expectations, and career goals before creating a strategy.",
     image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step1.png",
   },
   {
     number: 2,
-    title: "LinkedIn Optimization",
+    title: "We Build a Recruiter-Ready Profile",
     detail:
-      "We rewrite your LinkedIn to stand out in U.S. recruiter searches, using AI-powered keyword matching.",
+      "Our resume experts optimize your resume and LinkedIn profile so recruiters immediately see your strengths. AI helps tailor every application, but every profile is reviewed for quality.",
     image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step2.png",
   },
   {
     number: 3,
-    title: "Smart Job Applications",
+    title: "We Apply to the Right Jobs",
     detail:
-      "We apply to 1000+ curated jobs that match your goals, location, and visa needs - no spam, just precision.",
+      "Instead of applying everywhere, our team carefully targets roles that match your background and career goals. Every application is optimized before it's submitted.",
     image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step3.png",
   },
   {
     number: 4,
-    title: "Get Interview Calls",
+    title: "We Stay With You Until Interviews",
     detail:
-      "Start receiving interview invites as we track and optimize every application. You focus on prep, we handle the hustle.",
+      "You receive regular updates, application tracking, interview support, and ongoing guidance throughout your job search.",
     image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/step4.png",
   },
 ];
@@ -58,10 +58,10 @@ export default function HomePageSteps() {
         {/* Header */}
         <div className="mb-12 text-center md:mb-14">
           <h2 className="mx-auto max-w-[700px] text-[30px] font-extrabold leading-[1.08] text-[#080b10] md:text-[42px]">
-            How Flashfire&apos;s AI Job Automation Platform Works in 4 Simple Steps
+            How Our Team Helps You Land Interviews Faster
           </h2>
           <p className="mx-auto mt-5 max-w-[600px] text-[12px] font-bold leading-[1.55] text-[#545b65] md:text-[13px]">
-            Flashfire simplifies job hunting using AI job application automation, handling everything from resume optimization to automated job submissions and tracking.
+            Our team helps optimize your profile, apply to the right jobs, and track every application, so you can focus on interviews.
           </p>
           <button
             onClick={handleGetStarted}

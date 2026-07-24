@@ -8,23 +8,23 @@ import { useGeoBypass } from "@/src/utils/useGeoBypass";
 const features = [
   {
     icon: Puzzle,
-    title: "Intelligent Skill Matching",
-    text: "Flashfire understands your real skills and experience instead of relying only on keywords, resulting in more accurate matches.",
+    title: "Jobs That Match Your Goals",
+    text: "We understand your skills, experience, and career goals to help you target the right opportunities.",
   },
   {
     icon: ClipboardList,
-    title: "Smarter AI-Powered Job Search",
-    text: "Focus only on roles that genuinely align with your profile and career direction.",
+    title: "Strategic Job Search",
+    text: "We focus on quality opportunities that genuinely fit your profile, not just more applications.",
   },
   {
     icon: HandHeart,
-    title: "Personalized Recommendations",
-    text: "Your job feed adapts to your experience level, interests, and long-term goals.",
+    title: "Personalized Career Support",
+    text: "Every recommendation is tailored to your experience, interests, and long-term career goals.",
   },
   {
     icon: Sparkles,
     title: "Apply With Confidence",
-    text: "Apply only where you are a strong match, improving response rates and interview success.",
+    text: "We help you apply to roles where you're a strong fit, increasing your chances of interview calls.",
   },
 ];
 
@@ -85,17 +85,18 @@ export default function JobMatchingSection() {
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-extrabold leading-tight text-black md:text-5xl">
-            What Makes Flashfire an{" "}
-            <span className="text-[#ff4c00]">AI Job</span>
+            More Than a{" "}
+            <span className="text-[#ff4c00]">Job Application</span>
             <br className="hidden sm:block" />
-            <span className="text-[#ff4c00]"> Matching Platform</span>
+            <span className="text-[#ff4c00]"> Service</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-4xl text-base font-medium leading-8 text-[#7a7a7a] md:text-xl">
-            Flashfire is not just an AI job application tool. It is a complete
-            AI-powered job matching platform that aligns your skills,
-            experience, and career goals with the right opportunities&mdash;before
-            you apply.
+            Landing interviews takes more than clicking &ldquo;Apply.&rdquo; Flashfire
+            combines experienced career experts with intelligent technology to
+            help you find better opportunities, improve your resume, apply
+            strategically, stay organized, and prepare for interviews.
+            Technology helps us move faster. Our people help you get hired.
           </p>
 
           <button

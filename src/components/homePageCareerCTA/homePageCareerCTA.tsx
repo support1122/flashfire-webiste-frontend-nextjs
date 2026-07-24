@@ -32,29 +32,29 @@ export default function HomePageCareerCTA() {
         {/* === LEFT: Content === */}
         <div className={styles.leftContent}>
           <h2 className={styles.heading}>
-            AI-Powered Job Search for Fresh Graduates & Early-Career Professionals
+            Job Search Support for Fresh Graduates & Early-Career Professionals
           </h2>
 
           <p className={styles.subtext}>
-            You&apos;ve done your part, now let Flashfire handle the job hunt. <br />
-            Our AI-powered team gets your profile recruiter-ready and{" "}
+            You&apos;ve built the skills. We&apos;ll help you land the interviews. <br />
+            Our career experts optimize your profile, apply to the right{" "}
             <strong>
-              applies to the right jobs so you can land interviews faster.
+              opportunities, and support you throughout your job search, so you can land interviews faster.
             </strong>
           </p>
 
           <ul className={styles.featuresList}>
             <li>
-              <FaBolt className={styles.icon} /> Resumes tailored according to each job description.
+              <FaBolt className={styles.icon} /> Resume tailored for every application.
             </li>
             <li>
-              <FaBolt className={styles.icon} /> Optimized LinkedIn profile so recruiters notice you.
+              <FaBolt className={styles.icon} /> LinkedIn profile optimized to attract recruiters.
             </li>
             <li>
-              <FaBolt className={styles.icon} /> Targeting jobs with AI, even for new hires
+              <FaBolt className={styles.icon} /> Strategic job targeting based on your goals and experience.
             </li>
             <li>
-              <FaBolt className={styles.icon} /> Updated weekly through WhatsApp on the application status and interviews.
+              <FaBolt className={styles.icon} /> Weekly WhatsApp updates on your applications and interview progress.
             </li>
           </ul>
 

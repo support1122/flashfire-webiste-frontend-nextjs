@@ -49,7 +49,7 @@ export default function HomePageResultStats() {
         <p className={styles.resultTagline}>RESULT THAT SPEAKS</p>
 
         <h2 className={styles.resultHeading}>
-          Get Interviews Faster With AI Job Search & Application Automation
+          Get More Interview Calls With a Dedicated Job Search Team
         </h2>
 
         <div className={styles.resultStats}>
