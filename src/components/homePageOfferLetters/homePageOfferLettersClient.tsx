@@ -23,7 +23,15 @@ interface HomePageOfferLettersClientProps {
 }
 
 const offerLetters: OfferLetterData[] = [
+  
   {
+    name: "Dheer",
+    company: " Illumio",
+    linkedinUrl: "#",
+    imagePath: "/images/Dheer_offer_1.png",
+    profileImagePath:"https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Dheer.png",
+
+  },{
     name: "Akshad ",
     company: " ICF",
     linkedinUrl: "#",
@@ -89,6 +97,14 @@ const offerLetters: OfferLetterData[] = [
     imagePath: "/images/anjali_offer.png",
     profileImagePath:
       "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
+  },
+  {
+    name: "Dheer",
+    company: "Palo Alto Networks",
+    linkedinUrl: "#",
+    imagePath: "/images/Dheer_offer_2.png",
+    profileImagePath:"https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/Dheer.png",
+
   },
   {
     name: "Akrati",
