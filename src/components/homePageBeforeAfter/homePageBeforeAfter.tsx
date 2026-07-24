@@ -45,7 +45,7 @@ export default function BeforeAfterComparison() {
         {/* Heading */}
         <div className="text-center mb-14 md:mb-20 max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Why Job Seekers Choose Flashfire
+            Why Flashfire Is a Smarter Job Matching Platform
           </h2>
 
           <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
