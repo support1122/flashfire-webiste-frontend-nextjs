@@ -358,16 +358,23 @@ export default function DashboardAnalyticsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaDashboard) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
-      <main className="min-h-screen overflow-x-hidden bg-white text-[#111827]">
-        <section className="relative bg-[#fff3ee] px-4 py-20 sm:py-28">
-          <div className="mx-auto max-w-[1180px] text-center">
-            <span className="mb-7 inline-flex rounded-full bg-[#ff4c00] px-4 py-1.5 text-[9px] font-extrabold uppercase text-white">
+      <main className="relative min-h-screen overflow-x-hidden bg-[#fbf9f6] text-[#111827]">
+        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+          <div className="absolute -top-32 -left-24 h-96 w-96 rounded-full bg-orange-200/50 blur-3xl" />
+          <div className="absolute top-1/4 -right-28 h-[30rem] w-[30rem] rounded-full bg-amber-100/60 blur-3xl" />
+          <div className="absolute bottom-10 left-1/4 h-80 w-80 rounded-full bg-rose-100/40 blur-3xl" />
+          <div className="absolute bottom-1/3 right-1/4 h-72 w-72 rounded-full bg-orange-100/50 blur-3xl" />
+        </div>
+
+        <section className="relative bg-gradient-to-b from-orange-50/70 via-transparent to-transparent px-4 py-20 sm:py-28">
+          <div className="relative mx-auto max-w-[1180px] text-center">
+            <span className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/50 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-[#ff4c00] shadow-sm backdrop-blur-md">
               Job Search Analytics
             </span>
-            <h1 className="mx-auto max-w-[850px] text-[36px] font-extrabold leading-[1.14] tracking-normal text-[#111827] sm:text-[54px] sm:leading-[1.14]">
+            <h1 className="mx-auto max-w-[850px] text-[36px] font-extrabold leading-[1.14] tracking-normal text-gray-900 sm:text-[54px] sm:leading-[1.14]">
               Track Your Job Search Performance in One Dashboard
             </h1>
-            <p className="mx-auto mt-6 max-w-[650px] text-[17px] font-medium leading-8 text-[#596273]">
+            <p className="mx-auto mt-6 max-w-[650px] text-[17px] font-medium leading-8 text-gray-600">
               FlashFire gives you a complete view of your job search by tracking applications,
               interviews, response rates, and recruiter activity so you can make smarter decisions
               and improve your interview chances.
@@ -377,8 +384,7 @@ export default function DashboardAnalyticsPage() {
               <button
                 {...getButtonProps()}
                 onClick={handleGetMeInterview}
-                className="inline-flex min-h-[50px] w-full max-w-[292px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md border-2 border-black bg-white px-7 text-[14px] font-extrabold text-black transition hover:bg-[#ffe8dd] sm:h-[50px] sm:w-auto sm:max-w-full sm:min-w-[180px]"
-                style={{ boxShadow: "0 4px 0 0 #ff4c00" }}
+                className="inline-flex min-h-[50px] w-full max-w-[292px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/40 bg-gradient-to-r from-[#ff4c00]/95 to-[#ff7a33]/95 px-7 text-[14px] font-bold text-white shadow-lg shadow-orange-300/40 backdrop-blur-md transition-all duration-300 hover:shadow-xl hover:shadow-orange-300/50 hover:-translate-y-0.5 sm:h-[50px] sm:w-auto sm:max-w-full sm:min-w-[180px]"
               >
                 Track My Job Search
                 <ArrowRight size={14} />
@@ -386,7 +392,7 @@ export default function DashboardAnalyticsPage() {
               <button
                 type="button"
                 onClick={handleHowItWorks}
-                className="inline-flex min-h-[50px] w-full max-w-[292px] items-center justify-center rounded-md border-2 border-[#ff4c00] bg-transparent px-4 py-3 text-center text-[14px] font-extrabold leading-6 text-[#ff4c00] transition hover:bg-white sm:h-[50px] sm:w-auto sm:max-w-full sm:min-w-[365px] sm:px-7 sm:py-0"
+                className="inline-flex min-h-[50px] w-full max-w-[292px] items-center justify-center rounded-full border border-white/70 bg-white/50 px-4 py-3 text-center text-[14px] font-bold leading-6 text-gray-700 shadow-sm backdrop-blur-md transition-all duration-300 hover:bg-white/70 hover:-translate-y-0.5 hover:shadow-md sm:h-[50px] sm:w-auto sm:max-w-full sm:min-w-[365px] sm:px-7 sm:py-0"
               >
                 How Our Job Search Analytics Dashboard Works
               </button>
@@ -394,94 +400,100 @@ export default function DashboardAnalyticsPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:py-28">
+        <section className="relative bg-gradient-to-b from-sky-50/60 via-transparent to-transparent px-4 py-20 sm:py-28">
           <div className="mx-auto max-w-[1040px]">
             <div className="mb-16 text-center">
-              <h2 className="text-[34px] font-extrabold leading-[1.1] text-[#111827] sm:text-[46px]">
+              <h2 className="text-[34px] font-extrabold leading-[1.1] text-gray-900 sm:text-[46px]">
                 Everything You Need to Measure Your Job Search
               </h2>
-              <p className="mx-auto mt-8 max-w-[720px] text-[19px] font-medium leading-8 text-[#596273]">
+              <p className="mx-auto mt-8 max-w-[720px] text-[19px] font-medium leading-8 text-gray-600">
                 Monitor every application, interview, recruiter interaction, and response so you
                 always know what&apos;s working and where to improve.
               </p>
             </div>
 
-            <div className="grid auto-rows-fr gap-6 md:grid-cols-3">
+            <div className="grid auto-rows-fr gap-5 md:grid-cols-3">
               {featureCards.map((item) => (
                 <article
                   key={item.title}
-                  className="h-full min-h-[185px] min-w-0 overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white p-6 shadow-[0_10px_24px_rgba(17,24,39,0.12)] sm:p-7"
+                  className="h-full min-h-[185px] min-w-0 overflow-hidden rounded-2xl border border-white/60 bg-white/50 p-6 shadow-[0_8px_32px_rgba(31,38,135,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/70 hover:shadow-[0_8px_32px_rgba(255,124,0,0.15)] sm:p-7"
                 >
-                  <h3 className="text-[16px] font-extrabold leading-tight text-[#111827]">{item.title}</h3>
-                  <p className="mt-5 text-[14px] font-medium leading-7 text-[#596273]">{item.desc}</p>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/70 bg-gradient-to-br from-[#ff4c00]/90 to-[#ff7a33]/90 text-white shadow-md shadow-orange-200/60 backdrop-blur-md">
+                    <CheckCircle size={20} strokeWidth={2.5} />
+                  </span>
+                  <h3 className="mt-5 text-[16px] font-extrabold leading-tight text-gray-900">{item.title}</h3>
+                  <p className="mt-3 text-[14px] font-medium leading-7 text-gray-600">{item.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:py-28">
+        <section className="relative bg-gradient-to-b from-emerald-50/50 via-transparent to-transparent px-4 py-20 sm:py-28">
           <div className="mx-auto max-w-[1040px]">
             <div className="mb-16 text-center">
-              <h2 className="text-[34px] font-extrabold leading-[1.1] text-[#111827] sm:text-[46px]">
+              <h2 className="text-[34px] font-extrabold leading-[1.1] text-gray-900 sm:text-[46px]">
                 Turn Job Search Data Into Better Decisions
               </h2>
-              <p className="mx-auto mt-8 max-w-[720px] text-[19px] font-medium leading-8 text-[#596273]">
+              <p className="mx-auto mt-8 max-w-[720px] text-[19px] font-medium leading-8 text-gray-600">
                 Stop guessing what works. Use real job search insights to refine your strategy and
                 increase your chances of getting interviews.
               </p>
             </div>
 
-            <div className="grid auto-rows-fr gap-6 md:grid-cols-2">
+            <div className="grid auto-rows-fr gap-5 md:grid-cols-2">
               {benefitCards.map((item) => (
                 <article
                   key={item.title}
-                  className="h-full min-h-[150px] min-w-0 overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white p-6 shadow-[0_10px_24px_rgba(17,24,39,0.12)] sm:p-7"
+                  className="h-full min-h-[150px] min-w-0 overflow-hidden rounded-2xl border border-white/60 bg-white/50 p-6 shadow-[0_8px_32px_rgba(31,38,135,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/70 hover:shadow-[0_8px_32px_rgba(255,124,0,0.15)] sm:p-7"
                 >
-                  <h3 className="text-[16px] font-extrabold leading-tight text-[#111827]">{item.title}</h3>
-                  <p className="mt-5 text-[14px] font-medium leading-7 text-[#596273]">{item.desc}</p>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/70 bg-gradient-to-br from-[#ff4c00]/90 to-[#ff7a33]/90 text-white shadow-md shadow-orange-200/60 backdrop-blur-md">
+                    <CheckCircle size={20} strokeWidth={2.5} />
+                  </span>
+                  <h3 className="mt-5 text-[16px] font-extrabold leading-tight text-gray-900">{item.title}</h3>
+                  <p className="mt-3 text-[14px] font-medium leading-7 text-gray-600">{item.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:py-28">
+        <section className="relative bg-gradient-to-b from-amber-50/60 via-transparent to-transparent px-4 py-20 sm:py-28">
           <div className="mx-auto max-w-[1040px]">
             <div className="mb-8 text-center sm:mb-9">
-              <h2 className="text-[30px] font-extrabold leading-[1.08] text-[#111827] sm:text-[36px]">
+              <h2 className="text-[30px] font-extrabold leading-[1.08] text-gray-900 sm:text-[36px]">
                 Who Benefits From Job Search Analytics?
               </h2>
-              <p className="mx-auto mt-5 max-w-[560px] text-[15px] font-medium leading-7 text-[#596273]">
+              <p className="mx-auto mt-5 max-w-[560px] text-[15px] font-medium leading-7 text-gray-600">
                 Whether you&apos;re applying to ten jobs or hundreds, FlashFire helps you
                 understand your progress and improve your job search with real insights.
               </p>
             </div>
 
-            <div className="grid auto-rows-fr gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {audienceCards.map((item) => (
                 <article
                   key={item.title}
-                  className="flex h-full min-h-[146px] min-w-0 flex-col overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white px-6 py-6 shadow-[0_8px_18px_rgba(17,24,39,0.12)] sm:px-7"
+                  className="flex h-full min-h-[146px] min-w-0 flex-col overflow-hidden rounded-2xl border border-white/60 bg-white/50 px-6 py-6 shadow-[0_8px_32px_rgba(31,38,135,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/70 hover:shadow-[0_8px_32px_rgba(255,124,0,0.15)] sm:px-7"
                 >
-                  <span className="mb-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff4c00] text-white">
-                    <CheckCircle size={19} strokeWidth={3} />
+                  <span className="mb-4 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/70 bg-gradient-to-br from-[#ff4c00]/90 to-[#ff7a33]/90 text-white shadow-sm shadow-orange-200/60 backdrop-blur-md">
+                    <CheckCircle size={16} strokeWidth={3} />
                   </span>
-                  <p className="text-[15px] font-extrabold leading-6 text-[#ff4c00]">{item.title}</p>
-                  <p className="mt-2 text-[13px] font-medium leading-6 text-[#596273]">{item.desc}</p>
+                  <p className="text-[15px] font-extrabold leading-6 text-gray-900">{item.title}</p>
+                  <p className="mt-2 text-[13px] font-medium leading-6 text-gray-600">{item.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="how-it-works" className="bg-white px-4 py-16 sm:py-24">
+        <section id="how-it-works" className="relative bg-gradient-to-b from-rose-50/50 via-transparent to-transparent px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-[1080px]">
             <div className="mb-12 text-center">
-              <h2 className="text-[31px] font-extrabold leading-[1.12] text-[#111827] sm:text-[40px] sm:leading-tight">
+              <h2 className="text-[31px] font-extrabold leading-[1.12] text-gray-900 sm:text-[40px] sm:leading-tight">
                 Improve Your Job Search in 4 Simple Steps
               </h2>
-              <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-medium leading-7 text-[#596273]">
+              <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-medium leading-7 text-gray-600">
                 Track your progress, understand your results, and continuously improve every
                 stage of your job search.
               </p>
@@ -491,33 +503,33 @@ export default function DashboardAnalyticsPage() {
               {steps.map((step) => (
                 <article
                   key={step.title}
-                  className="h-full min-h-[170px] min-w-0 overflow-hidden border border-black bg-[#ff4c00] p-4 text-white shadow-[4px_4px_0_0_rgba(0,0,0,0.75)] sm:p-5"
+                  className="h-full min-h-[170px] min-w-0 overflow-hidden rounded-2xl border border-white/60 bg-white/50 p-5 shadow-[0_8px_32px_rgba(31,38,135,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/70 hover:shadow-[0_8px_32px_rgba(255,124,0,0.15)]"
                 >
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white text-[12px] font-extrabold text-[#ff4c00]">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/70 bg-gradient-to-br from-[#ff4c00]/90 to-[#ff7a33]/90 text-[12px] font-extrabold text-white shadow-sm shadow-orange-200/60 backdrop-blur-md">
                     {step.number}
                   </span>
-                  <h3 className="mt-5 text-[15px] font-extrabold leading-tight">{step.title}</h3>
-                  <p className="mt-4 text-[13px] font-medium leading-6 text-white/90">{step.desc}</p>
+                  <h3 className="mt-5 text-[15px] font-extrabold leading-tight text-gray-900">{step.title}</h3>
+                  <p className="mt-4 text-[13px] font-medium leading-6 text-gray-600">{step.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-4 py-16 sm:py-24">
+        <section className="relative bg-gradient-to-b from-indigo-50/40 via-transparent to-transparent px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-[880px]">
             <div className="mb-10 text-center">
-              <h2 className="text-[30px] font-extrabold leading-tight text-[#111827] sm:text-[32px]">
+              <h2 className="text-[30px] font-extrabold leading-tight text-gray-900 sm:text-[32px]">
                 Why Job Search Analytics Beats Tracking Applications in Spreadsheets
               </h2>
-              <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-medium leading-7 text-[#596273]">
+              <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-medium leading-7 text-gray-600">
                 Spreadsheets help you record applications. FlashFire helps you understand what&apos;s
                 actually working.
               </p>
             </div>
-            <div className="overflow-hidden border border-[#111827] bg-white shadow-[4px_4px_0_#111827]">
-              <div className="grid grid-cols-2 border-b border-[#111827] bg-[#fff3ee]">
-                <div className="border-r border-[#111827] p-4 text-center text-[14px] font-extrabold text-[#111827]">
+            <div className="overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-[0_8px_32px_rgba(31,38,135,0.08)] backdrop-blur-xl">
+              <div className="grid grid-cols-2 border-b border-white/60 bg-white/40">
+                <div className="border-r border-white/60 p-4 text-center text-[14px] font-extrabold text-gray-500">
                   Spreadsheet
                 </div>
                 <div className="p-4 text-center text-[14px] font-extrabold text-[#ff4c00]">FlashFire</div>
@@ -525,13 +537,15 @@ export default function DashboardAnalyticsPage() {
               {comparisonRows.map((row, index) => (
                 <div
                   key={row.spreadsheet}
-                  className={`grid grid-cols-2 ${index !== comparisonRows.length - 1 ? "border-b border-[#111827]" : ""}`}
+                  className={`grid grid-cols-2 border-b border-white/50 transition-colors last:border-b-0 hover:bg-white/50 ${
+                    index % 2 === 0 ? "bg-white/20" : "bg-white/5"
+                  }`}
                 >
-                  <div className="flex items-center gap-2 border-r border-[#111827] p-4 text-[13px] font-medium text-[#596273]">
-                    <XCircle size={16} className="shrink-0 text-[#c8ccd2]" />
+                  <div className="flex items-center gap-2 border-r border-white/50 p-4 text-[13px] font-medium text-gray-600">
+                    <XCircle size={16} className="shrink-0 text-gray-300" />
                     {row.spreadsheet}
                   </div>
-                  <div className="flex items-center gap-2 p-4 text-[13px] font-extrabold text-[#111827]">
+                  <div className="flex items-center gap-2 p-4 text-[13px] font-extrabold text-gray-900">
                     <CheckCircle size={16} className="shrink-0 text-[#ff4c00]" />
                     {row.flashfire}
                   </div>
@@ -541,20 +555,20 @@ export default function DashboardAnalyticsPage() {
           </div>
         </section>
 
-        <section className="bg-[#fff3ee] px-4 py-16 sm:py-24">
+        <section className="relative bg-gradient-to-b from-orange-50/50 via-transparent to-transparent px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-[880px]">
             <div className="mb-10 text-center">
-              <h2 className="text-[30px] font-extrabold leading-tight text-[#111827] sm:text-[32px]">
+              <h2 className="text-[30px] font-extrabold leading-tight text-gray-900 sm:text-[32px]">
                 Why Most Job Seekers Don&apos;t Know What&apos;s Working
               </h2>
-              <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-medium leading-7 text-[#596273]">
+              <p className="mx-auto mt-4 max-w-[560px] text-[15px] font-medium leading-7 text-gray-600">
                 Many job seekers send dozens of applications without understanding why some
                 receive interviews while others don&apos;t.
               </p>
             </div>
-            <div className="overflow-hidden border border-[#111827] bg-white shadow-[4px_4px_0_#111827]">
-              <div className="grid grid-cols-2 border-b border-[#111827]">
-                <div className="border-r border-[#111827] p-4 text-center text-[14px] font-extrabold text-[#111827]">
+            <div className="overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-[0_8px_32px_rgba(31,38,135,0.08)] backdrop-blur-xl">
+              <div className="grid grid-cols-2 border-b border-white/60 bg-white/40">
+                <div className="border-r border-white/60 p-4 text-center text-[14px] font-extrabold text-gray-500">
                   Without FlashFire
                 </div>
                 <div className="p-4 text-center text-[14px] font-extrabold text-[#ff4c00]">With FlashFire</div>
@@ -562,13 +576,15 @@ export default function DashboardAnalyticsPage() {
               {problemRows.map((row, index) => (
                 <div
                   key={row.without}
-                  className={`grid grid-cols-2 ${index !== problemRows.length - 1 ? "border-b border-[#111827]" : ""}`}
+                  className={`grid grid-cols-2 border-b border-white/50 transition-colors last:border-b-0 hover:bg-white/50 ${
+                    index % 2 === 0 ? "bg-white/20" : "bg-white/5"
+                  }`}
                 >
-                  <div className="flex items-center gap-2 border-r border-[#111827] p-4 text-[13px] font-medium text-[#596273]">
-                    <XCircle size={16} className="shrink-0 text-[#c8ccd2]" />
+                  <div className="flex items-center gap-2 border-r border-white/50 p-4 text-[13px] font-medium text-gray-600">
+                    <XCircle size={16} className="shrink-0 text-gray-300" />
                     {row.without}
                   </div>
-                  <div className="flex items-center gap-2 p-4 text-[13px] font-extrabold text-[#111827]">
+                  <div className="flex items-center gap-2 p-4 text-[13px] font-extrabold text-gray-900">
                     <CheckCircle size={16} className="shrink-0 text-[#ff4c00]" />
                     {row.withFlashfire}
                   </div>
@@ -578,46 +594,48 @@ export default function DashboardAnalyticsPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:py-28">
+        <section className="relative bg-gradient-to-b from-teal-50/50 via-transparent to-transparent px-4 py-20 sm:py-28">
           <div className="mx-auto max-w-[1040px]">
             <div className="mb-16 text-center">
-              <h2 className="text-[34px] font-extrabold leading-[1.1] text-[#111827] sm:text-[46px]">
+              <h2 className="text-[34px] font-extrabold leading-[1.1] text-gray-900 sm:text-[46px]">
                 See Your Job Search Progress Clearly
               </h2>
-              <p className="mx-auto mt-8 max-w-[720px] text-[19px] font-medium leading-8 text-[#596273]">
+              <p className="mx-auto mt-8 max-w-[720px] text-[19px] font-medium leading-8 text-gray-600">
                 Track meaningful metrics that help you improve your job search instead of simply
                 counting applications.
               </p>
             </div>
 
-            <div className="grid auto-rows-fr grid-cols-2 gap-2 lg:grid-cols-4">
+            <div className="grid auto-rows-fr grid-cols-2 gap-4 lg:grid-cols-4">
               {resultMetrics.map((label) => (
                 <article
                   key={label}
-                  className="flex h-full min-h-[146px] min-w-0 flex-col items-center justify-center overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white px-4 py-6 text-center shadow-[0_8px_18px_rgba(17,24,39,0.12)]"
+                  className="flex h-full min-h-[146px] min-w-0 flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/60 bg-white/50 px-4 py-6 text-center shadow-[0_8px_32px_rgba(31,38,135,0.08)] backdrop-blur-xl transition-all duration-300 hover:bg-white/70 hover:shadow-[0_8px_32px_rgba(255,124,0,0.15)]"
                 >
-                  <span className="mb-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff4c00] text-white">
+                  <span className="mb-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/70 bg-gradient-to-br from-[#ff4c00]/90 to-[#ff7a33]/90 text-white shadow-md shadow-orange-200/60 backdrop-blur-md">
                     <CheckCircle size={19} strokeWidth={3} />
                   </span>
-                  <p className="text-[15px] font-extrabold leading-6 text-[#ff4c00]">{label}</p>
+                  <p className="text-[15px] font-extrabold leading-6 text-gray-900">
+                    {label}
+                  </p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-[#fff3ee] px-4 py-16 sm:py-24">
+        <section className="relative bg-gradient-to-b from-violet-50/40 via-transparent to-transparent px-4 py-16 sm:py-24">
           <div className="mx-auto grid max-w-[1120px] gap-12 lg:grid-cols-[420px_1fr] lg:items-start">
             <div>
-              <h2 className="max-w-[390px] text-[32px] font-extrabold leading-[1.35] tracking-normal text-[#111827] sm:text-[36px]">
+              <h2 className="max-w-[390px] text-[32px] font-extrabold leading-[1.35] tracking-normal text-gray-900 sm:text-[36px]">
                 Designed for Job Seekers Who Want Measurable Progress?
               </h2>
-              <p className="mt-7 max-w-[390px] text-[13px] font-medium leading-6 text-[#7a8290]">
+              <p className="mt-7 max-w-[390px] text-[13px] font-medium leading-6 text-gray-600">
                 FlashFire&apos;s job search analytics dashboard is built for candidates who want
                 visibility into their job application tracking and real improvement in interview
                 outcomes.
               </p>
-              <p className="mt-6 max-w-[390px] text-[13px] font-medium leading-6 text-[#7a8290]">
+              <p className="mt-6 max-w-[390px] text-[13px] font-medium leading-6 text-gray-600">
                 Instead of guessing, you see clear signals - what converts, what doesn&apos;t, and
                 where to focus next.
               </p>
@@ -630,20 +648,24 @@ export default function DashboardAnalyticsPage() {
                 return (
                   <article
                     key={item.number}
-                    className="overflow-hidden rounded-[4px] border border-[#d8d8d8] bg-white"
+                    className={`overflow-hidden rounded-2xl border backdrop-blur-xl transition-all duration-300 ${
+                      isOpen
+                        ? "border-white/70 bg-white/70 shadow-[0_8px_32px_rgba(255,124,0,0.15)]"
+                        : "border-white/60 bg-white/40 shadow-[0_8px_32px_rgba(31,38,135,0.08)] hover:bg-white/55"
+                    }`}
                   >
                     <button
                       type="button"
                       aria-expanded={isOpen}
                       onClick={() => handleDesignedForToggle(index)}
-                      className={`flex min-h-[48px] w-full items-center justify-between gap-4 px-3 text-left sm:px-4 ${
-                        isOpen ? "bg-[#ff4c00] text-white" : "text-[#111827]"
-                      }`}
+                      className="flex min-h-[48px] w-full items-center justify-between gap-4 px-4 py-4 text-left text-gray-900 sm:px-5"
                     >
                       <span className="flex min-w-0 items-center gap-3">
                         <span
-                          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-[4px] text-[20px] font-extrabold ${
-                            isOpen ? "bg-white/25 text-white" : "bg-[#ffe5dc] text-[#ff4c00]"
+                          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border text-[14px] font-extrabold backdrop-blur-md ${
+                            isOpen
+                              ? "border-white/70 bg-gradient-to-br from-[#ff4c00]/90 to-[#ff7a33]/90 text-white shadow-sm shadow-orange-200/60"
+                              : "border-white/60 bg-white/50 text-[#ff4c00]"
                           }`}
                         >
                           {item.number}
@@ -652,16 +674,12 @@ export default function DashboardAnalyticsPage() {
                           {item.title}
                         </span>
                       </span>
-                      <span
-                        className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[20px] leading-none ${
-                          isOpen ? "bg-white text-[#ff4c00]" : "bg-[#ffe5dc] text-[#ff4c00]"
-                        }`}
-                      >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/60 bg-white/50 text-[18px] leading-none text-gray-500 backdrop-blur-md">
                         {isOpen ? "-" : "+"}
                       </span>
                     </button>
                     {isOpen && (
-                      <p className="px-4 py-5 text-[12px] font-medium leading-6 text-[#7a8290]">
+                      <p className="px-4 pb-5 text-[12px] font-medium leading-6 text-gray-600 sm:px-5">
                         {item.desc}
                       </p>
                     )}
@@ -672,21 +690,21 @@ export default function DashboardAnalyticsPage() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-16 sm:py-24">
+        <section className="relative bg-gradient-to-b from-orange-50/70 via-transparent to-transparent px-4 py-16 sm:py-24">
           <div className="mx-auto max-w-[760px] text-center">
-            <h2 className="text-[31px] font-extrabold leading-[1.15] text-black sm:text-[42px]">
+            <h2 className="text-[31px] font-extrabold leading-[1.15] text-gray-900 sm:text-[42px]">
               Ready to Improve Your
               <br className="hidden sm:block" />
               <span className="text-[#ff4c00]">Job Search?</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-[620px] text-[15px] font-medium leading-7 text-[#596273]">
+            <p className="mx-auto mt-6 max-w-[620px] text-[15px] font-medium leading-7 text-gray-600">
               Track your applications, measure your progress, and use real insights to make every
               job application more effective.
             </p>
             <button
               {...getButtonProps()}
               onClick={handleGetMeInterview}
-              className="mt-9 inline-flex h-[44px] min-w-[190px] items-center justify-center rounded-md bg-[#ff4c00] px-7 text-[13px] font-extrabold text-white transition hover:bg-[#e94400]"
+              className="mt-9 inline-flex h-[44px] min-w-[190px] items-center justify-center rounded-full border border-white/40 bg-gradient-to-r from-[#ff4c00]/95 to-[#ff7a33]/95 px-7 text-[13px] font-bold text-white shadow-lg shadow-orange-300/40 backdrop-blur-md transition-all duration-300 hover:shadow-xl hover:shadow-orange-300/50 hover:-translate-y-0.5"
             >
               Track My Job Search
               <ArrowRight className="ml-1 inline" size={14} />

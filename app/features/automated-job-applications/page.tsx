@@ -436,16 +436,16 @@ export default function JobApplicationAutomationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main className="min-h-screen bg-white font-['Space_Grotesk',sans-serif] text-[#111827]">
-        <section className="relative overflow-hidden bg-[#fff1eb] py-16 sm:py-28 lg:py-32">
+        <section className="relative overflow-hidden bg-gradient-to-b from-orange-50 via-white to-white py-16 sm:py-28 lg:py-32">
           <div className="mx-auto max-w-[1180px] px-5">
             <div className="relative mx-auto max-w-3xl text-center">
-              <div className="mb-5 inline-flex max-w-full rounded-full bg-[#ff4c00] px-3 py-1.5 text-[10px] font-bold text-white sm:px-4 sm:text-[11px]">
+              <div className="mb-5 inline-flex max-w-full items-center rounded-full bg-orange-50 border border-orange-200 px-4 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#ff4c00] sm:px-4 sm:text-[11px]">
                 # AI Job Search Assistant
               </div>
-              <h1 className="mx-auto max-w-[760px] text-[31px] font-extrabold leading-[1.12] tracking-normal text-[#0b0b0b] sm:text-5xl lg:text-[54px]">
+              <h1 className="mx-auto max-w-[760px] text-[31px] font-extrabold leading-[1.12] tracking-normal text-gray-900 sm:text-5xl lg:text-[54px]">
                 Automate Your Job Applications &amp; Land More Interviews
               </h1>
-              <p className="mx-auto mt-5 max-w-[700px] text-sm font-medium leading-6 text-[#7b8191] sm:mt-7 sm:text-base sm:leading-7">
+              <p className="mx-auto mt-5 max-w-[700px] text-sm font-medium leading-6 text-gray-600 sm:mt-7 sm:text-base sm:leading-7">
                 FlashFire automates your job search by finding relevant jobs,
                 optimizing applications for ATS, and submitting high-quality
                 applications faster, helping you apply earlier, save time, and
@@ -454,13 +454,13 @@ export default function JobApplicationAutomationPage() {
               <button
                 {...getButtonProps()}
                 onClick={handleGetMeInterview}
-                className="mt-8 inline-flex w-full max-w-[250px] items-center justify-center gap-2 border-2 border-[#111] bg-white px-6 py-3.5 text-sm font-extrabold text-[#111] shadow-[0_4px_0_#ff4c00] transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_#ff4c00] sm:mt-10 sm:w-auto sm:max-w-none sm:px-8 sm:py-4 sm:text-base"
+                className="mt-8 inline-flex w-full max-w-[250px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:mt-10 sm:w-auto sm:max-w-none sm:px-8 sm:py-4 sm:text-base"
               >
                 Get Me Interview <FaArrowRight className="h-4 w-4" />
               </button>
             </div>
 
-            <div className="pointer-events-none absolute left-[6%] top-[38%] hidden w-[190px] rounded-xl border border-[#e5e7eb] bg-white p-3 shadow-sm lg:block">
+            <div className="pointer-events-none absolute left-[6%] top-[38%] hidden w-[190px] rounded-2xl border border-gray-100 bg-white/90 p-3 shadow-xl backdrop-blur-sm lg:block">
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-end justify-center rounded-lg border border-[#cbd5e1] px-1.5 pb-1">
                   <span className="mr-0.5 h-2 w-1 rounded bg-[#111827]" />
@@ -478,15 +478,15 @@ export default function JobApplicationAutomationPage() {
               </div>
             </div>
 
-            <div className="pointer-events-none absolute left-[15%] top-[54%] hidden w-[110px] rounded-lg bg-white p-4 text-center shadow-sm md:block">
+            <div className="pointer-events-none absolute left-[15%] top-[54%] hidden w-[110px] rounded-2xl border border-gray-100 bg-white/90 p-4 text-center shadow-xl backdrop-blur-sm md:block">
               <p className="text-[10px] font-bold uppercase text-[#7b8191]">Score</p>
-              <p className="text-3xl font-extrabold leading-none text-[#ff4c00]">82</p>
+              <p className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] bg-clip-text text-3xl font-extrabold leading-none text-transparent">82</p>
               <p className="mt-1 text-[10px] font-extrabold text-[#111827]">
                 ATS Compatibility
               </p>
             </div>
 
-            <div className="pointer-events-none absolute right-[2%] top-[43%] hidden w-[300px] rounded-xl bg-white p-5 shadow-[0_22px_45px_rgba(17,24,39,0.18)] lg:block">
+            <div className="pointer-events-none absolute right-[2%] top-[43%] hidden w-[300px] rounded-2xl border border-gray-100 bg-white/90 p-5 shadow-xl backdrop-blur-sm lg:block">
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex gap-2">
                   <span className="h-3 w-3 rounded-full bg-[#ff5c5c]" />
@@ -503,9 +503,9 @@ export default function JobApplicationAutomationPage() {
                   "Product Manager @ Meta",
                   "Data Scientist @ Netflix",
                 ].map((job) => (
-                  <div key={job} className="rounded-lg bg-[#f8fafc] p-3">
+                  <div key={job} className="rounded-xl bg-[#f8fafc] p-3">
                     <div className="flex items-center gap-3">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ff5a00] text-xs font-bold text-white">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-xs font-bold text-white shadow-md shadow-orange-200">
                         {job.charAt(0)}
                       </span>
                       <div>
@@ -529,12 +529,12 @@ export default function JobApplicationAutomationPage() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="border border-[#111] bg-white px-3 py-5 text-center shadow-[3px_4px_0_#111] sm:px-8 sm:py-7 sm:shadow-[4px_5px_0_#111]"
+                className="rounded-2xl border border-gray-100 bg-white px-3 py-5 text-center shadow-md transition-shadow hover:shadow-lg sm:px-8 sm:py-7"
               >
-                <p className="text-[28px] font-extrabold leading-none text-[#ff4c00] sm:text-[34px]">
+                <p className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] bg-clip-text text-[28px] font-extrabold leading-none text-transparent sm:text-[34px]">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-[9px] font-extrabold uppercase leading-tight tracking-[0.06em] text-[#7b8191] sm:mt-3 sm:text-[11px] sm:tracking-[0.08em]">
+                <p className="mt-2 text-[9px] font-extrabold uppercase leading-tight tracking-[0.06em] text-gray-600 sm:mt-3 sm:text-[11px] sm:tracking-[0.08em]">
                   {stat.label}
                 </p>
               </div>
@@ -542,7 +542,7 @@ export default function JobApplicationAutomationPage() {
           </div>
         </section>
 
-        <section id="how-it-works" className="bg-[#fff7f5] py-16 sm:py-24">
+        <section id="how-it-works" className="bg-orange-50/40 py-16 sm:py-24">
           <div className="mx-auto max-w-[960px] px-5">
             <SectionHeader
               badge="How It Works"
@@ -553,15 +553,15 @@ export default function JobApplicationAutomationPage() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="h-full min-w-0 overflow-hidden border border-[#111] bg-[#ff4c00] p-4 text-white shadow-[3px_3px_0_#111] sm:shadow-[4px_4px_0_#111]"
+                  className="h-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#ff4c00] sm:mb-7">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200 sm:mb-7">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-extrabold leading-tight sm:text-2xl">
+                  <h3 className="text-lg font-extrabold leading-tight text-gray-900 sm:text-2xl">
                     {feature.title}
                   </h3>
-                  <p className="mt-3 text-sm font-medium leading-6 text-white/90 sm:mt-4 sm:text-base sm:leading-7">
+                  <p className="mt-3 text-sm font-medium leading-6 text-gray-600 sm:mt-4 sm:text-base sm:leading-7">
                     {feature.desc}
                   </p>
                 </div>
@@ -577,20 +577,20 @@ export default function JobApplicationAutomationPage() {
               title="Why Job Seekers Choose FlashFire Over Manual Applications"
               description="Manual applications consume hours every week. FlashFire helps you apply earlier, more consistently, and more strategically."
             />
-            <div className="mt-10 overflow-hidden border border-[#9ca3af] bg-white sm:mt-20">
-              <div className="h-9 bg-[#ff4c00] sm:h-12" />
+            <div className="mt-10 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm sm:mt-20">
+              <div className="h-9 bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] sm:h-12" />
               {comparisonData.map((item, index) => (
                 <div
                   key={`${item.title}-${index}`}
-                  className={`grid grid-cols-[minmax(0,1fr)_38px_38px] items-center border-t border-[#9ca3af] px-3 py-4 sm:grid-cols-[1fr_76px_76px] sm:px-4 sm:py-5 ${
-                    index % 2 === 1 ? "bg-[#fff1eb]" : "bg-white"
+                  className={`grid grid-cols-[minmax(0,1fr)_38px_38px] items-center border-t border-gray-200 px-3 py-4 transition-colors hover:bg-orange-50/40 sm:grid-cols-[1fr_76px_76px] sm:px-4 sm:py-5 ${
+                    index % 2 === 1 ? "bg-gray-50/60" : "bg-white"
                   }`}
                 >
                   <div className="min-w-0">
-                    <p className="break-words text-xs font-extrabold text-[#111] sm:text-base">
+                    <p className="break-words text-xs font-extrabold text-gray-900 sm:text-base">
                       {item.title}
                     </p>
-                    <p className="mt-1 break-words text-[10px] font-medium leading-tight text-[#7b8191] sm:text-xs">
+                    <p className="mt-1 break-words text-[10px] font-medium leading-tight text-gray-600 sm:text-xs">
                       {item.caption}
                     </p>
                   </div>
@@ -611,25 +611,19 @@ export default function JobApplicationAutomationPage() {
               title="Who Benefits From Job Application Automation?"
               description="Whether you're applying every day or struggling to stay consistent, FlashFire helps automate repetitive work so you can focus on interviews instead."
             />
-            <div className="mt-10 grid auto-rows-fr border border-[#111] bg-white shadow-[3px_3px_0_#111] sm:mt-16 sm:grid-cols-2 sm:shadow-[4px_4px_0_#111] lg:grid-cols-3">
-              {audienceGroups.map((group, index) => (
+            <div className="mt-10 grid auto-rows-fr gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+              {audienceGroups.map((group) => (
                 <div
                   key={group.title}
-                  className={`h-full min-w-0 overflow-hidden border-[#111] p-5 sm:p-7 ${
-                    index !== audienceGroups.length - 1 ? "border-b" : ""
-                  } ${index % 2 === 0 ? "sm:border-r" : "sm:border-r-0"} ${
-                    index >= 4 ? "sm:border-b-0" : ""
-                  } ${index < 3 ? "lg:border-b" : "lg:border-b-0"} ${
-                    index % 3 !== 2 ? "lg:border-r" : "lg:border-r-0"
-                  }`}
+                  className="h-full min-w-0 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-7"
                 >
-                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-[#ff4c00] text-white sm:mb-6">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200 sm:mb-6">
                     {group.icon}
                   </div>
-                  <h3 className="text-base font-extrabold text-[#111827] sm:text-xl">
+                  <h3 className="text-base font-extrabold text-gray-900 sm:text-xl">
                     {group.title}
                   </h3>
-                  <p className="mt-3 text-sm font-medium leading-6 text-[#596173] sm:mt-4 sm:text-base sm:leading-7">
+                  <p className="mt-3 text-sm font-medium leading-6 text-gray-600 sm:mt-4 sm:text-base sm:leading-7">
                     {group.desc}
                   </p>
                 </div>
@@ -641,13 +635,13 @@ export default function JobApplicationAutomationPage() {
         <section className="bg-white py-14 sm:py-24">
           <div className="mx-auto max-w-[760px] px-5">
             <div className="mx-auto text-center">
-              <span className="inline-flex max-w-full rounded-full border border-[#ffd0bd] bg-white px-3 py-1 text-center text-[10px] font-extrabold uppercase leading-tight text-[#ff4c00]">
+              <span className="inline-flex max-w-full items-center rounded-full bg-orange-50 border border-orange-200 px-4 py-1.5 text-center text-[10px] font-bold uppercase tracking-wide leading-tight text-[#ff4c00]">
                 The Problem With Modern Job Search
               </span>
-              <h2 className="mx-auto mt-5 max-w-[620px] text-[33px] font-extrabold leading-[1.04] tracking-normal text-[#111827] sm:mt-7 sm:text-[42px]">
+              <h2 className="mx-auto mt-5 max-w-[620px] text-[33px] font-extrabold leading-[1.04] tracking-normal text-gray-900 sm:mt-7 sm:text-[42px]">
                 Why Modern Job Search Needs Automation
               </h2>
-              <p className="mx-auto mt-4 max-w-[600px] text-sm font-medium leading-6 text-[#596173] sm:mt-6 sm:text-base sm:leading-7">
+              <p className="mx-auto mt-4 max-w-[600px] text-sm font-medium leading-6 text-gray-600 sm:mt-6 sm:text-base sm:leading-7">
                 Finding the right job today isn&apos;t just about qualifications.
                 Speed, consistency, and optimized applications make all the
                 difference.
@@ -657,46 +651,46 @@ export default function JobApplicationAutomationPage() {
               {problemSolutionPairs.map((item, index) => (
                 <div
                   key={item.problem}
-                  className="border border-[#111] bg-white shadow-[3px_3px_0_#111]"
+                  className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm"
                 >
-                  <div className="border-b border-[#111] bg-[#ffffff] p-4">
+                  <div className="border-b border-gray-100 bg-white p-4">
                     <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase text-[#ff4c00]">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ff4c00] text-xs text-white">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-xs text-white shadow-md shadow-orange-200">
                         {index + 1}
                       </span>
                       Problem
                     </div>
-                    <h3 className="text-xl font-extrabold leading-tight text-[#111827]">
+                    <h3 className="text-xl font-extrabold leading-tight text-gray-900">
                       {item.problem}
                     </h3>
-                    <p className="mt-3 text-sm font-medium leading-6 text-[#596173]">
+                    <p className="mt-3 text-sm font-medium leading-6 text-gray-600">
                       {item.detail}
                     </p>
                   </div>
-                  <div className="bg-[#fff1eb] p-4">
+                  <div className="bg-orange-50/40 p-4">
                     <div className="mb-3 flex items-center gap-2 text-xs font-extrabold uppercase text-[#15803d]">
                       <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#18c45f] text-white">
                         <FaCheck className="h-3.5 w-3.5" />
                       </span>
                       AI Fix
                     </div>
-                    <h3 className="text-xl font-extrabold leading-tight text-[#111827]">
+                    <h3 className="text-xl font-extrabold leading-tight text-gray-900">
                       {item.solution}
                     </h3>
-                    <p className="mt-3 text-sm font-medium leading-6 text-[#596173]">
+                    <p className="mt-3 text-sm font-medium leading-6 text-gray-600">
                       {item.result}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-10 hidden border border-[#111] bg-white sm:mt-20 md:block">
+            <div className="mt-10 hidden overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm sm:mt-20 md:block">
               <div className="grid grid-cols-2">
-                <div className="bg-[#f7f7f7] px-4 py-4 text-xs font-extrabold text-[#111] sm:px-5 sm:text-base">
+                <div className="bg-gray-50 px-4 py-4 text-xs font-extrabold text-gray-900 sm:px-5 sm:text-base">
                   <FaExclamationTriangle className="mr-2 inline h-4 w-4 text-[#ff4c00]" />
                   Why Manual Job applications Fail?
                 </div>
-                <div className="border-l border-[#111] bg-[#ff4c00] px-4 py-4 text-xs font-extrabold text-white sm:px-5 sm:text-base">
+                <div className="border-l border-gray-200 bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] px-4 py-4 text-xs font-extrabold text-white sm:px-5 sm:text-base">
                   <FaCheck className="mr-2 inline h-4 w-4" />
                   How AI changes the game
                 </div>
@@ -706,10 +700,10 @@ export default function JobApplicationAutomationPage() {
 
                 return (
                   <div key={problem} className="grid grid-cols-2">
-                    <div className="flex min-h-[82px] items-center border-t border-[#111] px-4 py-4 text-xs font-medium leading-5 text-[#555] sm:px-5 sm:py-5 sm:text-sm">
+                    <div className="flex min-h-[82px] items-center border-t border-gray-200 px-4 py-4 text-xs font-medium leading-5 text-gray-600 sm:px-5 sm:py-5 sm:text-sm">
                       {problem}
                     </div>
-                    <div className="flex min-h-[82px] items-center border-l border-t border-[#111] border-t-[#ff9b75] bg-[#fff1eb] px-4 py-4 text-xs font-extrabold leading-5 text-[#111] sm:px-5 sm:py-5 sm:text-sm">
+                    <div className="flex min-h-[82px] items-center border-l border-t border-gray-200 bg-orange-50/40 px-4 py-4 text-xs font-extrabold leading-5 text-gray-900 sm:px-5 sm:py-5 sm:text-sm">
                       <FaCheck className="mr-2 inline h-4 w-4 text-[#ff4c00]" />
                       {solution}
                     </div>
@@ -772,14 +766,14 @@ function SectionHeader({
 }) {
   return (
     <div className="mx-auto text-center">
-      <span className="inline-flex max-w-full rounded-full border border-[#ffd0bd] bg-white px-3 py-1 text-center text-[9px] font-extrabold uppercase leading-tight text-[#ff4c00] sm:text-[10px]">
+      <span className="inline-flex max-w-full items-center rounded-full bg-orange-50 border border-orange-200 px-4 py-1.5 text-center text-[9px] font-bold uppercase tracking-wide leading-tight text-[#ff4c00] sm:text-[10px]">
         {badge}
       </span>
-      <h2 className="mx-auto mt-5 max-w-[720px] text-[28px] font-extrabold leading-[1.08] tracking-normal text-[#111827] sm:mt-7 sm:text-[50px]">
+      <h2 className="mx-auto mt-5 max-w-[720px] text-[28px] font-extrabold leading-[1.08] tracking-normal text-gray-900 sm:mt-7 sm:text-[50px]">
         {title}
       </h2>
       {description ? (
-        <p className="mx-auto mt-4 max-w-[600px] text-sm font-medium leading-6 text-[#596173] sm:mt-6 sm:text-base sm:leading-7">
+        <p className="mx-auto mt-4 max-w-[600px] text-sm font-medium leading-6 text-gray-600 sm:mt-6 sm:text-base sm:leading-7">
           {description}
         </p>
       ) : null}

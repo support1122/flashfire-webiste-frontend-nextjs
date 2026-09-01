@@ -16,7 +16,18 @@ import {
   FaTimes,
   FaWhatsapp,
 } from "react-icons/fa"
-import { Bot, BriefcaseBusiness, Phone, Rocket, Users } from "lucide-react"
+import {
+  ArrowRight,
+  Bot,
+  BriefcaseBusiness,
+  Flame,
+  Globe,
+  GraduationCap,
+  Phone,
+  Rocket,
+  Target,
+  Users,
+} from "lucide-react"
 import { questionsData } from "@/src/data/questionsData"
 import faqStyles from "@/src/components/homePageFAQ/homePageFAQ.module.css"
 import FlashfireLogo from "@/src/components/FlashfireLogo"
@@ -129,11 +140,12 @@ const personas = [
   },
 ]
 
+const personaIcons = [GraduationCap, Globe, Flame, Target]
+
 function Features() {
   const pathname = usePathname()
   const router = useRouter()
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
-  const [activePersona, setActivePersona] = useState<number | null>(null)
 
   const prefix = getLocalePrefix(pathname)
 
@@ -277,25 +289,17 @@ function Features() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <header className="relative isolate overflow-hidden border-b border-black/5 bg-white px-4 py-12 font-['Space_Grotesk',sans-serif] sm:px-6 md:py-24 lg:px-8">
-        <Image
-          src="/images/step1.png"
-          alt=""
-          width={360}
-          height={360}
-          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.08] md:h-[360px] md:w-[360px]"
-          priority
-        />
-        <div className="mx-auto max-w-6xl">
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#fff0e9] px-4 py-2 text-xs font-extrabold text-[#ff4c00]">
-            <Rocket className="h-3.5 w-3.5" />
-            AI-Powered Job Automation Platform
-          </span>
-          <div className="mx-auto mt-8 max-w-5xl text-center">
-            <h1 className="text-3xl font-black leading-tight tracking-normal text-black sm:text-4xl md:text-6xl">
+      <header className="relative isolate overflow-hidden border-b border-black/5 bg-white px-4 py-14 font-['Space_Grotesk',sans-serif] sm:px-6 md:py-24 lg:px-8">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="text-center lg:text-left">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#fff0e9] px-4 py-2 text-xs font-extrabold text-[#ff4c00]">
+              <Rocket className="h-3.5 w-3.5" />
+              AI-Powered Job Automation Platform
+            </span>
+            <h1 className="mt-6 text-3xl font-black leading-[1.05] tracking-tight text-black sm:text-4xl md:text-5xl lg:text-6xl">
               AI-Powered Job Search & Job Search Automation That Gets Interviews
             </h1>
-            <p className="mx-auto mt-6 max-w-4xl text-base font-medium leading-7 text-[#384154] md:mt-7 md:text-xl">
+            <p className="mx-auto mt-6 max-w-xl text-base font-medium leading-7 text-[#384154] md:text-lg lg:mx-0">
               Flashfire is an AI-powered job search platform that automates your entire job search, from resume optimization to intelligent job applications-helping job seekers apply smarter and get interview calls faster.
             </p>
             <button
@@ -305,41 +309,73 @@ function Features() {
               Get Me Interview {"->"}
             </button>
           </div>
+
+          <div className="relative mx-auto hidden h-[340px] w-full max-w-md lg:block">
+            {steps.slice(0, 3).map((step, index) => {
+              const placements = [
+                "left-0 top-2 -rotate-6",
+                "right-0 top-24 rotate-3",
+                "left-16 bottom-0 rotate-1",
+              ]
+              return (
+                <div
+                  key={step.id}
+                  className={`absolute w-56 rounded-2xl border border-black/10 bg-white p-4 shadow-[0_20px_40px_rgba(0,0,0,0.12)] ${placements[index]}`}
+                >
+                  <Image
+                    src={step.image}
+                    alt=""
+                    width={200}
+                    height={200}
+                    className="h-24 w-full object-contain"
+                  />
+                  <p className="mt-2 text-xs font-black text-[#ff4c00]">
+                    Step {String(step.id).padStart(2, "0")}
+                  </p>
+                  <p className="text-xs font-semibold leading-snug text-[#111827]">{step.subtitle}</p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </header>
 
       <div className="font-['Space_Grotesk',sans-serif]">
         <section id="feature" className="bg-white px-4 py-14 sm:px-6 md:py-24 lg:px-8">
           <header className="mx-auto mb-14 max-w-4xl text-center">
-            <h2 className="text-3xl font-black leading-tight tracking-normal text-black sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-black leading-tight tracking-tight text-[#111827] sm:text-4xl md:text-5xl">
               Why Choose Flashfire AI Powered Job Search Tools?
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-base font-medium leading-7 text-[#384154] md:text-lg">
+            <p className="mx-auto mt-6 max-w-3xl text-base font-medium leading-7 text-[#4b5565] md:text-lg">
               Flashfire combines an AI-powered job search with intelligent job search automation to help you apply only to the most relevant roles and convert applications into real interview calls.
             </p>
           </header>
 
-          <div className="mx-auto grid max-w-6xl auto-rows-fr grid-cols-1 gap-5 md:grid-cols-2 md:gap-7">
-            {features.map((feature) => {
+          <div className="mx-auto max-w-5xl divide-y divide-black/10 border-y border-black/10">
+            {features.map((feature, index) => {
               const IconComponent = feature.icon
               return (
                 <Link
                   key={feature.title}
                   href={getHref(feature.href)}
-                  className="group block h-full rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff4c00] focus-visible:ring-offset-2"
+                  className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff4c00]"
                 >
-                  <article className="grid h-full min-h-[184px] grid-cols-[56px_minmax(0,1fr)] items-center gap-4 rounded-md border border-black/15 bg-white p-5 text-left shadow-[0_8px_20px_rgba(0,0,0,0.10)] transition-all duration-300 hover:-translate-y-1 hover:border-[#ff4c00] sm:grid-cols-[72px_minmax(0,1fr)] sm:gap-5 sm:p-6">
-                    <div className="flex items-center justify-center text-[#ff4c00]">
-                      <IconComponent className="text-4xl sm:text-5xl" />
+                  <article className="flex flex-col items-start gap-4 py-6 sm:flex-row sm:items-center sm:gap-6 sm:py-8">
+                    <span className="text-2xl font-black text-black/10 transition group-hover:text-[#ff4c00] sm:text-3xl">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#fff0e9] text-[#ff4c00] transition group-hover:bg-[#ff4c00] group-hover:text-white">
+                      <IconComponent className="text-xl" />
                     </div>
-                    <div>
-                      <h3 className="mb-2 text-lg font-black leading-tight text-[#ff4c00] sm:mb-3 sm:text-xl">
+                    <div className="flex-1">
+                      <h3 className="text-base font-black leading-tight text-[#111827] sm:text-xl">
                         {feature.title}
                       </h3>
-                      <p className="text-sm font-medium leading-6 text-[#4b5565]">
+                      <p className="mt-1 max-w-2xl text-sm font-medium leading-6 text-[#4b5565]">
                         {feature.description}
                       </p>
                     </div>
+                    <ArrowRight className="hidden h-5 w-5 flex-shrink-0 text-[#ff4c00] opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100 sm:block" />
                   </article>
                 </Link>
               )
@@ -347,116 +383,87 @@ function Features() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mx-auto max-w-2xl text-center text-3xl font-black leading-tight tracking-normal text-[#172031] sm:text-4xl md:text-5xl md:leading-none">
-              How Our AI Job Application Software Works
-            </h2>
-            <p className="mx-auto mt-4 max-w-sm text-center text-sm font-medium leading-5 text-[#677083]">
-              From profile setup to interview calls - four simple steps to your dream job.
-            </p>
+        <section className="bg-[#fffaf7] px-4 py-14 sm:px-6 md:py-24 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-3xl font-black leading-tight tracking-tight text-[#172031] sm:text-4xl md:text-5xl">
+                How Our AI Job Application Software Works
+              </h2>
+              <p className="mx-auto mt-4 max-w-sm text-sm font-medium leading-5 text-[#677083]">
+                From profile setup to interview calls - four simple steps to your dream job.
+              </p>
+            </div>
 
-            <div className="mx-auto mt-10 grid max-w-[660px] grid-cols-[0.52fr_1fr_0.52fr] gap-3 sm:mt-12 sm:gap-5 min-[641px]:grid-cols-[210px_minmax(0,1fr)_210px]">
-              {steps.map((step, index) => {
-                const isTextLeft = index % 2 === 0
-                const number = String(step.id).padStart(2, "0")
+            <div className="mx-auto mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {steps.map((step) => {
                 const StepIcon = step.icon
-                const textCard = (
-                  <article className="relative col-span-2 flex min-h-[148px] flex-col justify-center rounded-lg bg-[#ff551c] p-4 pr-12 text-white shadow-[0_10px_18px_rgba(255,76,0,0.18)] sm:min-h-[172px] sm:p-8 sm:pr-24">
-                    <StepIcon className="absolute right-4 top-4 h-7 w-7 text-white sm:right-8 sm:top-7 sm:h-12 sm:w-12" strokeWidth={2.6} />
-                    <p className="text-xs font-bold">Step {step.id}</p>
-                    <h3 className="mt-1 text-sm font-black leading-tight sm:text-xl">{step.subtitle}</h3>
-                    <p className="mt-3 text-[10px] font-medium leading-4 text-white/95 sm:mt-4 sm:text-xs sm:leading-5">
-                      {step.description}
-                    </p>
-                  </article>
-                )
-                const visualCard = (
-                  <article className="relative flex min-h-[148px] flex-col justify-between rounded-lg border border-[#ffd8c8] bg-white p-4 shadow-[0_8px_18px_rgba(0,0,0,0.06)] sm:min-h-[172px] sm:p-5">
+                return (
+                  <article
+                    key={step.id}
+                    className="relative flex flex-col rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(255,76,0,0.1)]"
+                  >
                     <Image
                       src={step.image}
                       alt=""
-                      width={76}
-                      height={76}
-                      className="ml-auto h-11 w-11 object-contain sm:h-16 sm:w-16"
+                      width={44}
+                      height={44}
+                      className="absolute right-5 top-5 h-9 w-9 object-contain opacity-80"
                     />
-                    <span className="text-4xl font-black leading-none text-[#ff551c] sm:text-6xl">
-                      {number}
-                    </span>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#fff0e9] text-[#ff4c00]">
+                      <StepIcon className="h-5 w-5" strokeWidth={2.4} />
+                    </div>
+                    <h3 className="mt-4 text-base font-black leading-tight text-[#111827]">
+                      {step.subtitle}
+                    </h3>
+                    <p className="mt-2 text-xs font-medium leading-5 text-[#4b5565]">
+                      {step.description}
+                    </p>
                   </article>
-                )
-
-                return (
-                  <div key={step.id} className="contents">
-                    {isTextLeft ? (
-                      <>
-                        {textCard}
-                        {visualCard}
-                      </>
-                    ) : (
-                      <>
-                        {visualCard}
-                        {textCard}
-                      </>
-                    )}
-                  </div>
                 )
               })}
             </div>
           </div>
         </section>
 
-        <section className="bg-[#fff5f1] px-4 py-14 sm:px-6 md:px-12 md:py-16">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-            <div>
-              <h2 className="max-w-md text-3xl font-black leading-tight text-[#111827] sm:text-4xl md:text-5xl">
+        <section className="relative overflow-hidden bg-white px-4 py-14 sm:px-6 md:px-12 md:py-24">
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 -z-0 h-72"
+            style={{
+              background:
+                "radial-gradient(60% 100% at 50% 0%, rgba(255,76,0,0.06) 0%, rgba(255,76,0,0) 70%)",
+            }}
+          />
+          <div className="relative mx-auto max-w-5xl">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#fff0e9] px-4 py-1.5 text-xs font-extrabold uppercase tracking-wide text-[#ff4c00]">
+                Built For You
+              </span>
+              <h2 className="mt-4 text-3xl font-black leading-tight text-[#111827] sm:text-4xl md:text-5xl">
                 <span className="text-[#ff4c00]">Who</span> Is This AI Job Application Software For?
               </h2>
-              <p className="mt-5 max-w-lg text-sm font-medium leading-7 text-black/60 sm:text-base">
+              <p className="mt-5 text-sm font-medium leading-7 text-black/60 sm:text-base">
                 Flashfire is designed for students and job seekers who want to apply at scale, save time, and finally get real interview calls instead of silence.
                 This isn&apos;t another job board. It&apos;s an execution engine for people who want outcomes.
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
               {personas.map((item, index) => {
-                const isActive = activePersona === index
+                const PersonaIcon = personaIcons[index]
                 return (
                   <div
                     key={item.title}
-                    className={`overflow-hidden rounded border transition ${
-                      isActive
-                        ? "border-[#ff4c00] bg-[#ff551c] text-white"
-                        : "border-black/10 bg-white text-[#111827]"
-                    }`}
+                    className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ff4c00]/30 hover:shadow-[0_16px_32px_rgba(255,76,0,0.1)] sm:p-7"
                   >
-                    <button
-                      type="button"
-                      onClick={() => setActivePersona(isActive ? null : index)}
-                      className="flex w-full items-center gap-3 px-3 py-3 text-left sm:gap-4"
-                      aria-expanded={isActive}
-                    >
-                      <span
-                        className={`grid h-8 w-8 place-items-center rounded-sm text-lg font-black ${
-                          isActive ? "bg-white/15 text-white" : "bg-[#fff0e9] text-[#ff4c00]"
-                        }`}
-                      >
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="min-w-0 flex-1 text-sm font-black leading-tight">{item.title}</span>
-                      <span
-                        className={`grid h-5 w-5 place-items-center rounded-full text-sm font-black ${
-                          isActive ? "bg-white text-[#ff4c00]" : "bg-[#ffe0d4] text-[#ff4c00]"
-                        }`}
-                      >
-                        {isActive ? "-" : "+"}
-                      </span>
-                    </button>
-                    {isActive && (
-                      <p className="border-t border-[#ffd4c4] bg-white px-4 py-4 text-xs font-medium leading-5 text-black/55">
-                        {item.desc}
-                      </p>
-                    )}
+                    <span className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff0e9] text-[#ff4c00] transition duration-300 group-hover:bg-[#ff4c00] group-hover:text-white">
+                      <PersonaIcon className="h-5 w-5" />
+                    </span>
+                    <h3 className="relative mt-4 text-lg font-black leading-tight text-[#111827]">
+                      {item.title}
+                    </h3>
+                    <p className="relative mt-2 text-sm font-medium leading-6 text-black/60">
+                      {item.desc}
+                    </p>
                   </div>
                 )
               })}
@@ -560,20 +567,33 @@ function Features() {
           </div>
         </section>
 
-        <div className="relative mt-8 overflow-visible px-4 pb-16 md:mt-16 md:pb-20">
-          <div className="relative z-10 mx-auto mt-10 max-w-4xl text-center md:mt-16">
-            <h2 className="mb-4 text-3xl font-bold text-[#ff4c00] sm:text-4xl md:text-5xl">
+        <div className="relative mt-8 overflow-hidden bg-[#fffaf7] px-4 py-16 md:mt-16 md:py-28">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ff4c00]/12 blur-[120px]" />
+            <div
+              className="absolute inset-0 opacity-[0.35]"
+              style={{
+                backgroundImage: "radial-gradient(circle, rgba(17,24,39,0.08) 1px, transparent 1px)",
+                backgroundSize: "26px 26px",
+              }}
+            />
+            <Rocket className="absolute -right-6 -top-6 h-40 w-40 text-[#ff4c00]/[0.06] sm:h-56 sm:w-56" />
+          </div>
+
+          <div className="relative z-10 mx-auto max-w-3xl text-center">
+            <h2 className="mb-4 text-3xl font-black text-[#111827] sm:text-4xl md:text-5xl">
               Ready to move from applying to interviewing?
             </h2>
-            <p className="mb-8 text-base text-gray-700 md:text-xl">
+            <p className="mb-8 text-base text-[#4b5565] md:text-xl">
               Flashfire bridges the gap with smart automation.
             </p>
             <button
               type="button"
               onClick={handleGetStarted}
-              className="rounded-lg border-l border-r border-t border-black border-b-[#ff4c00] bg-white px-8 py-4 text-lg font-semibold text-black shadow-[0_3px_0_#000] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_0_#000]"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#ff4c00] px-8 py-4 text-lg font-semibold text-white shadow-[0_10px_30px_rgba(255,76,0,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-black"
             >
               Get Started Today
+              <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
             </button>
           </div>
         </div>

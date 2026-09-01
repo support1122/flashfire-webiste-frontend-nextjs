@@ -263,6 +263,17 @@ export default function Footer() {
                   <FaYoutube />
                 </Link>
               </div>
+
+              <div className="mt-5">
+                <h4 className="mb-1.5 text-[0.7rem] font-bold tracking-widest text-[#fff7f4]">
+                  US OFFICE
+                </h4>
+                <address className="not-italic text-[0.72rem] leading-relaxed opacity-90">
+                  Flashfire LLC.<br />
+                  30 N Gould St, STE R<br />
+                  Sheridan, WY 82801, USA
+                </address>
+              </div>
             </div>
 
         </div>

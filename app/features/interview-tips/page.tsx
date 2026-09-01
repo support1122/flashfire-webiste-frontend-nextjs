@@ -293,7 +293,7 @@ export default function FlashFireInterview() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
       <main className="min-h-screen overflow-x-hidden bg-white text-[#111827]">
-        <section className="relative bg-[#fff3ee] px-4 py-20 sm:py-24">
+        <section className="relative bg-gradient-to-b from-orange-50 via-white to-white px-4 py-20 sm:py-24">
           <div className="mx-auto grid max-w-[1220px] items-center gap-8 lg:grid-cols-[250px_minmax(0,1fr)_270px]">
             <div className="order-2 grid gap-2 sm:grid-cols-2 lg:order-1 lg:block lg:space-y-6">
               {[
@@ -304,7 +304,7 @@ export default function FlashFireInterview() {
               ].map((item) => (
                   <div
                     key={item.label}
-                    className={`flex min-h-[42px] w-full items-center justify-center rounded-lg bg-white px-4 text-center text-[15px] font-extrabold text-[#111827] shadow-[0_14px_35px_rgba(17,24,39,0.08)] lg:w-fit lg:min-w-[176px] ${item.offset}`}
+                    className={`flex min-h-[42px] w-full items-center justify-center rounded-full border border-gray-100 bg-white px-4 text-center text-[15px] font-extrabold text-gray-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:w-fit lg:min-w-[176px] ${item.offset}`}
                   >
                     {item.label}
                   </div>
@@ -312,15 +312,15 @@ export default function FlashFireInterview() {
             </div>
 
             <div className="order-1 text-center lg:order-2">
-              <span className="mb-5 inline-flex rounded-full bg-[#ff4c00] px-4 py-1.5 text-[9px] font-extrabold uppercase text-white">
+              <span className="mb-5 inline-flex rounded-full bg-orange-50 border border-orange-200 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-[#ff4c00]">
                 # Personalized Interview Practice
               </span>
-              <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-normal text-[#111827] sm:text-[43px]">
+              <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-normal text-gray-900 sm:text-[43px]">
                 Practice Real Interview Questions
                 <br />
                 and Perform With Confidence
               </h1>
-              <p className="mx-auto mt-6 max-w-[680px] text-[17px] font-medium leading-8 text-[#596273]">
+              <p className="mx-auto mt-6 max-w-[680px] text-[17px] font-medium leading-8 text-gray-600">
                 Practice interview questions tailored to your target role, receive instant feedback
                 on your answers, and improve your communication, structure, and confidence before
                 every interview.
@@ -328,8 +328,7 @@ export default function FlashFireInterview() {
               <button
                 {...getButtonProps()}
                 onClick={() => handleCTAClick("Start Interview Practice", "interview_tips_hero")}
-                className="mt-8 inline-flex h-[46px] min-w-[210px] items-center justify-center gap-2 rounded-md border-2 border-black bg-white px-7 text-[14px] font-extrabold text-black transition hover:bg-[#ffe8dd]"
-                style={{ boxShadow: "0 4px 0 0 #ff4c00" }}
+                className="mt-8 inline-flex h-[46px] min-w-[210px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] px-7 text-[14px] font-bold text-white shadow-lg shadow-orange-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
               >
                 Start Interview Practice
                 <ArrowRight size={15} />
@@ -345,10 +344,10 @@ export default function FlashFireInterview() {
         <section className="bg-white px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[980px]">
             <div className="mb-14 text-center">
-              <h2 className="text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
+              <h2 className="text-[34px] font-extrabold leading-[1.08] text-gray-900 sm:text-[42px]">
                 Everything You Need to Prepare for Interviews
               </h2>
-              <p className="mx-auto mt-5 max-w-[660px] text-[15px] font-medium leading-7 text-[#596273]">
+              <p className="mx-auto mt-5 max-w-[660px] text-[15px] font-medium leading-7 text-gray-600">
                 Practice realistic interview questions, improve your answers with actionable
                 feedback, and walk into every interview with greater confidence.
               </p>
@@ -359,13 +358,13 @@ export default function FlashFireInterview() {
                 return (
                   <article
                     key={item.title}
-                    className="h-full min-h-[210px] min-w-0 overflow-hidden rounded-md border border-[#d5d5d5] bg-white p-7 shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+                    className="h-full min-h-[210px] min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-[#ff4c00] text-white">
+                    <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200">
                       <Icon size={21} />
                     </span>
-                    <h3 className="text-[16px] font-extrabold leading-6 text-[#111827]">{item.title}</h3>
-                    <p className="mt-4 text-[13px] font-medium leading-6 text-[#6b7280]">{item.desc}</p>
+                    <h3 className="text-[16px] font-extrabold leading-6 text-gray-900">{item.title}</h3>
+                    <p className="mt-4 text-[13px] font-medium leading-6 text-gray-600">{item.desc}</p>
                   </article>
                 );
               })}
@@ -373,13 +372,13 @@ export default function FlashFireInterview() {
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:py-24">
+        <section className="bg-orange-50/40 px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[1000px]">
             <div className="mb-14 text-center">
-              <h2 className="text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
+              <h2 className="text-[34px] font-extrabold leading-[1.08] text-gray-900 sm:text-[42px]">
                 Helping Job Seekers Prepare for Better Interviews
               </h2>
-              <p className="mt-6 text-[16px] font-medium text-[#6b7280]">
+              <p className="mt-6 text-[16px] font-medium text-gray-600">
                 Practice consistently and track real improvement in every interview session
               </p>
             </div>
@@ -388,15 +387,15 @@ export default function FlashFireInterview() {
               {stats.map((stat) => (
                 <article
                   key={`${stat.value}-${stat.label}`}
-                  className="h-full min-w-0 overflow-hidden border border-black bg-white px-7 py-7 shadow-[4px_4px_0_0_rgba(0,0,0,0.85)]"
+                  className="h-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-white px-7 py-7 shadow-md transition-shadow hover:shadow-lg"
                 >
-                  <p className="text-center text-[36px] font-extrabold leading-none text-[#ff4c00]">
+                  <p className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] bg-clip-text text-center text-[36px] font-extrabold leading-none text-transparent">
                     {stat.value}
                   </p>
-                  <p className="mt-4 text-center text-[10px] font-extrabold uppercase text-[#6b7280]">
+                  <p className="mt-4 text-center text-[10px] font-extrabold uppercase text-gray-600">
                     {stat.label}
                   </p>
-                  <ul className="mt-5 space-y-2 text-[12px] font-medium leading-5 text-[#6b7280]">
+                  <ul className="mt-5 space-y-2 text-[12px] font-medium leading-5 text-gray-600">
                     {stat.bullets.map((bullet) => (
                       <li key={bullet} className="flex gap-2">
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#ff4c00]" />
@@ -413,10 +412,10 @@ export default function FlashFireInterview() {
         <section className="bg-white px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[960px]">
             <div className="mb-12 text-center">
-              <h2 className="text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
+              <h2 className="text-[34px] font-extrabold leading-[1.08] text-gray-900 sm:text-[42px]">
                 Who Can Benefit From Interview Practice?
               </h2>
-              <p className="mx-auto mt-5 max-w-[660px] text-[15px] font-medium leading-7 text-[#596273]">
+              <p className="mx-auto mt-5 max-w-[660px] text-[15px] font-medium leading-7 text-gray-600">
                 Whether you&apos;re preparing for your first interview or your next leadership
                 role, FlashFire helps you practice smarter and improve every answer.
               </p>
@@ -426,24 +425,24 @@ export default function FlashFireInterview() {
               {audience.map((item) => (
                 <article
                   key={item.title}
-                  className="h-full min-h-[128px] min-w-0 overflow-hidden rounded-md border border-[#d5d5d5] bg-white px-7 py-6 shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+                  className="h-full min-h-[128px] min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-white px-7 py-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 >
-                  <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white">
+                  <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200">
                     <Users size={22} strokeWidth={2.5} />
                   </span>
-                  <h3 className="text-[17px] font-extrabold leading-tight text-[#ff4c00]">
+                  <h3 className="text-[17px] font-extrabold leading-tight text-gray-900">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-[13px] font-medium leading-6 text-[#6b7280]">{item.desc}</p>
+                  <p className="mt-2 text-[13px] font-medium leading-6 text-gray-600">{item.desc}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-[#fff3ee] px-4 py-20 sm:py-24">
+        <section className="bg-orange-50/40 px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[980px]">
-            <h2 className="mb-14 text-center text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
+            <h2 className="mb-14 text-center text-[34px] font-extrabold leading-[1.08] text-gray-900 sm:text-[42px]">
               Why Job Seekers Practice With FlashFire
             </h2>
             <div className="grid auto-rows-fr gap-7 sm:grid-cols-2 lg:grid-cols-4">
@@ -452,13 +451,13 @@ export default function FlashFireInterview() {
                 return (
                   <article
                     key={item.title}
-                    className="h-full min-w-0 overflow-hidden rounded-md border border-[#d5d5d5] bg-white p-7 shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+                    className="h-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-[#ff4c00] text-white">
+                    <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200">
                       <Icon size={21} />
                     </span>
-                    <h3 className="text-[16px] font-extrabold leading-6 text-[#111827]">{item.title}</h3>
-                    <p className="mt-4 text-[13px] font-medium leading-6 text-[#6b7280]">{item.desc}</p>
+                    <h3 className="text-[16px] font-extrabold leading-6 text-gray-900">{item.title}</h3>
+                    <p className="mt-4 text-[13px] font-medium leading-6 text-gray-600">{item.desc}</p>
                   </article>
                 );
               })}
@@ -468,26 +467,31 @@ export default function FlashFireInterview() {
 
         <section className="bg-white px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[900px]">
-            <h2 className="mb-14 text-center text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
+            <h2 className="mb-14 text-center text-[34px] font-extrabold leading-[1.08] text-gray-900 sm:text-[42px]">
               FlashFire vs Practicing Alone
             </h2>
-            <div className="overflow-hidden rounded-md border border-[#d5d5d5] shadow-[0_8px_18px_rgba(0,0,0,0.12)]">
-              <div className="grid grid-cols-2">
-                <div className="border-r border-[#d5d5d5] bg-[#f7f7f7] px-2 py-3 text-center text-[11px] font-extrabold text-[#6b7280] sm:px-6 sm:py-4 sm:text-[14px]">
+            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+              <div className="grid grid-cols-2 bg-gradient-to-r from-[#ff4c00] to-[#ff7a33]">
+                <div className="border-r border-white/20 px-2 py-3 text-center text-[11px] font-extrabold text-white sm:px-6 sm:py-4 sm:text-[14px]">
                   Practicing Alone
                 </div>
-                <div className="bg-[#fff3ee] px-2 py-3 text-center text-[11px] font-extrabold text-[#ff4c00] sm:px-6 sm:py-4 sm:text-[14px]">
+                <div className="px-2 py-3 text-center text-[11px] font-extrabold text-white sm:px-6 sm:py-4 sm:text-[14px]">
                   FlashFire
                 </div>
               </div>
-              <div className="divide-y divide-[#d5d5d5]">
-                {comparisonRows.map((row) => (
-                  <div key={row.alone} className="grid grid-cols-2">
-                    <div className="flex items-start gap-1.5 border-r border-[#d5d5d5] px-2 py-3 text-[11px] font-medium leading-snug text-[#6b7280] sm:items-center sm:gap-2 sm:px-6 sm:py-4 sm:text-[13px]">
+              <div className="divide-y divide-gray-100">
+                {comparisonRows.map((row, index) => (
+                  <div
+                    key={row.alone}
+                    className={`grid grid-cols-2 transition-colors hover:bg-orange-50/40 ${
+                      index % 2 === 0 ? "bg-white" : "bg-gray-50/60"
+                    }`}
+                  >
+                    <div className="flex items-start gap-1.5 border-r border-gray-200 px-2 py-3 text-[11px] font-medium leading-snug text-gray-600 sm:items-center sm:gap-2 sm:px-6 sm:py-4 sm:text-[13px]">
                       <X size={14} className="mt-0.5 shrink-0 text-red-500 sm:mt-0 sm:h-4 sm:w-4" />
                       {row.alone}
                     </div>
-                    <div className="flex items-start gap-1.5 bg-[#fffaf7] px-2 py-3 text-[11px] font-medium leading-snug text-[#111827] sm:items-center sm:gap-2 sm:px-6 sm:py-4 sm:text-[13px]">
+                    <div className="flex items-start gap-1.5 px-2 py-3 text-[11px] font-medium leading-snug text-gray-900 sm:items-center sm:gap-2 sm:px-6 sm:py-4 sm:text-[13px]">
                       <CheckCircle size={14} className="mt-0.5 shrink-0 text-[#ff4c00] sm:mt-0 sm:h-4 sm:w-4" />
                       {row.flashfire}
                     </div>
@@ -498,13 +502,13 @@ export default function FlashFireInterview() {
           </div>
         </section>
 
-        <section className="bg-[#fff3ee] px-4 py-20 sm:py-24">
+        <section className="bg-orange-50/40 px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[980px]">
             <div className="mb-14 text-center">
-              <h2 className="text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
+              <h2 className="text-[34px] font-extrabold leading-[1.08] text-gray-900 sm:text-[42px]">
                 Practice Interviews in 3 Simple Steps
               </h2>
-              <p className="mx-auto mt-5 max-w-[660px] text-[15px] font-medium leading-7 text-[#596273]">
+              <p className="mx-auto mt-5 max-w-[660px] text-[15px] font-medium leading-7 text-gray-600">
                 Choose your target role, answer interview questions, receive feedback, and keep
                 improving until you&apos;re interview-ready.
               </p>
@@ -515,16 +519,16 @@ export default function FlashFireInterview() {
                 return (
                   <article
                     key={step.title}
-                    className="h-full min-w-0 overflow-hidden rounded-md border border-[#d5d5d5] bg-white p-7 shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+                    className="h-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-[#ff4c00] text-white">
+                    <span className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200">
                       <Icon size={21} />
                     </span>
                     <p className="mb-2 text-[11px] font-extrabold uppercase text-[#ff4c00]">
                       Step {index + 1}
                     </p>
-                    <h3 className="text-[16px] font-extrabold leading-6 text-[#111827]">{step.title}</h3>
-                    <p className="mt-4 text-[13px] font-medium leading-6 text-[#6b7280]">{step.desc}</p>
+                    <h3 className="text-[16px] font-extrabold leading-6 text-gray-900">{step.title}</h3>
+                    <p className="mt-4 text-[13px] font-medium leading-6 text-gray-600">{step.desc}</p>
                   </article>
                 );
               })}
@@ -570,18 +574,17 @@ export default function FlashFireInterview() {
 
         <section className="bg-white px-4 py-20">
           <div className="mx-auto max-w-[760px] text-center">
-            <h2 className="text-[34px] font-extrabold leading-tight text-[#111827]">
+            <h2 className="text-[34px] font-extrabold leading-tight text-gray-900">
               Ready for Your Next Interview?
             </h2>
-            <p className="mx-auto mt-5 max-w-[600px] text-[16px] font-medium leading-7 text-[#596273]">
+            <p className="mx-auto mt-5 max-w-[600px] text-[16px] font-medium leading-7 text-gray-600">
               Practice real interview questions, improve every answer with instant feedback, and
               walk into interviews with confidence.
             </p>
             <button
               {...getButtonProps()}
               onClick={() => handleCTAClick("Start Free Interview Practice", "interview_tips_final_cta")}
-              className="mt-8 inline-flex h-[46px] min-w-[190px] items-center justify-center gap-2 rounded-md border-2 border-black bg-white px-7 text-[14px] font-extrabold text-black transition hover:bg-[#ffe8dd]"
-              style={{ boxShadow: "0 4px 0 0 #ff4c00" }}
+              className="mt-8 inline-flex h-[46px] min-w-[190px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] px-7 text-[14px] font-bold text-white shadow-lg shadow-orange-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
             >
               Start Free Interview Practice
               <ArrowRight size={15} />
@@ -596,22 +599,22 @@ export default function FlashFireInterview() {
 
 function ReadinessCard() {
   return (
-    <div className="mx-auto w-full max-w-[260px] rounded-lg border border-[#ffd8ca] bg-white p-4">
+    <div className="mx-auto w-full max-w-[260px] rounded-2xl border border-orange-100 bg-white p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-[11px] font-extrabold text-[#111827]">Track Your Interview Progress</h3>
+        <h3 className="text-[11px] font-extrabold text-gray-900">Track Your Interview Progress</h3>
         <span className="text-[8px] font-extrabold text-[#ff4c00]">AI Assessment</span>
       </div>
-      <p className="text-[8px] font-medium leading-4 text-[#6b7280]">
+      <p className="text-[8px] font-medium leading-4 text-gray-600">
         Monitor your communication, confidence, answer quality, and interview readiness after
         every practice session.
       </p>
       <div className="mt-4">
-        <div className="mb-2 flex justify-between text-[8px] font-medium text-[#6b7280]">
+        <div className="mb-2 flex justify-between text-[8px] font-medium text-gray-600">
           <span>Overall readiness</span>
           <span>72%</span>
         </div>
-        <div className="h-1.5 rounded-full bg-[#ffe3d7]">
-          <div className="h-full w-[72%] rounded-full bg-[#ff4c00]" />
+        <div className="h-1.5 rounded-full bg-orange-100">
+          <div className="h-full w-[72%] rounded-full bg-gradient-to-r from-[#ff4c00] to-[#ff7a33]" />
         </div>
       </div>
       <div className="mt-4 grid grid-cols-2 gap-2">
@@ -621,14 +624,14 @@ function ReadinessCard() {
           ["Confidence", "Average"],
           ["Structure", "Needs work"],
         ].map(([label, value]) => (
-          <div key={label} className="rounded-md border border-[#ffd8ca] bg-[#fff3ee] p-3">
-            <p className="text-[8px] font-medium text-[#6b7280]">{label}</p>
-            <p className="mt-1 text-[8px] font-extrabold text-[#111827]">{value}</p>
+          <div key={label} className="rounded-xl border border-orange-100 bg-orange-50 p-3">
+            <p className="text-[8px] font-medium text-gray-600">{label}</p>
+            <p className="mt-1 text-[8px] font-extrabold text-gray-900">{value}</p>
           </div>
         ))}
       </div>
-      <div className="mt-4 rounded-md border border-[#ffd8ca] bg-white p-3">
-        <p className="text-[8px] font-medium leading-4 text-[#6b7280]">
+      <div className="mt-4 rounded-xl border border-orange-100 bg-white p-3">
+        <p className="text-[8px] font-medium leading-4 text-gray-600">
           <strong className="text-[#ff4c00]">AI Insight:</strong> Add more examples and metrics to
           improve interview performance.
         </p>

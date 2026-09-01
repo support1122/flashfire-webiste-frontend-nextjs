@@ -254,18 +254,18 @@ export default function LinkedInOptimizationPage() {
 
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative overflow-hidden bg-[#fff0ea] py-14 lg:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-b from-orange-50 via-white to-white py-14 lg:py-16">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-6 lg:min-h-[430px] lg:flex-row lg:justify-between">
 
           {/* LEFT CONTENT */}
           <div className="hidden min-h-[260px] flex-none lg:block lg:w-[22%]">
-            <div className="ml-14 w-40 rounded-lg border border-[#f5d7cc] bg-white px-5 py-4 text-center text-sm font-bold text-[#596273] shadow-sm">
+            <div className="ml-14 w-40 rounded-2xl border border-orange-100 bg-white px-5 py-4 text-center text-sm font-bold text-[#596273] shadow-sm">
               Works with free LinkedIn
             </div>
-            <div className="mt-9 w-48 rounded-lg border border-[#f5d7cc] bg-white px-5 py-4 text-center text-sm font-bold text-[#596273] shadow-sm">
+            <div className="mt-9 w-48 rounded-2xl border border-orange-100 bg-white px-5 py-4 text-center text-sm font-bold text-[#596273] shadow-sm">
               No login required
             </div>
-            <div className="mt-9 ml-36 w-44 rounded-lg border border-[#f5d7cc] bg-white px-5 py-4 text-center text-sm font-bold text-[#596273] shadow-sm">
+            <div className="mt-9 ml-36 w-44 rounded-2xl border border-orange-100 bg-white px-5 py-4 text-center text-sm font-bold text-[#596273] shadow-sm">
               Visible results in
               <br />
               7-14 days
@@ -274,15 +274,15 @@ export default function LinkedInOptimizationPage() {
 
           {/* CENTER CONTENT */}
           <div className="text-center lg:w-[56%]">
-            <p className="mb-6 inline-flex items-center rounded-full bg-[#ff4c00] px-4 py-2 text-[11px] font-extrabold uppercase tracking-wide text-white">
+            <p className="mb-6 inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wide text-[#ff4c00]">
               LinkedIn Profile Optimization
             </p>
 
-            <h1 className="text-4xl font-extrabold leading-tight text-[#111827] md:text-5xl xl:text-[52px]">
+            <h1 className="text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl xl:text-[52px]">
               Optimize Your LinkedIn Profile to Get More Recruiter Messages
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#4b5563]">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
               Your LinkedIn profile should do more than look professional.
               FlashFire optimizes your headline, keywords, skills, and
               experience to improve recruiter visibility and increase your
@@ -404,21 +404,20 @@ export default function LinkedInOptimizationPage() {
                     console.warn('Error in Get Me Interview handler:', error);
                   }
                 }}
-                className="flex-1 sm:flex-none h-14 whitespace-nowrap rounded-[8px] border-2 border-black bg-white px-4 text-[14px] font-black text-black transition hover:bg-[#fff8f5]"
-                style={{ boxShadow: '0 4px 0 0 rgba(245, 93, 29, 1)' }}
+                className="flex-1 sm:flex-none h-14 whitespace-nowrap rounded-full bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] px-6 text-[14px] font-bold text-white shadow-lg shadow-orange-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
               >
                 Get Me Interview <span className="ml-2">&rarr;</span>
               </button>
 
               <button
                 onClick={handleHowItWorks}
-                className="flex-1 sm:flex-none h-14 whitespace-nowrap rounded-[8px] border-2 border-[#ff4c00] bg-transparent px-4 text-[14px] font-black text-[#ff4c00] transition hover:bg-white"
+                className="flex-1 sm:flex-none h-14 whitespace-nowrap rounded-full border border-orange-200 bg-white px-6 text-[14px] font-bold text-[#ff4c00] transition-all duration-300 hover:-translate-y-0.5 hover:bg-orange-50 hover:shadow-md"
               >
                 How It Works
               </button>
             </div>
 
-            <div className="mt-7 flex flex-wrap justify-center gap-6 text-sm text-[#111827] lg:hidden">
+            <div className="mt-7 flex flex-wrap justify-center gap-6 text-sm text-gray-700 lg:hidden">
               {[
                 "Works with free LinkedIn",
                 "No login required",
@@ -436,30 +435,30 @@ export default function LinkedInOptimizationPage() {
           <div className="relative hidden min-h-[300px] flex-none lg:block lg:w-[26%]">
 
             {/* Main Card */}
-            <div className="relative ml-auto mt-2 right-10 min-h-[205px] w-[260px] rounded-[14px] border border-[#ffc6b3] bg-white shadow-sm xl:w-[300px]">
+            <div className="relative ml-auto mt-2 right-10 min-h-[205px] w-[260px] rounded-2xl border border-orange-100 bg-white shadow-md xl:w-[300px]">
 
-              <h3 className="border-b border-[#f5d7cc] px-5 py-5 text-[15px] font-extrabold leading-tight text-[#111827]">
+              <h3 className="border-b border-orange-100 px-5 py-5 text-[15px] font-extrabold leading-tight text-gray-900">
                 What recruiters actually see
               </h3>
 
               <div className="space-y-3 px-5 py-4 text-[9px] xl:text-[10px]">
-                <div className="flex min-h-[28px] items-center justify-between rounded-sm border border-[#f1e1d8] bg-white px-3">
+                <div className="flex min-h-[28px] items-center justify-between rounded-lg border border-orange-100 bg-orange-50/30 px-3">
                   <span className="font-medium">Profile ranking</span>
                   <span className="font-bold text-[#ff4c00]">Top 7%</span>
                 </div>
 
-                <div className="flex min-h-[28px] items-center justify-between rounded-sm border border-[#f1e1d8] bg-white px-3">
+                <div className="flex min-h-[28px] items-center justify-between rounded-lg border border-orange-100 bg-orange-50/30 px-3">
                   <span className="font-medium">Keyword match</span>
                   <span className="font-bold text-[#ff4c00]">92%</span>
                 </div>
 
-                <div className="flex min-h-[28px] items-center justify-between rounded-sm border border-[#f1e1d8] bg-white px-3">
+                <div className="flex min-h-[28px] items-center justify-between rounded-lg border border-orange-100 bg-orange-50/30 px-3">
                   <span className="font-medium">Recruiter signals</span>
                   <span className="font-bold text-[#ff4c00]">Optimized</span>
                 </div>
               </div>
 
-              <div className="absolute -bottom-18 -right-10 w-[285px] rounded-[6px] bg-[#ff4c00] px-7 py-5 text-white shadow-[0_16px_32px_rgba(255,76,0,0.24)] xl:-right-15 xl:w-[325px]">
+              <div className="absolute -bottom-18 -right-10 w-[285px] rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] px-7 py-5 text-white shadow-xl shadow-orange-200/60 xl:-right-15 xl:w-[325px]">
                 <p className="text-[12px] font-medium leading-snug">
                   "Profiles optimized with FlashFire receive significantly more
                   recruiter messages within the first few weeks."
@@ -477,13 +476,13 @@ export default function LinkedInOptimizationPage() {
       {/* ================= RESULTS SECTION ================= */}
       <section className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
-          <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-[#111827] md:text-4xl">
+          <h2 className="mx-auto max-w-4xl text-3xl font-extrabold leading-tight text-gray-900 md:text-4xl">
             LinkedIn optimization isn't about rewriting your profile. It's
             about helping recruiters find you and giving them a reason to
             reach out.
           </h2>
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-[#4b5563]">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-gray-600">
             We optimize your LinkedIn profile with recruiter-friendly
             keywords, stronger positioning, and compelling messaging so you
             appear in more searches and attract more recruiter outreach.
@@ -498,13 +497,12 @@ export default function LinkedInOptimizationPage() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="flex h-full min-w-0 flex-col items-center justify-center overflow-hidden border border-[#111827] bg-white px-8 py-7 text-center"
-                style={{ boxShadow: "4px 4px 0 0 #111827" }}
+                className="flex h-full min-w-0 flex-col items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-white px-8 py-7 text-center shadow-md transition-shadow duration-300 hover:shadow-lg"
               >
-                <h3 className="text-4xl font-extrabold text-[#ff4c00]">
+                <h3 className="bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] bg-clip-text text-4xl font-extrabold text-transparent">
                   {item.value}
                 </h3>
-                <p className="mt-3 text-xs font-bold uppercase tracking-wide text-[#6b7280]">
+                <p className="mt-3 text-xs font-bold uppercase tracking-wide text-gray-500">
                   {item.label}
                 </p>
               </div>
@@ -516,14 +514,14 @@ export default function LinkedInOptimizationPage() {
 
 
       {/* ================= STEPS SECTION ================= */}
-      <section id="how-it-works" className="overflow-hidden bg-[#fff7f4] py-28">
+      <section id="how-it-works" className="overflow-hidden bg-orange-50/40 py-28">
         <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6 lg:flex-row lg:items-start">
           <div className="lg:w-2/5">
-            <h2 className="max-w-lg text-3xl font-extrabold leading-tight text-[#111827] md:text-4xl">
+            <h2 className="max-w-lg text-3xl font-extrabold leading-tight text-gray-900 md:text-4xl">
               How We Optimize Your LinkedIn Profile in 4 Simple Steps
             </h2>
 
-            <p className="mt-8 max-w-lg text-base leading-relaxed text-[#4b5563]">
+            <p className="mt-8 max-w-lg text-base leading-relaxed text-gray-600">
               We optimize your LinkedIn profile based on how recruiters
               search, filter, and evaluate candidates, helping you become
               more visible for the roles you want.
@@ -534,7 +532,7 @@ export default function LinkedInOptimizationPage() {
                 type="button"
                 aria-label="Previous step"
                 onClick={() => scrollSteps("left")}
-                className="flex h-12 w-12 items-center justify-center bg-black text-white transition hover:bg-[#ff4c00]"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <ArrowLeft size={24} />
               </button>
@@ -542,7 +540,7 @@ export default function LinkedInOptimizationPage() {
                 type="button"
                 aria-label="Next step"
                 onClick={() => scrollSteps("right")}
-                className="flex h-12 w-12 items-center justify-center bg-black text-white transition hover:bg-[#ff4c00]"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <ArrowRight size={24} />
               </button>
@@ -577,21 +575,20 @@ export default function LinkedInOptimizationPage() {
             ].map((item) => (
               <div
                 key={item.step}
-                className="flex min-h-[300px] w-[min(288px,calc(100vw-3rem))] shrink-0 flex-col justify-between overflow-hidden border border-[#111827] bg-white p-6"
-                style={{ boxShadow: "5px 5px 0 0 #111827" }}
+                className="flex min-h-[300px] w-[min(288px,calc(100vw-3rem))] shrink-0 flex-col justify-between overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div>
-                  <div className="mb-8 flex h-11 w-11 items-center justify-center rounded-xl bg-[#ff4c00] text-white">
+                  <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200">
                     <FileText className="h-5 w-5" />
                   </div>
-                  <h4 className="text-xl font-extrabold text-[#111827]">
+                  <h4 className="text-xl font-extrabold text-gray-900">
                     {item.title}
                   </h4>
-                  <p className="mt-5 leading-relaxed text-[#4b5563]">
+                  <p className="mt-5 leading-relaxed text-gray-600">
                     {item.desc}
                   </p>
                 </div>
-                <span className="mt-8 inline-flex w-fit rounded-md bg-[#ff4c00] px-5 py-3 text-sm font-extrabold text-white">
+                <span className="mt-8 inline-flex w-fit rounded-full bg-gradient-to-r from-[#ff4c00] to-[#ff7a33] px-5 py-3 text-sm font-extrabold text-white shadow-sm shadow-orange-200">
                   {item.step}
                 </span>
               </div>
@@ -604,13 +601,13 @@ export default function LinkedInOptimizationPage() {
       <section className="bg-white py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="mb-14 text-center">
-            <h2 className="text-3xl font-extrabold leading-tight text-[#111827] md:text-4xl">
+            <h2 className="text-3xl font-extrabold leading-tight text-gray-900 md:text-4xl">
               Who Can Benefit From
               <br />
               LinkedIn Profile Optimization?
             </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4b5563]">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-600">
               Whether you're actively applying or waiting for recruiters to
               discover you, an optimized LinkedIn profile helps you stand out
               in recruiter searches and generate more opportunities.
@@ -638,9 +635,9 @@ export default function LinkedInOptimizationPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="h-full min-w-0 overflow-hidden rounded-md border border-[#d1d5db] bg-white p-7 shadow-md"
+                className="h-full min-w-0 overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#ff4c00] text-white">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200">
                   <Check className="h-6 w-6" />
                 </div>
 
@@ -648,14 +645,14 @@ export default function LinkedInOptimizationPage() {
                   {item.title}
                 </h4>
 
-                <p className="mt-2 text-sm leading-relaxed text-[#4b5563]">
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-12 text-center text-sm text-[#6b7280]">
+          <p className="mt-12 text-center text-sm text-gray-500">
             We don't just rewrite profiles -- we optimize them for how
             recruiters actually search.
           </p>
@@ -665,12 +662,12 @@ export default function LinkedInOptimizationPage() {
       {/* ================= WHY THIS WORKS ================= */}
       <section className="bg-white pt-20">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="text-3xl font-extrabold leading-tight text-[#111827] md:text-4xl">
+          <h2 className="text-3xl font-extrabold leading-tight text-gray-900 md:text-4xl">
             Why LinkedIn Optimization Matters
           </h2>
         </div>
 
-        <div className="mt-16 bg-[#fff0ea] py-16">
+        <div className="mt-16 bg-orange-50/40 py-16">
           <div className="mx-auto grid max-w-7xl gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
@@ -692,13 +689,15 @@ export default function LinkedInOptimizationPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="bg-[#ff4c00] px-7 py-8 text-center text-white"
-                style={{ boxShadow: "4px 4px 0 0 #111827" }}
+                className="rounded-2xl border border-gray-100 bg-white px-7 py-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <h4 className="text-xl font-extrabold">
+                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff7a33] text-white shadow-md shadow-orange-200">
+                  <Check className="h-5 w-5" />
+                </div>
+                <h4 className="text-xl font-extrabold text-gray-900">
                   {item.title}
                 </h4>
-                <p className="mt-8 text-sm leading-relaxed">
+                <p className="mt-4 text-sm leading-relaxed text-gray-600">
                   {item.desc}
                 </p>
               </div>

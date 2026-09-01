@@ -346,15 +346,30 @@ export default function PrecisionTargetingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main className="min-h-screen overflow-x-hidden bg-white text-[#111827]">
-        <section className="relative min-h-[510px] bg-[#fff3ee] px-4 pt-[92px]">
-          <div className="mx-auto max-w-[1180px]">
+        <section className="relative min-h-[510px] overflow-hidden bg-[#fffaf7] px-4 pt-[92px]">
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
+            style={{
+              background:
+                "radial-gradient(60% 90% at 50% 0%, rgba(255,76,0,0.08) 0%, rgba(255,76,0,0) 70%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.35]"
+            style={{
+              backgroundImage: "radial-gradient(circle, rgba(17,24,39,0.06) 1px, transparent 1px)",
+              backgroundSize: "26px 26px",
+            }}
+          />
+          <div className="relative mx-auto max-w-[1180px]">
             <HeroFloatingPill className="left-[122px] top-[155px] hidden lg:flex" label="Works with free LinkedIn" />
             <HeroFloatingPill className="left-[52px] top-[219px] hidden lg:flex" label="No login required" />
             <HeroFloatingPill className="right-[92px] top-[207px] hidden lg:flex" label="Works with free LinkedIn" />
             <HeroFloatingPill className="right-[181px] top-[270px] hidden lg:flex" label="No login required" />
 
             <div className="mx-auto max-w-[640px] text-center">
-              <span className="mb-6 inline-flex rounded-full bg-[#ff4c00] px-6 py-1.5 text-[10px] font-extrabold text-white">
+              <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#fff0e9] px-5 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#ff4c00]">
+                <Target size={13} />
                 Higher Match Job Applications
               </span>
               <h1 className="text-[34px] font-extrabold leading-[1.15] tracking-normal text-[#111827] sm:text-[42px]">
@@ -368,12 +383,11 @@ export default function PrecisionTargetingPage() {
                 likelihood of interview calls.
               </p>
 
-              <div className="mt-8 flex flex-row  items-center justify-center gap-4">
+              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
                 <button
                   {...getButtonProps()}
                   onClick={handleGetMeInterview}
-                  className="inline-flex h-[42px] min-w-[148px] items-center justify-center gap-2 rounded-md border-2 border-black bg-white px-6 text-[12px] font-extrabold text-black transition hover:bg-[#ffe8dd]"
-                  style={{ boxShadow: "0 4px 0 0 #ff4c00" }}
+                  className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-full bg-[#ff4c00] px-7 text-[13px] font-extrabold text-white shadow-[0_10px_30px_rgba(255,76,0,0.3)] transition duration-300 hover:-translate-y-0.5 hover:bg-black sm:w-auto sm:min-w-[168px]"
                 >
                   Find My Best-Match Jobs
                   <ArrowRight size={14} />
@@ -381,19 +395,19 @@ export default function PrecisionTargetingPage() {
                 <button
                   type="button"
                   onClick={handleHowItWorks}
-                  className="inline-flex h-[42px] min-w-[112px] items-center justify-center rounded-md border-2 border-[#ff4c00] bg-transparent px-6 text-[12px] font-extrabold text-[#ff4c00] transition hover:bg-white"
+                  className="inline-flex h-[46px] w-full items-center justify-center rounded-full border border-black/10 bg-white px-7 text-[13px] font-extrabold text-[#111827] transition duration-300 hover:-translate-y-0.5 hover:border-[#ff4c00]/40 hover:text-[#ff4c00] sm:w-auto sm:min-w-[128px]"
                 >
                   How It Works
                 </button>
               </div>
 
-              <div className="mt-7 flex items-center justify-center gap-6 text-[10px] font-semibold text-[#111827]">
+              <div className="mt-7 flex items-center justify-center gap-6 text-[11px] font-semibold text-[#4b5565]">
                 <span className="inline-flex items-center gap-2">
-                  <CheckCircle size={14} />
+                  <CheckCircle size={14} className="text-[#ff4c00]" />
                   No signup required
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <Shield size={14} />
+                  <Shield size={14} className="text-[#ff4c00]" />
                   100% secure
                 </span>
               </div>
@@ -416,41 +430,40 @@ export default function PrecisionTargetingPage() {
               </p>
             </div>
 
-            <div className="grid border border-black md:grid-cols-2">
-              <div>
-                <div className="flex h-[54px] items-center gap-3 border-b border-black bg-[#f0f0f0] px-5 text-[15px] font-extrabold text-[#111827]">
-                  <Zap size={16} fill="#ff4c00" className="text-[#ff4c00]" />
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="rounded-2xl border border-black/10 bg-[#f9fafb] p-6 sm:p-8">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-black/5 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#6b7280]">
+                  <Zap size={14} className="text-[#9ca3af]" />
                   Without FlashFire
                 </div>
-                {problemComparison.map(([without]) => (
-                  <div
-                    key={without}
-                    className="flex h-[54px] items-center border-b border-black px-5 text-[16px] font-medium text-[#6b7280] last:border-b-0 md:last:border-b"
-                  >
-                    {without}
-                  </div>
-                ))}
+                <ul className="space-y-4">
+                  {problemComparison.map(([without]) => (
+                    <li key={without} className="flex items-start gap-3 text-[15px] font-medium text-[#6b7280]">
+                      <X size={18} className="mt-0.5 flex-shrink-0 text-[#d1d5db]" />
+                      {without}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="border-t border-black md:border-l md:border-t-0">
-                <div className="flex h-[54px] items-center gap-3 bg-[#ff4c00] px-5 text-[15px] font-extrabold text-white">
-                  <Check size={16} strokeWidth={3} />
+              <div className="rounded-2xl border border-[#ff4c00]/15 bg-[#fff3ee] p-6 shadow-[0_16px_32px_rgba(255,76,0,0.08)] sm:p-8">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#ff4c00] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-white">
+                  <Check size={14} strokeWidth={3} />
                   With FlashFire
                 </div>
-                {problemComparison.map(([without, withFlashFire]) => (
-                  <div
-                    key={without}
-                    className="flex h-[54px] items-center gap-3 border-b border-[#ff9a78] bg-[#fff3ee] px-5 text-[16px] font-semibold text-[#111827] last:border-b-0"
-                  >
-                    <Check size={18} strokeWidth={3} className="text-[#ff4c00]" />
-                    {withFlashFire}
-                  </div>
-                ))}
+                <ul className="space-y-4">
+                  {problemComparison.map(([without, withFlashFire]) => (
+                    <li key={without} className="flex items-start gap-3 text-[15px] font-semibold text-[#111827]">
+                      <Check size={18} strokeWidth={3} className="mt-0.5 flex-shrink-0 text-[#ff4c00]" />
+                      {withFlashFire}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:py-24">
+        <section className="bg-[#fffaf7] px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[860px]">
             <div className="mb-14 text-center">
               <h2 className="text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
@@ -464,49 +477,48 @@ export default function PrecisionTargetingPage() {
               </p>
             </div>
 
-            <div className="grid border border-black md:grid-cols-2">
-              <div>
-                <div className="flex h-[54px] items-center gap-3 border-b border-black bg-[#f0f0f0] px-5 text-[15px] font-extrabold text-[#111827]">
-                  <Zap size={16} fill="#ff4c00" className="text-[#ff4c00]" />
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="rounded-2xl border border-black/10 bg-[#f9fafb] p-6 sm:p-8">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-black/5 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-[#6b7280]">
+                  <Zap size={14} className="text-[#9ca3af]" />
                   Mass Applying
                 </div>
-                {[
-                  "Apply to every opening",
-                  "Low resume relevance",
-                  "High rejection rate",
-                  "Time-consuming",
-                  "No clear strategy",
-                  "Repetitive applications",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex h-[54px] items-center border-b border-black px-5 text-[16px] font-medium text-[#6b7280] last:border-b-0 md:last:border-b"
-                  >
-                    {item}
-                  </div>
-                ))}
+                <ul className="space-y-4">
+                  {[
+                    "Apply to every opening",
+                    "Low resume relevance",
+                    "High rejection rate",
+                    "Time-consuming",
+                    "No clear strategy",
+                    "Repetitive applications",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[15px] font-medium text-[#6b7280]">
+                      <X size={18} className="mt-0.5 flex-shrink-0 text-[#d1d5db]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="border-t border-black md:border-l md:border-t-0">
-                <div className="flex h-[54px] items-center gap-3 bg-[#ff4c00] px-5 text-[15px] font-extrabold text-white">
-                  <Check size={16} strokeWidth={3} />
+              <div className="rounded-2xl border border-[#ff4c00]/15 bg-[#fff3ee] p-6 shadow-[0_16px_32px_rgba(255,76,0,0.08)] sm:p-8">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#ff4c00] px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-wide text-white">
+                  <Check size={14} strokeWidth={3} />
                   FlashFire&apos;s Precision Targeting
                 </div>
-                {[
-                  "Focus on high-match opportunities",
-                  "Better resume and role alignment",
-                  "Higher interview potential",
-                  "Faster, more efficient job search",
-                  "Data-driven targeting",
-                  "Quality over quantity",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex h-[54px] items-center gap-3 border-b border-[#ff9a78] bg-[#fff3ee] px-5 text-[16px] font-semibold text-[#111827] last:border-b-0"
-                  >
-                    <Check size={18} strokeWidth={3} className="text-[#ff4c00]" />
-                    {item}
-                  </div>
-                ))}
+                <ul className="space-y-4">
+                  {[
+                    "Focus on high-match opportunities",
+                    "Better resume and role alignment",
+                    "Higher interview potential",
+                    "Faster, more efficient job search",
+                    "Data-driven targeting",
+                    "Quality over quantity",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[15px] font-semibold text-[#111827]">
+                      <Check size={18} strokeWidth={3} className="mt-0.5 flex-shrink-0 text-[#ff4c00]" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -524,19 +536,19 @@ export default function PrecisionTargetingPage() {
                 goals.
               </p>
             </div>
-            <div className="grid auto-rows-fr gap-6 md:grid-cols-3">
+            <div className="grid auto-rows-fr gap-5 md:grid-cols-3">
               {targetAudience.map((item) => {
                 const Icon = item.icon;
                 return (
                   <article
                     key={item.title}
-                    className="h-full min-h-[160px] min-w-0 overflow-hidden rounded-md border border-[#d5d5d5] bg-white p-7 shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+                    className="group h-full min-h-[160px] min-w-0 overflow-hidden rounded-2xl border border-black/10 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ff4c00]/30 hover:shadow-[0_16px_32px_rgba(255,76,0,0.1)]"
                   >
-                    <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-[#ff4c00] text-white">
-                      <Icon size={21} />
+                    <span className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff0e9] text-[#ff4c00] transition duration-300 group-hover:bg-[#ff4c00] group-hover:text-white">
+                      <Icon size={20} />
                     </span>
                     <h3 className="text-[16px] font-extrabold text-[#111827]">{item.title}</h3>
-                    <p className="mt-4 text-[13px] font-medium leading-6 text-[#6b7280]">{item.desc}</p>
+                    <p className="mt-3 text-[13px] font-medium leading-6 text-[#6b7280]">{item.desc}</p>
                   </article>
                 );
               })}
@@ -544,7 +556,7 @@ export default function PrecisionTargetingPage() {
           </div>
         </section>
 
-        <section id="how-it-works" className="bg-white px-4 py-20 sm:py-24">
+        <section id="how-it-works" className="bg-[#fffaf7] px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[760px]">
             <div className="mb-12 text-center">
               <h2 className="text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
@@ -557,20 +569,23 @@ export default function PrecisionTargetingPage() {
             </div>
 
             <div className="grid auto-rows-fr gap-5 md:grid-cols-2">
-              {howItWorksSteps.map((item) => {
+              {howItWorksSteps.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <article
                     key={item.title}
-                    className="h-full min-h-[135px] min-w-0 overflow-hidden rounded-md border border-[#d5d5d5] bg-white px-7 py-6 shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+                    className="relative h-full min-h-[135px] min-w-0 overflow-hidden rounded-2xl border border-black/10 bg-white px-7 py-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(255,76,0,0.1)]"
                   >
-                    <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[#ff4c00] text-white">
-                      <Icon size={22} />
+                    <span className="pointer-events-none absolute right-5 top-5 text-3xl font-black leading-none text-[#ff4c00]/10">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="text-[19px] font-extrabold leading-tight text-[#ff4c00]">
+                    <span className="relative mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-[#fff0e9] text-[#ff4c00]">
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="relative text-[19px] font-extrabold leading-tight text-[#111827]">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-[13px] font-medium leading-5 text-[#6b7280]">{item.desc}</p>
+                    <p className="relative mt-2 text-[13px] font-medium leading-5 text-[#6b7280]">{item.desc}</p>
                   </article>
                 );
               })}
@@ -589,21 +604,23 @@ export default function PrecisionTargetingPage() {
                 unnecessary applications.
               </p>
             </div>
-            <div className="grid auto-rows-fr gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {stats.map((stat) => (
                 <article
                   key={stat.label}
-                  className="flex h-full min-w-0 flex-col items-center justify-center overflow-hidden border border-black bg-white px-8 py-7 text-center shadow-[4px_4px_0_0_rgba(0,0,0,0.85)]"
+                  className="flex h-full min-w-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-2xl border border-black/10 bg-[#fffaf7] px-8 py-8 text-center transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(255,76,0,0.1)]"
                 >
-                  <CheckCircle size={32} className="text-[#ff4c00]" />
-                  <p className="mt-4 text-[13px] font-extrabold uppercase text-[#6b7280]">{stat.label}</p>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#fff0e9] text-[#ff4c00]">
+                    <CheckCircle size={24} />
+                  </span>
+                  <p className="text-[13px] font-extrabold uppercase tracking-wide text-[#6b7280]">{stat.label}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-4 py-20 sm:py-24">
+        <section className="bg-[#fffaf7] px-4 py-20 sm:py-24">
           <div className="mx-auto max-w-[900px]">
             <div className="mb-14 text-center">
               <h2 className="text-[34px] font-extrabold leading-[1.08] text-[#111827] sm:text-[42px]">
@@ -614,19 +631,19 @@ export default function PrecisionTargetingPage() {
                 hundreds of applications.
               </p>
             </div>
-            <div className="grid auto-rows-fr gap-6 md:grid-cols-2">
+            <div className="grid auto-rows-fr gap-5 md:grid-cols-2">
               {benefitCards.map((item) => {
                 const Icon = item.icon;
                 return (
                   <article
                     key={item.title}
-                    className="h-full min-h-[160px] min-w-0 overflow-hidden rounded-md border border-[#d5d5d5] bg-white p-7 shadow-[0_8px_18px_rgba(0,0,0,0.12)]"
+                    className="group h-full min-h-[160px] min-w-0 overflow-hidden rounded-2xl border border-black/10 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ff4c00]/30 hover:shadow-[0_16px_32px_rgba(255,76,0,0.1)]"
                   >
-                    <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-[#ff4c00] text-white">
-                      <Icon size={21} />
+                    <span className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-[#fff0e9] text-[#ff4c00] transition duration-300 group-hover:bg-[#ff4c00] group-hover:text-white">
+                      <Icon size={20} />
                     </span>
                     <h3 className="text-[16px] font-extrabold text-[#111827]">{item.title}</h3>
-                    <p className="mt-4 text-[13px] font-medium leading-6 text-[#6b7280]">{item.desc}</p>
+                    <p className="mt-3 text-[13px] font-medium leading-6 text-[#6b7280]">{item.desc}</p>
                   </article>
                 );
               })}
@@ -664,8 +681,12 @@ export default function PrecisionTargetingPage() {
           </div>
         </section>
 
-        <section className="bg-[#fff3ee] px-4 py-20">
-          <div className="mx-auto max-w-[760px] text-center">
+        <section className="relative overflow-hidden bg-[#fffaf7] px-4 py-20">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute left-1/2 top-0 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ff4c00]/12 blur-[120px]" />
+            <Target className="absolute -right-6 -top-6 h-40 w-40 text-[#ff4c00]/[0.06] sm:h-56 sm:w-56" />
+          </div>
+          <div className="relative mx-auto max-w-[760px] text-center">
             <h2 className="text-[34px] font-extrabold leading-tight text-[#111827]">
               Ready to Focus on the Right Opportunities?
             </h2>
@@ -676,8 +697,7 @@ export default function PrecisionTargetingPage() {
             <button
               {...getButtonProps()}
               onClick={handleGetMeInterview}
-              className="mt-8 inline-flex h-[52px] items-center justify-center gap-2 rounded-md border-2 border-black bg-white px-8 text-[15px] font-extrabold text-black transition hover:bg-[#ffe8dd]"
-              style={{ boxShadow: "0 4px 0 0 #ff4c00" }}
+              className="mt-8 inline-flex h-[52px] items-center justify-center gap-2 rounded-full bg-[#ff4c00] px-8 text-[15px] font-extrabold text-white shadow-[0_10px_30px_rgba(255,76,0,0.3)] transition duration-300 hover:-translate-y-0.5 hover:bg-black"
             >
               Find My Best-Match Jobs
               <ArrowRight size={17} />
@@ -696,7 +716,7 @@ export default function PrecisionTargetingPage() {
 function HeroFloatingPill({ className, label }: { className: string; label: string }) {
   return (
     <div
-      className={`absolute h-[38px] w-[140px] items-center justify-center rounded-lg bg-white text-center text-[10px] font-extrabold leading-none text-[#596273] shadow-[0_14px_35px_rgba(17,24,39,0.08)] ${className}`}
+      className={`absolute h-[38px] w-[140px] items-center justify-center rounded-full border border-black/5 bg-white text-center text-[10px] font-extrabold leading-none text-[#596273] shadow-[0_14px_35px_rgba(17,24,39,0.08)] ${className}`}
     >
       {label}
     </div>

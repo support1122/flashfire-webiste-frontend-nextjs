@@ -34,8 +34,8 @@ const ORANGE = "#ff4c00"
 
 const IconBox = ({ children, light = false }: { children: React.ReactNode; light?: boolean }) => (
   <div
-    className={`flex size-8 items-center justify-center rounded-[8px] ${
-      light ? "bg-white text-[#ff4c00]" : "bg-[#ff4c00] text-white"
+    className={`flex size-11 items-center justify-center rounded-xl ${
+      light ? "bg-white/15 text-white" : "bg-[#fff0e9] text-[#ff4c00]"
     }`}
   >
     {children}
@@ -77,8 +77,8 @@ const FeatureImagePreview = ({
   width: number
   height: number
 }) => (
-  <div className="flex h-full min-h-[230px] items-center rounded-[8px] border border-[#ffd8ca] bg-[#fff7f3] p-3 shadow-[0_14px_26px_rgba(255,76,0,0.06)] sm:p-4">
-    <div className="w-full overflow-hidden rounded-[6px] border border-[#eadbd4] bg-white">
+  <div className="flex h-full min-h-[230px] items-center rounded-2xl border border-[#ffd8ca] bg-[#fff7f3] p-3 shadow-[0_14px_26px_rgba(255,76,0,0.06)] sm:p-4">
+    <div className="w-full overflow-hidden rounded-xl border border-[#eadbd4] bg-white">
       <Image
         src={src}
         alt={alt}
@@ -532,7 +532,17 @@ export default function Page() {
 
       <main className="min-h-screen bg-white text-[#10182c]">
         <section className="relative overflow-hidden bg-[#fff1eb]">
-          <div className="mx-auto grid min-h-[520px] max-w-[1280px] place-items-center px-5 py-20 sm:py-24 lg:min-h-[650px]">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#ff4c00]/10 blur-3xl" />
+            <div
+              className="absolute inset-0 opacity-[0.3]"
+              style={{
+                backgroundImage: "radial-gradient(circle, rgba(17,24,39,0.08) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+          </div>
+          <div className="relative mx-auto grid min-h-[520px] max-w-[1280px] place-items-center px-5 py-20 sm:py-24 lg:min-h-[650px]">
             <div className="relative w-full">
               <div className="relative z-10 mx-auto max-w-[620px] text-center">
                 <span className="inline-flex items-center rounded-full bg-[#ff4c00] px-4 py-1.5 text-[11px] font-bold text-white">
@@ -578,9 +588,9 @@ export default function Page() {
               </div>
 
               <div className="mx-auto mt-12 grid max-w-[640px] gap-4 sm:grid-cols-2 xl:mt-0 xl:block xl:max-w-none">
-                <div className="rounded-[8px] border border-[#ffd8ca] bg-white p-4 shadow-[0_18px_30px_rgba(255,76,0,0.09)] xl:absolute xl:left-0 xl:top-24 xl:w-[220px] 2xl:left-2 2xl:w-[245px]">
+                <div className="rounded-2xl border-l-4 border-l-[#ff4c00] border-y border-r border-[#ffd8ca] bg-white p-4 shadow-[0_16px_32px_rgba(255,76,0,0.1)] xl:absolute xl:left-0 xl:top-24 xl:w-[220px] xl:-rotate-3 xl:transition xl:duration-300 xl:hover:rotate-0 xl:hover:shadow-[0_20px_40px_rgba(255,76,0,0.16)] 2xl:left-2 2xl:w-[245px]">
                   <div className="flex items-center gap-3">
-                    <div className="flex size-11 items-center justify-center rounded-[8px] border border-[#10182c]">
+                    <div className="flex size-11 items-center justify-center rounded-xl bg-[#fff0e9] text-[#ff4c00]">
                       <BarChart className="size-5" />
                     </div>
                     <div>
@@ -590,13 +600,13 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div className="rounded-[8px] border border-[#ffd8ca] bg-white px-9 py-5 text-center shadow-[0_18px_30px_rgba(255,76,0,0.09)] xl:absolute xl:left-16 xl:top-64 xl:w-[155px] 2xl:left-28 2xl:top-60 2xl:w-[160px]">
+                <div className="rounded-2xl border border-[#ffb199] bg-gradient-to-br from-white to-[#fff1eb] px-9 py-5 text-center shadow-[0_20px_40px_rgba(255,76,0,0.16)] xl:absolute xl:left-16 xl:top-64 xl:z-20 xl:w-[155px] xl:rotate-2 xl:transition xl:duration-300 xl:hover:rotate-0 2xl:left-28 2xl:top-60 2xl:w-[160px]">
                   <p className="text-[10px] font-black uppercase text-[#566070]">Score</p>
                   <p className="text-[38px] font-black leading-none text-[#ff4c00]">{score}</p>
                   <p className="mt-2 text-[12px] font-black">ATS Compatibility</p>
                 </div>
 
-                <div className="rounded-[8px] border border-[#ffd8ca] bg-white p-5 shadow-[0_18px_30px_rgba(255,76,0,0.09)] xl:absolute xl:right-0 xl:top-4 xl:w-[225px] 2xl:right-4 2xl:w-[240px]">
+                <div className="rounded-2xl border-l-4 border-l-emerald-500 border-y border-r border-[#ffd8ca] bg-white p-5 shadow-[0_16px_32px_rgba(255,76,0,0.1)] xl:absolute xl:right-0 xl:top-4 xl:w-[225px] xl:rotate-2 xl:transition xl:duration-300 xl:hover:rotate-0 xl:hover:shadow-[0_20px_40px_rgba(16,185,129,0.16)] 2xl:right-4 2xl:w-[240px]">
                   <p className="mb-4 border-b border-[#f0e3dd] pb-3 text-[12px] font-black">Passed Checks</p>
                   <div className="space-y-3 text-[12px] font-medium text-[#566070]">
                     {["Contact Information", "Summary Section", "Work History", "Skills Listed", "Education"].map((item) => (
@@ -608,7 +618,7 @@ export default function Page() {
                   </div>
                 </div>
 
-                <div className="rounded-[8px] border border-[#ffd8ca] bg-white p-5 shadow-[0_18px_30px_rgba(255,76,0,0.09)] xl:absolute xl:right-[-34px] xl:top-[210px] xl:z-20 xl:w-[225px] 2xl:right-[-42px] 2xl:top-[220px] 2xl:w-[235px]">
+                <div className="rounded-2xl border-l-4 border-l-[#ff9a26] border-y border-r border-[#ffd8ca] bg-white p-5 shadow-[0_16px_32px_rgba(255,76,0,0.1)] xl:absolute xl:right-[-34px] xl:top-[210px] xl:z-20 xl:w-[225px] xl:-rotate-2 xl:transition xl:duration-300 xl:hover:rotate-0 xl:hover:shadow-[0_20px_40px_rgba(255,154,38,0.18)] 2xl:right-[-42px] 2xl:top-[220px] 2xl:w-[235px]">
                   <p className="mb-4 border-b border-[#f0e3dd] pb-3 text-[12px] font-black">Improvements</p>
                   <div className="space-y-3 text-[12px] font-medium text-[#566070]">
                     {["Add industry keywords", "Simplify formatting", "Quantify achievements"].map((item) => (
@@ -635,21 +645,28 @@ export default function Page() {
             className="mb-20"
           />
 
-          <div className="mx-auto grid max-w-[960px] auto-rows-fr gap-14">
-            {featureCards.map((item) => {
+          <div className="mx-auto grid max-w-[960px] auto-rows-fr gap-8">
+            {featureCards.map((item, index) => {
               const Icon = item.icon
               return (
                 <div
                   key={item.title}
-                  className="grid h-full min-w-0 gap-8 overflow-hidden border border-[#101820]/70 bg-white p-8 shadow-[4px_4px_0_#111] sm:p-10 md:grid-cols-2 md:items-center"
+                  className="relative grid h-full min-w-0 gap-8 rounded-3xl border border-black/10 bg-white p-8 shadow-[0_16px_40px_rgba(17,24,39,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_48px_rgba(255,76,0,0.1)] sm:p-10 md:grid-cols-2 md:items-center"
                 >
-                  <div className={`${item.flip ? "md:order-2" : ""}`}>
+                  <span
+                    className={`pointer-events-none absolute top-6 text-[64px] font-black leading-none text-black/[0.04] sm:text-[88px] ${
+                      item.flip ? "right-6 sm:right-8" : "left-6 sm:left-8"
+                    }`}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className={`relative ${item.flip ? "md:order-2" : ""}`}>
                     <IconBox>
-                      <Icon className="size-4" />
+                      <Icon className="size-5" />
                     </IconBox>
                     <h3 className="mt-5 text-[22px] font-black leading-tight text-[#ff4c00]">{item.title}</h3>
                     <p className="mt-4 text-[15px] font-bold leading-7 text-black">{item.desc}</p>
-                    <ul className="mt-8 space-y-4 rounded-[6px] bg-[#fff7f3] p-5">
+                    <ul className="mt-8 space-y-4 rounded-xl bg-[#fff7f3] p-5">
                       {item.checks.map((check) => (
                         <CheckLine key={check}>{check}</CheckLine>
                       ))}
@@ -674,13 +691,16 @@ export default function Page() {
             className="mb-14"
           />
 
-          <div className="mx-auto grid max-w-[820px] auto-rows-fr border border-[#101820]/70 bg-white shadow-[3px_3px_0_#111] sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-[900px] auto-rows-fr grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {analysisItems.map((item) => {
               const Icon = item.icon
               return (
-                <div key={item.title} className="flex h-full min-h-[180px] min-w-0 flex-col overflow-hidden border-b border-r border-[#101820]/60 p-6 last:border-b-0 sm:[&:nth-last-child(-n+1)]:border-b-0 lg:h-[190px] lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-last-child(-n+3)]:border-b-0">
+                <div
+                  key={item.title}
+                  className="flex h-full min-h-[180px] min-w-0 flex-col rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#ff4c00]/40 hover:shadow-[0_14px_30px_rgba(255,76,0,0.1)]"
+                >
                   <IconBox>
-                    <Icon className="size-4" />
+                    <Icon className="size-5" />
                   </IconBox>
                   <h3 className="mt-5 text-[17px] font-black leading-tight text-[#10182c]">{item.title}</h3>
                   <p className="mt-3 text-[13px] font-medium leading-6 text-[#566070]">{item.desc}</p>
@@ -705,17 +725,17 @@ export default function Page() {
                   type="button"
                   onClick={() => scrollSteps("left")}
                   aria-label="Previous step"
-                  className="flex h-12 w-12 items-center justify-center bg-black text-white transition hover:bg-[#ff4c00]"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white text-[#111827] shadow-sm transition hover:border-[#ff4c00] hover:bg-[#ff4c00] hover:text-white"
                 >
-                  <ArrowLeft size={24} />
+                  <ArrowLeft size={20} />
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollSteps("right")}
                   aria-label="Next step"
-                  className="flex h-12 w-12 items-center justify-center bg-black text-white transition hover:bg-[#ff4c00]"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white text-[#111827] shadow-sm transition hover:border-[#ff4c00] hover:bg-[#ff4c00] hover:text-white"
                 >
-                  <ArrowRight size={24} />
+                  <ArrowRight size={20} />
                 </button>
               </div>
             </div>
@@ -726,14 +746,14 @@ export default function Page() {
                 return (
                   <div
                     key={item.step}
-                    className="flex min-h-[300px] w-[min(280px,calc(100vw-3rem))] shrink-0 flex-col overflow-hidden border border-[#101820]/70 bg-white p-7 shadow-[4px_4px_0_#111]"
+                    className="flex min-h-[300px] w-[min(280px,calc(100vw-3rem))] shrink-0 flex-col rounded-2xl border border-black/10 bg-white p-7 shadow-[0_14px_32px_rgba(17,24,39,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(255,76,0,0.1)]"
                   >
                     <IconBox>
-                      <Icon className="size-4" />
+                      <Icon className="size-5" />
                     </IconBox>
                     <h3 className="mt-10 text-[17px] font-black leading-tight text-[#10182c]">{item.title}</h3>
                     <p className="mt-4 text-[13px] font-medium leading-6 text-[#566070]">{item.desc}</p>
-                    <span className="mt-auto inline-flex w-fit rounded-[4px] bg-[#ff4c00] px-4 py-2 text-[12px] font-black text-white">
+                    <span className="mt-auto inline-flex w-fit rounded-full bg-[#fff0e9] px-4 py-2 text-[12px] font-black text-[#ff4c00]">
                       Step {item.step}
                     </span>
                   </div>
@@ -750,12 +770,15 @@ export default function Page() {
             className="px-5 pb-12"
           />
 
-          <div className="bg-[#ffe7dc] px-5 py-14">
+          <div className="bg-[#fff7f3] px-5 py-14">
             <div className="mx-auto grid max-w-[880px] gap-5 md:grid-cols-3">
               {valueCards.map((item) => (
-                <div key={item.title} className="border border-[#101820]/70 bg-[#ff4c00] p-5 text-white shadow-[4px_4px_0_#111]">
+                <div
+                  key={item.title}
+                  className="rounded-2xl bg-gradient-to-br from-[#ff5a1a] to-[#ff4c00] p-6 text-white shadow-[0_16px_36px_rgba(255,76,0,0.25)] transition duration-300 hover:-translate-y-1"
+                >
                   <IconBox light>
-                    <FileCheck2 className="size-4" />
+                    <FileCheck2 className="size-5" />
                   </IconBox>
                   <h3 className="mt-6 text-[16px] font-black">{item.title}</h3>
                   <p className="mt-4 text-[13px] font-medium leading-6 text-white/90">{item.desc}</p>
@@ -764,12 +787,14 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mx-auto max-w-3xl px-5 py-14 text-center">
-            <p className="text-[15px] font-medium leading-7 text-[#566070]">
-              With Flashfire, you don&apos;t just check your resume - you actively improve it using{" "}
-              <span className="font-black text-[#ff4c00]">AI-powered ATS optimization</span> designed for real-world
-              hiring.
-            </p>
+          <div className="mx-auto max-w-2xl px-5 py-14">
+            <div className="rounded-2xl border border-[#ffd8ca] bg-[#fff7f3] px-6 py-6 text-center sm:px-10 sm:py-8">
+              <p className="text-[15px] font-medium leading-7 text-[#566070]">
+                With Flashfire, you don&apos;t just check your resume - you actively improve it using{" "}
+                <span className="font-black text-[#ff4c00]">AI-powered ATS optimization</span> designed for real-world
+                hiring.
+              </p>
+            </div>
           </div>
         </section>
 
