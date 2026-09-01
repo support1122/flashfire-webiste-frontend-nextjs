@@ -79,6 +79,35 @@ export default function Footer() {
               xl:grid-cols-7 xl:gap-x-6
             "
           >
+            {/* ADDRESS + FOLLOW US */}
+            <div className="max-[480px]:mb-2">
+              <h4 className="mb-2 text-base font-bold tracking-widest text-[#fff7f4] max-[480px]:text-sm">
+                ADDRESS
+              </h4>
+              <address className="not-italic text-[0.85rem] leading-relaxed opacity-90 max-[480px]:text-[0.8rem]">
+                Flashfire LLC.<br />
+                30 N Gould St, STE R<br />
+                Sheridan, WY 82801, USA
+              </address>
+
+              <div className="mt-5">
+                <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:mb-2 max-[480px]:text-xs">
+                  FOLLOW US
+                </h4>
+                <div className="flex items-center gap-3 max-[480px]:gap-4">
+                  <Link href="https://www.linkedin.com/company/flashfire-pvt-ltd/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
+                    <FaLinkedinIn />
+                  </Link>
+                  <Link href="https://www.instagram.com/flashfirejobs/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
+                    <FaInstagram />
+                  </Link>
+                  <Link href="https://www.youtube.com/@flashfireindia" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
+                    <FaYoutube />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             {/* QUICK ACCESS */}
             <div className="max-[480px]:mb-2">
               <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:mb-2 max-[480px]:text-xs">
@@ -244,35 +273,6 @@ export default function Footer() {
                 <Link href={getHref("/terms-of-service")} className={linkClass} target="_blank">
                   Terms of Service
                 </Link>
-              </div>
-            </div>
-
-            {/* FOLLOW US */}
-            <div className="max-[480px]:mb-2">
-              <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:mb-2 max-[480px]:text-xs">
-                FOLLOW US
-              </h4>
-              <div className="flex items-center gap-3 max-[480px]:gap-4">
-                <Link href="https://www.linkedin.com/company/flashfire-pvt-ltd/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
-                  <FaLinkedinIn />
-                </Link>
-                <Link href="https://www.instagram.com/flashfirejobs/" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
-                  <FaInstagram />
-                </Link>
-                <Link href="https://www.youtube.com/@flashfireindia" target="_blank" className="text-xl hover:scale-110 transition max-[480px]:text-lg">
-                  <FaYoutube />
-                </Link>
-              </div>
-
-              <div className="mt-5">
-                <h4 className="mb-1.5 text-[0.7rem] font-bold tracking-widest text-[#fff7f4]">
-                  US OFFICE
-                </h4>
-                <address className="not-italic text-[0.72rem] leading-relaxed opacity-90">
-                  Flashfire LLC.<br />
-                  30 N Gould St, STE R<br />
-                  Sheridan, WY 82801, USA
-                </address>
               </div>
             </div>
 
