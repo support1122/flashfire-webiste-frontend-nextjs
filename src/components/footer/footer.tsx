@@ -81,7 +81,7 @@ export default function Footer() {
           >
             {/* ADDRESS + FOLLOW US */}
             <div className="max-[480px]:mb-2">
-              <h4 className="mb-2 text-base font-bold tracking-widest text-[#fff7f4] max-[480px]:text-sm">
+              <h4 className="mb-3 text-sm font-bold tracking-widest text-[#fff7f4] max-[480px]:mb-2 max-[480px]:text-xs">
                 ADDRESS
               </h4>
               <address className="not-italic text-[0.85rem] leading-relaxed opacity-90 max-[480px]:text-[0.8rem]">
