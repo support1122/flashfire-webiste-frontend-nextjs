@@ -1,9 +1,8 @@
 .offerSection {
-  background: #fff;
+  background: #ff5a18;
   color: #fff;
   font-family: var(--font-space-grotesk), "Space Grotesk", sans-serif;
-  overflow: hidden;
-  padding: 0;
+  padding: 0 0 18px 0;
 }
 
 .offerContent {
@@ -13,7 +12,7 @@
   grid-template-columns: minmax(430px, 560px) minmax(0, 1fr);
   min-height: 576px;
   overflow: hidden;
-  padding: 28px 0 30px 59px;
+  padding: 28px 0 0 59px;
 }
 
 .offerIntro {
@@ -42,6 +41,30 @@
   line-height: 1.45;
   margin: 0;
   max-width: 505px;
+}
+
+.offerDisclaimer {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 10px 0 0;
+  opacity: 0.85;
+}
+
+.offerRightColumn {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-bottom: 14px;
+}
+
+.offerDisclaimerRight {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  font-weight: 400;
+  margin: 12px 24px 0 0;
+  text-align: right;
 }
 
 .arrowControls {
