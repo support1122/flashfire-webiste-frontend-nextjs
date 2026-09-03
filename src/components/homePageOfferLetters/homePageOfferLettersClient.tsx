@@ -394,7 +394,7 @@ export default function HomePageOfferLettersClient({
             </p>
           ) : (
             <p className={styles.offerSubHeading}>
-              Trusted by job seekers across the U.S. Real applications. Real
+              Trusted by job seekers across the U.S.,U.K. & Canada real applications. Real
               interviews. Real offer letters that turned opportunities into
               successful careers.
             </p>
