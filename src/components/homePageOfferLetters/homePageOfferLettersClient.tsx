@@ -401,6 +401,12 @@ export default function HomePageOfferLettersClient({
           )}
 
           {!isAutoVariant && (
+            <p className={styles.offerDisclaimer}>
+              *These are sample offer letters. Original client offer letters are kept private.
+            </p>
+          )}
+
+          {!isAutoVariant && (
             <div className={styles.arrowControls} aria-label="Offer letter navigation">
               <button
                 type="button"
@@ -422,6 +428,7 @@ export default function HomePageOfferLettersClient({
           )}
         </div>
 
+        <div className={styles.offerRightColumn}>
         {hasContinuousMarquee ? (
           <div className={styles.offerCarouselMarquee}>
             <div className={styles.offerMarqueeTrack}>
@@ -558,6 +565,7 @@ export default function HomePageOfferLettersClient({
             ))}
           </div>
         )}
+        </div>
       </div>
     </section>
   );
