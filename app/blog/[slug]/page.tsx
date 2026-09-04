@@ -118,7 +118,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "how-to-get-a-job-quickly": "How to Get a Job Quickly (Even in a Competitive Market)",
     "what-is-hidden-job-market": "What Is the Hidden Job Market? How It Works in 2026",
   };
-  const metaTitle = post.slug ? (metaTitleMap[post.slug] ?? post.title) : post.title;
+  const metaTitle = post.slug ? (metaTitleMap[post.slug] ?? post.metaTitle ?? post.title) : (post.metaTitle ?? post.title);
   
   return {
     title: metaTitle,
