@@ -2,6 +2,7 @@ export type BlogPost = {
   id: number;
   slug?: string;
   title: string;
+  metaTitle?: string;
   excerpt?: string;
   date?: string;
   lastUpdated?: string;
