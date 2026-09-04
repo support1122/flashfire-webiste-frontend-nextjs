@@ -4,7 +4,7 @@ import CanadaHome from "@/src/components/countries/ca/Home";
 export const metadata: Metadata = {
   title: "Flashfire: AI Job Search Automation Canada",
   description:
-    "We apply to 1000+ jobs on your behalf with tailored resumes for every role. Save 150+ hours, skip the grunt work, and stay in control with real-time updates. Your job hunt—automated.",
+    "We apply to 1000+ jobs with tailored resumes for every role. Save 150+ hours, skip the grunt work, and track your job hunt with real-time updates.",
   robots: {
     index: true,
     follow: true,
@@ -40,6 +40,24 @@ export const metadata: Metadata = {
 };
 
 export default function HomeCA() {
-  return <CanadaHome />;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Flashfire: AI Job Search Automation Canada",
+    "url": "https://www.flashfirejobs.com/en-ca",
+    "description": "We apply to 1000+ jobs with tailored resumes for every role. Save 150+ hours, skip the grunt work, and track your job hunt with real-time updates.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flashfire",
+      "url": "https://www.flashfirejobs.com",
+    },
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <CanadaHome />
+    </>
+  );
 }
 

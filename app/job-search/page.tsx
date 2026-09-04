@@ -4,7 +4,7 @@ import Footer from "@/src/components/footer/footer";
 import JobSearch from "@/src/components/pages/jobSearch/JobSearch";
 
 export const metadata: Metadata = {
-  title: "AI Job Search Automation — Apply to Jobs Automatically | Flashfire",
+  title: "AI Job Search Automation — Apply to Jobs Automatically",
   description:
     "Flashfire applies to relevant jobs on your behalf so you don't have to search manually. Get updates without lifting a finger.",
   robots: {
@@ -26,6 +26,18 @@ export const metadata: Metadata = {
       "Flashfire applies to relevant jobs on your behalf so you don't have to search manually.",
     url: "https://www.flashfirejobs.com/job-search",
     type: "website",
+    images: [
+      {
+        url: "https://www.flashfirejobs.com/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "FLASHFIRE Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.flashfirejobs.com/images/og-image.png"],
   },
 };
 
