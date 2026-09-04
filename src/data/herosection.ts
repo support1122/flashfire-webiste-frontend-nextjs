@@ -36,7 +36,7 @@ export const heroSectionDataUK: HeroSectionData = {
   headlineHighlight: "Flashfire",
   headlineSuffix: "AI Copilot",
   description: [
-    "We apply to 1200 UK & EU job applications & track everything while you focus on winning the interview.",
+    "We apply to 1200 UK job applications & track everything while you focus on winning the interview.",
   ],
   cta: { label: "Get Started →", href: "/contact-us" },
   trustText: "Trusted by 1000+ Users",
