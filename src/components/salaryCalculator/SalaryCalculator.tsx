@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Calculator, DollarSign, Info, Percent, RotateCcw } from "lucide-react";
+import { Calculator, DollarSign, Info, Percent, RotateCcw, TrendingUp } from "lucide-react";
 
 const stateTaxRates = {
   none: 0,
@@ -91,152 +91,164 @@ export default function SalaryCalculator() {
   };
 
   return (
-    <main className="min-h-screen bg-[#fff8f4] text-[#101114]">
-      <section className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-24 max-[768px]:px-4 max-[768px]:py-16">
-        <div className="max-w-3xl">
-          <div className="mb-5 inline-flex items-center gap-2 border border-[#f55d1d]/30 bg-white px-3 py-2 text-sm font-bold uppercase tracking-[0.08em] text-[#f55d1d]">
-            <Calculator size={18} aria-hidden="true" />
+    <main className="bg-white text-slate-900 min-h-screen">
+      {/* Hero */}
+      <section className="bg-[#fff3ec] py-14 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#ff4c00]/20 text-[#ff4c00] text-sm font-semibold shadow-sm">
+            <Calculator className="w-4 h-4" aria-hidden="true" />
             Salary Calculator
           </div>
-          <h1 className="text-5xl font-black leading-[1.02] tracking-normal max-[768px]:text-4xl max-[480px]:text-3xl">
-            Estimate your take-home pay before you accept the offer.
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-slate-900 mb-4">
+            Estimate your take-home pay before you accept the offer
           </h1>
-          <p className="mt-5 max-w-2xl text-lg font-medium leading-7 text-[#5c504b] max-[480px]:text-base">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
             Compare gross salary, bonus, deductions, estimated taxes, and monthly take-home pay in one quick view.
           </p>
         </div>
+      </section>
 
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <section className="border border-[#f0ded4] bg-white p-6 shadow-[0_18px_60px_rgba(245,93,29,0.08)] max-[480px]:p-4">
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <h2 className="text-2xl font-black">Offer details</h2>
-              <button
-                type="button"
-                onClick={resetDefaults}
-                className="inline-flex h-10 w-10 items-center justify-center border border-[#ead8cf] bg-[#fff8f4] text-[#101114] transition hover:border-[#f55d1d]"
-                aria-label="Reset calculator"
-                title="Reset calculator"
-              >
-                <RotateCcw size={18} aria-hidden="true" />
-              </button>
-            </div>
-
-            <div className="grid gap-5">
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">Annual base salary</span>
-                <div className="flex items-center border border-[#ead8cf] bg-[#fffaf7] px-4">
-                  <DollarSign size={18} className="text-[#f55d1d]" aria-hidden="true" />
-                  <input
-                    type="number"
-                    min="0"
-                    value={salary}
-                    onChange={(event) => setSalary(Number(event.target.value))}
-                    className="min-h-12 w-full bg-transparent px-3 text-base font-bold outline-none"
-                  />
-                </div>
-              </label>
-
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">Annual bonus or equity value</span>
-                <div className="flex items-center border border-[#ead8cf] bg-[#fffaf7] px-4">
-                  <DollarSign size={18} className="text-[#f55d1d]" aria-hidden="true" />
-                  <input
-                    type="number"
-                    min="0"
-                    value={bonus}
-                    onChange={(event) => setBonus(Number(event.target.value))}
-                    className="min-h-12 w-full bg-transparent px-3 text-base font-bold outline-none"
-                  />
-                </div>
-              </label>
-
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">Pre-tax deductions</span>
-                <div className="flex items-center border border-[#ead8cf] bg-[#fffaf7] px-4">
-                  <Percent size={18} className="text-[#f55d1d]" aria-hidden="true" />
-                  <input
-                    type="number"
-                    min="0"
-                    max="100"
-                    value={preTaxPercent}
-                    onChange={(event) => setPreTaxPercent(Number(event.target.value))}
-                    className="min-h-12 w-full bg-transparent px-3 text-base font-bold outline-none"
-                  />
-                </div>
-              </label>
-
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">State tax estimate</span>
-                <select
-                  value={stateTax}
-                  onChange={(event) => setStateTax(event.target.value as keyof typeof stateTaxRates)}
-                  className="min-h-12 w-full border border-[#ead8cf] bg-[#fffaf7] px-4 text-base font-bold outline-none"
+      {/* Calculator */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            {/* Inputs */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-7 h-fit">
+              <div className="mb-6 flex items-center justify-between gap-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Offer details</h2>
+                <button
+                  type="button"
+                  onClick={resetDefaults}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-[#fff7f2] text-slate-600 transition hover:border-[#ff4c00]/40 hover:text-[#ff4c00]"
+                  aria-label="Reset calculator"
+                  title="Reset calculator"
                 >
-                  <option value="none">No state income tax</option>
-                  <option value="low">Low state tax, about 3%</option>
-                  <option value="medium">Medium state tax, about 5%</option>
-                  <option value="high">High state tax, about 8%</option>
-                </select>
-              </label>
-            </div>
-          </section>
-
-          <section className="grid gap-4">
-            <div className="bg-[#101114] p-7 text-white max-[480px]:p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.08em] text-[#ffb18a]">Estimated take-home</p>
-              <div className="mt-3 text-5xl font-black leading-none max-[480px]:text-4xl">
-                {formatCurrency(results.takeHomeAnnual)}
+                  <RotateCcw size={18} aria-hidden="true" />
+                </button>
               </div>
-              <p className="mt-3 text-base font-medium text-[#f6ddd1]">
-                {formatCurrency(results.monthly)} per month after estimated deductions and taxes.
-              </p>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4 max-[640px]:grid-cols-1">
-              {[
-                ["Gross annual", results.grossAnnual],
-                ["Monthly", results.monthly],
-                ["Biweekly", results.biweekly],
-                ["Weekly", results.weekly],
-                ["Hourly", results.hourly],
-                ["Pre-tax deductions", results.preTaxDeduction],
-              ].map(([label, value]) => (
-                <div key={label} className="border border-[#f0ded4] bg-white p-5">
-                  <p className="text-sm font-bold text-[#6c5c54]">{label}</p>
-                  <p className="mt-2 text-2xl font-black text-[#101114]">{formatCurrency(value as number)}</p>
-                </div>
-              ))}
-            </div>
+              <div className="grid gap-5">
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">Annual base salary</span>
+                  <div className="flex items-center rounded-xl border border-slate-200 bg-[#fff7f2] px-4 focus-within:border-[#ff4c00]/50 focus-within:ring-2 focus-within:ring-[#ff4c00]/10">
+                    <DollarSign size={18} className="text-[#ff4c00]" aria-hidden="true" />
+                    <input
+                      type="number"
+                      min="0"
+                      value={salary}
+                      onChange={(event) => setSalary(Number(event.target.value))}
+                      className="min-h-12 w-full bg-transparent px-3 text-base font-semibold text-slate-900 outline-none"
+                    />
+                  </div>
+                </label>
 
-            <div className="border border-[#f0ded4] bg-white p-5">
-              <h2 className="text-xl font-black">Estimated taxes</h2>
-              <div className="mt-4 grid gap-3 text-sm font-bold text-[#4b403b]">
-                <div className="flex justify-between gap-4">
-                  <span>Federal income tax</span>
-                  <span>{formatCurrency(results.federalTax)}</span>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <span>Social Security and Medicare</span>
-                  <span>{formatCurrency(results.ficaTax)}</span>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <span>State income tax</span>
-                  <span>{formatCurrency(results.stateTaxAmount)}</span>
-                </div>
-                <div className="flex justify-between gap-4 border-t border-[#f0ded4] pt-3 text-[#101114]">
-                  <span>Effective tax rate</span>
-                  <span>{formatPercent(results.effectiveTaxRate)}</span>
-                </div>
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">Annual bonus or equity value</span>
+                  <div className="flex items-center rounded-xl border border-slate-200 bg-[#fff7f2] px-4 focus-within:border-[#ff4c00]/50 focus-within:ring-2 focus-within:ring-[#ff4c00]/10">
+                    <DollarSign size={18} className="text-[#ff4c00]" aria-hidden="true" />
+                    <input
+                      type="number"
+                      min="0"
+                      value={bonus}
+                      onChange={(event) => setBonus(Number(event.target.value))}
+                      className="min-h-12 w-full bg-transparent px-3 text-base font-semibold text-slate-900 outline-none"
+                    />
+                  </div>
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">Pre-tax deductions</span>
+                  <div className="flex items-center rounded-xl border border-slate-200 bg-[#fff7f2] px-4 focus-within:border-[#ff4c00]/50 focus-within:ring-2 focus-within:ring-[#ff4c00]/10">
+                    <Percent size={18} className="text-[#ff4c00]" aria-hidden="true" />
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      value={preTaxPercent}
+                      onChange={(event) => setPreTaxPercent(Number(event.target.value))}
+                      className="min-h-12 w-full bg-transparent px-3 text-base font-semibold text-slate-900 outline-none"
+                    />
+                  </div>
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">State tax estimate</span>
+                  <select
+                    value={stateTax}
+                    onChange={(event) => setStateTax(event.target.value as keyof typeof stateTaxRates)}
+                    className="min-h-12 w-full rounded-xl border border-slate-200 bg-[#fff7f2] px-4 text-base font-semibold text-slate-900 outline-none focus:border-[#ff4c00]/50 focus:ring-2 focus:ring-[#ff4c00]/10"
+                  >
+                    <option value="none">No state income tax</option>
+                    <option value="low">Low state tax, about 3%</option>
+                    <option value="medium">Medium state tax, about 5%</option>
+                    <option value="high">High state tax, about 8%</option>
+                  </select>
+                </label>
               </div>
             </div>
 
-            <div className="flex gap-3 border border-[#f0ded4] bg-[#fffdfb] p-4 text-sm font-medium leading-6 text-[#6b5b53]">
-              <Info size={18} className="mt-1 shrink-0 text-[#f55d1d]" aria-hidden="true" />
-              <p>
-                This calculator is for planning only. Actual payroll can change based on filing status, location, benefits, equity vesting, retirement contributions, and local taxes.
-              </p>
+            {/* Results */}
+            <div className="grid gap-4">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff6b33] p-6 sm:p-7 text-white shadow-lg">
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+                <div className="relative flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-white/80">
+                  <TrendingUp className="w-4 h-4" aria-hidden="true" />
+                  Estimated take-home
+                </div>
+                <div className="relative mt-3 text-4xl sm:text-5xl font-extrabold leading-none">
+                  {formatCurrency(results.takeHomeAnnual)}
+                </div>
+                <p className="relative mt-3 text-sm sm:text-base font-medium text-white/90">
+                  {formatCurrency(results.monthly)} per month after estimated deductions and taxes.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 max-[480px]:grid-cols-1">
+                {[
+                  ["Gross annual", results.grossAnnual],
+                  ["Monthly", results.monthly],
+                  ["Biweekly", results.biweekly],
+                  ["Weekly", results.weekly],
+                  ["Hourly", results.hourly],
+                  ["Pre-tax deductions", results.preTaxDeduction],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-xl border border-slate-200 bg-[#fff7f2] p-4 sm:p-5">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-500">{label}</p>
+                    <p className="mt-1.5 text-xl sm:text-2xl font-bold text-slate-900">{formatCurrency(value as number)}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm">
+                <h2 className="text-lg sm:text-xl font-bold text-slate-900">Estimated taxes</h2>
+                <div className="mt-4 grid gap-3 text-sm font-semibold text-slate-600">
+                  <div className="flex justify-between gap-4">
+                    <span>Federal income tax</span>
+                    <span className="text-slate-900">{formatCurrency(results.federalTax)}</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span>Social Security and Medicare</span>
+                    <span className="text-slate-900">{formatCurrency(results.ficaTax)}</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span>State income tax</span>
+                    <span className="text-slate-900">{formatCurrency(results.stateTaxAmount)}</span>
+                  </div>
+                  <div className="flex justify-between gap-4 border-t border-slate-100 pt-3 text-[#ff4c00]">
+                    <span>Effective tax rate</span>
+                    <span>{formatPercent(results.effectiveTaxRate)}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-3 rounded-xl border border-[#ff4c00]/20 bg-[#fff7f2] p-4 text-sm font-medium leading-6 text-slate-600">
+                <Info size={18} className="mt-0.5 shrink-0 text-[#ff4c00]" aria-hidden="true" />
+                <p>
+                  This calculator is for planning only. Actual payroll can change based on filing status, location, benefits, equity vesting, retirement contributions, and local taxes.
+                </p>
+              </div>
             </div>
-          </section>
+          </div>
         </div>
       </section>
     </main>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Calculator, Clock, DollarSign, Info, RotateCcw } from "lucide-react";
+import { Calculator, Clock, DollarSign, Info, RotateCcw, TrendingUp } from "lucide-react";
 
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat("en-US", {
@@ -42,129 +42,141 @@ export default function GrossPayCalculator() {
   };
 
   return (
-    <main className="min-h-screen bg-[#fff8f4] text-[#101114]">
-      <section className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-24 max-[768px]:px-4 max-[768px]:py-16">
-        <div className="max-w-3xl">
-          <div className="mb-5 inline-flex items-center gap-2 border border-[#f55d1d]/30 bg-white px-3 py-2 text-sm font-bold uppercase tracking-[0.08em] text-[#f55d1d]">
-            <Calculator size={18} aria-hidden="true" />
+    <main className="bg-white text-slate-900 min-h-screen">
+      {/* Hero */}
+      <section className="bg-[#fff3ec] py-14 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-[#ff4c00]/20 text-[#ff4c00] text-sm font-semibold shadow-sm">
+            <Calculator className="w-4 h-4" aria-hidden="true" />
             Gross Pay Calculator
           </div>
-          <h1 className="text-5xl font-black leading-[1.02] tracking-normal max-[768px]:text-4xl max-[480px]:text-3xl">
-            Calculate gross pay before taxes and deductions.
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-slate-900 mb-4">
+            Calculate gross pay before taxes and deductions
           </h1>
-          <p className="mt-5 max-w-2xl text-lg font-medium leading-7 text-[#5c504b] max-[480px]:text-base">
+          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
             Estimate weekly, biweekly, monthly, and annual gross pay from hourly rate, regular hours, overtime, and bonus.
           </p>
         </div>
+      </section>
 
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <section className="border border-[#f0ded4] bg-white p-6 shadow-[0_18px_60px_rgba(245,93,29,0.08)] max-[480px]:p-4">
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <h2 className="text-2xl font-black">Pay inputs</h2>
-              <button
-                type="button"
-                onClick={resetDefaults}
-                className="inline-flex h-10 w-10 items-center justify-center border border-[#ead8cf] bg-[#fff8f4] text-[#101114] transition hover:border-[#f55d1d]"
-                aria-label="Reset gross pay calculator"
-                title="Reset calculator"
-              >
-                <RotateCcw size={18} aria-hidden="true" />
-              </button>
-            </div>
-
-            <div className="grid gap-5">
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">Hourly rate</span>
-                <div className="flex items-center border border-[#ead8cf] bg-[#fffaf7] px-4">
-                  <DollarSign size={18} className="text-[#f55d1d]" aria-hidden="true" />
-                  <input
-                    type="number"
-                    min="0"
-                    value={hourlyRate}
-                    onChange={(event) => setHourlyRate(Number(event.target.value))}
-                    className="min-h-12 w-full bg-transparent px-3 text-base font-bold outline-none"
-                  />
-                </div>
-              </label>
-
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">Regular hours per week</span>
-                <div className="flex items-center border border-[#ead8cf] bg-[#fffaf7] px-4">
-                  <Clock size={18} className="text-[#f55d1d]" aria-hidden="true" />
-                  <input
-                    type="number"
-                    min="0"
-                    value={regularHours}
-                    onChange={(event) => setRegularHours(Number(event.target.value))}
-                    className="min-h-12 w-full bg-transparent px-3 text-base font-bold outline-none"
-                  />
-                </div>
-              </label>
-
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">Overtime hours per week</span>
-                <div className="flex items-center border border-[#ead8cf] bg-[#fffaf7] px-4">
-                  <Clock size={18} className="text-[#f55d1d]" aria-hidden="true" />
-                  <input
-                    type="number"
-                    min="0"
-                    value={overtimeHours}
-                    onChange={(event) => setOvertimeHours(Number(event.target.value))}
-                    className="min-h-12 w-full bg-transparent px-3 text-base font-bold outline-none"
-                  />
-                </div>
-              </label>
-
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#312925]">Annual bonus</span>
-                <div className="flex items-center border border-[#ead8cf] bg-[#fffaf7] px-4">
-                  <DollarSign size={18} className="text-[#f55d1d]" aria-hidden="true" />
-                  <input
-                    type="number"
-                    min="0"
-                    value={bonus}
-                    onChange={(event) => setBonus(Number(event.target.value))}
-                    className="min-h-12 w-full bg-transparent px-3 text-base font-bold outline-none"
-                  />
-                </div>
-              </label>
-            </div>
-          </section>
-
-          <section className="grid gap-4">
-            <div className="bg-[#101114] p-7 text-white max-[480px]:p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.08em] text-[#ffb18a]">Estimated annual gross pay</p>
-              <div className="mt-3 text-5xl font-black leading-none max-[480px]:text-4xl">
-                {formatCurrency(results.annualGross)}
+      {/* Calculator */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            {/* Inputs */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-7 h-fit">
+              <div className="mb-6 flex items-center justify-between gap-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Pay inputs</h2>
+                <button
+                  type="button"
+                  onClick={resetDefaults}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-[#fff7f2] text-slate-600 transition hover:border-[#ff4c00]/40 hover:text-[#ff4c00]"
+                  aria-label="Reset gross pay calculator"
+                  title="Reset calculator"
+                >
+                  <RotateCcw size={18} aria-hidden="true" />
+                </button>
               </div>
-              <p className="mt-3 text-base font-medium text-[#f6ddd1]">
-                {formatCurrency(results.weeklyGross)} weekly gross pay before taxes.
-              </p>
+
+              <div className="grid gap-5">
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">Hourly rate</span>
+                  <div className="flex items-center rounded-xl border border-slate-200 bg-[#fff7f2] px-4 focus-within:border-[#ff4c00]/50 focus-within:ring-2 focus-within:ring-[#ff4c00]/10">
+                    <DollarSign size={18} className="text-[#ff4c00]" aria-hidden="true" />
+                    <input
+                      type="number"
+                      min="0"
+                      value={hourlyRate}
+                      onChange={(event) => setHourlyRate(Number(event.target.value))}
+                      className="min-h-12 w-full bg-transparent px-3 text-base font-semibold text-slate-900 outline-none"
+                    />
+                  </div>
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">Regular hours per week</span>
+                  <div className="flex items-center rounded-xl border border-slate-200 bg-[#fff7f2] px-4 focus-within:border-[#ff4c00]/50 focus-within:ring-2 focus-within:ring-[#ff4c00]/10">
+                    <Clock size={18} className="text-[#ff4c00]" aria-hidden="true" />
+                    <input
+                      type="number"
+                      min="0"
+                      value={regularHours}
+                      onChange={(event) => setRegularHours(Number(event.target.value))}
+                      className="min-h-12 w-full bg-transparent px-3 text-base font-semibold text-slate-900 outline-none"
+                    />
+                  </div>
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">Overtime hours per week</span>
+                  <div className="flex items-center rounded-xl border border-slate-200 bg-[#fff7f2] px-4 focus-within:border-[#ff4c00]/50 focus-within:ring-2 focus-within:ring-[#ff4c00]/10">
+                    <Clock size={18} className="text-[#ff4c00]" aria-hidden="true" />
+                    <input
+                      type="number"
+                      min="0"
+                      value={overtimeHours}
+                      onChange={(event) => setOvertimeHours(Number(event.target.value))}
+                      className="min-h-12 w-full bg-transparent px-3 text-base font-semibold text-slate-900 outline-none"
+                    />
+                  </div>
+                </label>
+
+                <label className="grid gap-2">
+                  <span className="text-sm font-semibold text-slate-700">Annual bonus</span>
+                  <div className="flex items-center rounded-xl border border-slate-200 bg-[#fff7f2] px-4 focus-within:border-[#ff4c00]/50 focus-within:ring-2 focus-within:ring-[#ff4c00]/10">
+                    <DollarSign size={18} className="text-[#ff4c00]" aria-hidden="true" />
+                    <input
+                      type="number"
+                      min="0"
+                      value={bonus}
+                      onChange={(event) => setBonus(Number(event.target.value))}
+                      className="min-h-12 w-full bg-transparent px-3 text-base font-semibold text-slate-900 outline-none"
+                    />
+                  </div>
+                </label>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 max-[640px]:grid-cols-1">
-              {[
-                ["Weekly gross", results.weeklyGross],
-                ["Biweekly gross", results.biweeklyGross],
-                ["Monthly gross", results.monthlyGross],
-                ["Regular weekly pay", results.regularWeeklyPay],
-                ["Overtime weekly pay", results.overtimeWeeklyPay],
-                ["Annual bonus", results.annualBonus],
-              ].map(([label, value]) => (
-                <div key={label} className="border border-[#f0ded4] bg-white p-5">
-                  <p className="text-sm font-bold text-[#6c5c54]">{label}</p>
-                  <p className="mt-2 text-2xl font-black text-[#101114]">{formatCurrency(value as number)}</p>
+            {/* Results */}
+            <div className="grid gap-4">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#ff4c00] to-[#ff6b33] p-6 sm:p-7 text-white shadow-lg">
+                <div className="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+                <div className="relative flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-white/80">
+                  <TrendingUp className="w-4 h-4" aria-hidden="true" />
+                  Estimated annual gross pay
                 </div>
-              ))}
-            </div>
+                <div className="relative mt-3 text-4xl sm:text-5xl font-extrabold leading-none">
+                  {formatCurrency(results.annualGross)}
+                </div>
+                <p className="relative mt-3 text-sm sm:text-base font-medium text-white/90">
+                  {formatCurrency(results.weeklyGross)} weekly gross pay before taxes.
+                </p>
+              </div>
 
-            <div className="flex gap-3 border border-[#f0ded4] bg-[#fffdfb] p-4 text-sm font-medium leading-6 text-[#6b5b53]">
-              <Info size={18} className="mt-1 shrink-0 text-[#f55d1d]" aria-hidden="true" />
-              <p>
-                Gross pay is income before tax, benefits, retirement contributions, and other deductions. Use the after-tax tools for net income estimates.
-              </p>
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 max-[480px]:grid-cols-1">
+                {[
+                  ["Weekly gross", results.weeklyGross],
+                  ["Biweekly gross", results.biweeklyGross],
+                  ["Monthly gross", results.monthlyGross],
+                  ["Regular weekly pay", results.regularWeeklyPay],
+                  ["Overtime weekly pay", results.overtimeWeeklyPay],
+                  ["Annual bonus", results.annualBonus],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-xl border border-slate-200 bg-[#fff7f2] p-4 sm:p-5">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-500">{label}</p>
+                    <p className="mt-1.5 text-xl sm:text-2xl font-bold text-slate-900">{formatCurrency(value as number)}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex gap-3 rounded-xl border border-[#ff4c00]/20 bg-[#fff7f2] p-4 text-sm font-medium leading-6 text-slate-600">
+                <Info size={18} className="mt-0.5 shrink-0 text-[#ff4c00]" aria-hidden="true" />
+                <p>
+                  Gross pay is income before tax, benefits, retirement contributions, and other deductions. Use the after-tax tools for net income estimates.
+                </p>
+              </div>
             </div>
-          </section>
+          </div>
         </div>
       </section>
     </main>
