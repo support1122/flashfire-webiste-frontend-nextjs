@@ -19,22 +19,6 @@ export interface PricingPlan {
 
 export const usPricingPlans: PricingPlan[] = [
   {
-    title: "PRIME",
-    subTitle: "160 Applications",
-    description: "Your starter plan to begin applying",
-    price: "$99",
-    oldPrice: "$219",
-    features: [
-      { title:"No Time Constraint", description: "Until your applications are completed" },
-      { title:"We Find Jobs", description: "We find & apply to jobs for you" },
-      { title:"AI Custom Resumes", description: "Tailored resume for every application" },
-      { title:"Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
-    ],
-    addOn: true,
-    highlight: false,
-    paymentLink: "https://buy.stripe.com/eVq9AV0WY5iGciAegD3AY01",
-  },
-  {
     title: "IGNITE",
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
@@ -89,29 +73,12 @@ export const usPricingPlans: PricingPlan[] = [
 
 /** UK / EU checkout links, charged in GBP. */
 export const UK_STRIPE_LINKS = {
-  PRIME: "https://buy.stripe.com/eVq4gBbBCcL8ciAfkH3AY0L",
   IGNITE: "https://buy.stripe.com/dRm6oJ5dedPcdmEdcz3AY0P",
   PROFESSIONAL: "https://buy.stripe.com/6oUeVffRS26ueqI0pN3AY0X",
   EXECUTIVE: "https://buy.stripe.com/8x23cxfRS9yW6Yg0pN3AY12",
 } as const;
 
 export const ukPricingPlans: PricingPlan[] = [
-  {
-    title: "PRIME",
-    subTitle: "160 Applications",
-    description: "Your starter plan to begin applying",
-    price: "£79",
-    oldPrice: "£189",
-    features: [
-      { title:"No Time Constraint", description: "Until your applications are completed" },
-      { title:"We Find Jobs", description: "We find & apply to jobs for you" },
-      { title:"AI Custom CVs", description: "Tailored CV for every application" },
-      { title:"Expert CV Writing", description: "Our professional team reviews & builds your CV from scratch" },
-    ],
-    addOn: true,
-    highlight: false,
-    paymentLink: UK_STRIPE_LINKS.PRIME,
-  },
   {
     title: "IGNITE",
     subTitle: "250 Applications",
@@ -166,21 +133,6 @@ export const ukPricingPlans: PricingPlan[] = [
 ];
 
 export const canadaPricingPlans: PricingPlan[] = [
-  {
-    title: "PRIME",
-    subTitle: "160 Applications",
-    description: "Perfect starter plan for job seekers",
-    price: "CA$139",
-    oldPrice: "CA$199",
-    features: [
-      { title:"We Find Jobs", description: "We find & apply to jobs for you" },
-      { title:"AI Custom Resumes", description: "Tailored resume for every application" },
-      { title:"Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
-    ],
-    addOn: true,
-    highlight: false,
-    paymentLink: "https://buy.stripe.com/4gM4gBbBCcL85UcegD3AY0j",
-  },
   {
     title: "IGNITE",
     subTitle: "250 Applications",
