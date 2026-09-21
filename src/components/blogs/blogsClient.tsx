@@ -296,7 +296,7 @@ export default function BlogsClient({ categorySlug, tagSlug, heading }: BlogsCli
             : decodedCategory
             ? `Blogs in ${decodedCategory}`
             : heading || "Insights That Spark Career Growth."}
-        </h2>
+        </h1>
         <p>
           {decodedTag || decodedCategory ? (
             <>
