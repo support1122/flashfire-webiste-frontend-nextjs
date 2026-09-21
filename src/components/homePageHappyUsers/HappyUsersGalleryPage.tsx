@@ -141,9 +141,9 @@ export default function HappyUsersGalleryPage({
       {/* Image Testimonials Section */}
       <section className="bg-[#F55E1D] py-24 px-6">
         <div className="max-w-[1200px] mx-auto text-center">
-          <p className="mb-6 text-5xl  font-bold text-white" role="heading" aria-level={1}>
+          <h1 className="mb-6 text-5xl  font-bold text-white">
             {heading}
-          </p>
+          </h1>
           <p className="mb-6 text-base md:text-lg text-white">
             We've helped hundreds get there — and there's absolutely no reason you won't be next.
           </p>
