@@ -298,21 +298,9 @@ const nextConfig: NextConfig = {
         destination: "/en-us/how-flashfire-ai-job-automation-platform-works",
         permanent: true,
       },
-      // Catch-all: the UK/EU locale tree was renamed from /en-uk to /en-gb
-      // (GB is the correct ISO 3166-1 code — there is no "UK" country code).
-      // This preserves every indexed /en-uk/* URL and external backlink.
-      // Must stay AFTER the specific /en-uk/* rules above so those resolve
-      // in one hop instead of landing on a since-renamed sub-path.
-      {
-        source: "/en-uk",
-        destination: "/en-gb",
-        permanent: true,
-      },
-      {
-        source: "/en-uk/:path*",
-        destination: "/en-gb/:path*",
-        permanent: true,
-      },
+      // NOTE: /en-uk redirects removed — /en-uk is a live indexed page with
+      // its own canonical (flashfirejobs.com/en-uk). Redirecting it to /en-gb
+      // caused Google to index /en-gb for UK traffic, blocking all UK organic.
     ];
   },
 };
