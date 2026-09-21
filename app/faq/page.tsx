@@ -146,6 +146,32 @@ export default function FAQPage() {
         >
           Frequently Asked Questions
         </h1>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "1.05rem",
+            lineHeight: 1.75,
+            color: "#555",
+            maxWidth: "720px",
+            margin: "0 auto 0.75rem",
+            padding: "0 1rem",
+          }}
+        >
+          Flashfire is an AI-powered job application service that applies to jobs on your behalf — with tailored resumes and real human oversight on every application. We help job seekers in the US, Canada, and the UK land more interview calls without spending hours on manual applications.
+        </p>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "1.05rem",
+            lineHeight: 1.75,
+            color: "#555",
+            maxWidth: "720px",
+            margin: "0 auto 1.5rem",
+            padding: "0 1rem",
+          }}
+        >
+          Have questions about how the platform works, what&rsquo;s included in each plan, or how we handle your job applications? You&rsquo;ll find answers to the most common questions below. If you don&rsquo;t see your question answered here, reach out to our team directly via WhatsApp or email.
+        </p>
         <HomePageFAQ />
       </main>
       <Footer />

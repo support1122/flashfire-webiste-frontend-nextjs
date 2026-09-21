@@ -84,6 +84,7 @@ export default function TestimonialsPage() {
       />
       <TestimonialImagePreloader />
       <Navbar />
+      <h1 className="sr-only">Success Stories &amp; Testimonials — Flashfire</h1>
       <HappyUsersGalleryPage heading="All Happy User&rsquo;s Testimonials" />
       <Footer />
     </>
