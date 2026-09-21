@@ -6,7 +6,7 @@ import Navbar from "@/src/components/navbar/navbar";
 export const metadata: Metadata = {
   title: "About Flashfire — AI Job Search Automation Platform",
   description:
-    "Flashfire is an AI job application service that automates job applications, optimizes resumes, and helps job seekers land interviews faster in the US & Canada.",
+    "Flashfire automates job applications with AI, optimizes resumes, and helps job seekers in the US and Canada land more interview calls faster.",
   robots: {
     index: true,
     follow: true,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Flashfire — AI Job Search Automation Platform",
     description:
-      "Flashfire is an AI job application service that automates job applications, optimizes resumes, and helps job seekers land interviews faster in the US & Canada.",
+      "Flashfire automates job applications with AI, optimizes resumes, and helps job seekers in the US and Canada land more interview calls faster.",
     url: "https://www.flashfirejobs.com/about-us",
     type: "website",
     images: [

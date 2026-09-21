@@ -54,6 +54,9 @@ export default function BlogPageCA() {
           fontFamily: "inherit",
         }}
       >
+        <h1 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "1rem", color: "#111" }}>
+          Career Tips &amp; Job Advice for Canadian Job Seekers
+        </h1>
         <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "#444", marginBottom: "1rem" }}>
           Whether you&rsquo;re a new graduate, a skilled worker, or an international student looking to build your career in Canada, the job market can feel overwhelming. Thousands of roles are posted every day across Toronto, Vancouver, Calgary, and beyond — but knowing how to stand out is the real challenge.
         </p>
