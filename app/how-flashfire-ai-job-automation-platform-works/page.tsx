@@ -24,6 +24,14 @@ export const metadata: Metadata = {
       "Automate your job search with FlashFire. Optimize your resume, apply to relevant jobs, track applications, and land more interview calls faster.",
     url: "https://www.flashfirejobs.com/how-flashfire-ai-job-automation-platform-works",
     type: "website",
+    images: [
+      {
+        url: "https://www.flashfirejobs.com/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "FLASHFIRE Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
