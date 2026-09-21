@@ -46,6 +46,24 @@ export default function BlogPageCA() {
   return (
     <>
       <Navbar />
+      <section
+        style={{
+          maxWidth: "800px",
+          margin: "6rem auto 0",
+          padding: "2rem 1.5rem 0",
+          fontFamily: "inherit",
+        }}
+      >
+        <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "#444", marginBottom: "1rem" }}>
+          Whether you&rsquo;re a new graduate, a skilled worker, or an international student looking to build your career in Canada, the job market can feel overwhelming. Thousands of roles are posted every day across Toronto, Vancouver, Calgary, and beyond — but knowing how to stand out is the real challenge.
+        </p>
+        <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "#444", marginBottom: "1rem" }}>
+          Our Canadian career blog covers everything you need: from writing ATS-optimised resumes tailored to Canadian employers, to understanding how work permits and PGWP timelines affect your job search strategy. We publish practical, actionable guides written for the Canadian market — not generic advice recycled from US-focused career sites.
+        </p>
+        <p style={{ fontSize: "1.05rem", lineHeight: 1.75, color: "#444", marginBottom: "2rem" }}>
+          Explore our latest articles below. Topics include resume writing for Canadian job applications, LinkedIn optimisation, networking in Canadian cities, interview preparation, and how AI-powered tools like Flashfire can automate your job applications so you can focus on what matters most.
+        </p>
+      </section>
       <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
         <BlogsClient heading="Career Tips & Job Advice for Canadian Job Seekers" />
       </Suspense>
