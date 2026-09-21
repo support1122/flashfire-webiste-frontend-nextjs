@@ -88,7 +88,14 @@ function getBlogsWithTags(): BlogPostWithOptionalMeta[] {
     if (!blog.image && (blog as unknown as Record<string, unknown>).coverImage) {
       blog = { ...blog, image: (blog as unknown as Record<string, unknown>).coverImage as string };
     }
-    const existingTags = blog.tags && blog.tags.length > 0 ? blog.tags : [];
+    // Support both `category` (old, string) and `categories` (new, string[]) field names
+    const categoriesArray = (blog as unknown as Record<string, unknown>).categories as string[] | undefined;
+    if (!blog.category) {
+      blog = { ...blog, category: categoriesArray && categoriesArray.length > 0 ? categoriesArray[0] : "Career Advice" };
+    }
+    const existingTags = blog.tags && blog.tags.length > 0
+      ? blog.tags
+      : (categoriesArray && categoriesArray.length > 0 ? categoriesArray : []);
     
     // Always include the blog's category as a tag for filtering
     const categoryTag = blog.category ? [blog.category] : [];
@@ -198,7 +205,7 @@ export default function BlogsClient({ categorySlug, tagSlug, heading }: BlogsCli
 
     if (normalizedCategory) {
       base = base.filter((blog) =>
-        blog.category.toLowerCase() === normalizedCategory // Exact match
+        (blog.category || "").toLowerCase() === normalizedCategory // Exact match
       );
     } else if (normalizedTag) {
       base = base.filter((blog) => {
@@ -217,9 +224,9 @@ export default function BlogsClient({ categorySlug, tagSlug, heading }: BlogsCli
       const searchWords = normalizedSearch.split(/\s+/).filter(word => word.length > 0);
       
       base = base.filter((blog) => {
-        const blogTitle = blog.title.toLowerCase();
+        const blogTitle = (blog.title || "").toLowerCase();
         const blogExcerpt = (blog.excerpt || "").toLowerCase();
-        const blogCategory = blog.category.toLowerCase();
+        const blogCategory = (blog.category || "").toLowerCase();
         const blogTags = (blog.tags || []).map(tag => tag ? tag.toLowerCase() : "").filter(tag => tag.length > 0);
         
         // Check if any search word matches in any of the fields
