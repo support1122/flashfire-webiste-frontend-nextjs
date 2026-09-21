@@ -64,7 +64,6 @@ export default function BlogPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Navbar />
-      <h1 className="sr-only">Career &amp; Job Search Tips — Flashfire Blog</h1>
       <Suspense fallback={<div style={{ padding: "6rem 2rem", textAlign: "center" }}>Loading blogs...</div>}>
         <BlogsClient />
       </Suspense>

@@ -290,7 +290,7 @@ export default function BlogsClient({ categorySlug, tagSlug, heading }: BlogsCli
   return (
     <section className={styles.blogsSection}>
       <header className={styles.header}>
-        <h2>
+        <h1>
           {decodedTag
             ? `Blogs tagged: ${decodedTag}`
             : decodedCategory
