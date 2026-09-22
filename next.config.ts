@@ -293,6 +293,16 @@ const nextConfig: NextConfig = {
         destination: "/en-gb/how-flashfire-ai-job-automation-platform-works",
         permanent: true,
       },
+      // /en-uk has no locale-aware pricing of its own (getLocale() only
+      // recognizes /en-gb), so it was silently falling back to US pricing in
+      // dollars. Redirect just this sub-path to /en-gb/pricing for correct
+      // GBP pricing, same pattern as the other /en-uk/* sub-path redirects
+      // above — the bare /en-uk page itself stays put per the SEO note below.
+      {
+        source: "/en-uk/pricing",
+        destination: "/en-gb/pricing",
+        permanent: true,
+      },
       {
         source: "/en-us/how-it-works",
         destination: "/en-us/how-flashfire-ai-job-automation-platform-works",

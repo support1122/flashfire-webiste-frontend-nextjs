@@ -306,7 +306,7 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
 
             <div>
               <label className="block text-left text-sm font-medium text-gray-700 mb-2">
-                Are you authorized to work in USA?
+                Are you authorized to work in the USA, UK, or Canada?
               </label>
               <select
                 name="workAuthorization"

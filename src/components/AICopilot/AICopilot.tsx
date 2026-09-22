@@ -121,7 +121,7 @@ export default function AICopilot() {
                   </div>
                   <div className="flex items-center gap-2 text-gray-700">
                     <MapPin size={16} />
-                    <span>USA</span>
+                    <span>USA, UK & Canada</span>
                   </div>
                 </div>
 
