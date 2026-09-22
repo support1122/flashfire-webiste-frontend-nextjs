@@ -400,7 +400,7 @@ export default function AboutUs() {
                   Flashfire is an AI job search platform designed to solve modern hiring challenges by automating job applications and improving candidate visibility across ATS-driven hiring systems.
                 </p>
                 <p>
-                  Flashfire began in April 2024 with a simple insight: most candidates lose opportunities before they&apos;re even seen. Built to match the speed and precision of modern hiring, Flashfire helps candidates apply at scale across U.S. and Canadian job markets with ATS-optimized applications.
+                  Flashfire began in April 2024 with a simple insight: most candidates lose opportunities before they&apos;re even seen. Built to match the speed and precision of modern hiring, Flashfire helps candidates apply at scale across US, UK, and Canadian job markets with ATS-optimized applications.
                 </p>
               </div>
             </div>
@@ -422,7 +422,7 @@ export default function AboutUs() {
               { date: "July-Aug 2024", label: "Early Validation", desc: "Flashfire onboarded early users and validated its system by helping candidates apply to 400-1,200+ relevant job opportunities, significantly reducing manual effort and application fatigue." },
               { date: "Sept-Dec 2024", label: "Helping 500+ Candidates", desc: "By the end of 2024, Flashfire had helped over 500+ candidates streamline their job search, refine their application strategy, and apply to roles more efficiently." },
               { date: "Jan-Feb 2025", label: "USA & Canada Expansion", desc: "Flashfire expanded its services across the United States and Canada, operating with timezone-agnostic execution aligned with North American hiring cycles and ATS systems." },
-              { date: "Mar 2025-Present", label: "Scaling with focus", desc: "Today, Flashfire continues to support candidates globally, with a strong focus on US and Canadian job applications, optimizing continuously for interview outcomes rather than vanity application counts." }
+              { date: "Mar 2025-Present", label: "Scaling with focus", desc: "Today, Flashfire continues to support candidates globally, with a strong focus on US, UK, and Canadian job applications, optimizing continuously for interview outcomes rather than vanity application counts." }
             ].map((item, idx) => (
               <div key={idx} className="relative pb-10 last:pb-0">
                 <span className="absolute -left-[41px] top-1 h-4 w-4 rounded-full border-4 border-white bg-[#ff4c00]" />
@@ -459,7 +459,7 @@ export default function AboutUs() {
               },
               {
                 question: "Is Flashfire an AI job search platform for US jobs?",
-                answer: "Yes. Flashfire is an AI job search platform focused on automating job applications for the US and Canadian job markets with ATS-optimized workflows."
+                answer: "Yes, and more. Flashfire is an AI job search platform focused on automating job applications for the US, UK, and Canadian job markets with ATS-optimized workflows."
               }
             ].map((faq, index) => {
               const isOpen = activeFaqIndex === index;
