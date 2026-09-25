@@ -45,7 +45,7 @@ const steps = [
     tag: "Apply",
     heading: "We Apply to the Right Jobs for You",
     description:
-      "Your applications are customized, targeted, and submitted automatically using optimized resumes and tailored responses.",
+      "Your applications are customized, targeted, and submitted automatically using optimized resumes and tailored responses. We also email recruiters and hiring managers on your behalf to follow up on your applications.",
     icon: MapPin,
   },
   {

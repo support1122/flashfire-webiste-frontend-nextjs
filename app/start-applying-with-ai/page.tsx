@@ -102,7 +102,7 @@ export default function AICopilot() {
 
               <p className="mt-6 text-lg text-gray-600 leading-relaxed">
                 FlashFire uses AI to find relevant jobs, tailor your resume,
-                and apply daily on your behalf — without spam or shortcuts.
+                and apply daily on your behalf — without spam or shortcuts. We also send follow-up emails to recruiters on your behalf, so your application doesn&apos;t sit unread.
               </p>
 
               <div className="mt-10 flex items-center gap-6">

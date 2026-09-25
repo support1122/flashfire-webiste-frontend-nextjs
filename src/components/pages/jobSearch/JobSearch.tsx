@@ -229,7 +229,7 @@ export default function JobSearch() {
             </h1>
 
             <p className="mt-5 max-w-lg font-['Satoshi',sans-serif] text-[16px] font-medium leading-[1.6] text-[#3a3a3a]">
-              Flashfire applies to relevant jobs on your behalf so you don&apos;t have to search manually.
+              Flashfire applies to relevant jobs on your behalf so you don&apos;t have to search manually. We also send follow-up emails to recruiters on your behalf, so your application doesn&apos;t sit unread.
             </p>
 
             <ul className="mt-7 space-y-3">

@@ -449,7 +449,7 @@ export default function JobApplicationAutomationPage() {
                 FlashFire automates your job search by finding relevant jobs,
                 optimizing applications for ATS, and submitting high-quality
                 applications faster, helping you apply earlier, save time, and
-                increase your chances of getting interview calls.
+                increase your chances of getting interview calls. We also send follow-up emails to recruiters on your behalf, so your application doesn&apos;t sit unread.
               </p>
               <button
                 {...getButtonProps()}

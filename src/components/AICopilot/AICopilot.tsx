@@ -184,7 +184,7 @@ export default function AICopilot() {
               <p className="mt-6 text-lg text-gray-600 leading-relaxed">
                 AI job application automation uses intelligent software to search,
                 customize, and submit job applications on your behalf — every day —
-                without manual effort.
+                without manual effort. We also send follow-up emails to recruiters on your behalf, so your application doesn&apos;t sit unread.
               </p>
               <p className="mt-6 text-base text-gray-600 leading-relaxed">
                 Unlike manual applications, AI automation scales your reach without
