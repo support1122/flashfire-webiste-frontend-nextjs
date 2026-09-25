@@ -70,6 +70,11 @@ export default function PrivacyPolicy() {
               </li>
               <li>To submit job applications on your behalf</li>
               <li>
+                To send emails on your behalf to employers, recruiters and
+                hiring managers about the jobs we apply to for you, including
+                application follow-ups
+              </li>
+              <li>
                 To communicate with you about interview opportunities and
                 updates
               </li>
@@ -102,6 +107,10 @@ export default function PrivacyPolicy() {
                 part of our service)
               </li>
               <li>
+                With recruiters and hiring managers when we email them on your
+                behalf about your applications
+              </li>
+              <li>
                 With service providers who assist us in operating our platform
               </li>
               <li>When required by law or to protect our legal rights</li>
@@ -117,6 +126,19 @@ export default function PrivacyPolicy() {
               content. You can control cookie settings through your browser
               preferences, though some features may not function properly if
               cookies are disabled.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Emails Sent on Your Behalf
+            </h2>
+            <p className="text-gray-700 mb-6">
+              As part of our service, Flashfire sends emails to employers,
+              recruiters and hiring managers on your behalf. These emails
+              include your name, contact details, resume and relevant parts of
+              your profile. We send them only for roles that match the job
+              preferences you gave us. You can ask us to stop sending emails on
+              your behalf at any time by contacting{" "}
+              <strong>support@flashfirejobs.com</strong>.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">

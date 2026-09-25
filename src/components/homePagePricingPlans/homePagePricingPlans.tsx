@@ -396,7 +396,7 @@ export default function HomePagePricingPlans() {
         </p>
       </div>
 
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14 mb-[91px] items-stretch max-w-[1200px] mx-auto">
+      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14 mb-6 items-stretch max-w-[1200px] mx-auto">
         {pricingPlans.map((plan, index) => (
             <PricingCard
             key={index}
@@ -422,6 +422,9 @@ export default function HomePagePricingPlans() {
           />
         ))}
       </div>
+      <p className="text-center text-sm text-gray-500 mb-[91px] max-w-[1200px] mx-auto">
+        All plans include applications and recruiter emails sent on your behalf.
+      </p>
 
       {/* === Options Sections - Below Cards === */}
       {((selectedPlanForBooster !== null && selectedBoosterPlanIndex !== null && boosterOptions.length > 0) ||

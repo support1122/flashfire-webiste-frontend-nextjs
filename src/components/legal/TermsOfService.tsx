@@ -150,7 +150,52 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              6. Service Limitations
+              6. Inactivity Policy
+            </h2>
+            <p className="text-gray-700 mb-4">
+              If your Flashfire service account remains inactive for more than{" "}
+              <strong>14 consecutive days</strong>, your profile will be
+              restricted from accessing upgrade options and add-on purchases
+              until activity is resumed.
+            </p>
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-4">
+              <h3 className="font-semibold text-gray-900 mb-2">
+                Upgrade & Add-On Restriction:
+              </h3>
+              <p className="text-gray-700">
+                Profiles that have been inactive for more than 14 days will not
+                be eligible to purchase upgrades or add-ons until the account
+                is reactivated. This helps ensure fair access to our services
+                and prevents misuse of limited capacity.
+              </p>
+            </div>
+            <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+              <li>
+                Inactivity is defined as no logins, profile interactions, or
+                service usage for 14 or more consecutive calendar days.
+              </li>
+              <li>
+                Upgrade and add-on options will be restored once you resume
+                active use of the platform.
+              </li>
+              <li>
+                Your existing plan and remaining credits are not affected by
+                this restriction; only new purchases of upgrades and add-ons
+                are paused.
+              </li>
+              <li>
+                The 14-day inactivity period does not pause or extend your
+                6-month application validity window.
+              </li>
+            </ul>
+            <p className="text-gray-700 mb-6">
+              If you believe your account has been incorrectly flagged as
+              inactive, please contact us at{" "}
+              <strong>support@flashfirejobs.com</strong>.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              7. Service Limitations
             </h2>
             <p className="text-gray-700 mb-6">
               Flashfire does not guarantee job offers, interview calls, hiring
@@ -168,7 +213,7 @@ export default function TermsOfService() {
             </div>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              7. User Responsibilities
+              8. User Responsibilities
             </h2>
             <p className="text-gray-700 mb-4">
               By using Flashfire, you agree to:
@@ -187,7 +232,21 @@ export default function TermsOfService() {
             </ul>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              8. Intellectual Property
+              9. Authorization to Email on Your Behalf
+            </h2>
+            <p className="text-gray-700 mb-6">
+              By using Flashfire, you authorize us to submit job applications
+              and send emails on your behalf to employers, recruiters and hiring
+              managers. These emails are about roles that match your stated
+              preferences and use the information you provided. You are
+              responsible for making sure that information is accurate. You can
+              withdraw this authorization at any time by contacting{" "}
+              <strong>support@flashfirejobs.com</strong>, and we will stop
+              sending new emails for you.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              10. Intellectual Property
             </h2>
             <p className="text-gray-700 mb-6">
               All Flashfire branding, content, graphics, designs, and platform
@@ -197,7 +256,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              9. Termination
+              11. Termination
             </h2>
             <p className="text-gray-700 mb-6">
               We reserve the right to suspend, restrict, or terminate your
@@ -207,7 +266,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              10. Limitation of Liability
+              12. Limitation of Liability
             </h2>
             <p className="text-gray-700 mb-6">
               To the maximum extent permitted by law, Flashfire and its
@@ -218,7 +277,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              11. Privacy Policy
+              13. Privacy Policy
             </h2>
             <p className="text-gray-700 mb-4">
               Flashfire respects your privacy. By using the Service, you agree
@@ -241,6 +300,10 @@ export default function TermsOfService() {
             <ul className="list-disc list-inside text-gray-700 mb-4 space-y-1">
               <li>To personalize job recommendations</li>
               <li>To optimize resumes and applications</li>
+              <li>
+                To send application and follow-up emails to employers and
+                recruiters on your behalf
+              </li>
               <li>
                 To contact you about updates, interview calls, or new features
               </li>
@@ -282,7 +345,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              12. Changes to These Terms
+              14. Changes to These Terms
             </h2>
             <p className="text-gray-700 mb-6">
               We may update these Terms and our Privacy Policy periodically. All
@@ -291,7 +354,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              13. Governing Law
+              15. Governing Law
             </h2>
             <p className="text-gray-700 mb-6">
               These Terms are governed by and interpreted in accordance with the
@@ -300,7 +363,7 @@ export default function TermsOfService() {
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              14. Contact Us
+              16. Contact Us
             </h2>
             <p className="text-gray-700 mb-4">
               If you have questions about these Terms or our Privacy Policy,

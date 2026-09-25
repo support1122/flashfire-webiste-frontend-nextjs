@@ -39,4 +39,8 @@ export const questionsData = [
     question: "Why do job seekers choose Flashfire?",
     answer: "A dedicated job search team, strategic (not random) applications, resume and LinkedIn experts, real-time WhatsApp guidance, and AI working quietly behind the scenes — all combined to get you more interviews, faster.",
   },
+  {
+    question: "Does Flashfire send emails on my behalf?",
+    answer: "Yes. Along with submitting applications, our team emails recruiters and hiring managers on your behalf about the roles we apply to for you, including follow-ups. Every email is about a job that matches your preferences. You can ask us to pause or stop it at any time.",
+  },
 ];

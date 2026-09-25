@@ -330,7 +330,7 @@ export default function JobApplicationAutomationPage() {
               </h2>
               <p className="mt-4 text-lg text-[#6b7280] max-w-3xl mx-auto">
                 While others manually apply and wait, your AI scans, applies,
-                and optimizes continuously — without burnout.
+                and optimizes continuously — without burnout. We also send follow-up emails to recruiters on your behalf, so your application doesn&apos;t sit unread.
               </p>
             </div>
 
