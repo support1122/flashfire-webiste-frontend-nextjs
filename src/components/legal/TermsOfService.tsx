@@ -187,6 +187,11 @@ export default function TermsOfService() {
                 The 14-day inactivity period does not pause or extend your
                 6-month application validity window.
               </li>
+              <li>
+                Referral applications are also not available during the 14-day
+                inactivity period and will be restored once active use of the
+                platform is resumed.
+              </li>
             </ul>
             <p className="text-gray-700 mb-6">
               If you believe your account has been incorrectly flagged as
