@@ -186,14 +186,63 @@ export const canadaPricingPlans: PricingPlan[] = [
   },
 ];
 
-/**
- * Australia is billed in USD through the US Stripe links until AUD prices and
- * checkouts exist. Prices carry an explicit "US$" so an Australian visitor
- * never reads a bare "$" as AUD.
- * TODO(payments): replace with AUD plans once AUD Stripe links are created.
- */
-export const australiaPricingPlans: PricingPlan[] = usPricingPlans.map((plan) => ({
-  ...plan,
-  price: plan.price.replace(/^\$/, "US$"),
-  oldPrice: plan.oldPrice?.replace(/^\$/, "US$"),
-}));
+/** Australia checkout links, charged in AUD. */
+export const AU_STRIPE_LINKS = {
+  IGNITE: "https://buy.stripe.com/14AfZj49a3aygyQdcz3AY1d",
+  PROFESSIONAL: "https://buy.stripe.com/eVqdRb8pq8uS0zSgoL3AY1e",
+  EXECUTIVE: "https://buy.stripe.com/5kQdRbfRS5iG3M42xV3AY1f",
+} as const;
+
+export const australiaPricingPlans: PricingPlan[] = [
+  {
+    title: "IGNITE",
+    subTitle: "250 Applications",
+    description: "For senior professionals & executives",
+    price: "A$299",
+    oldPrice: "A$399",
+    features: [
+      { title:"No Time Constraint", description: "Until your applications are completed" },
+      { title:"We Find Jobs", description: "We find & apply to jobs for you" },
+      { title:"AI Custom Resumes", description: "Tailored resume for every application" },
+      { title:"Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
+    ],
+    addOn: true,
+    highlight: false,
+    paymentLink: AU_STRIPE_LINKS.IGNITE,
+  },
+  {
+    title: "PROFESSIONAL",
+    tag: "BEST VALUE",
+    subTitle: "500 Applications",
+    description: "Best for mid-level professionals",
+    price: "A$549",
+    oldPrice: "A$699",
+    inheritsFrom: "IGNITE",
+    features: [
+      { title:"No Time Constraint", description: "Until your applications are completed" },
+      { title:"We Find Jobs", description: "We find & apply to jobs for you" },
+      { title:"LinkedIn Makeover", description: "Let recruiters come to you" },
+      { title:"Interview Prep Material", description: "Resources to help you ace interviews" },
+    ],
+    addOn: true,
+    highlight: false,
+    paymentLink: AU_STRIPE_LINKS.PROFESSIONAL,
+  },
+  {
+    title: "EXECUTIVE",
+    tag: "MOST POPULAR",
+    subTitle: "1200 Applications",
+    description: "For new grads & early professionals",
+    price: "A$899",
+    oldPrice: "A$1,099",
+    inheritsFrom: "PROFESSIONAL",
+    features: [
+      { title:"1 Cover Letter", description: "1 cover letter used for all applications" },
+      { title:"Emailing Recruiters", description: "We personally reach out to recruiters for you" },
+      { title:"Portfolio Website", description: "We build a personal site to showcase your projects, skills & achievements" },
+    ],
+    addOn: true,
+    highlight: true,
+    paymentLink: AU_STRIPE_LINKS.EXECUTIVE,
+  },
+];

@@ -60,7 +60,7 @@ export default function PricingPageAU() {
         "@type": "Offer",
         "name": "PRIME",
         "price": "99",
-        "priceCurrency": "USD",
+        "priceCurrency": "AUD",
         "url": "https://www.flashfirejobs.com/en-au/pricing",
         "availability": "https://schema.org/InStock",
         "category": "OneTime"
@@ -68,8 +68,8 @@ export default function PricingPageAU() {
       {
         "@type": "Offer",
         "name": "IGNITE",
-        "price": "199",
-        "priceCurrency": "USD",
+        "price": "299",
+        "priceCurrency": "AUD",
         "url": "https://www.flashfirejobs.com/en-au/pricing",
         "availability": "https://schema.org/InStock",
         "category": "OneTime"
@@ -77,8 +77,8 @@ export default function PricingPageAU() {
       {
         "@type": "Offer",
         "name": "PROFESSIONAL",
-        "price": "349",
-        "priceCurrency": "USD",
+        "price": "549",
+        "priceCurrency": "AUD",
         "url": "https://www.flashfirejobs.com/en-au/pricing",
         "availability": "https://schema.org/InStock",
         "category": "OneTime"
@@ -86,8 +86,8 @@ export default function PricingPageAU() {
       {
         "@type": "Offer",
         "name": "EXECUTIVE",
-        "price": "599",
-        "priceCurrency": "USD",
+        "price": "899",
+        "priceCurrency": "AUD",
         "url": "https://www.flashfirejobs.com/en-au/pricing",
         "availability": "https://schema.org/InStock",
         "category": "OneTime"
