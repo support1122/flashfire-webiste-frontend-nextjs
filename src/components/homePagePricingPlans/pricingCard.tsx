@@ -110,6 +110,7 @@ export default function PricingCard({
   const currencySymbol = useMemo(() => {
     if (price.includes("CA$")) return "CA$";
     if (price.includes("US$")) return "US$";
+    if (price.includes("A$")) return "A$";
     if (price.includes("£")) return "£";
     if (price.includes("€")) return "€";
     if (price.includes("$")) return "$";
