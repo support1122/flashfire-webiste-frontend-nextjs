@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/features/linkedin-profile-optimization-tool",
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/linkedin-profile-optimization-tool",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/linkedin-profile-optimization-tool",
+      "en-AU": "https://www.flashfirejobs.com/en-au/features/linkedin-profile-optimization-tool",
       "x-default": "https://www.flashfirejobs.com/features/linkedin-profile-optimization-tool",
     },
   },

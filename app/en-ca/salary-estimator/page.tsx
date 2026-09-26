@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/salary-estimator",
       "en-CA": "https://www.flashfirejobs.com/en-ca/salary-estimator",
       "en-GB": "https://www.flashfirejobs.com/en-gb/salary-estimator",
+      "en-AU": "https://www.flashfirejobs.com/en-au/salary-estimator",
       "x-default": "https://www.flashfirejobs.com/salary-estimator",
     },
   },

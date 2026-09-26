@@ -1,0 +1,44 @@
+import { Metadata } from "next";
+import Navbar from "@/src/components/navbar/navbar";
+import Footer from "@/src/components/footer/footer";
+import JobSearch from "@/src/components/pages/jobSearch/JobSearch";
+
+export const metadata: Metadata = {
+  title: "Job Search: Faster Human-Powered Automation",
+  description:
+    "Flashfire applies to relevant jobs on your behalf so you don't have to search manually. Get updates without lifting a finger.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/en-au/job-search",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/job-search",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/job-search",
+      "en-GB": "https://www.flashfirejobs.com/en-gb/job-search",
+      "en-AU": "https://www.flashfirejobs.com/en-au/job-search",
+      "x-default": "https://www.flashfirejobs.com/job-search",
+    },
+  },
+  openGraph: {
+    title: "Job Search: Faster Human-Powered Automation",
+    description:
+      "Flashfire applies to relevant jobs on your behalf so you don't have to search manually.",
+    url: "https://www.flashfirejobs.com/en-au/job-search",
+    type: "website",
+  },
+};
+
+export default function JobSearchPageAU() {
+  return (
+    <div className="bg-white text-black min-h-screen">
+      <Navbar />
+      <main className="mt-0">
+        <JobSearch />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+

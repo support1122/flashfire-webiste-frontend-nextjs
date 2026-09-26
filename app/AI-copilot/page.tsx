@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/AI-copilot",
       "en-CA": "https://www.flashfirejobs.com/en-ca/AI-copilot",
       "en-GB": "https://www.flashfirejobs.com/en-gb/AI-copilot",
+      "en-AU": "https://www.flashfirejobs.com/en-au/AI-copilot",
       "x-default": "https://www.flashfirejobs.com/AI-copilot",
     },
   },

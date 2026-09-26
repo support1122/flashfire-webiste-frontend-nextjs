@@ -2,7 +2,7 @@ import {Metadata} from "next";
 import AICopilot from "@/src/components/AICopilot/AICopilot";
 import Footer from "@/src/components/footer/footer";
 import Navbar from "@/src/components/navbar/navbar";
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "AI Copilot: Personalized Interview Tips | Flashfire",
   description:
     "Get personalized interview tips based on your skills, experience, and career goals. Our interview buddy is here to help you land your dream job.",
@@ -16,6 +16,7 @@ const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/AI-copilot",
       "en-CA": "https://www.flashfirejobs.com/en-ca/AI-copilot",
       "en-GB": "https://www.flashfirejobs.com/en-gb/AI-copilot",
+      "en-AU": "https://www.flashfirejobs.com/en-au/AI-copilot",
       "x-default": "https://www.flashfirejobs.com/AI-copilot",
     },
   },

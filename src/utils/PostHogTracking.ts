@@ -47,6 +47,7 @@ export interface PostHogEventProperties {
   country_name?: string;
   is_canada?: boolean;
   is_uk?: boolean;
+  is_australia?: boolean;
   locale?: string;
 
   // Business context
@@ -138,7 +139,8 @@ const getCountryContext = (): Partial<PostHogEventProperties> => {
   const locale = getLocale(location.pathname);
   const isCanada = locale === "ca";
   const isUK = locale === "uk";
-  const fallbackCode = isCanada ? "CA" : isUK ? "GB" : "US";
+  const isAustralia = locale === "au";
+  const fallbackCode = isCanada ? "CA" : isUK ? "GB" : isAustralia ? "AU" : "US";
   const countryCode = localStorage.getItem("ff_country_code_v1") || fallbackCode;
 
   // Map country codes to names
@@ -147,6 +149,7 @@ const getCountryContext = (): Partial<PostHogEventProperties> => {
     US: "United States",
     IN: "India",
     GB: "United Kingdom",
+    AU: "Australia",
   };
 
   return {
@@ -154,7 +157,8 @@ const getCountryContext = (): Partial<PostHogEventProperties> => {
     country_name: countryNames[countryCode] || countryCode,
     is_canada: isCanada,
     is_uk: isUK,
-    locale: isUK ? "en-gb" : isCanada ? "en-ca" : "en-us",
+    is_australia: isAustralia,
+    locale: isUK ? "en-gb" : isCanada ? "en-ca" : isAustralia ? "en-au" : "en-us",
   };
 };
 

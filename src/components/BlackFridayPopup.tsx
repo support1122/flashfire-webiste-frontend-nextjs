@@ -3,12 +3,14 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { stripLocalePrefix } from "@/src/utils/locale";
 
 export default function BlackFridayPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
-  const isImageTestimonialsPage = pathname === "/testimonials" || pathname === "/en-ca/testimonials" || pathname === "/en-gb/testimonials" || pathname === "/image-testimonials" || pathname === "/en-ca/image-testimonials";
+  const basePathname = stripLocalePrefix(pathname);
+  const isImageTestimonialsPage = basePathname === "/testimonials" || basePathname === "/image-testimonials";
 
   useEffect(() => {
     // Only run on client side

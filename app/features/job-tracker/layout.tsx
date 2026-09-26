@@ -7,6 +7,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/features/job-tracker",
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/job-tracker",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/job-tracker",
+      "en-AU": "https://www.flashfirejobs.com/en-au/features/job-tracker",
       "x-default": "https://www.flashfirejobs.com/features/job-tracker",
     },
   },

@@ -1,0 +1,50 @@
+import { Metadata } from "next";
+import OfferAndSalary from "@/src/components/offerAndSalary/offerAndSalary";
+import Footer from "@/src/components/footer/footer";
+import Navbar from "@/src/components/navbar/navbar";
+
+export const metadata: Metadata = {
+    title: "Job Offer & Salary Negotiation | Flashfire",
+    description: "Offer & Salary - Flashfire",
+    robots: {
+        index: true,
+        follow: true,
+    },
+    alternates: {
+        canonical: "https://www.flashfirejobs.com/en-au/offer-and-salary",
+        languages: {
+            "en-US": "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
+            "en-CA": "https://www.flashfirejobs.com/en-ca/offer-and-salary",
+            "en-GB": "https://www.flashfirejobs.com/en-gb/offer-and-salary",
+            "en-AU": "https://www.flashfirejobs.com/en-au/offer-and-salary",
+            "x-default": "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
+        },
+    },
+    openGraph: {
+        title: "Job Offer & Salary Negotiation | Flashfire",
+        description: "Offer & Salary - Flashfire",
+        url: "https://www.flashfirejobs.com/offer-and-salary",
+        siteName: "Flashfire",
+        images: [
+            { url: "https://www.flashfirejobs.com/og-image.png" },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Job Offer & Salary Negotiation | Flashfire",
+        description: "Offer & Salary - Flashfire",
+        images: [
+            { url: "https://www.flashfirejobs.com/og-image.png" },
+        ],
+    },
+}
+
+export default function OfferAndSalaryPage() {
+    return (
+        <>
+            <Navbar/>
+            <OfferAndSalary/>
+            <Footer/>
+        </>
+    )
+}

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/features/ai-cover-letter-generator",
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/ai-cover-letter-generator",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/ai-cover-letter-generator",
+      "en-AU": "https://www.flashfirejobs.com/en-au/features/ai-cover-letter-generator",
       "x-default": "https://www.flashfirejobs.com/features/ai-cover-letter-generator",
     },
   },

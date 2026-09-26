@@ -8,9 +8,9 @@ This folder contains country-specific components for different markets.
 countries/
   ├── ca/          # Canada-specific components
   │   └── Home.tsx # Canada home page
-  ├── uk/          # UK-specific components (future)
+  ├── uk/          # UK / EU components
   │   └── Home.tsx
-  └── au/          # Australia-specific components (future)
+  └── au/          # Australia components
       └── Home.tsx
 ```
 
@@ -31,5 +31,7 @@ countries/
 ## Current Countries
 
 - **CA (Canada)**: `/en-ca` routes → uses `countries/ca/Home.tsx`
+- **UK / EU**: `/en-gb` routes → uses `countries/uk/Home.tsx`
+- **AU (Australia)**: `/en-au` routes → uses `countries/au/Home.tsx` (priced in USD, shown as US$)
 - **Default (US)**: `/` routes → uses `flashFireHome.tsx`
 

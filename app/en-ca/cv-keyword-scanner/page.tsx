@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/cv-keyword-scanner",
       "en-CA": "https://www.flashfirejobs.com/en-ca/cv-keyword-scanner",
       "en-GB": "https://www.flashfirejobs.com/en-gb/cv-keyword-scanner",
+      "en-AU": "https://www.flashfirejobs.com/en-au/cv-keyword-scanner",
       "x-default": "https://www.flashfirejobs.com/cv-keyword-scanner",
     },
   },

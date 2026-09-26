@@ -185,3 +185,15 @@ export const canadaPricingPlans: PricingPlan[] = [
     paymentLink: "https://buy.stripe.com/7sY9AV3566mKgyQ0pN3AY0m",
   },
 ];
+
+/**
+ * Australia is billed in USD through the US Stripe links until AUD prices and
+ * checkouts exist. Prices carry an explicit "US$" so an Australian visitor
+ * never reads a bare "$" as AUD.
+ * TODO(payments): replace with AUD plans once AUD Stripe links are created.
+ */
+export const australiaPricingPlans: PricingPlan[] = usPricingPlans.map((plan) => ({
+  ...plan,
+  price: plan.price.replace(/^\$/, "US$"),
+  oldPrice: plan.oldPrice?.replace(/^\$/, "US$"),
+}));

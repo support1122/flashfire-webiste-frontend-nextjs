@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/ai-job-search-platform-for-freshers",
       "en-CA": "https://www.flashfirejobs.com/en-ca/ai-job-search-platform-for-freshers",
       "en-GB": "https://www.flashfirejobs.com/en-gb/ai-job-search-platform-for-freshers",
+      "en-AU": "https://www.flashfirejobs.com/en-au/ai-job-search-platform-for-freshers",
       "x-default": "https://www.flashfirejobs.com/ai-job-search-platform-for-freshers",
     },
   },

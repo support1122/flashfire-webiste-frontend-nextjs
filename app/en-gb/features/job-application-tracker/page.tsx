@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/features/job-application-tracker",
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/job-application-tracker",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/job-application-tracker",
+      "en-AU": "https://www.flashfirejobs.com/en-au/features/job-application-tracker",
       "x-default": "https://www.flashfirejobs.com/features/job-application-tracker",
     },
   },
