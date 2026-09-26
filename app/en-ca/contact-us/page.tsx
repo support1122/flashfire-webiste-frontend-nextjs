@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/contact-us",
       "en-CA": "https://www.flashfirejobs.com/en-ca/contact-us",
       "en-GB": "https://www.flashfirejobs.com/en-gb/contact-us",
+      "en-AU": "https://www.flashfirejobs.com/en-au/contact-us",
       "x-default": "https://www.flashfirejobs.com/contact-us",
     },
   },

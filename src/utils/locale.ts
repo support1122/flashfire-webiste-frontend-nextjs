@@ -5,23 +5,27 @@
  * it's what crawlers always see (middleware never geo-redirects bots) and
  * what any visitor whose country can't be determined lands on. `/en-us` is
  * an explicit mirror of the exact same content (every page re-exports its
- * root counterpart) for parity with `/en-ca` and `/en-gb`, and real US
- * visitors ARE redirected there by the middleware, same as CA and UK/EU
- * visitors get sent to their trees. Its pages still canonicalize back to the
+ * root counterpart) for parity with `/en-ca`, `/en-gb` and `/en-au`, and real
+ * US visitors ARE redirected there by the middleware, same as CA, UK/EU and
+ * AU visitors get sent to their trees. Its pages still canonicalize back to the
  * root URL, so it never competes with `/` for search ranking even though it
  * now carries real traffic. Everything that needs to build a country-aware
  * link or pick country-specific content should go through here rather than
  * hard-coding `"/en-ca"` checks, so adding a locale stays a one-line change.
  */
 
-export type Locale = "us" | "ca" | "uk";
+export type Locale = "us" | "ca" | "uk" | "au";
 
 export const US_PREFIX = "/en-us";
 export const CANADA_PREFIX = "/en-ca";
 export const UK_PREFIX = "/en-gb";
+export const AU_PREFIX = "/en-au";
 
-/** Every non-default locale prefix, longest-first so matching is unambiguous. */
-export const LOCALE_PREFIXES = [CANADA_PREFIX, UK_PREFIX, US_PREFIX] as const;
+/**
+ * Every non-default locale prefix. Matching is on segment boundaries (see
+ * getLocalePrefix), so order does not matter: `/en-ca` never matches `/en-cash`.
+ */
+export const LOCALE_PREFIXES = [CANADA_PREFIX, UK_PREFIX, AU_PREFIX, US_PREFIX] as const;
 
 export type LocalePrefix = (typeof LOCALE_PREFIXES)[number] | "";
 
@@ -76,6 +80,7 @@ export function getLocale(pathname: string | null | undefined): Locale {
   const prefix = getLocalePrefix(pathname);
   if (prefix === CANADA_PREFIX) return "ca";
   if (prefix === UK_PREFIX) return "uk";
+  if (prefix === AU_PREFIX) return "au";
   return "us";
 }
 
@@ -85,6 +90,10 @@ export function isCanadaPath(pathname: string | null | undefined): boolean {
 
 export function isUKPath(pathname: string | null | undefined): boolean {
   return getLocalePrefix(pathname) === UK_PREFIX;
+}
+
+export function isAUPath(pathname: string | null | undefined): boolean {
+  return getLocalePrefix(pathname) === AU_PREFIX;
 }
 
 export function isUSPath(pathname: string | null | undefined): boolean {

@@ -1,0 +1,39 @@
+import { Metadata } from "next";
+export { default } from "@/app/features/interview-tips/page";
+
+export const metadata: Metadata = {
+    title: "Interview Tips for Australian Job Seekers | Flashfire",
+    description: "Interview Tips - Flashfire",
+    robots: {
+        index: true,
+        follow: true,
+    },
+    alternates: {
+        canonical: "https://www.flashfirejobs.com/en-au/features/interview-tips",
+        languages: {
+            "en-US": "https://www.flashfirejobs.com/features/interview-tips",
+            "en-CA": "https://www.flashfirejobs.com/en-ca/features/interview-tips",
+            "en-GB": "https://www.flashfirejobs.com/en-gb/features/interview-tips",
+            "en-AU": "https://www.flashfirejobs.com/en-au/features/interview-tips",
+            "x-default": "https://www.flashfirejobs.com/features/interview-tips",
+        },
+    },
+    openGraph: {
+        title: "Interview Tips for Australian Job Seekers | Flashfire",
+        description: "Interview Tips - Flashfire",
+        url: "https://www.flashfirejobs.com/en-au/features/interview-tips",
+        siteName: "Flashfire",
+        images: [
+            { url: "https://www.flashfirejobs.com/og-image.png" },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Interview Tips for Australian Job Seekers | Flashfire",
+        description: "Interview Tips - Flashfire",
+        images: [
+            { url: "https://www.flashfirejobs.com/og-image.png" },
+        ],
+    },
+}
+ 

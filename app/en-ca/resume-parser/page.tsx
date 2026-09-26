@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/resume-parser",
       "en-CA": "https://www.flashfirejobs.com/en-ca/resume-parser",
       "en-GB": "https://www.flashfirejobs.com/en-gb/resume-parser",
+      "en-AU": "https://www.flashfirejobs.com/en-au/resume-parser",
       "x-default": "https://www.flashfirejobs.com/resume-parser",
     },
   },

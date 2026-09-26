@@ -7,6 +7,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/features/precision-targeting",
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/precision-targeting",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/precision-targeting",
+      "en-AU": "https://www.flashfirejobs.com/en-au/features/precision-targeting",
       "x-default": "https://www.flashfirejobs.com/features/precision-targeting",
     },
   },

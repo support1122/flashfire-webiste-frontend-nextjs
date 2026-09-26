@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/features/ai-job-targeting",
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/ai-job-targeting",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/ai-job-targeting",
+      "en-AU": "https://www.flashfirejobs.com/en-au/features/ai-job-targeting",
       "x-default": "https://www.flashfirejobs.com/features/ai-job-targeting",
     },
   },

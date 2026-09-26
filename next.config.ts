@@ -172,6 +172,22 @@ const nextConfig: NextConfig = {
         destination: "/en-us/blog",
         permanent: true,
       },
+      {
+        source: "/en-au/blogs",
+        destination: "/en-au/blog",
+        permanent: true,
+      },
+      // Short /au links (ads, WhatsApp shares) land on the real /en-au tree.
+      {
+        source: "/au",
+        destination: "/en-au",
+        permanent: true,
+      },
+      {
+        source: "/au/:path*",
+        destination: "/en-au/:path*",
+        permanent: true,
+      },
       // Legacy /en-uk/* prefix (renamed to /en-gb/* to match the ISO 3166-1 /
       // BCP-47 standard). These specific ones resolve in a single hop instead
       // of falling through to the generic /en-uk/:path* rule below and
@@ -254,6 +270,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/en-au/features/ats-optimizer",
+        destination: "/en-au/features/resume-optimizer",
+        permanent: true,
+      },
+      {
         source: "/en-uk/features/ats-optimizer",
         destination: "/en-gb/features/resume-optimizer",
         permanent: true,
@@ -286,6 +307,11 @@ const nextConfig: NextConfig = {
       {
         source: "/en-gb/how-it-works",
         destination: "/en-gb/how-flashfire-ai-job-automation-platform-works",
+        permanent: true,
+      },
+      {
+        source: "/en-au/how-it-works",
+        destination: "/en-au/how-flashfire-ai-job-automation-platform-works",
         permanent: true,
       },
       {

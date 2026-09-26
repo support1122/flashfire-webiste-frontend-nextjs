@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/after-tax-income-calculator",
       "en-CA": "https://www.flashfirejobs.com/en-ca/after-tax-income-calculator",
       "en-GB": "https://www.flashfirejobs.com/en-gb/after-tax-income-calculator",
+      "en-AU": "https://www.flashfirejobs.com/en-au/after-tax-income-calculator",
       "x-default": "https://www.flashfirejobs.com/after-tax-income-calculator",
     },
   },

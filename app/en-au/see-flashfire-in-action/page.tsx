@@ -1,0 +1,40 @@
+import { Metadata } from "next";
+import HomePage from "@/src/components/pages/home/Home";
+import ScrollToSection from "@/src/utils/ui/scrollToSection";
+
+export const metadata: Metadata = {
+  title: "Watch Flashfire Live Demo & Product Tour",
+  description:
+    "Watch Flashfire in action. See how our AI-powered job search automation works with a live demo of our platform features.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.flashfirejobs.com/en-au/see-flashfire-in-action",
+    languages: {
+      "en-US": "https://www.flashfirejobs.com/see-flashfire-in-action",
+      "en-CA": "https://www.flashfirejobs.com/en-ca/see-flashfire-in-action",
+      "en-GB": "https://www.flashfirejobs.com/en-gb/see-flashfire-in-action",
+      "en-AU": "https://www.flashfirejobs.com/en-au/see-flashfire-in-action",
+      "x-default": "https://www.flashfirejobs.com/see-flashfire-in-action",
+    },
+  },
+  openGraph: {
+    title: "Watch Flashfire Live Demo & Product Tour",
+    description:
+      "Watch Flashfire in action with a live demo of our platform.",
+    url: "https://www.flashfirejobs.com/en-au/see-flashfire-in-action",
+    type: "website",
+  },
+};
+
+export default function SeeFlashfireInActionPageAU() {
+  return (
+    <>
+      <HomePage />
+      <ScrollToSection targetId="demo" />
+    </>
+  );
+}
+

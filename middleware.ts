@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { CANADA_PREFIX, UK_PREFIX, US_PREFIX, LOCALE_PREFIXES, UK_EU_COUNTRY_CODES } from '@/src/utils/locale';
+import { AU_PREFIX, CANADA_PREFIX, UK_PREFIX, US_PREFIX, LOCALE_PREFIXES, UK_EU_COUNTRY_CODES } from '@/src/utils/locale';
 import { localeHasRoute } from '@/src/utils/localeRoutes.generated';
 import { getCloudflareCountry, resolveClientIp } from '@/src/utils/clientIp';
 
 const CANADA_CODE = 'CA';
+const AUSTRALIA_CODE = 'AU';
 const US_CODE = 'US';
 
 async function fetchCountryFromLocalApi(ip: string, request: NextRequest): Promise<string | null> {
@@ -91,6 +92,7 @@ async function resolveCountry(request: NextRequest): Promise<string | null> {
 function localePrefixFor(countryCode: string | null): string | null {
   if (!countryCode) return null;
   if (countryCode === CANADA_CODE) return CANADA_PREFIX;
+  if (countryCode === AUSTRALIA_CODE) return AU_PREFIX;
   if (UK_EU_COUNTRY_CODES.has(countryCode)) return UK_PREFIX;
   if (countryCode === US_CODE) return US_PREFIX;
   return null;
@@ -132,7 +134,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // If already inside a locale tree (/en-ca, /en-gb), allow it
+  // If already inside a locale tree (/en-ca, /en-gb, /en-au, /en-us), allow it
   if (LOCALE_PREFIXES.some(prefix => pathname === prefix || pathname.startsWith(`${prefix}/`))) {
     return NextResponse.next();
   }
@@ -154,8 +156,8 @@ export async function middleware(request: NextRequest) {
     const countryCode = await resolveCountry(request);
     const prefix = localePrefixFor(countryCode);
 
-    // Fail safe: an unknown or unmatched country (anything not US/CA/GB/EU —
-    // e.g. India, Australia) stays put. "/" is the canonical indexed URL and
+    // Fail safe: an unknown or unmatched country (anything not US/CA/GB/EU/AU —
+    // e.g. India, New Zealand) stays put. "/" is the canonical indexed URL and
     // content is identical to /en-us, so leaving someone there is always
     // harmless — whereas guessing wrong strands an Indian visitor on the UK
     // pricing page.

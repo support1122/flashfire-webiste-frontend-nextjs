@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/ai-follow-up-email-generator",
       "en-CA": "https://www.flashfirejobs.com/en-ca/ai-follow-up-email-generator",
       "en-GB": "https://www.flashfirejobs.com/en-gb/ai-follow-up-email-generator",
+      "en-AU": "https://www.flashfirejobs.com/en-au/ai-follow-up-email-generator",
       "x-default": "https://www.flashfirejobs.com/ai-follow-up-email-generator",
     },
   },

@@ -4,7 +4,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import PricingCard from "./pricingCard";
 import Image from "next/image";
-import { usPricingPlans, canadaPricingPlans, ukPricingPlans, type PricingPlan } from "@/src/data/pricingData";
+import { usPricingPlans, canadaPricingPlans, ukPricingPlans, australiaPricingPlans, type PricingPlan } from "@/src/data/pricingData";
 import { getLocale } from "@/src/utils/locale";
 
 /** A plan shown in the "Upgrade Plan" panel, priced as the delta from the current tier. */
@@ -83,11 +83,15 @@ export default function HomePagePricingPlans() {
   const locale = getLocale(pathname);
   const isCanadaContext = locale === "ca";
   const isUKContext = locale === "uk";
+  // Australia is billed in USD via the US checkouts, labelled "US$".
+  const isAustraliaContext = locale === "au";
   const pricingPlans = isUKContext
     ? ukPricingPlans
     : isCanadaContext
       ? canadaPricingPlans
-      : usPricingPlans;
+      : isAustraliaContext
+        ? australiaPricingPlans
+        : usPricingPlans;
   const [selectedPlanForUpgrade, setSelectedPlanForUpgrade] = useState<string | null>(null);
   const [selectedPlanIndex, setSelectedPlanIndex] = useState<number | null>(null);
   const [selectedPlanForBooster, setSelectedPlanForBooster] = useState<string | null>(null);
@@ -98,7 +102,7 @@ export default function HomePagePricingPlans() {
   const shouldScrollBoosterRef = useRef<boolean>(false);
   const shouldScrollUpgradeRef = useRef<boolean>(false);
 
-  const currencySymbol = isUKContext ? "£" : isCanadaContext ? "CA$" : "$";
+  const currencySymbol = isUKContext ? "£" : isCanadaContext ? "CA$" : isAustraliaContext ? "US$" : "$";
 
   const openCheckout = (paymentUrl?: string) => {
     if (!paymentUrl || typeof window === "undefined") {

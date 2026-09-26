@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       "en-US": "https://www.flashfirejobs.com/hourly-to-salary-calculator",
       "en-CA": "https://www.flashfirejobs.com/en-ca/hourly-to-salary-calculator",
       "en-GB": "https://www.flashfirejobs.com/en-gb/hourly-to-salary-calculator",
+      "en-AU": "https://www.flashfirejobs.com/en-au/hourly-to-salary-calculator",
       "x-default": "https://www.flashfirejobs.com/hourly-to-salary-calculator",
     },
   },
