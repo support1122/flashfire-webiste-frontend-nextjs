@@ -93,7 +93,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "full-stack-developer-responsibilities": "Full Stack Developer Roles and Responsibilities",
     // Job Platforms & Reviews
     "is-indeed-reliable": "Is Indeed Legit, Safe & Reliable? What Job Seekers Should Know",
-    "is-indeed-a-good-place-to-find-jobs": "Is Indeed Good for Finding Jobs in USA?",
+    "is-indeed-a-good-place-to-find-jobs": "Is Indeed a Good Place to Find Jobs? Does Indeed Work?",
     "indeed-vs-glassdoor": "Indeed vs Glassdoor: Best Job Site in USA?",
     "is-clearancejobs-legit": "Is ClearanceJobs Legit in USA? Review 2026",
     "is-jobright-ai-legit": "Is Jobright.ai Legit? Review for USA Job Seekers",
@@ -104,7 +104,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "opt-jobs-in-usa": "OPT Jobs in USA for International Students 2026",
     "companies-that-sponsor-h1b-visas": "Top H1B Visa Sponsoring Companies in USA (2026)",
     "visa-sponsored-jobs-in-usa": "Visa Sponsored Jobs in USA: 2026 Guide",
-    "h1b-salary": "H1B Salary Guide USA: Pay Trends for 2026",
+    "h1b-salary": "H1B Salary Database 2026: Salary Data & Requirements",
     "h1b-cap-exempt-jobs": "H1B Cap-Exempt Jobs in USA: 2026 Guide",
     "opt-h1b-jobs-future": "OPT & H1B Job Future in USA for 2026",
     "when-do-summer-internships-start": "When Do Summer Internships Start in USA 2026?",
