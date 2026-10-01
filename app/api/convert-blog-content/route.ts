@@ -34,6 +34,7 @@ STRICT RULES:
 - Do NOT include <html>, <head>, <body> tags
 - Do NOT include any markdown, only pure HTML
 - Preserve all source links and hyperlinks properly as anchor tags
+- Every Markdown link written as [anchor text](URL) in the input MUST become an <a href="URL"> anchor tag on exactly that anchor text. Never drop, merge, reword or invent links or URLs.
 - Keep FAQ question numbers (1. 2. 3.) in the heading text
 
 Plain text content:
@@ -67,7 +68,18 @@ Return ONLY the HTML, nothing else.`;
       return NextResponse.json({ error: "No HTML returned from GPT" }, { status: 500 });
     }
 
-    return NextResponse.json({ html });
+    // Safety net: if the model dropped a link, wrap the anchor text ourselves.
+    let finalHtml: string = html;
+    const linkRe = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+    for (const [, text, url] of plainText.matchAll(linkRe)) {
+      if (finalHtml.includes(`href="${url}"`) || finalHtml.includes(`href='${url}'`)) continue;
+      const idx = finalHtml.indexOf(text);
+      if (idx === -1) continue;
+      const a = `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">${text}</a>`;
+      finalHtml = finalHtml.slice(0, idx) + a + finalHtml.slice(idx + text.length);
+    }
+
+    return NextResponse.json({ html: finalHtml });
   } catch (err) {
     console.error("convert-blog-content error:", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

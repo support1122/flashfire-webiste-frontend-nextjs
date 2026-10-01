@@ -303,6 +303,35 @@ export default function NewBlogPage() {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
+  // Plain-text paste drops hyperlinks. Read the clipboard HTML, and rewrite each linked
+  // phrase in the plain text as [text](url) so the AI knows which words are anchors.
+  function handlePaste(e: React.ClipboardEvent<HTMLTextAreaElement>) {
+    const html = e.clipboardData.getData("text/html");
+    if (!html) return;
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const links = Array.from(doc.querySelectorAll("a[href]"))
+      .map((a) => ({ text: (a.textContent || "").replace(/\s+/g, " ").trim(), href: a.getAttribute("href") || "" }))
+      .filter((l) => l.text && /^https?:\/\//i.test(l.href));
+    if (!links.length) return;
+
+    let text = e.clipboardData.getData("text/plain");
+    let cursor = 0;
+    for (const { text: t, href } of links) {
+      const idx = text.indexOf(t, cursor);
+      if (idx === -1) continue;
+      const md = `[${t}](${href})`;
+      text = text.slice(0, idx) + md + text.slice(idx + t.length);
+      cursor = idx + md.length;
+    }
+
+    e.preventDefault();
+    const el = e.currentTarget;
+    const next = plainText.slice(0, el.selectionStart) + text + plainText.slice(el.selectionEnd);
+    setPlainText(next);
+    setGeneratedHTML("");
+    setShowPreview(false);
+  }
+
   function handleImageFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -558,11 +587,12 @@ export default function NewBlogPage() {
           {/* Content - Plain Text */}
           <div className="space-y-3">
             <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider">Blog Content</h2>
-            <p className="text-xs text-gray-500">Paste plain text from Google Doc. HTML will be auto-generated — headings, bullet points, tables, FAQs all detected automatically.</p>
+            <p className="text-xs text-gray-500">Paste from Google Doc — hyperlinks are kept automatically (shown as [text](url)). You can also type [anchor text](https://url) manually. HTML will be auto-generated — headings, bullet points, tables, FAQs all detected automatically.</p>
 
             <textarea
               value={plainText}
               onChange={(e) => { setPlainText(e.target.value); setGeneratedHTML(""); setShowPreview(false); }}
+              onPaste={handlePaste}
               rows={20}
               placeholder={`Paste your plain text blog content here...\n\nExample:\n1. How to Get a Job in the UK\nGetting a job in the UK involves...\n\nWho can work in the UK?\nBritish and Irish citizens: Generally have the right to work.\n\nFAQs:\n1. How can I get a job in the UK?\nCheck your right to work, find suitable UK jobs...`}
               className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y"
