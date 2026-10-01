@@ -187,14 +187,31 @@
   max-width: 24rem;
 }
 
-@media (max-width: 640px) {
+/* Tablets / large phones: two even columns instead of one narrow centered card */
+@media (max-width: 1024px) {
   .blogsSection {
-    padding: 3rem 1rem;
+    padding: 4rem 1.5rem;
+  }
+
+  .blogGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    justify-items: stretch;
+  }
+
+  .blogGrid > * {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .blogsSection {
+    padding: 3rem 1.25rem;
   }
 
   .header h1,
   .header h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
     line-height: 1.2;
   }
 
@@ -210,7 +227,7 @@
   }
 
   .searchBarContainer {
-    padding: 0 0.25rem;
+    padding: 0;
     margin-bottom: 1.25rem;
     justify-content: center;
   }
@@ -221,6 +238,8 @@
 
   .searchInput {
     width: 100%;
+    min-width: 0;
+    font-size: 1rem; /* >=16px stops iOS zooming in on focus */
   }
 
   /* Single scrollable row instead of a tall wall of wrapped chips */
@@ -228,8 +247,8 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
-    margin: 0 -1rem 1.5rem;
-    padding: 0 1rem 0.25rem;
+    margin: 0 -1.25rem 1.5rem;
+    padding: 0 1.25rem 0.25rem;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
@@ -243,6 +262,22 @@
     white-space: nowrap;
     padding: 0.45rem 0.9rem;
     font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .blogsSection {
+    padding: 2.5rem 1rem;
+  }
+
+  .header h1,
+  .header h2 {
+    font-size: 2rem;
+  }
+
+  .categoryChips {
+    margin: 0 -1rem 1.5rem;
+    padding: 0 1rem 0.25rem;
   }
 
   .blogGrid {

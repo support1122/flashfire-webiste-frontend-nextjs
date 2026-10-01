@@ -44,11 +44,11 @@ export default function BlogCard({ blog }: { blog: Blog }) {
   };
 
   return (
-    <section className="border border-gray-200 rounded-[0.1rem] p-[0.3rem] bg-white transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.08)] max-[640px]:p-0 max-[640px]:border-0 max-[640px]:hover:translate-y-0">
+    <section className="flex flex-col border border-gray-200 rounded-[0.1rem] p-[0.3rem] bg-white transition-all duration-300 hover:-translate-y-[0.3rem] hover:shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.08)] max-[640px]:p-0 max-[640px]:border-0 max-[640px]:hover:translate-y-0">
 
       <Link
         href={`/blog/${blog.slug}`}
-        className="block bg-white border border-gray-200 rounded-[0.1rem] overflow-hidden shadow-[0_0.2rem_0.5rem_rgba(0,0,0,0.05)] text-left transition-all duration-300 cursor-pointer max-[768px]:max-w-full"
+        className="block flex-1 bg-white border border-gray-200 rounded-[0.1rem] overflow-hidden shadow-[0_0.2rem_0.5rem_rgba(0,0,0,0.05)] text-left transition-all duration-300 cursor-pointer max-[768px]:max-w-full"
       >
         {/* === Image === */}
         <div className="w-full aspect-video overflow-hidden relative bg-[#f9f9f9] max-[768px]:aspect-[16/10]">
