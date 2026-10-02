@@ -24,6 +24,281 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 406,
+    slug: "how-to-negotiate-salary-after-job-offer",
+    title: "How to Negotiate Salary After a Job Offer",
+    metaTitle: "How to Negotiate Salary After a Job Offer",
+    excerpt: "Learn how to negotiate salary after a job offer, ask for a higher salary, make a counteroffer, and write a salary negotiation email.",
+    date: "Oct 2, 2026",
+    lastUpdated: "Oct 2, 2026",
+    readTime: "8 min",
+    category: "Salary",
+    tags: ["Salary"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/how-to-negotiate-salary-after-job-offer-1790949515599.png",
+    categoryColor: "bg-yellow-100 text-yellow-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Negotiate Salary After a Job Offer</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Receiving a job offer is exciting, but the salary listed in the offer may not always be the final word. Knowing how to negotiate salary after job offer can help you ask for compensation that better reflects your experience, skills, responsibilities, and market value.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Salary negotiation is also common in today’s hiring market. A 2026 Robert Half Salary Guide survey found that 40% of Australian companies said they were prepared to offer 6%–10% above their initial salary proposal during negotiations for an average role. The same research found that specialized skills, years of experience, and available budget were among the factors most likely to influence an employer’s willingness to increase an offer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>That does not mean every employer will increase its offer by 6%–10%. Your result depends on the company, role, location, experience, salary range, and overall compensation package. So, how much should you ask for? When should you make a counteroffer? And what should you say if the employer tells you the salary is non-negotiable?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This guide explains how to negotiate a higher salary after a job offer, from researching your market value and reviewing benefits to making a professional counteroffer and writing a salary negotiation email.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Source:</strong> <a href="https://www.roberthalf.com/au/en/about/press/cautious-salary-optimism-returns-employers-prepare-changing-economic-cycle?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">Robert Half — 2026 Salary Trends</a></p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. Should You Negotiate Salary After a Job Offer?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>“Negotiating salary after a job offer is a normal part of the hiring process and can help you secure compensation that better reflects your experience, skills, and market value.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A job offer gives you more information and, in many cases, an opportunity to discuss the terms before accepting. Salary negotiation is about inquiring whether there is room for the salary adjustment and making a reasonable argument. Negotiation is acceptable in case if you have some evidence for your demand, such as the relevant experience, special skills, other offers or market salaries.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>However, negotiation does not imply that you can demand additional money. The purpose of the negotiation is to conduct a professional conversation on the issue.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If the first offer suits you, if it falls into your researched salary range or you do not have much room because of the employer's policy, you can accept it.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>You can also negotiate more than base salary, including:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Signing bonus</li>
+<li>Performance bonus</li>
+<li>Equity or stock options</li>
+<li>Paid time off</li>
+<li>Remote or hybrid work</li>
+<li>Flexible hours</li>
+<li>Professional development</li>
+<li>Relocation assistance</li>
+<li>Earlier salary review</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Harvard Business Review also recommends looking beyond salary when evaluating and negotiating a job offer.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Source:</strong> <a href="https://hbr.org/2017/04/how-to-evaluate-accept-reject-or-negotiate-a-job-offer?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">Harvard Business Review</a></p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. When Is the Best Time to Negotiate Salary After a Job Offer?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>The optimal time for negotiating is normally when one receives an official job offer but before he/she accepts or signs the offer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>In this case, the company has made the decision that you are the right candidate for the job. You are able to look at the entire job offer and negotiate about specific terms rather than just guessing.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Before responding, check:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Base salary</li>
+<li>Bonus structure</li>
+<li>Benefits</li>
+<li>Job title and responsibilities</li>
+<li>Work location</li>
+<li>Working hours</li>
+<li>Paid time off</li>
+<li>Equity or other incentives</li>
+<li>Offer expiration date</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>You do not have to respond immediately. If the employer gives you a few days to consider the offer, use that time to research the role and prepare your counteroffer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If the employer gives you a short deadline, you can say:</p>
+<p style='margin-bottom:8px; line-height:1.7;'><strong>Example:</strong> “Thank you for the offer. I’m very excited about the opportunity. Could I have a little time to review the complete compensation package before making my final decision?”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid waiting until after you sign the offer letter unless the employer specifically invites further discussion.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Research Your Market Value Before Negotiating</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong salary negotiation starts with research, not a random number.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Look at compensation for people with similar:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Job titles</li>
+<li>Experience levels</li>
+<li>Qualifications</li>
+<li>Skills</li>
+<li>Industries</li>
+<li>Locations</li>
+<li>Responsibilities</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Location and industry can significantly affect wages. For example, the U.S. Bureau of Labor Statistics' Occupational Employment and Wage Statistics program provides wage information by occupation, industry, state, and metropolitan area. Its latest available May 2025 data covers approximately 830 occupations.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Source:</strong> <a href="https://www.bls.gov/oes/?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">BLS Occupational Employment and Wage Statistics</a></p></div>
+<p style='margin-bottom:12px; line-height:1.7;'>You can also compare information from reputable salary websites, job postings, professional associations, and publicly available company salary ranges.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Then create three numbers:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Target salary: What you would ideally like to receive.</li>
+<li>Acceptable salary: The amount you would realistically be comfortable accepting.</li>
+<li>Minimum salary: The lowest compensation you would accept for the role.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, if your research suggests that similar positions generally pay 70,000–80,000 and your experience is strong, you might target the upper portion of that range rather than asking for an arbitrary amount.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Review the Entire Compensation Package</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Do not evaluate an offer based only on the base salary. Your total compensation may include several components that have real financial value.</p>
+<div class="overflow-x-auto my-6">
+<table class="w-full border-collapse text-sm">
+<thead>
+<tr>
+<th class="bg-blue-600 text-white font-semibold p-3 text-left">Compensation component</th>
+<th class="bg-blue-600 text-white font-semibold p-3 text-left">What to consider</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border border-gray-200 p-3">Base salary</td>
+<td class="border border-gray-200 p-3">Fixed annual or hourly pay</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Bonus</td>
+<td class="border border-gray-200 p-3">Performance or annual incentive</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Signing bonus</td>
+<td class="border border-gray-200 p-3">One-time payment for joining</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Equity</td>
+<td class="border border-gray-200 p-3">Shares, options, or other ownership compensation</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Benefits</td>
+<td class="border border-gray-200 p-3">Health, retirement, insurance, etc.</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">PTO</td>
+<td class="border border-gray-200 p-3">Paid vacation, holidays, and leave</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Work flexibility</td>
+<td class="border border-gray-200 p-3">Remote, hybrid, or flexible schedules</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Development</td>
+<td class="border border-gray-200 p-3">Training, certifications, courses</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Relocation</td>
+<td class="border border-gray-200 p-3">Moving expenses or assistance</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, an offer with a slightly lower base salary could have a stronger overall package because of a large bonus, additional PTO, equity, or flexible working arrangements.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Harvard Business Review similarly notes that compensation negotiations can include benefits and other terms beyond salary.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. How to Ask for a Higher Salary After a Job Offer</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>“To negotiate a higher salary after a job offer, thank the employer for the opportunity, explain why you are requesting a higher salary, and make a reasonable counteroffer based on your experience and market value.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Follow these steps:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Thank the employer: Start positively and show appreciation for the offer.</li>
+<li>Express enthusiasm: Make it clear that you are interested in joining the company.</li>
+<li>Introduce the negotiation: Say that you would like to discuss the compensation before accepting.</li>
+<li>Give a reason: Connect your request to relevant experience, skills, qualifications, responsibilities, or market data.</li>
+<li>Make a specific counteroffer: Instead of saying, “Can you pay me more?”, provide a clear target or reasonable range.</li>
+<li>Ask about flexibility: Use language such as: “Is there flexibility in the base salary?” or “Would you be open to discussing the compensation package?”</li>
+<li>Give the employer time: Once you make your request, let the employer respond. Avoid repeatedly messaging or pressuring the hiring manager.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> “Thank you again for the offer. I’m very excited about the opportunity. Based on my five years of experience in this area and the responsibilities of the position, I was hoping we could discuss a base salary closer to $82,000. Is there flexibility in the current offer?”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Research published in Harvard Business Review in 2024 found across seven studies that negotiating job offers did not generally result in offers being rescinded, although individual circumstances can vary.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. How Much More Salary Should You Ask For?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>There is no universal percentage that works for every job offer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your counteroffer should depend on:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>The employer's stated salary range</li>
+<li>Your experience</li>
+<li>Your qualifications</li>
+<li>Your market value</li>
+<li>Location</li>
+<li>Industry</li>
+<li>Role responsibilities</li>
+<li>Other compensation</li>
+<li>Your alternatives</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>If the employer has provided a salary range, use it as an important reference point. A request near the upper end can be easier to justify when your experience and qualifications support it.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, if the employer says the role pays 70,000–85,000 and offers you $75,000, asking whether they can move closer to $82,000 may be more defensible than asking for $100,000 without additional evidence.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If your expected salary is above the company's range, ask whether the range is flexible or whether other compensation could bridge the difference.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. How to Negotiate Salary After a Job Offer by Email</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>The salary negotiation email must be professional, brief, and specific. First of all, thank the employer for the job offer, state why you are interested in the job and the salary you are looking for.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Email can be especially useful in the case where the employer makes the offer via an electronic message.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A good salary negotiation email should include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>A clear subject line</li>
+<li>Thank-you opening</li>
+<li>Enthusiasm for the position</li>
+<li>Specific salary request</li>
+<li>Brief supporting reasons</li>
+<li>Question about flexibility</li>
+<li>Professional closing</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid writing a long explanation about your personal expenses or financial obligations. Focus on your qualifications, the role, and relevant market information.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Suggested subject line:</strong> Salary Discussion – [Your Name]</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Salary Negotiation Email Template</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Here is a simple template you can customize:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Dear [Hiring Manager’s Name],</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Thank you very much for offering me the [Job Title] position at [Company Name]. I’m excited about the opportunity and look forward to the possibility of joining the team.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>After reviewing the offer and considering the responsibilities of the role, my experience in [relevant skill/area], and current market compensation for similar positions, I was hoping we could discuss the base salary.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Would it be possible to consider a salary of [Target Salary]? I believe this would more closely reflect the experience and value I would bring to the position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I’m very interested in the role and would be happy to discuss the compensation package further. Please let me know if there is flexibility in the current offer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Thank you again for your time and consideration.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Best regards,</p>
+<p style='margin-bottom:12px; line-height:1.7;'>[Your Name]</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Keep your email confident but collaborative. You are opening a discussion, not issuing an ultimatum.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. What to Do If the Employer Says the Salary Is Non-Negotiable</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Sometimes the base salary genuinely cannot be changed because of company policies, internal pay bands, or budget limitations.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>That does not necessarily end the negotiation.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Ask whether other parts of the package are flexible. You could discuss:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Signing bonus</li>
+<li>Performance bonus</li>
+<li>Additional paid time off</li>
+<li>Remote or hybrid work</li>
+<li>Flexible working hours</li>
+<li>Professional development budget</li>
+<li>Certification support</li>
+<li>Relocation assistance</li>
+<li>Earlier compensation review</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Example:</strong> “I understand that the base salary is fixed. Would there be flexibility around a signing bonus or an earlier salary review?”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Before deciding, look at the total compensation rather than focusing exclusively on the base salary.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. Common Salary Negotiation Mistakes to Avoid</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Salary negotiation can become harder if you approach it without preparation. Avoid these common mistakes:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Accepting immediately: Take time to review the complete offer.</li>
+<li>Making an unrealistic demand: Keep your counteroffer supported by evidence.</li>
+<li>Focusing only on money: Consider benefits and career opportunities too.</li>
+<li>Using personal expenses as your main argument: Your qualifications and market value are stronger reasons.</li>
+<li>Making threats: Avoid ultimatums unless you are genuinely prepared to walk away.</li>
+<li>Being overly aggressive: Negotiation should remain professional.</li>
+<li>Skipping salary research: Know what similar roles pay.</li>
+<li>Negotiating after signing: Try to settle compensation before accepting.</li>
+<li>Ignoring benefits: Bonuses, PTO, equity, and flexibility can have substantial value.</li>
+<li>Burning bridges: Even if the employer says no, respond professionally.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>The goal is to reach an agreement that works for both sides, not to “win” the conversation.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">11. Final Tips for Negotiating Salary After a Job Offer</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Negotiation of salary after being offered a job can make you feel confident while discussing about pay with keeping a healthy professional relationship with your prospective employer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Before you make your counteroffer, remember these points:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Research your market value.</li>
+<li>Review the complete compensation package.</li>
+<li>Wait until you have a formal offer.</li>
+<li>Choose a realistic target salary.</li>
+<li>Explain the value you bring.</li>
+<li>Keep your communication professional.</li>
+<li>Consider benefits beyond base salary.</li>
+<li>Ask clearly instead of apologizing for negotiating.</li>
+<li>Give the employer time to respond.</li>
+<li>Get any agreed changes in writing.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Salary negotiation does not have to be uncomfortable. When you prepare your evidence, understand your priorities, and communicate respectfully, you can have a much more productive conversation about your job offer.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. Can you negotiate salary after receiving a job offer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. You can negotiate salary after receiving an offer and before accepting or signing it.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. How do you negotiate a higher salary after a job offer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Research the market, highlight your qualifications, and make a reasonable counteroffer based on your value.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. How much should you counter a salary offer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>There is no fixed amount. Base your counteroffer on market rates, experience, skills, and the employer’s salary range.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. What should I say when negotiating salary after a job offer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Thank the employer, express your interest, explain your reasoning, and ask whether there is flexibility in the salary.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. How do I negotiate salary after a job offer by email?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Thank the employer, state your desired salary, briefly explain why, and ask if they are open to discussing the offer.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. Can you negotiate benefits along with salary?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. You can negotiate benefits such as bonuses, PTO, remote work, flexible hours, equity, and professional development.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. What if the employer says the salary is non-negotiable?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Ask whether they can offer a signing bonus, extra PTO, flexible work, or an earlier salary review instead.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. Should you negotiate salary before or after accepting a job offer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Ideally, negotiate after receiving the formal offer but before accepting or signing it.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. Is it okay to ask for more money after receiving a job offer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. A reasonable and well-supported salary request is a normal part of compensation discussions.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. Can negotiating salary cause an employer to withdraw an offer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>It is possible, but professional and reasonable negotiation does not generally mean an offer will be withdrawn.</p>`,
+  },
+
+  {
     id: 405,
     slug: "most-common-interview-questions-and-answers",
     title: "10 Most Common Interview Questions and Answers",
