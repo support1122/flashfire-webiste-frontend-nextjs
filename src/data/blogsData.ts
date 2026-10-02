@@ -24,6 +24,265 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 405,
+    slug: "most-common-interview-questions-and-answers",
+    title: "10 Most Common Interview Questions and Answers",
+    metaTitle: "10 Most Common Interview Questions and Answers",
+    excerpt: "Discover the 10 most common interview questions and learn how to answer them with practical examples and tips to make a strong impression.",
+    date: "Oct 2, 2026",
+    lastUpdated: "Oct 2, 2026",
+    readTime: "10 min",
+    category: "Interview Tips",
+    tags: ["Interview Tips"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/screenshot-2026-10-02-at-7-18-27-pm-1790949102008.png",
+    categoryColor: "bg-purple-100 text-purple-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10 Most Common Interview Questions and Answers</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A job interview can feel unpredictable, but many employers rely on familiar questions to understand your experience, skills, motivation, and approach to workplace situations. Knowing what are the 10 most common interview questions and answers can help you prepare thoughtful responses, communicate your experience clearly, and feel more confident during a job interview.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>But what is the interviewer really looking for? How can you answer confidently without sounding rehearsed? And what should you say when a question catches you off guard?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The key is not to memorize perfect answers. Instead, prepare the main points you want to communicate and support them with specific examples. The <a href="https://www.opm.gov/policy-data-oversight/assessment-and-selection/structured-interviews/structured-interviews/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">U.S. Office of Personnel Management</a> recommends using structured questions and the STAR method to draw out specific situations, actions, and results.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Source:</strong> U.S. Office of Personnel Management</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. What Are the 10 Most Common Interview Questions and Answers?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Common interview questions are questions employers frequently use to learn about your background, motivation, skills, achievements, and behavior at work.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>They usually fall into three categories:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>General questions: Your background, strengths, goals, and motivation.</li>
+    <li>Behavioral interview questions: How you handled real situations in the past.</li>
+    <li>Role-specific questions: Your technical knowledge and ability to perform the job.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong interview answer should be relevant, specific, concise, and connected to the role. Instead of saying, “I am a hard worker,” explain what you accomplished because of that quality.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Here are 10 questions worth preparing for:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Tell me about yourself.</li>
+    <li>Why do you want this job?</li>
+    <li>Why should we hire you?</li>
+    <li>What are your strengths and weaknesses?</li>
+    <li>Where do you see yourself in five years?</li>
+    <li>Why are you leaving your current job?</li>
+    <li>Tell me about a challenge you faced at work and how you handled it.</li>
+    <li>What is your greatest professional achievement?</li>
+    <li>What are your salary expectations?</li>
+    <li>Do you have any questions for us?</li>
+</ol>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Tell Me About Yourself</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>“Tell me about yourself” is often used to start an interview. It is not an invitation to tell your entire life story or repeat every line of your resume.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The interviewer wants a quick understanding of your professional background, relevant skills, achievements, and why your experience makes sense for the position.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to structure your answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Use this simple formula:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Present → Past → Skills/Achievement → Future</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Briefly explain what you currently do.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Mention relevant previous experience.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Highlight one or two important skills or achievements.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Connect your background to the job you are applying for.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“I’m a digital marketing professional with three years of experience in SEO and content marketing. In my current role, I manage organic content campaigns and helped increase qualified website traffic by 35% over the past year. I particularly enjoy combining data with creative content strategies, and I’m now looking for a role where I can take on larger campaigns and contribute to a growing marketing team.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong> personal history, unrelated hobbies, lengthy explanations, and simply reading your resume aloud.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Why Do You Want This Job?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>This question assists the employer in knowing that you are really interested in the job or you are applying for the sake of securing a job.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Prior to the interview, carry out some research on the organization and find two or three reasons why this particular job is suitable for you.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong answer should show:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Knowledge of the company</li>
+    <li>Interest in the responsibilities</li>
+    <li>Relevant skills</li>
+    <li>Career alignment</li>
+    <li>Motivation to contribute</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“I’m interested in this role because it combines content strategy, SEO, and data analysis, which are areas I’ve developed strongly in my current position. I also like that your company is expanding its digital presence. The role would allow me to use my existing skills while continuing to grow in a larger marketing environment.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong> “I need a job,” focusing only on salary, or giving an answer that could apply to any company.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Why Should We Hire You?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>This is the perfect chance for you to sell the benefits that you can add to the company.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Begin by determining the critical needs outlined in the job description. Then relate the needs to your skill set and accomplishments.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Use this formula:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Job requirement + Your skill + Evidence + Potential contribution</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, if the position requires project management, do not simply say you are organized. Explain how your organizational skills produced a result.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“You should consider me because I have three years of experience managing content projects, working with cross-functional teams, and improving organic traffic. In my current role, I helped increase qualified traffic by 35% while managing multiple projects simultaneously. I believe I can bring that combination of execution, analysis, and teamwork to this position.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The goal is not to claim you are better than every other candidate. Instead, clearly demonstrate why your qualifications match the employer’s needs.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. What Are Your Strengths and Weaknesses?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Strengths and weakness questions require a demonstration of self-awareness and your ability to think about your professional growth.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Select strengths which actually matter in the role. Based on the job, it can be such traits as communication skills, problem-solving abilities, adaptability, attentiveness, leadership qualities, or analytical skills.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Concerning weaknesses, select something real but manageable. Most importantly, explain what you are doing to improve it.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“Redesigning the reporting process was one of my biggest achievements as well. I realized that the team was taking several hours in manually collating information, and designed an efficient reporting system that saved about 40% of the preparation time and helped managers get hold of the required information much faster.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong> “I have no weaknesses,” fake weaknesses such as “I work too hard,” or weaknesses that directly prevent you from performing the core requirements of the role.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Where Do You See Yourself in Five Years?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Employers ask this to understand your career goals, expectations, and interest in professional growth. You do not need to predict your exact job title five years from now. Focus on developing expertise, taking on greater responsibility, and contributing to the organization.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“Over the next five years, I’d like to become highly skilled in digital marketing and gradually take on more responsibility for strategy and team projects. I want to continue developing my analytical and leadership skills while contributing to measurable business growth.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your answer should sound ambitious but realistic.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong> saying you plan to leave the industry soon, giving an inflexible five-year plan, or suggesting the current position is only a temporary stepping stone.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. Why Are You Leaving Your Current Job?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Keep this answer professional, factual, and future-focused. Even if your previous experience was difficult, criticizing your manager or company can make the conversation uncomfortable.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Good reasons can include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Seeking career growth</li>
+    <li>Looking for new responsibilities</li>
+    <li>Moving into a different specialization</li>
+    <li>Seeking a new industry</li>
+    <li>Organizational restructuring</li>
+    <li>Layoff or role elimination</li>
+    <li>Relocation</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“I’ve learned a lot in my current role, particularly in project management and client communication. I’m now looking for an opportunity where I can take on larger projects and develop my strategic skills further.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If you were laid off, be direct:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>“My position was eliminated during an organizational restructuring. Since then, I’ve focused on strengthening my skills and finding a role where I can apply my experience to new challenges.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong> blaming colleagues, discussing office conflicts in detail, or making negative personal comments about your previous employer.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Tell Me About a Challenge You Faced at Work and How You Handled It</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>This is a classic behavioral interview question. Instead of asking what you would do, the interviewer wants to understand how you handled a real situation.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The STAR method is an effective way to organize your answer:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li><strong>Situation:</strong> What was happening?</li>
+    <li><strong>Task:</strong> What needed to be done?</li>
+    <li><strong>Action:</strong> What did you personally do?</li>
+    <li><strong>Result:</strong> What happened because of your actions?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>The OPM specifically recommends STAR-style questions and explains that strong responses should identify the situation or task, the action taken, and the resulting outcome.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample STAR answer</h3>
+<p style='margin-bottom:8px; line-height:1.7;'><strong>Situation:</strong> “Our team was missing several project deadlines because requirements were changing frequently.”</p>
+<p style='margin-bottom:8px; line-height:1.7;'><strong>Task:</strong> “I was responsible for coordinating the content portion of the project.”</p>
+<p style='margin-bottom:8px; line-height:1.7;'><strong>Action:</strong> “I created a shared project tracker, confirmed requirements with stakeholders before each stage, and introduced weekly progress reviews.”</p>
+<p style='margin-bottom:8px; line-height:1.7;'><strong>Result:</strong> “The team reduced missed deadlines and completed the next three projects on schedule.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Whenever possible, quantify the result using percentages, revenue, time saved, customer satisfaction, productivity, or another relevant metric.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. What Is Your Greatest Professional Achievement?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Choose an achievement that demonstrates a skill the employer needs.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong achievement usually has three elements:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Challenge → Your contribution → Measurable result</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Your example does not have to be from a senior position. Students can discuss academic projects, internships, volunteering, or part-time work when they lack extensive professional experience.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Examples by career stage:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Student: Completing a major project while balancing coursework and improving the project's measurable outcome.</li>
+    <li>Fresher: Completing an internship project that increased engagement or improved a process.</li>
+    <li>Mid-career professional: Improving sales, reducing costs, increasing productivity, or delivering an important project.</li>
+    <li>Senior professional: Leading a major transformation, managing a large team, or delivering significant business results.</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“One of my biggest achievements was redesigning our monthly reporting process. I noticed the team was spending several hours manually compiling data, so I created a standardized reporting system that reduced preparation time by around 40%. It also gave managers faster access to the information they needed.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Focus on your individual contribution, even when the achievement involved a team.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. What Are Your Salary Expectations?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>It may be difficult to discuss salary expectations, but the process becomes easier when you prepare yourself for this situation.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This is one way in which an employer wants to find out if your expectations are in line with what is being paid to individuals working in the same position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>When responding, consider researching salaries for individuals in your occupation, experience level, geographic region, and industry. In the case of positions within the United States, data from the Bureau of Labor Statistics can be found on occupations and wages.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">A practical approach</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Instead of giving an arbitrary number:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Research the market range.</li>
+    <li>Consider your experience and skills.</li>
+    <li>Understand the responsibilities of the role.</li>
+    <li>Consider benefits and total compensation.</li>
+    <li>Give a reasonable range when appropriate.</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sample answer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>“Based on my experience, the responsibilities of this position, and the market range I’ve researched, I’m targeting a salary in the range of $70,000 to $80,000. However, I’m open to discussing the overall compensation package and the scope of the role.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If you do not have enough information yet, you can ask:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>“I’d be happy to discuss compensation. Could you share the budgeted range for this position?”</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">11. Do You Have Any Questions for Us?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Technically, this is not one of the 10 core questions above, but it is one of the most important questions to prepare for because interviews often end with it.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Asking thoughtful questions shows that you are evaluating the opportunity and trying to understand the role.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Questions you can ask</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>About the role</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>What would success look like in the first six months?</li>
+    <li>What would be my main priorities during the first 90 days?</li>
+    <li>What are the biggest challenges in this position?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>About the team</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>How is the team structured?</li>
+    <li>Who would I work with most closely?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>About performance</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>How is performance measured?</li>
+    <li>What are the key goals for this position?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>About growth</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>What learning or development opportunities are available?</li>
+    <li>How can someone typically grow within this team?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid:</strong> questions that can easily be answered by reading the company's website or job description.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Prepare for the 10 Most Common Interview Questions</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Knowing the questions is only the first step. Your preparation should help you answer naturally rather than recite memorized scripts.</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Research the company</li>
+    <li>Review the job description</li>
+    <li>Prepare answers to common questions</li>
+    <li>Prepare STAR examples</li>
+    <li>Practice aloud</li>
+    <li>Prepare questions for the interviewer</li>
+    <li>Don't memorize word-for-word</li>
+    <li>Keep answers concise</li>
+</ol>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Takeaway: How to Answer Common Interview Questions Successfully</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Preparing for the top ten interview questions and answers will help you to convey your experience and value more effectively.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The purpose is not to anticipate every possible question. It is to have information that you can tailor to many situations.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Remember these principles:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Research the company before the interview.</li>
+    <li>Connect your answers to the job description.</li>
+    <li>Use specific examples instead of generic claims.</li>
+    <li>Include measurable results whenever possible.</li>
+    <li>Use the STAR method for behavioral interview questions.</li>
+    <li>Practice without memorizing every word.</li>
+    <li>Keep your answers clear and concise.</li>
+    <li>Prepare thoughtful questions for the interviewer.</li>
+    <li>Show confidence without exaggerating your experience.</li>
+    <li>Demonstrate genuine interest in the opportunity.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>A little preparation can turn “I don't know what they'll ask” into “I'm ready for the conversation.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Make your job search more efficient.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Interview preparation is vital; however, searching for relevant interviews and monitoring each application process is equally time-consuming. <a href="https://www.flashfirejobs.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">FlashFire</a> streamlines the whole interview preparation process by looking up relevant interviews, speeding up the application process and monitoring applications so that you have more time to prepare for the interviews.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Ready to make your job search more efficient? Explore FlashFire and spend less time managing applications and more time getting ready for the interview.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. What are the 10 most common interview questions and answers?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>They cover your background, motivation, strengths, weaknesses, career goals, job changes, challenges, achievements, salary expectations, and questions for the interviewer.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. What are the 7 most common interview questions and answers?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>The seven include “Tell me about yourself,” “Why do you want this job?”, “Why should we hire you?”, strengths and weaknesses, five-year goals, reasons for leaving, and behavioral questions.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. How should I answer “Tell me about yourself”?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Briefly discuss your experience, key skills, achievements, and how they relate to the job.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. What is the best answer to “Why should we hire you?”</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Highlight your most relevant skills, experience, and measurable achievements that match the job requirements.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. How do I answer “What are your strengths and weaknesses?”</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Mention relevant strengths and one genuine weakness, along with how you are working to improve it.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. How do I answer “Where do you see yourself in five years?”</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Share realistic career goals and explain how the role supports your professional growth.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. How do I answer behavioral interview questions?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Use a specific example and structure your answer using the STAR method: Situation, Task, Action, and Result.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. What is the STAR method for interviews?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>STAR stands for Situation, Task, Action, and Result. It helps you give clear, structured answers about past experiences.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. What questions should I ask the interviewer?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Ask about the role, team, expectations, performance goals, challenges, company culture, and growth opportunities.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. How can I prepare for a job interview?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Research the company, review the job description, prepare common questions, practice your answers, and prepare questions for the interviewer.</p>`,
+  },
+
+  {
     id: 404,
     slug: "how-to-write-cover-letter-for-internship",
     title: "How to Write a Cover Letter for an Internship",
