@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
               <h1 className="text-3xl font-bold text-gray-900">
                 Privacy Policy
               </h1>
-              <p className="text-gray-600">Last updated: July 2025</p>
+              <p className="text-gray-600">Last updated: October 2026</p>
             </div>
           </div>
           <div className="prose prose-lg max-w-none">
@@ -140,6 +140,89 @@ export default function PrivacyPolicy() {
               your behalf at any time by contacting{" "}
               <strong>support@flashfirejobs.com</strong>.
             </p>
+
+            <h2
+              id="google-user-data"
+              className="text-2xl font-bold text-gray-900 mb-4"
+            >
+              Google User Data and Limited Use
+            </h2>
+            <p className="text-gray-700 mb-4">
+              If you choose to connect your Gmail account, Flashfire requests
+              only the following two Google permissions:
+            </p>
+            <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
+              <li>
+                <strong>gmail.send</strong> — to send job application and
+                follow-up emails to employers and recruiters from your own
+                Gmail address, only when you have enabled this feature.
+              </li>
+              <li>
+                <strong>gmail.readonly</strong> — to read the messages and
+                threads in the connected mailbox so that recruiter and
+                employer replies, interview invitations, offers and
+                rejections related to your job search can be displayed in your
+                Flashfire inbox view and summarized for you and your Flashfire
+                account team. Actions in the Flashfire inbox (such as starring
+                or archiving) are stored only in Flashfire and do not change
+                your Gmail.
+              </li>
+            </ul>
+            <p className="text-gray-700 mb-4">
+              Flashfire&apos;s use and transfer to any other app of information
+              received from Google APIs will adhere to the{" "}
+              <a
+                href="https://developers.google.com/terms/api-services-user-data-policy"
+                className="text-orange-600 hover:text-orange-700 underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google API Services User Data Policy
+              </a>
+              , including the Limited Use requirements.
+            </p>
+            <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
+              <li>
+                We use Google user data only to provide and improve the
+                user-facing email features described above.
+              </li>
+              <li>
+                We do not sell Google user data or use it for advertising.
+              </li>
+              <li>
+                We do not use raw or derived Google user data to develop,
+                improve or train generalized artificial intelligence or machine
+                learning models.
+              </li>
+              <li>
+                To generate email summaries and categories, the text of
+                individual messages is sent to OpenAI through its commercial
+                API. OpenAI does not use API data to train its models, and we
+                do not permit it. Google user data is not sent to any other
+                third-party AI service for training or any other secondary
+                purpose.
+              </li>
+              <li>
+                Authorized Flashfire team members who manage your job search
+                may view your connected mailbox content and its summaries only
+                to provide the service to you. Otherwise, humans do not read
+                your Gmail data unless you give us explicit consent, it is
+                necessary for security purposes or to comply with law, or the
+                data is aggregated and anonymized for internal operations.
+              </li>
+              <li>
+                You can revoke Flashfire&apos;s access at any time in your{" "}
+                <a
+                  href="https://myaccount.google.com/permissions"
+                  className="text-orange-600 hover:text-orange-700 underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Google Account permissions
+                </a>{" "}
+                or by contacting <strong>support@flashfirejobs.com</strong>.
+              </li>
+            </ul>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Data Retention
