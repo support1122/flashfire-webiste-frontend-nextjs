@@ -10,7 +10,9 @@ countries/
   │   └── Home.tsx # Canada home page
   ├── uk/          # UK / EU components
   │   └── Home.tsx
-  └── au/          # Australia components
+  ├── au/          # Australia components
+  │   └── Home.tsx
+  └── eu/          # Europe components
       └── Home.tsx
 ```
 
@@ -31,7 +33,8 @@ countries/
 ## Current Countries
 
 - **CA (Canada)**: `/en-ca` routes → uses `countries/ca/Home.tsx`
-- **UK / EU**: `/en-gb` routes → uses `countries/uk/Home.tsx`
+- **UK**: `/en-gb` routes → uses `countries/uk/Home.tsx`
+- **EU (Europe)**: `/en-eu` routes → uses `countries/eu/Home.tsx` (same £ checkouts as UK until EUR plans exist)
 - **AU (Australia)**: `/en-au` routes → uses `countries/au/Home.tsx` (priced in USD, shown as US$)
 - **Default (US)**: `/` routes → uses `flashFireHome.tsx`
 

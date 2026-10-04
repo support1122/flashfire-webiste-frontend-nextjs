@@ -17,6 +17,7 @@ export const metadata: Metadata = {
             "en-CA": "https://www.flashfirejobs.com/en-ca/offer-and-salary",
             "en-GB": "https://www.flashfirejobs.com/en-gb/offer-and-salary",
             "en-AU": "https://www.flashfirejobs.com/en-au/offer-and-salary",
+            "en-EU": "https://www.flashfirejobs.com/en-eu/offer-and-salary",
             "x-default": "https://www.flashfirejobs.com/offer-and-salary-negotiation-advisor",
         },
     },

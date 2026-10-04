@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/resume-headline-generator",
       "en-GB": "https://www.flashfirejobs.com/en-gb/resume-headline-generator",
       "en-AU": "https://www.flashfirejobs.com/en-au/resume-headline-generator",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/resume-headline-generator",
       "x-default": "https://www.flashfirejobs.com/resume-headline-generator",
     },
   },

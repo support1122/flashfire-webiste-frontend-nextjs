@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/ai-resume-builder",
       "en-GB": "https://www.flashfirejobs.com/en-gb/ai-resume-builder",
       "en-AU": "https://www.flashfirejobs.com/en-au/ai-resume-builder",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/ai-resume-builder",
       "x-default": "https://www.flashfirejobs.com/ai-resume-builder",
     },
   },

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/interview-tips",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/interview-tips",
       "en-AU": "https://www.flashfirejobs.com/en-au/features/interview-tips",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/features/interview-tips",
       "x-default": "https://www.flashfirejobs.com/features/interview-tips",
     },
   },

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             "en-CA": "https://www.flashfirejobs.com/en-ca/recent-job-openings",
             "en-GB": "https://www.flashfirejobs.com/en-gb/recent-job-openings",
             "en-AU": "https://www.flashfirejobs.com/en-au/recent-job-openings",
+            "en-EU": "https://www.flashfirejobs.com/en-eu/recent-job-openings",
             "x-default": "https://www.flashfirejobs.com/recent-job-openings",
         },
     },

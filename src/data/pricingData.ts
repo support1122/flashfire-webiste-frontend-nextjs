@@ -193,6 +193,24 @@ export const AU_STRIPE_LINKS = {
   EXECUTIVE: "https://buy.stripe.com/5kQdRbfRS5iG3M42xV3AY1f",
 } as const;
 
+/** Europe (/en-eu) checkout links, charged in EUR. */
+export const EU_STRIPE_LINKS = {
+  IGNITE: "https://buy.stripe.com/14AeVf35612q82k8Wj3AY1k",
+  PROFESSIONAL: "https://buy.stripe.com/cNifZj21212qgyQgoL3AY1l",
+  EXECUTIVE: "https://buy.stripe.com/14A00lgVW8uS82kgoL3AY1m",
+} as const;
+
+const EU_PRICES: Record<string, { price: string; oldPrice: string; link: string }> = {
+  IGNITE: { price: "€169", oldPrice: "€249", link: EU_STRIPE_LINKS.IGNITE },
+  PROFESSIONAL: { price: "€299", oldPrice: "€399", link: EU_STRIPE_LINKS.PROFESSIONAL },
+  EXECUTIVE: { price: "€499", oldPrice: "€649", link: EU_STRIPE_LINKS.EXECUTIVE },
+};
+
+export const euPricingPlans: PricingPlan[] = ukPricingPlans.map((plan) => {
+  const eu = EU_PRICES[plan.title];
+  return eu ? { ...plan, price: eu.price, oldPrice: eu.oldPrice, paymentLink: eu.link } : plan;
+});
+
 export const australiaPricingPlans: PricingPlan[] = [
   {
     title: "IGNITE",

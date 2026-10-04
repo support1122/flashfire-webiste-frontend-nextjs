@@ -1,5 +1,5 @@
 import { apiUrl } from './apiBase';
-import { UK_EU_COUNTRY_CODES } from './locale';
+import { UK_COUNTRY_CODES, EU_COUNTRY_CODES } from './locale';
 
 const STORAGE_KEY = 'ff_country_code_v1';
 const CANADA_CODE = 'CA';
@@ -102,7 +102,14 @@ export function shouldRedirectToCanada(pathname: string, countryCode: string | n
 }
 
 export function shouldRedirectToUK(pathname: string, countryCode: string | null): boolean {
-  if (countryCode && pathname === '/' && UK_EU_COUNTRY_CODES.has(countryCode)) {
+  if (countryCode && pathname === '/' && UK_COUNTRY_CODES.has(countryCode)) {
+    return true;
+  }
+  return false;
+}
+
+export function shouldRedirectToEU(pathname: string, countryCode: string | null): boolean {
+  if (countryCode && pathname === '/' && EU_COUNTRY_CODES.has(countryCode)) {
     return true;
   }
   return false;
