@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/salary-comparison",
       "en-GB": "https://www.flashfirejobs.com/en-gb/salary-comparison",
       "en-AU": "https://www.flashfirejobs.com/en-au/salary-comparison",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/salary-comparison",
       "x-default": "https://www.flashfirejobs.com/salary-comparison",
     },
   },

@@ -31,7 +31,7 @@ function PostHogPageView() {
       // Get country context
       const locale = getLocale(pathname);
       const isCanada = locale === "ca";
-      const localeFallbackCode = isCanada ? "CA" : locale === "uk" ? "GB" : locale === "au" ? "AU" : "US";
+      const localeFallbackCode = isCanada ? "CA" : locale === "uk" ? "GB" : locale === "au" ? "AU" : locale === "eu" ? "EU" : "US";
       const countryCode = typeof window !== "undefined"
         ? localStorage.getItem("ff_country_code_v1") || localeFallbackCode
         : "US";
@@ -60,7 +60,8 @@ function PostHogPageView() {
         is_canada: isCanada,
         is_uk: locale === "uk",
         is_australia: locale === "au",
-        locale: locale === "uk" ? "en-gb" : isCanada ? "en-ca" : locale === "au" ? "en-au" : "en-us",
+        is_eu: locale === "eu",
+        locale: locale === "uk" ? "en-gb" : isCanada ? "en-ca" : locale === "au" ? "en-au" : locale === "eu" ? "en-eu" : "en-us",
         utm_source: utmSource || "direct",
         utm_medium: utmMedium || "website",
         utm_campaign: utmCampaign || "organic",

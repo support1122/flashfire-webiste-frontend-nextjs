@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/features/automated-job-applications",
       "en-GB": "https://www.flashfirejobs.com/en-gb/features/automated-job-applications",
       "en-AU": "https://www.flashfirejobs.com/en-au/features/automated-job-applications",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/features/automated-job-applications",
       "x-default": "https://www.flashfirejobs.com/features/automated-job-applications",
     },
   },

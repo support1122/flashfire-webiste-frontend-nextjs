@@ -48,6 +48,7 @@ export interface PostHogEventProperties {
   is_canada?: boolean;
   is_uk?: boolean;
   is_australia?: boolean;
+  is_eu?: boolean;
   locale?: string;
 
   // Business context
@@ -140,7 +141,8 @@ const getCountryContext = (): Partial<PostHogEventProperties> => {
   const isCanada = locale === "ca";
   const isUK = locale === "uk";
   const isAustralia = locale === "au";
-  const fallbackCode = isCanada ? "CA" : isUK ? "GB" : isAustralia ? "AU" : "US";
+  const isEU = locale === "eu";
+  const fallbackCode = isCanada ? "CA" : isUK ? "GB" : isAustralia ? "AU" : isEU ? "EU" : "US";
   const countryCode = localStorage.getItem("ff_country_code_v1") || fallbackCode;
 
   // Map country codes to names
@@ -150,6 +152,7 @@ const getCountryContext = (): Partial<PostHogEventProperties> => {
     IN: "India",
     GB: "United Kingdom",
     AU: "Australia",
+    EU: "Europe",
   };
 
   return {
@@ -158,7 +161,8 @@ const getCountryContext = (): Partial<PostHogEventProperties> => {
     is_canada: isCanada,
     is_uk: isUK,
     is_australia: isAustralia,
-    locale: isUK ? "en-gb" : isCanada ? "en-ca" : isAustralia ? "en-au" : "en-us",
+    is_eu: isEU,
+    locale: isUK ? "en-gb" : isCanada ? "en-ca" : isAustralia ? "en-au" : isEU ? "en-eu" : "en-us",
   };
 };
 

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/image-testimonials",
       "en-GB": "https://www.flashfirejobs.com/en-gb/image-testimonials",
       "en-AU": "https://www.flashfirejobs.com/en-au/image-testimonials",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/image-testimonials",
       "x-default": "https://www.flashfirejobs.com/image-testimonials",
     },
   },

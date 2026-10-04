@@ -5,6 +5,7 @@ import HomePage from "../home/Home";
 import CanadaHome from "../../countries/ca/Home";
 import UKHome from "../../countries/uk/Home";
 import AustraliaHome from "../../countries/au/Home";
+import EUHome from "../../countries/eu/Home";
 import ScrollToSection from "@/src/utils/ui/scrollToSection";
 import { getLocale } from "@/src/utils/locale";
 
@@ -22,7 +23,9 @@ export default function SectionPage({ sectionId }: SectionPageProps) {
         ? CanadaHome
         : locale === "au"
           ? AustraliaHome
-          : HomePage;
+          : locale === "eu"
+            ? EUHome
+            : HomePage;
 
   return (
     <>

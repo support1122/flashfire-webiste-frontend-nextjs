@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/ats-score-checker",
       "en-GB": "https://www.flashfirejobs.com/en-gb/ats-score-checker",
       "en-AU": "https://www.flashfirejobs.com/en-au/ats-score-checker",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/ats-score-checker",
       "x-default": "https://www.flashfirejobs.com/ats-score-checker",
     },
   },

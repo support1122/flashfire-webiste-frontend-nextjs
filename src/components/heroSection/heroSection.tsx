@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { heroSectionData, heroSectionDataAU, heroSectionDataCA, heroSectionDataUK } from "@/src/data/herosection";
+import { heroSectionData, heroSectionDataAU, heroSectionDataCA, heroSectionDataEU, heroSectionDataUK } from "@/src/data/herosection";
 import HeroSectionClient from "./heroSectionClient";
 import { getLocale, type Locale } from "@/src/utils/locale";
 
@@ -20,7 +20,9 @@ export default function HeroSection({ country }: Props) {
         ? heroSectionDataCA
         : locale === "au"
           ? heroSectionDataAU
-          : heroSectionData;
+          : locale === "eu"
+            ? heroSectionDataEU
+            : heroSectionData;
   const heroImageSrc = "/images/landingpageImg.png";
 
   return (

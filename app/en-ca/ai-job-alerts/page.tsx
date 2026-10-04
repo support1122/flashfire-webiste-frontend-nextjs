@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/ai-job-alerts",
       "en-GB": "https://www.flashfirejobs.com/en-gb/ai-job-alerts",
       "en-AU": "https://www.flashfirejobs.com/en-au/ai-job-alerts",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/ai-job-alerts",
       "x-default": "https://www.flashfirejobs.com/ai-job-alerts",
     },
   },

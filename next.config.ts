@@ -188,6 +188,32 @@ const nextConfig: NextConfig = {
         destination: "/en-au/:path*",
         permanent: true,
       },
+      // Short /eu links land on the real /en-eu tree.
+      {
+        source: "/eu",
+        destination: "/en-eu",
+        permanent: true,
+      },
+      {
+        source: "/eu/:path*",
+        destination: "/en-eu/:path*",
+        permanent: true,
+      },
+      {
+        source: "/en-eu/blogs",
+        destination: "/en-eu/blog",
+        permanent: true,
+      },
+      {
+        source: "/en-eu/features/ats-optimizer",
+        destination: "/en-eu/features/resume-optimizer",
+        permanent: true,
+      },
+      {
+        source: "/en-eu/how-it-works",
+        destination: "/en-eu/how-flashfire-ai-job-automation-platform-works",
+        permanent: true,
+      },
       // Legacy /en-uk/* prefix (renamed to /en-gb/* to match the ISO 3166-1 /
       // BCP-47 standard). These specific ones resolve in a single hop instead
       // of falling through to the generic /en-uk/:path* rule below and

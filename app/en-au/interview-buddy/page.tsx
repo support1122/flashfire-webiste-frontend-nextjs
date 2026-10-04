@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "en-CA": "https://www.flashfirejobs.com/en-ca/interview-buddy",
       "en-GB": "https://www.flashfirejobs.com/en-gb/interview-buddy",
       "en-AU": "https://www.flashfirejobs.com/en-au/interview-buddy",
+      "en-EU": "https://www.flashfirejobs.com/en-eu/interview-buddy",
       "x-default": "https://www.flashfirejobs.com/interview-buddy",
     },
   },

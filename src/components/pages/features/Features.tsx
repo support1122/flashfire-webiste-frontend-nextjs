@@ -128,8 +128,8 @@ const personas = [
     desc: "Students and new graduates who need a faster way to reach relevant companies without spending every night filling out forms.",
   },
   {
-    title: "U.S., U.K., Canada & Australia Job Seekers",
-    desc: "Candidates targeting U.S., U.K., Canada & Australia-based roles across tech, business, and operations.",
+    title: "U.S., U.K., Europe, Canada & Australia Job Seekers",
+    desc: "Candidates targeting U.S., U.K., European, Canada & Australia-based roles across tech, business, and operations.",
   },
   {
     title: "Burnt-Out Applicants",
