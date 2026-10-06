@@ -24,6 +24,291 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 414,
+    slug: "what-is-a-good-ats-score",
+    title: "What Is a Good ATS Score?",
+    metaTitle: "What Is a Good ATS Score? Resume Score Guide",
+    excerpt: "Learn what a good ATS score is, what ATS score is considered good for a resume, and how to improve your score to pass applicant tracking systems.",
+    date: "Oct 6, 2026",
+    lastUpdated: "Oct 6, 2026",
+    readTime: "9 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/what-is-a-good-ats-score-1791271988620.png",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. How to Understand ATS Scores</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A good ATS score generally means your resume is well matched to the job description, uses relevant keywords, and is formatted in a way an applicant tracking system can read correctly. But what is good ATS score in practical terms? Is 70% enough, or should you aim for 80% or even 90%? And does a high score actually mean your resume will reach a recruiter?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The answer is more nuanced than a single percentage. An ATS score can help you understand how closely your resume matches a specific job, but different ATS resume checkers use different scoring methods. More importantly, many employer ATS platforms do not give job seekers a simple 0–100 score at all. So, instead of chasing a perfect number, focus on keyword match, relevant qualifications, job-specific experience, and clean resume formatting.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. What Is a Good ATS Score?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>An acceptable score on an ATS test is usually an indication that the resume you prepared meets the specific criteria in the job description and is compatible with the applicant tracking system.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Many resume-scanning tools use a percentage or score to estimate how well your resume matches a job posting. For example, Jobscan currently describes 75%+ as its target score, but this is the recommendation of that particular resume checker not an industry-wide ATS requirement.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Here is a useful way to interpret scores from a typical 0–100 resume checker:</p>
+
+<div class="overflow-x-auto my-6">
+<table class="w-full border-collapse text-sm">
+  <thead>
+    <tr>
+      <th class="bg-blue-600 text-white font-semibold p-3 text-left">ATS Score</th>
+      <th class="bg-blue-600 text-white font-semibold p-3 text-left">General indication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-200 p-3">Below 60%</td>
+      <td class="border border-gray-200 p-3">Your resume may have significant gaps in keywords, skills, qualifications, or relevance.</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-200 p-3">60–74%</td>
+      <td class="border border-gray-200 p-3">Some relevant content is present, but there may be opportunities to improve the match.</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-200 p-3">75–89%</td>
+      <td class="border border-gray-200 p-3">Generally a strong job-specific match in tools that use this type of scoring.</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-200 p-3">90%+</td>
+      <td class="border border-gray-200 p-3">Very strong match, but review the resume to make sure it does not contain unnecessary keyword repetition.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p style='margin-bottom:12px; line-height:1.7;'>These ranges are guidelines, not universal ATS thresholds. The actual scoring method depends on the software, employer, job requirements, and resume-checking tool.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Even having an excellent ATS score does not guarantee a good resume. The resume still requires good achievements, appropriate experience, measurable outcomes, and well-written content.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>However, above all, the resume must be customized to the job description. This is because a good resume when it comes to one position can score very low on another position due to the difference in requirements and jargon.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. What Is an ATS Score?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>An ATS, or applicant tracking system, is software employers use to manage job applications and organize candidate information. When you submit a resume online, the system may extract information such as your job titles, work experience, education, certifications, and skills. This process is commonly known as resume parsing.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Depending on the employer and software, an ATS can help recruiters:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li>Store and organize applications</li>
+  <li>Search resumes using keywords</li>
+  <li>Identify skills and qualifications</li>
+  <li>Filter applications based on hiring criteria</li>
+  <li>Rank or prioritize candidates</li>
+  <li>Manage candidates throughout the hiring process</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>The job description can play an important role because it tells the system—and recruiters which qualifications and keywords are relevant to the role.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For instance, when a job listing requires you to have skills such as SEO, keyword research, Google Analytics, and content strategy, having a resume that includes such skills in the right sections could help create a more job-specific match than a general resume would.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>However, every ATS does not grade your resume using numbers. There could be cases where the resume grading system simply organizes, parses, searches, filters, and ranks resumes according to predefined employer requirements. This implies that ATS grading of your resume using an online resume checker can only be taken as an estimate or optimization.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. ATS Score vs. ATS Compatibility</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>These terms are related but different.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>ATS compatibility</strong> refers to whether your resume can be read and processed correctly by the software.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>An ATS score</strong> or resume match score usually refers to a numerical estimate of how closely your resume matches a particular job.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A resume can therefore be technically compatible with an ATS but still have a weak job-specific match.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. What Is a Good ATS Score for a Resume?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A good ATS score for a resume depends on the ATS tool and the job, but a strong score generally indicates that your resume closely matches the employer’s requirements and is easy for ATS software to parse.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If you are using a resume checker that scores resumes from 0 to 100, a score around 75% or higher can be a useful target. For example, Jobscan recommends 75%+ for its own scoring system.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>However, don't treat 75% as a universal hiring cutoff.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your actual goal should be to make your resume:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li>Relevant to the job description</li>
+  <li>Easy for software to parse</li>
+  <li>Easy for a recruiter to read</li>
+  <li>Accurate and truthful</li>
+  <li>Focused on relevant skills and achievements</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>A lower score does not necessarily mean your resume is bad. It may simply mean the resume was written for a different role.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. What ATS Score Is Considered Good?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>So, what ATS score is considered good?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>There is no industry-wide percentage that guarantees a resume will pass an employer's ATS. Different resume checkers can calculate scores differently, and employers may configure their recruitment systems according to their own hiring processes.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For a tool that uses a 100-point scale, you can generally use the following as a practical guide:</p>
+<div class="overflow-x-auto my-6">
+<table class="w-full border-collapse text-sm">
+  <thead>
+    <tr>
+      <th class="bg-blue-600 text-white font-semibold p-3 text-left">Score Range</th>
+      <th class="bg-blue-600 text-white font-semibold p-3 text-left">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-200 p-3">Below 60</td>
+      <td class="border border-gray-200 p-3">Review your resume carefully for missing relevant keywords and qualifications.</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-200 p-3">60–74</td>
+      <td class="border border-gray-200 p-3">Look for opportunities to strengthen the job-specific match.</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-200 p-3">75–89</td>
+      <td class="border border-gray-200 p-3">Often indicates a strong match in tools using similar scoring methods.</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-200 p-3">90+</td>
+      <td class="border border-gray-200 p-3">Very high match, but check that you have not added keywords unnaturally.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p style='margin-bottom:12px; line-height:1.7;'>A high score does not necessarily mean anything if you have attained it by cramming keywords on your resume.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For instance, if a job description contains the phrase "project management" five times, then using "project management" again and again in all parts of your resume can make your resume look artificial.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Rather, use the phrase where it truly fits in your resume.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. What Factors Affect Your ATS Score?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Your resume match score can be influenced by several factors.</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li><strong>Job-specific keywords:</strong> The words used in the job description can provide clues about what the employer considers important. Look for:
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>Technical skills</li>
+      <li>Software and tools</li>
+      <li>Certifications</li>
+      <li>Job titles</li>
+      <li>Industry terms</li>
+      <li>Required qualifications</li>
+      <li>Soft skills</li>
+    </ul>
+  </li>
+  <li><strong>Skills and qualifications:</strong> Required qualifications can matter significantly. If the job specifically requires a certification, degree, programming language, software platform, or years of experience, make sure your resume clearly communicates those qualifications when you genuinely have them.</li>
+  <li><strong>Job title alignment:</strong> If your previous job title is different from the title in the job posting, don't change it inaccurately. Instead, you can explain the relevance through your professional summary or experience bullets where appropriate.</li>
+  <li><strong>Work experience:</strong> ATS tools and recruiters may look for experience related to the responsibilities in the job posting. Don't simply list duties. Show how you used relevant skills and what you achieved.
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li><strong>Weak:</strong> "Responsible for writing blogs."</li>
+      <li><strong>Stronger:</strong> "Wrote SEO-focused blogs based on keyword research and search intent, helping create content aligned with organic search goals."</li>
+    </ul>
+  </li>
+  <li><strong>Education and certifications:</strong> If the posting requires a specific degree, certification, or professional credential, include it clearly if you have it.</li>
+  <li><strong>Resume formatting:</strong> Formatting can affect how information is parsed. Indeed recommends simple formatting, standard section headings, and avoiding elements such as complex tables, graphics, text boxes, and overly complicated layouts that can make parsing more difficult for some systems.</li>
+  <li><strong>Keyword placement and context:</strong> Keywords should appear in meaningful sections such as your summary, skills, and work experience when relevant. Simply placing a long list of keywords at the bottom of your resume is not a substitute for demonstrating those skills through your experience.</li>
+</ol>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. How to Improve Your ATS Score</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>If your resume match score is lower than expected, don't start by adding dozens of keywords. Start by understanding the job.</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li><strong>Tailor your resume to each job:</strong> Read the job description carefully and identify the skills, qualifications, tools, and responsibilities that match your background. Then adjust your resume for that particular position.</li>
+  <li><strong>Add relevant keywords naturally:</strong> Use the employer's terminology when it accurately describes your experience. For example, if the job description uses "content strategy," and you have genuinely worked on content strategy, use that phrase instead of relying only on a broader term such as "content planning."</li>
+  <li><strong>Use the job title when appropriate:</strong> If your experience aligns with the advertised position, make your target role clear in your summary or headline. Do not misrepresent your previous job title.</li>
+  <li><strong>Highlight relevant skills:</strong> Prioritize skills that directly relate to the position. A writer applying for a technical content role, for example, may emphasize technical writing, SEO, research, documentation, cybersecurity, or relevant tools when these are part of their actual experience.</li>
+  <li><strong>Quantify achievements:</strong> Numbers can make your experience more useful to both ATS tools and recruiters. Instead of:
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>"Managed content projects."</li>
+    </ul>
+    Try:
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>"Managed 30+ SEO content projects per month while coordinating research, optimization, and publishing requirements."</li>
+    </ul>
+    Use genuine numbers from your experience.</li>
+  <li><strong>Remove irrelevant information:</strong> More content does not automatically create a stronger ATS match. Remove outdated or unrelated information that takes attention away from the qualifications that matter for the role.</li>
+  <li><strong>Use standard resume sections:</strong> Use familiar headings such as:
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>Professional Summary</li>
+      <li>Work Experience</li>
+      <li>Skills</li>
+      <li>Education</li>
+      <li>Certifications</li>
+    </ul>
+    Standard headings can make it easier for software to categorize information.</li>
+  <li><strong>Keep the layout simple:</strong> Avoid unnecessary:
+    <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+      <li>Graphics</li>
+      <li>Images</li>
+      <li>Text boxes</li>
+      <li>Multiple columns</li>
+      <li>Decorative elements</li>
+      <li>Complicated tables</li>
+      <li>Information hidden in headers or footers</li>
+    </ul>
+    A clean, straightforward layout can reduce parsing problems.</li>
+  <li><strong>Check spelling and variations:</strong> Check important keywords for spelling, abbreviations, and common variations. For example, if relevant, you might use both "Search Engine Optimization (SEO)" and "SEO" instead of relying on only one form.</li>
+</ol>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. How to Check Your ATS Score</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>An ATS resume checker can help you evaluate how closely your resume matches a specific job description before applying.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Most resume checkers follow a process similar to this:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li>Upload your resume.</li>
+  <li>Add or paste the job description.</li>
+  <li>The tool analyzes your resume.</li>
+  <li>It identifies relevant and missing keywords.</li>
+  <li>It checks formatting and other resume elements.</li>
+  <li>It generates a score or match percentage.</li>
+  <li>You revise your resume based on the results.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, Jobscan says its resume scanner compares your resume with the job description and checks areas including hard skills, soft skills, job titles, education, measurable achievements, formatting, and other keywords.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>But remember: an online checker is not the employer's actual ATS. Use the score as a diagnostic tool, not as a guarantee.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>After running your resume through a checker, manually review it and ask:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li>Does every keyword accurately describe my experience?</li>
+  <li>Have I included the most important qualifications?</li>
+  <li>Are my achievements clear?</li>
+  <li>Is the resume easy to read?</li>
+  <li>Does the content sound natural?</li>
+  <li>Have I added keywords just to increase the score?</li>
+</ul>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. ATS Score vs Resume Quality: Is a High Score Enough?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>No. A high ATS score alone does not make a resume strong.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Think of ATS optimization as getting your resume through the right doorway. Once a recruiter reviews it, the resume still needs to communicate your value quickly.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong resume should show:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li>Relevant experience</li>
+  <li>Specific achievements</li>
+  <li>Measurable results</li>
+  <li>Career progression</li>
+  <li>Relevant skills</li>
+  <li>Clear and concise writing</li>
+  <li>Evidence that you can perform the role</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, compare these two statements:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li>"Experienced in social media marketing."</li>
+  <li>vs.</li>
+  <li>"Managed social media campaigns across LinkedIn and Instagram, increasing qualified engagement by 35% over six months."</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>The second example provides evidence of impact rather than simply naming a skill.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your resume should also remain readable. Keyword stuffing may increase a score in some tools while making the resume awkward or less credible to a recruiter.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The best approach is to balance ATS compatibility with human readability. Your ultimate goal is not to impress a scoring tool. It is to clearly communicate why your experience is relevant to the specific role.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">11. Final Verdict: What Is a Good ATS Score?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A good ATS score will be the one that truly demonstrates how well your resume matches up with the job description. Do not focus solely on getting a high numerical value but rather concentrate on keywords and other aspects of your resume. So, what is good ATS score? There is no single percentage that applies to every ATS or employer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>What is a good ATS score for a resume? If you are using a 100-point resume checker, a score around 75% or higher can be a useful target, depending on how that particular tool calculates its score. Jobscan, for example, currently uses 75%+ as its target.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>What ATS score is considered good? Generally, a strong score means your resume has a good job-specific match, but the exact number should not be treated as a universal hiring threshold.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The better strategy is to:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+  <li>Tailor your resume to each job description</li>
+  <li>Include relevant resume keywords naturally</li>
+  <li>Highlight required skills and qualifications</li>
+  <li>Use standard sections and simple formatting</li>
+  <li>Show measurable achievements</li>
+  <li>Check that your resume parses correctly</li>
+  <li>Review the final document as a recruiter would</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Most importantly, don't chase a perfect ATS score at the expense of a readable and truthful resume. A resume with an 85% match can be more useful than a 95% score achieved through unnecessary keyword repetition. Relevance, accuracy, and clear evidence of your skills should remain the priority.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your resume shouldn’t get lost in the ATS. With <a href="https://www.flashfirejobs.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">FlashFire</a>, you can discover relevant opportunities, improve your job applications, and apply to jobs faster with less manual effort.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Let FlashFire make your job search faster and more efficient.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. What is a good ATS score?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>A 75%+ score is often considered strong by some ATS resume checkers, but there is no universal ATS score.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. What is a good ATS score for a resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>A good score shows your resume closely matches the specific job description and includes relevant keywords and qualifications.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. What ATS score is considered good?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Generally, 75% or higher can indicate a strong match, depending on the scoring tool.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. Is 70% a good ATS score?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, 70% can be a reasonable match, but you may be able to improve it with relevant keywords and skills.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. Is 80% a good ATS score?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, 80% generally indicates a strong job match in tools that use a 100-point scoring system.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. Is 90% a good ATS score?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, 90% is a very high match, but it does not guarantee an interview.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. How do I get a higher ATS score?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Tailor your resume to the job description, add relevant keywords naturally, and use simple ATS-friendly formatting.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. What is the best ATS score for a resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>There is no single best score. Focus on achieving a strong, relevant match without keyword stuffing.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. Does a high ATS score guarantee an interview?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>No. A high score does not guarantee an interview because recruiters also evaluate experience, skills, achievements, and qualifications.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. How accurate are ATS resume scanners?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>ATS scanners are useful for finding keyword and formatting gaps, but their scores are estimates and can vary between tools.</p>`,
+  },
+
+  {
     id: 413,
     slug: "how-to-cold-email-a-hiring-manager",
     title: "How to Cold Email a Hiring Manager",
