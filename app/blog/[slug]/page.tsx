@@ -118,6 +118,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "how-to-get-a-job-quickly": "How to Get a Job Quickly (Even in a Competitive Market)",
     "what-is-hidden-job-market": "What Is the Hidden Job Market? How It Works in 2026",
     "how-to-add-publications-on-linkedin": "How to Add Publications to LinkedIn Profile",
+    // Women careers
+    "best-jobs-for-women": "Best Jobs for Women: 25+ High-Paying Careers for Women in 2026",
   };
   const metaTitle = post.slug ? (metaTitleMap[post.slug] ?? post.metaTitle ?? post.title) : (post.metaTitle ?? post.title);
   
