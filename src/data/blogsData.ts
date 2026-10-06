@@ -24,6 +24,326 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 413,
+    slug: "how-to-cold-email-a-hiring-manager",
+    title: "How to Cold Email a Hiring Manager",
+    metaTitle: "How to Cold Email a Hiring Manager: Best Practices",
+    excerpt: "Learn how to cold email a hiring manager with effective templates, subject lines, tips, and best practices to increase your chances of getting a response.",
+    date: "Oct 6, 2026",
+    lastUpdated: "Oct 6, 2026",
+    readTime: "10 min",
+    category: "Interview Tips",
+    tags: ["Interview Tips"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/how-to-cold-email-a-hiring-manager-1791271626468.png",
+    categoryColor: "bg-purple-100 text-purple-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Learning How to Cold Email a Hiring Manager</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Learning how to cold email a hiring manager can help you introduce yourself directly, highlight relevant experience, and start a professional conversation about a job opportunity. Instead of relying only on a standard application, a personalized email gives you an opportunity to explain why your background fits a particular role or team.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>But should you cold email a hiring manager? How do you find the right person, and what should you actually say? LinkedIn says its products help job seekers and hiring teams connect, and that recruiters and hiring managers can discover potential candidates through LinkedIn profiles.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A cold email should complement not necessarily replace the official application process. LinkedIn notes that job seekers can apply through LinkedIn or be directed to the company's website, depending on how the employer has set up the job posting.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Source:</strong> <a href="https://www.linkedin.com/help/linkedin/answer/a7134286?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">LinkedIn — How we help job seekers and hirers connect</a></p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. What Is a Cold Email to a Hiring Manager?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Cold emailing a hiring manager means sending a personalized email to someone responsible for hiring for a role, even when you have not previously interacted with them.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Unlike a regular job application, a cold email is direct outreach. You are starting a conversation with someone at the company rather than relying entirely on the standard application process.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For instance, you can come across an opening for Product Marketing Manager and determine who the person responsible for product marketing is. You can not just submit your application but also send an email mentioning why you would like to join their team.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Cold email vs. regular job application</h3>
+<div class="overflow-x-auto my-6">
+<table class="w-full border-collapse text-sm">
+<tr>
+<th class="bg-blue-600 text-white font-semibold p-3 text-left">Cold Email</th>
+<th class="bg-blue-600 text-white font-semibold p-3 text-left">Regular Job Application</th>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Direct communication with an employee or hiring manager</td>
+<td class="border border-gray-200 p-3">Formal application through the employer's system</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Personalized message</td>
+<td class="border border-gray-200 p-3">Structured application form</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Focuses on starting a conversation</td>
+<td class="border border-gray-200 p-3">Focuses on meeting application requirements</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Can be used for advertised or unadvertised opportunities</td>
+<td class="border border-gray-200 p-3">Usually tied to a specific posted role</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">May include a resume/CV or portfolio</td>
+<td class="border border-gray-200 p-3">Usually requires resume/CV and other materials</td>
+</tr>
+</table>
+</div>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn allows employers to direct applicants either through LinkedIn's application process or to an external company website, so always check the instructions attached to the role.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When does cold emailing make sense?</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Consider it when:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>You have identified a relevant hiring manager.</li>
+<li>Your experience closely matches the team's work.</li>
+<li>You have a specific role in mind.</li>
+<li>You have a genuine reason for contacting the person.</li>
+<li>You are interested in an organization that may have future opportunities.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid cold emailing unrelated employees, sending mass messages, or using outreach to bypass instructions that specifically require an application.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Should You Cold Email a Hiring Manager?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Yes, you can cold email a hiring manager when your outreach is relevant, personalized, and respectful of the company's hiring process.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The biggest benefit is context. Instead of being only another application in a system, you can briefly explain who you are, why you are interested, and what relevant value you could bring.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Cold outreach can be especially useful when:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>You have a strong match for the position.</li>
+<li>You have relevant industry or company experience.</li>
+<li>You can point to a specific accomplishment.</li>
+<li>You have a thoughtful reason for contacting the manager.</li>
+<li>The company does not prohibit direct outreach.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>However, cold emails should always complement but not necessarily substitute for an application. In case the company requests applicants to use their career page to fill in the form, start by doing that. LinkedIn also offers the option of applying directly through their site.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to avoid appearing spammy</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Keep your outreach:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Specific — mention the exact role or team.</li>
+<li>Short — make it easy to scan.</li>
+<li>Relevant — highlight only useful experience.</li>
+<li>Low-pressure — ask for a brief conversation or consideration rather than demanding an interview.</li>
+<li>Personalized — explain why you selected that person.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>The U.S. Department of Labor recommends networking, establishing contacts, researching employers, and preparing your resume as part of a job search.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Find the Right Hiring Manager Before You Email</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Knowing how to cold email hiring manager contacts starts with finding the right person.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Start with LinkedIn. Search for combinations such as:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>[Company] + [Department]</li>
+<li>[Company] + Hiring Manager</li>
+<li>[Company] + Head of Marketing</li>
+<li>[Company] + Engineering Manager</li>
+<li>[Company] + Director of Sales</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>You can also check:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>The company's LinkedIn page</li>
+<li>Team or leadership pages</li>
+<li>Department pages</li>
+<li>The job posting</li>
+<li>Employee profiles</li>
+<li>Company announcements</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn currently offers an “Actively hiring” search filter for identifying members who are hiring for specific roles.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Hiring manager vs. recruiter vs. HR</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>These roles can overlap, but they are not necessarily the same:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li><strong>Hiring manager:</strong> Usually leads the team and has a direct interest in filling the position.</li>
+<li><strong>Recruiter:</strong> Helps source, screen, and coordinate candidates.</li>
+<li><strong>HR representative:</strong> May manage broader employment and administrative processes.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, the U.S. Department of Labor distinguishes between a hiring manager, usually the future employee's supervisor, and an HR specialist who can coordinate parts of the hiring process.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If you cannot identify the hiring manager, contacting a recruiter or relevant team member may be more appropriate than guessing an email address.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Research the Hiring Manager and Job Before Sending Your Email</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Generic outreach is easy to ignore. Research gives you something specific to say.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Before writing your cold email, review the job description and identify:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Required skills</li>
+<li>Preferred qualifications</li>
+<li>Main responsibilities</li>
+<li>Tools or technologies mentioned</li>
+<li>Business problems the role may address</li>
+<li>Relevant accomplishments from your background</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Then research the hiring manager.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Look at their professional background, current responsibilities, and the team's work. You do not need to mention every detail you discover. Choose one genuine connection that explains why you are reaching out.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example:</p>
+<p style='margin-bottom:8px; line-height:1.7;'><strong>“I noticed your team is expanding its B2B content function, and your recent focus on product-led growth caught my attention.”</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>That is stronger than:</p>
+<p style='margin-bottom:8px; line-height:1.7;'><strong>“I saw your LinkedIn profile and think your company is amazing.”</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your goal is not to prove that you researched someone. Your goal is to make the email more relevant.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Write an Effective Cold Email Subject Line</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Your subject line should tell the hiring manager why the email deserves attention.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Keep it short, specific, and natural. Avoid exaggerated claims such as “The PERFECT candidate for your company!!!”</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Cold email subject line examples</h3>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Application for [Job Title] — [Your Name]</li>
+<li>[Job Title] | [X] Years in [Skill]</li>
+<li>Interested in the [Job Title] Role</li>
+<li>[Job Title] — [Relevant Achievement]</li>
+<li>Exploring [Department] Opportunities at [Company]</li>
+<li>[Skill] + [Company] — Quick Introduction</li>
+<li>Referred by [Name] — [Job Title]</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>If there is an advertised role, mentioning the position usually makes the purpose clear.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Subject line mistakes to avoid</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Do not use:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>“URGENT!!!”</li>
+<li>“Please give me a job”</li>
+<li>“You won't regret hiring me”</li>
+<li>“Amazing candidate here”</li>
+<li>Vague subjects such as “Hello” or “Question”</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Your subject line should create clarity, not curiosity through clickbait.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. How to Cold Email a Hiring Manager</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong cold email to a hiring manager should be brief, personalized, and focused on the value you could bring to the role rather than simply asking for a job.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Use this six-part framework:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Start with a personalized greeting<br />Use the person's name when you know it.<br />Example:<br />“Hi Sarah,”</li>
+<li>Introduce yourself briefly<br />Mention your current role, field, or relevant background.<br />Example:<br />“I’m a product marketer with five years of experience working on B2B SaaS launches.”</li>
+<li>Mention the specific role<br />Show that the message is intentional.<br />Example:<br />“I’m reaching out about the Senior Product Marketing Manager position on your team.”</li>
+<li>Highlight relevant experience<br />Choose one or two qualifications instead of listing your entire resume.<br />Example:<br />“In my current role, I led a product launch that contributed to a 28% increase in qualified pipeline within six months.”</li>
+<li>Connect your experience to the company<br />Explain why your background may be relevant to the team's needs.<br />Example:<br />“Given your team's focus on expanding into enterprise accounts, I believe my experience building enterprise go-to-market programs could be particularly relevant.”</li>
+<li>End with a simple call to action<br />Keep your request low-pressure.<br />Example:<br />“I’ve attached my resume. If my background looks relevant, I’d appreciate the opportunity to speak briefly about the role.”</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>Keep the complete email easy to scan. A hiring manager should understand who you are, why you are contacting them, and what you offer within a few seconds.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. Cold Email Template for a Hiring Manager</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Here are several email template options you can customize.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">General cold email template</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Subject: [Relevant Skill] + [Company] — Introduction</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Hi [Hiring Manager Name],</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I’m [Your Name], a [Job Title/Area of Expertise] with [X years] of experience in [relevant field].</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I’ve been following [Company] and was particularly interested in [specific company initiative, product, or team focus]. My experience in [specific skill] aligns closely with this area, including [brief achievement].</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I’m reaching out to see whether there may be an opportunity to contribute to your team. I’ve attached my resume/[portfolio link] for context.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Would you be open to a brief conversation if my background seems relevant?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Best,<br />[Your Name]<br />[LinkedIn] | [Portfolio]</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Template for an advertised job</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Subject: [Job Title] Application — [Your Name]</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Hi [Name],</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I recently applied for the [Job Title] position and wanted to introduce myself directly.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I have [X years] of experience in [relevant area], including [specific achievement]. Because the role focuses on [specific responsibility], I believe my experience with [relevant skill] could be useful to your team.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I’ve attached my resume for additional context. If my background aligns with what you're looking for, I’d be glad to discuss the position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Best,<br />[Your Name]</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Template for an unadvertised opportunity</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Subject: Exploring [Department] Opportunities at [Company]</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Hi [Name],</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I’m [Your Name], a [role] specializing in [skill/area]. I’ve been following [Company] because of [specific reason].</p>
+<p style='margin-bottom:12px; line-height:1.7;'>In my current role at [Company], I recently [achievement with measurable result]. I’m interested in bringing similar experience to a growing [department/team] at [Company].</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If your team expects to hire for [relevant function], I’d appreciate the opportunity to introduce myself. I’ve included my resume/portfolio below.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Best,<br />[Your Name]</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Template for experienced professionals</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Focus on measurable outcomes.<br />“Over the past eight years, I’ve led [function] across [industry], including [specific achievement]. I’m particularly interested in your team’s work on [specific area] and believe this experience could translate well to the [role].”</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Template for recent graduates or career changers</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Focus on transferable skills, projects, internships, certifications, and relevant accomplishments.<br />“Although I’m transitioning from [previous field] into [new field], I’ve developed relevant experience through [project/internship/course], where I [specific achievement].”</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Best Practices for Cold Emailing a Hiring Manager</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Use these practices before pressing Send:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Personalize every email.</li>
+<li>Keep your message concise.</li>
+<li>Lead with relevant value.</li>
+<li>Mention one or two specific accomplishments.</li>
+<li>Use a professional email address.</li>
+<li>Proofread names, titles, and company details.</li>
+<li>Attach the correct resume.</li>
+<li>Include a relevant portfolio or LinkedIn profile when useful.</li>
+<li>Follow the company's application instructions.</li>
+<li>Track who you contacted and when.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>As stated by LinkedIn, employers and recruiters can make use of LinkedIn profiles and hiring tools to assess the applicants based on their qualifications and professionalism. Your LinkedIn profile must complement your email. This means that your headline, About section, experience, and skills must reflect the position you are applying for.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Pro Tip:</strong> Before sending, remove any sentence that could have been sent to another company without changing a word. That is often a sign that the email needs more personalization.</p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. Common Cold Email Mistakes to Avoid</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A cold email can lose its impact when it becomes too generic or too demanding.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid these mistakes:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Sending the same email everywhere</li>
+<li>Hiring managers can quickly recognize mass outreach. Personalize the opening and explain why that specific role or team interests you.</li>
+<li>Writing an overly long email</li>
+<li>Your email is not a second resume. Give the recipient enough information to understand your relevance, then let your resume/CV provide additional detail.</li>
+<li>Focusing entirely on what you want</li>
+<li>Instead of writing only, “I need a job,” explain what experience you can bring to the team.</li>
+<li>Not mentioning the role</li>
+<li>If you're contacting someone about a specific opportunity, name it.</li>
+<li>Using too many buzzwords</li>
+<li>Words such as “dynamic,” “passionate,” and “results-driven” are less useful without evidence.</li>
+<li>Including irrelevant experience</li>
+<li>Prioritize experience that relates to the team's work.</li>
+<li>Attaching the wrong resume</li>
+<li>Check the file name and attachment before sending.</li>
+<li>Following up too frequently</li>
+<li>One thoughtful follow-up is usually more professional than several messages sent close together.</li>
+<li>Contacting unrelated employees</li>
+<li>Finding the correct person matters. An employee who has nothing to do with the department may not know how to help.</li>
+</ul>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. What to Do After Cold Emailing a Hiring Manager</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>No response does not necessarily mean your message was rejected. Hiring managers and recruiters can be busy, and LinkedIn has noted that recruiters may receive large volumes of outreach. Give the recipient reasonable time before sending a follow-up email.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A practical approach is:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Send the initial email.</li>
+<li>Wait several business days.</li>
+<li>Send one concise follow-up.</li>
+<li>If there is still no response, move on unless there is a specific reason for another contact.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>Your follow-up should add context rather than simply saying “Just following up.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Example follow-up</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Subject: Re: [Original Subject]</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Hi [Name],</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I wanted to briefly follow up on my note regarding the [Job Title] position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I’m particularly interested in the role because of [specific reason], and my experience with [relevant skill/achievement] seems closely aligned with the position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I understand you may be busy, so no response is necessary if the timing isn't right. Thanks for considering my message.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Best,<br />[Your Name]</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Following up is also a broader networking practice. Harvard Business Review notes that failing to follow up can mean missing opportunities to develop professional relationships.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If the hiring manager responds, reply promptly and professionally. If you receive a rejection, thank them for their time and keep the relationship professional.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">11. Final Verdict: How to Cold Email a Hiring Manager Successfully</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Cold emailing a hiring manager can be a useful part of your job search when the message is personalized, relevant to the role, and respectful of the hiring process.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The process is simple:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Research the right hiring manager.</li>
+<li>Study the job and company.</li>
+<li>Create a specific subject line.</li>
+<li>Personalize your opening.</li>
+<li>Highlight one or two relevant achievements.</li>
+<li>Explain the value you could bring.</li>
+<li>Include your resume/CV or portfolio when appropriate.</li>
+<li>Use a simple call to action.</li>
+<li>Follow up professionally.</li>
+<li>Continue applying through official channels when required.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>If you are wondering how to cold email a hiring manager, remember that the goal is not to send as many emails as possible. The goal is to send the right message to the right person for the right reason.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A thoughtful cold email can complement your job application, but relevance matters more than volume. Make every message specific enough that the hiring manager can quickly understand why you could be a fit.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. How do you cold email a hiring manager?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Research the right person, personalize your email, highlight relevant experience, and end with a simple call to action.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. How do I find the hiring manager for a job?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Check LinkedIn, the company website, the job posting, and relevant department leadership pages.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. Should you cold email a hiring manager?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, if your experience is relevant and your message is personalized and professional.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. What should I say in a cold email to a hiring manager?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Introduce yourself, mention the role, highlight relevant skills or achievements, and explain why you’re reaching out.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. What is a good subject line for emailing a hiring manager?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Keep it short and specific, such as “Application for [Job Title] — [Your Name].”</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. How long should a cold email to a hiring manager be?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Keep it concise around 100–200 words is usually enough.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. Should I attach my resume when cold emailing a hiring manager?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, if appropriate, and make sure it is tailored to the role.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. How do I follow up with a hiring manager after a cold email?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Wait several business days, then send one brief and polite follow-up.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. Is it better to email a recruiter or hiring manager?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>It depends on the situation. Recruiters often handle candidate screening, while hiring managers oversee the role and team.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. How many times should you email a hiring manager?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Send one initial email and, if needed, one thoughtful follow-up. Avoid repeated messages.</p>`,
+  },
+
+  {
     id: 412,
     slug: "what-are-impressions-on-linkedin",
     title: "What Are Impressions on LinkedIn?",
