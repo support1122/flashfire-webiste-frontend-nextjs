@@ -24,6 +24,271 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 417,
+    slug: "how-to-write-a-resume-when-switching-careers",
+    title: "How to Write a Resume When Switching Careers",
+    metaTitle: "How to Write a Resume When Switching Careers",
+    excerpt: "Learn how to write a resume when switching careers, highlight transferable skills, tailor your experience, and stand out to employers.",
+    date: "Oct 6, 2026",
+    lastUpdated: "Oct 6, 2026",
+    readTime: "9 min",
+    category: "Career Tips",
+    tags: ["Career Tips"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/how-to-write-a-resume-when-switching-careers-1791272577456.png",
+    categoryColor: "bg-orange-100 text-orange-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Changing Careers: How to Write a Resume When Switching Careers</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Changing careers does not mean starting from zero. How to write a resume when switching careers comes down to repositioning the experience, skills, and achievements you already have so employers can see how they apply to your new target role. Your previous job title may not match the position you want next but your communication, leadership, project management, technical, analytical, or customer-facing skills may still be highly relevant.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>So, how do you make an employer see that connection quickly? Which resume format should you use? And how can you show relevant experience when you have never held the target job title? This guide walks you through each step of creating a career change resume that connects your previous career with your next one.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. What Should a Career Change Resume Include?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Writing a resume when switching careers means repositioning your existing experience, transferable skills, and achievements to show employers how you can succeed in a new field. The purpose of a career change resume is to help an individual make the transition from one job role to another. It is different from the usual type of resume because it should be able to show how relevant your past experience is to your new career path.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, a sales professional moving into recruiting could highlight:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Relationship building</li>
+    <li>Candidate or customer communication</li>
+    <li>Negotiation</li>
+    <li>Pipeline management</li>
+    <li>Interviewing and needs analysis</li>
+    <li>CRM experience</li>
+    <li>Performance against targets</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>The goal is not to hide your previous career. Instead, identify the parts of your background that demonstrate your ability to perform the requirements of the target role. CareerOneStop recommends emphasizing transferable skills when you have limited experience in the job you're applying for.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Key sections to include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Contact information</li>
+    <li>Resume summary</li>
+    <li>Skills or areas of expertise</li>
+    <li>Relevant certifications and training</li>
+    <li>Professional experience</li>
+    <li>Relevant projects</li>
+    <li>Education</li>
+    <li>Volunteer, freelance, or internship experience, when applicable</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Before writing anything, read several job descriptions for your target role. Look for repeated skills, qualifications, tools, responsibilities, and industry terminology. Then ask yourself: Where have I already demonstrated these abilities? That answer becomes the foundation of your resume.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Choose the Right Resume Format for a Career Change</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Your resume format can influence what employers notice first. When changing careers, you generally want the document to make your relevant skills visible without completely hiding your employment history. There are three common formats:</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Chronological resume format</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>A chronological resume basically consists of highlighting your work experience chronologically. It is an ideal format if you have worked in fields which are closely related to your new position. But if your experience does not match with your targeted field, it may not be effective.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Functional resume format</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>A functional resume highlights skills and abilities instead of paying too much attention to each position in detail. This approach may benefit career changers, who would want to highlight their transferable skills. Nevertheless, CareerOneStop warns that a functional resume can be easily misunderstood by employers or even rejected by an ATS system.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Combination resume format</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>A combination resume brings together the strengths of functional and chronological formats. You can place a strong summary and skills section near the top, followed by relevant accomplishments and your chronological work history. For many career changers, this structure provides a useful balance. Indeed specifically identifies the combination format as an option for people changing careers because it allows transferable skills to receive greater emphasis while retaining work history.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A simple structure could look like this:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Contact Information</li>
+    <li>Career Change Resume Summary</li>
+    <li>Relevant Skills</li>
+    <li>Certifications/Projects</li>
+    <li>Professional Experience</li>
+    <li>Education</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid choosing a format simply because it looks different. Your goal is to make your qualifications easy to understand for both recruiters and resume-screening systems.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Write a Career Change Resume Summary</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A resume summary is usually a short introduction near the top of your resume that connects your background with the position you're targeting. For a career changer, this section is particularly important because it gives you an opportunity to explain the professional connection before the employer reaches your older job titles.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong summary should answer three questions:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>What experience do you bring?</li>
+    <li>Which transferable skills are relevant?</li>
+    <li>What target role are you pursuing?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, imagine a customer service manager transitioning into project coordination.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Weak example:</strong> Experienced customer service professional seeking a new opportunity in project management. This tells the employer what you want but not why you're qualified.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Stronger example:</strong> Customer service manager with 7+ years of experience coordinating cross-functional teams, improving workflows, resolving complex issues, and managing customer-focused projects. Seeking to transition into project coordination by applying proven organizational, communication, and stakeholder-management skills. The second version creates a clearer connection between the old career and the new one.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Indeed recommends keeping a career-change summary brief and emphasizing transferable skills and qualifications relevant to the desired position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Career change resume summary formula: Try this structure:</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>[Current/previous profession] + [years of experience] + [relevant transferable skills/achievement] + [target role].</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example: Marketing specialist with five years of experience managing campaigns, analyzing customer data, and coordinating cross-functional projects. Transitioning into product management with strengths in stakeholder communication, market research, and project coordination.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid these mistakes:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Write a long personal story</li>
+    <li>Apologize for changing careers</li>
+    <li>Say you have “no experience” without explaining transferable experience</li>
+    <li>Use generic statements such as “hardworking individual”</li>
+    <li>Focus entirely on why you want the new career</li>
+    <li>Copy the same summary for every application</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Your summary should focus on what you bring to the target role.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Highlight Your Transferable Skills</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Transferable skills are abilities you developed in one role that can also be useful in another role or industry. They can include both hard and soft skills.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Examples of transferable skills:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Communication</li>
+    <li>Presentations</li>
+    <li>Client communication</li>
+    <li>Written communication</li>
+    <li>Negotiation</li>
+    <li>Stakeholder management</li>
+    <li>Leadership</li>
+    <li>Team management</li>
+    <li>Coaching</li>
+    <li>Delegation</li>
+    <li>Conflict resolution</li>
+    <li>Performance management</li>
+    <li>Project management</li>
+    <li>Planning</li>
+    <li>Scheduling</li>
+    <li>Budget management</li>
+    <li>Risk management</li>
+    <li>Cross-functional coordination</li>
+    <li>Technical and analytical</li>
+    <li>Data analysis</li>
+    <li>Excel</li>
+    <li>CRM systems</li>
+    <li>Reporting</li>
+    <li>Process improvement</li>
+    <li>Research</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>The key is to avoid simply listing skills. Whenever possible, demonstrate how you used them.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Instead of:</strong> Project management</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Try:</strong> Coordinated a six-month process improvement project involving five cross-functional teams and delivered the project two weeks ahead of schedule. The second example provides evidence.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>To identify your transferable skills, compare your previous responsibilities with the requirements in several target job descriptions. CareerOneStop recommends analyzing job postings for the skills, experience, and selection criteria employers identify as important.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Rewrite Your Work Experience for Your New Career</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Previous job experience may still be relevant even if the job titles are completely different from each other. All that needs to be done is to rewrite the experience with emphasis on your accomplishments and skills rather than all the things you did.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For instance, you were once a retail store manager and now applying for the job of an operations coordinator.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Instead of:</strong> Responsible for managing employees and inventory.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Try:</strong> Managed a team of 15 employees and coordinated inventory processes across a high-volume retail operation.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Or:</strong> Reduced inventory discrepancies by 18% by improving tracking procedures and staff training. These bullets demonstrate management, operations, process improvement, and analytical skills.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Use this approach for each previous role:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Read the target job description.</li>
+    <li>Identify its major requirements.</li>
+    <li>Find examples from your previous work that demonstrate those requirements.</li>
+    <li>Rewrite those examples using relevant language.</li>
+    <li>Remove details that do not help your case.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Use strong action verbs such as:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Managed</li>
+    <li>Coordinated</li>
+    <li>Analyzed</li>
+    <li>Developed</li>
+    <li>Improved</li>
+    <li>Led</li>
+    <li>Implemented</li>
+    <li>Negotiated</li>
+    <li>Streamlined</li>
+    <li>Delivered</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>CareerOneStop also recommends emphasizing transferable skills when your previous experience does not directly match the job you're pursuing.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Tailor Your Resume to the Target Job Description</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A career change resume should not be completely identical for every job. Start by analyzing the job description carefully. Look for:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Required qualifications</li>
+    <li>Preferred qualifications</li>
+    <li>Technical skills</li>
+    <li>Soft skills</li>
+    <li>Tools and software</li>
+    <li>Certifications</li>
+    <li>Responsibilities</li>
+    <li>Industry-specific terminology</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>CareerOneStop recommends reading the entire job posting and identifying keywords in qualifications, skills, and experience sections when customizing a resume. Suppose the target role repeatedly mentions: Project coordination, stakeholder communication, Microsoft Excel, reporting, scheduling, and process improvement. Your resume should naturally demonstrate these areas if you genuinely have the experience.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example: Coordinated weekly project schedules, prepared Excel-based performance reports, communicated updates to stakeholders, and identified process improvements that reduced reporting time by 20%. This is more useful than adding a separate list of random ATS keywords.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid keyword stuffing. Do not copy the job description word-for-word or add skills you don't actually possess. Instead, use job description keywords naturally where they accurately describe your experience. ATS systems can scan resumes for relevant information, which makes clear formatting and relevant terminology important. CareerOneStop recommends a simple, single-column layout because ATS systems may scan resumes from left to right. Most importantly, write for the employer first and the software second.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. Address Your Career Change in Your Resume</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Do you need to explain why you're changing careers? Usually, your resume does not need a detailed explanation of your personal motivation. Its primary job is to demonstrate your qualifications for the position. Your resume summary can provide enough context.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example: Financial analyst transitioning into business intelligence, bringing five years of experience in data analysis, reporting, forecasting, and stakeholder communication. This immediately establishes the direction of your career change.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>What about unrelated previous roles? Don't automatically delete them. Instead, reduce the amount of detail given to less relevant positions. Keep the employer, job title, dates, and a small number of relevant accomplishments if they demonstrate transferable abilities.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, an older hospitality role may not need six bullet points if you're applying for a software sales position. One or two bullets showing customer communication, upselling, or team leadership may be enough.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>What about employment gaps? A career transition can sometimes involve time spent studying, completing certifications, freelancing, volunteering, or building projects. If applicable, include those activities in your resume. They can show how you used the transition period to develop qualifications for your new career.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid negative explanations such as: I hated my previous career and finally decided to leave. Keep the language professional and forward-looking.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Add Education, Certifications, Projects, and Other Relevant Experience</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>When you lack direct professional experience in your new career, additional evidence can help demonstrate your preparation. Consider including:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li><strong>Relevant education:</strong> List degrees, diplomas, or academic programs that support your target role. You do not necessarily need to include every educational detail. Prioritize qualifications that strengthen your application.</li>
+    <li><strong>Certifications and training:</strong> Career-change certifications and training can demonstrate that you've deliberately developed knowledge in your new field. For example:
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+            <li>Project management certification</li>
+            <li>Data analytics certification</li>
+            <li>Digital marketing training</li>
+            <li>UX design course</li>
+            <li>Cloud certification</li>
+            <li>Industry-specific licensing</li>
+        </ul>
+    </li>
+    <li><strong>Relevant projects:</strong> Projects can be particularly useful when you're moving into a technical or creative career. For example, someone transitioning into data analytics could include:
+        <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+            <li>Sales Dashboard Project: Built an interactive dashboard using Excel and Power BI to analyze monthly sales trends and identify high-performing product categories.</li>
+        </ul>
+    </li>
+    <li><strong>Freelance and volunteer experience:</strong> Don't overlook experience outside traditional employment. Freelance work, volunteering, internships, apprenticeships, and personal projects can demonstrate relevant capabilities. Ask yourself: Does this experience prove I can perform something the target employer needs? If the answer is yes, consider including it.</li>
+</ul>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. Final Checklist: How to Write a Resume When Switching Careers</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Resumé writing in career change involves making employers see how all the experience you've accumulated fits into your new field, and not pretending that you never had any other career before. Use the following checklist before you submit your resumé:</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Resume structure</h3>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Choose a resume format that supports your career transition.</li>
+    <li>Consider a combination resume if you need to emphasize skills and retain your work history.</li>
+    <li>Keep the layout clean and easy to scan.</li>
+    <li>Use consistent headings, spacing, and formatting.</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Content</h3>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Write a targeted career change resume summary.</li>
+    <li>Clearly identify your target role or career field.</li>
+    <li>Highlight transferable skills.</li>
+    <li>Rewrite previous experience around relevant achievements.</li>
+    <li>Use measurable results wherever possible.</li>
+    <li>Add relevant projects and certifications.</li>
+    <li>Include relevant education and training.</li>
+    <li>Reduce unnecessary details from unrelated roles.</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Job targeting</h3>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Read the complete job description.</li>
+    <li>Identify important qualifications and job description keywords.</li>
+    <li>Match your genuine skills to the requirements.</li>
+    <li>Include relevant ATS keywords naturally.</li>
+    <li>Create a customized version for different target roles.</li>
+    <li>Never claim skills or qualifications you don't have.</li>
+</ul>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Final review</h3>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Check spelling and grammar.</li>
+    <li>Make sure dates and job titles are accurate.</li>
+    <li>Check that your contact information is correct.</li>
+    <li>Confirm the resume is easy to read.</li>
+    <li>Remove unnecessary graphics or complex formatting when applying through an ATS.</li>
+    <li>Save your resume in the file format requested by the employer.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>CareerOneStop recommends keeping resumes concise generally one to two pages and using a clean, consistent layout.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. How do you write a resume when switching careers?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Focus on transferable skills, relevant achievements, and qualifications that connect your previous career to your target role.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. What resume format is best for a career change?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>A combination resume can work well because it highlights relevant skills while preserving your chronological work history.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. How do I show transferable skills on a resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>List skills relevant to the target job and support them with specific examples and measurable achievements from your previous experience.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. Should I mention my career change in my resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, when helpful. A short resume summary can clearly communicate your transition and connect your background to the target role.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. How do I write a resume summary for a career change?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Mention your previous experience, strongest transferable skills, relevant achievements, and the target role you're pursuing.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. How do I explain unrelated experience on a resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Keep the role listed but reduce irrelevant details. Highlight responsibilities or achievements that demonstrate transferable skills.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. How do I tailor my resume for a new career?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Compare the job description with your experience, identify relevant requirements, and rewrite your summary, skills, and achievements around those requirements.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. Should I include certifications when changing careers?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. Relevant certifications and training can demonstrate that you've developed knowledge and skills for your new field.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. How long should a career change resume be?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Generally, aim for one to two pages and include only information that supports your application.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. Can a career change resume pass an ATS?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. Use a simple layout, standard section headings, readable formatting, and relevant keywords that accurately reflect your qualifications.</p>`,
+  },
+
+  {
     id: 416,
     slug: "best-free-ai-tools-for-job-seekers",
     title: "Best Free AI Tools for Job Seekers in 2026",
