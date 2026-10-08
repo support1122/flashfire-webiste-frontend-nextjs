@@ -24,6 +24,301 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 430,
+    slug: "where-is-the-about-section-on-linkedin",
+    title: "Where Is the About Section on LinkedIn?",
+    metaTitle: "Where Is the About Section on LinkedIn? How to Add It",
+    excerpt: "Learn where the About section is on LinkedIn, how to add or edit it, how to write a strong LinkedIn About section, and its ideal length.",
+    date: "Oct 9, 2026",
+    lastUpdated: "Oct 9, 2026",
+    readTime: "10 min",
+    category: "LinkedIn",
+    tags: ["LinkedIn"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/screenshot-2026-10-09-at-12-51-28-am-1791487327623.png",
+    categoryColor: "bg-sky-100 text-sky-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Where Is the About Section on LinkedIn?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Wondering where is the About section on LinkedIn? You can find it directly on your LinkedIn profile, below your headline and introductory information. This section gives you space to explain your professional background, skills, achievements, and career goals beyond what your job title can communicate.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The importance of a complete profile goes beyond appearance. LinkedIn says its hiring products use profile information including work experience, skills, education, and summary to help hirers search for and evaluate potential candidates. LinkedIn also allows members to see how often their profiles appear in search and which job titles they were found for.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>So, what should you write in your About section? How do you add it if it is missing, and how long should your LinkedIn About section be? This blog explains where to find it, how to add or edit it, and how to write an About summary that makes your profile more useful to recruiters and professional connections.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Source:</strong> <a href="https://www.linkedin.com/help/linkedin/answer/a7134286?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">LinkedIn Help — How LinkedIn helps job seekers and hirers connect</a></p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. Where Is the About Section on LinkedIn?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>The About section on LinkedIn appears on your LinkedIn profile, below the top introduction area that contains your name, profile photo, headline, location, and other introductory information.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Think of it as your professional introduction. Your headline gives people a quick snapshot of what you do, while the About section gives you more room to explain your experience, strengths, achievements, and goals.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to find the About section on LinkedIn desktop</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Sign in to LinkedIn.</li>
+    <li>Click Me at the top of the page.</li>
+    <li>Select View Profile.</li>
+    <li>Scroll down your profile.</li>
+    <li>Look for the About section.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn's official instructions confirm that you can access your profile through Me → View Profile and manage individual profile sections from there.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to find the About section on the LinkedIn mobile app</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>On the LinkedIn mobile app:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Tap your profile photo.</li>
+    <li>Tap your profile photo again to open your profile.</li>
+    <li>Scroll down to the About section.</li>
+    <li>Tap the pencil icon if you want to edit it.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn provides separate mobile instructions for accessing and editing the About section.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If you have never added an About section, it may not appear as a completed section on your profile. Instead, you can add it through the Add profile section option.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">About section vs. LinkedIn headline</h3>
+<div class="overflow-x-auto my-6">
+    <table class="w-full border-collapse text-sm">
+        <thead>
+            <tr>
+                <th class="bg-blue-600 text-white font-semibold p-3 text-left">LinkedIn section</th>
+                <th class="bg-blue-600 text-white font-semibold p-3 text-left">Main purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border border-gray-200 p-3">Headline</td>
+                <td class="border border-gray-200 p-3">Quickly tells people who you are and what you do</td>
+            </tr>
+            <tr>
+                <td class="border border-gray-200 p-3">About section</td>
+                <td class="border border-gray-200 p-3">Gives a broader explanation of your background, skills, achievements, and goals</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn specifically notes that the About section is different from your headline, which appears below your name.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Who can see your About section?</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Your visibility depends on your LinkedIn profile and public-visibility settings. Your profile can be visible to signed-in LinkedIn members, while eligible profile sections may also appear to people outside LinkedIn through search engines such as Google or Bing.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'>
+    <p style='margin:0; line-height:1.7;'><strong>Quick tip:</strong> If you want recruiters to understand your professional value quickly, do not leave the About section blank.</p>
+</div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. How to Add the About Section on LinkedIn</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Wondering how to add About section on LinkedIn when it is missing from your profile? You can add it directly from your profile using the Add profile section option.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Steps to add the About section on desktop</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Open LinkedIn and go to your profile.</li>
+    <li>Click Add profile section in the introduction area.</li>
+    <li>Open the Core section.</li>
+    <li>Select Add About.</li>
+    <li>Enter your professional summary.</li>
+    <li>Review the content and formatting.</li>
+    <li>Click Save.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn provides an Add profile section feature for adding additional profile sections.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How to add About on the LinkedIn mobile app</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>The exact placement of controls can vary slightly with app updates, but the process generally follows the same idea:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Open the LinkedIn mobile app.</li>
+    <li>Tap your profile photo.</li>
+    <li>Open your profile.</li>
+    <li>Tap Add section or Add profile section.</li>
+    <li>Look under the relevant Core options.</li>
+    <li>Choose Add About.</li>
+    <li>Write or paste your About summary.</li>
+    <li>Save your changes.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>What if you already have an About section? You do not need to add another one. Instead, open the existing section and use the pencil/edit icon to update it.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. How to Edit or Update Your LinkedIn About Section</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Your About section should change as your career changes. A summary written when you were a student may not accurately represent you after several years of professional experience.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>To edit it:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Open your LinkedIn profile.</li>
+    <li>Scroll to the About section.</li>
+    <li>Click or tap the pencil icon.</li>
+    <li>Update your text.</li>
+    <li>Check your keywords, formatting, and achievements.</li>
+    <li>Click or tap Save.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn's current help instructions confirm this desktop and mobile editing process.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When should you update your About section?</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>Consider updating it when you:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Start a new role</li>
+    <li>Change industries</li>
+    <li>Develop new skills</li>
+    <li>Earn a certification</li>
+    <li>Complete an important project</li>
+    <li>Achieve measurable results</li>
+    <li>Begin searching for a new job</li>
+    <li>Change your career goals</li>
+</ul>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'>
+    <p style='margin:0; line-height:1.7;'><strong>Pro Tip:</strong> Read your About section every few months and ask yourself: Does this still describe the professional I want recruiters and employers to see?</p>
+</div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. How to Write an About Section on LinkedIn</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>An effective LinkedIn About Section is one that will help your visitors understand who you are, what you do, your accomplishments, and your value to your employers or to recruiters and possible clients.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>But how does one write a good LinkedIn About Section?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Use a simple structure.</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li><strong>Start with a strong opening</strong><br>Your first few lines should immediately communicate your professional focus.<br>Instead of:<br>"I am a hardworking professional with many years of experience."<br>Try something more specific:<br>"I help SaaS companies turn complex customer data into simple, actionable insights through analytics and automation."</li>
+    <li><strong>Explain your professional background</strong><br>Briefly describe your experience, industry, or area of specialization.<br>For example:<br>"Over the past five years, I've worked across data analytics and business intelligence, helping teams make faster decisions using dashboards, automation, and predictive reporting."</li>
+    <li><strong>Highlight relevant skills</strong><br>Mention skills that match your target roles.<br>Examples include:<br><ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <li>Project management</li>
+        <li>Python</li>
+        <li>Data analysis</li>
+        <li>Digital marketing</li>
+        <li>Sales strategy</li>
+        <li>Cybersecurity</li>
+        <li>Product management</li>
+        <li>SEO</li>
+        <li>Cloud computing</li>
+    </ul></li>
+    <li><strong>Add measurable achievements</strong><br>Numbers make your claims more specific.<br>Instead of:<br>"I improved marketing performance."<br>Write:<br>"I redesigned our paid search strategy and helped increase qualified leads by 32% in six months."</li>
+    <li><strong>Explain what you currently do</strong><br>Tell visitors what you are working on now and what problems you solve.</li>
+    <li><strong>Mention career interests or goals</strong><br>If you are looking for a new opportunity, explain the type of work you want without making the entire section sound like a job application.</li>
+    <li><strong>Add relevant keywords naturally</strong><br>Include job titles, technical skills, industries, tools, and areas of expertise that are relevant to the roles you want.<br>Do not repeat the same keyword unnaturally. Write for people first and use keywords where they genuinely fit.</li>
+    <li><strong>Use first-person language</strong><br>Your About section should sound like you.<br>"I build," "I manage," "I've worked," and "I'm passionate about" generally feel more natural than writing your biography in the third person.</li>
+    <li><strong>Keep paragraphs short</strong><br>Large blocks of text are difficult to scan, especially on mobile. Use short paragraphs, spacing, and occasional bullet points.</li>
+    <li><strong>Finish with a call to action</strong><br>For example:<br>"I'm always open to connecting with professionals working in product analytics, AI, and business intelligence."</li>
+</ol>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. How Long Should a LinkedIn About Section Be?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>So, how long should LinkedIn About section be?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>LinkedIn's About field is commonly reported as supporting up to 2,600 characters, although LinkedIn's current official help page focuses on how to edit the section rather than publishing that character limit directly. That does not mean you need to use all 2,600 characters.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A practical target is around 1,500–2,000 characters if you have enough relevant information to share. A shorter About section can work well for students or professionals with limited experience.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Focus on the opening lines.<br>LinkedIn can collapse longer About sections behind a See more option. Because of this, make your opening lines strong enough to encourage someone to keep reading.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your first few lines should ideally communicate:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Your professional identity</li>
+    <li>Your specialty</li>
+    <li>The value you provide</li>
+    <li>Your career direction</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Make longer sections easy to scan.<br>Use:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Short paragraphs</li>
+    <li>Bullet points</li>
+    <li>Clear wording</li>
+    <li>Specific achievements</li>
+    <li>Relevant keywords</li>
+    <li>White space</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Remember: A useful 1,200-character About section is better than a 2,600-character section filled with generic statements.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. What Should You Include in a LinkedIn About Section?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Use this checklist when creating your LinkedIn summary:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Professional identity: What do you do?</li>
+    <li>Experience: How long or in what areas have you worked?</li>
+    <li>Core skills: What are you particularly good at?</li>
+    <li>Achievements: What measurable results have you delivered?</li>
+    <li>Industry expertise: Which industries or business areas do you understand?</li>
+    <li>Current role: What are you doing now?</li>
+    <li>Career goals: What opportunities interest you?</li>
+    <li>Keywords: Which terms are relevant to your target roles?</li>
+    <li>Professional interests: What topics or problems interest you?</li>
+    <li>Contact invitation: How can people connect or collaborate with you?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>You do not have to include every item. Choose the information that supports your current professional goal.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. LinkedIn About Section Examples</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Here are simple examples for different career stages. These are templates for structure, not text to copy word-for-word.</p>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Recent graduate</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>I'm a recent computer science graduate interested in software development and data-driven problem solving. Through academic projects and internships, I've developed experience with Python, SQL, JavaScript, and Git. I'm currently looking for an entry-level software engineering opportunity where I can contribute to real-world products while continuing to grow my technical skills.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It clearly identifies the candidate's background, skills, and career goal.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Experienced professional</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>I'm a marketing professional with 8+ years of experience building B2B demand-generation strategies. My work focuses on SEO, content strategy, paid media, and marketing analytics. I've led campaigns that increased organic traffic by 45% and helped sales teams generate more qualified opportunities. I'm particularly interested in data-driven growth and scalable marketing systems.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It combines experience, specialization, and measurable results.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Job seeker</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>I'm a customer success professional with 6 years of experience helping SaaS customers improve adoption, retention, and satisfaction. I've managed enterprise accounts, built onboarding programs, and partnered with product teams to improve customer feedback loops. I'm currently exploring customer success and account management opportunities in growing SaaS companies.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It tells recruiters exactly what type of professional and candidate they are looking at.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Career changer</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>I'm transitioning from teaching into learning and development, bringing 7 years of experience in training, communication, curriculum design, and stakeholder management. I've designed learning programs for diverse audiences and regularly used data to improve outcomes. I'm now looking to apply these transferable skills to corporate L&D and employee development roles.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It connects previous experience with the new career direction.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Freelancer or consultant</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>I help small businesses improve their online visibility through SEO, content strategy, and conversion-focused website improvements. Over the past four years, I've worked with startups and growing businesses across technology, professional services, and e-commerce. I'm always open to connecting with founders and marketing teams looking for practical, measurable growth strategies.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It explains who the person helps and what service they provide.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Manager or executive</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>I'm a technology leader focused on building high-performing teams and delivering scalable digital products. Over 15 years in technology, I've led engineering, product, and transformation initiatives across global organizations. My focus areas include organizational strategy, cloud transformation, AI adoption, and developing future-ready technical teams.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It emphasizes leadership scope, expertise, and strategic focus.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Tips to Optimize Your LinkedIn About Section for Recruiters</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Your About section should not be a collection of keywords. It should be a useful explanation of your professional value.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Use these optimization tips:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li><strong>Use job-related keywords</strong><br>If you are targeting software engineering roles, naturally mention relevant terms such as: Software Engineer, Python, Java, AWS, APIs, SQL, cloud computing, backend development.</li>
+    <li><strong>Mention specific tools and skills</strong><br>Specific terms are more useful than vague statements such as "technology expert" or "results-driven professional."</li>
+    <li><strong>Include measurable achievements</strong><br>Numbers give recruiters evidence of your impact.<br>For example:<br><ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+        <li>Increased revenue by 20%</li>
+        <li>Reduced processing time by 35%</li>
+        <li>Managed a $2M budget</li>
+        <li>Led a team of 15</li>
+        <li>Improved conversion rate by 18%</li>
+    </ul></li>
+    <li><strong>Match keywords to your target roles</strong><br>Read several job descriptions for your desired position. Identify recurring skills and responsibilities, then incorporate the relevant ones naturally into your profile.</li>
+    <li><strong>Avoid keyword stuffing</strong><br>Do not write:<br>"SEO, SEO specialist, SEO manager, SEO strategy, SEO expert, SEO marketing..."<br>That looks unnatural and reduces readability.</li>
+    <li><strong>Make the opening compelling</strong><br>Do not waste the first lines repeating information that is already obvious from your name and headline.<br>Lead with your expertise, value, achievement, or professional focus.</li>
+    <li><strong>Keep your industry terminology relevant</strong><br>Use terminology that professionals in your target field actually recognize.</li>
+    <li><strong>Keep the section updated</strong><br>An outdated About section can create confusion if your current job, skills, or career goals have changed. LinkedIn recommends keeping your profile complete and representative of your professional experience, while noting that an updated profile can help with discoverability and opportunities.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Interview Tip:</strong> Your LinkedIn About section and resume should tell the same career story. They do not need to use identical wording, but your job titles, experience, skills, and career direction should not contradict each other.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. Final Verdict: Where Is the About Section on LinkedIn and How Do You Add It?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>The LinkedIn About section is one of the most useful parts of your profile for explaining your professional background, skills, achievements, and career goals. You can find it directly on your profile and add it through the Add Profile Section option.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Here is the process in simple terms:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Go to your LinkedIn profile.</li>
+    <li>Find the About section below your introductory information.</li>
+    <li>If it is missing, select Add profile section.</li>
+    <li>Go to Core and select Add About.</li>
+    <li>Write your professional summary.</li>
+    <li>Save your changes.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>Use the pencil icon whenever you need to edit it.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>In order to achieve good results from this section, make sure that your About is concise, easy to scan, and relevant to the position or opportunity you are seeking. There is no need to fill every available character. A clear and specific summary is more useful than a long paragraph of generic claims.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Most importantly, treat your About section as a living part of your LinkedIn profile. Update it when your experience, skills, achievements, or career direction changes.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. Where is the About section on LinkedIn?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>The About section is on your LinkedIn profile, below your headline and introductory information.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. How do I add an About section on LinkedIn?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Go to your profile → Add profile section → Core → Add About, then enter your summary and save it.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. Why can't I see the About section on my LinkedIn profile?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>You may not have added one yet. Use Add profile section to create it.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. How do I edit my About section on LinkedIn?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Open your profile, find the About section, click the pencil icon, edit your text, and save the changes.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. How do I write a good About section on LinkedIn?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Explain who you are, what you do, your key skills, achievements, and career goals using clear, first-person language.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. How long should a LinkedIn About section be?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>LinkedIn's About field is commonly reported as allowing up to 2,600 characters, but focus on relevant and easy-to-read content rather than filling the limit.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. What should I include in my LinkedIn About section?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Include your experience, skills, achievements, current role, industry expertise, career goals, relevant keywords, and a networking invitation.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. Can recruiters see my LinkedIn About section?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, recruiters can generally see it when your profile is accessible to them, depending on your profile visibility settings.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. Should I include keywords in my LinkedIn About section?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. Add relevant job titles, skills, tools, and industry terms naturally without keyword stuffing.</p>
+
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. Can I add an About section from the LinkedIn mobile app?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. You can add or edit your About section through the LinkedIn mobile app.</p>`,
+  },
+
+  {
     id: 429,
     slug: "best-discord-communities-for-job-seekers",
     title: "Best Discord Communities for Job Seekers",
