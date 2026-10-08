@@ -24,6 +24,323 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 423,
+    slug: "how-to-write-a-resume-australia",
+    title: "How to Write a Resume in Australia: Complete Guide",
+    metaTitle: "How to Write a Resume in Australia: Complete Guide",
+    excerpt: "Learn how to write an Australian resume with the right format, sections, skills, examples, and tips to stand out to recruiters.",
+    date: "Oct 9, 2026",
+    lastUpdated: "Oct 9, 2026",
+    readTime: "10 min",
+    category: "Resume Writing",
+    tags: ["Resume Writing"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/screenshot-2026-10-09-at-12-21-37-am-1791485600503.png",
+    categoryColor: "bg-blue-100 text-blue-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Write a Resume in Australia: Complete Guide</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Looking for a job in Australia? Your resume is often the first opportunity to show an employer what you can do. If you are wondering how to write a resume Australia employers will notice, the answer is simple: make it clear, relevant, achievement-focused and tailored to the position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>But what does an Australian resume actually look like? How long should it be? Should you include a photo, date of birth or references? And how can you make sure an Applicant Tracking System (ATS) can read it?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This complete guide answers these questions and walks you through every section of an effective Australian resume.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. What Is an Australian Resume?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>"An Australian resume is a concise document that highlights your skills, experience, education, and achievements to show employers why you are a strong candidate for a job."</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The Australian resume format is generally straightforward and focused on relevant professional information. Unlike some countries where a CV may include extensive personal, academic or biographical details, Australian employers typically expect a concise resume focused on your suitability for the advertised role.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>In Australia, “resume” and “CV” are often used interchangeably, although an academic CV can be substantially longer and more detailed.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A typical Australian resume includes:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Contact details</li>
+    <li>Professional summary / career profile</li>
+    <li>Key skills or core competencies</li>
+    <li>Work experience</li>
+    <li>Education and qualifications</li>
+    <li>Certifications and training</li>
+    <li>Achievements</li>
+    <li>References, when requested</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>For many candidates, 1–2 pages is a useful target. Australian Government careers guidance also recommends keeping resumes succinct, around one to two pages, while tailoring the application to each job.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your resume should also be ATS-friendly. Applicant Tracking Systems can parse applications, organise candidate information and search for relevant skills, qualifications and keywords.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Source:</strong> <a href="https://www.stylemanual.gov.au/?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">Australian Government Style Manual</a></p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. How to Format a Resume in Australia</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A professional resume should be easy to scan in seconds. Fancy design cannot compensate for unclear information or irrelevant content.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Use a clean layout with:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>A readable font such as Arial, Calibri or Helvetica</li>
+    <li>Approximately 10–12 point body text</li>
+    <li>Clear section headings</li>
+    <li>Consistent spacing</li>
+    <li>Bullet points for responsibilities and achievements</li>
+    <li>Standard margins</li>
+    <li>Plenty of white space</li>
+    <li>Consistent dates and formatting</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Indeed Australia recommends readable fonts, 10–12 point text, bullet points and clearly separated headings for professional, ATS-friendly resumes.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>PDF is usually the safest format when the job advertisement does not specify otherwise because it preserves your layout. However, use Word (.docx) when the employer specifically requests it or when an application portal states that Word documents are preferred. Avoid excessive graphics, text boxes, icons, charts, columns and decorative templates. These can make your resume harder for both recruiters and ATS software to interpret.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Source:</strong> <a href="https://au.indeed.com/career-advice/resumes-cover-letters/applicant-tracking-systems?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">Indeed Australia ATS guide</a></p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. What to Include in an Australian Resume</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Think of your resume as a carefully selected sales document, not your entire career history.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Contact details</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Full name</li>
+    <li>Mobile number</li>
+    <li>Professional email address</li>
+    <li>City and state</li>
+    <li>LinkedIn profile, if relevant</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>You generally do not need to include your full street address.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Professional summary or career profile</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Write 3–5 lines explaining who you are, your experience, strongest skills and the value you offer.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Key skills and core competencies</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Choose skills that directly match the job advertisement rather than listing every skill you have.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Work experience</p>
+<p style='margin-bottom:12px; line-height:1.7;'>List your employment history in reverse chronological order, starting with your most recent relevant position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Education and qualifications</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Include degrees, diplomas, vocational qualifications, licences and relevant professional training.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Achievements</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Whenever possible, show achievements and quantifiable results, such as:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Increased customer retention by 18% within 12 months.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>This is stronger than:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Responsible for customer retention.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Additional sections</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Depending on the position, you may also include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Certifications</li>
+    <li>Technical skills</li>
+    <li>Professional memberships</li>
+    <li>Languages</li>
+    <li>Volunteer experience</li>
+    <li>Projects</li>
+    <li>Awards</li>
+    <li>LinkedIn profile</li>
+    <li>Professional references</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Australian Government employment guidance emphasises providing examples that directly demonstrate how your experience relates to the position.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. How to Write a Professional Summary for an Australian Resume</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Your professional summary is your opening pitch. It should answer one question quickly:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>"Why should this employer consider me?"</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Aim for around 3–5 concise lines. Include your experience level, relevant expertise, important skills and one or two compelling results where possible.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Weak example:</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>Hardworking professional looking for a challenging position where I can use my skills and develop my career.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This could describe almost anyone.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Stronger example:</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>Marketing specialist with 6+ years of experience across digital campaigns, content strategy and lead generation. Managed campaigns generating more than $2 million in attributable revenue and improved organic traffic by 42% in 12 months. Skilled in SEO, Google Ads, analytics and stakeholder management.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Notice the difference? The second version provides evidence.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Before writing your summary, highlight the most important requirements in the job description. Then naturally incorporate relevant keywords without stuffing them into every sentence.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. How to Write Work Experience on an Australian Resume</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>List positions from newest to oldest. For each role, include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Job title | Company | Location | Employment dates</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Then use 3–6 bullet points to describe your most relevant responsibilities and achievements.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Don't turn your resume into a job description. Focus on what you accomplished.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Weak:</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>Managed a team and handled customer complaints.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Strong:</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>Led a team of 12 customer service representatives and reduced average complaint-resolution time by 25% through a revised escalation process.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Use action verbs such as:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Led</li>
+    <li>Managed</li>
+    <li>Developed</li>
+    <li>Delivered</li>
+    <li>Increased</li>
+    <li>Reduced</li>
+    <li>Implemented</li>
+    <li>Improved</li>
+    <li>Coordinated</li>
+    <li>Generated</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Numbers make achievements more credible. Consider including percentages, revenue, cost savings, customer numbers, project sizes, deadlines or productivity improvements.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If you have an employment gap, you do not necessarily need to provide a lengthy explanation. Where appropriate, briefly identify legitimate career breaks, study, travel, caring responsibilities or other relevant circumstances.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Overseas employment can absolutely be included. Translate unfamiliar job titles or qualifications into language Australian recruiters can understand, while keeping the original information accurate.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. How to List Skills on an Australian Resume</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Divide skills into technical skills and soft skills where useful.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Technical skills could include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Python</li>
+    <li>AutoCAD</li>
+    <li>Salesforce</li>
+    <li>Data analysis</li>
+    <li>SEO</li>
+    <li>Project management software</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Soft or transferable skills could include:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Communication</li>
+    <li>Leadership</li>
+    <li>Problem-solving</li>
+    <li>Stakeholder management</li>
+    <li>Teamwork</li>
+    <li>Time management</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>However, avoid simply creating a huge list of generic skills.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Instead, read the job advertisement and identify repeated requirements. If the employer asks for “stakeholder management”, use that exact phrase where it accurately describes your experience.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This matters because ATS software can extract resume information and allow recruiters to search for particular skills, qualifications and keywords.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Software Developer: Python, JavaScript, SQL, Git, API development</li>
+    <li>Project Manager: Project planning, risk management, budgeting, Agile, stakeholder engagement</li>
+    <li>Marketing Specialist: SEO, Google Ads, content strategy, analytics, email marketing</li>
+</ul>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. How to Include Education, Qualifications, and Certifications</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>List your education and qualifications in reverse chronological order.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A simple format is:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Bachelor of Business | University of Melbourne | 2024</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For professional certifications:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Google Analytics Certification | Google | 2025</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Include relevant:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Degrees</li>
+    <li>Diplomas</li>
+    <li>TAFE qualifications</li>
+    <li>Trade qualifications</li>
+    <li>Professional certifications</li>
+    <li>Licences</li>
+    <li>Industry training</li>
+    <li>Short courses</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>If you earned an overseas qualification, name the institution and qualification clearly. Where relevant, explain an Australian equivalent or recognition status rather than expecting the recruiter to understand an unfamiliar qualification.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Experienced professionals should generally prioritise recent work experience over extensive academic detail. A recent certification directly related to the advertised role, however, may deserve prominent placement.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. Australian Resume Mistakes to Avoid</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A technically correct resume can still fail if it is difficult to read or poorly targeted.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid these common mistakes:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Using an unsuitable or overly complicated format</li>
+    <li>Including unnecessary personal information</li>
+    <li>Sending the same generic resume for every job</li>
+    <li>Making spelling and grammar mistakes</li>
+    <li>Adding irrelevant employment history</li>
+    <li>Writing long paragraphs instead of bullet points</li>
+    <li>Using excessive graphics or design elements</li>
+    <li>Listing responsibilities without achievements</li>
+    <li>Stuffing keywords unnaturally</li>
+    <li>Including outdated or inaccurate information</li>
+    <li>Using an unprofessional email address</li>
+    <li>Adding references when they have not been requested</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Be particularly careful with personal information. A resume normally does not need your date of birth or photograph unless specifically required for a legitimate reason. Australian Human Rights Commission guidance encourages recruitment processes to avoid requesting irrelevant personal information.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Australia also has laws protecting people from discrimination in employment, including recruitment and selection.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Finally, proofread your Australian English. Australian Government guidance recommends using a consistent Australian English dictionary and notes that Australian spelling generally follows British spelling, with some exceptions.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. How to Tailor Your Resume for an Australian Job</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A tailored resume can be much more persuasive than a generic one.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Before applying, follow these steps:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Read the job description carefully.</li>
+    <li>Highlight essential skills and qualifications.</li>
+    <li>Identify repeated keywords and phrases.</li>
+    <li>Match your relevant experience to those requirements.</li>
+    <li>Move the strongest achievements higher on the page.</li>
+    <li>Rewrite your professional summary for the specific position.</li>
+    <li>Remove irrelevant information.</li>
+    <li>Check that your formatting is ATS-friendly.</li>
+    <li>Proofread the final version.</li>
+    <li>Save the file using a professional name, such as John-Smith-Marketing-Manager-Resume.pdf.</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>For example, if a job advertisement repeatedly mentions stakeholder engagement, project delivery and risk management, your resume should demonstrate those capabilities through both your skills section and work experience.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Don't simply copy the job advertisement. Your keywords should be supported by genuine evidence from your experience.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. Australian Resume Example and Final Checklist</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>"A strong Australian resume should be clear, relevant, easy to scan, and tailored to the job you are applying for. Before submitting your application, use this checklist to make sure your resume meets Australian hiring expectations."</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Australian resume example structure</p>
+<p style='margin-bottom:12px; line-height:1.7;'>JANE SMITH Sydney, NSW | 04XX XXX XXX | jane.smith@email.com | LinkedIn</p>
+<p style='margin-bottom:12px; line-height:1.7;'>PROFESSIONAL SUMMARY</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Digital marketing specialist with 5+ years of experience developing SEO, paid media and content campaigns for B2B and B2C brands. Increased organic traffic by 45% and generated more than $1.2 million in campaign-attributed revenue. Skilled in SEO, Google Ads, analytics and content strategy.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>KEY SKILLS</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>SEO and content strategy</li>
+    <li>Google Ads and paid media</li>
+    <li>Google Analytics</li>
+    <li>Campaign management</li>
+    <li>Stakeholder engagement</li>
+    <li>Data analysis</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>WORK EXPERIENCE</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Digital Marketing Specialist | ABC Marketing | Sydney, NSW | 2022–Present</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Increased organic website traffic by 45% within 12 months.</li>
+    <li>Managed paid campaigns with an annual budget exceeding $300,000.</li>
+    <li>Improved conversion rate by 21% through landing-page testing.</li>
+    <li>Collaborated with sales and product teams to develop targeted campaigns.</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>EDUCATION</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Bachelor of Marketing | University of Sydney | 2021</p>
+<p style='margin-bottom:12px; line-height:1.7;'>CERTIFICATIONS</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Google Analytics Certification | 2025</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Australian resume formatting checklist</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Clear professional layout</li>
+    <li>1–2 pages where appropriate</li>
+    <li>Readable font and consistent formatting</li>
+    <li>Clear section headings</li>
+    <li>Concise bullet points</li>
+    <li>PDF unless another format is requested</li>
+    <li>Professional file name</li>
+    <li>No unnecessary graphics or photos</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>ATS checklist</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Relevant keywords included naturally</li>
+    <li>Standard headings used</li>
+    <li>No excessive tables or text boxes</li>
+    <li>Skills match the job advertisement</li>
+    <li>Qualifications are clearly stated</li>
+    <li>Job titles and dates are easy to identify</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Final proofreading checklist</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>Australian English spelling checked</li>
+    <li>Contact details are correct</li>
+    <li>Dates are consistent</li>
+    <li>No spelling or grammar errors</li>
+    <li>Achievements contain measurable results where possible</li>
+    <li>Resume is tailored to the specific role</li>
+    <li>References are included only if appropriate</li>
+    <li>File opens correctly before submission</li>
+</ul>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. How do I write a resume in Australia?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Use a clear format with contact details, a professional summary, key skills, work experience, education, and relevant achievements. Tailor it to each job.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. What is the best resume format in Australia?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>A simple, professional, reverse-chronological format with clear headings and bullet points works well.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. How long should an Australian resume be?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Usually 2–3 pages, depending on your experience and the requirements of the role.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. What should I include in an Australian resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Include your contact details, summary, skills, work experience, education, qualifications, certifications, and relevant achievements.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. Do I need a photo on an Australian resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Usually not. Only include one if the employer specifically requests it or the industry requires it.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. Should I include my date of birth on an Australian resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>No. Your date of birth is generally unnecessary and should be left out.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. Should I include references on my Australian resume?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Only if requested. Otherwise, you can provide references later in the hiring process.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. What is the difference between an Australian resume and a CV?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>A resume is generally shorter and job-focused, while a CV is often more detailed and used for academic or research positions.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. How do I make my Australian resume ATS-friendly?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Use standard headings, relevant keywords, simple formatting, and readable text. Avoid excessive graphics and complicated layouts.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. Do Australian resumes need a cover letter?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Not always. Include one when the job advertisement requests it or when it can strengthen your application.</p>
+
+<p style='margin-bottom:12px; line-height:1.7;'>Final Takeaway</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Learning how to write a resume Australia employers value is less about creating a visually impressive document and more about communicating your professional value quickly. Keep your Australian resume clear, concise, relevant, measurable and tailored. Use Australian English, focus on achievements rather than duties, match genuine skills to the job description and keep the formatting simple enough for both recruiters and ATS software.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The goal is not to tell employers everything you've ever done. It is to make it immediately obvious why your experience, skills and achievements make you a strong fit for this particular job.</p>`,
+  },
+
+  {
     id: 422,
     slug: "best-job-sites-australia",
     title: "Best Job Sites in Australia: Top 15 Job Boards",
