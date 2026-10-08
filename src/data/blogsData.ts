@@ -24,6 +24,284 @@ export type BlogPost = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const blogPosts: BlogPost[] = (([] as any[]).concat([
   {
+    id: 426,
+    slug: "how-to-start-a-cover-letter",
+    title: "How to Start a Cover Letter",
+    metaTitle: "How to Start a Cover Letter: Examples & Tips",
+    excerpt: "Learn how to start a cover letter with the right greeting, a strong opening, and relevant achievements. See examples, templates, tips, and mistakes to avoid.",
+    date: "Oct 9, 2026",
+    lastUpdated: "Oct 9, 2026",
+    readTime: "10 min",
+    category: "Cover Letter",
+    tags: ["Cover Letter"],
+    author: {
+      name: "Riya Sharma",
+      bio: "Job search coach and career writer with a passion for helping freshers break into top companies.",
+    },
+    image: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/blog-images/576074de-fb41-4fe6-9b50-5278524fcbcb-1791486507498.png",
+    categoryColor: "bg-pink-100 text-pink-600",
+    content: `<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Start a Cover Letter</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A blank cover letter can be surprisingly intimidating. You know you are qualified for the job, but the first sentence can make you freeze: Should you introduce yourself? Mention your experience? Talk about the company? Or simply say why you want the job?</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The opening matters because it sets the direction for everything that follows. In a 2025 employer survey conducted by the <a href="https://www.ualberta.ca/en/youalberta/2026/01/what-employers-really-want-findings-from-the-career-centres-2025-hiring-survey.html?" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">University of Alberta</a> Career Centre, 54% of employers said a general or untargeted cover letter could lead them to reject an application, while 74% cited stating the wrong position or organisation and spelling or grammar errors as reasons for rejection.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>That means your first few lines should do more than announce that you are applying. They should quickly establish which role you want, why you are interested, and what relevant value you can bring.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This blog is going to tell you exactly how to start a cover letter, what to include in the opening paragraph, how to choose the right greeting, examples for different situations, common mistakes to avoid, and how to transition naturally into the rest of your letter.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Source:</strong> University of Alberta</p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What Is the Purpose of a Cover Letter Opening?</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Think of your cover letter opening as your professional introduction. Your resume mainly shows what you have done. Your cover letter gives you space to explain why that experience matters for this particular role.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong opening should answer three basic questions:</p>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>What position are you applying for?</li>
+<li>Why does this opportunity interest you?</li>
+<li>What makes you relevant to the role?</li>
+</ol>
+<p style='margin-bottom:12px; line-height:1.7;'>You do not need to explain your entire career in the first paragraph. Instead, give the hiring manager a reason to continue reading.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Indeed recommends that a cover letter communicate your intent to apply, your background, and a key reason you are qualified, while using specific examples rather than simply repeating your resume.</p>
+
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">A simple formula</h3>
+<p style='margin-bottom:12px; line-height:1.7;'>You can use this structure:</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Role + specific interest + relevant strength or achievement</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>“I am excited to apply for the Marketing Coordinator position at ABC Company because of your focus on data-driven customer campaigns. With two years of experience managing social media and email campaigns, I have developed a strong ability to turn audience insights into measurable marketing results.”</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Notice how quickly this tells the reader what the candidate wants, why the company interests them, and what they can contribute.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. Start With the Right Greeting</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Before writing the first paragraph, get the greeting right.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If you know the hiring manager's name, use it.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Dear Priya Sharma,</p>
+<p style='margin-bottom:12px; line-height:1.7;'>If the job posting does not identify the hiring manager, you can use:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Dear Hiring Manager,</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This is generally preferable to an overly generic greeting such as “To Whom It May Concern.” Indeed notes that “Dear Hiring Manager” is a professional option when you do not know who will receive the letter.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Avoid guessing</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>Do not address your letter to a random person simply because you found a name on LinkedIn. Make sure the person is actually connected to hiring for the position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Also avoid overly casual openings such as:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Hey there!</li>
+<li>Hi guys,</li>
+<li>Hello team!</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Your greeting should match the professional tone of the application.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Mention the Exact Job You Want</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>One of the easiest ways to start a cover letter is to clearly identify the position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Instead of making the reader guess why you are writing, tell them immediately.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Weak:</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>I am writing to express my interest in joining your organisation.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Better:</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>I am excited to apply for the Business Analyst position at XYZ Technologies.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Stronger:</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>I am excited to apply for the Business Analyst position at XYZ Technologies, where I can combine my experience in data analysis with my interest in improving operational efficiency.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The third version works better because it connects the position with the candidate's skills. If the company is hiring for multiple similar roles, mentioning the exact job title also removes ambiguity.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Lead With a Specific Reason for Your Interest</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>The next step is to explain why this role or company caught your attention.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid generic statements such as:</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Your company is a leading organisation, and I would love the opportunity to work with you.</strong></p>
+<p style='margin-bottom:12px; line-height:1.7;'>Almost anyone could write that.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Instead, find something specific:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>A company initiative</li>
+<li>A product or service</li>
+<li>A recent project</li>
+<li>The responsibilities listed in the job description</li>
+<li>A company value</li>
+<li>A professional connection</li>
+<li>An opportunity to use a particular skill</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your recent expansion into sustainable packaging particularly caught my attention because my current role involves developing environmentally focused product campaigns.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This sounds more intentional because it connects the candidate's experience with something specific about the employer.</p>
+<div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Pro Tip:</strong> Before writing your opening, spend five minutes researching the company. Look at its website, job description, recent announcements, products, or stated priorities. Then use one relevant detail, rather than stuffing the introduction with everything you discovered.</p></div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Show What You Bring to the Role</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A cover letter should not only explain why you want the job. It should also make the employer understand why you are worth considering.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This is where a relevant skill, achievement, qualification, or experience can strengthen your opening.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>With three years of experience managing paid search campaigns and a track record of reducing acquisition costs, I am confident I can contribute to your growing digital marketing team.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Or:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>As a recent computer science graduate who built three full-stack applications during university, I am excited to bring my development skills to your junior software engineer role.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The key is relevance.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>You do not need to mention every skill you have. Pick the one or two strengths most closely connected to the job.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Use an Achievement When You Have One</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Numbers can make your opening more concrete.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Compare:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I have strong experience in customer service.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>With:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>In my current customer service role, I helped improve customer response times by 25% while maintaining a 95% satisfaction rating.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The second version gives the reader evidence.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>You can use:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Revenue generated</li>
+<li>Costs reduced</li>
+<li>Time saved</li>
+<li>Customers supported</li>
+<li>Projects completed</li>
+<li>Team size</li>
+<li>Conversion rates</li>
+<li>Efficiency improvements</li>
+<li>Awards or certifications</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>However, only use numbers you can genuinely support. Never invent metrics simply to make a cover letter sound impressive.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. How to Start a Cover Letter With No Experience</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Writing a cover letter as a student, graduate, or career starter can feel especially difficult. The good news is that professional experience is not the only evidence of relevant skills.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>You can use:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>University projects</li>
+<li>Internships</li>
+<li>Volunteer work</li>
+<li>Freelance projects</li>
+<li>Student organisations</li>
+<li>Coursework</li>
+<li>Certifications</li>
+<li>Personal projects</li>
+<li>Part-time jobs</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>Example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I am excited to apply for the Junior Content Writer position at ABC Media. During my final year of university, I developed content for two student organisations and completed a digital marketing project focused on SEO, giving me practical experience in research, writing, and audience-focused communication.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This works because it does not apologise for being inexperienced. It focuses on what the candidate has done.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Common Mistake:</strong> Do not begin with:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I know I don't have much experience, but...</p>
+<p style='margin-bottom:12px; line-height:1.7;'>You immediately draw attention to a weakness. Instead, focus on relevant evidence of your ability.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">7. How to Start a Cover Letter for a Career Change</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Career changers need to connect their previous experience with the new role.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Do not spend the entire opening explaining why you want to leave your current industry.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Instead, highlight the transferable skills that make the transition logical.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>After five years of managing client accounts in the financial services industry, I am excited to bring my research, communication, and project-management skills into a product marketing role at ABC.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Then explain what prompted the transition and how your previous experience prepares you for the new position.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A cover letter can be particularly useful when your resume does not immediately explain your career path.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">8. How to Start a Cover Letter After a Referral</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>If someone referred you to the position, mention the connection early.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Sarah Patel, a member of your product team, recommended that I apply for the Product Designer position after we discussed your team's work on accessible digital experiences.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This immediately establishes context.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>However, only mention a referral if the person genuinely referred or encouraged you to apply. Do not imply a professional relationship that does not exist.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">9. How to Start a Cover Letter With a Strong Hook</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>A strong hook does not need to be dramatic. It simply needs to be specific.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Here are several approaches:</p>
+<table class="w-full border-collapse text-sm">
+<thead>
+<tr>
+<th class="bg-blue-600 text-white font-semibold p-3 text-left">Opening approach</th>
+<th class="bg-blue-600 text-white font-semibold p-3 text-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="border border-gray-200 p-3">Achievement-led</td>
+<td class="border border-gray-200 p-3">“After increasing organic traffic by 40% in my current role, I was excited to see your opening for an SEO Specialist.”</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Company-led</td>
+<td class="border border-gray-200 p-3">“Your expansion into the European market immediately caught my attention because I have spent the past three years working on international growth campaigns.”</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Skill-led</td>
+<td class="border border-gray-200 p-3">“My experience building automated reporting dashboards and analysing customer data makes the Business Analyst position a natural next step.”</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Mission-led</td>
+<td class="border border-gray-200 p-3">“Your commitment to making financial services more accessible strongly aligns with the work I have pursued throughout my career.”</td>
+</tr>
+<tr>
+<td class="border border-gray-200 p-3">Mission-led</td>
+<td class="border border-gray-200 p-3">“After speaking with Anika Mehta about your product team, I was excited to apply for the Product Manager position.”</td>
+</tr>
+</tbody>
+</table>
+<p style='margin-bottom:12px; line-height:1.7;'>Choose one approach. You do not need to combine all five.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">10. What Not to Write in Your Opening</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Knowing what to avoid can make starting easier.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid generic enthusiasm:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I am very excited about this amazing opportunity at your prestigious company.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>There is no specific information here.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid repeating your resume:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I worked at ABC Company from 2021 to 2024. My responsibilities included...</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your cover letter should add context rather than reproduce your employment history.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid making it entirely about yourself:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>This job would be a great opportunity for me to learn and grow.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>That may be true, but the employer also wants to know what you can contribute.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid excessive length:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your opening paragraph does not need to be half a page.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Aim for a concise introduction that naturally leads into your strongest evidence.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Avoid mistakes:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>A typo in the company name or job title can make your letter look copied.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The University of Alberta's 2025 employer survey found that 74% of surveyed employers identified spelling or grammatical errors as a reason they might reject an application.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">11. Connect the Opening to the Rest of Your Cover Letter</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Once you have written the opening, do not leave the reader wondering what comes next.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Your second paragraph should provide evidence for the claim you just made.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>For example:</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Opening:</strong> I am excited to apply for the Digital Marketing Specialist role because my experience managing SEO and paid campaigns closely matches your team's focus on customer acquisition.</p>
+<p style='margin-bottom:12px; line-height:1.7;'><strong>Next paragraph:</strong> In my current position, I manage SEO campaigns across multiple product categories, using search data and performance analytics to identify growth opportunities. One recent campaign increased organic traffic by 32% over six months...</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Now the letter has a logical flow:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Interest → Relevant strength → Evidence → Company fit → Closing</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Indeed similarly recommends using the cover letter to provide deeper context around specific transferable skills rather than simply duplicating the resume.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">12. A Simple Cover Letter Opening Template</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>If you are staring at a blank document, use this fill-in-the-blank structure:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Dear [Hiring Manager's Name],</p>
+<p style='margin-bottom:12px; line-height:1.7;'>I am excited to apply for the [Job Title] position at [Company Name]. Your [specific company initiative, product, value, or role responsibility] particularly caught my attention because [specific reason]. With [X years / relevant education / relevant experience] in [field or skill], I have developed [relevant strength], including [specific achievement or example].</p>
+<p style='margin-bottom:12px; line-height:1.7;'>You can then transition into your strongest evidence:</p>
+<p style='margin-bottom:12px; line-height:1.7;'>In my current/previous role, I [action], resulting in [measurable outcome].</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Remember: this is a framework, not something to copy word-for-word for every application.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Quick Checklist Before You Send</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Before submitting your cover letter, ask:</p>
+<ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>Did I name the exact job?</li>
+<li>Did I address the hiring manager appropriately?</li>
+<li>Did I mention something specific about the company or role?</li>
+<li>Did I highlight a relevant skill or achievement?</li>
+<li>Does the opening sound like me?</li>
+<li>Does it add something beyond my resume?</li>
+<li>Did I avoid generic statements?</li>
+<li>Did I check the company and job title for errors?</li>
+<li>Did I proofread the entire letter?</li>
+<li>Did I follow the employer's submission instructions?</li>
+</ul>
+<p style='margin-bottom:12px; line-height:1.7;'>A tailored cover letter is generally more useful than a generic one. Indeed recommends customising the document to the specific role and using it to provide context around your qualifications.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Final Thoughts</h2>
+<p style='margin-bottom:12px; line-height:1.7;'>Starting a cover letter does not require a clever opening line. It requires relevance.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>Tell the employer what role you want, give them a genuine reason you are interested, and quickly show the experience or strength that makes you relevant. From there, use the rest of the letter to prove your point with specific examples.</p>
+<p style='margin-bottom:12px; line-height:1.7;'>The goal is not to tell your entire career story. It is to make the hiring manager think, “This candidate understands what we need, and I want to learn more.”</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">1. What is the best way to start a cover letter?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Start with a professional greeting, mention the job title, and highlight why you are a strong fit.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">2. Should I start a cover letter with “I am writing to apply”?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>You can, but a specific opening highlighting your interest or relevant strength is more engaging.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">3. How do I start a cover letter without experience?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Highlight relevant education, projects, internships, certifications, or transferable skills.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">4. Should I use “Dear Hiring Manager”?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. Use “Dear Hiring Manager” when you cannot find the hiring manager’s name.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">5. How long should the opening paragraph be?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Keep it concise around 3–5 sentences is usually enough.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">6. Should I mention the company in the first paragraph?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. Mention a specific company detail, value, or reason that genuinely interests you.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">7. Can I use the same cover letter for every job?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>It is better to customise each cover letter for the specific job and company.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">8. Should I include achievements in the opening?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes, if the achievement is relevant to the position and demonstrates your value.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">9. How do I start a cover letter for a career change?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Focus on transferable skills and explain how your previous experience relates to the new role.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">10. Should I repeat my resume in my cover letter?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>No. Use the cover letter to provide context and highlight your most relevant experience.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">11. Is a cover letter necessary if it is optional?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>If you can tailor it effectively, a concise cover letter can provide another opportunity to show your fit.</p>
+<h3 class="text-lg font-semibold text-gray-800 mb-1">12. Can AI help me write a cover letter?</h3>
+<p style='margin-bottom:8px; line-height:1.7;'>Yes. AI can help structure and refine it, but always personalise the final version to reflect your real experience.</p>`,
+  },
+
+  {
     id: 425,
     slug: "how-to-answer-where-do-you-see-yourself-in-5-years",
     title: "How to Answer “Where Do You See Yourself in 5 Years?”",
