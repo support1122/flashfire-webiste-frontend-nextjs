@@ -1,66 +1,897 @@
-import { blogPosts, type BlogPost } from "@/src/data/blogsData";
-import BlogsPageView, { type RelatedPost } from "./blogsPageView";
-import { getReadTime } from "@/src/utils/blogContent";
+"use client";
 
-// Server component: picks the related posts here so the full blog dataset
-// (every post's HTML content) is never shipped to the browser.
+import { useEffect, useState, useMemo } from "react";
+import styles from "./blogsPage.module.css";
+import CachedBlogImage from "./CachedBlogImage";
+import {
+  trackPageView,
+  trackScrollDepth,
+  trackTimeOnPage,
+} from "@/src/utils/PostHogTracking";
+import posthog from "posthog-js";
+import Navbar from "../navbar/navbar";
+import Footer from "../footer/footer";
+import Link from "next/link";
+import { FaLinkedinIn, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { blogPosts } from "@/src/data/blogsData";
+import { categoryToSlug, tagToSlug } from "@/src/utils/blogCategoryUtils";
 
-// Links rendered in the page HTML (4 visible, the rest reached with the arrows)
-const MAX_RELATED = 6;
-
-// Only the fields the related cards render
-function toRelatedPost(p: BlogPost): RelatedPost {
-  return {
-    id: p.id,
-    slug: p.slug,
-    title: p.title,
-    excerpt: p.excerpt,
-    image: p.image,
-    coverImage: p.coverImage,
-    category: p.category,
-    date: p.date,
-    readTime: getReadTime(p.content, p.readTime),
+type BlogPost = {
+  id: number;
+  slug?: string;
+  title: string;
+  excerpt?: string;
+  image?: string;
+  coverImage?: string;
+  category?: string;
+  categories?: string[];
+  categoryColor?: string;
+  date?: string;
+  lastUpdated?: string;
+  readTime?: string;
+  content?: string;
+  tags?: string[];
+  author?: {
+    name: string;
+    bio?: string;
+    image?: string;
   };
-}
+};
 
-const postTime = (p: BlogPost) => new Date(p.date || 0).getTime() || 0;
-const newestFirst = (a: BlogPost, b: BlogPost) => postTime(b) - postTime(a);
-
-// Posts sharing the most tags chosen at publish time come first (newest first on
-// ties). Same-category posts only fill the remaining slots.
-function getRelatedPosts(post: BlogPost): BlogPost[] {
-  const others = blogPosts.filter((p) => p && p.id !== post.id && p.slug);
-
-  const postTags = new Set((post.tags || []).map((t) => t.toLowerCase()));
-  const tagMatches = others
-    .map((p) => ({
-      p,
-      shared: (p.tags || []).filter((t) => postTags.has(t.toLowerCase())).length,
-    }))
-    .filter((m) => m.shared > 0)
-    .sort((a, b) => b.shared - a.shared || newestFirst(a.p, b.p))
-    .map((m) => m.p);
-
-  if (tagMatches.length >= MAX_RELATED) return tagMatches.slice(0, MAX_RELATED);
-
-  const picked = new Set(tagMatches.map((p) => p.id));
-  const postCategories = post.categories || (post.category ? [post.category] : []);
-  const sameCategory = others
-    .filter((p) => {
-      if (picked.has(p.id)) return false;
-      const pCategories = p.categories || (p.category ? [p.category] : []);
-      return postCategories.some((c) => pCategories.includes(c));
-    })
-    .sort(newestFirst);
-
-  return [...tagMatches, ...sameCategory].slice(0, MAX_RELATED);
-}
+type TableOfContentsItem = {
+  title: string;
+  anchor: string;
+  level: number;
+};
 
 export default function BlogsPage({ post }: { post: BlogPost }) {
+  const [activeSection, setActiveSection] = useState<string>("");
+  const allCategories = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          blogPosts
+            .map((p) => p.category)
+            .filter((c): c is string => Boolean(c))
+        )
+      ),
+    []
+  );
+  // Tags for this post - show default tags on every blog for UI consistency
+  // But filtering will only match blogs that actually have that tag in their data
+  const defaultDisplayTags = [
+    "Career Advice",
+    "Job Search Strategy",
+    "Success Stories",
+    "Visa & Immigration",
+    "Career Planning",
+    "International Students"
+  ];
+  const postTags = useMemo(() => {
+    // Always show default tags on every blog page for UI consistency
+    // The actual filtering in blogsClient.tsx will use the blog's real tags
+    return defaultDisplayTags;
+  }, []);
+
+  const overviewText = post.excerpt || "";
+
+  // Split overview into paragraphs for first 3 blogs (deterministic, no client-side checks)
+  const overviewParagraphs = useMemo(() => {
+    if (!overviewText) return null;
+    
+    // Only split for first 3 blogs with the specific content pattern
+    if (post.id <= 3 && overviewText.includes("You're not the only one")) {
+      // Split into 3 paragraphs based on content structure
+      const p1End = overviewText.indexOf("mental health.");
+      const p2Start = overviewText.indexOf("This Flashfirejobs");
+      const p3Start = overviewText.indexOf("You will also learn");
+      
+      // Ensure all markers are found and in correct order
+      if (p1End > 0 && p2Start > p1End && p3Start > p2Start) {
+        const para1 = overviewText.substring(0, p1End + "mental health.".length).trim();
+        const para2 = overviewText.substring(p2Start, p3Start).trim();
+        const para3 = overviewText.substring(p3Start).trim();
+        
+        // Return only if all paragraphs are non-empty
+        if (para1 && para2 && para3) {
+          return [para1, para2, para3];
+        }
+      }
+    }
+    return null;
+  }, [overviewText, post.id]);
+
+  // The page template already renders the post title as the single H1, so any
+  // <h1> authored inside the post body is demoted to <h2>.
+  const demotedContent = useMemo(
+    () => {
+      const html = (post?.content || "").replace(/<h1(\b[^>]*)>/gi, "<h2$1>").replace(/<\/h1>/gi, "</h2>");
+      // Never skip a heading level (e.g. H2 -> H4): the H1 is the post title, so
+      // the first heading may be an H2 and each later one at most one level deeper.
+      let prev = 1;
+      const levels: number[] = [];
+      return html
+        .replace(/<(\/?)h([2-6])(\b[^>]*)>/gi, (_m, slash: string, lvl: string, rest: string) => {
+          if (!slash) {
+            const wanted = Number(lvl);
+            const used = Math.min(wanted, prev + 1);
+            levels.push(used);
+            prev = used;
+            return `<h${used}${rest}>`;
+          }
+          return `</h${levels[levels.length - 1] ?? lvl}>`;
+        });
+    },
+    [post?.content]
+  );
+
+  // Process content and generate table of contents (client-side only)
+  const [processedContent, setProcessedContent] = useState<string>(demotedContent);
+  const [tableOfContents, setTableOfContents] = useState<TableOfContentsItem[]>([]);
+
+  useEffect(() => {
+    if (!demotedContent || typeof window === "undefined") {
+      setProcessedContent(demotedContent);
+      return;
+    }
+
+    try {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(demotedContent, "text/html");
+      // Only include H2 headings (main sections), exclude H3 (sub-sections, questions)
+      const headings = doc.querySelectorAll("h2");
+      const toc: TableOfContentsItem[] = [];
+
+      headings.forEach((heading, index) => {
+        const text = heading.textContent || "";
+        const anchor = `section-${index + 1}`;
+        
+        // Add ID to heading for anchor links
+        heading.id = anchor;
+        
+        toc.push({
+          title: text,
+          anchor: anchor,
+          level: 2,
+        });
+      });
+
+      // Wrap tables so wide ones scroll horizontally on small screens
+      doc.querySelectorAll("table").forEach((table) => {
+        const wrapper = doc.createElement("div");
+        wrapper.className = styles.tableScroll;
+        table.parentNode?.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      });
+
+      // Add Overview at the top of the TOC if overview text exists
+      const finalToc =
+        overviewText && overviewText.trim().length > 0
+          ? [
+              {
+                title: "Overview",
+                anchor: "overview-section",
+                level: 2,
+              },
+              ...toc,
+            ]
+          : toc;
+
+      setProcessedContent(doc.body.innerHTML);
+      setTableOfContents(finalToc);
+    } catch (error) {
+      // Fallback to original content if parsing fails
+      setProcessedContent(demotedContent);
+      setTableOfContents([]);
+    }
+  }, [demotedContent, overviewText]);
+
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = tableOfContents.map((item) => {
+        const element = document.getElementById(item.anchor);
+        return element ? { element, anchor: item.anchor } : null;
+      }).filter(Boolean) as { element: HTMLElement; anchor: string }[];
+
+      const scrollPosition = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (sections[i].element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i].anchor);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [tableOfContents]);
+
+  useEffect(() => {
+    if (!post) return;
+
+    // Scroll to top when blog page loads
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      scrollToTop();
+      // Also scroll after a short delay to catch any late scrolls
+      setTimeout(() => {
+        scrollToTop();
+      }, 50);
+      // One more check after layout
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          scrollToTop();
+        }, 100);
+      });
+    });
+
+    const startedAt = Date.now();
+
+    try {
+      posthog.capture?.("blog_view", {
+        blog_id: post.id,
+        blog_slug: post.slug,
+        blog_title: post.title,
+        blog_category: post.category,
+        blog_read_time: post.readTime,
+        blog_date: post.date,
+        page_url: window.location.href,
+      });
+
+      trackPageView("blog_detail", undefined, {
+        blog_id: post.id,
+        blog_slug: post.slug,
+        blog_title: post.title,
+      });
+    } catch {}
+
+    const marks = new Set<number>();
+    const handleScroll = () => {
+      const doc = document.documentElement;
+      const scrollTop = window.scrollY || doc.scrollTop;
+      const height = doc.scrollHeight - doc.clientHeight;
+      const percent = Math.min(100, Math.round((scrollTop / height) * 100));
+      [25, 50, 75, 100].forEach((t) => {
+        if (percent >= t && !marks.has(t)) {
+          marks.add(t);
+          trackScrollDepth(t, "blog_detail", { blog_slug: post.slug });
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      const timeSpentSec = Math.round((Date.now() - startedAt) / 1000);
+      trackTimeOnPage(timeSpentSec, "blog_detail", { blog_slug: post.slug });
+    };
+  }, [post]);
+
+  // Get related articles (same category preferred; allow more than 3 to enable scroll)
+  const relatedArticles = useMemo(() => {
+    // Support both `category` (string) and `categories` (array) fields
+    const postCategories: string[] = post.categories || (post.category ? [post.category] : []);
+
+    const sameCategory = blogPosts.filter((p) => {
+      if (p.id === post.id) return false;
+      const pCategories: string[] = (p as any).categories || (p.category ? [p.category] : []);
+      return postCategories.some((c) => pCategories.includes(c));
+    });
+
+    // If none in same category, fall back to recent posts
+    if (sameCategory.length === 0) {
+      return blogPosts.filter((p) => p.id !== post.id).slice(-6).reverse();
+    }
+
+    return sameCategory;
+  }, [post.category, post.categories, post.id]);
+
+  // Get recent posts (exclude current)
+  const recentPosts = useMemo(() => {
+    return blogPosts
+      .filter((p) => p.id !== post.id)
+      .slice(0, 5);
+  }, [post.id]);
+
+  // Get most viewed posts (exclude current and recent posts)
+  const mostViewedPosts = useMemo(() => {
+    const excludeIds = new Set([post.id, ...recentPosts.map(p => p.id)]);
+    return blogPosts
+      .filter((p) => !excludeIds.has(p.id))
+      .sort((a, b) => {
+        // Sort by date descending (newer first) as a proxy for "most viewed"
+        const dateA = new Date(a.date || 0).getTime();
+        const dateB = new Date(b.date || 0).getTime();
+        return dateB - dateA;
+      })
+      .slice(0, 5);
+  }, [post.id, recentPosts]);
+
+  // Social sharing functions
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareTitle = post.title;
+
+  const handleShare = (platform: string) => {
+    const urls: Record<string, string> = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+    };
+
+    if (urls[platform]) {
+      window.open(urls[platform], "_blank", "width=600,height=400");
+    }
+  };
+
+  const scrollToSection = (anchor: string) => {
+    const element = document.getElementById(anchor);
+    if (element) {
+      const offset = 150; // Increased offset to ensure heading is fully visible
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Helper function to convert date to ISO format (YYYY-MM-DD)
+  const convertToISODate = (dateString: string): string => {
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return dateString; // Return original if invalid
+      return date.toISOString().split('T')[0];
+    } catch {
+      return dateString;
+    }
+  };
+
+  // Extract FAQ questions and answers from content. Done with plain string
+  // parsing (no DOMParser) so the FAQ schema renders on the server with the
+  // rest of the JSON-LD and is never injected a second time after hydration.
+  const extractFAQ = useMemo(() => {
+    const content = post?.content;
+    if (!content) return [] as Array<{ question: string; answer: string }>;
+    const strip = (html: string) =>
+      html.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").trim();
+    const faqItems: Array<{ question: string; answer: string }> = [];
+    const blocks = content.match(/<(h2|h3|p)\b[^>]*>[\s\S]*?<\/\1>/gi) || [];
+    const start = blocks.findIndex(
+      (b) => /^<h2/i.test(b) && strip(b).toLowerCase().includes("faq")
+    );
+    if (start === -1) return faqItems;
+    for (let i = start + 1; i < blocks.length; i++) {
+      const block = blocks[i];
+      if (/^<h2/i.test(block)) break;
+      if (/^<h3/i.test(block)) {
+        const question = strip(block).replace(/^\d+\.\s*/, "");
+        const next = blocks[i + 1];
+        if (question && next && /^<p/i.test(next)) {
+          const answer = strip(next);
+          if (answer) faqItems.push({ question, answer });
+        }
+      }
+    }
+    return faqItems;
+  }, [post?.content]);
+
+  // Generate structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.flashfirejobs.com/blog/${post.slug}`,
+    },
+    headline: post.title,
+    description: post.excerpt || post.title,
+    image: post.image || post.coverImage || "",
+    author: {
+      "@type": "Person",
+      name: post.author?.name || "Arjun Sharma",
+      ...(post.author?.name && {
+        url: `https://www.flashfirejobs.com/author/${post.author.name.toLowerCase().replace(/\s+/g, "-")}`,
+      }),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "FlashFire Jobs",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.flashfirejobs.com/favicon.ico",
+      },
+    },
+    datePublished: convertToISODate(post.date || ""),
+    dateModified: convertToISODate(post.lastUpdated || post.date || ""),
+  };
+
+  // Generate FAQ schema if FAQ items exist (use empty array to avoid hydration issues)
+  const faqStructuredData = extractFAQ && extractFAQ.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: extractFAQ.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  } : null;
+
+  const breadcrumbCategory = post.category || post.categories?.[0];
+
+  const breadcrumbItems = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.flashfirejobs.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://www.flashfirejobs.com/blog",
+    },
+    ...(breadcrumbCategory
+      ? [
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: breadcrumbCategory,
+            item: `https://www.flashfirejobs.com/blog/${categoryToSlug(breadcrumbCategory)}`,
+          },
+        ]
+      : []),
+    {
+      "@type": "ListItem",
+      position: breadcrumbCategory ? 4 : 3,
+      name: post.title,
+      item: `https://www.flashfirejobs.com/blog/${post.slug}`,
+    },
+  ];
+
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems,
+  };
+
   return (
-    <BlogsPageView
-      post={{ ...post, readTime: getReadTime(post.content, post.readTime) }}
-      relatedArticles={getRelatedPosts(post).map(toRelatedPost)}
-    />
+    <>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        />
+      )}
+      <Navbar />
+      {/* Floating Share */}
+      <div className={styles.floatingShare}>
+        <button
+          onClick={() => handleShare("facebook")}
+          className={styles.socialButton}
+          aria-label="Share on Facebook"
+        >
+          <FaFacebookF />
+        </button>
+        <button
+          onClick={() => handleShare("twitter")}
+          className={styles.socialButton}
+          aria-label="Share on Twitter"
+        >
+          <FaTwitter />
+        </button>
+        <button
+          onClick={() => handleShare("linkedin")}
+          className={styles.socialButton}
+          aria-label="Share on LinkedIn"
+        >
+          <FaLinkedinIn />
+        </button>
+      </div>
+      <div className={styles.pageWrapper}>
+        <div className={styles.blogContainer}>
+          {/* === BREADCRUMB === */}
+          <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span className={styles.breadcrumbSeparator}> &gt; </span>
+            <Link href="/blog">Blog</Link>
+            <span className={styles.breadcrumbSeparator}> &gt; </span>
+            <Link href={`/blog/${categoryToSlug(post.category || "")}`}>{post.category}</Link>
+            <span className={styles.breadcrumbSeparator}> &gt; </span>
+            <span className={styles.breadcrumbCurrent} title={post.title}>{post.title}</span>
+          </nav>
+
+          {/* === TOP SECTION WITH HERO IMAGE AND SIDEBAR === */}
+          <div className={styles.topSectionWrapper}>
+            <div className={styles.topSection}>
+              {/* === LEFT: HERO IMAGE AND TITLE === */}
+              <div className={styles.topLeftContent}>
+              {/* Category chips removed per request */}
+              {/* === TITLE (first, so the H1 leads the first fold) === */}
+              <h1 className={styles.title} itemProp="headline">{post.title}</h1>
+
+              {/* === HERO IMAGE === */}
+              <div className={styles.imageWrapper}>
+                <CachedBlogImage
+                  src={post.image || post.coverImage || ""}
+                  alt={post.title}
+                  width={1200}
+                  height={630}
+                  className={styles.image}
+                  priority
+                  itemProp="image"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                />
+              </div>
+
+              {/* === TAGS (clickable to filter blogs by tag) === */}
+              {postTags && postTags.length > 0 && (
+                <div className={styles.tagsWrapper}>
+                  {postTags.map((tag, index) => (
+                    <Link
+                      key={index}
+                      href={`/blog/tag/${tagToSlug(tag)}`}
+                      className={styles.tag}
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
+              {/* === AUTHOR & DATE === */}
+              <div className={styles.meta}>
+                <div className={styles.authorInfo} itemScope itemType="https://schema.org/Person">
+                  {post.author?.image && (
+                    <CachedBlogImage
+                      src={post.author.image}
+                      alt={post.author.name}
+                      width={40}
+                      height={40}
+                      className={styles.authorImage}
+                      itemProp="image"
+                      sizes="40px"
+                    />
+                  )}
+                  <div>
+                    {post.author?.name ? (
+                      <Link
+                        href={`/author/${post.author.name.replace(/\s+/g, "-").toLowerCase()}`}
+                        className={styles.authorNameLink}
+                      >
+                        <div className={styles.authorName} itemProp="name">
+                          By {post.author.name}
+                        </div>
+                      </Link>
+                    ) : (
+                      <div className={styles.authorName} itemProp="name">
+                        By Debashri Mandal
+                      </div>
+                    )}
+                    {post.author?.bio && (
+                      <div className={styles.authorBio} itemProp="description">{post.author.bio}</div>
+                    )}
+                  </div>
+                </div>
+                <div className={styles.dateInfo}>
+                  <span className={styles.dateLabel}>Published:</span>
+                  <time dateTime={post.date} itemProp="datePublished">{post.date}</time>
+                  {post.lastUpdated && post.lastUpdated !== post.date && (
+                    <>
+                      <span className={styles.dateSeparator}>|</span>
+                      <span className={styles.dateLabel}>Updated:</span>
+                      <time dateTime={post.lastUpdated} itemProp="dateModified">{post.lastUpdated}</time>
+                    </>
+                  )}
+                  <span className={styles.readTime}>⏱️ {post.readTime}</span>
+                </div>
+              </div>
+
+              {/* === BLOG OVERVIEW === */}
+              {overviewText && (
+                <div id="overview-section" className={styles.overviewBox}>
+                  {/* <h3 className={styles.overviewTitle}> Blog Overview</h3> */}
+                  {overviewParagraphs ? (
+                    <div className={styles.overviewText}>
+                      <p
+                        style={{ marginBottom: "0.75rem" }}
+                        dangerouslySetInnerHTML={{ __html: overviewParagraphs[0] }}
+                      />
+                      <p
+                        style={{ marginBottom: "0.75rem" }}
+                        dangerouslySetInnerHTML={{ __html: overviewParagraphs[1] }}
+                      />
+                      <p
+                        style={{ marginBottom: 0 }}
+                        dangerouslySetInnerHTML={{ __html: overviewParagraphs[2] }}
+                      />
+                    </div>
+                  ) : overviewText.includes('\n\n') ? (
+                    <div className={styles.overviewText}>
+                      {overviewText.split('\n\n').map((para, index, array) => (
+                        <p
+                          key={index}
+                          style={{ marginBottom: index < array.length - 1 ? "0.75rem" : 0 }}
+                          dangerouslySetInnerHTML={{ __html: para.trim() }}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <p
+                      className={styles.overviewText}
+                      dangerouslySetInnerHTML={{ __html: overviewText }}
+                    />
+                  )}
+                </div>
+              )}
+
+              {/* === TABLE OF CONTENTS === */}
+              {tableOfContents.length > 0 && (
+                <div className={styles.tableOfContents}>
+                  <div className={styles.tocTitleWrapper}>
+                    <span className={styles.tocTitleLine}></span>
+                    <h3 className={styles.tocTitle}>IN THIS ARTICLE</h3>
+                    <span className={styles.tocTitleLine}></span>
+                  </div>
+                  <ul className={styles.tocList}>
+                    {tableOfContents.map((item, index) => (
+                      <li
+                        key={index}
+                        className={`${styles.tocItem} ${
+                          item.level === 3 ? styles.tocItemNested : ""
+                        } ${
+                          activeSection === item.anchor ? styles.tocItemActive : ""
+                        }`}
+                      >
+                        <button
+                          onClick={() => scrollToSection(item.anchor)}
+                          className={styles.tocLink}
+                        >
+                          {item.title}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* === RIGHT: SIDEBAR === */}
+            <aside className={styles.topSidebar}>
+              {/* === SOCIAL SHARE === */}
+              {/* <div className={styles.sidebarSection}>
+                <h2 className={styles.sidebarTitle}>Share This Article</h2>
+                <div className={styles.socialShare}>
+                  <button
+                    onClick={() => handleShare("facebook")}
+                    className={styles.socialButton}
+                    aria-label="Share on Facebook"
+                  >
+                    <FaFacebookF />
+                  </button>
+                  <button
+                    onClick={() => handleShare("twitter")}
+                    className={styles.socialButton}
+                    aria-label="Share on Twitter"
+                  >
+                    <FaTwitter />
+                  </button>
+                  <button
+                    onClick={() => handleShare("linkedin")}
+                    className={styles.socialButton}
+                    aria-label="Share on LinkedIn"
+                  >
+                    <FaLinkedinIn />
+                  </button>
+                </div>
+              </div> */}
+
+              {/* === LEAD MAGNET === */}
+              <div className={styles.leadMagnet}>
+                <h2 className={styles.sidebarTitle}>Free ATS Resume Check</h2>
+                <p>See how your resume scores against applicant tracking systems before you apply.</p>
+                <Link href="/ats-score-checker" className={styles.ctaButton}>
+                  Check my resume
+                </Link>
+              </div>
+
+              {/* === RECENT POSTS === */}
+              <div className={styles.sidebarSection}>
+                <h2 className={styles.sidebarTitle}>Recent Posts</h2>
+                <ul className={styles.recentPostsList}>
+                  {recentPosts.map((recentPost) => (
+                    <li key={recentPost.id} className={styles.recentPostItem}>
+                      <Link
+                        href={`/blog/${recentPost.slug}`}
+                        className={styles.recentPostLink}
+                      >
+                        <div className={styles.recentPostImage}>
+                          <CachedBlogImage
+                            src={recentPost.image || recentPost.coverImage || ""}
+                            alt={recentPost.title}
+                            width={80}
+                            height={60}
+                            className={styles.recentPostImg}
+                            sizes="80px"
+                          />
+                        </div>
+                        <div className={styles.recentPostContent}>
+                          <h3 className={styles.recentPostTitle}>
+                            {recentPost.title}
+                          </h3>
+                          <span className={styles.recentPostDate}>
+                            {recentPost.date}
+                          </span>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* === MOST VIEWED POSTS === */}
+              {mostViewedPosts.length > 0 && (
+                <div className={styles.sidebarSection}>
+                  <h2 className={styles.sidebarTitle}>Most Viewed Blogs</h2>
+                  <ul className={styles.recentPostsList}>
+                    {mostViewedPosts.map((viewedPost) => (
+                      <li key={viewedPost.id} className={styles.recentPostItem}>
+                        <Link
+                          href={`/blog/${viewedPost.slug}`}
+                          className={styles.recentPostLink}
+                        >
+                          <div className={styles.recentPostImage}>
+                            <CachedBlogImage
+                              src={viewedPost.image || viewedPost.coverImage || ""}
+                              alt={viewedPost.title}
+                              width={80}
+                              height={60}
+                              className={styles.recentPostImg}
+                              sizes="80px"
+                            />
+                          </div>
+                          <div className={styles.recentPostContent}>
+                            <h3 className={styles.recentPostTitle}>
+                              {viewedPost.title}
+                            </h3>
+                            <span className={styles.recentPostDate}>
+                              {viewedPost.date}
+                            </span>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              </aside>
+            </div>
+
+            {/* === MAIN CONTENT === */}
+            <div className={styles.mainContentWrapper}>
+              {/* === ARTICLE CONTENT === */}
+            <article
+              className={styles.content}
+              itemScope
+              itemType="https://schema.org/Article"
+              dangerouslySetInnerHTML={{ __html: processedContent }}
+            />
+            </div>
+          </div>
+
+        {/* === BOTTOM SOCIAL SHARE === */}
+        <div className={styles.bottomShareSection}>
+          <div className={styles.sidebarTitle}></div>
+          <div className={styles.socialShare}>
+            <button
+              onClick={() => handleShare("facebook")}
+              className={styles.socialButton}
+              aria-label="Share on Facebook"
+            >
+              <FaFacebookF />
+            </button>
+            <button
+              onClick={() => handleShare("twitter")}
+              className={styles.socialButton}
+              aria-label="Share on Twitter"
+            >
+              <FaTwitter />
+            </button>
+            <button
+              onClick={() => handleShare("linkedin")}
+              className={styles.socialButton}
+              aria-label="Share on LinkedIn"
+            >
+              <FaLinkedinIn />
+            </button>
+          </div>
+        </div>
+
+          {/* === RELATED ARTICLES === */}
+          {relatedArticles.length > 0 && (
+            <section className={styles.relatedSection}>
+              <h2 className={styles.relatedTitle}>Related Articles</h2>
+              <div
+                className={`${styles.relatedGrid} ${
+                  relatedArticles.length > 3 ? styles.relatedGridScroll : ""
+                }`}
+              >
+                {relatedArticles.map((relatedPost) => (
+                  <article key={relatedPost.id} className={styles.relatedCard}>
+                    <Link href={`/blog/${relatedPost.slug}`}>
+                      <div className={styles.relatedImage}>
+                        <CachedBlogImage
+                          src={relatedPost.image || relatedPost.coverImage || ""}
+                          alt={relatedPost.title}
+                          width={400}
+                          height={250}
+                          className={styles.relatedImg}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                        />
+                      </div>
+                      <div className={styles.relatedContent}>
+                        <span className={styles.relatedCategory}>
+                          {relatedPost.category}
+                        </span>
+                        <h3 className={styles.relatedCardTitle}>
+                          {relatedPost.title}
+                        </h3>
+                        {relatedPost.excerpt && (
+                          <p className={styles.relatedExcerpt}>
+                            {relatedPost.excerpt}
+                          </p>
+                        )}
+                        <div className={styles.relatedMeta}>
+                          <span>{relatedPost.date}</span>
+                          <span>•</span>
+                          <span>{relatedPost.readTime}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* === CTA === */}
+          <div className={styles.ctaBox}>
+            <h3>Ready to accelerate your job search?</h3>
+            <p>
+              Join thousands of international students landing their dream jobs
+              in the U.S.
+            </p>
+            <a
+              href="https://www.flashfirejobs.com"
+              className={styles.ctaButton}
+            >
+              Visit FlashFire Jobs
+            </a>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 }
+

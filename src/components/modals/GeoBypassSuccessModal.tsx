@@ -60,9 +60,9 @@ const GeoBypassSuccessModal: React.FC<GeoBypassSuccessModalProps> = ({
                         </div>
                     </div>
 
-                    <p className="text-lg font-semibold text-gray-900 mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
                         🎉 Geo-block Bypassed!
-                    </p>
+                    </h3>
                     <p className="text-gray-600 text-sm leading-relaxed mb-6">
                         You've successfully bypassed the geo-restriction! You can now proceed with your action.
                     </p>

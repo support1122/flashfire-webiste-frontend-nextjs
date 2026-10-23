@@ -9,7 +9,6 @@ import Footer from "@/src/components/footer/footer";
 import { slugToCategory, getAllCategorySlugs } from "@/src/utils/blogCategoryUtils";
 import { fitText, getPostsForCategorySlug, getPostsForTagSlug } from "@/src/utils/blogListing";
 import BlogListingSeo from "@/src/components/blogs/BlogListingSeo";
-import { toIsoDate } from "@/src/utils/blogDates";
 
 export const dynamicParams = true;
 
@@ -127,16 +126,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const rawMetaTitle = post.slug ? (metaTitleMap[post.slug] ?? post.metaTitle ?? post.title) : (post.metaTitle ?? post.title);
   // Keep search-result snippets inside Google's display limits.
   const metaTitle = fitText(rawMetaTitle, 60);
-  // Used exactly as written for the post (never shortened with "...")
-  const metaDescription = post.excerpt || post.title;
-  const authorName = post.author?.name || "Flashfire";
-  const publishedTime = toIsoDate(post.date);
-  const modifiedTime = toIsoDate(post.lastUpdated || post.date);
+  const metaDescription = fitText(post.excerpt || post.title, 155);
 
   return {
     title: metaTitle,
     description: metaDescription,
-    authors: [{ name: authorName }],
     robots: {
       index: true,
       follow: true,
@@ -166,9 +160,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
               alt: "FLASHFIRE Logo",
             },
           ],
-      publishedTime,
-      modifiedTime,
-      authors: [authorName],
+      publishedTime: post.date,
+      authors: ["Flashfire"],
       section: post.category,
     },
     twitter: {

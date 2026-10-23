@@ -276,7 +276,6 @@ export default function NewBlogPage() {
   const [form, setForm] = useState({
     metaTitle: "",
     metaDescription: "",
-    summary: "",
     h1: "",
     slug: "",
     category: CATEGORIES[0],
@@ -384,7 +383,7 @@ export default function NewBlogPage() {
     setStatus({ type: "", message: "" });
 
     if (!form.secretKey) return setStatus({ type: "error", message: "Secret key is required." });
-    if (!form.metaTitle || !form.metaDescription || !form.summary.trim() || !form.h1 || !form.slug) return setStatus({ type: "error", message: "Meta Title, Meta Description, Summary, H1, and Slug are required." });
+    if (!form.metaTitle || !form.metaDescription || !form.h1 || !form.slug) return setStatus({ type: "error", message: "Meta Title, Meta Description, H1, and Slug are required." });
     if (!plainText.trim()) return setStatus({ type: "error", message: "Blog content is required." });
     if (!imageFile && !form.imageUrl) return setStatus({ type: "error", message: "Please upload an image or provide an image URL." });
 
@@ -413,7 +412,6 @@ export default function NewBlogPage() {
         title: form.h1.trim(),
         metaTitle: form.metaTitle.trim(),
         excerpt: form.metaDescription.trim(),
-        summary: form.summary.trim(),
         date: form.date,
         readTime: form.readTime || "8 min",
         category: form.category,
@@ -435,7 +433,7 @@ export default function NewBlogPage() {
       if (!res.ok) throw new Error(data.error || "Publish failed");
 
       setStatus({ type: "success", message: `Blog published! It will be live after GitHub deploys. URL: /blog/${form.slug}` });
-      setForm((prev) => ({ ...prev, metaTitle: "", metaDescription: "", summary: "", h1: "", slug: "", tags: "", readTime: "", imageUrl: "" }));
+      setForm((prev) => ({ ...prev, metaTitle: "", metaDescription: "", h1: "", slug: "", tags: "", readTime: "", imageUrl: "" }));
       setPlainText("");
       setGeneratedHTML("");
       setShowPreview(false);
@@ -492,13 +490,6 @@ export default function NewBlogPage() {
                 placeholder="e.g. Learn how to get a job in the UK, including where to find jobs, visa requirements, CV tips..."
                 className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
               <p className="text-xs text-gray-400 mt-1">{form.metaDescription.length}/160 chars recommended</p>
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-1">Summary <span className="text-red-500">*</span></label>
-              <textarea name="summary" value={form.summary} onChange={handleChange} rows={4}
-                placeholder="Shown in the Summary box at the top of the article. Separate from the meta description."
-                className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" />
             </div>
 
             <div>

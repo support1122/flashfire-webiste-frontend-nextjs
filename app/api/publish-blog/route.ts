@@ -8,7 +8,6 @@ interface BlogPayload {
   title: string;
   metaTitle: string;
   excerpt: string;
-  summary?: string;
   date: string;
   readTime: string;
   category: string;
@@ -31,16 +30,13 @@ function serializeStringArray(arr: string[]): string {
 function buildBlogEntry(blog: BlogPayload, id: number): string {
   const authorImage = blog.author.image ? `\n      image: "${blog.author.image}",` : "";
   const content = escapeForTemplateLiteral(blog.content);
-  const summary = blog.summary?.trim()
-    ? `\n    summary: ${JSON.stringify(blog.summary.trim())},`
-    : "";
 
   return `  {
     id: ${id},
     slug: "${blog.slug}",
     title: "${blog.title.replace(/"/g, '\\"')}",
     metaTitle: "${blog.metaTitle.replace(/"/g, '\\"')}",
-    excerpt: "${blog.excerpt.replace(/"/g, '\\"')}",${summary}
+    excerpt: "${blog.excerpt.replace(/"/g, '\\"')}",
     date: "${blog.date}",
     lastUpdated: "${blog.date}",
     readTime: "${blog.readTime}",
@@ -64,7 +60,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { slug, title, metaTitle, excerpt, summary, date, readTime, category, tags, author, image, categoryColor, content } = body;
+    const { slug, title, metaTitle, excerpt, date, readTime, category, tags, author, image, categoryColor, content } = body;
 
     if (!slug || !title || !metaTitle || !excerpt || !content || !image) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -134,7 +130,7 @@ export async function POST(req: NextRequest) {
 
     // 6. Build new blog entry
     const newEntry = buildBlogEntry(
-      { slug, title, metaTitle, excerpt, summary, date, readTime, category, tags, author, image, categoryColor, content, secretKey: "" },
+      { slug, title, metaTitle, excerpt, date, readTime, category, tags, author, image, categoryColor, content, secretKey: "" },
       newId
     );
 

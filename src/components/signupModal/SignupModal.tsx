@@ -210,9 +210,9 @@ export default function SignupModal({ isOpen, onClose }: SignupModalProps) {
         <div className="p-6 w-full">
           <div className="flex justify-between items-start mb-6 w-full">
             <div className="flex-1">
-              <p className="text-2xl font-bold text-gray-900 mb-2">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 Get Started for Free
-              </p>
+              </h2>
               <p className="text-gray-600 text-sm">
                 Tell us about yourself to schedule your consultation
               </p>

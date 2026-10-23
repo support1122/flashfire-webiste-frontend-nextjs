@@ -4,8 +4,6 @@ export type BlogPost = {
   title: string;
   metaTitle?: string;
   excerpt?: string;
-  // On-page "Summary" box, written separately from the meta description (excerpt)
-  summary?: string;
   date?: string;
   lastUpdated?: string;
   readTime?: string;
@@ -963,40 +961,64 @@ Write down two or three questions about the role, expectations, team, or next st
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. General Customer Service Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>These opening questions help interviewers understand your personality, communication style, and motivation for working with customers. Keep your answers confident, relevant, and focused on the value you can bring to the team.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Tell me about yourself.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell me about yourself.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I’m a people-oriented professional who enjoys solving problems and communicating with others. In my previous role, I developed strong listening, organization, and problem-solving skills. I’m excited about this opportunity because I can use these strengths to help customers and contribute to a positive customer experience.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Connect your background to the role instead of reciting your entire resume.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Why do you want to work in customer service?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why do you want to work in customer service?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I enjoy helping people find solutions and making complicated situations easier to manage. Customer service allows me to combine communication, empathy, and problem-solving. I also appreciate the opportunity to learn about products, understand customer needs, and improve the overall experience.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Show that you understand the work involves challenges, not just interacting with people.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. What does excellent customer service mean to you?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What does excellent customer service mean to you?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“Excellent customer service means listening carefully, understanding the customer's concern, and providing an accurate and timely solution. It also means communicating clearly, setting realistic expectations, and following up when necessary.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Emphasize both resolving the problem and making the customer feel heard.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. What are your greatest strengths in customer service?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What are your greatest strengths in customer service?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“My main strengths are active listening, patience, and clear communication. I stay calm when conversations become difficult and focus on finding practical solutions. I’m also organized, which helps me track customer requests and follow up when needed.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Choose two or three strengths and support them with a brief example when possible.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. What is your biggest weakness?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is your biggest weakness?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I sometimes spend too much time checking details because I want to make sure everything is accurate. I’m improving by prioritizing requests, following established procedures, and balancing accuracy with response time.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Choose a genuine, manageable weakness and explain the steps you're taking to improve.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Customer Service Situational Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Situational questions test how you would respond to challenges you might encounter on the job. Interviewers are looking for sound judgment, empathy, and an understanding of company policies.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. How would you handle an angry customer?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you handle an angry customer?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would remain calm, let the customer explain the issue without interrupting, and acknowledge their frustration. I would ask questions to understand what went wrong, explain the available solutions, and take action within company policy. If the issue required additional authority, I would escalate it appropriately.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It demonstrates emotional control, active listening, and a solution-focused approach.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. What would you do if you didn't know the answer to a customer's question?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What would you do if you didn't know the answer to a customer's question?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would be honest rather than guess. I would check the relevant documentation or consult a knowledgeable colleague. I would then explain the answer clearly and, if I needed more time, tell the customer when they could expect an update.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> Customers need accurate information and reliable follow-through, not confident guesses.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. How would you handle multiple customers needing help at once?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you handle multiple customers needing help at once?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would prioritize requests based on urgency, business impact, and the company's service guidelines. I would acknowledge each customer, communicate realistic waiting times, and keep track of unresolved issues. I would also seek assistance if the workload exceeded what I could manage effectively.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It balances efficiency with clear communication and fairness.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. What would you do if a customer requested something against company policy?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What would you do if a customer requested something against company policy?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would explain the policy respectfully and clarify why the requested action wasn't available. Then, I would explore alternatives that could address the customer's underlying concern. If an exception required approval, I would follow the appropriate process rather than make an unauthorized promise.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It shows that you can protect company standards without dismissing customer needs.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. How would you respond if a customer complained about a delayed order?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you respond if a customer complained about a delayed order?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would apologize for the inconvenience, check the order status, and provide the most accurate information available. If the order was delayed, I would explain the next steps and any available alternatives. I would also make sure the customer knew how and when they would receive an update.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It demonstrates ownership and proactive communication without promising an outcome you cannot guarantee.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Behavioral Customer Service Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Behavioral questions ask about situations you have already experienced. Use the STAR method to structure your response:</p>
@@ -1006,52 +1028,88 @@ Write down two or three questions about the role, expectations, team, or next st
 <strong>Result:</strong> Share the outcome or lesson learned.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>If you're a fresher, use examples from college projects, volunteering, internships, or part-time work.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. Tell me about a time you dealt with a difficult customer.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell me about a time you dealt with a difficult customer.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“In my previous retail role, a customer was upset because an item was unavailable. I listened to their concern, checked nearby inventory, and found an alternative that met their needs. The customer appreciated the effort and chose the alternative.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Focus on your actions rather than criticizing the customer.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. Describe a time you went above and beyond for a customer.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Describe a time you went above and beyond for a customer.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“A customer was struggling to understand a product's setup instructions. Instead of repeating the same explanation, I broke the process into simple steps and checked their understanding. They were able to complete the setup, and I learned the importance of adapting my communication to each person's needs.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Choose an example that shows initiative without suggesting you ignored company procedures.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">13. Tell me about a mistake you made at work.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell me about a mistake you made at work.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I once provided an incomplete update because I hadn't verified every detail. When I realized the mistake, I corrected the information promptly, informed the relevant person, and introduced a checklist to prevent similar oversights. The experience taught me to verify important details before responding.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Take responsibility, explain how you corrected the issue, and describe what changed afterward.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">14. Give an example of working under pressure.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Give an example of working under pressure.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“During a busy period, I had several requests to handle within a short time. I organized them by urgency, communicated expected response times, and worked through them systematically. This helped me maintain accuracy while managing the workload.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Explain how you prioritized tasks rather than simply saying you work well under pressure.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">15. Describe a time you worked with a team to solve a problem.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Describe a time you worked with a team to solve a problem.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“Our team experienced a recurring issue that affected customer requests. I shared the patterns I noticed, helped review possible causes, and coordinated with colleagues to follow a consistent process. We improved how requests were handled and reduced confusion within the team.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Highlight your individual contribution while acknowledging the team's role.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Customer Support and Call Center Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>These questions are especially relevant to call centers, help desks, online support teams, and customer success roles.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">16. How do you handle repetitive customer questions?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you handle repetitive customer questions?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I treat every interaction as an individual customer's experience, even when the question is familiar. I provide consistent, accurate information while adapting my explanation to the person's needs. I also note recurring questions that might indicate a need for clearer documentation or better self-service resources.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">17. How would you handle a customer who keeps interrupting you?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you handle a customer who keeps interrupting you?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would remain patient and give the customer an opportunity to express their concern. When appropriate, I would politely summarize what I've understood and explain the next step. My goal would be to keep the conversation productive without making the customer feel dismissed.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">18. How do you measure successful customer service?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you measure successful customer service?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I consider customer satisfaction, first-contact resolution, response time, and the quality of the solution important indicators. I would also pay attention to customer feedback and follow company guidelines for balancing speed with accuracy.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Show that you understand fast responses are valuable, but resolving the issue correctly matters too.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">19. Are you comfortable using customer relationship management (CRM) software?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Are you comfortable using customer relationship management (CRM) software?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“Yes. I understand that CRM systems help teams document customer interactions, track open cases, and maintain consistent communication. I’m comfortable learning new software and would follow the company's procedures for recording accurate, relevant information.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'>If you have used a particular platform, such as Salesforce or Zendesk, mention it and explain how you used it.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">20. How would you protect confidential customer information?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you protect confidential customer information?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would follow company privacy and security policies, verify identity when required, and access only the information needed for my work. I would never share sensitive details through unauthorized channels, and I would report suspected security incidents through the proper process.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Confidentiality is a practical responsibility, not just a statement about being trustworthy.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Advanced Customer Service Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>These questions often appear in interviews for senior support, team lead, and customer success positions. They assess how you make decisions, learn from feedback, and improve service quality.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">21. How do you handle negative customer feedback?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you handle negative customer feedback?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I listen without becoming defensive, identify the specific concern, and thank the customer for sharing their feedback. I address the issue where possible and use the feedback to identify opportunities to improve my approach or the team's processes.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">22. What would you do if you disagreed with a coworker's solution to a customer problem?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What would you do if you disagreed with a coworker's solution to a customer problem?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I would discuss the situation respectfully, explain my concerns using the available information, and review the relevant policy or procedure. If we couldn't agree, I would consult a supervisor to ensure the customer received an appropriate solution.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">23. How do you build long-term customer relationships?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you build long-term customer relationships?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I build trust by being consistent, listening carefully, providing accurate information, and following through on commitments. I also make sure customers understand their options and receive timely updates when an issue remains unresolved.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">24. Why should we hire you for this customer service role?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why should we hire you for this customer service role?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“You should hire me because I combine clear communication, patience, and a practical approach to problem-solving. I understand the importance of treating customers respectfully while following company procedures. I'm also willing to learn, accept feedback, and contribute to the team's performance.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">25. Where do you see yourself in five years?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Where do you see yourself in five years?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:<br>“I hope to develop deeper customer service expertise, take on more complex responsibilities, and eventually contribute to training or team leadership. My immediate priority is to perform well in this role, learn the company's processes, and consistently deliver quality service.”</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. How to Prepare for a Customer Service Interview</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Memorizing 25 answers isn't necessary. The goal is to develop a few strong examples and learn how to adapt them to different questions.</p>
@@ -1122,51 +1180,83 @@ Write down two or three questions about the role, expectations, team, or next st
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. General Data Analyst Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Hiring managers often begin with questions about your background, motivation, and understanding of the role. Your answers should connect your skills to the business problems you can solve.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Tell me about yourself.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell me about yourself.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>What the interviewer wants: A concise overview of your experience, analytical skills, and career direction.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: “I have a background in business analytics and enjoy using data to solve practical problems. I have worked with Excel and SQL to clean datasets, identify trends, and summarize findings. In a recent project, I analyzed customer purchasing patterns and presented recommendations to improve retention. I am now looking for a role where I can apply these skills to real business decisions.”</p>
         <div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'>
             <p style='margin:0; line-height:1.7;'><strong>Tip:</strong> Keep your response to about 60–90 seconds. Focus on relevant skills and accomplishments rather than reciting your entire résumé.</p>
         </div>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Why do you want to become a data analyst?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why do you want to become a data analyst?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Explain what attracts you to analytical problem-solving. Connect your interest in finding patterns, testing assumptions, or communicating insights to the company's needs.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. What does a data analyst do?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What does a data analyst do?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>A data analyst collects, cleans, transforms, and interprets data to answer business questions. The role may involve writing SQL queries, building dashboards, identifying trends, measuring performance, and communicating recommendations to stakeholders.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. What is your biggest strength as a data analyst?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is your biggest strength as a data analyst?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Choose a specific strength, such as attention to detail, critical thinking, or communication. Support it with an example that shows how it improved an analysis or helped someone make a decision.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. Describe a challenging data project.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Describe a challenging data project.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Use the STAR method: Situation, Task, Action, and Result. Explain the problem, your responsibility, the steps you took, and the measurable outcome. If you do not have professional experience, use an academic project or personal portfolio project.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. SQL Interview Questions for Data Analysts</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>SQL is frequently tested because analysts need to retrieve, combine, summarize, and investigate data stored in relational databases.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. What is the difference between WHERE and HAVING?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between WHERE and HAVING?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>WHERE filters individual rows before aggregation, while HAVING filters groups after aggregation.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. What is the difference between INNER JOIN and LEFT JOIN?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between INNER JOIN and LEFT JOIN?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>INNER JOIN: Returns only rows with matching values in both tables.<br>
         LEFT JOIN: Returns every row from the left table and matching rows from the right. Unmatched right-side values appear as NULL.<br>
         Use a LEFT JOIN when you need to identify customers who have never placed an order, for example.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. How do you find duplicate records using SQL?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you find duplicate records using SQL?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Group records by the columns that should uniquely identify them and count occurrences.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. What are window functions in SQL?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What are window functions in SQL?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Window functions calculate values across related rows without collapsing those rows into a single group. They are useful for rankings, running totals, and comparisons between periods.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. How would you calculate month-over-month growth?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you calculate month-over-month growth?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Compare the current month's value with the previous month's value.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Excel, Statistics, and Data Visualization Questions</h2>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. How do you handle missing data?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you handle missing data?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>First, determine why values are missing and how much of the dataset is affected. Depending on the context, you might exclude incomplete records, impute values, flag missingness, or request corrected data.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Never fill missing values automatically without considering how the decision could bias the results.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. What is the difference between mean, median, and mode?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between mean, median, and mode?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Mean: The arithmetic average; sensitive to extreme values.<br>
         Median: The middle value after sorting; often useful for skewed distributions.<br>
         Mode: The most frequently occurring value.<br>
         For salary data with a few exceptionally high earners, the median may better represent a typical employee's salary than the mean.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">13. What is the difference between correlation and causation?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between correlation and causation?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Correlation means two variables move together. Causation means changes in one variable produce changes in another.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, ice cream sales and swimming incidents might rise during summer. That does not prove ice cream causes swimming incidents; warmer weather may influence both.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">14. How would you choose the right chart?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you choose the right chart?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Match the visualization to the question:<br>
         Line chart: Trends over time.<br>
         Bar chart: Comparisons across categories.<br>
@@ -1174,43 +1264,71 @@ Write down two or three questions about the role, expectations, team, or next st
         Histogram: Distribution of a numerical variable.<br>
         Stacked bar chart: Composition across categories, when comparisons remain readable.<br>
         Prioritize clear labels, meaningful scales, and a focused message over decorative effects.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">15. What is a pivot table, and when would you use one?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is a pivot table, and when would you use one?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>A pivot table summarizes large datasets by categories. For example, you could compare monthly revenue by product, region, or sales representative without manually writing multiple formulas.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>In Excel, pivot tables are especially useful for exploratory analysis and quick reporting.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Python, Power BI, and Tableau Questions</h2>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">16. How would you use Python for data analysis?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you use Python for data analysis?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Python can automate repetitive tasks, clean data, perform statistical analysis, and prepare visualizations. Libraries such as pandas support data manipulation, while Matplotlib and Seaborn help create charts.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>A practical answer should explain a task you would solve, not simply list libraries.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">17. What is the difference between a dashboard and a report?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between a dashboard and a report?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>A dashboard typically provides an at-a-glance view of key metrics and trends, often with interactive filters. A report may provide more detailed explanations, historical context, and supporting analysis.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Both should serve a defined audience and decision-making purpose.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">18. What makes a good Power BI or Tableau dashboard?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What makes a good Power BI or Tableau dashboard?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>A useful dashboard has a clear purpose, reliable data, relevant KPIs, consistent formatting, and intuitive navigation. It should help users identify exceptions or trends quickly rather than overwhelm them with charts.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">19. How do you validate your analysis?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you validate your analysis?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Reconcile totals against source systems, check data types and missing values, test joins for unexpected row multiplication, review assumptions, and compare results with independent calculations where possible.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Document important limitations so stakeholders understand what the findings can and cannot establish.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Scenario-Based Data Analyst Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Scenario questions reveal how you approach ambiguity. Interviewers may care as much about your reasoning as your final answer.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">20. Sales dropped by 15%. How would you investigate?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Sales dropped by 15%. How would you investigate?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Start by confirming the decline is real and comparing equivalent periods. Then break sales down by product, region, channel, customer segment, and order volume.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Investigate potential causes such as pricing changes, stockouts, fewer transactions, lower conversion rates, or tracking errors. Share the strongest evidence, distinguish correlation from causation, and recommend a targeted next step.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">21. What would you do if two reports showed different revenue figures?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What would you do if two reports showed different revenue figures?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Check the reporting periods, currencies, time zones, filters, revenue definitions, refund treatment, and data refresh schedules. Trace both figures back to their source tables and reconcile the differences.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Do not select the number that looks more plausible without establishing why the reports disagree.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">22. How would you measure the success of a marketing campaign?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you measure the success of a marketing campaign?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Agree on the campaign objective first. Depending on the goal, evaluate conversion rate, customer acquisition cost, revenue, return on ad spend, or incremental sales.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Compare results with an appropriate baseline or control group when possible. A rise in sales during a campaign does not, by itself, prove that the campaign caused the increase.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">23. How would you explain a technical finding to a nontechnical stakeholder?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you explain a technical finding to a nontechnical stakeholder?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Lead with the business implication, support it with one or two important findings, and explain the recommended action in plain language.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, instead of describing a complex query, say: “Most abandoned carts occur during mobile checkout. Simplifying that step is a practical next experiment.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">24. What would you do if your findings contradicted a manager's expectations?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What would you do if your findings contradicted a manager's expectations?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Present the evidence respectfully, explain the method, and invite the manager to review assumptions or additional context. Repeat the analysis if a legitimate concern emerges, but do not alter results simply to match someone's expectations.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">25. How do you prioritize multiple analysis requests?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you prioritize multiple analysis requests?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Consider business impact, urgency, dependencies, effort, and the consequences of delay. Clarify deadlines with stakeholders, communicate trade-offs, and agree on priorities rather than silently attempting everything at once.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. How to Prepare for a Data Analyst Interview</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Knowing sample answers is a starting point. Strong preparation means being able to explain your reasoning and demonstrate your skills.</p>
@@ -1235,26 +1353,48 @@ Write down two or three questions about the role, expectations, team, or next st
 <p style='margin-bottom:12px; line-height:1.7;'>Ready to take the next step in your job search? <a href="https://www.flashfirejobs.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">FlashFire</a> helps job seekers find relevant jobs, optimize their résumés, submit high-quality applications, and track opportunities in one workflow. Spend less time managing applications and more time practicing <a href="https://www.flashfirejobs.com/blog/most-common-interview-questions-and-answers" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">interview questions</a>, strengthening your technical skills, and preparing to make a strong impression.</p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">1. What are the most common data analyst interview questions?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">1. What are the most common data analyst interview questions?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Expect questions about SQL, Excel, statistics, data visualization, data cleaning, business scenarios, and your previous projects.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">2. Is SQL mandatory for data analyst jobs?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">2. Is SQL mandatory for data analyst jobs?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Not every role requires SQL, but it is a valuable skill for working with relational databases and extracting business insights.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">3. How can a fresher prepare for a data analyst interview?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">3. How can a fresher prepare for a data analyst interview?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Learn SQL, Excel, basic statistics, and visualization. Build portfolio projects and practice explaining your findings.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">4. Are data analyst interviews difficult?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">4. Are data analyst interviews difficult?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Difficulty varies by employer and seniority. Interviews may include technical tests, case studies, behavioral questions, or several of these.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">5. Which Excel topics should I prepare?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">5. Which Excel topics should I prepare?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Focus on lookup functions, PivotTables, conditional formulas, data cleaning, charts, and basic statistical functions.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">6. Do data analysts need Python?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">6. Do data analysts need Python?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Python is useful for automation and advanced analysis, but requirements depend on the specific job description.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">7. How should I answer scenario-based questions?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">7. How should I answer scenario-based questions?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Clarify the objective, identify relevant data, explain your analysis, validate assumptions, and recommend an evidence-based action.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">8. Can I become a data analyst without experience?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">8. Can I become a data analyst without experience?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Yes. Demonstrate relevant skills through personal projects, coursework, internships, and a portfolio that explains your analytical process.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">9. What projects should I showcase in an interview?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">9. What projects should I showcase in an interview?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Choose projects involving sales analysis, customer behavior, financial trends, marketing performance, or operational efficiency.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">10. How long should my interview answers be?</h3>
-        <p style='margin-bottom:8px; line-height:1.7;'>Aim for roughly one to two minutes for general questions. Technical answers can take longer when explaining your approach and reasoning.</p>`,
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">10. How long should my interview answers be?</h3>
+        <p style='margin-bottom:8px; line-height:1.7;'>Aim for roughly one to two minutes for general questions. Technical answers can take longer when explaining your approach and reasoning.</p>
+    </li>
+</ol>`,
   },
 
   {
@@ -1283,83 +1423,131 @@ Write down two or three questions about the role, expectations, team, or next st
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. General Business Analyst Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Interviewers often begin by assessing your understanding of the role, your motivation, and your ability to explain your experience clearly.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. What does a business analyst do?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What does a business analyst do?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: A business analyst identifies business needs, evaluates existing processes, gathers requirements, and recommends solutions that help an organization achieve its objectives. The role involves collaborating with stakeholders, documenting requirements, analyzing data, and ensuring that the proposed solution addresses the original problem.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, if customers abandon an online checkout, I would investigate the customer journey, review available analytics, gather feedback, and work with relevant teams to identify improvements.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Why do you want to become a business analyst?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why do you want to become a business analyst?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I enjoy solving problems by combining analytical thinking with communication and collaboration. Business analysis allows me to understand business challenges, work with different stakeholders, and translate findings into practical solutions. I'm particularly interested in helping organizations make informed decisions rather than relying on assumptions.</p>
         <div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'>
             <p style='margin:0; line-height:1.7;'><strong>Tip:</strong> Connect your motivation to the actual responsibilities and industry of the role.</p>
         </div>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. What are the key skills of a successful business analyst?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What are the key skills of a successful business analyst?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: A successful business analyst needs analytical thinking, communication, problem-solving, requirements gathering, stakeholder management, and documentation skills. Technical skills such as Excel, SQL, data visualization, and process modeling are also valuable, depending on the position.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>The most important combination is understanding what the business needs and explaining how a proposed solution can meet those needs.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. How do you handle conflicting stakeholder requirements?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you handle conflicting stakeholder requirements?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I first clarify each stakeholder's underlying objective and identify where their requirements differ. Then, I assess business value, urgency, cost, dependencies, and potential risks. I facilitate a discussion to establish priorities and document the agreed decisions.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, if sales wants additional product features while operations wants a simpler workflow, I would compare the expected benefits and effort before recommending a practical compromise.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. How do you prioritize requirements?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you prioritize requirements?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I consider business value, customer impact, urgency, risk, dependencies, and implementation effort. I may use the MoSCoW method to categorize requirements as Must have, Should have, Could have, or Won't have for the current release.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I would confirm priorities with stakeholders rather than treating my initial assessment as the final decision.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Business Analyst Technical Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Technical questions test whether you understand the methods and tools used to investigate problems, document requirements, and evaluate solutions.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. What is the difference between functional and non-functional requirements?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between functional and non-functional requirements?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: Functional requirements describe what a system must do, while non-functional requirements describe qualities or constraints governing how it operates.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, allowing users to reset their passwords is a functional requirement. Requiring the reset page to load within two seconds under specified conditions is a non-functional requirement.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Both should be clear, testable, and aligned with business needs.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. What is the Software Development Life Cycle (SDLC)?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the Software Development Life Cycle (SDLC)?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: The SDLC is a structured approach to planning, developing, testing, deploying, and maintaining software. Common activities include requirements analysis, design, development, testing, deployment, and maintenance.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>A business analyst helps define business needs, document requirements, clarify questions for developers, support testing, and verify that the delivered solution meets agreed acceptance criteria. The exact responsibilities depend on the organization's delivery approach.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. What is the difference between Agile and Waterfall?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between Agile and Waterfall?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: Waterfall generally follows a sequential approach in which phases are completed in a planned order. Agile emphasizes iterative delivery, frequent feedback, and adapting to changing requirements.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Waterfall may suit projects with stable requirements and formal approval stages. Agile can be useful when teams need to deliver improvements incrementally and learn from user feedback.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>As a business analyst, I would adapt my documentation, stakeholder engagement, and prioritization methods to the chosen approach.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. How do you use SQL in business analysis?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you use SQL in business analysis?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: SQL helps retrieve and analyze data stored in relational databases. I can use queries to filter records, join tables, aggregate results, and investigate trends.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, if a retailer wants to understand repeat purchases, I could join customer and order tables, group orders by customer, and identify customers who purchased more than once during a defined period.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I would validate the results and check for duplicate records, missing values, and incorrect assumptions before presenting conclusions.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. What is the difference between a BRD, FRD, and SRS?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is the difference between a BRD, FRD, and SRS?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: A Business Requirements Document (BRD) explains the business problem, objectives, scope, and high-level needs. A Functional Requirements Document (FRD) describes the functions or behaviors the solution must provide. A Software Requirements Specification (SRS) documents software requirements, potentially including functional requirements, interfaces, constraints, and quality attributes.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Terminology varies between organizations, and some teams combine these documents. My priority is to ensure requirements are understandable, traceable, and useful to everyone involved.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. What is a use case?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What is a use case?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: A use case describes how an actor interacts with a system to achieve a particular goal. It typically includes the actor, preconditions, main flow, alternative flows, and expected outcome.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For a password-reset feature, the use case could explain how a user requests a reset link, verifies their identity, creates a new password, and receives confirmation. It should also consider exceptions, such as an expired link.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. Which business analysis tools have you used?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Which business analysis tools have you used?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: Useful tools include Excel for data analysis, SQL for database queries, Power BI or Tableau for visualization, Jira for managing requirements and work items, and diagramming tools for process maps.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I would tailor my answer to the tools I have genuinely used and explain what I accomplished with them. For instance, I might describe using Excel to identify recurring order delays and presenting the findings through a dashboard.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Scenario-Based Business Analyst Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Scenario questions reveal how you think when the problem is unclear or the available information is incomplete. Explain your approach step by step instead of jumping straight to a solution.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">13. How would you investigate declining sales?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you investigate declining sales?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I would first define the period and metric involved, then segment sales by product, region, channel, and customer type. Next, I would compare the findings with traffic, conversion rates, pricing changes, inventory availability, and previous periods.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I would test possible explanations against the data, identify the most likely causes, and recommend targeted actions. After implementation, I would track whether the changes improved sales.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">14. What would you do if requirements were unclear?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What would you do if requirements were unclear?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I would arrange discussions with relevant stakeholders, ask clarifying questions, and document assumptions, constraints, and unresolved issues. I would use examples, process flows, mock-ups, or user stories to make abstract requirements easier to understand.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Before development begins, I would seek confirmation of the expected outcomes and acceptance criteria.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">15. How would you handle a stakeholder who resists a proposed change?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How would you handle a stakeholder who resists a proposed change?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I would first understand the reason for the resistance. The stakeholder may be concerned about workload, training, cost, or disruption to existing processes.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I would explain the business rationale, acknowledge legitimate concerns, and involve the stakeholder in evaluating options. If appropriate, I would recommend a pilot, collect feedback, and use measurable results to guide the next decision.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">16. How do you measure whether a solution is successful?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How do you measure whether a solution is successful?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I would define success metrics before implementation and establish a baseline for comparison. Depending on the objective, these might include conversion rate, processing time, error rate, customer satisfaction, or operating cost.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, if a project aims to reduce invoice-processing time, I would compare average processing time before and after implementation while checking that error rates have not increased.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">17. What would you do if a project deadline were at risk?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What would you do if a project deadline were at risk?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: I would identify the cause of the delay, assess its impact on milestones, and determine which requirements are essential. I would communicate the risks early, discuss dependencies with the project team, and present realistic options, such as adjusting scope, reallocating resources, or revising the timeline.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I would avoid promising a deadline that the team cannot reasonably meet.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Behavioral Questions Business Analysts Should Prepare For</h2>
 <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com/blog/how-to-answer-behavioral-interview-questions" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">Behavioral questions</a> help interviewers understand how you work with people, respond to setbacks, and take responsibility. Use the STAR method: Situation, Task, Action, and Result.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">18. Tell me about a time you solved a difficult problem.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell me about a time you solved a difficult problem.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Choose a real example from employment, an internship, academic work, or a personal project. Explain the problem, your responsibility, the steps you took, and the outcome.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For instance, you might describe investigating repeated reporting errors, identifying inconsistent data-entry practices, introducing validation checks, and measuring the reduction in errors. Include actual results only when you can substantiate them.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">19. Describe a time you managed multiple priorities.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Describe a time you managed multiple priorities.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Explain how you assessed deadlines, dependencies, business impact, and available resources. Show how you communicated trade-offs and kept stakeholders informed.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>A strong answer demonstrates a repeatable prioritization process rather than simply claiming that you work well under pressure.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">20. Tell me about a mistake you made.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell me about a mistake you made.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Choose a genuine, manageable mistake and take responsibility for your part in it. Explain how you identified the issue, communicated it, corrected the impact, and changed your process to prevent recurrence.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Interviewers want to understand your judgment, accountability, and willingness to learn—not hear a story in which you claim never to make mistakes.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. How to Prepare for a Business Analyst Interview</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Knowing the answers is only part of preparation. You also need to connect your skills to the employer's requirements.</p>
@@ -1388,26 +1576,48 @@ Write down two or three questions about the role, expectations, team, or next st
 <p style='margin-bottom:12px; line-height:1.7;'>Use these questions to identify knowledge gaps, practice real examples, and refine your explanations. Then connect that preparation to a focused job search.</p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">1. What are the most common business analyst interview questions?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">1. What are the most common business analyst interview questions?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Common questions cover the analyst's role, requirements gathering, stakeholder management, Agile, SDLC, SQL, prioritization, and problem-solving scenarios.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">2. How should a fresher prepare for a business analyst interview?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">2. How should a fresher prepare for a business analyst interview?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Learn core business analysis concepts, practice basic Excel and SQL, study sample case studies, and prepare examples from academic projects or internships.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">3. Is SQL necessary for business analyst roles?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">3. Is SQL necessary for business analyst roles?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Not every position requires SQL, but it is valuable for roles involving databases, reporting, product analytics, or large datasets. Check the job description.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">4. Which tools should a business analyst learn first?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">4. Which tools should a business analyst learn first?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Start with Excel, then explore SQL, a visualization tool such as Power BI, and a requirements or project-tracking tool such as Jira.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">5. What is the STAR method?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">5. What is the STAR method?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>STAR stands for Situation, Task, Action, and Result. It helps organize behavioral answers into a clear, evidence-based story.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">6. How many business analyst interview questions should I practice?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">6. How many business analyst interview questions should I practice?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Prioritize around 20–30 representative questions across technical, behavioral, and scenario-based categories. Focus on explaining your reasoning rather than memorizing scripts.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">7. Are business analyst and data analyst roles the same?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">7. Are business analyst and data analyst roles the same?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>No. Business analysts often focus on business needs, requirements, and solutions, while data analysts typically emphasize analyzing datasets and communicating data-driven findings. Responsibilities can overlap.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">8. What is a good answer to “Why should we hire you?”</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">8. What is a good answer to “Why should we hire you?”</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Connect your relevant analytical, communication, and problem-solving skills to the role's requirements. Support your claims with specific examples and explain how you could contribute.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">9. How can I answer scenario-based questions confidently?</h3>
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">9. How can I answer scenario-based questions confidently?</h3>
         <p style='margin-bottom:8px; line-height:1.7;'>Clarify the objective, state your assumptions, identify the data and stakeholders needed, evaluate options, and explain how you would measure success.</p>
-<h3 class="text-lg font-semibold text-gray-800 mb-1">10. Do business analysts need Agile knowledge?</h3>
-        <p style='margin-bottom:8px; line-height:1.7;'>Agile knowledge is useful for roles involving iterative software development. Understand user stories, backlogs, acceptance criteria, sprint planning, and stakeholder feedback.</p>`,
+    </li>
+    <li>
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">10. Do business analysts need Agile knowledge?</h3>
+        <p style='margin-bottom:8px; line-height:1.7;'>Agile knowledge is useful for roles involving iterative software development. Understand user stories, backlogs, acceptance criteria, sprint planning, and stakeholder feedback.</p>
+    </li>
+</ol>`,
   },
 
   {
@@ -1828,36 +2038,57 @@ Write down two or three questions about the role, expectations, team, or next st
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">1. General Project Manager Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>These opening questions help interviewers understand your experience, communication style, and approach to delivering projects.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Tell Me About Yourself.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell Me About Yourself.</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>What the interviewer wants: A concise summary of your background, relevant skills, and career direction.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I have three years of experience coordinating cross-functional projects, managing timelines, and communicating with stakeholders. In my current role, I helped improve project reporting by introducing a shared tracking system that gave teams better visibility into deadlines and outstanding tasks. I enjoy turning complex goals into organized plans, and I am looking for a project manager position where I can take greater ownership of delivery.”</p>
 <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Connect your experience to the job description instead of reciting your entire employment history.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Why Do You Want to Be a Project Manager?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Why Do You Want to Be a Project Manager?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Explain what genuinely interests you about planning, problem-solving, leadership, or delivering results.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I enjoy bringing structure to complicated work and helping people collaborate toward a common goal. Project management combines analytical thinking with communication and decision-making. I find it rewarding to see an idea move from planning to successful delivery.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. What Is Your Project Management Approach?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is Your Project Management Approach?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Describe how you choose a suitable approach based on project requirements, risks, and team needs.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I start by clarifying the objectives, deliverables, budget, timeline, and stakeholder expectations. I then build a realistic plan, assign responsibilities, identify risks, and establish regular progress reviews. I adapt the process to the project, using predictive planning when requirements are stable and Agile practices when frequent feedback is important.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. How Do You Prioritize Tasks?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Prioritize Tasks?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Show that you consider urgency, business impact, dependencies, and available resources.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I prioritize tasks according to their impact on project objectives, deadlines, dependencies, and risk. If two requests compete for the same resources, I assess the consequences of delaying each one and discuss trade-offs with stakeholders before changing the plan.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. What Are Your Greatest Strengths as a Project Manager?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Are Your Greatest Strengths as a Project Manager?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Choose two or three strengths and support them with evidence.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“My strongest skills are stakeholder communication, risk identification, and organization. For example, I introduced weekly risk reviews on a previous project, helping the team identify a vendor delay early and adjust the delivery schedule before it affected the final deadline.”</p>
+</li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Project Planning and Technical Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Technical questions assess whether you understand the tools, processes, and metrics required to manage projects effectively.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. How Do You Create a Project Plan?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Create a Project Plan?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Explain your process from defining the outcome to monitoring execution.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I clarify the business objective, define the scope, break deliverables into manageable tasks, estimate effort, map dependencies, and allocate resources. I establish milestones, identify risks, and agree on reporting routines with stakeholders. Once approved, I use the plan as a baseline and update forecasts as conditions change.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Which Project Management Methodologies Have You Used?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Which Project Management Methodologies Have You Used?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Discuss relevant methodologies without suggesting that one works for every project.</p>
 <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
 <li><strong>Waterfall:</strong> Useful when requirements and delivery stages are relatively predictable.</li>
@@ -1867,70 +2098,129 @@ Write down two or three questions about the role, expectations, team, or next st
 <li><strong>Hybrid:</strong> Combines predictive planning with iterative execution where appropriate.</li>
 </ul>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer: “I select a methodology based on uncertainty, regulatory needs, delivery constraints, and stakeholder involvement. For a project with fixed requirements, I may favor a predictive approach. For software development with evolving user feedback, an Agile or hybrid approach may be more suitable.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. Which Project Management Tools Do You Use?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Which Project Management Tools Do You Use?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Mention only tools you have actually used, such as Jira, Trello, Asana, Microsoft Project, or spreadsheets.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I use task management tools to assign ownership, monitor dependencies, and track progress. I also use dashboards to communicate milestone status and flag risks. My priority is choosing a tool that gives the team clear visibility rather than adding unnecessary administrative work.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. How Do You Measure Project Success?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Measure Project Success?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Explain that success involves more than meeting a deadline.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I evaluate delivery against the agreed scope, schedule, budget, quality standards, and expected business outcomes. I also consider stakeholder satisfaction, adoption, and whether the project delivers the intended value. The relevant measures depend on the project's original objectives.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. How Do You Manage Project Risks?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Manage Project Risks?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Describe a repeatable process rather than saying you solve problems as they arise.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I identify potential risks during planning, assess their likelihood and impact, assign owners, and agree on mitigation or contingency actions. I review the risk register regularly and escalate significant threats early. For example, if a critical supplier might miss a milestone, I would assess alternative suppliers and the schedule impact before the delay becomes unavoidable.”</p>
+</li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Behavioral Project Manager Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'><a href="https://www.flashfirejobs.com/blog/how-to-answer-behavioral-interview-questions" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">Behavioral questions</a> ask for evidence of how you have handled real situations. Use the STAR method: Situation, Task, Action, Result. Keep the context brief, explain your personal contribution, and finish with a concrete outcome.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. Tell Me About a Project That Failed or Missed Its Deadline.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell Me About a Project That Failed or Missed Its Deadline.</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Avoid blaming colleagues. Explain what happened, how you responded, and what you learned.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“A project fell behind because an external dependency took longer than expected. I reassessed the critical path, discussed options with stakeholders, and reorganized non-dependent tasks so the team could continue making progress. We agreed on a revised delivery date and introduced earlier dependency checks for future projects.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. How Do You Handle Conflict Between Team Members?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Handle Conflict Between Team Members?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Demonstrate impartiality and a focus on shared objectives.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I speak with the people involved to understand their concerns, then bring the discussion back to project goals, responsibilities, and evidence. We agree on a practical resolution, document ownership, and follow up to ensure the conflict does not return.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">13. Describe a Time You Managed a Difficult Stakeholder.</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Describe a Time You Managed a Difficult Stakeholder.</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Show how you listened, clarified expectations, and maintained transparency.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“A stakeholder repeatedly requested changes late in the delivery cycle. I arranged a discussion to understand the business need, assessed the impact on scope and schedule, and presented options with clear trade-offs. We agreed to prioritize the most valuable changes for the current release and schedule the remaining requests separately.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">14. How Do You Motivate an Underperforming Team?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Motivate an Underperforming Team?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Focus on understanding barriers rather than immediately assigning blame.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I first identify whether the problem comes from unclear expectations, workload, missing skills, or external blockers. I work with the individual to agree on specific goals and support, then review progress regularly. If performance does not improve, I follow the organization's appropriate management process.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">15. Tell Me About a Difficult Decision You Made.</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell Me About a Difficult Decision You Made.</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Choose an example that shows judgment and accountability.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>“I once recommended delaying a release because final testing revealed a significant defect. I explained the potential customer impact, presented the cost of delaying versus proceeding, and worked with the team on a revised release plan. The decision protected quality and reinforced the importance of evidence-based risk management.”</p>
+</li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Situational Project Manager Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Situational questions test how you think when the interviewer presents a hypothetical challenge.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">16. What Would You Do If a Project Were Behind Schedule?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Would You Do If a Project Were Behind Schedule?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Assess the causes, dependencies, available resources, and recovery options before making promises. Explain the impact of each option, agree on a realistic recovery plan, and communicate revised expectations to stakeholders.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">17. How Would You Handle Scope Creep?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Would You Handle Scope Creep?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Document each new request, assess its impact on cost, time, resources, and quality, and route it through the agreed change-control process. Obtain approval before changing the baseline.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">18. What Would You Do If a Key Team Member Left Suddenly?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Would You Do If a Key Team Member Left Suddenly?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Identify their critical responsibilities, secure relevant documentation, and assess the knowledge and capacity available within the team. Reallocate work temporarily, arrange a handover or replacement, and update the schedule to reflect the actual impact.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">19. How Would You Manage Multiple Projects at Once?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Would You Manage Multiple Projects at Once?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Maintain a consolidated view of milestones, risks, dependencies, and resource commitments. Prioritize according to business value and urgency, review capacity regularly, and escalate competing demands instead of allowing every project to become an emergency.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">20. What Would You Do If a Client Requested an Unrealistic Deadline?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Would You Do If a Client Requested an Unrealistic Deadline?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Clarify the business reason behind the deadline, estimate the work realistically, and present options. These might include reducing scope, adding suitable resources, delivering in phases, or accepting specific risks. Never promise an outcome the team cannot reasonably deliver.</p>
+</li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Advanced Project Manager Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>For experienced candidates, interviewers often look beyond task coordination to leadership, governance, and strategic thinking.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">21. How Do You Manage Project Budgets?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Manage Project Budgets?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Explain how you estimate costs, establish a budget baseline, monitor actual spending against forecasts, investigate variances, and communicate financial risks. Include an example if you have managed budgets directly.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">22. How Do You Handle Changes in Project Requirements?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Handle Changes in Project Requirements?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Assess the proposed change against business value, feasibility, dependencies, and delivery impact. Consult relevant stakeholders, document the decision, and update the scope, schedule, budget, and communications plan when approval is granted.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">23. How Do You Report Project Progress to Senior Management?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Report Project Progress to Senior Management?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Provide concise, decision-focused updates covering overall status, completed milestones, upcoming deliverables, major risks, budget or schedule variances, and decisions required. Explain the implications rather than simply listing completed tasks.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">24. How Do You Ensure Quality Throughout a Project?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Ensure Quality Throughout a Project?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Build quality activities into planning and execution. Establish acceptance criteria, review deliverables at appropriate stages, involve relevant specialists, and address defects early. Use testing and feedback to verify that outputs meet agreed requirements.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">25. How Do You Lead a Remote or Cross-Functional Team?</h3>
+</li>
+
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Lead a Remote or Cross-Functional Team?</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Establish clear ownership, communication channels, working agreements, and shared documentation. Use asynchronous updates where practical, schedule meetings for decisions that need discussion, and make progress visible without relying on constant supervision.</p>
+</li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. How to Prepare for a Project Manager Interview</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Strong answers require more than memorizing sample responses. Use this practical preparation plan:</p>
@@ -1950,30 +2240,56 @@ Write down two or three questions about the role, expectations, team, or next st
 <div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>FlashFire:</strong> <a href="https://www.flashfirejobs.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">FlashFire</a> helps job seekers find relevant jobs, optimize their resumes, submit high-quality applications, and track opportunities in one workflow. By spending less time managing applications, you can dedicate more time to practicing interview answers, researching employers, and preparing to make a strong impression.</p></div>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">1. What Are the Most Common Project Manager Interview Questions?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Common questions cover project planning, leadership, risk management, stakeholder communication, and conflict resolution.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">2. How Should I Introduce Myself in a Project Manager Interview?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Briefly highlight your experience, key skills, one achievement, and interest in the role.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">3. What Skills Do Interviewers Look for in Project Managers?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>They look for communication, leadership, organization, problem-solving, planning, and risk management skills.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">4. How Do I Answer Project Management Questions With No Experience?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Use examples from academic projects, internships, volunteering, or team activities to demonstrate transferable skills.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">5. What Is the STAR Method in Interviews?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>STAR stands for Situation, Task, Action, and Result. It helps you structure clear, example-based answers.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">6. Are Project Manager Interviews Technical?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Yes, some interviews assess project management tools, budgeting, scheduling, Agile methods, and reporting skills.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">7. How Do I Answer Questions About Project Failure?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Explain what went wrong, how you responded, what you learned, and how you would prevent similar issues.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">8. Which Project Management Tools Should I Know?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Popular tools include Jira, Asana, Trello, Microsoft Project, and spreadsheets. Focus on those mentioned in the job description.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">9. How Long Should My Interview Answers Be?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Aim for one to two minutes per answer, keeping your response focused and relevant.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">10. What Questions Should I Ask the Interviewer?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Ask about project priorities, success metrics, team structure, current challenges, and expectations for the role.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">11. How Can I Prepare for a Senior Project Manager Interview?</h3>
 <p style='margin-bottom:8px; line-height:1.7;'>Prepare examples of strategic planning, budget management, stakeholder leadership, risk mitigation, and measurable business results.</p>
+</li>
+<li>
 <h3 class="text-lg font-semibold text-gray-800 mb-1">12. How Can I Improve My Chances of Getting Hired?</h3>
-<p style='margin-bottom:8px; line-height:1.7;'>Tailor your resume, practice interview answers, research the employer, highlight measurable achievements, and follow up professionally.</p>`,
+<p style='margin-bottom:8px; line-height:1.7;'>Tailor your resume, practice interview answers, research the employer, highlight measurable achievements, and follow up professionally.</p>
+</li>
+</ol>`,
   },
 
   {
@@ -2904,28 +3220,42 @@ Write down two or three questions about the role, expectations, team, or next st
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. Common Software Engineer Interview Questions and Sample Answers</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>These questions help interviewers understand your technical foundation, experience, and approach to everyday engineering challenges.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Tell Me About Yourself.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell Me About Yourself.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>What the interviewer wants to know: Whether your background and skills align with the role.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
         <p style='margin-bottom:12px; line-height:1.7;'>“I am a software engineer with experience in building applications, solving technical problems, and collaborating with development teams. My strongest skills include Python, SQL, and backend development. In my recent project, I worked on improving API performance and simplifying data processing. I am now looking for an opportunity where I can contribute to meaningful products while continuing to develop my engineering skills.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Tip:</strong> Adapt this answer to your actual experience. Highlight relevant skills, one concrete achievement, and why the role interests you.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. What Is the Difference Between a Stack and a Queue?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is the Difference Between a Stack and a Queue?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>A stack follows Last In, First Out (LIFO), meaning the last item added is the first one removed. A queue follows First In, First Out (FIFO), so the earliest item added is removed first.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, a stack resembles a pile of plates, while a queue resembles people waiting in line. Stacks are useful for undo operations and function calls; queues are useful for task scheduling and breadth-first search.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. What Is Object-Oriented Programming?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is Object-Oriented Programming?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Object-oriented programming (OOP) organizes software around objects that combine data and behavior. Its four commonly discussed principles are encapsulation, abstraction, inheritance, and polymorphism.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, a Vehicle class might define shared properties and methods, while Car and Motorcycle classes extend or specialize that behavior. OOP can improve code organization and reuse when the design fits the problem.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. What Is the Difference Between an Array and a Linked List?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is the Difference Between an Array and a Linked List?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>An array stores elements in indexed positions, often in contiguous memory. A linked list stores elements in nodes connected by references.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Arrays generally provide fast indexed access, while linked lists can support efficient insertion or deletion when the relevant node is already known. The best choice depends on the operations the application performs most often.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. How Do You Debug a Program That Is Not Working?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Debug a Program That Is Not Working?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Sample answer:</p>
         <p style='margin-bottom:12px; line-height:1.7;'>“I first reproduce the issue and identify the expected versus actual behavior. Then I inspect error messages, logs, and relevant inputs to narrow down the cause. I use a debugger or targeted tests to isolate the faulty logic, implement a fix, and run regression tests to check that the change has not introduced other problems.”</p>
         <p style='margin-bottom:12px; line-height:1.7;'>This answer demonstrates a structured approach rather than relying on guesswork.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. What Is the Difference Between SQL and NoSQL Databases?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is the Difference Between SQL and NoSQL Databases?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>SQL databases use structured tables and typically support relational queries. NoSQL databases support different data models, including documents, key-value pairs, and wide-column structures.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, PostgreSQL is a relational database, while MongoDB is a document database. The choice depends on data relationships, consistency requirements, query patterns, and scalability needs.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. What Is Time Complexity?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is Time Complexity?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Time complexity describes how an algorithm's running time grows as the input size increases. Big O notation expresses this growth.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Common examples include:</p>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -2935,6 +3265,8 @@ Write down two or three questions about the role, expectations, team, or next st
             <li>O(n²): Quadratic time, as in a basic nested-loop comparison.</li>
         </ul>
         <p style='margin-bottom:12px; line-height:1.7;'>Interview tip: Explain why your solution has a particular complexity instead of simply naming the notation.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Coding Interview Questions You Should Practise</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Coding rounds test how you translate a problem into a correct, efficient solution. Practise writing code without relying entirely on autocomplete or ready-made solutions.</p>
@@ -2986,7 +3318,9 @@ Write down two or three questions about the role, expectations, team, or next st
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">4. Software Design and System Design Interview Questions</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>System design questions become more common as you move into mid-level and senior engineering roles. Interviewers want to understand how you design components that work together reliably.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. How Would You Design a URL Shortener?</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Would You Design a URL Shortener?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Start by clarifying requirements: Should links expire? Must users choose custom aliases? How much traffic should the service handle?</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Then outline the key components:</p>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -2997,10 +3331,14 @@ Write down two or three questions about the role, expectations, team, or next st
             <li>Rate limiting and monitoring to reduce abuse and identify failures.</li>
         </ul>
         <p style='margin-bottom:12px; line-height:1.7;'>Discuss trade-offs, such as collision handling, cache invalidation, and database scaling. Avoid jumping into architecture before understanding the requirements.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. What Is the Difference Between Monolithic and Microservices Architecture?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">What Is the Difference Between Monolithic and Microservices Architecture?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>A monolithic application packages most functionality into one deployable unit. A microservices architecture separates functionality into independently deployable services that communicate through defined interfaces.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Monoliths can be simpler to develop and operate initially. Microservices may help larger teams scale components independently, but introduce additional operational complexity, network failures, and monitoring requirements.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. How Would You Improve a Slow Application?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Would You Improve a Slow Application?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Explain how you would investigate before making changes:</p>
         <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
             <li>Measure response times and identify the slowest operations.</li>
@@ -3010,19 +3348,31 @@ Write down two or three questions about the role, expectations, team, or next st
             <li>Benchmark again and monitor the result in production.</li>
         </ul>
         <p style='margin-bottom:12px; line-height:1.7;'>The strongest answer connects a proposed improvement to measurable evidence rather than assuming the cause.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">5. Behavioral Interview Questions for Software Engineers</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Technical skills are only part of effective engineering. Interviewers may ask behavioral questions to understand how you handle disagreements, deadlines, mistakes, and teamwork.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. Tell Me About a Challenging Technical Problem You Solved.</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell Me About a Challenging Technical Problem You Solved.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Use the STAR method: Situation, Task, Action, and Result.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>For example, describe an API that became slow as usage increased, explain how you identified an inefficient database query, and outline the optimization you implemented. Include the actual result if you have measured data.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. Tell Me About a Time You Made a Mistake.</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Tell Me About a Time You Made a Mistake.</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Choose a genuine, manageable example. Explain what happened, how you addressed the issue, and what you changed to prevent a recurrence.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>A good answer shows accountability and learning rather than blaming a teammate or hiding the outcome.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">13. How Do You Handle Disagreements With Teammates?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Handle Disagreements With Teammates?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Explain how you listen to different perspectives, compare solutions against technical requirements, and use evidence or prototypes when necessary. If another approach is better, show that you can support it.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">14. How Do You Prioritize Tasks Under Tight Deadlines?</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">How Do You Prioritize Tasks Under Tight Deadlines?</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Discuss how you evaluate urgency, business impact, dependencies, and risks. Explain how you communicate trade-offs early and agree on realistic priorities with stakeholders.</p>
+    </li>
+</ol>
 <p style='margin-bottom:12px; line-height:1.7;'>For behavioral questions, prepare several real examples from employment, internships, academic projects, or personal software projects. Adapt each example to the question instead of memorizing identical answers.</p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">6. Software Engineer Interview Questions by Experience Level</h2>
@@ -8359,77 +8709,103 @@ Sincerely,<br>
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">12 Best ChatGPT Cover Letter Prompts for Job Seekers</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>These ChatGPT prompts for cover letters cover common job-search situations, from applying for your first job to changing careers. Replace the bracketed details with your information before using each prompt.</p>
 
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Prompt to Write a Cover Letter From Your Resume</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt to Write a Cover Letter From Your Resume</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Use this prompt when you have a resume ready but need help turning your experience into a compelling application letter.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Copy-and-paste prompt:</strong></p>
         <p style='margin-bottom:12px; line-height:1.7;'>Act as an experienced career-writing assistant. Review my resume and write a tailored cover letter for the [Job Title] position at [Company Name]. Highlight my three most relevant skills, experience, and achievements. Explain how my background matches the job requirements, use a professional and natural tone, and keep the letter between 250 and 300 words. Do not repeat my resume word for word or invent any information.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>My resume:</strong> [Paste Resume]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It encourages ChatGPT to select relevant information instead of summarizing your entire work history.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Prompt to Customize a Cover Letter for a Job Description</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt to Customize a Cover Letter for a Job Description</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>A generic cover letter may fail to explain why you are suitable for a specific position. This prompt helps connect your qualifications to the employer's stated requirements.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Analyze the job description below and identify its five most important skills or qualifications. Compare them with my resume and write a personalized cover letter that highlights my strongest matching qualifications. Include relevant examples, use keywords naturally, and explain how I could contribute to the role. Keep it under 300 words and do not claim experience I do not have.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>My resume:</strong> [Paste Resume]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It gives the letter a clear focus and helps you prioritize the qualifications most relevant to the position.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Prompt for a Cover Letter With No Experience</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for a Cover Letter With No Experience</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Students, freshers, and first-time job seekers can use transferable skills, academic projects, volunteering, and internships to demonstrate their potential.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Write an entry-level cover letter for a [Job Title] position at [Company Name]. I have limited professional experience, but my background includes [Education], [Academic Projects], and [Relevant Skills]. Highlight my willingness to learn, problem-solving abilities, and relevant accomplishments. Keep the tone confident and genuine, avoid apologizing for my lack of experience, and limit the letter to 250 words. Do not invent achievements.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It shifts the focus from missing work experience to the skills and evidence you can offer.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Prompt for a Career Change Cover Letter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for a Career Change Cover Letter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>When changing careers, you need to explain why you are moving into a new field and how your existing skills transfer to the role.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Help me write a career-change cover letter for a [Target Job Title] position. My previous experience is in [Current Industry or Role], and I want to transition into [Target Industry]. Highlight transferable skills such as [Skills], relevant training, and accomplishments that support my transition. Explain my motivation positively without criticizing my previous career. Keep the letter under 300 words and connect my background to the job description.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Resume:</strong> [Paste Resume]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It creates a clear connection between your previous experience and your new career direction.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. Prompt for a Cover Letter That Highlights Achievements</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for a Cover Letter That Highlights Achievements</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Use this prompt when your resume includes measurable results, successful projects, or examples of your impact.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Write a results-focused cover letter for a [Job Title] position at [Company Name]. Use my actual achievements to demonstrate my suitability for the role. Prioritize accomplishments that show measurable impact, leadership, efficiency, revenue growth, customer satisfaction, or problem-solving where relevant. Explain why these results matter to the employer. Use specific evidence rather than vague claims, and keep the letter under 300 words.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>My achievements:</strong> [List Verified Achievements]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> Concrete examples make your qualifications more persuasive than unsupported statements such as "I am a hardworking professional."</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Prompt for a Personalized Company-Specific Cover Letter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for a Personalized Company-Specific Cover Letter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>This prompt helps you explain why you want to work for a particular organization rather than sending the same letter to every employer.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Write a personalized cover letter for the [Job Title] position at [Company Name]. Use the company information I provide to identify one or two genuine connections between its work, values, products, or mission and my professional interests. Explain how my skills and experience align with the position. Avoid generic praise and unsupported claims about the company. Keep the letter concise and authentic.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Company information:</strong> [Paste Verified Information]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>My background:</strong> [Paste Relevant Experience]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It helps you communicate a credible reason for applying while keeping the focus on the role.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. Prompt for an Internal Promotion Cover Letter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for an Internal Promotion Cover Letter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Internal applications require a different approach because the employer already knows something about your performance and experience.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Write a cover letter for an internal promotion to [Target Position] at my current company, [Company Name]. Highlight my contributions, relevant achievements, understanding of company processes, and readiness for greater responsibility. Explain how my experience prepares me for the new position without repeating my entire employment history. Use a professional, confident tone and keep it under 300 words.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Current role:</strong> [Current Position]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Target role:</strong> [Target Position]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Key contributions:</strong> [List Examples]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It emphasizes your proven contributions and readiness for advancement.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. Prompt for a Career Gap Cover Letter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for a Career Gap Cover Letter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>If you have taken time away from work, you can address the gap briefly when it is relevant to your application.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Help me write a cover letter for a [Job Title] position that briefly addresses my career gap from [Time Period], if appropriate. Focus primarily on my relevant skills, previous accomplishments, and readiness to return to work. Use neutral, confident language and do not speculate about personal circumstances. Keep any explanation of the gap brief and include only details I choose to share.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>My background:</strong> [Relevant Experience]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It keeps the focus on your qualifications instead of allowing the employment gap to dominate the letter.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. Prompt for a Remote Job Cover Letter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for a Remote Job Cover Letter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Remote employers may value independent working, written communication, time management, and collaboration across distributed teams.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Write a cover letter for a remote [Job Title] position at [Company Name]. Highlight my relevant experience and any verified examples of remote collaboration, independent project management, digital communication, or meeting deadlines. Connect these strengths to the job description and explain how I could contribute to a distributed team. Do not claim remote work experience unless it appears in my background. Keep the letter under 300 words.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It highlights the working habits that are relevant to remote positions without assuming every applicant has previous remote experience.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. Prompt for a Short and Professional Cover Letter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt for a Short and Professional Cover Letter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Some applications benefit from a concise letter that communicates your fit without unnecessary background.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Write a concise cover letter for the [Job Title] position at [Company Name]. Include a strong opening, two relevant qualifications supported by my experience, one sentence explaining my interest in the role, and a professional closing. Keep the letter between 150 and 200 words. Avoid clichés, repetition, exaggerated claims, and overly formal language.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Resume:</strong> [Paste Resume]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It helps you deliver the most important information quickly, particularly when the application calls for a brief introduction.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. Prompt to Improve an Existing Cover Letter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt to Improve an Existing Cover Letter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>If you have already written a draft, use ChatGPT as an editor instead of starting over.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Review my cover letter for clarity, relevance, grammar, tone, and readability. Identify generic statements, repeated information, weak openings, and unsupported claims. Rewrite the letter to make it more specific to the [Job Title] position at [Company Name], while preserving my actual experience and personal voice. Keep it under 300 words. After the revised version, briefly explain the three most important improvements.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>My cover letter:</strong> [Paste Draft]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It improves an existing draft while helping you understand what needs to change.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. Prompt to Check a Cover Letter Before Submitting</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Prompt to Check a Cover Letter Before Submitting</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>Before sending an application, ask ChatGPT to review the letter against the role's requirements.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Act as a cover letter reviewer. Evaluate my draft against the job description for relevance, clarity, evidence of skills, tone, and unnecessary repetition. Flag any unsupported claims, missing details, incorrect company or job titles, and phrases that sound generic. Suggest specific improvements and provide a polished final version without adding facts that are not in my materials.</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Cover letter:</strong> [Paste Draft]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Job description:</strong> [Paste Job Description]</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It provides a final quality check, although you should still verify every detail yourself.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Use ChatGPT to Write a Better Cover Letter</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Having good prompts is only the first step. Follow this process to turn an AI-generated draft into a strong application.</p>
@@ -8532,7 +8908,9 @@ Sincerely,<br>
 <p style='margin-bottom:12px; line-height:1.7;'>Your goal is to communicate a well-researched expectation without limiting your options unnecessarily.</p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">How to Answer "What Are Your Salary Expectations" in 6 Steps</h2>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. Research the Market Salary for Your Role</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Research the Market Salary for Your Role</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Before the interview, find out what professionals in comparable positions typically earn. Avoid choosing a number simply because it sounds impressive or matches what a friend earns.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Research salaries using reliable sources, such as:</p>
 <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -8544,7 +8922,9 @@ Sincerely,<br>
 </ul>
 <p style='margin-bottom:12px; line-height:1.7;'>Look for positions with similar responsibilities, seniority, location, industry, and company size. A marketing executive at a small business may earn differently from a marketing executive at a multinational company, even when the job titles match.</p>
 <div style='background:#EFF6FF; border-left:4px solid #2563EB; padding:12px 16px; margin:16px 0; border-radius:4px;'><p style='margin:0; line-height:1.7;'><strong>Pro tip:</strong> Compare several sources instead of relying on a single salary estimate. Treat reported figures as benchmarks rather than guaranteed offers.</p></div>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. Consider Your Experience, Skills, and Qualifications</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Consider Your Experience, Skills, and Qualifications</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Market averages provide a starting point, but your personal salary expectations should reflect what you offer the employer.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Consider the following factors:</p>
 <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -8556,7 +8936,9 @@ Sincerely,<br>
 </ul>
 <p style='margin-bottom:12px; line-height:1.7;'>For example, a digital marketer who has managed campaigns that consistently generate qualified leads can use those results to support a salary expectation. Rather than saying, "I am hardworking and deserve more," explain how your experience aligns with the role's requirements.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Your qualifications should support your expectations, but they do not automatically guarantee a particular salary. Focus on relevant evidence and the value you can bring to the new position.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. Decide on Your Ideal Salary and Minimum Acceptable Offer</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Decide on Your Ideal Salary and Minimum Acceptable Offer</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Before discussing salary, establish three figures for yourself:</p>
 <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
 <li>Target salary: The amount you would ideally like to earn.</li>
@@ -8567,19 +8949,25 @@ Sincerely,<br>
 <p style='margin-bottom:12px; line-height:1.7;'>For example, suppose your research suggests that similar roles pay between ₹8 lakh and ₹11 lakh annually. Based on your experience and the position's requirements, you might target ₹10 lakh to ₹11 lakh while deciding privately whether an offer below ₹9 lakh would work for you.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>These figures are illustrative, not a universal market benchmark. Also, distinguish between gross salary, take-home pay, fixed compensation, variable pay, and total cost to company (CTC). In India, a ₹10 lakh CTC package does not necessarily mean you will receive ₹10 lakh in cash annually. Employer contributions, insurance, bonuses, and other components may affect the final amount.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Understanding these differences helps you avoid accepting a package that looks attractive on paper but does not meet your actual needs.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. Give a Realistic Salary Range Instead of an Arbitrary Number</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Give a Realistic Salary Range Instead of an Arbitrary Number</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>When an employer asks about salary expectations, a researched range can communicate flexibility while keeping the conversation focused.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>For example:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>"Based on my research and the responsibilities of this position, I am looking for a salary in the range of ₹10 lakh to ₹12 lakh annually. However, I am open to discussing the overall compensation package and the opportunities for growth."</p>
 <p style='margin-bottom:12px; line-height:1.7;'>This response works because it connects your expectations to research, gives the employer a clear indication of your target, and leaves room for discussion. Choose your range carefully. Your lower figure should be an amount you would genuinely consider accepting, not a number you mention simply to appear flexible.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>A very broad range can also weaken your position. Saying you would accept anywhere between ₹6 lakh and ₹12 lakh may suggest that you have not established a clear target.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>A useful rule: Choose a range that reflects your research and preferences, and be prepared to explain why it is reasonable.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. Connect Your Expectations to the Value You Bring</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Connect Your Expectations to the Value You Bring</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Salary discussions are more persuasive when you explain what supports your expectations. For example, a software developer might mention experience building scalable applications, while a sales professional could point to revenue growth or consistently meeting targets.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Instead of saying, "I want ₹12 lakh because that is my expectation," try:</p>
 <p style='margin-bottom:12px; line-height:1.7;'>"Considering my experience in managing client accounts, improving retention, and contributing to revenue growth, I believe a salary between ₹11 lakh and ₹13 lakh would be appropriate for this role."</p>
 <p style='margin-bottom:12px; line-height:1.7;'>You do not need to list every achievement. Choose one or two examples that relate directly to the employer's needs. At the same time, avoid overstating your contribution or treating past results as a guarantee of future performance. Your goal is to establish a credible connection between your capabilities and your compensation expectations.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. Stay Flexible and Consider the Complete Package</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">Stay Flexible and Consider the Complete Package</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>Salary is important, but it is not the only part of a job offer worth evaluating.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Depending on the employer and country, your total package may include:</p>
 <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -8595,27 +8983,43 @@ Sincerely,<br>
 <p style='margin-bottom:12px; line-height:1.7;'>Ask questions to understand the details before comparing offers.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>You can say, "I would be happy to consider the overall package. Could you share more about the fixed salary, variable compensation, benefits, and salary review process?"</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Flexibility does not mean accepting compensation below your needs. It means evaluating the opportunity based on the factors that matter most to you.</p>
+</li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Best Sample Answers to "What Are Your Salary Expectations"</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Your response should reflect your experience, the information available, and the stage of the hiring process. Use these examples as starting points and adapt the figures to your circumstances.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. For Freshers and Entry-Level Candidates</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">For Freshers and Entry-Level Candidates</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>"As I am beginning my professional career, I am looking for compensation that aligns with the responsibilities of this role and the market rate for entry-level professionals. I am open to discussing the company's salary range and the overall opportunity."</p>
 <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It shows flexibility while keeping your expectations connected to the position. If you have researched an appropriate range, including it can make your answer more specific.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. For Experienced Professionals</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">For Experienced Professionals</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>"Based on my experience in project management, my track record of delivering projects on time, and the responsibilities of this position, I am targeting a salary between ₹15 lakh and ₹18 lakh annually. I am open to discussing the complete compensation package."</p>
 <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It connects the requested compensation to relevant experience and responsibilities rather than personal expenses.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. When You Want to Ask About the Budget First</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When You Want to Ask About the Budget First</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>“I would like to understand the role's responsibilities and the overall compensation structure before settling on a figure. Could you share the salary range budgeted for this position?”</p>
 <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It encourages the employer to share useful information before you commit to a number. If the recruiter cannot disclose the range, be ready to provide your own researched estimate.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. When You Are Changing Careers</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When You Are Changing Careers</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>“My salary expectations are based on the responsibilities of this role and the transferable skills I bring from my previous experience. I am looking for a competitive package that reflects the position's requirements, and I am open to discussing the range.”</p>
 <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It focuses on relevant skills and the demands of the new role instead of assuming your previous salary must determine your next one.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. When the Employer Requires an Exact Figure</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When the Employer Requires an Exact Figure</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>“Based on my research, I would be targeting approximately ₹12 lakh annually, depending on the fixed and variable components of the package. I would be happy to discuss the details as we move forward.”</p>
 <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It gives a clear answer while making it possible to revisit the package once the responsibilities and benefits are fully understood.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. When You Are Negotiating a Higher Salary</h3>
+</li>
+<li>
+<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">When You Are Negotiating a Higher Salary</h3>
 <p style='margin-bottom:12px; line-height:1.7;'>“Thank you for sharing the offer. Based on the responsibilities of the position, my relevant experience, and the market range for comparable roles, I was hoping for something closer to ₹14 lakh annually. Is there flexibility in the budget?”</p>
 <p style='margin-bottom:12px; line-height:1.7;'><strong>Why it works:</strong> It is respectful, explains your reasoning, and invites the employer to explore options without making an ultimatum.</p>
+</li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">Common Mistakes to Avoid When Discussing Salary Expectations</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Even a well-prepared candidate can weaken their position by answering too quickly or focusing on the wrong details.</p>
@@ -10754,66 +11158,98 @@ Sincerely,<br>
 <p style='margin-bottom:12px; line-height:1.7;'>Ideal length and formatting: Aim for 150 to 300 words. Use short paragraphs of 2 to 3 lines, with blank lines between them. Bullets are fine for skills or achievements.</p>
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">15+ LinkedIn About Section Examples</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Below are examples of about section on LinkedIn for different professions and career stages. Swap in your own details, numbers, and voice. Don't copy them word for word.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. LinkedIn About section example for job seekers</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for job seekers</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I help growing retail brands turn customer data into smarter decisions. Over five years as a data analyst, I've built dashboards that cut reporting time by 40% and surfaced insights that lifted repeat purchases by 12%.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I work in SQL, Python, and Tableau, and I enjoy explaining numbers to non-technical teams.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm now looking for a senior analyst role in e-commerce. Message me if you're hiring.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. LinkedIn About section example for students</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for students</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm a third-year business student who loves turning messy problems into clear plans. I led a team of six to win my university's case competition and run a campus event for 300 attendees.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm building skills in market research, Excel, and presentations. I'm looking for a summer marketing internship where I can learn fast and contribute.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Open to chatting with anyone in marketing or brand strategy.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. LinkedIn About section example for recent graduates</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for recent graduates</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I recently graduated with a B.Sc. in computer science and a deep interest in building products people actually enjoy using.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>During my final year, I shipped a scheduling app used by 500+ students and interned on a payments team, where I fixed bugs that reduced checkout errors by 18%.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm looking for a junior developer role. Feel free to send me a note.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. LinkedIn About section example for experienced professionals</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for experienced professionals</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>For 12 years, I've helped manufacturing companies cut waste and ship on time. I've led supply chain programs across three countries, saving one employer $2.4M a year.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>My strengths are vendor negotiation, demand planning, and building teams that don't need babysitting.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm open to leadership roles in operations. Let's connect.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. LinkedIn About section example for career changers</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for career changers</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>After eight years as a classroom teacher, I moved into learning and development. The skills transferred more than I expected: I design training, simplify complex ideas, and keep people engaged.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Last year, I built an onboarding program that cut new-hire ramp time by 25%.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm now seeking an instructional design role. If your team values people who understand how adults learn, I'd love to talk.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. LinkedIn About section example for managers</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for managers</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I manage a 14-person customer support team that consistently scores above 94% satisfaction. My job is simple: hire well, coach honestly, and remove roadblocks.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Over three years, I reduced turnover from 30% to 11% by changing how we onboard and promote.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I write about people management here. Say hello if you're building a support team.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. LinkedIn About section example for executives</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for executives</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm a COO who scales operations without losing the culture that made a company worth scaling. I've taken two SaaS businesses from $10M to $80M in revenue.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>My focus: clear priorities, strong leaders, and metrics everyone understands.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I advise founders on operational readiness and sit on two startup boards. Reach out if you're planning your next stage of growth.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. LinkedIn About section example for freelancers</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for freelancers</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm a freelance copywriter who helps B2B software companies explain complicated products in plain English. My clients include fintech and HR tech startups.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Recent results: a landing page rewrite that doubled demo requests and an email series with a 38% open rate.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I take on four clients at a time. Want to see samples? Send me a message.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. LinkedIn About section example for entrepreneurs</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for entrepreneurs</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I founded a sustainable packaging company after seeing how much plastic my family threw out in a single week. Today we supply 200+ small food businesses.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I've learned a lot about fundraising, supplier relationships, and hiring when you can't afford to be wrong.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I love talking with founders, investors, and anyone passionate about sustainability. Let's connect.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. LinkedIn About section example for sales professionals</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for sales professionals</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I sell cybersecurity software to mid-sized healthcare providers, and I've exceeded quota for six straight quarters. Last year, I closed $3.1M in new business.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>My approach: listen first, solve the real problem, and never promise what the product can't do.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>If you work in healthcare IT and want a straight conversation about security, message me.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. LinkedIn About section example for marketers</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for marketers</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm a content marketer who grows organic traffic without gimmicks. At my current company, I took blog traffic from 8,000 to 65,000 monthly visits in 18 months.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm strongest in SEO, email, and personal branding for founders.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Looking to compare notes or hire a content lead? Drop me a line.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. LinkedIn About section example for software developers</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for software developers</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm a full-stack developer who likes clean code and boring, reliable systems. I work mostly in TypeScript, React, and Node, with PostgreSQL underneath.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Recently, I rebuilt a checkout flow that cut page load time by 55% and reduced support tickets by a third.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I contribute to open source on weekends. Open to senior engineering roles, especially in fintech.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">13. LinkedIn About section example for recruiters</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for recruiters</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I recruit engineers for early-stage startups. Over six years, I've placed 150+ people, and 90% are still with their companies after two years.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I believe good recruiting is honest recruiting: clear role details, real timelines, and feedback for every candidate.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Looking for your next engineering role, or hiring? Message me.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">14. LinkedIn About section example for consultants</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for consultants</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I help mid-sized logistics firms fix broken processes. My work usually starts with a two-week diagnostic and ends with a plan your team can actually follow.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Past projects have saved clients between $500K and $3M a year in operating costs.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>If your costs are rising and you're not sure why, book a call through the link below.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">15. LinkedIn About section example for remote workers</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn About section example for remote workers</h3>
         <p style='margin-bottom:12px; line-height:1.7;'>I've worked fully remote for seven years as a project manager across five time zones. I keep distributed teams aligned using clear documentation, async updates, and fewer, better meetings.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>My last team delivered 22 projects on time with no one working past 6 pm.</p>
         <p style='margin-bottom:12px; line-height:1.7;'>I'm looking for a remote-first PM role. Happy to share how I run async teams.</p>
+    </li>
+</ol>
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">What Makes a Good LinkedIn About Section?</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>Great examples of about section on LinkedIn share a few traits. Here's what to look for when you write yours.</p>
 <ul style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
@@ -16946,51 +17382,83 @@ Sincerely,<br>
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">2. 15+ LinkedIn Profile Examples for Different Professionals</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>The best LinkedIn profile examples are tailored to the person's career stage, target role, and industry.</p>
 <p style='margin-bottom:12px; line-height:1.7;'>Here are 15 practical examples you can adapt.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">1. LinkedIn Profile Example for a Student</h3>
+<ol style='margin-left:20px; margin-bottom:12px; line-height:1.6;'>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Student</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Computer Science Student | Python & Java | Web Development | Seeking Software Engineering Internship</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>About:</strong> “Computer Science student passionate about software development and problem-solving. Experienced with Python, Java, SQL, and web development through academic and personal projects. Currently seeking an internship where I can apply my technical skills and learn from experienced developers.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">2. LinkedIn Profile Example for a Fresher</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Fresher</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Marketing Graduate | SEO | Content Marketing | Google Analytics | Open to Entry-Level Opportunities</p>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>About:</strong> “Recent marketing graduate with hands-on experience in SEO, content research, social media, and analytics through academic projects and internships. Interested in helping brands grow through data-driven digital marketing strategies.”</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">3. LinkedIn Profile Example for an Experienced Professional</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for an Experienced Professional</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Senior Financial Analyst | FP&A | Financial Modeling | Forecasting | Business Strategy</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Focus your About section on years of experience, areas of expertise, and measurable results.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">4. LinkedIn Profile Example for a Manager</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Manager</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Product Manager | SaaS | Product Strategy | Agile | Cross-Functional Leadership</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Highlight team leadership, product launches, customer outcomes, and business impact rather than listing daily responsibilities.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">5. LinkedIn Profile Example for an Executive</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for an Executive</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Technology Executive | Digital Transformation | Product Strategy | Enterprise Growth | Global Teams</p>
         <p style='margin-bottom:12px; line-height:1.7;'>An executive profile should communicate leadership scope, strategic expertise, and major business outcomes.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">6. LinkedIn Profile Example for a Career Changer</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Career Changer</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Former Operations Specialist → Aspiring Data Analyst | SQL | Excel | Power BI | Data Visualization</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Explain how your existing experience connects with your new career direction.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">7. LinkedIn Profile Example for a Software Developer</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Software Developer</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Software Engineer | React | Node.js | TypeScript | AWS | Full-Stack Development</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Your Experience section should include technologies used, products developed, and measurable technical or business results.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">8. LinkedIn Profile Example for a Marketer</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Marketer</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Digital Marketing Specialist | SEO | Paid Media | Content Strategy | Lead Generation</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Show outcomes such as traffic growth, lead generation, conversion improvements, or campaign performance.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">9. LinkedIn Profile Example for a Sales Professional</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Sales Professional</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> B2B Sales Executive | SaaS | Account Management | Pipeline Growth | Enterprise Sales</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Focus on revenue, quota achievement, customer acquisition, retention, and deal size where appropriate.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">10. LinkedIn Profile Example for a Recruiter</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Recruiter</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Technical Recruiter | SaaS & Engineering Hiring | Talent Acquisition | Employer Branding</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Mention the types of roles, industries, and hiring environments you understand.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">11. LinkedIn Profile Example for a Teacher</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Teacher</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> High School English Teacher | Curriculum Development | Student Engagement | Educational Technology</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Include teaching experience, curriculum projects, certifications, and notable educational initiatives.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">12. LinkedIn Profile Example for a Freelancer</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Freelancer</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Freelance Copywriter | SEO Content | B2B SaaS | Blog & Website Copy</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Use your About section to explain the services you provide, industries you serve, and types of projects you handle.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">13. LinkedIn Profile Example for an Entrepreneur</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for an Entrepreneur</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Founder & CEO | Building [Industry/Product] Solutions | Business Strategy | Product Development</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Highlight your business vision, product, customers, partnerships, and milestones.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">14. LinkedIn Profile Example for a Remote Worker</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Remote Worker</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Remote Project Manager | Agile | Cross-Functional Teams | SaaS | Global Collaboration</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Emphasize remote collaboration, communication, project management, and tools you use.</p>
-<h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">15. LinkedIn Profile Example for a Job Seeker</h3>
+    </li>
+    <li>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-2">LinkedIn Profile Example for a Job Seeker</h3>
         <p style='margin-bottom:12px; line-height:1.7;'><strong>Headline:</strong> Data Analyst | SQL | Python | Power BI | Data Visualization | Open to Data Analytics Roles</p>
         <p style='margin-bottom:12px; line-height:1.7;'>Your profile should clearly communicate the roles you want, relevant skills, achievements, and availability.</p>
+    </li>
+</ol>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-3">3. Good LinkedIn Profile Examples: What Makes Them Effective?</h2>
 <p style='margin-bottom:12px; line-height:1.7;'>The strongest good LinkedIn profile examples have several things in common.</p>

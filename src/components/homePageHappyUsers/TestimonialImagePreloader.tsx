@@ -21,8 +21,6 @@ export default function TestimonialImagePreloader() {
 
   useEffect(() => {
     if (typeof window === 'undefined' || hasStartedRef.current) return;
-    // Blog pages show no testimonials; preloading ~30 screenshots there only adds page weight
-    if (/^(\/[a-z]{2}-[a-z]{2})?\/blogs?(\/|$)/.test(window.location.pathname)) return;
     hasStartedRef.current = true;
 
     const preloadTestimonialImages = async () => {

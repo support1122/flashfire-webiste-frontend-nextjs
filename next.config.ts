@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
     root: projectRoot,
   },
   compress: true,
-  // Render <title>/<meta> in the initial <head> for every visitor instead of
-  // streaming them into <body>. Lighthouse/PageSpeed (and some crawlers and link
-  // previewers) only read the head, so streamed metadata showed up as
-  // "Document does not have a meta description".
-  htmlLimitedBots: /.*/,
   
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -76,17 +71,6 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      // Staging / preview deployments on *.vercel.app must never be indexed
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: '.*\\.vercel\\.app' }],
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow',
-          },
-        ],
-      },
       {
         source: '/:path*',
         headers: [

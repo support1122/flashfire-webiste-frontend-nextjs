@@ -7,7 +7,7 @@ import { HeroSectionData } from "@/src/types/heroSectionData";
 import { GTagUTM } from "@/src/utils/GTagUTM";
 import { trackButtonClick, trackSignupIntent } from "@/src/utils/PostHogTracking";
 import { useGeoBypass } from "@/src/utils/useGeoBypass";
-import HeroVideo from "./HeroVideo";
+import styles from "./heroSection.module.css";
 
 type Props = {
   data: HeroSectionData;
@@ -122,6 +122,9 @@ export default function HeroSectionClient({
   const mobileHeroImageClass = shiftHeroImageLeft
     ? "origin-bottom scale-[1.0]"
     : "origin-bottom scale-[1.0]";
+  const desktopHeroHeightClass = "top-16 bottom-0";
+  const desktopHeroBottomClass = "";
+  const desktopHeroImagePositionClass = styles.desktopUsHeroImage;
   const { getButtonProps } = useGeoBypass({
     onBypass: () => {
       if (typeof window !== "undefined") {
@@ -319,72 +322,147 @@ export default function HeroSectionClient({
       </div>
 
       <div className="relative isolate hidden overflow-visible lg:block">
-        <div className="relative z-0 overflow-hidden bg-[#f7e6df]">
-          <Image
-            src="/images/element1.png"
-            alt=""
-            aria-hidden
-            width={83}
-            height={99}
-            priority
-            className="pointer-events-none absolute left-[46%] top-[90px] z-10 h-auto w-[44px] select-none"
-          />
-          <Image
-            src="/images/element3.png"
-            alt=""
-            aria-hidden
-            width={207}
-            height={213}
-            className="pointer-events-none absolute bottom-[70px] left-[44%] z-10 h-auto w-[36px] select-none"
-          />
+        <div className="relative z-0 min-h-[720px] overflow-hidden bg-[#f7e6df]">
+        <div className="pointer-events-none absolute right-[-15vw] top-[-19px] z-10 aspect-[394/296] w-[310px] origin-center select-none xl:right-[-11vw] xl:top-[-12px] xl:w-[326px]">
+          <PlaneTrailScene priority />
+        </div>
+        <Image
+          src="/images/element1.png"
+          alt="Spark illustration"
+          width={83}
+          height={99}
+          priority
+          className="pointer-events-none absolute z-10 h-auto w-[60px] select-none xl:left-[55.8%] xl:top-[130px]"
+        />
+        <Image
+          src="/images/element3.png"
+          alt="Cross sparkle illustration"
+          width={207}
+          height={213}
+          priority
+          className="pointer-events-none absolute  z-10 h-auto w-[48px] select-none xl:left-[42.6%] xl:top-[386px]"
+        />
+        <Image
+          src="/images/element3.png"
+          alt="Cross sparkle illustration"
+          width={207}
+          height={213}
+          className="pointer-events-none absolute  z-10 h-auto w-[48px] select-none xl:right-[25.2%] xl:top-[190px]"
+        />
+        <Image
+          src="/images/element3.png"
+          alt="Cross sparkle illustration"
+          width={207}
+          height={213}
+          className="pointer-events-none absolute  z-10 h-auto w-[35px] select-none xl:right-[23.8%] xl:top-[238px]"
+        />
 
-          <div className="relative z-20 mx-auto grid w-full max-w-[1280px] grid-cols-2 items-center gap-12 px-[5.4vw] py-20 xl:gap-16">
-            <div className="text-left">
-              <div className="mb-5 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
-                {data.badges[0]}
-              </div>
+        <div className="relative z-20 mx-auto flex min-h-[720px] w-full max-w-[1536px] flex-row items-start px-[5.4vw] pb-8 pt-16">
+          <div className="relative z-20 max-w-[700px] mt-7 text-left xl:max-w-[880px] 2xl:max-w-[1080px]">
+            <div className="mb-4 inline-flex h-[26px] items-center justify-center rounded-full bg-white px-4 text-[11px] font-bold uppercase leading-none tracking-[0.06em] text-[#f55d1d] shadow-sm">
+              {data.badges[0]}
+            </div>
 
-              <h1 className="text-[44px] font-bold leading-[1.1] tracking-[-0.02em] text-black xl:text-[54px]">
-                <span className="block">Land More Interview Calls</span>
-                <span className="mt-1 block">
-                  With a Dedicated{" "}
+            <h1 className="text-[44px] font-bold leading-[1.1] tracking-[-0.02em] text-black xl:text-[60px] 2xl:text-[68px]">
+              <span className="block whitespace-nowrap">Land More Interview Calls</span>
+              <span className="mt-1 flex flex-wrap items-center gap-x-3">
+                <span className="inline-flex shrink-0 items-center gap-x-1 whitespace-nowrap">
+                  <span>With a Dedicated</span>
                   <FlashfireLogo
                     width={58}
                     height={58}
-                    className="-my-2 -ml-1 inline-block h-[1.5em] w-auto align-middle"
-                  />{" "}
-                  <span className="text-[#f55d1d]">Job Search Team</span>
+                    className="-ml-2 inline-block h-[1.5em] w-auto align-middle"
+                  />
                 </span>
-              </h1>
+                <span className="shrink-0 whitespace-nowrap text-[#f55d1d] ">
+                  Job Search Team
+                </span>
+              </span>
+            </h1>
 
-              <p className="mt-6 max-w-[520px] font-['Satoshi',sans-serif] text-[17px] font-medium leading-[1.6] text-[#3a3a3a]">
-                {data.description[0]} {data.description[1]} {data.description[2]}
-              </p>
+            <p className="mt-5 max-w-[500px] font-['Satoshi',sans-serif] text-[16px] font-medium leading-[1.6] text-[#3a3a3a]">
+              {data.description[0]} {data.description[1]} {data.description[2]}
+            </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <button
-                  type="button"
-                  {...getButtonProps()}
-                  onClick={handleGetStartedClick}
-                  className="inline-flex h-[54px] min-w-[174px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff4c00] px-7 text-[18px] font-bold text-white shadow-[0_6px_0_#000] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#ff5a1f] hover:shadow-[0_6px_0_#000] focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
+            <button
+              type="button"
+              {...getButtonProps()}
+              onClick={handleGetStartedClick}
+              className="mt-6 inline-flex h-[54px] min-w-[174px] touch-manipulation items-center justify-center rounded-[10px] bg-[#ff4c00] px-7 text-[18px] font-bold text-white shadow-[0_6px_0_#000] outline-none transition duration-200 hover:-translate-y-0.5 hover:bg-[#ff5a1f] hover:shadow-[0_6px_0_#000] focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
+            >
+              Get Started →
+            </button>
+
+            <div className="mt-8 grid w-full -ml-6 max-w-[560px] grid-cols-3 gap-0">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.value}
+                  className="min-h-[82px] border-r border-[#b8afa9] px-6 text-left last:border-r-0"
                 >
-                  Get Started →
-                </button>
-                <a
-                  href="#how-it-works"
-                  className="inline-flex h-[54px] items-center justify-center rounded-[10px] border border-black bg-transparent px-7 text-[16px] font-bold text-black transition duration-200 hover:bg-white focus-visible:ring-2 focus-visible:ring-[#ff5a1f] focus-visible:ring-offset-2"
-                >
-                  See how Flashfire works
-                </a>
-              </div>
-            </div>
-
-            <div className="w-full">
-              <HeroVideo />
+                  <strong className="block text-[33px] font-black leading-none tracking-[-0.03em] text-black">
+                    {stat.value}
+                  </strong>
+                  <span className="mt-3 block max-w-[116px] font-['Satoshi',sans-serif] text-[13px] font-bold leading-[1.08] text-[#78716d]">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
 
+          <div className={`absolute ${desktopHeroHeightClass} ${desktopHeroBottomClass} ${desktopHeroImagePositionClass}`}>
+            <Image
+              src={heroImageSrc}
+              alt="Students celebrating career success with Flashfire"
+              fill
+              priority
+              sizes="58vw"
+              className="object-contain object-right-bottom"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-20 mx-auto w-full max-w-[1536px] overflow-visible px-[5.4vw] py-[52px] text-center">
+        <div className="pointer-events-none absolute left-[12px] top-[-104px] z-50 aspect-[394/296] w-[292px] origin-center select-none">
+          <PlaneTrailScene position="bottomLeft" />
+        </div>
+        <p className="font-['Satoshi',sans-serif] text-[20px] font-medium leading-[1.4] text-[#9d9d9d]">
+          {data.universityHeading}
+        </p>
+
+        <div className="mt-7 grid grid-cols-5 items-center gap-x-10 gap-y-6 text-[#a7a7a7]">
+          {trustedUniversities.map((university) => (
+            <div
+              key={university.name}
+              className="flex min-h-[48px] items-center justify-center gap-2 whitespace-nowrap opacity-90"
+              style={{ color: university.color }}
+            >
+              <Image
+                src={getUniversityLogo(university.domain)}
+                alt=""
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain opacity-90"
+                unoptimized
+              />
+              <span className="flex flex-col items-start font-serif">
+                {university.wordmark.map((line, lineIndex) => (
+                  <span
+                    key={line}
+                    className={getUniversityLineClass(
+                      university.name,
+                      lineIndex
+                    )}
+                  >
+                    {line}
+                  </span>
+                ))}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
       </div>
     </section>
   );

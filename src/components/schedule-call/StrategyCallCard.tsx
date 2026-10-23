@@ -105,9 +105,9 @@ export default function StrategyCallCard({ onClose }: Props) {
           </div> */}
       
           {/* Heading */}
-          <p className="text-[1.35rem] font-semibold text-gray-900 leading-snug">
+          <h2 className="text-[1.35rem] font-semibold text-gray-900 leading-snug">
             Get Your Personalized Job Search Strategy
-          </p>
+          </h2>
       
           {/* Description */}
           <p className="mt-2 text-sm leading-relaxed text-gray-500 px-1">

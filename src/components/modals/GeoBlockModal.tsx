@@ -53,9 +53,9 @@ const GeoBlockModal: React.FC<GeoBlockModalProps> = ({
                         </div>
                     </div>
 
-                    <p className="text-lg font-semibold text-gray-900 mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
                         Our services are currently limited to the USA, UK, Europe, Canada, and Australia.
-                    </p>
+                    </h3>
                     <p className="text-gray-600 text-sm leading-relaxed mb-6">
                         We are working hard to expand access worldwide. Stay tuned for updates
                         on our global availability!

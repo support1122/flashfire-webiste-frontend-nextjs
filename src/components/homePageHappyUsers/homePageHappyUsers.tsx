@@ -525,30 +525,36 @@ export default function HomePageHappyUsers({
       className="w-full overflow-hidden font-['Space_Grotesk',sans-serif] scroll-mt-[90px] max-[768px]:scroll-mt-[70px]"
     >
       {/* === Top Orange Section === */}
-      <div className="relative border-t border-[#111] bg-[#fbf3ee] px-8 pb-20 pt-[90px] text-left text-[#111] max-[768px]:pt-[70px]">
-        <p className="mx-auto mb-3 w-full max-w-[1280px] text-[12px] font-bold uppercase tracking-[0.08em] text-[#f55d1d]">Flashfire / Customer feedback</p>
+      <div className="bg-[#f55d1d] text-white text-center py-20 px-8 pb-40 relative pt-[90px] max-[768px]:pt-[70px]">
         <h2
-          className="mx-auto mb-4 w-full max-w-[1280px] text-[44px] font-bold max-[600px]:text-[30px]"
+          className="
+                mb-4 
+                text-[76.26px] 
+                max-[600px]:text-[40px] 
+                max-[400px]:text-[30px]
+                text-center
+                font-bold
+              "
           style={{
             fontFamily: "Space Grotesk, sans-serif",
             lineHeight: "110%",
-            letterSpacing: "-0.02em",
+            letterSpacing: "-2.29px",
           }}
         >
-          Feedback from happy customers
+          1000+ Happy User{'\''}s Love
         </h2>
         <p
-          className="mx-auto mb-12 w-full max-w-[1280px] max-[600px]:text-[1.125rem]"
+          className="mb-12 max-[600px]:text-[1.125rem]"
           style={{
             fontFamily: "Space Grotesk, sans-serif",
             fontWeight: 400,
-            fontSize: "18px",
+            fontSize: "24px",
             lineHeight: "140%",
-            textAlign: "left",
-            color: "#5a524d",
+            textAlign: "center",
+            opacity: 0.95,
           }}
         >
-          Conversations from 1000+ job seekers using our <span style={{ color: "#111", fontWeight: 600 }}>AI Job Search Platform</span>
+          Trusted by Job Seekers Using Our <span style={{ color: "#fff", fontWeight: 600 }}>AI Job Search Platform</span>
         </p>
 
         {/* Masonry Layout */}
@@ -582,61 +588,133 @@ export default function HomePageHappyUsers({
           })}
         </div>
 
+        <Image
+          src="/images/character1.png"
+          alt="Flashfire Mascot Shape"
+          width={300}
+          height={300}
+          className="absolute left-1/2 -bottom-28 -translate-x-1/2 z-[3] w-64 h-64 max-[600px]:w-40 max-[600px]:h-40 max-[600px]:-bottom-18 "
+        />
       </div>
 
       {/* === Bottom White Section === */}
-      <div id="video-testimonials" className="border-t border-[#111] bg-[#f5f5f2] py-24 px-8 pb-20 text-center max-[768px]:py-16 max-[768px]:px-4">
-        <p className="mb-2 text-[12px] font-bold uppercase tracking-[0.08em] text-[#5a524d]">Flashfire / Video testimonials</p>
-        <h2 className="mb-3 text-[40px] font-bold leading-[1.1] text-[#111] max-[600px]:text-[28px]">Hear from Flashfire customers</h2>
-        <p className="mb-12 text-[16px] text-[#5a524d]">Customer stories about their job-search experience.</p>
-        <div className="mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-6 text-left max-[768px]:grid-cols-1">
-          {videos.slice(0, 2).map((video, index) => (
-            <div key={video.videoUrl}>
-              <div className="relative aspect-video w-full overflow-hidden border border-[#111]/40 bg-[#e8e2dd]">
-                {playingIndex === index ? (
+      <div className="bg-[#fffaf8] py-32 px-8 pb-20 text-center max-[768px]:py-16 max-[768px]:px-4">
+        <div className="flex justify-center items-stretch flex-nowrap gap-6 w-full max-[768px]:flex-col max-[768px]:items-center max-[768px]:gap-6">
+          {videos.map((video, index) => (
+            <div
+              key={index}
+              className="relative w-80 h-[32rem] rounded-none overflow-hidden bg-[#fffaf8] p-2 shadow-[0_8px_20px_rgba(0,0,0,0.25)] transition-all duration-300 flex-shrink-0 hover:shadow-[0_14px_28px_rgba(0,0,0,0.3)] max-[768px]:w-full max-[768px]:max-w-[30rem] max-[768px]:h-[calc(100vh-8rem)] max-[480px]:max-w-full"
+            >
+              <div className="relative w-full h-full rounded-none overflow-hidden">
+                {/* YouTube Video Embed - Show when playing */}
+                {playingIndex === index && (
                   <>
                     <iframe
                       id={`userVideo-${index}`}
                       src={`${video.videoUrl}?autoplay=1&rel=0`}
-                      title={`${video.name} video testimonial`}
-                      className="absolute inset-0 h-full w-full"
+                      className="w-full h-full object-cover block rounded-none"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       frameBorder="0"
                     />
+                    {/* Close Button */}
                     <button
                       onClick={() => setPlayingIndex(null)}
-                      className="absolute right-2 top-2 z-30 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-black/70 text-white transition-all duration-200 hover:bg-black/90"
+                      className="absolute top-2 right-2 w-8 h-8 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 z-30"
                       aria-label="Close video"
                     >
                       ✕
                     </button>
                   </>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => handlePlay(index)}
-                    aria-label={`Play ${video.name} video testimonial`}
-                    className="group absolute inset-0 h-full w-full"
-                  >
-                    <CachedTestimonialImage
-                      src={video.profileImage}
-                      alt={`${video.name} - Click to play video`}
-                      width={800}
-                      height={450}
-                      className="h-full w-full object-cover object-top"
-                      priority
-                      sizes="(max-width: 768px) 100vw, 640px"
-                    />
-                    <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#111]/60 bg-[#f5f5f2] text-[22px] text-[#555] transition group-hover:scale-105">
-                      ▶
-                    </span>
-                  </button>
                 )}
+
+                {/* Thumbnail Image Overlay - Show when video is not playing */}
+                {playingIndex !== index && (
+                  <>
+                    <div
+                      ref={(el) => {
+                        profileImageRefs.current[index * 2] = el;
+                      }}
+                      data-index={index * 2}
+                      data-profile="true"
+                      className="w-full h-full relative"
+                    >
+                      <CachedTestimonialImage
+                        src={video.profileImage}
+                        alt={`${video.name} - Click to play video`}
+                        width={800}
+                        height={1280}
+                        className="w-full h-full object-cover rounded-none cursor-pointer"
+                        onClick={() => handlePlay(index)}
+                        priority
+                        sizes="(max-width: 768px) 100vw, 320px"
+                      />
+                    </div>
+                    {/* Play Button Overlay */}
+                    <div
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70px] h-[70px] rounded-full bg-black/60 text-white text-[2rem] font-bold flex justify-center items-center cursor-pointer transition-all duration-250 backdrop-blur-[2px] hover:bg-black/75 hover:scale-105 z-10"
+                      onClick={() => handlePlay(index)}
+                    >
+                      ▶
+                    </div>
+                  </>
+                )}
+
+                {/* User Info - Always visible, overlaid on video */}
+                <div className="absolute bottom-2 left-2 right-2 h-[5.5rem] bg-black border border-[#ff4c00] text-white text-left py-3 px-4 flex items-center z-20">
+                  <div className="flex items-center gap-3 w-full h-full">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-white/50">
+                      <Image
+                        src={video.smallProfileImage}
+                        alt={video.name}
+                        width={40}
+                        height={40}
+                        className="w-full h-full object-cover rounded-full"
+                        unoptimized
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                      <p className="text-xl font-semibold m-0 text-white leading-tight truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                        {video.name}
+                      </p>
+                      <p className="text-sm m-0 text-white/90 leading-tight mt-0.5 truncate drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                        {video.company}
+                      </p>
+                    </div>
+                    <a
+                      href={video.linkedinUrl !== "#" ? video.linkedinUrl : "#"}
+                      target={video.linkedinUrl !== "#" ? "_blank" : undefined}
+                      rel={
+                        video.linkedinUrl !== "#"
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className={`flex-shrink-0 w-6 h-6 bg-white rounded flex items-center justify-center transition-colors ${video.linkedinUrl !== "#"
+                          ? "hover:bg-[#ff4c00] cursor-pointer"
+                          : "cursor-default opacity-50"
+                        }`}
+                      aria-label="LinkedIn Profile"
+                      onClick={(e) => {
+                        if (video.linkedinUrl === "#") {
+                          e.preventDefault();
+                        }
+                      }}
+                    >
+                      <svg
+                        className="w-4 h-4 text-black"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <p className="mt-3 text-[14px] text-[#5a524d]">
-                {video.name} · {video.company}
-              </p>
             </div>
           ))}
         </div>

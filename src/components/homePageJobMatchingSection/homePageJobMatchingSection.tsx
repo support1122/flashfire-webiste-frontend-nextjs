@@ -89,16 +89,16 @@ export default function JobMatchingSection() {
   };
 
   return (
-    <section className="w-full border-t border-[#111] bg-[#fbf3ee] px-4 py-20 sm:px-6 md:px-12 lg:py-24">
-      <div className="mx-auto max-w-[1280px]">
-        <div className="max-w-4xl text-left">
-          <h2 className="text-4xl font-bold leading-tight text-black md:text-[44px]">
+    <section className="w-full bg-white px-4 py-20 sm:px-6 md:px-12 lg:py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-extrabold leading-tight text-black md:text-5xl">
             More Than a
             <br className="hidden sm:block" />
             <span> Job Application Service</span>
           </h2>
 
-          <p className="mt-6 max-w-3xl text-base font-medium leading-7 text-[#3a3a3a] md:text-lg">
+          <p className="mx-auto mt-6 max-w-4xl text-base font-medium leading-8 text-[#7a7a7a] md:text-xl">
             Landing interviews takes more than clicking &ldquo;Apply.&rdquo; Flashfire
             combines experienced career experts with intelligent technology to
             help you find better opportunities, improve your resume, apply
@@ -109,13 +109,13 @@ export default function JobMatchingSection() {
           <button
             {...getButtonProps()}
             onClick={handleStartAIJobSearch}
-            className="mt-8 inline-flex min-h-12 items-center justify-center rounded-[5px] bg-black px-8 text-base font-bold text-white shadow-md transition-colors hover:bg-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00] focus:ring-offset-2"
+            className="mt-12 inline-flex min-h-12 items-center justify-center rounded-[5px] bg-black px-8 text-base font-bold text-white shadow-md transition-colors hover:bg-[#ff4c00] focus:outline-none focus:ring-2 focus:ring-[#ff4c00] focus:ring-offset-2"
           >
             Start AI-Powered Job Search
           </button>
         </div>
 
-        <div className="mt-14">
+        <div className="mx-auto mt-16 max-w-5xl">
           <div className="flex items-center gap-4">
             <span className="whitespace-nowrap text-sm font-medium text-[#7a7a7a]">
               How Flashfire works
@@ -123,7 +123,7 @@ export default function JobMatchingSection() {
             <div className="h-px flex-1 bg-[#e4e4e4]" />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 divide-y divide-[#111]/40 border border-[#111] bg-white md:grid-cols-4 md:divide-x md:divide-y-0">
+          <div className="mt-6 grid grid-cols-1 divide-y divide-[#e4e4e4] border border-[#e4e4e4] md:grid-cols-4 md:divide-x md:divide-y-0">
             {features.map((item) => {
               const Icon = item.icon;
 
