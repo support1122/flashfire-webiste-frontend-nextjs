@@ -6,6 +6,8 @@ import { getCloudflareCountry, resolveClientIp } from '@/src/utils/clientIp';
 
 const CANADA_CODE = 'CA';
 const AUSTRALIA_CODE = 'AU';
+const US_CODE = 'US';
+const US_PREFIX = '/en-us';
 
 async function fetchCountryFromLocalApi(ip: string, request: NextRequest): Promise<string | null> {
   try {
@@ -92,6 +94,7 @@ function localePrefixFor(countryCode: string | null): string | null {
   if (!countryCode) return null;
   if (countryCode === CANADA_CODE) return CANADA_PREFIX;
   if (countryCode === AUSTRALIA_CODE) return AU_PREFIX;
+  if (countryCode === US_CODE) return US_PREFIX;
   if (UK_COUNTRY_CODES.has(countryCode)) return UK_PREFIX;
   // No EU branch on purpose: the country trees (/en-de, /en-fr, ...) are reached
   // by link, search result or the footer country selector, never by IP.
@@ -161,7 +164,19 @@ export async function middleware(request: NextRequest) {
     // content is identical to /en-us, so leaving someone there is always
     // harmless — whereas guessing wrong strands an Indian visitor on the UK
     // pricing page.
-    if (prefix && localeHasRoute(prefix, pathname)) {
+    // /en-us has no tree of its own: next.config.ts rewrites it onto the root
+    // pages, so any root path is valid there. Leave /en-us itself and the
+    // admin/register areas alone.
+    if (prefix === US_PREFIX) {
+      const skip =
+        pathname === US_PREFIX ||
+        pathname.startsWith(`${US_PREFIX}/`) ||
+        pathname.startsWith('/admin') ||
+        pathname.startsWith('/register');
+      if (!skip) {
+        return localeRedirect(request, prefix, countryCode!, pathname);
+      }
+    } else if (prefix && localeHasRoute(prefix, pathname)) {
       return localeRedirect(request, prefix, countryCode!, pathname);
     }
   }
