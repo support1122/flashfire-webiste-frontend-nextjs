@@ -23,7 +23,7 @@ export const usPricingPlans: PricingPlan[] = [
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
     price: "$199",
-    oldPrice: "$299",
+    oldPrice: "$284",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
       { title:"We Find Jobs", description: "We find & apply to jobs for you" },
@@ -40,7 +40,7 @@ export const usPricingPlans: PricingPlan[] = [
     subTitle: "500 Applications",
     description: "Best for mid-level professionals",
     price: "$349",
-    oldPrice: "$449",
+    oldPrice: "$499",
     inheritsFrom: "IGNITE",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
@@ -58,7 +58,7 @@ export const usPricingPlans: PricingPlan[] = [
     subTitle: "1200 Applications",
     description: "For new grads & early professionals",
     price: "$599",
-    oldPrice: "$699",
+    oldPrice: "$856",
     inheritsFrom: "PROFESSIONAL",
     features: [
       { title:"1 Cover Letter", description: "1 cover letter used for all applications" },
@@ -84,7 +84,7 @@ export const ukPricingPlans: PricingPlan[] = [
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
     price: "£149",
-    oldPrice: "£229",
+    oldPrice: "£213",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
       { title:"We Find Jobs", description: "We find & apply to jobs for you" },
@@ -101,7 +101,7 @@ export const ukPricingPlans: PricingPlan[] = [
     subTitle: "500 Applications",
     description: "Best for mid-level professionals",
     price: "£299",
-    oldPrice: "£339",
+    oldPrice: "£427",
     inheritsFrom: "IGNITE",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
@@ -119,7 +119,7 @@ export const ukPricingPlans: PricingPlan[] = [
     subTitle: "1200 Applications",
     description: "For new grads & early professionals",
     price: "£499",
-    oldPrice: "£529",
+    oldPrice: "£713",
     inheritsFrom: "PROFESSIONAL",
     features: [
       { title:"1 Cover Letter", description: "1 cover letter used for all applications" },
@@ -138,7 +138,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
     price: "CA$239",
-    oldPrice: "CA$389",
+    oldPrice: "CA$341",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
       { title:"We Find Jobs", description: "We find & apply to jobs for you" },
@@ -155,7 +155,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     subTitle: "500 Applications",
     description: "Best for mid-level professionals",
     price: "CA$409",
-    oldPrice: "CA$619",
+    oldPrice: "CA$584",
     inheritsFrom: "IGNITE",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
@@ -173,7 +173,7 @@ export const canadaPricingPlans: PricingPlan[] = [
     subTitle: "1200 Applications",
     description: "For new grads & early professionals",
     price: "CA$799",
-    oldPrice: "CA$949",
+    oldPrice: "CA$1,141",
     inheritsFrom: "PROFESSIONAL",
     features: [
       { title:"1 Cover Letter", description: "1 cover letter used for all applications" },
@@ -201,9 +201,9 @@ export const EU_STRIPE_LINKS = {
 } as const;
 
 const EU_PRICES: Record<string, { price: string; oldPrice: string; link: string }> = {
-  IGNITE: { price: "€169", oldPrice: "€249", link: EU_STRIPE_LINKS.IGNITE },
-  PROFESSIONAL: { price: "€299", oldPrice: "€399", link: EU_STRIPE_LINKS.PROFESSIONAL },
-  EXECUTIVE: { price: "€499", oldPrice: "€649", link: EU_STRIPE_LINKS.EXECUTIVE },
+  IGNITE: { price: "€169", oldPrice: "€241", link: EU_STRIPE_LINKS.IGNITE },
+  PROFESSIONAL: { price: "€299", oldPrice: "€427", link: EU_STRIPE_LINKS.PROFESSIONAL },
+  EXECUTIVE: { price: "€499", oldPrice: "€713", link: EU_STRIPE_LINKS.EXECUTIVE },
 };
 
 export const euPricingPlans: PricingPlan[] = ukPricingPlans.map((plan) => {
@@ -217,7 +217,7 @@ export const australiaPricingPlans: PricingPlan[] = [
     subTitle: "250 Applications",
     description: "For senior professionals & executives",
     price: "AUD$299",
-    oldPrice: "AUD$399",
+    oldPrice: "AUD$427",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
       { title:"We Find Jobs", description: "We find & apply to jobs for you" },
@@ -234,7 +234,7 @@ export const australiaPricingPlans: PricingPlan[] = [
     subTitle: "500 Applications",
     description: "Best for mid-level professionals",
     price: "AUD$549",
-    oldPrice: "AUD$699",
+    oldPrice: "AUD$784",
     inheritsFrom: "IGNITE",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
@@ -252,7 +252,7 @@ export const australiaPricingPlans: PricingPlan[] = [
     subTitle: "1200 Applications",
     description: "For new grads & early professionals",
     price: "AUD$899",
-    oldPrice: "AUD$1,099",
+    oldPrice: "AUD$1,284",
     inheritsFrom: "PROFESSIONAL",
     features: [
       { title:"1 Cover Letter", description: "1 cover letter used for all applications" },
