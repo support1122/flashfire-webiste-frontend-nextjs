@@ -404,7 +404,13 @@ export default function HomePagePricingPlans() {
         </p>
       </div>
 
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14 mb-6 items-stretch max-w-[1200px] mx-auto">
+      <div
+        className={`relative grid grid-cols-1 sm:grid-cols-2 ${
+          pricingPlans.length >= 4
+            ? "lg:grid-cols-4 gap-6 xl:gap-8 max-w-[1400px]"
+            : "lg:grid-cols-3 gap-10 xl:gap-14 max-w-[1200px]"
+        } mb-6 items-stretch mx-auto`}
+      >
         {pricingPlans.map((plan, index) => (
             <PricingCard
             key={index}
