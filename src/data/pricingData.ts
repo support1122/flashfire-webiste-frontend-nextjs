@@ -20,12 +20,14 @@ export interface PricingPlan {
 export const usPricingPlans: PricingPlan[] = [
   {
     title: "PRIME",
-    subTitle: "Get started with Flashfire",
+    subTitle: "160 Applications",
     description: "Entry plan to start your job search",
     price: "$99",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
       { title:"We Find Jobs", description: "We find & apply to jobs for you" },
+      { title:"AI Custom Resumes", description: "Tailored resume for every application" },
+      { title:"Expert Resume Writing", description: "Our professional team reviews & builds your resume from scratch" },
     ],
     addOn: true,
     highlight: false,
@@ -95,12 +97,14 @@ export const UK_STRIPE_LINKS = {
 export const ukPricingPlans: PricingPlan[] = [
   {
     title: "PRIME",
-    subTitle: "Get started with Flashfire",
+    subTitle: "160 Applications",
     description: "Entry plan to start your job search",
     price: "£82",
     features: [
       { title:"No Time Constraint", description: "Until your applications are completed" },
       { title:"We Find Jobs", description: "We find & apply to jobs for you" },
+      { title:"AI Custom CVs", description: "Tailored cv for every application" },
+      { title:"Expert CV Writing", description: "Our professional team reviews & builds your cv from scratch" },
     ],
     addOn: true,
     highlight: false,

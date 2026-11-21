@@ -42,7 +42,7 @@ export default function PricingPageUK() {
       {
         "@type": "Offer",
         "name": "PRIME",
-        "price": "79",
+        "price": "82",
         "priceCurrency": "GBP",
         "url": "https://www.flashfirejobs.com/en-gb/pricing",
         "availability": "https://schema.org/InStock",
