@@ -23,7 +23,6 @@ export default function HomePageFeaturedCustomerStories({ reviewImages }: Props)
     <section className={styles.section} aria-labelledby="customer-stories-title">
       <header className={styles.sectionHeader}>
         <h2 id="customer-stories-title">Real people. Real job-search progress.</h2>
-        <p>Evidence layout only. All slots await permission-cleared genuine assets, review and validation; no customer claims are represented below.</p>
       </header>
       <div className={styles.layout}>
         <article className={styles.featuredStory}>
