@@ -14,7 +14,7 @@ const videos = [
     name: "Anjali Shah",
     company: "Skyworks Solutions, Inc.",
     linkedinUrl: "https://www.linkedin.com/in/anjalishah6198/",
-    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-19.jpg",
+    profileImage: "/images/thumbnail-anjali.png",
     smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/anjali.jpeg",
   },
   {
@@ -22,7 +22,7 @@ const videos = [
     name: "Rijul Jain",
     company: "Wise",
     linkedinUrl: "https://www.linkedin.com/in/-rijuljain-/",
-    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-20.jpg",
+    profileImage: "/images/thumbnail-rijul.png",
     smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/rijul.jpg"
   },
   {
@@ -30,7 +30,7 @@ const videos = [
     name: "Aryan Gupta",
     company: "IBM",
     linkedinUrl: "#",
-    profileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/website_thumbnails-18.jpg",
+    profileImage: "/images/thumbnail-aryan.png",
     smallProfileImage: "https://pub-4518f8276e4445ffb4ae9629e58c26af.r2.dev/aryan.jpg"
   },
 ];

@@ -67,7 +67,7 @@ export default function EUHome() {
       <HomePageJobMatchingSection />
       <HomePageBeforeAfter />
       <HomePageWhyChooseFF />
-      <HomePageHappyUsers />
+      <HomePageHappyUsers includeFeaturedStories />
       <HomePagePTNote />
       <HomePageFAQ />
       <HomePageDemoCTA />

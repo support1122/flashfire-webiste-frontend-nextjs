@@ -13,52 +13,35 @@ type Props = {
   shiftHeroImageLeft?: boolean;
 };
 
-const trustedUniversities = [
-  {
-    name: "Harvard University",
-    domain: "harvard.edu",
-    wordmark: ["HARVARD", "UNIVERSITY"],
-    color: "#a7a7a7",
-  },
-  {
-    name: "Stanford University",
-    domain: "stanford.edu",
-    wordmark: ["Stanford", "University"],
-    color: "#8c1515",
-  },
-  {
-    name: "University of Michigan",
-    domain: "umich.edu",
-    wordmark: ["UNIVERSITY OF", "MICHIGAN"],
-    color: "#00274c",
-  },
-  {
-    name: "Berkeley",
-    domain: "berkeley.edu",
-    wordmark: ["Berkeley", "UNIVERSITY OF CALIFORNIA"],
-    color: "#003262",
-  },
-  {
-    name: "Carnegie Mellon University",
-    domain: "cmu.edu",
-    wordmark: ["Carnegie", "Mellon", "University"],
-    color: "#e1bfc4",
-  },
-];
-
 const getUniversityLogo = (domain: string) =>
   `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
 
-const getUniversityLineClass = (universityName: string, lineIndex: number) => {
-  if (universityName === "Berkeley" && lineIndex === 1) {
-    return "text-[7px] font-bold leading-none tracking-[0.02em]";
-  }
+const getUniversityInitials = (name: string) => {
+  const words = name
+    .split(/\s+/)
+    .filter((word) => !["university", "of", "the", "and", "in", "at"].includes(word.toLowerCase()));
+  return words.slice(0, 2).map((word) => word[0]).join("").toUpperCase() || name.slice(0, 2).toUpperCase();
+};
 
-  if (universityName === "University of Michigan" && lineIndex === 0) {
-    return "text-[8px] font-bold leading-none tracking-[0.03em]";
-  }
+const universityBranding: Record<string, { lines: string[]; color: string }> = {
+  "Harvard University": { lines: ["HARVARD", "UNIVERSITY"], color: "#a7a7a7" },
+  "Stanford University": { lines: ["Stanford", "University"], color: "#8c1515" },
+  "University of Michigan": { lines: ["UNIVERSITY OF", "MICHIGAN"], color: "#00274c" },
+  "UC Berkeley": { lines: ["Berkeley", "UNIVERSITY OF CALIFORNIA"], color: "#003262" },
+  "Carnegie Mellon University": { lines: ["Carnegie", "Mellon", "University"], color: "#a6192e" },
+};
 
-  return "text-[20px] font-bold leading-[0.9] tracking-[-0.025em] xl:text-[22px]";
+const getUniversityBranding = (name: string, index: number) => {
+  const knownBrand = universityBranding[name];
+  if (knownBrand) return knownBrand;
+
+  const words = name.split(" ");
+  const midpoint = Math.ceil(words.length / 2);
+  const brandColors = ["#a7a7a7", "#8c1515", "#00274c", "#003262", "#a6192e"];
+  return {
+    lines: [words.slice(0, midpoint).join(" "), words.slice(midpoint).join(" ")].filter(Boolean),
+    color: brandColors[index % brandColors.length],
+  };
 };
 
 export default function HeroSectionClient({
@@ -155,29 +138,53 @@ export default function HeroSectionClient({
           {data.universityHeading}
         </p>
         <div className="mt-7 grid grid-cols-2 items-center gap-x-8 gap-y-6 md:grid-cols-5">
-          {trustedUniversities.map((university) => (
+          {data.universities.slice(0, 5).map((university, index) => {
+            const branding = getUniversityBranding(university.name, index);
+            return (
             <div
               key={university.name}
-              className="flex min-h-[40px] items-center justify-center gap-2 whitespace-nowrap opacity-90 last:col-span-2 md:last:col-span-1"
-              style={{ color: university.color }}
+              className="flex min-h-[48px] items-center justify-center gap-2 whitespace-nowrap opacity-90 last:col-span-2 md:last:col-span-1"
+              style={{ color: branding.color }}
             >
-              <Image
-                src={getUniversityLogo(university.domain)}
-                alt=""
-                width={32}
-                height={32}
-                className="h-7 w-7 object-contain opacity-90"
-                unoptimized
-              />
-              <span className="flex flex-col items-start font-serif">
-                {university.wordmark.map((line, lineIndex) => (
-                  <span key={line} className={getUniversityLineClass(university.name, lineIndex)}>
+              <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
+                <Image
+                  src={getUniversityLogo(university.domain)}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="relative z-[1] h-7 w-7 object-contain opacity-90"
+                  unoptimized
+                  onError={(event) => {
+                    if (event.currentTarget.dataset.fallback !== "true") {
+                      event.currentTarget.dataset.fallback = "true";
+                      event.currentTarget.src = `https://icons.duckduckgo.com/ip3/${university.domain}.ico`;
+                      return;
+                    }
+                    event.currentTarget.style.display = "none";
+                    const fallback = event.currentTarget.nextElementSibling as HTMLElement | null;
+                    if (fallback) fallback.style.display = "flex";
+                  }}
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 hidden items-center justify-center rounded-full bg-[#f7eee9] font-sans text-[9px] font-bold uppercase text-[#545b65]"
+                >
+                  {getUniversityInitials(university.name)}
+                </span>
+              </span>
+              <span className="flex flex-col items-start font-serif text-[15px] font-bold leading-[0.95] tracking-[-0.025em] md:text-[18px]">
+                {branding.lines.map((line, lineIndex) => (
+                  <span
+                    key={`${line}-${lineIndex}`}
+                    className={line.length > 20 ? "text-[7px] font-bold leading-none tracking-[0.02em] md:text-[8px]" : ""}
+                  >
                     {line}
                   </span>
                 ))}
               </span>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

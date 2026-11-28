@@ -5,9 +5,9 @@ import { ALL_REVIEW_IMAGES } from "./homePageHappyUsers";
 
 // Video profile images
 const VIDEO_PROFILE_IMAGES = [
-  "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552896/website_thumbnails-19_imnzdt.jpg",
-  "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552897/website_thumbnails-20_bxnl2z.jpg",
-  "https://res.cloudinary.com/drcka8x04/image/upload/f_auto,q_auto:good,w_800,c_limit,dpr_auto/v1766552895/website_thumbnails-18_j1ormv.jpg",
+  "/images/thumbnail-anjali.png",
+  "/images/thumbnail-rijul.png",
+  "/images/thumbnail-aryan.png",
 ];
 
 const VIDEO_SMALL_PROFILE_IMAGES = [
@@ -28,14 +28,13 @@ export default function TestimonialImagePreloader() {
         const { imageCache } = await import("@/src/utils/imageCache");
         
         // Convert relative paths to absolute URLs
-        const reviewImageUrls = ALL_REVIEW_IMAGES.map(img => 
+        const reviewImageUrls = [...ALL_REVIEW_IMAGES, ...VIDEO_PROFILE_IMAGES].map(img =>
           img.startsWith('/') ? `${window.location.origin}${img}` : img
         );
         
         // Combine all testimonial images
         const allTestimonialImages = [
           ...reviewImageUrls,
-          ...VIDEO_PROFILE_IMAGES,
           ...VIDEO_SMALL_PROFILE_IMAGES,
         ];
 

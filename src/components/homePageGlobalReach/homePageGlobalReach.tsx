@@ -45,17 +45,17 @@ function arcPath(a: City, b: City) {
 export default function HomePageGlobalReach() {
   return (
     <section
-      className="w-full bg-[#fffefd] px-5 py-12 sm:px-6 md:px-12 md:py-16 lg:py-20"
+      className="w-full bg-[#fffefd] px-5 py-8 sm:px-6 sm:py-12 md:px-12 md:py-16 lg:py-20"
       style={{ fontFamily: "Satoshi, sans-serif" }}
     >
       <div className="mx-auto max-w-6xl">
-        <p className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-wide text-[#545b65]">
+        <p className="flex items-center gap-3 text-[12px] font-bold uppercase tracking-wide text-[#545b65] md:text-[13px]">
           <span className="h-[2px] w-6 bg-[#ff5a1f]" />
           Ambition has no single address
         </p>
 
         <div className="mt-4 grid items-start gap-4 md:grid-cols-2 md:gap-16">
-          <h2 className="font-bold leading-[110%] tracking-[-0.03em] text-[#02060A] text-[1.75rem] min-[769px]:text-[2.4rem] min-[1025px]:text-[50.84px]">
+          <h2 className="font-bold leading-[110%] tracking-[-0.03em] text-[#02060A] text-[2.5rem] min-[480px]:text-[3.6rem] min-[769px]:text-[2.75rem] min-[1025px]:text-[50.84px]">
             Your next chapter.
             <br />
             <span className="bg-gradient-to-r from-[#d84a22] via-[#f05a23] to-[#ff7a2a] bg-clip-text text-transparent">
@@ -63,10 +63,10 @@ export default function HomePageGlobalReach() {
             </span>
           </h2>
           <div className="md:pt-2">
-            <p className="text-[1.4rem] font-bold leading-tight tracking-[-0.02em] text-[#02060A] md:text-[28px]">
+            <p className="text-[1.8rem] font-bold leading-tight tracking-[-0.02em] text-[#02060A] md:text-[30px]">
               Across 50 countries
             </p>
-            <p className="mt-3 text-[15px] font-medium leading-[145%] tracking-[-0.02em] text-[#02060A] md:text-base">
+            <p className="mt-3 text-[19px] font-medium leading-[150%] tracking-[-0.02em] text-[#02060A] md:text-[18px]">
               Bring your goals and preferred destinations into one focused
               search. Featured locations below reflect the markets supplied by
               Flashfire, not confirmed availability.
@@ -74,13 +74,14 @@ export default function HomePageGlobalReach() {
           </div>
         </div>
 
-        <div className="mt-8 border-[6px] border-[#fcf9f7] bg-[#fcf9f7] md:mt-12">
+        <div className="mt-6 border-[6px] border-[#fcf9f7] bg-[#fcf9f7] sm:mt-8 md:mt-12">
           <div className="bg-white p-3 sm:p-6">
+            <div className="-mx-1 overflow-x-auto overscroll-x-contain px-1 sm:mx-0 sm:overflow-visible sm:px-0">
             <svg
               viewBox="0 0 1000 380"
               role="img"
               aria-label="Illustrative world map with featured locations connected by arcs"
-              className="h-auto w-full"
+              className="h-auto w-full min-w-[680px] sm:min-w-0"
             >
               {[95, 190, 285].map((y) => (
                 <line key={y} x1="0" x2="1000" y1={y} y2={y} stroke="#f0d5c8" strokeWidth="1" />
@@ -130,11 +131,11 @@ export default function HomePageGlobalReach() {
                   );
                 })}
             </svg>
+            </div>
 
-            <p className="mt-3 flex items-center gap-2 text-[11px] font-medium text-[#545b65]">
+            <p className="mt-3 flex items-start gap-2 text-[13px] font-medium leading-relaxed text-[#545b65] sm:items-center">
               <span className="h-1.5 w-1.5 rounded-full bg-[#ff5a1f]" />
-              Featured locations only · Illustrative geography, not a verified
-              coverage map
+              <span><span className="sm:hidden">Swipe to explore · </span>Featured locations only · Illustrative geography, not a verified coverage map</span>
             </p>
           </div>
         </div>

@@ -12,6 +12,7 @@ interface CachedTestimonialImageProps {
   priority?: boolean;
   sizes?: string;
   onClick?: () => void;
+  fit?: "contain" | "cover";
 }
 
 export default function CachedTestimonialImage({
@@ -23,6 +24,7 @@ export default function CachedTestimonialImage({
   priority = false,
   sizes,
   onClick,
+  fit = "contain",
 }: CachedTestimonialImageProps) {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,8 +60,8 @@ export default function CachedTestimonialImage({
         onClick={onClick}
         style={{
           width: "100%",
-          height: "auto",
-          objectFit: "contain",
+          height: fit === "cover" ? "100%" : "auto",
+          objectFit: fit,
           opacity: isLoading ? 0 : 1,
           transition: "opacity 0.3s ease-in-out",
           cursor: onClick ? "pointer" : "default",

@@ -67,7 +67,7 @@ export default function UKHome() {
       <HomePageJobMatchingSection />
       <HomePageBeforeAfter />
       <HomePageWhyChooseFF />
-      <HomePageHappyUsers />
+      <HomePageHappyUsers includeFeaturedStories />
       <HomePagePTNote />
       <HomePageFAQ />
       <HomePageDemoCTA />

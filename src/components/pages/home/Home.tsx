@@ -71,7 +71,7 @@ const Home = () => {
      <HomePageJobMatchingSection />
       <HomePageBeforeAfter />
       <HomePageWhyChooseFF />
-      <HomePageHappyUsers />
+      <HomePageHappyUsers includeFeaturedStories />
       <HomePagePTNote />
       <HomePageFAQ />
       <HomePageDemoCTA />
